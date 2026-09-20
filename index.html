@@ -64,7 +64,6 @@
         .select-style { border: 1px solid #ccc; background: #fff; padding: 4px; border-radius: 4px; font-size: 12px; }
         .hidden { display: none !important; }
 
-        /* KHU VỰC FULL TRANSCRIPT TAB KIỂU DAILYDICTATION */
         .transcript-container { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }
         .transcript-item { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 6px; }
         .transcript-item:hover { background: #e2e8f0; }
@@ -153,7 +152,6 @@
                 <button class="btn btn-note" onclick="addSingleSentence()" style="width: 100%; margin-bottom: 10px; background: #e2e8f0;">➕ Thêm câu này vào Unit</button>
             </div>
 
-            <!-- TAB DÁN ĐOẠN VĂN VỚI 2 Ô NGHĨA SONG SONG -->
             <div id="tab-paragraph" class="tab-content hidden">
                 <div style="margin-bottom: 8px; font-size: 12px; color: #555;">Dán đoạn văn Tiếng Anh và đoạn văn Tiếng Việt vào 2 ô, hệ thống sẽ tự động phân tách theo dấu chấm (`. ! ?`) và ghép cặp 1-1 cho bạn:</div>
                 <div class="input-grid">
@@ -250,13 +248,11 @@
         </div>
 
         <div id="dictation-app" class="dictation-container hidden">
-            <!-- TAB CHUYỂN ĐỔI CHUẨN DAILYDICTATION: DICTATION & FULL TRANSCRIPT -->
             <div class="tab-menu" style="border-bottom: 2px solid #0f172a; margin-bottom: 15px;">
                 <button class="tab-btn active" id="tab-dictation-btn" onclick="switchStudyTab('dictation')">Dictation</button>
                 <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Full transcript</button>
             </div>
 
-            <!-- VIEW 1: KHU VỰC HỌC DICTATION -->
             <div id="study-view-dictation">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
@@ -306,7 +302,6 @@
                 </div>
             </div>
 
-            <!-- VIEW 2: KHU VỰC FULL TRANSCRIPT -->
             <div id="study-view-transcript" class="hidden">
                 <div class="transcript-container">
                     <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Danh sách các câu trong đoạn văn (Bấm câu nào để nghe lại câu đó):</div>
@@ -334,20 +329,28 @@
         </div>
     </div>
 
-    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
+    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI (ĐÃ KHÔI PHỤC ĐỦ 2 PROMPT CHUẨN) -->
     <div class="gift-section">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
             <span style="font-size: 28px;">🎁</span>
             <h2 style="margin: 0; color: #b45309; font-size: 20px;">SECTION 3: QUÀ TẶNG PROMPT AI TẠO BÀI HỌC</h2>
         </div>
         <p style="font-size: 13px; color: #78350f; margin-top: 0; margin-bottom: 15px;">
-            Copy câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo file Excel/CSV đúng chuẩn dán vào ứng dụng!
+            Copy câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học cực nhanh:
         </p>
 
+        <!-- PROMPT 1: TẠO CÂU 2 CỘT -->
+        <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 1: Tạo danh sách câu ví dụ 2 cột (Xuất CSV/Excel hoặc Nhập tay):</div>
+            <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Hãy tạo cho tôi 10 câu tiếng Anh ngắn về chủ đề [Đi du lịch / Công sở] kèm bản dịch tiếng Việt. Xuất ra dạng 2 cột phân cách bằng dấu gạch đứng (|): Cột 1 là Câu tiếng Anh, Cột 2 là Bản dịch tiếng Việt (Không đánh số thứ tự).</pre>
+            <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 1</button>
+        </div>
+
+        <!-- PROMPT 2: TẠO ĐOẠN VĂN TỰ ĐỘNG TÁCH CÂU -->
         <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt Tạo câu ví dụ 2 cột xuất Excel/CSV:</div>
-            <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Hãy tạo cho tôi 10 câu tiếng Anh ngắn về chủ đề [Đi du lịch/Công sở] kèm bản dịch tiếng Việt. Xuất ra 2 cột chuẩn Excel/CSV: Cột 1 là Câu tiếng Anh, Cột 2 là Bản dịch tiếng Việt (Không đánh số thứ tự).</pre>
-            <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt AI</button>
+            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 2: Tạo đoạn văn Tiếng Anh kèm đoạn dịch Tiếng Việt (Dành cho tab Dán đoạn văn):</div>
+            <pre id="prompt2" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Hãy viết một đoạn văn ngắn khoảng 5-6 câu Tiếng Anh về chủ đề [Giao tiếp công sở]. Sau đó viết riêng một đoạn dịch Tiếng Việt tương ứng từng câu bên dưới. Đảm bảo số câu Tiếng Anh và Tiếng Việt bằng nhau.</pre>
+            <button onclick="copyPrompt('prompt2', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 2</button>
         </div>
     </div>
 
@@ -667,7 +670,6 @@
             renderCurrentUnitPreview();
         }
 
-        // TỰ ĐỘNG TÁCH ĐOẠN VĂN THEO DẤU (. ? !) VÀ GHÉP CẶP NGHĨA
         function parseAndAddParagraph() {
             const textEn = document.getElementById('paragraph-en').value.trim();
             const textVi = document.getElementById('paragraph-vi').value.trim();
