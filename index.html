@@ -11,14 +11,16 @@
 
     <style>
         * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #f8f9fa; color: #333; padding: 15px; max-width: 1000px; margin: 0 auto; }
+        body { background-color: #f0f2f5; color: #333; padding: 15px; max-width: 1000px; margin: 0 auto; }
         
-        .auth-bar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .auth-bar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px; }
         .user-profile { display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .user-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #2563eb; }
 
-        .setup-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
-        
+        /* ĐỊNH DẠNG CÁC KHU VỰC (SECTION CARDS) */
+        .section-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 25px; border: 1px solid #e5e7eb; }
+        .section-title { font-size: 18px; font-weight: bold; color: #1e3a8a; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #f3f4f6; padding-bottom: 10px; }
+
         .tab-menu { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; flex-wrap: wrap; }
         .tab-btn { background: none; border: none; font-weight: bold; padding: 6px 12px; cursor: pointer; color: #6c757d; border-radius: 4px; }
         .tab-btn.active { background: #e7f1ff; color: #0d6efd; }
@@ -35,7 +37,7 @@
         .unit-list-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; max-height: 180px; overflow-y: auto; padding: 10px; background: #f1f3f5; border-radius: 6px; }
         .unit-card { background: #fff; border: 1px solid #ced4da; padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
 
-        .dictation-container { display: grid; grid-template-columns: 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .dictation-container { display: grid; grid-template-columns: 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         @media (min-width: 768px) { .dictation-container { grid-template-columns: 1fr 1fr; padding: 24px; } }
 
         .left-col { display: flex; flex-direction: column; gap: 12px; }
@@ -69,21 +71,28 @@
 
         .option-toggle-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
 
-        .summary-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+        .summary-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center; margin-bottom: 25px; }
         .score-badge { font-size: 36px; font-weight: bold; color: #0f8a5f; margin: 10px 0; }
         .error-list { text-align: left; background: #fff5f5; padding: 12px; border-radius: 6px; border: 1px solid #ffe3e3; margin: 15px 0; max-height: 200px; overflow-y: auto; font-size: 14px; }
 
-        /* MODAL & LEADERBOARD STYLES */
-        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
-        
+        /* NỔI BẬT KHU PROMPT AI */
+        .gift-section { background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); margin-bottom: 25px; }
+
+        /* KHU BẢNG XẾP HẠNG CỘNG ĐỒNG PHÍA DƯỚI */
+        .leaderboard-section { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        .leader-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+        .leader-item:nth-child(1) { background: #fffbeb; font-weight: bold; border-radius: 6px; }
+        .leader-item:nth-child(2) { background: #f8fafc; font-weight: bold; }
+        .leader-item:nth-child(3) { background: #fff7ed; font-weight: bold; }
+
         .community-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
         .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; background: #e2e8f0; color: #334155; }
         .badge-level { background: #dbeafe; color: #1e40af; }
         .badge-topic { background: #fef3c7; color: #92400e; }
-        
-        .leader-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid #f1f5f9; }
-        .rank-num { font-weight: bold; width: 25px; }
+
+        /* MODAL MY PROFILE */
+        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
     </style>
 </head>
 <body>
@@ -92,30 +101,33 @@
     <div class="auth-bar">
         <div style="display: flex; align-items: center; gap: 10px;">
             <div style="font-weight: bold; color: #2563eb; font-size: 18px;">Dictation Cloud MVP</div>
-            <button class="btn btn-note" onclick="openLeaderboardModal()" style="font-size: 12px; padding: 4px 10px; background: #fef3c7; color: #92400e;">🏆 Bảng Xếp Hạng</button>
+            <button class="btn btn-note" onclick="scrollToLeaderboard()" style="font-size: 12px; padding: 4px 10px; background: #fef3c7; color: #92400e;">🏆 Xếp Hạng</button>
         </div>
         <div id="auth-container">
             <button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>
         </div>
     </div>
 
-    <!-- KHU VỰC TẠO & QUẢN LÝ BÀI HỌC -->
-    <div id="setup-section" class="setup-card">
+    <!-- SECTION 1: KHU NHẬP LIỆU & QUẢN LÝ BÀI HỌC -->
+    <div id="setup-section" class="section-card">
+        <div class="section-title">
+            <span>📂 SECTION 1: KHU NHẬP LIỆU & QUẢN LÝ BÀI HỌC</span>
+        </div>
+
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <h2 style="margin:0; font-size: 20px;">📂 Quản lý Bài học & Unit</h2>
+            <div style="font-size: 13px; color: #555;">Tự tạo bài học hoặc chọn từ kho bài học do cộng đồng đóng góp:</div>
             <div>
                 <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Bài mẫu để làm quen công cụ</button>
                 <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải dữ liệu cũ</button>
             </div>
         </div>
 
-        <!-- TAB CHUYỂN DỔI GIỮA BÀI HỌC CÁ NHÂN & KHO CỘNG ĐỒNG -->
         <div class="tab-menu" style="border-bottom: 3px solid #2563eb;">
             <button class="tab-btn active" id="tab-btn-my-units" onclick="switchMainTab('my-units')">👤 Bài học của tôi</button>
             <button class="tab-btn" id="tab-btn-community" onclick="switchMainTab('community')">🌐 Kho Bài Học Cộng Đồng</button>
         </div>
 
-        <!-- MỤC 1: KHU VỰC CÁ NHÂN (TẠO/NHẬP UNIT) -->
+        <!-- MỤC CÁ NHÂN -->
         <div id="section-my-units">
             <div style="background: #f1f3f5; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
                 <label style="font-weight: bold; font-size: 14px;">1️⃣ Chọn hoặc Tạo Unit cá nhân:</label>
@@ -133,7 +145,6 @@
                 <button class="tab-btn" onclick="switchTab('tab-raw', this)">📋 Dán văn bản nhanh</button>
             </div>
 
-            <!-- TAB 1: NHẬP TAY 2 Ô SONG SONG -->
             <div id="tab-manual" class="tab-content">
                 <div class="input-grid">
                     <div>
@@ -148,7 +159,6 @@
                 <button class="btn btn-note" onclick="addSingleSentence()" style="width: 100%; margin-bottom: 10px; background: #e2e8f0;">➕ Thêm câu này vào Unit</button>
             </div>
 
-            <!-- TAB 2: NẠP FILE CSV -->
             <div id="tab-file" class="tab-content hidden">
                 <div style="border: 2px dashed #ced4da; padding: 15px; text-align: center; border-radius: 8px; background: #fafafa;">
                     <p style="margin: 0 0 10px 0; font-size: 13px; color: #555;">Tải lên file <strong>.csv</strong> có 2 cột: <strong>Cột A (Tiếng Anh)</strong> và <strong>Cột B (Tiếng Việt)</strong></p>
@@ -156,22 +166,19 @@
                 </div>
             </div>
 
-            <!-- TAB 3: DÁN VĂN BẢN NHANH -->
             <div id="tab-raw" class="tab-content hidden">
                 <textarea id="raw-text-input" class="form-input" style="height: 100px;" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief | Cuộc họp rất ngắn gọn"></textarea>
                 <button class="btn btn-note" onclick="addRawText()" style="width: 100%; margin-top: 5px;">➕ Dán vào Unit</button>
             </div>
 
-            <!-- XEM TRƯỚC CÂU TRONG UNIT DANG CHỌN -->
             <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">Danh sách câu trong Unit hiện tại (<span id="current-unit-count">0</span> câu):</div>
             <div id="preview-list" class="preview-box">
                 <i style="color: #888;">Chưa có câu nào trong Unit này...</i>
             </div>
 
-            <!-- CHỌN ĐÓNG GÓP CÔNG KHAI KHI LƯU -->
             <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px; border-radius: 8px; margin: 15px 0;">
                 <label style="font-weight: bold; font-size: 14px; cursor: pointer; color: #1e40af;">
-                    <input type="checkbox" id="share-community-check"> 🌐 1. Công khai lên Kho Cộng Đồng (Cho phép mọi người sử dụng để luyện tập)
+                    <input type="checkbox" id="share-community-check"> 🌐 Công khai lên Kho Cộng Đồng (Cho phép mọi người sử dụng để luyện tập)
                 </label>
                 <div id="community-meta-box" class="hidden" style="margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                     <div>
@@ -195,14 +202,13 @@
                 </div>
             </div>
 
-            <!-- TÍCH CHỌN UNIT ĐỂ HỌC -->
             <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">☑ Tích chọn các Unit cá nhân muốn học:</div>
             <div id="unit-selector" class="unit-list-container">
                 <i style="color: #888; font-size: 13px;">Hãy tạo Unit hoặc dán bài mẫu...</i>
             </div>
         </div>
 
-        <!-- MỤC 2: KHO CỘNG ĐỒNG (TÌM KIẾM & NẠP UNIT BẠN BÈ) -->
+        <!-- MỤC KHO CỘNG ĐỒNG -->
         <div id="section-community" class="hidden">
             <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
                 <input type="text" id="community-search" class="form-input" placeholder="🔍 Tìm kiếm bài học theo từ khóa / Hashtag..." style="flex: 2; min-width: 200px;" oninput="filterCommunityUnits()">
@@ -225,73 +231,64 @@
             <button class="btn btn-next" onclick="startApp()" style="font-size: 15px; padding: 10px 18px;">🚀 Bắt đầu học (Các Unit đã chọn)</button>
             <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu toàn bộ lên tài khoản</button>
         </div>
-
-        <!-- PROMPT AI TẶNG KÈM -->
-        <details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 20px;">
-          <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 15px;">
-            🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & copy)
-          </summary>
-          <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
-            <p style="margin-bottom: 10px; color: #555;">Dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo file Excel/CSV chuẩn 2 cột bài học:</p>
-            <div style="margin-bottom: 10px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px;">
-              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">Prompt Tạo câu ví dụ 2 cột xuất Excel/CSV</div>
-              <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0;">Hãy tạo cho tôi 10 câu tiếng Anh ngắn về chủ đề [Đi du lịch/Công sở] kèm bản dịch tiếng Việt. Xuất ra 2 cột chuẩn Excel/CSV: Cột 1 là Câu tiếng Anh, Cột 2 là Bản dịch tiếng Việt (Không đánh số thứ tự).</pre>
-              <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt</button>
-            </div>
-          </div>
-        </details>
     </div>
 
-    <!-- GIAO DIỆN HỌC -->
-    <div id="dictation-app" class="dictation-container hidden">
-        <div class="left-col">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
-                <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">🏠 Trang chủ</button>
-            </div>
-            
-            <div class="audio-player">
-                <button class="btn btn-audio" onclick="playAudio()">🔊 Phát Audio</button>
-                <select id="rate-select" class="select-style">
-                    <option value="1">1x</option>
-                    <option value="0.8" selected>0.8x</option>
-                    <option value="0.6">0.6x</option>
-                </select>
-                <select id="voice-select" class="select-style" style="max-width: 130px;"></select>
-            </div>
-
-            <div class="input-area-wrapper">
-                <textarea id="user-input" class="user-textarea" placeholder="Gõ câu bạn nghe được vào đây..." autocomplete="off"></textarea>
-            </div>
-
-            <div class="option-toggle-box">
-                <label style="cursor: pointer;">
-                    <input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> 
-                    Show answer immediately (Kiểm tra từng từ ngay khi gõ)
-                </label>
-                <label style="cursor: pointer;">
-                    <input type="checkbox" id="show-full" onchange="renderPronunciationWords()"> 
-                    Show full answer (Hiện toàn bộ câu đáp án)
-                </label>
-            </div>
-
-            <div class="bottom-left-controls">
-                <div id="status-msg" class="status-message">✔ You are correct!</div>
-                <div class="action-btns">
-                    <button class="btn btn-check" onclick="checkAnswer()">Check</button>
-                    <button class="btn btn-note" onclick="skipCurrent()">Skip</button>
-                    <button class="btn btn-next" onclick="nextQuestion()">Next</button>
-                </div>
-            </div>
+    <!-- SECTION 2: KHU HỌC TẬP (GIAO DIỆN HỌC DICTATION) -->
+    <div id="dictation-app-section" class="section-card hidden">
+        <div class="section-title">
+            <span>🎧 SECTION 2: KHU HỌC TẬP DICTATION</span>
         </div>
 
-        <div class="right-col">
-            <div class="translation-box">
-                <div id="text-vi" style="font-size: 18px;">***</div>
+        <div id="dictation-app" class="dictation-container">
+            <div class="left-col">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
+                    <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">🏠 Trang chủ</button>
+                </div>
+                
+                <div class="audio-player">
+                    <button class="btn btn-audio" onclick="playAudio()">🔊 Phát Audio</button>
+                    <select id="rate-select" class="select-style">
+                        <option value="1">1x</option>
+                        <option value="0.8" selected>0.8x</option>
+                        <option value="0.6">0.6x</option>
+                    </select>
+                    <select id="voice-select" class="select-style" style="max-width: 130px;"></select>
+                </div>
+
+                <div class="input-area-wrapper">
+                    <textarea id="user-input" class="user-textarea" placeholder="Gõ câu bạn nghe được vào đây..." autocomplete="off"></textarea>
+                </div>
+
+                <div class="option-toggle-box">
+                    <label style="cursor: pointer;">
+                        <input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> 
+                        Show answer immediately (Kiểm tra từng từ ngay khi gõ)
+                    </label>
+                    <label style="cursor: pointer;">
+                        <input type="checkbox" id="show-full" onchange="renderPronunciationWords()"> 
+                        Show full answer (Hiện toàn bộ câu đáp án)
+                    </label>
+                </div>
+
+                <div class="bottom-left-controls">
+                    <div id="status-msg" class="status-message">✔ You are correct!</div>
+                    <div class="action-btns">
+                        <button class="btn btn-check" onclick="checkAnswer()">Check</button>
+                        <button class="btn btn-note" onclick="skipCurrent()">Skip</button>
+                        <button class="btn btn-next" onclick="nextQuestion()">Next</button>
+                    </div>
+                </div>
             </div>
-            <div class="pronunciation-box">
-                <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">Gợi ý câu:</div>
-                <div id="pronunciation-words" class="target-words-display"></div>
+
+            <div class="right-col">
+                <div class="translation-box">
+                    <div id="text-vi" style="font-size: 18px;">***</div>
+                </div>
+                <div class="pronunciation-box">
+                    <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">Gợi ý câu:</div>
+                    <div id="pronunciation-words" class="target-words-display"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -311,6 +308,40 @@
         <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
             <button class="btn btn-next" onclick="backToSetup()">🏠 Về trang chọn Unit</button>
+        </div>
+    </div>
+
+    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI (NỔI BẬT NỔI BẬT 🔥) -->
+    <div class="gift-section">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="font-size: 28px;">🎁</span>
+            <h2 style="margin: 0; color: #b45309; font-size: 20px;">SECTION 3: QUÀ TẶNG PROMPT AI TẠO BÀI HỌC</h2>
+        </div>
+        <p style="font-size: 13px; color: #78350f; margin-top: 0; margin-bottom: 15px;">
+            Copy câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo file Excel/CSV đúng chuẩn dán vào ứng dụng!
+        </p>
+
+        <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt Tạo câu ví dụ 2 cột xuất Excel/CSV:</div>
+            <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Hãy tạo cho tôi 10 câu tiếng Anh ngắn về chủ đề [Đi du lịch/Công sở] kèm bản dịch tiếng Việt. Xuất ra 2 cột chuẩn Excel/CSV: Cột 1 là Câu tiếng Anh, Cột 2 là Bản dịch tiếng Việt (Không đánh số thứ tự).</pre>
+            <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt AI</button>
+        </div>
+    </div>
+
+    <!-- SECTION 4: KHU XẾP HẠNG & VINH DANH CỘNG ĐỒNG 🏆 -->
+    <div id="leaderboard-section" class="leaderboard-section">
+        <div class="section-title">
+            <span>🏆 SECTION 4: BẢNG XẾP HẠNG HỌC VIÊN CHĂM CHỈ</span>
+        </div>
+
+        <div class="tab-menu" style="margin-bottom: 12px;">
+            <button class="tab-btn active" id="lb-tab-daily" onclick="loadLeaderboardData('daily')">Hôm nay</button>
+            <button class="tab-btn" id="lb-tab-weekly" onclick="loadLeaderboardData('weekly')">Tuần này</button>
+            <button class="tab-btn" id="lb-tab-monthly" onclick="loadLeaderboardData('monthly')">Tháng này</button>
+        </div>
+
+        <div id="leaderboard-list" style="min-height: 180px;">
+            <i style="color: #888;">Đang tải bảng vinh danh cộng đồng...</i>
         </div>
     </div>
 
@@ -338,24 +369,6 @@
         </div>
     </div>
 
-    <!-- MODAL BẢNG XẾP HẠNG -->
-    <div id="leaderboard-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <h2 style="margin:0; font-size: 20px;">🏆 Bảng Xếp Hạng Học Viên</h2>
-                <button class="btn btn-note" onclick="closeLeaderboardModal()" style="padding: 2px 8px;">✕</button>
-            </div>
-            <div class="tab-menu" style="margin-bottom: 10px;">
-                <button class="tab-btn active" id="lb-tab-daily" onclick="loadLeaderboardData('daily')">Hôm nay</button>
-                <button class="tab-btn" id="lb-tab-weekly" onclick="loadLeaderboardData('weekly')">Tuần này</button>
-                <button class="tab-btn" id="lb-tab-monthly" onclick="loadLeaderboardData('monthly')">Tháng này</button>
-            </div>
-            <div id="leaderboard-list" style="min-height: 200px;">
-                <i style="color: #888;">Đang tải bảng xếp hạng...</i>
-            </div>
-        </div>
-    </div>
-
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyD2G5uDoUmHIKDDsWfEGlEzUNQFouD04Ks",
@@ -377,7 +390,6 @@
         let selectedCommunityUnits = {};
         let userProfileData = { nickname: '', motto: '', totalMinutes: 0 };
 
-        // BỘ ĐẾM THỜI GIAN HỌC THỰC TẾ
         let studyTimer = null;
         let sessionSeconds = 0;
 
@@ -394,13 +406,14 @@
             const minutesEarned = Math.round(sessionSeconds / 60) || 1;
             userProfileData.totalMinutes = (userProfileData.totalMinutes || 0) + minutesEarned;
 
-            // Cập nhật lên Firestore Leaderboard
             db.collection('users_profile').doc(currentUser.uid).set({
                 nickname: userProfileData.nickname || currentUser.displayName,
                 avatar: currentUser.photoURL,
                 totalMinutes: firebase.firestore.FieldValue.increment(minutesEarned),
                 updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true });
+            }, { merge: true }).then(() => {
+                loadLeaderboardData('daily');
+            });
         }
 
         function loginWithGoogle() {
@@ -429,10 +442,12 @@
                 loadFromCloud();
                 loadUserProfile();
                 loadCommunityUnits();
+                loadLeaderboardData('daily');
             } else {
                 authContainer.innerHTML = `<button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>`;
                 saveBtn.classList.add('hidden');
                 loadBtn.classList.add('hidden');
+                loadLeaderboardData('daily');
             }
         });
 
@@ -442,19 +457,16 @@
             else metaBox.classList.add('hidden');
         });
 
-        // BẢNG XẾP HẠNG
-        function openLeaderboardModal() {
-            document.getElementById('leaderboard-modal').classList.remove('hidden');
-            loadLeaderboardData('daily');
+        function scrollToLeaderboard() {
+            document.getElementById('leaderboard-section').scrollIntoView({ behavior: 'smooth' });
         }
-        function closeLeaderboardModal() { document.getElementById('leaderboard-modal').classList.add('hidden'); }
 
         function loadLeaderboardData(type) {
-            document.querySelectorAll('#leaderboard-modal .tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#leaderboard-section .tab-btn').forEach(b => b.classList.remove('active'));
             if(document.getElementById(`lb-tab-${type}`)) document.getElementById(`lb-tab-${type}`).classList.add('active');
 
             const listEl = document.getElementById('leaderboard-list');
-            listEl.innerHTML = '<i style="color: #888;">Đang tải...</i>';
+            listEl.innerHTML = '<i style="color: #888;">Đang tải bảng xếp hạng...</i>';
 
             db.collection('users_profile').orderBy('totalMinutes', 'desc').limit(10).get().then(snap => {
                 if (snap.empty) {
@@ -468,19 +480,18 @@
                     const div = document.createElement('div');
                     div.className = 'leader-item';
                     div.innerHTML = `
-                        <div style="display:flex; align-items:center; gap: 8px;">
-                            <span class="rank-num">${medal}</span>
-                            <img src="${data.avatar || 'https://via.placeholder.com/32'}" style="width:28px; height:28px; border-radius:50%;">
+                        <div style="display:flex; align-items:center; gap: 10px;">
+                            <span style="font-weight:bold; width: 25px;">${medal}</span>
+                            <img src="${data.avatar || 'https://via.placeholder.com/32'}" style="width:32px; height:32px; border-radius:50%; border: 1px solid #ddd;">
                             <strong>${data.nickname || 'Học viên'}</strong>
                         </div>
-                        <span style="font-weight:bold; color: #0f8a5f;">${data.totalMinutes || 0} phút</span>
+                        <span style="font-weight:bold; color: #0f8a5f;">${data.totalMinutes || 0} phút học</span>
                     `;
                     listEl.appendChild(div);
                 });
             });
         }
 
-        // TAB MẸ BÀI HỌC CÁ NHÂN / CỘNG ĐỒNG
         function switchMainTab(tab) {
             document.getElementById('tab-btn-my-units').classList.toggle('active', tab === 'my-units');
             document.getElementById('tab-btn-community').classList.toggle('active', tab === 'community');
@@ -489,7 +500,6 @@
             if (tab === 'community') loadCommunityUnits();
         }
 
-        // TẢI & NẠP KHO CỘNG ĐỒNG
         function loadCommunityUnits() {
             const listEl = document.getElementById('community-units-list');
             db.collection('community_units').orderBy('createdAt', 'desc').limit(20).get().then(snap => {
@@ -555,7 +565,6 @@
             renderCommunityList(filtered);
         }
 
-        // TẢI & LƯU HỒ SƠ MY PROFILE
         function openProfileModal() {
             document.getElementById('profile-nickname').value = userProfileData.nickname || currentUser.displayName;
             document.getElementById('profile-motto').value = userProfileData.motto || '';
@@ -597,10 +606,9 @@
             });
         }
 
-        // QUẢN LÝ UNIT & CÂU HỎI CÁ NHÂN
         function switchTab(tabId, btn) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#section-my-units .tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('#section-my-units .tab-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.remove('hidden');
             btn.classList.add('active');
         }
@@ -744,17 +752,14 @@
             });
         }
 
-        // ĐỒNG BỘ CÁ NHÂN & CHIA SẺ CỘNG ĐỒNG
         function saveToCloud() {
             if (!currentUser) return;
 
-            // 1. Lưu cá nhân
             db.collection('user_vocab').doc(currentUser.uid).set({
                 units: JSON.stringify(unitsData),
                 updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             });
 
-            // 2. Chia sẻ Cộng đồng nếu được chọn
             const isShare = document.getElementById('share-community-check').checked;
             if (isShare) {
                 const activeUnit = getActiveUnitName();
@@ -808,7 +813,6 @@
         function cleanWord(word) { return word.toLowerCase().replace(/[^a-z0-9]/gi, ''); }
         function cleanSentenceWords(text) { return text.trim().split(/\s+/).map(w => cleanWord(w)).filter(w => w.length > 0); }
 
-        // LOGIC HỌC DICTATION
         let items = [];
         let currentIndex = 0;
         let englishVoices = [];
@@ -849,14 +853,12 @@
         function startApp() {
             items = [];
 
-            // Nạp từ Unit cá nhân
             const checkboxes = document.querySelectorAll('#unit-selector input[type="checkbox"]:checked');
             checkboxes.forEach(cb => {
                 const list = unitsData[cb.value] || [];
                 list.forEach(item => items.push(item));
             });
 
-            // Nạp từ Kho Cộng Đồng
             Object.keys(selectedCommunityUnits).forEach(id => {
                 const comm = selectedCommunityUnits[id];
                 if (comm && comm.items) {
@@ -871,9 +873,10 @@
             failedItemsList = [];
             isRetryMode = false;
 
-            document.getElementById('setup-section').classList.add('hidden');
+            document.getElementById('dictation-app-section').classList.remove('hidden');
             document.getElementById('summary-section').classList.add('hidden');
-            document.getElementById('dictation-app').classList.remove('hidden');
+
+            document.getElementById('dictation-app-section').scrollIntoView({ behavior: 'smooth' });
 
             startStudyTimer();
             currentIndex = 0;
@@ -1058,7 +1061,7 @@
         }
 
         function showSummary() {
-            document.getElementById('dictation-app').classList.add('hidden');
+            document.getElementById('dictation-app-section').classList.add('hidden');
             document.getElementById('summary-section').classList.remove('hidden');
 
             const total = items.length;
@@ -1111,7 +1114,7 @@
             isRetryMode = true;
 
             document.getElementById('summary-section').classList.add('hidden');
-            document.getElementById('dictation-app').classList.remove('hidden');
+            document.getElementById('dictation-app-section').classList.remove('hidden');
 
             startStudyTimer();
             currentIndex = 0;
@@ -1121,8 +1124,8 @@
         function backToSetup() {
             stopStudyTimerAndSave();
             document.getElementById('summary-section').classList.add('hidden');
-            document.getElementById('dictation-app').classList.add('hidden');
-            document.getElementById('setup-section').classList.remove('hidden');
+            document.getElementById('dictation-app-section').classList.add('hidden');
+            document.getElementById('setup-section').scrollIntoView({ behavior: 'smooth' });
         }
 
         function copyPrompt(elementId, btn) {
@@ -1133,7 +1136,7 @@
                 btn.style.background = "#198754";
                 setTimeout(() => {
                     btn.innerText = originalText;
-                    btn.style.background = "#0d6efd";
+                    btn.style.background = "#d97706";
                 }, 2000);
             });
         }
