@@ -90,7 +90,14 @@
     </style>
 </head>
 <body>
-
+<!-- BANNER TRUYỀN CẢM HỨNG -->
+    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);">
+        <div style="font-size: 32px; margin-bottom: 8px;">🤝 ☁️ 🚀</div>
+        <h1 style="margin: 0 0 8px 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">DICTATION CLOUD MVP</h1>
+        <p style="margin: 0; font-size: 15px; font-style: italic; opacity: 0.95; font-weight: 500;">
+            "If you want to go fast, go alone. If you want to go far, go together."
+        </p>
+    </div>
     <!-- THANH HEADER & USER -->
     <div class="auth-bar">
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -442,6 +449,24 @@ F. Nguyên tắc chung
             <div style="margin-bottom: 12px;">
                 <label style="font-size: 13px; font-weight: bold;">Mục tiêu / Châm ngôn sống:</label>
                 <input type="text" id="profile-motto" class="form-input" placeholder="Luyện nghe 15 phút mỗi ngày!" style="margin-top: 4px;">
+            </div> 
+            <!-- THÔNG TIN KẾT NỐI CỘNG ĐỒNG -->
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; font-weight: bold;">📧 Email liên hệ:</label>
+                <input type="email" id="profile-email" class="form-input" placeholder="example@gmail.com" style="margin-top: 4px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; font-weight: bold;">💬 Số Zalo / Link nhóm Zalo:</label>
+                <input type="text" id="profile-zalo" class="form-input" placeholder="0901234567 hoặc link nhóm Zalo" style="margin-top: 4px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; font-weight: bold;">🌐 Mạng xã hội (Facebook / TikTok / YouTube):</label>
+                <input type="text" id="profile-social" class="form-input" placeholder="https://facebook.com/your-profile" style="margin-top: 4px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 12px; cursor: pointer; color: #1e40af; font-weight: 600;">
+                    <input type="checkbox" id="profile-public-contact" checked> Hiển thị công khai thông tin liên hệ cho cộng đồng kết nối
+                </label>
             </div>
             <div style="margin-bottom: 15px; background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 13px; color: #555;">
                 📊 <strong>Thống kê học tập:</strong><br>
@@ -616,17 +641,22 @@ F. Nguyên tắc chung
             listEl.innerHTML = '';
             list.forEach(item => {
                 const isChecked = selectedCommunityUnits[item.id] ? 'checked' : '';
+                const likes = item.likes || 0;
                 const card = document.createElement('div');
                 card.className = 'community-card';
+                card.style.cssText = 'background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;';
                 card.innerHTML = `
-                    <div>
-                        <div style="font-weight: bold; font-size: 15px;">${item.unitName}</div>
-                        <div style="font-size: 12px; color: #666; margin-top: 2px;">
-                            Bởi: <strong>${item.author || 'Cộng đồng'}</strong> • ${item.items ? item.items.length : 0} câu
+                    <div style="flex: 1;">
+                        <div style="font-weight: bold; font-size: 15px; color: #1e293b;">${item.unitName}</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 3px;">
+                            👤 Tác giả: <strong>${item.author || 'Cộng đồng'}</strong> ${item.contact ? `(📱 ${item.contact})` : ''} • 📚 ${item.items ? item.items.length : 0} câu
                         </div>
-                        <div style="margin-top: 4px; display: flex; gap: 4px;">
+                        <div style="margin-top: 6px; display: flex; gap: 6px; align-items: center;">
                             <span class="badge badge-topic">${item.topic || 'Giao tiếp'}</span>
                             <span class="badge badge-level">${item.level || 'Cơ bản'}</span>
+                            <button onclick="likeCommunityUnit('${item.id}', this)" style="border:none; background: #fef2f2; color: #ef4444; border-radius: 12px; padding: 2px 8px; font-size: 11px; font-weight: bold; cursor: pointer;">
+                                ❤️ ${likes} Tim
+                            </button>
                         </div>
                     </div>
                     <div>
