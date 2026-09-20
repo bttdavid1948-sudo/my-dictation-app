@@ -21,8 +21,8 @@
         .section-title { font-size: 18px; font-weight: bold; color: #1e3a8a; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #f3f4f6; padding-bottom: 10px; }
 
         .tab-menu { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; flex-wrap: wrap; }
-        .tab-btn { background: none; border: none; font-weight: bold; padding: 6px 12px; cursor: pointer; color: #6c757d; border-radius: 4px; }
-        .tab-btn.active { background: #e7f1ff; color: #0d6efd; }
+        .tab-btn { background: none; border: none; font-weight: bold; padding: 8px 16px; cursor: pointer; color: #6c757d; border-radius: 6px; font-size: 14px; }
+        .tab-btn.active { background: #1e293b; color: #fff; }
 
         .input-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 10px; }
         @media (min-width: 600px) { .input-grid { grid-template-columns: 1fr 1fr; } }
@@ -35,30 +35,27 @@
         .unit-list-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; max-height: 180px; overflow-y: auto; padding: 10px; background: #f1f3f5; border-radius: 6px; }
         .unit-card { background: #fff; border: 1px solid #ced4da; padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
 
-        .dictation-container { display: grid; grid-template-columns: 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #e5e7eb; }
-        @media (min-width: 768px) { .dictation-container { grid-template-columns: 1.2fr 0.8fr; padding: 20px; } }
-
-        .left-col { display: flex; flex-direction: column; gap: 12px; }
-        .audio-player { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #f1f3f4; padding: 8px 12px; border-radius: 12px; }
+        .dictation-container { background: #fff; border-radius: 12px; }
+        
+        .audio-player { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #f1f3f4; padding: 8px 12px; border-radius: 12px; margin-bottom: 12px; }
         
         .user-textarea { width: 100%; height: 100px; padding: 12px; font-size: 18px; border: 2px solid #6c757d; border-radius: 8px; outline: none; resize: none; color: #2b2b2b; background: #fff; transition: all 0.2s; }
         .user-textarea.is-correct { border-color: #1e7e34 !important; background-color: #f0fff4 !important; }
         .user-textarea.has-error { border-color: #dc3545 !important; background-color: #fff5f5 !important; }
 
-        .bottom-left-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+        .bottom-left-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
         .status-message { font-size: 16px; font-weight: bold; color: #1e7e34; visibility: hidden; }
         .status-message.active { visibility: visible; }
         .status-message.error-text { color: #dc3545; }
 
-        .btn { border: none; border-radius: 6px; padding: 8px 14px; font-weight: 600; cursor: pointer; font-size: 14px; }
+        .btn { border: none; border-radius: 6px; padding: 8px 16px; font-weight: 600; cursor: pointer; font-size: 14px; }
         .btn-google { background-color: #4285f4; color: white; }
         .btn-audio { background-color: #d97706; color: white; }
         .btn-check { background-color: #2563eb; color: white; }
         .btn-next { background-color: #0f8a5f; color: white; }
         .btn-note { background-color: #e2e8f0; color: #334155; }
 
-        .right-col { display: flex; flex-direction: column; gap: 12px; }
-        .translation-box, .pronunciation-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 14px; }
+        .translation-box, .pronunciation-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
         .target-words-display { font-size: 20px; display: flex; flex-wrap: wrap; gap: 8px; line-height: 1.5; }
         .word-underline { border-bottom: 2px dotted #6c757d; padding-bottom: 2px; color: #212529; }
         .word-underline.revealed-word { color: #0f8a5f; font-weight: bold; border-bottom: 2px solid #0f8a5f; }
@@ -67,10 +64,11 @@
         .select-style { border: 1px solid #ccc; background: #fff; padding: 4px; border-radius: 4px; font-size: 12px; }
         .hidden { display: none !important; }
 
-        .transcript-list { max-height: 250px; overflow-y: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; }
-        .transcript-item { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; font-size: 13px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .transcript-item:hover { background: #f8fafc; }
-        .transcript-item.active { background: #eff6ff; font-weight: bold; color: #2563eb; }
+        /* KHU VỰC FULL TRANSCRIPT TAB KIỂU DAILYDICTATION */
+        .transcript-container { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }
+        .transcript-item { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 6px; }
+        .transcript-item:hover { background: #e2e8f0; }
+        .transcript-item.active { background: #dbeafe; font-weight: bold; color: #1e40af; }
 
         .option-toggle-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
 
@@ -137,11 +135,10 @@
 
             <div class="tab-menu">
                 <button class="tab-btn active" onclick="switchTab('tab-manual', this)">✏️ Nhập 2 ô song song</button>
-                <button class="tab-btn" onclick="switchTab('tab-paragraph', this)">📄 Dán đoạn văn (Tự tách câu)</button>
+                <button class="tab-btn" onclick="switchTab('tab-paragraph', this)">📄 Dán đoạn văn (Tự ghép bản dịch)</button>
                 <button class="tab-btn" onclick="switchTab('tab-file', this)">📁 Nạp từ File CSV (Excel)</button>
             </div>
 
-            <!-- TAB 1: NHẬP 2 Ô SONG SONG -->
             <div id="tab-manual" class="tab-content">
                 <div class="input-grid">
                     <div>
@@ -156,14 +153,22 @@
                 <button class="btn btn-note" onclick="addSingleSentence()" style="width: 100%; margin-bottom: 10px; background: #e2e8f0;">➕ Thêm câu này vào Unit</button>
             </div>
 
-            <!-- TAB 2: DÁN ĐOẠN VĂN (TỰ TÁCH CÂU KIỂU DAILYDICTATION) -->
+            <!-- TAB DÁN ĐOẠN VĂN VỚI 2 Ô NGHĨA SONG SONG -->
             <div id="tab-paragraph" class="tab-content hidden">
-                <div style="margin-bottom: 8px; font-size: 12px; color: #555;">Dán một đoạn văn hoàn chỉnh vào đây, hệ thống sẽ tự động phân tách thành từng câu đơn cho bạn:</div>
-                <textarea id="paragraph-input" class="form-input" style="height: 100px;" placeholder="Where is Jane? She is in the living room. What is she doing? She is playing the piano."></textarea>
-                <button class="btn btn-note" onclick="parseAndAddParagraph()" style="width: 100%; margin-top: 5px; background: #dbeafe; color: #1e40af;">⚡ Tự động tách thành danh sách câu</button>
+                <div style="margin-bottom: 8px; font-size: 12px; color: #555;">Dán đoạn văn Tiếng Anh và đoạn văn Tiếng Việt vào 2 ô, hệ thống sẽ tự động phân tách theo dấu chấm (`. ! ?`) và ghép cặp 1-1 cho bạn:</div>
+                <div class="input-grid">
+                    <div>
+                        <label style="font-size: 13px; font-weight: bold;">Đoạn văn Tiếng Anh:</label>
+                        <textarea id="paragraph-en" class="form-input" style="height: 100px;" placeholder="Where is Jane? She is in the living room. What is she doing?"></textarea>
+                    </div>
+                    <div>
+                        <label style="font-size: 13px; font-weight: bold;">Đoạn dịch Tiếng Việt (Tùy chọn):</label>
+                        <textarea id="paragraph-vi" class="form-input" style="height: 100px;" placeholder="Jane ở đâu? Cô ấy đang ở phòng khách. Cô ấy đang làm gì?"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-note" onclick="parseAndAddParagraph()" style="width: 100%; margin-top: 5px; background: #dbeafe; color: #1e40af;">⚡ Tự động phân tách & Ghép cặp câu</button>
             </div>
 
-            <!-- TAB 3: FILE CSV -->
             <div id="tab-file" class="tab-content hidden">
                 <div style="border: 2px dashed #ced4da; padding: 15px; text-align: center; border-radius: 8px; background: #fafafa;">
                     <p style="margin: 0 0 10px 0; font-size: 13px; color: #555;">Tải lên file <strong>.csv</strong> có 2 cột: <strong>Cột A (Tiếng Anh)</strong> và <strong>Cột B (Tiếng Việt)</strong></p>
@@ -232,27 +237,32 @@
         </div>
     </div>
 
-    <!-- SECTION 2: KHU HỌC TẬP (CỐ ĐỊNH TRÊN MÀN HÌNH KIỂU DAILYDICTATION) -->
+    <!-- SECTION 2: KHU HỌC TẬP CHUẨN DAILYDICTATION -->
     <div id="dictation-app-section" class="section-card">
         <div class="section-title">
-            <span>🎧 SECTION 2: KHU HỌC TẬP DICTATION & FULL TRANSCRIPT</span>
+            <span>🎧 SECTION 2: KHU HỌC TẬP DICTATION</span>
         </div>
 
-        <!-- MÀN HÌNH CHỜ KHI CHƯA BẤM HỌC -->
         <div id="dictation-placeholder" style="text-align: center; padding: 40px 20px; color: #666; background: #f8fafc; border-radius: 8px;">
             <span style="font-size: 40px;">🎧</span>
             <h3 style="margin: 10px 0 5px 0;">Chưa có bài học nào được chọn</h3>
             <p style="font-size: 13px; margin: 0;">Hãy tích chọn các Unit ở Section 1 rồi bấm nút <strong>🚀 Bắt đầu học</strong> để trải nghiệm ngay tại đây!</p>
         </div>
 
-        <!-- KHU VỰC HỌC CHÍNH -->
         <div id="dictation-app" class="dictation-container hidden">
-            <div class="left-col">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+            <!-- TAB CHUYỂN ĐỔI CHUẨN DAILYDICTATION: DICTATION & FULL TRANSCRIPT -->
+            <div class="tab-menu" style="border-bottom: 2px solid #0f172a; margin-bottom: 15px;">
+                <button class="tab-btn active" id="tab-dictation-btn" onclick="switchStudyTab('dictation')">Dictation</button>
+                <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Full transcript</button>
+            </div>
+
+            <!-- VIEW 1: KHU VỰC HỌC DICTATION -->
+            <div id="study-view-dictation">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
                     <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">🏠 Dừng học</button>
                 </div>
-                
+
                 <div class="audio-player">
                     <button class="btn btn-audio" onclick="playAudio()">🔊 Phát Audio</button>
                     <select id="rate-select" class="select-style">
@@ -265,6 +275,15 @@
 
                 <div class="input-area-wrapper">
                     <textarea id="user-input" class="user-textarea" placeholder="Gõ câu bạn nghe được vào đây..." autocomplete="off"></textarea>
+                </div>
+
+                <div class="translation-box" style="margin-top: 10px;">
+                    <div id="text-vi" style="font-size: 16px;">*** (Bấm Check để xem bản dịch)</div>
+                </div>
+
+                <div class="pronunciation-box">
+                    <div style="font-size: 13px; color: #6c757d; margin-bottom: 6px;">Gợi ý câu:</div>
+                    <div id="pronunciation-words" class="target-words-display"></div>
                 </div>
 
                 <div class="option-toggle-box">
@@ -280,27 +299,18 @@
 
                 <div class="bottom-left-controls">
                     <div id="status-msg" class="status-message">✔ You are correct!</div>
-                    <div class="action-btns">
+                    <div class="action-btns" style="display: flex; gap: 8px;">
                         <button class="btn btn-check" onclick="checkAnswer()">Check</button>
-                        <button class="btn btn-note" onclick="skipCurrent()">Skip</button>
-                        <button class="btn btn-next" onclick="nextQuestion()">Next</button>
+                        <button class="btn btn-next" onclick="nextQuestion()">Next ➔</button>
                     </div>
                 </div>
             </div>
 
-            <div class="right-col">
-                <div class="translation-box">
-                    <div id="text-vi" style="font-size: 18px;">***</div>
-                </div>
-                <div class="pronunciation-box">
-                    <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">Gợi ý câu:</div>
-                    <div id="pronunciation-words" class="target-words-display"></div>
-                </div>
-
-                <!-- CỘT BÀI HỌC HOÀN CHỈNH (FULL TRANSCRIPT KIỂU DAILYDICTATION) -->
-                <div style="margin-top: 10px;">
-                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 6px;">📜 Full Transcript (Bấm vào câu để nghe lại):</div>
-                    <div id="full-transcript-list" class="transcript-list"></div>
+            <!-- VIEW 2: KHU VỰC FULL TRANSCRIPT -->
+            <div id="study-view-transcript" class="hidden">
+                <div class="transcript-container">
+                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Danh sách các câu trong đoạn văn (Bấm câu nào để nghe lại câu đó):</div>
+                    <div id="full-transcript-list"></div>
                 </div>
             </div>
         </div>
@@ -314,7 +324,7 @@
         <div id="stats-detail" style="font-size: 14px; color: #666;"></div>
 
         <div id="error-container" class="error-list hidden">
-            <strong>📌 Các câu bạn đã bỏ qua (Skip):</strong>
+            <strong>📌 Các câu chưa hoàn thành đúng:</strong>
             <ul id="error-list-items" style="margin: 8px 0; padding-left: 20px;"></ul>
         </div>
 
@@ -324,7 +334,7 @@
         </div>
     </div>
 
-    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI (NỔI BẬT NỔI BẬT 🔥) -->
+    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
     <div class="gift-section">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
             <span style="font-size: 28px;">🎁</span>
@@ -341,7 +351,7 @@
         </div>
     </div>
 
-    <!-- SECTION 4: KHU XẾP HẠNG & VINH DANH CỘNG ĐỒNG 🏆 -->
+    <!-- SECTION 4: KHU XẾP HẠNG CỘNG ĐỒNG 🏆 -->
     <div id="leaderboard-section" class="leaderboard-section">
         <div class="section-title">
             <span>🏆 SECTION 4: BẢNG XẾP HẠNG HỌC VIÊN CHĂM CHỈ</span>
@@ -513,6 +523,14 @@
             if (tab === 'community') loadCommunityUnits();
         }
 
+        function switchStudyTab(tab) {
+            document.getElementById('tab-dictation-btn').classList.toggle('active', tab === 'dictation');
+            document.getElementById('tab-transcript-btn').classList.toggle('active', tab === 'transcript');
+            document.getElementById('study-view-dictation').classList.toggle('hidden', tab !== 'dictation');
+            document.getElementById('study-view-transcript').classList.toggle('hidden', tab !== 'transcript');
+            if (tab === 'transcript') renderFullTranscript();
+        }
+
         function loadCommunityUnits() {
             const listEl = document.getElementById('community-units-list');
             db.collection('community_units').orderBy('createdAt', 'desc').limit(20).get().then(snap => {
@@ -649,30 +667,35 @@
             renderCurrentUnitPreview();
         }
 
-        // TỰ ĐỘNG TÁCH ĐOẠN VĂN THÀNH TỪNG CÂU
+        // TỰ ĐỘNG TÁCH ĐOẠN VĂN THEO DẤU (. ? !) VÀ GHÉP CẶP NGHĨA
         function parseAndAddParagraph() {
-            const text = document.getElementById('paragraph-input').value.trim();
-            if (!text) return alert("Vui lòng dán đoạn văn vào ô!");
+            const textEn = document.getElementById('paragraph-en').value.trim();
+            const textVi = document.getElementById('paragraph-vi').value.trim();
 
-            // Tách theo dấu câu (. ? !)
-            const rawSentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            if (!textEn) return alert("Vui lòng dán đoạn văn Tiếng Anh!");
+
+            const sentencesEn = textEn.match(/[^.!?]+[.!?]+/g) || [textEn];
+            const sentencesVi = textVi ? (textVi.match(/[^.!?]+[.!?]+/g) || [textVi]) : [];
+
             const unitName = getActiveUnitName();
             if (!unitsData[unitName]) unitsData[unitName] = [];
 
             let count = 0;
-            rawSentences.forEach(s => {
-                const clean = s.trim();
-                if (clean) {
-                    unitsData[unitName].push({ en: clean, vi: '' });
+            sentencesEn.forEach((s, idx) => {
+                const cleanEn = s.trim();
+                const cleanVi = sentencesVi[idx] ? sentencesVi[idx].trim() : '';
+                if (cleanEn) {
+                    unitsData[unitName].push({ en: cleanEn, vi: cleanVi });
                     count++;
                 }
             });
 
-            document.getElementById('paragraph-input').value = '';
+            document.getElementById('paragraph-en').value = '';
+            document.getElementById('paragraph-vi').value = '';
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
-            alert(`⚡ Đã tự động phân tách và thêm ${count} câu vào ${unitName}!`);
+            alert(`⚡ Đã tự động phân tách và ghép cặp thành công ${count} câu vào ${unitName}!`);
         }
 
         function handleCSVUpload(e) {
@@ -815,10 +838,11 @@
             unitsData = {
                 "Unit 1: Giao tiếp Hàng ngày": [
                     { en: "Where is Jane?", vi: "Jane ở đâu vậy?" },
-                    { en: "The meeting was brief but very productive!", vi: "Cuộc họp rất ngắn gọn nhưng hiệu quả!" }
+                    { en: "She is in the living room.", vi: "Cô ấy đang ở phòng khách." },
+                    { en: "What is she doing?", vi: "Cô ấy đang làm gì?" }
                 ],
                 "Unit 2: Công sở & Công việc": [
-                    { en: "Can I help you with this project?", vi: "Tôi có thể giúp bạn dự án này không?" },
+                    { en: "The meeting was brief but very productive!", vi: "Cuộc họp rất ngắn gọn nhưng hiệu quả!" },
                     { en: "Please send me the report by end of day.", vi: "Vui lòng gửi báo cáo cho tôi trước cuối ngày." }
                 ]
             };
@@ -894,8 +918,7 @@
             document.getElementById('dictation-app').classList.remove('hidden');
             document.getElementById('summary-section').classList.add('hidden');
 
-            renderFullTranscript();
-
+            switchStudyTab('dictation');
             document.getElementById('dictation-app-section').scrollIntoView({ behavior: 'smooth' });
 
             startStudyTimer();
@@ -903,31 +926,39 @@
             loadQuestion(currentIndex);
         }
 
-        // HIỂN THỊ FULL TRANSCRIPT KIỂU DAILYDICTATION
         function renderFullTranscript() {
             const listEl = document.getElementById('full-transcript-list');
             listEl.innerHTML = '';
             items.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = `transcript-item ${idx === currentIndex ? 'active' : ''}`;
-                div.id = `transcript-item-${idx}`;
-                div.innerHTML = `<span><strong>${idx+1}.</strong> ${item.en}</span> <span>▶</span>`;
+                div.innerHTML = `
+                    <div>
+                        <strong>Câu ${idx+1}:</strong> ${item.en}
+                        <div style="font-size: 12px; color: #64748b; margin-top: 2px;">${item.vi || 'Chưa dịch'}</div>
+                    </div>
+                    <button class="btn btn-audio" style="font-size: 12px; padding: 4px 10px;" onclick="event.stopPropagation(); jumpToAndPlay('${idx}')">▶ Phát</button>
+                `;
                 div.onclick = () => jumpToQuestion(idx);
                 listEl.appendChild(div);
             });
         }
 
+        function jumpToAndPlay(idx) {
+            jumpToQuestion(idx);
+            playAudio();
+        }
+
         function jumpToQuestion(idx) {
-            currentIndex = idx;
+            currentIndex = parseInt(idx);
+            switchStudyTab('dictation');
             loadQuestion(currentIndex);
-            renderFullTranscript();
         }
 
         function loadQuestion(index) {
             isQuestionResolved = false;
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
             document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
-            document.getElementById('text-vi').classList.add('hidden-content');
             
             const inputEl = document.getElementById('user-input');
             inputEl.value = '';
@@ -938,7 +969,6 @@
             statusMsg.classList.remove('active', 'error-text');
             statusMsg.innerText = '✔ You are correct!';
 
-            renderFullTranscript();
             renderPronunciationWords();
             playAudio();
             inputEl.focus();
@@ -1066,31 +1096,19 @@
         function revealAnswer() {
             const current = items[currentIndex];
             document.getElementById('text-vi').innerText = current.vi || 'Chưa có bản dịch';
-            document.getElementById('text-vi').classList.remove('hidden-content');
             document.getElementById('show-full').checked = true;
             renderPronunciationWords();
         }
 
-        function skipCurrent() {
+        function nextQuestion() {
+            document.getElementById('show-full').checked = false;
+
             if (!isQuestionResolved) {
                 if (!failedItemsList.includes(items[currentIndex])) {
                     failedItemsList.push(items[currentIndex]);
                 }
                 isQuestionResolved = true;
             }
-            document.getElementById('user-input').value = items[currentIndex].en;
-            document.getElementById('user-input').className = 'user-textarea is-correct';
-            revealAnswer();
-            
-            const statusMsg = document.getElementById('status-msg');
-            statusMsg.innerText = '⏩ Skipped';
-            statusMsg.className = 'status-message active error-text';
-            document.getElementById('user-input').disabled = true;
-        }
-
-        function nextQuestion() {
-            document.getElementById('show-full').checked = false;
-            if (!isQuestionResolved) skipCurrent();
 
             if (currentIndex < items.length - 1) {
                 currentIndex++;
@@ -1120,7 +1138,7 @@
                 document.getElementById('accuracy-label').innerText = "Tỉ lệ hoàn thành đúng của bạn:";
                 const accuracy = Math.round((correctCount / total) * 100);
                 document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Đã Skip: ${failedItemsList.length} câu`;
+                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Chưa đúng / Bỏ qua: ${failedItemsList.length} câu`;
 
                 const errorContainer = document.getElementById('error-container');
                 const errorList = document.getElementById('error-list-items');
@@ -1157,6 +1175,7 @@
             document.getElementById('summary-section').classList.add('hidden');
             document.getElementById('dictation-app').classList.remove('hidden');
 
+            switchStudyTab('dictation');
             startStudyTimer();
             currentIndex = 0;
             loadQuestion(currentIndex);
