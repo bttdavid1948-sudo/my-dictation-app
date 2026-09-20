@@ -331,30 +331,30 @@
 
    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
     <div class="gift-section">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-            <span style="font-size: 28px;">🎁</span>
-            <h2 style="margin: 0; color: #b45309; font-size: 20px;">SECTION 3: QUÀ TẶNG PROMPT AI TẠO BÀI HỌC</h2>
-        </div>
-        
-        <!-- CÂU GIẢI THÍCH CHUẨN DÀNH CHO HỌC VIÊN -->
-        <p style="font-size: 13px; color: #78350f; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">
-            Dành cho những bạn chưa có bộ từ vựng, hoặc muốn tạo một bộ chuẩn để học thì có thể dùng 2 câu lệnh dưới đây để tạo ra bảng từ vựng đầy đủ thông tin. Đồng thời, bạn có thể trích xuất các câu ví dụ từ bảng đó để vừa luyện nhớ từ vừa thực hành nghe viết chính tả ngay tại đây!
-        </p>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+        <span style="font-size: 28px;">🎁</span>
+        <h2 style="margin: 0; color: #b45309; font-size: 20px;">SECTION 3: QUÀ TẶNG PROMPT AI TẠO BÀI HỌC</h2>
+    </div>
+    
+    <!-- CÂU GIẢI THÍCH CHUẨN DÀNH CHO HỌC VIÊN -->
+    <p style="font-size: 13px; color: #78350f; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">
+        Dành cho những bạn chưa có bộ từ vựng, hoặc muốn tạo một bộ từ vựng chuẩn để học thì có thể dùng 2 câu lệnh dưới đây, dán vào GPT/Gemini để tạo ra bảng từ vựng đầy đủ thông tin. Đồng thời, bạn có thể trích xuất các câu ví dụ từ bảng đó, để vừa luyện nhớ từ vừa thực hành nghe viết chính tả ngay tại đây!
+    </p>
 
-        <!-- PROMPT 1: TRỢ LÝ TẠO BẢNG TỪ VỰNG EXCEL -->
-        <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 1: Lệnh biến AI thành Trợ lý tạo bảng từ vựng Excel full thông tin:</div>
-            <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b; max-height: 200px; overflow-y: auto;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
+    <!-- PROMPT 1: TRỢ LÝ TẠO BẢNG TỪ VỰNG EXCEL -->
+    <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+        <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 1: Lệnh biến AI thành Trợ lý tạo bảng từ vựng Excel full thông tin:</div>
+        <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b; max-height: 200px; overflow-y: auto;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
 
 A. Nhập từ vựng
 Tôi có thể gửi một từ/cụm từ hoặc một danh sách nhiều từ/cụm từ.
 Với mỗi từ/cụm từ, hãy phân tích đầy đủ các nội dung:
 Vocabulary
-Từ loại
+Type
 IPA
 Word family
-English meaning
-Vietnamese meaning
+Definition (in English)
+Definition (in Vietnamese)
 Phrases
 Example 1
 Example 2
@@ -370,15 +370,15 @@ Nếu tôi gửi nhiều từ, hãy xử lý tất cả các từ trong cùng m�
 C. Quy tắc nội dung
 1. Vocabulary
 Ghi chính xác từ/cụm từ mà tôi cung cấp.
-2. Từ loại
+2. Type
 Chỉ sử dụng tên từ loại bằng tiếng Anh, ví dụ: Noun, Verb, Adjective, Adverb, Preposition, Conjunction, Pronoun, Determiner, Interjection. Không ghi bản dịch tiếng Việt trong cột này.
 3. IPA
 Cung cấp phiên âm IPA chính xác. Nếu cách phát âm Anh-Anh và Anh-Mỹ khác nhau đáng kể, có thể ghi cả hai.
 4. Word family
 Liệt kê các từ cùng họ có liên quan và thông dụng. Mỗi từ phải có từ loại + nghĩa tiếng Việt, theo dạng: word (n) — nghĩa tiếng Việt
-5. English meaning
+5. Definition (in English)
 Giải thích nghĩa bằng tiếng Anh một cách rõ ràng, tự nhiên và dễ hiểu. Nếu từ có nhiều nghĩa thông dụng, hãy phân biệt từng nghĩa.
-6. Vietnamese meaning
+6. Definition (in Vietnamese)
 Dịch nghĩa chính xác và tự nhiên sang tiếng Việt. Nếu từ có nhiều nghĩa phổ biến, hãy trình bày đầy đủ các nghĩa phù hợp.
 7. Phrases
 Bao gồm các cụm từ liên quan và hữu ích (Collocations, Expressions, Idioms). Mỗi cụm phải đi kèm nghĩa tiếng Việt. Ưu tiên những cụm thực tế, thông dụng. Nếu không có thì để trống.
@@ -391,10 +391,10 @@ Liệt kê các từ trái nghĩa phù hợp, dạng: word — nghĩa tiếng Vi
 
 D. Cấu trúc bảng và Excel
 Sử dụng đúng 11 cột, theo thứ tự:
-Vocabulary | Từ loại | IPA | Word family | English meaning | Vietnamese meaning | Phrases | Example 1 | Example 2 | Synonyms | Antonyms
+Vocabulary | Type | IPA | Word family | Definition (in English) | Definition (in Vietnamese) | Phrases | Example 1 | Example 2 | Synonyms | Antonyms
 
 E. Quy tắc định dạng Excel
-Vocabulary, Từ loại, IPA: Căn giữa chiều ngang & dọc.
+Vocabulary, Type, IPA: Căn giữa chiều ngang & dọc.
 Các cột còn lại: Căn phải chiều ngang, căn giữa chiều dọc.
 Tất cả các ô có nội dung dài phải bật Wrap Text, dùng Line Break trong ô.
 Header in đậm, có Border toàn bộ, tự động chỉnh độ rộng cột/chiều cao hàng.
@@ -403,16 +403,16 @@ Tạo file .xlsx hoàn chỉnh và cung cấp link tải file.
 
 F. Nguyên tắc chung
 Ưu tiên tính chính xác, tự nhiên, dễ hiểu. Không bỏ sót từ nào. Trả về cả bảng và file Excel mà không cần hỏi lại.</pre>
-            <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 1 (Tạo Bảng Excel Từ Vựng)</button>
-        </div>
-
-        <!-- PROMPT 2: LỆNH TRÍCH XUẤT CÂU ĐỂ NẠP VÀO APP -->
-        <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-            <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 2: Lệnh trích xuất các câu ví dụ từ file Excel để luyện nghe chính tả:</div>
-            <pre id="prompt2" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
-            <button onclick="copyPrompt('prompt2', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 2 (Trích Xuất Câu Để Luyện Chính Tả)</button>
-        </div>
+        <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 1 (Tạo Bảng Excel Từ Vựng)</button>
     </div>
+
+    <!-- PROMPT 2: LỆNH TRÍCH XUẤT CÂU ĐỂ NẠP VÀO APP -->
+    <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+        <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 2: Lệnh trích xuất các câu ví dụ từ file Excel để luyện nghe chính tả:</div>
+        <pre id="prompt2" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
+        <button onclick="copyPrompt('prompt2', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 2 (Trích Xuất Câu Để Luyện Chính Tả)</button>
+    </div>
+</div>
 
     <!-- SECTION 4: KHU XẾP HẠNG CỘNG ĐỒNG 🏆 -->
     <div id="leaderboard-section" class="leaderboard-section">
