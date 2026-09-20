@@ -66,23 +66,29 @@
     <div id="setup-section" class="setup-card">
         <h2>Nhập danh sách câu của bạn</h2>
         <p>Định dạng: <code>Câu tiếng Anh | Bản dịch tiếng Việt</code></p>
-        <!-- === KHU VỰC HƯỚNG DẪN & PROMPT AI TẶNG KÈM === -->
-<details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-  <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 16px;">
-    🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & sao chép)
+        <textarea id="raw-data" class="data-input" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief but very productive | Cuộc họp ngắn gọn nhưng rất hiệu quả"></textarea>
+        
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-next" onclick="startApp()">Bắt đầu học (Random)</button>
+            <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu vào tài khoản</button>
+        </div>
+        <!-- === KHU VỰC PROMPT AI TẶNG KÈM === -->
+<details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 15px;">
+    🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & copy)
   </summary>
   
-  <div style="margin-top: 12px; font-size: 14px; color: #333; line-height: 1.6;">
-    <p style="margin-bottom: 12px; color: #555;">
-      Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động phân tích từ vựng và trích xuất câu luyện tập chuẩn định dạng cho ứng dụng!
+  <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
+    <p style="margin-bottom: 10px; color: #555;">
+      Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:
     </p>
 
     <!-- PROMPT 1: LẬP DANH SÁCH TỪ VỰNG -->
-    <div style="margin-bottom: 15px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 12px; position: relative;">
-      <div style="font-weight: bold; color: #055160; margin-bottom: 6px;">
+    <div style="margin-bottom: 12px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
+      <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">
         1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel
       </div>
-      <pre id="prompt1" style="background: #f1f3f5; padding: 10px; border-radius: 4px; max-height: 150px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
+      <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; max-height: 120px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
 
 A. Nhập từ vựng
 Tôi có thể gửi một từ/cụm từ hoặc một danh sách nhiều từ/cụm từ.
@@ -115,25 +121,24 @@ Vocabulary, Từ loại, IPA: Căn giữa. Các cột còn lại: Căn phải (n
 
 F. Nguyên tắc chung
 Ưu tiên tính chính xác, tự nhiên. Không bỏ sót từ. Luôn trả về cả bảng kết quả và file Excel.</pre>
-      <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">
+      <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">
         📋 Copy Prompt 1
       </button>
     </div>
 
     <!-- PROMPT 2: LẬP DANH SÁCH CÂU LUYỆN TẬP -->
-    <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 12px; position: relative;">
-      <div style="font-weight: bold; color: #055160; margin-bottom: 6px;">
+    <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
+      <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">
         2. Prompt Trích xuất câu từ file Excel dán vào App
       </div>
-      <pre id="prompt2" style="background: #f1f3f5; padding: 10px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
-      <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">
+      <pre id="prompt2" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
+      <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">
         📋 Copy Prompt 2
       </button>
     </div>
   </div>
 </details>
 
-<!-- SCRIPT XỬ LÝ NÚT COPY PROMPT -->
 <script>
 function copyPrompt(elementId, btn) {
   const text = document.getElementById(elementId).innerText;
@@ -145,17 +150,10 @@ function copyPrompt(elementId, btn) {
       btn.innerText = originalText;
       btn.style.background = "#0d6efd";
     }, 2000);
-  }).catch(err => {
-    alert("Không thể sao chép tự động. Bạn vui lòng bôi đen và copy thủ công nhé!");
   });
 }
 </script>
-        <textarea id="raw-data" class="data-input" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief but very productive | Cuộc họp ngắn gọn nhưng rất hiệu quả"></textarea>
-        
-        <div style="display: flex; gap: 10px;">
-            <button class="btn btn-next" onclick="startApp()">Bắt đầu học (Random)</button>
-            <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu vào tài khoản</button>
-        </div>
+
     </div>
 
     <!-- GIAO DIỆN HỌC -->
