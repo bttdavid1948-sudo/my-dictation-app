@@ -66,6 +66,90 @@
     <div id="setup-section" class="setup-card">
         <h2>Nhập danh sách câu của bạn</h2>
         <p>Định dạng: <code>Câu tiếng Anh | Bản dịch tiếng Việt</code></p>
+        <!-- === KHU VỰC HƯỚNG DẪN & PROMPT AI TẶNG KÈM === -->
+<details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 16px;">
+    🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & sao chép)
+  </summary>
+  
+  <div style="margin-top: 12px; font-size: 14px; color: #333; line-height: 1.6;">
+    <p style="margin-bottom: 12px; color: #555;">
+      Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động phân tích từ vựng và trích xuất câu luyện tập chuẩn định dạng cho ứng dụng!
+    </p>
+
+    <!-- PROMPT 1: LẬP DANH SÁCH TỪ VỰNG -->
+    <div style="margin-bottom: 15px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 12px; position: relative;">
+      <div style="font-weight: bold; color: #055160; margin-bottom: 6px;">
+        1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel
+      </div>
+      <pre id="prompt1" style="background: #f1f3f5; padding: 10px; border-radius: 4px; max-height: 150px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
+
+A. Nhập từ vựng
+Tôi có thể gửi một từ/cụm từ hoặc một danh sách nhiều từ/cụm từ.
+Với mỗi từ/cụm từ, hãy phân tích đầy đủ các nội dung:
+Vocabulary, Từ loại, IPA, Word family, definition (in English), definition (in Vietnamese), Phrases, Example 1, Example 2, Synonyms, Antonyms
+
+B. Kết quả
+Luôn trả kết quả dưới dạng bảng.
+Luôn đồng thời tạo và xuất một file Excel (.xlsx) chứa toàn bộ kết quả.
+Không cần hỏi lại tôi có muốn tạo Excel hay không.
+Nếu tôi gửi nhiều từ, hãy xử lý tất cả các từ trong cùng một bảng và cùng một file Excel.
+
+C. Quy tắc nội dung
+1. Vocabulary: Ghi chính xác từ/cụm từ mà tôi cung cấp.
+2. Từ loại: Chỉ sử dụng tên từ loại bằng tiếng Anh (Noun, Verb, Adjective, Adverb, Preposition, Conjunction, Pronoun, Determiner, Interjection).
+3. IPA: Cung cấp phiên âm IPA chính xác.
+4. Word family: Liệt kê các từ cùng họ có liên quan (word (n) — nghĩa tiếng Việt).
+5. English meaning: Giải thích nghĩa bằng tiếng Anh rõ ràng, tự nhiên.
+6. Vietnamese meaning: Dịch nghĩa chính xác sang tiếng Việt.
+7. Phrases: Collocations, Expressions, Idioms kèm nghĩa tiếng Việt.
+8. Example 1 và Example 2: Mỗi từ 2 câu ví dụ kèm bản dịch tiếng Việt.
+9. Synonyms: Từ đồng nghĩa kèm nghĩa tiếng Việt.
+10. Antonyms: Từ trái nghĩa kèm nghĩa tiếng Việt.
+
+D. Cấu trúc bảng và Excel
+Sử dụng đúng 11 cột: Vocabulary | Từ loại | IPA | Word family | English meaning | Vietnamese meaning | Phrases | Example 1 | Example 2 | Synonyms | Antonyms
+
+E. Quy tắc định dạng Excel
+Vocabulary, Từ loại, IPA: Căn giữa. Các cột còn lại: Căn phải (ngang), căn giữa (dọc). Bật Wrap Text, Line Break, Header in đậm, Border toàn bộ, AutoFilter, Freeze Panes B2. Tạo file .xlsx hoàn chỉnh và cung cấp link tải.
+
+F. Nguyên tắc chung
+Ưu tiên tính chính xác, tự nhiên. Không bỏ sót từ. Luôn trả về cả bảng kết quả và file Excel.</pre>
+      <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">
+        📋 Copy Prompt 1
+      </button>
+    </div>
+
+    <!-- PROMPT 2: LẬP DANH SÁCH CÂU LUYỆN TẬP -->
+    <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 12px; position: relative;">
+      <div style="font-weight: bold; color: #055160; margin-bottom: 6px;">
+        2. Prompt Trích xuất câu từ file Excel dán vào App
+      </div>
+      <pre id="prompt2" style="background: #f1f3f5; padding: 10px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
+      <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">
+        📋 Copy Prompt 2
+      </button>
+    </div>
+  </div>
+</details>
+
+<!-- SCRIPT XỬ LÝ NÚT COPY PROMPT -->
+<script>
+function copyPrompt(elementId, btn) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = "✅ Đã sao chép!";
+    btn.style.background = "#198754";
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = "#0d6efd";
+    }, 2000);
+  }).catch(err => {
+    alert("Không thể sao chép tự động. Bạn vui lòng bôi đen và copy thủ công nhé!");
+  });
+}
+</script>
         <textarea id="raw-data" class="data-input" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief but very productive | Cuộc họp ngắn gọn nhưng rất hiệu quả"></textarea>
         
         <div style="display: flex; gap: 10px;">
