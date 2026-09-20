@@ -32,11 +32,12 @@
         
         .user-textarea { width: 100%; height: 100px; padding: 12px; font-size: 18px; border: 2px solid #6c757d; border-radius: 8px; outline: none; resize: none; color: #2b2b2b; background: #fff; transition: all 0.2s; }
         .user-textarea.is-correct { border-color: #1e7e34 !important; background-color: #f0fff4 !important; }
-        .user-textarea.has-error { border-color: #dc3545 !important; background-color: #fff5f5 !important; color: #dc3545 !important; }
+        .user-textarea.has-error { border-color: #dc3545 !important; background-color: #fff5f5 !important; }
 
         .bottom-left-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
         .status-message { font-size: 16px; font-weight: bold; color: #1e7e34; visibility: hidden; }
         .status-message.active { visibility: visible; }
+        .status-message.error-text { color: #dc3545; }
 
         .btn { border: none; border-radius: 6px; padding: 8px 14px; font-weight: 600; cursor: pointer; font-size: 14px; }
         .btn-google { background-color: #4285f4; color: white; }
@@ -47,16 +48,18 @@
 
         .right-col { display: flex; flex-direction: column; gap: 12px; }
         .translation-box, .pronunciation-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 14px; }
-        .target-words-display { font-size: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .target-words-display { font-size: 20px; display: flex; flex-wrap: wrap; gap: 8px; line-height: 1.5; }
         .word-underline { border-bottom: 2px dotted #6c757d; padding-bottom: 2px; color: #212529; }
         .word-underline.revealed-word { color: #0f8a5f; font-weight: bold; border-bottom: 2px solid #0f8a5f; }
+        .word-underline.wrong-word { color: #dc3545; border-bottom: 2px solid #dc3545; text-decoration: line-through; }
         .hidden-content { color: #a0aec0 !important; letter-spacing: 2px; }
         .select-style { border: 1px solid #ccc; background: #fff; padding: 4px; border-radius: 4px; font-size: 12px; }
         .hidden { display: none !important; }
 
-        /* Bảng tổng kết kết quả */
+        .option-toggle-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
+
         .summary-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
-        .score-badge { font-size: 32px; font-weight: bold; color: #0f8a5f; margin: 10px 0; }
+        .score-badge { font-size: 36px; font-weight: bold; color: #0f8a5f; margin: 10px 0; }
         .error-list { text-align: left; background: #fff5f5; padding: 12px; border-radius: 6px; border: 1px solid #ffe3e3; margin: 15px 0; max-height: 200px; overflow-y: auto; font-size: 14px; }
     </style>
 </head>
@@ -83,7 +86,6 @@
         
         <textarea id="raw-data" class="data-input" oninput="parseUnits()" placeholder="Ví dụ:&#10;# Unit 1: Du lịch&#10;Where is Jane? | Jane ở đâu vậy?&#10;&#10;# Unit 2: Công sở&#10;The meeting was brief | Cuộc họp rất ngắn gọn"></textarea>
         
-        <!-- DANH SÁCH UNIT CHỌN HỌC -->
         <div style="font-weight: bold; font-size: 14px; margin-top: 5px;">Chọn Unit muốn học:</div>
         <div id="unit-selector" class="unit-list-container">
             <i style="color: #888; font-size: 13px;">Hãy nhập câu hoặc dán bài mẫu để chọn Unit...</i>
@@ -102,9 +104,7 @@
           </summary>
           
           <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
-            <p style="margin-bottom: 10px; color: #555;">
-              Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:
-            </p>
+            <p style="margin-bottom: 10px; color: #555;">Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:</p>
 
             <div style="margin-bottom: 12px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
               <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel</div>
@@ -128,7 +128,10 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
     <!-- GIAO DIỆN HỌC -->
     <div id="dictation-app" class="dictation-container hidden">
         <div class="left-col">
-            <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
+                <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">🏠 Trang chủ</button>
+            </div>
             
             <div class="audio-player">
                 <button class="btn btn-audio" onclick="playAudio()">🔊 Phát Audio</button>
@@ -142,6 +145,17 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
             <div class="input-area-wrapper">
                 <textarea id="user-input" class="user-textarea" placeholder="Gõ câu bạn nghe được vào đây..." autocomplete="off"></textarea>
+            </div>
+
+            <div class="option-toggle-box">
+                <label style="cursor: pointer;">
+                    <input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> 
+                    Show answer immediately (Kiểm tra từng từ ngay khi gõ)
+                </label>
+                <label style="cursor: pointer;">
+                    <input type="checkbox" id="show-full" onchange="renderPronunciationWords()"> 
+                    Show full answer (Hiện toàn bộ câu đáp án)
+                </label>
             </div>
 
             <div class="bottom-left-controls">
@@ -159,7 +173,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 <div id="text-vi" style="font-size: 18px;">***</div>
             </div>
             <div class="pronunciation-box">
-                <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">Pronunciation</div>
+                <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">Gợi ý câu:</div>
                 <div id="pronunciation-words" class="target-words-display"></div>
             </div>
         </div>
@@ -167,8 +181,8 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
     <!-- MÀN HÌNH BÁO CÁO BẢNG ĐIỂM KẾT QUẢ -->
     <div id="summary-section" class="summary-card hidden">
-        <h2>🎉 Hoàn thành bài học!</h2>
-        <div style="font-size: 16px; color: #555;">Tỉ lệ chính xác lần đầu của bạn:</div>
+        <h2 id="summary-title">🎉 Hoàn thành bài học!</h2>
+        <div id="accuracy-label" style="font-size: 16px; color: #555;">Tỉ lệ chính xác lần đầu của bạn:</div>
         <div id="accuracy-score" class="score-badge">0%</div>
         <div id="stats-detail" style="font-size: 14px; color: #666;"></div>
 
@@ -177,14 +191,13 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             <ul id="error-list-items" style="margin: 8px 0; padding-left: 20px;"></ul>
         </div>
 
-        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
             <button class="btn btn-next" onclick="backToSetup()">🏠 Về trang chọn Unit</button>
         </div>
     </div>
 
     <script>
-        // FIREBASE CONFIG
         const firebaseConfig = {
             apiKey: "AIzaSyD2G5uDoUmHIKDDsWfEGlEzUNQFouD04Ks",
             authDomain: "my-dictation-project-4381e.firebaseapp.com",
@@ -261,7 +274,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 }).then(() => {
                     document.getElementById('raw-data').value = updatedData;
                     parseUnits();
-                    alert("➕ Đã nạp nối tiếp câu mới vào dữ liệu cũ trên đám mây!");
+                    alert("➕ Đã nạp nối tiếp câu mới vào dữ liệu cũ!");
                 });
             });
         }
@@ -277,7 +290,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         }
 
         function loadSampleData() {
-            const sample = `# Unit 1: Giao tiếp Hàng ngày\nWhere is Jane? | Jane ở đâu vậy?\nThe meeting was brief but very productive | Cuộc họp rất ngắn gọn nhưng hiệu quả\n\n# Unit 2: Công sở & Công việc\nCan I help you with this project? | Tôi có thể giúp bạn dự án này không?\nPlease send me the report by end of day | Vui lòng gửi báo cáo cho tôi trước cuối ngày`;
+            const sample = `# Unit 1: Giao tiếp Hàng ngày\nWhere is Jane? | Jane ở đâu vậy?\nThe meeting was brief but very productive! | Cuộc họp rất ngắn gọn nhưng hiệu quả!\n\n# Unit 2: Công sở & Công việc\nCan I help you with this project? | Tôi có thể giúp bạn dự án này không?\nPlease send me the report by end of day. | Vui lòng gửi báo cáo cho tôi trước cuối ngày.`;
             document.getElementById('raw-data').value = sample;
             parseUnits();
         }
@@ -307,7 +320,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 return;
             }
 
-            unitKeys.forEach((unit, idx) => {
+            unitKeys.forEach((unit) => {
                 const label = document.createElement('label');
                 label.className = 'unit-card';
                 label.innerHTML = `<input type="checkbox" value="${unit}" checked> ${unit} (${parsedUnitsData[unit].length} câu)`;
@@ -315,14 +328,24 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             });
         }
 
-        // LOGIC HỌC & BÁO CÁO KẾT QUẢ
+        // HÀM BỎ QUA DẤU CÂU & CHUYỂN THƯỜNG
+        function cleanWord(word) {
+            return word.toLowerCase().replace(/[^a-z0-9]/gi, '');
+        }
+
+        function cleanSentenceWords(text) {
+            return text.trim().split(/\s+/).map(w => cleanWord(w)).filter(w => w.length > 0);
+        }
+
+        // LOGIC HỌC & BÁO CÁO KẾT QUẢ CHUẨN XÁC
         let items = [];
         let currentIndex = 0;
         let englishVoices = [];
-        let wordState = [];
         
-        let stats = { correctFirstTry: 0, errors: [] };
-        let isFirstCheck = true;
+        let hasMadeErrorCurrentQuestion = false;
+        let correctFirstTryCount = 0;
+        let failedItemsList = [];
+        let isRetryMode = false;
 
         function loadVoices() {
             if ('speechSynthesis' in window) {
@@ -384,7 +407,9 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             if (items.length === 0) return alert("Không có dữ liệu câu để học!");
 
             shuffleArray(items);
-            stats = { correctFirstTry: 0, errors: [] };
+            correctFirstTryCount = 0;
+            failedItemsList = [];
+            isRetryMode = false;
 
             document.getElementById('setup-section').classList.add('hidden');
             document.getElementById('summary-section').classList.add('hidden');
@@ -396,7 +421,8 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
         function loadQuestion(index) {
             const current = items[index];
-            isFirstCheck = true;
+            hasMadeErrorCurrentQuestion = false;
+
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
             document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
             document.getElementById('text-vi').classList.add('hidden-content');
@@ -406,10 +432,9 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             inputEl.className = 'user-textarea';
             inputEl.disabled = false;
 
-            document.getElementById('status-msg').classList.remove('active');
-
-            const targetWords = current.en.split(' ');
-            wordState = targetWords.map(() => false);
+            const statusMsg = document.getElementById('status-msg');
+            statusMsg.classList.remove('active', 'error-text');
+            statusMsg.innerText = '✔ You are correct!';
 
             renderPronunciationWords();
             playAudio();
@@ -417,18 +442,33 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         }
 
         function renderPronunciationWords() {
+            const showImmediately = document.getElementById('show-immediately').checked;
+            const showFull = document.getElementById('show-full').checked;
             const wordsContainer = document.getElementById('pronunciation-words');
             wordsContainer.innerHTML = '';
-            const targetWords = items[currentIndex].en.split(' ');
 
-            targetWords.forEach((w, idx) => {
+            const targetSentence = items[currentIndex].en;
+            const targetWordsRaw = targetSentence.split(/\s+/);
+            const cleanUserWords = cleanSentenceWords(document.getElementById('user-input').value);
+
+            targetWordsRaw.forEach((w, idx) => {
                 const span = document.createElement('span');
                 span.className = 'word-underline';
-                if (wordState[idx]) {
+                const cleanTarget = cleanWord(w);
+
+                if (showFull) {
                     span.innerText = w;
                     span.classList.add('revealed-word');
+                } else if (showImmediately && idx < cleanUserWords.length) {
+                    if (cleanUserWords[idx] === cleanTarget) {
+                        span.innerText = w;
+                        span.classList.add('revealed-word');
+                    } else {
+                        span.innerText = cleanUserWords[idx];
+                        span.classList.add('wrong-word');
+                    }
                 } else {
-                    const cleanLen = w.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"").length;
+                    const cleanLen = cleanTarget.length;
                     span.innerText = '*'.repeat(cleanLen || 1);
                     span.classList.add('hidden-content');
                 }
@@ -441,24 +481,16 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             const inputEl = e.target;
             const targetSentence = items[currentIndex].en;
             
-            const cleanUser = userInput.trim().toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
-            const cleanTarget = targetSentence.toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
-
-            const userWords = cleanUser.split(/\s+/).filter(w => w.length > 0);
-            const targetWords = cleanTarget.split(/\s+/).filter(w => w.length > 0);
+            const userWords = cleanSentenceWords(userInput);
+            const targetWords = cleanSentenceWords(targetSentence);
 
             let hasError = false;
-
             for (let i = 0; i < userWords.length; i++) {
                 if (i >= targetWords.length) { hasError = true; break; }
                 if (i === userWords.length - 1 && !userInput.endsWith(' ')) {
                     if (!targetWords[i].startsWith(userWords[i])) hasError = true;
                 } else {
-                    if (userWords[i] !== targetWords[i]) {
-                        hasError = true;
-                    } else {
-                        if (i < wordState.length) wordState[i] = true;
-                    }
+                    if (userWords[i] !== targetWords[i]) hasError = true;
                 }
             }
 
@@ -466,21 +498,20 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
             if (hasError) {
                 inputEl.className = 'user-textarea has-error';
-                if (isFirstCheck) {
-                    stats.errors.push(items[currentIndex]);
-                    isFirstCheck = false;
-                }
-            } else if (cleanUser === cleanTarget) {
+                hasMadeErrorCurrentQuestion = true;
+            } else if (userWords.length === targetWords.length && userWords.every((val, index) => val === targetWords[index])) {
                 inputEl.className = 'user-textarea is-correct';
-                wordState = wordState.map(() => true);
-                renderPronunciationWords();
                 revealAnswer();
-                document.getElementById('status-msg').classList.add('active');
+                
+                const statusMsg = document.getElementById('status-msg');
+                statusMsg.innerText = '✔ You are correct!';
+                statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
 
-                if (isFirstCheck) {
-                    stats.correctFirstTry++;
-                    isFirstCheck = false;
+                if (!hasMadeErrorCurrentQuestion) {
+                    correctFirstTryCount++;
+                } else {
+                    failedItemsList.push(items[currentIndex]);
                 }
             } else {
                 inputEl.className = 'user-textarea';
@@ -509,16 +540,27 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         function checkAnswer() {
             revealAnswer();
             const inputEl = document.getElementById('user-input');
-            const cleanUser = inputEl.value.trim().toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
-            const cleanTarget = items[currentIndex].en.toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
+            const userWords = cleanSentenceWords(inputEl.value);
+            const targetWords = cleanSentenceWords(items[currentIndex].en);
 
-            if (cleanUser === cleanTarget) {
+            const statusMsg = document.getElementById('status-msg');
+
+            if (userWords.length === targetWords.length && userWords.every((val, index) => val === targetWords[index])) {
                 inputEl.className = 'user-textarea is-correct';
-                document.getElementById('status-msg').classList.add('active');
+                statusMsg.innerText = '✔ You are correct!';
+                statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
-            } else if (isFirstCheck) {
-                stats.errors.push(items[currentIndex]);
-                isFirstCheck = false;
+
+                if (!hasMadeErrorCurrentQuestion) {
+                    correctFirstTryCount++;
+                } else {
+                    failedItemsList.push(items[currentIndex]);
+                }
+            } else {
+                inputEl.className = 'user-textarea has-error';
+                statusMsg.innerText = '✖ Incorrect!';
+                statusMsg.className = 'status-message active error-text';
+                hasMadeErrorCurrentQuestion = true;
             }
         }
 
@@ -526,23 +568,26 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             const current = items[currentIndex];
             document.getElementById('text-vi').innerText = current.vi || 'Chưa có bản dịch';
             document.getElementById('text-vi').classList.remove('hidden-content');
-            wordState = wordState.map(() => true);
+            document.getElementById('show-full').checked = true;
             renderPronunciationWords();
         }
 
         function skipCurrent() {
-            if (isFirstCheck) {
-                stats.errors.push(items[currentIndex]);
-                isFirstCheck = false;
+            if (!failedItemsList.includes(items[currentIndex])) {
+                failedItemsList.push(items[currentIndex]);
             }
             document.getElementById('user-input').value = items[currentIndex].en;
             document.getElementById('user-input').className = 'user-textarea is-correct';
             revealAnswer();
-            document.getElementById('status-msg').classList.add('active');
+            
+            const statusMsg = document.getElementById('status-msg');
+            statusMsg.innerText = '⏩ Skipped';
+            statusMsg.className = 'status-message active error-text';
             document.getElementById('user-input').disabled = true;
         }
 
         function nextQuestion() {
+            document.getElementById('show-full').checked = false;
             if (currentIndex < items.length - 1) {
                 currentIndex++;
                 loadQuestion(currentIndex);
@@ -556,40 +601,55 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             document.getElementById('summary-section').classList.remove('hidden');
 
             const total = items.length;
-            const accuracy = Math.round((stats.correctFirstTry / total) * 100);
 
-            document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-            document.getElementById('stats-detail').innerText = `Đúng lần đầu: ${stats.correctFirstTry}/${total} câu | Sai/Bỏ qua: ${stats.errors.length} câu`;
+            if (isRetryMode) {
+                // Tiêu đề khi làm xong chế độ ôn lại câu sai
+                document.getElementById('summary-title').innerText = "🏆 Xuất sắc! Bạn đã ôn tập xong các câu chưa thuộc!";
+                document.getElementById('accuracy-label').innerText = "Số câu đã hoàn thành xuất sắc:";
+                document.getElementById('accuracy-score').innerText = "100%";
+                document.getElementById('stats-detail').innerText = `Đã chinh phục thành công ${total} câu từng gõ sai/skip!`;
 
-            const errorContainer = document.getElementById('error-container');
-            const errorList = document.getElementById('error-list-items');
-            const retryBtn = document.getElementById('retry-errors-btn');
-
-            if (stats.errors.length > 0) {
-                errorList.innerHTML = '';
-                // Lọc trùng câu sai
-                const uniqueErrors = Array.from(new Set(stats.errors.map(a => a.en)))
-                    .map(en => stats.errors.find(a => a.en === en));
-
-                stats.errors = uniqueErrors;
-
-                stats.errors.forEach(err => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<strong>${err.en}</strong> (${err.vi || 'Chưa có bản dịch'})`;
-                    errorList.appendChild(li);
-                });
-                errorContainer.classList.remove('hidden');
-                retryBtn.classList.remove('hidden');
+                document.getElementById('error-container').classList.add('hidden');
+                document.getElementById('retry-errors-btn').classList.add('hidden');
             } else {
-                errorContainer.classList.add('hidden');
-                retryBtn.classList.add('hidden');
+                // Tiêu đề lần học đầu tiên
+                document.getElementById('summary-title').innerText = "🎉 Hoàn thành bài học!";
+                document.getElementById('accuracy-label').innerText = "Tỉ lệ chính xác lần đầu của bạn:";
+                const accuracy = Math.round((correctFirstTryCount / total) * 100);
+                document.getElementById('accuracy-score').innerText = `${accuracy}%`;
+                document.getElementById('stats-detail').innerText = `Đúng lần đầu: ${correctFirstTryCount}/${total} câu | Cần ôn lại: ${failedItemsList.length} câu`;
+
+                const errorContainer = document.getElementById('error-container');
+                const errorList = document.getElementById('error-list-items');
+                const retryBtn = document.getElementById('retry-errors-btn');
+
+                if (failedItemsList.length > 0) {
+                    errorList.innerHTML = '';
+                    const uniqueErrors = Array.from(new Set(failedItemsList.map(a => a.en)))
+                        .map(en => failedItemsList.find(a => a.en === en));
+
+                    failedItemsList = uniqueErrors;
+
+                    failedItemsList.forEach(err => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${err.en}</strong> (${err.vi || 'Chưa có bản dịch'})`;
+                        errorList.appendChild(li);
+                    });
+                    errorContainer.classList.remove('hidden');
+                    retryBtn.classList.remove('hidden');
+                } else {
+                    errorContainer.classList.add('hidden');
+                    retryBtn.classList.add('hidden');
+                }
             }
         }
 
         function retryErrorsOnly() {
-            items = [...stats.errors];
+            items = [...failedItemsList];
             shuffleArray(items);
-            stats = { correctFirstTry: 0, errors: [] };
+            correctFirstTryCount = 0;
+            failedItemsList = [];
+            isRetryMode = true;
 
             document.getElementById('summary-section').classList.add('hidden');
             document.getElementById('dictation-app').classList.remove('hidden');
@@ -600,6 +660,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
         function backToSetup() {
             document.getElementById('summary-section').classList.add('hidden');
+            document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('setup-section').classList.remove('hidden');
         }
 
