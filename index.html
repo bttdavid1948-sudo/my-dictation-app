@@ -14,15 +14,26 @@
         body { background-color: #f8f9fa; color: #333; padding: 15px; max-width: 1000px; margin: 0 auto; }
         
         .auth-bar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .user-profile { display: flex; align-items: center; gap: 10px; }
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; }
+        .user-profile { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .user-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #2563eb; }
 
         .setup-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
-        textarea.data-input { width: 100%; height: 130px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; font-size: 14px; }
+        
+        .tab-menu { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; }
+        .tab-btn { background: none; border: none; font-weight: bold; padding: 6px 12px; cursor: pointer; color: #6c757d; border-radius: 4px; }
+        .tab-btn.active { background: #e7f1ff; color: #0d6efd; }
+
+        .input-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 10px; }
+        @media (min-width: 600px) { .input-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .form-input { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 6px; font-size: 14px; }
+
+        .preview-box { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px; max-height: 180px; overflow-y: auto; margin: 12px 0; font-size: 13px; }
+        .preview-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #e9ecef; }
+        .preview-item:last-child { border-bottom: none; }
 
         .unit-list-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; max-height: 150px; overflow-y: auto; padding: 10px; background: #f1f3f5; border-radius: 6px; }
         .unit-card { background: #fff; border: 1px solid #ced4da; padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
-        .unit-card input { cursor: pointer; }
 
         .dictation-container { display: grid; grid-template-columns: 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         @media (min-width: 768px) { .dictation-container { grid-template-columns: 1fr 1fr; padding: 24px; } }
@@ -61,65 +72,107 @@
         .summary-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
         .score-badge { font-size: 36px; font-weight: bold; color: #0f8a5f; margin: 10px 0; }
         .error-list { text-align: left; background: #fff5f5; padding: 12px; border-radius: 6px; border: 1px solid #ffe3e3; margin: 15px 0; max-height: 200px; overflow-y: auto; font-size: 14px; }
+
+        /* MODAL MY PROFILE */
+        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 90%; max-width: 450px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-    <!-- THANH ĐĂNG NHẬP -->
+    <!-- THANH HEADER & USER -->
     <div class="auth-bar">
-        <div style="font-weight: bold; color: #2563eb;">Dictation Cloud MVP</div>
+        <div style="font-weight: bold; color: #2563eb; font-size: 18px;">Dictation Cloud MVP</div>
         <div id="auth-container">
             <button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>
         </div>
     </div>
 
-    <!-- KHU VỰC CẤU HÌNH & NHẬP LIỆU -->
+    <!-- KHU VỰC TẠO & QUẢN LÝ BÀI HỌC -->
     <div id="setup-section" class="setup-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <h2 style="margin:0;">Nhập danh sách câu của bạn</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h2 style="margin:0; font-size: 20px;">📂 Quản lý Bài học & Unit</h2>
             <div>
-                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Dán bài mẫu</button>
+                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Bài mẫu để bạn làm quen công cụ</button>
                 <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải dữ liệu cũ</button>
             </div>
         </div>
-        <p style="font-size: 13px; color: #666; margin-top:0;">Dùng ký hiệu <code># Tên Unit</code> để phân chia bài học. Cú pháp: <code>Câu tiếng Anh | Bản dịch tiếng Việt</code></p>
-        
-        <textarea id="raw-data" class="data-input" oninput="parseUnits()" placeholder="Ví dụ:&#10;# Unit 1: Du lịch&#10;Where is Jane? | Jane ở đâu vậy?&#10;&#10;# Unit 2: Công sở&#10;The meeting was brief | Cuộc họp rất ngắn gọn"></textarea>
-        
-        <div style="font-weight: bold; font-size: 14px; margin-top: 5px;">Chọn Unit muốn học:</div>
+
+        <!-- 1. CHỌN HOẶC TẠO UNIT -->
+        <div style="background: #f1f3f5; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+            <label style="font-weight: bold; font-size: 14px;">1️⃣ Chọn Unit cần làm việc:</label>
+            <div style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap;">
+                <select id="unit-select" class="form-input" style="flex: 1; min-width: 200px;" onchange="onUnitSelectChange()">
+                    <option value="">-- Tạo Unit mới --</option>
+                </select>
+                <input type="text" id="new-unit-name" class="form-input" placeholder="Nhập tên Unit mới (Ví dụ: Unit 1 - Giao tiếp)" style="flex: 1; min-width: 200px;">
+            </div>
+        </div>
+
+        <!-- 2. TAB PHƯƠNG THỨC THÊM CÂU -->
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="switchTab('tab-manual', this)">✏️ Nhập 2 ô song song</button>
+            <button class="tab-btn" onclick="switchTab('tab-file', this)">📁 Nạp từ File CSV (Excel)</button>
+            <button class="tab-btn" onclick="switchTab('tab-raw', this)">📋 Dán văn bản nhanh</button>
+        </div>
+
+        <!-- TAB 1: NHẬP TAY 2 Ô SONG SONG -->
+        <div id="tab-manual" class="tab-content">
+            <div class="input-grid">
+                <div>
+                    <label style="font-size: 13px; font-weight: bold;">Câu Tiếng Anh:</label>
+                    <input type="text" id="input-en" class="form-input" placeholder="Where is Jane?">
+                </div>
+                <div>
+                    <label style="font-size: 13px; font-weight: bold;">Bản dịch Tiếng Việt:</label>
+                    <input type="text" id="input-vi" class="form-input" placeholder="Jane ở đâu vậy?">
+                </div>
+            </div>
+            <button class="btn btn-note" onclick="addSingleSentence()" style="width: 100%; margin-bottom: 10px; background: #e2e8f0;">➕ Thêm câu này vào Unit</button>
+        </div>
+
+        <!-- TAB 2: NẠP FILE CSV -->
+        <div id="tab-file" class="tab-content hidden">
+            <div style="border: 2px dashed #ced4da; padding: 15px; text-align: center; border-radius: 8px; background: #fafafa;">
+                <p style="margin: 0 0 10px 0; font-size: 13px; color: #555;">Tải lên file <strong>.csv</strong> có 2 cột: <strong>Cột A (Tiếng Anh)</strong> và <strong>Cột B (Tiếng Việt)</strong></p>
+                <input type="file" id="csv-file-input" accept=".csv" onchange="handleCSVUpload(event)">
+            </div>
+        </div>
+
+        <!-- TAB 3: DÁN VĂN BẢN NHANH -->
+        <div id="tab-raw" class="tab-content hidden">
+            <textarea id="raw-text-input" class="form-input" style="height: 100px;" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief | Cuộc họp rất ngắn gọn"></textarea>
+            <button class="btn btn-note" onclick="addRawText()" style="width: 100%; margin-top: 5px;">➕ Dán vào Unit</button>
+        </div>
+
+        <!-- XEM TRƯỚC DANH SÁCH CÂU TRONG UNIT DANG CHỌN -->
+        <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">Danh sách câu trong Unit hiện tại (<span id="current-unit-count">0</span> câu):</div>
+        <div id="preview-list" class="preview-box">
+            <i style="color: #888;">Chưa có câu nào trong Unit này...</i>
+        </div>
+
+        <!-- CHỌN UNIT MUỐN HỌC -->
+        <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">☑ Tích chọn các Unit muốn đưa vào bài học:</div>
         <div id="unit-selector" class="unit-list-container">
-            <i style="color: #888; font-size: 13px;">Hãy nhập câu hoặc dán bài mẫu để chọn Unit...</i>
+            <i style="color: #888; font-size: 13px;">Hãy tạo Unit hoặc dán bài mẫu...</i>
         </div>
 
-        <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
-            <button class="btn btn-next" onclick="startApp()">🚀 Bắt đầu học (Các Unit đã chọn)</button>
+        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+            <button class="btn btn-next" onclick="startApp()" style="font-size: 15px; padding: 10px 18px;">🚀 Bắt đầu học (Các Unit đã chọn)</button>
             <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu toàn bộ lên tài khoản</button>
-            <button id="append-cloud-btn" class="btn btn-note hidden" onclick="appendToCloud()">➕ Nạp thêm câu mới vào bài cũ</button>
         </div>
 
-        <!-- KHU VỰC PROMPT AI TẶNG KÈM -->
-        <details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <!-- PROMPT AI TẶNG KÈM -->
+        <details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 20px;">
           <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 15px;">
             🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & copy)
           </summary>
-          
           <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
-            <p style="margin-bottom: 10px; color: #555;">Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:</p>
-
-            <div style="margin-bottom: 12px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
-              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel</div>
-              <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; max-height: 120px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
-
-A. Nhập từ vựng: Tôi có thể gửi một từ/cụm từ hoặc danh sách. Phân tích: Vocabulary, Từ loại, IPA, Word family, definition (en/vi), Phrases, Example 1, Example 2, Synonyms, Antonyms.
-B. Kết quả: Xuất bảng & File Excel (.xlsx) 11 cột.
-C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
-              <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt 1</button>
-            </div>
-
-            <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
-              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">2. Prompt Trích xuất câu từ file Excel dán vào App</div>
-              <pre id="prompt2" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
-              <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt 2</button>
+            <p style="margin-bottom: 10px; color: #555;">Dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo file Excel/CSV chuẩn 2 cột bài học:</p>
+            <div style="margin-bottom: 10px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px;">
+              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">Prompt Tạo câu ví dụ 2 cột xuất Excel/CSV</div>
+              <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0;">Hãy tạo cho tôi 10 câu tiếng Anh ngắn về chủ đề [Đi du lịch/Công sở] kèm bản dịch tiếng Việt. Xuất ra 2 cột chuẩn Excel/CSV: Cột 1 là Câu tiếng Anh, Cột 2 là Bản dịch tiếng Việt (Không đánh số thứ tự).</pre>
+              <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt</button>
             </div>
           </div>
         </details>
@@ -179,7 +232,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         </div>
     </div>
 
-    <!-- MÀN HÌNH BÁO CÁO BẢNG ĐIỂM KẾT QUẢ -->
+    <!-- MÀN HÌNH KẾT QUẢ -->
     <div id="summary-section" class="summary-card hidden">
         <h2 id="summary-title">🎉 Hoàn thành bài học!</h2>
         <div id="accuracy-label" style="font-size: 16px; color: #555;">Tỉ lệ hoàn thành đúng của bạn:</div>
@@ -194,6 +247,28 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
             <button class="btn btn-next" onclick="backToSetup()">🏠 Về trang chọn Unit</button>
+        </div>
+    </div>
+
+    <!-- MODAL MY PROFILE -->
+    <div id="profile-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 style="margin-top:0; font-size: 20px;">👤 Hồ sơ cá nhân (My Profile)</h2>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; font-weight: bold;">Biệt danh (Nickname):</label>
+                <input type="text" id="profile-nickname" class="form-input" style="margin-top: 4px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 13px; font-weight: bold;">Mục tiêu / Châm ngôn sống:</label>
+                <input type="text" id="profile-motto" class="form-input" placeholder="Luyện nghe 15 phút mỗi ngày!" style="margin-top: 4px;">
+            </div>
+            <div style="margin-bottom: 15px; background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 13px; color: #555;">
+                📊 <strong>Thống kê:</strong> Tổng số Unit đã tạo: <span id="stat-unit-count">0</span>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-note" onclick="closeProfileModal()">Hủy</button>
+                <button class="btn btn-check" onclick="saveUserProfile()">💾 Lưu hồ sơ</button>
+            </div>
         </div>
     </div>
 
@@ -213,7 +288,8 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         const db = firebase.firestore();
 
         let currentUser = null;
-        let parsedUnitsData = {};
+        let unitsData = {}; 
+        let userProfileData = { nickname: '', motto: '' };
 
         function loginWithGoogle() {
             const provider = new firebase.auth.GoogleAuthProvider();
@@ -226,120 +302,258 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             currentUser = user;
             const authContainer = document.getElementById('auth-container');
             const saveBtn = document.getElementById('save-cloud-btn');
-            const appendBtn = document.getElementById('append-cloud-btn');
             const loadBtn = document.getElementById('load-cloud-btn');
 
             if (user) {
                 authContainer.innerHTML = `
-                    <div class="user-profile">
-                        <img class="user-avatar" src="${user.photoURL}" alt="avatar">
-                        <span style="font-size: 14px;">${user.displayName}</span>
-                        <button class="btn btn-note" style="padding: 4px 8px;" onclick="logout()">Đăng xuất</button>
+                    <div class="user-profile" onclick="openProfileModal()">
+                        <img class="user-avatar" id="header-avatar" src="${user.photoURL}" alt="avatar">
+                        <span id="header-name" style="font-size: 14px; font-weight: bold;">${user.displayName}</span>
+                        <button class="btn btn-note" style="padding: 4px 8px; font-size: 12px;" onclick="event.stopPropagation(); logout()">Đăng xuất</button>
                     </div>
                 `;
                 saveBtn.classList.remove('hidden');
-                appendBtn.classList.remove('hidden');
                 loadBtn.classList.remove('hidden');
                 loadFromCloud();
+                loadUserProfile();
             } else {
                 authContainer.innerHTML = `<button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>`;
                 saveBtn.classList.add('hidden');
-                appendBtn.classList.add('hidden');
                 loadBtn.classList.add('hidden');
             }
         });
 
-        function saveToCloud() {
-            if (!currentUser) return;
-            const rawData = document.getElementById('raw-data').value;
-            db.collection('user_vocab').doc(currentUser.uid).set({
-                data: rawData,
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => alert("☁️ Đã lưu toàn bộ dữ liệu bài học lên tài khoản!"))
-            .catch(err => alert("Lỗi khi lưu: " + err.message));
+        // TẢI & LƯU HỒ SƠ MY PROFILE
+        function openProfileModal() {
+            document.getElementById('profile-nickname').value = userProfileData.nickname || currentUser.displayName;
+            document.getElementById('profile-motto').value = userProfileData.motto || '';
+            document.getElementById('stat-unit-count').innerText = Object.keys(unitsData).length;
+            document.getElementById('profile-modal').classList.remove('hidden');
         }
 
-        function appendToCloud() {
-            if (!currentUser) return;
-            const newData = document.getElementById('raw-data').value.trim();
-            if (!newData) return alert("Vui lòng nhập thêm câu mới vào khung!");
+        function closeProfileModal() { document.getElementById('profile-modal').classList.add('hidden'); }
 
-            db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
-                let existingData = doc.exists && doc.data().data ? doc.data().data : '';
-                let updatedData = existingData ? existingData + "\n\n" + newData : newData;
-                
-                db.collection('user_vocab').doc(currentUser.uid).set({
-                    data: updatedData,
-                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => {
-                    document.getElementById('raw-data').value = updatedData;
-                    parseUnits();
-                    alert("➕ Đã nạp nối tiếp câu mới vào dữ liệu cũ!");
-                });
+        function saveUserProfile() {
+            if (!currentUser) return;
+            const nickname = document.getElementById('profile-nickname').value.trim();
+            const motto = document.getElementById('profile-motto').value.trim();
+
+            db.collection('users_profile').doc(currentUser.uid).set({
+                nickname: nickname,
+                motto: motto,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                userProfileData = { nickname, motto };
+                document.getElementById('header-name').innerText = nickname;
+                closeProfileModal();
+                alert("👤 Đã cập nhật Hồ sơ cá nhân!");
             });
+        }
+
+        function loadUserProfile() {
+            if (!currentUser) return;
+            db.collection('users_profile').doc(currentUser.uid).get().then(doc => {
+                if (doc.exists) {
+                    userProfileData = doc.data();
+                    if (userProfileData.nickname) {
+                        document.getElementById('header-name').innerText = userProfileData.nickname;
+                    }
+                }
+            });
+        }
+
+        // QUẢN LÝ UNIT & CÂU HỎI
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.remove('hidden');
+            btn.classList.add('active');
+        }
+
+        function getActiveUnitName() {
+            const selectVal = document.getElementById('unit-select').value;
+            const newName = document.getElementById('new-unit-name').value.trim();
+            return selectVal || newName || "Unit Mặc Định";
+        }
+
+        function addSingleSentence() {
+            const en = document.getElementById('input-en').value.trim();
+            const vi = document.getElementById('input-vi').value.trim();
+            if (!en) return alert("Vui lòng nhập câu tiếng Anh!");
+
+            const unitName = getActiveUnitName();
+            if (!unitsData[unitName]) unitsData[unitName] = [];
+
+            unitsData[unitName].push({ en, vi });
+            document.getElementById('input-en').value = '';
+            document.getElementById('input-vi').value = '';
+            
+            updateUnitDropdown();
+            renderUnitSelector();
+            renderCurrentUnitPreview();
+        }
+
+        function handleCSVUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const text = evt.target.result;
+                const lines = text.split('\n');
+                const unitName = getActiveUnitName();
+                if (!unitsData[unitName]) unitsData[unitName] = [];
+
+                lines.forEach(line => {
+                    const parts = line.split(',');
+                    if (parts.length >= 1) {
+                        const en = parts[0].replace(/"/g, '').trim();
+                        const vi = parts[1] ? parts[1].replace(/"/g, '').trim() : '';
+                        if (en) unitsData[unitName].push({ en, vi });
+                    }
+                });
+
+                updateUnitDropdown();
+                renderUnitSelector();
+                renderCurrentUnitPreview();
+                alert(`📁 Đã nạp thành công từ file CSV vào ${unitName}!`);
+            };
+            reader.readAsText(file);
+        }
+
+        function addRawText() {
+            const raw = document.getElementById('raw-text-input').value.trim();
+            if (!raw) return;
+
+            const unitName = getActiveUnitName();
+            if (!unitsData[unitName]) unitsData[unitName] = [];
+
+            raw.split('\n').forEach(line => {
+                if (line.includes('|')) {
+                    const p = line.split('|');
+                    unitsData[unitName].push({ en: p[0].trim(), vi: p[1].trim() });
+                } else if (line.trim()) {
+                    unitsData[unitName].push({ en: line.trim(), vi: '' });
+                }
+            });
+
+            document.getElementById('raw-text-input').value = '';
+            updateUnitDropdown();
+            renderUnitSelector();
+            renderCurrentUnitPreview();
+        }
+
+        function onUnitSelectChange() {
+            const selectVal = document.getElementById('unit-select').value;
+            if (selectVal) document.getElementById('new-unit-name').value = '';
+            renderCurrentUnitPreview();
+        }
+
+        function updateUnitDropdown() {
+            const select = document.getElementById('unit-select');
+            const currentVal = select.value;
+            select.innerHTML = '<option value="">-- Tạo Unit mới --</option>';
+
+            Object.keys(unitsData).forEach(u => {
+                const opt = document.createElement('option');
+                opt.value = u;
+                opt.innerText = `${u} (${unitsData[u].length} câu)`;
+                if (u === currentVal) opt.selected = true;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderCurrentUnitPreview() {
+            const unitName = getActiveUnitName();
+            const previewBox = document.getElementById('preview-list');
+            const countLabel = document.getElementById('current-unit-count');
+            
+            const list = unitsData[unitName] || [];
+            countLabel.innerText = list.length;
+
+            if (list.length === 0) {
+                previewBox.innerHTML = '<i style="color: #888;">Chưa có câu nào trong Unit này...</i>';
+                return;
+            }
+
+            previewBox.innerHTML = '';
+            list.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                div.innerHTML = `<span><strong>${idx+1}. ${item.en}</strong> (${item.vi || 'Chưa dịch'})</span> <button onclick="deleteSentence('${unitName}', ${idx})" style="color:red; border:none; background:none; cursor:pointer;">❌</button>`;
+                previewBox.appendChild(div);
+            });
+        }
+
+        function deleteSentence(unitName, idx) {
+            unitsData[unitName].splice(idx, 1);
+            renderCurrentUnitPreview();
+            renderUnitSelector();
+        }
+
+        function renderUnitSelector() {
+            const selector = document.getElementById('unit-selector');
+            selector.innerHTML = '';
+
+            const keys = Object.keys(unitsData);
+            if (keys.length === 0) {
+                selector.innerHTML = '<i style="color: #888; font-size: 13px;">Hãy tạo Unit hoặc dán bài mẫu...</i>';
+                return;
+            }
+
+            keys.forEach(u => {
+                const label = document.createElement('label');
+                label.className = 'unit-card';
+                label.innerHTML = `<input type="checkbox" value="${u}" checked> ${u} (${unitsData[u].length} câu)`;
+                selector.appendChild(label);
+            });
+        }
+
+        // ĐỒNG BỘ FIRESTORE
+        function saveToCloud() {
+            if (!currentUser) return;
+            db.collection('user_vocab').doc(currentUser.uid).set({
+                units: JSON.stringify(unitsData),
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => alert("☁️ Đã lưu toàn bộ Unit bài học lên đám mây!"))
+            .catch(err => alert("Lỗi khi lưu: " + err.message));
         }
 
         function loadFromCloud() {
             if (!currentUser) return;
             db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
-                if (doc.exists && doc.data().data) {
-                    document.getElementById('raw-data').value = doc.data().data;
-                    parseUnits();
+                if (doc.exists && doc.data().units) {
+                    unitsData = JSON.parse(doc.data().units);
+                    updateUnitDropdown();
+                    renderUnitSelector();
+                    renderCurrentUnitPreview();
                 }
             });
         }
 
         function loadSampleData() {
-            const sample = `# Unit 1: Giao tiếp Hàng ngày\nWhere is Jane? | Jane ở đâu vậy?\nThe meeting was brief but very productive! | Cuộc họp rất ngắn gọn nhưng hiệu quả!\n\n# Unit 2: Công sở & Công việc\nCan I help you with this project? | Tôi có thể giúp bạn dự án này không?\nPlease send me the report by end of day. | Vui lòng gửi báo cáo cho tôi trước cuối ngày.`;
-            document.getElementById('raw-data').value = sample;
-            parseUnits();
+            unitsData = {
+                "Unit 1: Giao tiếp Hàng ngày": [
+                    { en: "Where is Jane?", vi: "Jane ở đâu vậy?" },
+                    { en: "The meeting was brief but very productive!", vi: "Cuộc họp rất ngắn gọn nhưng hiệu quả!" }
+                ],
+                "Unit 2: Công sở & Công việc": [
+                    { en: "Can I help you with this project?", vi: "Tôi có thể giúp bạn dự án này không?" },
+                    { en: "Please send me the report by end of day.", vi: "Vui lòng gửi báo cáo cho tôi trước cuối ngày." }
+                ]
+            };
+            updateUnitDropdown();
+            renderUnitSelector();
+            renderCurrentUnitPreview();
         }
 
-        function parseUnits() {
-            const text = document.getElementById('raw-data').value;
-            const lines = text.split('\n');
-            parsedUnitsData = {};
-            let currentUnit = "Mặc định (Chưa phân Unit)";
+        function cleanWord(word) { return word.toLowerCase().replace(/[^a-z0-9]/gi, ''); }
+        function cleanSentenceWords(text) { return text.trim().split(/\s+/).map(w => cleanWord(w)).filter(w => w.length > 0); }
 
-            lines.forEach(line => {
-                const trimmed = line.trim();
-                if (trimmed.startsWith('#')) {
-                    currentUnit = trimmed.replace('#', '').trim();
-                } else if (trimmed) {
-                    if (!parsedUnitsData[currentUnit]) parsedUnitsData[currentUnit] = [];
-                    parsedUnitsData[currentUnit].push(trimmed);
-                }
-            });
-
-            const selector = document.getElementById('unit-selector');
-            selector.innerHTML = '';
-
-            const unitKeys = Object.keys(parsedUnitsData);
-            if (unitKeys.length === 0) {
-                selector.innerHTML = '<i style="color: #888; font-size: 13px;">Hãy nhập câu hoặc dán bài mẫu để chọn Unit...</i>';
-                return;
-            }
-
-            unitKeys.forEach((unit) => {
-                const label = document.createElement('label');
-                label.className = 'unit-card';
-                label.innerHTML = `<input type="checkbox" value="${unit}" checked> ${unit} (${parsedUnitsData[unit].length} câu)`;
-                selector.appendChild(label);
-            });
-        }
-
-        function cleanWord(word) {
-            return word.toLowerCase().replace(/[^a-z0-9]/gi, '');
-        }
-
-        function cleanSentenceWords(text) {
-            return text.trim().split(/\s+/).map(w => cleanWord(w)).filter(w => w.length > 0);
-        }
-
+        // LOGIC HỌC DICTATION
         let items = [];
         let currentIndex = 0;
         let englishVoices = [];
-        
         let correctCount = 0;
         let failedItemsList = [];
         let isQuestionResolved = false;
@@ -352,7 +566,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 voiceSelect.innerHTML = '';
                 if (englishVoices.length === 0) {
                     const opt = document.createElement('option');
-                    opt.innerText = "Giọng tiếng Anh mặc định";
+                    opt.innerText = "Giọng mặc định";
                     voiceSelect.appendChild(opt);
                 } else {
                     englishVoices.forEach((voice, index) => {
@@ -365,10 +579,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 }
             }
         }
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = loadVoices;
-            loadVoices();
-        }
+        if ('speechSynthesis' in window) { window.speechSynthesis.onvoiceschanged = loadVoices; loadVoices(); }
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -377,29 +588,14 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             }
         }
 
-        function parseInputLine(line) {
-            let en = line.trim();
-            let vi = '';
-            const delimiters = ['|', ' - ', ' – ', ':', ', '];
-            for (let delim of delimiters) {
-                if (line.includes(delim)) {
-                    const parts = line.split(delim);
-                    en = parts[0].trim();
-                    vi = parts.slice(1).join(delim).trim();
-                    break;
-                }
-            }
-            return { en, vi };
-        }
-
         function startApp() {
             const checkboxes = document.querySelectorAll('#unit-selector input[type="checkbox"]:checked');
             if (checkboxes.length === 0) return alert("Vui lòng tích chọn ít nhất 1 Unit để học!");
 
             items = [];
             checkboxes.forEach(cb => {
-                const unitLines = parsedUnitsData[cb.value] || [];
-                unitLines.forEach(line => items.push(parseInputLine(line)));
+                const list = unitsData[cb.value] || [];
+                list.forEach(item => items.push(item));
             });
 
             if (items.length === 0) return alert("Không có dữ liệu câu để học!");
@@ -419,7 +615,6 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
         function loadQuestion(index) {
             isQuestionResolved = false;
-
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
             document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
             document.getElementById('text-vi').classList.add('hidden-content');
@@ -584,10 +779,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
         function nextQuestion() {
             document.getElementById('show-full').checked = false;
-            // Nếu người dùng bấm Next mà chưa xong câu, mặc định tính là Skip
-            if (!isQuestionResolved) {
-                skipCurrent();
-            }
+            if (!isQuestionResolved) skipCurrent();
 
             if (currentIndex < items.length - 1) {
                 currentIndex++;
