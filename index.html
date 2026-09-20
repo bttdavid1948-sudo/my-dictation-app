@@ -182,12 +182,12 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
     <!-- MÀN HÌNH BÁO CÁO BẢNG ĐIỂM KẾT QUẢ -->
     <div id="summary-section" class="summary-card hidden">
         <h2 id="summary-title">🎉 Hoàn thành bài học!</h2>
-        <div id="accuracy-label" style="font-size: 16px; color: #555;">Tỉ lệ chính xác lần đầu của bạn:</div>
+        <div id="accuracy-label" style="font-size: 16px; color: #555;">Tỉ lệ hoàn thành đúng của bạn:</div>
         <div id="accuracy-score" class="score-badge">0%</div>
         <div id="stats-detail" style="font-size: 14px; color: #666;"></div>
 
         <div id="error-container" class="error-list hidden">
-            <strong>📌 Các câu bạn đã làm sai hoặc bỏ qua (Skip):</strong>
+            <strong>📌 Các câu bạn đã bỏ qua (Skip):</strong>
             <ul id="error-list-items" style="margin: 8px 0; padding-left: 20px;"></ul>
         </div>
 
@@ -328,7 +328,6 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             });
         }
 
-        // HÀM BỎ QUA DẤU CÂU & CHUYỂN THƯỜNG
         function cleanWord(word) {
             return word.toLowerCase().replace(/[^a-z0-9]/gi, '');
         }
@@ -337,14 +336,13 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             return text.trim().split(/\s+/).map(w => cleanWord(w)).filter(w => w.length > 0);
         }
 
-        // LOGIC HỌC & BÁO CÁO KẾT QUẢ CHUẨN XÁC
         let items = [];
         let currentIndex = 0;
         let englishVoices = [];
         
-        let hasMadeErrorCurrentQuestion = false;
-        let correctFirstTryCount = 0;
+        let correctCount = 0;
         let failedItemsList = [];
+        let isQuestionResolved = false;
         let isRetryMode = false;
 
         function loadVoices() {
@@ -407,7 +405,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             if (items.length === 0) return alert("Không có dữ liệu câu để học!");
 
             shuffleArray(items);
-            correctFirstTryCount = 0;
+            correctCount = 0;
             failedItemsList = [];
             isRetryMode = false;
 
@@ -420,8 +418,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         }
 
         function loadQuestion(index) {
-            const current = items[index];
-            hasMadeErrorCurrentQuestion = false;
+            isQuestionResolved = false;
 
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
             document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
@@ -498,7 +495,6 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
             if (hasError) {
                 inputEl.className = 'user-textarea has-error';
-                hasMadeErrorCurrentQuestion = true;
             } else if (userWords.length === targetWords.length && userWords.every((val, index) => val === targetWords[index])) {
                 inputEl.className = 'user-textarea is-correct';
                 revealAnswer();
@@ -508,10 +504,9 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
 
-                if (!hasMadeErrorCurrentQuestion) {
-                    correctFirstTryCount++;
-                } else {
-                    failedItemsList.push(items[currentIndex]);
+                if (!isQuestionResolved) {
+                    correctCount++;
+                    isQuestionResolved = true;
                 }
             } else {
                 inputEl.className = 'user-textarea';
@@ -551,16 +546,14 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
                 statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
 
-                if (!hasMadeErrorCurrentQuestion) {
-                    correctFirstTryCount++;
-                } else {
-                    failedItemsList.push(items[currentIndex]);
+                if (!isQuestionResolved) {
+                    correctCount++;
+                    isQuestionResolved = true;
                 }
             } else {
                 inputEl.className = 'user-textarea has-error';
                 statusMsg.innerText = '✖ Incorrect!';
                 statusMsg.className = 'status-message active error-text';
-                hasMadeErrorCurrentQuestion = true;
             }
         }
 
@@ -573,8 +566,11 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         }
 
         function skipCurrent() {
-            if (!failedItemsList.includes(items[currentIndex])) {
-                failedItemsList.push(items[currentIndex]);
+            if (!isQuestionResolved) {
+                if (!failedItemsList.includes(items[currentIndex])) {
+                    failedItemsList.push(items[currentIndex]);
+                }
+                isQuestionResolved = true;
             }
             document.getElementById('user-input').value = items[currentIndex].en;
             document.getElementById('user-input').className = 'user-textarea is-correct';
@@ -588,6 +584,11 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
 
         function nextQuestion() {
             document.getElementById('show-full').checked = false;
+            // Nếu người dùng bấm Next mà chưa xong câu, mặc định tính là Skip
+            if (!isQuestionResolved) {
+                skipCurrent();
+            }
+
             if (currentIndex < items.length - 1) {
                 currentIndex++;
                 loadQuestion(currentIndex);
@@ -603,21 +604,19 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
             const total = items.length;
 
             if (isRetryMode) {
-                // Tiêu đề khi làm xong chế độ ôn lại câu sai
                 document.getElementById('summary-title').innerText = "🏆 Xuất sắc! Bạn đã ôn tập xong các câu chưa thuộc!";
-                document.getElementById('accuracy-label').innerText = "Số câu đã hoàn thành xuất sắc:";
+                document.getElementById('accuracy-label').innerText = "Số câu hoàn thành:";
                 document.getElementById('accuracy-score').innerText = "100%";
-                document.getElementById('stats-detail').innerText = `Đã chinh phục thành công ${total} câu từng gõ sai/skip!`;
+                document.getElementById('stats-detail').innerText = `Đã chinh phục thành công toàn bộ ${total} câu từng bị Skip!`;
 
                 document.getElementById('error-container').classList.add('hidden');
                 document.getElementById('retry-errors-btn').classList.add('hidden');
             } else {
-                // Tiêu đề lần học đầu tiên
                 document.getElementById('summary-title').innerText = "🎉 Hoàn thành bài học!";
-                document.getElementById('accuracy-label').innerText = "Tỉ lệ chính xác lần đầu của bạn:";
-                const accuracy = Math.round((correctFirstTryCount / total) * 100);
+                document.getElementById('accuracy-label').innerText = "Tỉ lệ hoàn thành đúng của bạn:";
+                const accuracy = Math.round((correctCount / total) * 100);
                 document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-                document.getElementById('stats-detail').innerText = `Đúng lần đầu: ${correctFirstTryCount}/${total} câu | Cần ôn lại: ${failedItemsList.length} câu`;
+                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Đã Skip: ${failedItemsList.length} câu`;
 
                 const errorContainer = document.getElementById('error-container');
                 const errorList = document.getElementById('error-list-items');
@@ -647,7 +646,7 @@ C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
         function retryErrorsOnly() {
             items = [...failedItemsList];
             shuffleArray(items);
-            correctFirstTryCount = 0;
+            correctCount = 0;
             failedItemsList = [];
             isRetryMode = true;
 
