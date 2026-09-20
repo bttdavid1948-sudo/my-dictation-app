@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Dictation MVP - Online Sync</title>
+    <title>Dictation Cloud MVP - Luyện Nghe Chép Chính Tả</title>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
@@ -13,13 +13,16 @@
         * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: #f8f9fa; color: #333; padding: 15px; max-width: 1000px; margin: 0 auto; }
         
-        /* Header Thanh Đăng nhập */
         .auth-bar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .user-profile { display: flex; align-items: center; gap: 10px; }
         .user-avatar { width: 32px; height: 32px; border-radius: 50%; }
 
         .setup-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
-        textarea.data-input { width: 100%; height: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; font-size: 14px; }
+        textarea.data-input { width: 100%; height: 130px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; font-size: 14px; }
+
+        .unit-list-container { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; max-height: 150px; overflow-y: auto; padding: 10px; background: #f1f3f5; border-radius: 6px; }
+        .unit-card { background: #fff; border: 1px solid #ced4da; padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
+        .unit-card input { cursor: pointer; }
 
         .dictation-container { display: grid; grid-template-columns: 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         @media (min-width: 768px) { .dictation-container { grid-template-columns: 1fr 1fr; padding: 24px; } }
@@ -50,11 +53,16 @@
         .hidden-content { color: #a0aec0 !important; letter-spacing: 2px; }
         .select-style { border: 1px solid #ccc; background: #fff; padding: 4px; border-radius: 4px; font-size: 12px; }
         .hidden { display: none !important; }
+
+        /* Bảng tổng kết kết quả */
+        .summary-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+        .score-badge { font-size: 32px; font-weight: bold; color: #0f8a5f; margin: 10px 0; }
+        .error-list { text-align: left; background: #fff5f5; padding: 12px; border-radius: 6px; border: 1px solid #ffe3e3; margin: 15px 0; max-height: 200px; overflow-y: auto; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <!-- THANH ĐĂNG NHẬP / TRẠNG THÁI NGƯỜI DÙNG -->
+    <!-- THANH ĐĂNG NHẬP -->
     <div class="auth-bar">
         <div style="font-weight: bold; color: #2563eb;">Dictation Cloud MVP</div>
         <div id="auth-container">
@@ -62,98 +70,59 @@
         </div>
     </div>
 
-    <!-- KHU VỰC NHẬP CÂU HỎI -->
+    <!-- KHU VỰC CẤU HÌNH & NHẬP LIỆU -->
     <div id="setup-section" class="setup-card">
-        <h2>Nhập danh sách câu của bạn</h2>
-        <p>Định dạng: <code>Câu tiếng Anh | Bản dịch tiếng Việt</code></p>
-        <textarea id="raw-data" class="data-input" placeholder="Where is Jane? | Jane ở đâu vậy?&#10;The meeting was brief but very productive | Cuộc họp ngắn gọn nhưng rất hiệu quả"></textarea>
-        
-        <div style="display: flex; gap: 10px;">
-            <button class="btn btn-next" onclick="startApp()">Bắt đầu học (Random)</button>
-            <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu vào tài khoản</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h2 style="margin:0;">Nhập danh sách câu của bạn</h2>
+            <div>
+                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Dán bài mẫu</button>
+                <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải dữ liệu cũ</button>
+            </div>
         </div>
-        <!-- === KHU VỰC PROMPT AI TẶNG KÈM === -->
-<details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-  <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 15px;">
-    🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & copy)
-  </summary>
-  
-  <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
-    <p style="margin-bottom: 10px; color: #555;">
-      Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:
-    </p>
+        <p style="font-size: 13px; color: #666; margin-top:0;">Dùng ký hiệu <code># Tên Unit</code> để phân chia bài học. Cú pháp: <code>Câu tiếng Anh | Bản dịch tiếng Việt</code></p>
+        
+        <textarea id="raw-data" class="data-input" oninput="parseUnits()" placeholder="Ví dụ:&#10;# Unit 1: Du lịch&#10;Where is Jane? | Jane ở đâu vậy?&#10;&#10;# Unit 2: Công sở&#10;The meeting was brief | Cuộc họp rất ngắn gọn"></textarea>
+        
+        <!-- DANH SÁCH UNIT CHỌN HỌC -->
+        <div style="font-weight: bold; font-size: 14px; margin-top: 5px;">Chọn Unit muốn học:</div>
+        <div id="unit-selector" class="unit-list-container">
+            <i style="color: #888; font-size: 13px;">Hãy nhập câu hoặc dán bài mẫu để chọn Unit...</i>
+        </div>
 
-    <!-- PROMPT 1: LẬP DANH SÁCH TỪ VỰNG -->
-    <div style="margin-bottom: 12px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
-      <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">
-        1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel
-      </div>
-      <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; max-height: 120px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
+        <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+            <button class="btn btn-next" onclick="startApp()">🚀 Bắt đầu học (Các Unit đã chọn)</button>
+            <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu toàn bộ lên tài khoản</button>
+            <button id="append-cloud-btn" class="btn btn-note hidden" onclick="appendToCloud()">➕ Nạp thêm câu mới vào bài cũ</button>
+        </div>
 
-A. Nhập từ vựng
-Tôi có thể gửi một từ/cụm từ hoặc một danh sách nhiều từ/cụm từ.
-Với mỗi từ/cụm từ, hãy phân tích đầy đủ các nội dung:
-Vocabulary, Từ loại, IPA, Word family, definition (in English), definition (in Vietnamese), Phrases, Example 1, Example 2, Synonyms, Antonyms
+        <!-- KHU VỰC PROMPT AI TẶNG KÈM -->
+        <details style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <summary style="font-weight: bold; color: #0d6efd; cursor: pointer; font-size: 15px;">
+            🎁 Bộ Prompt AI tạo bài học & Từ vựng (Bấm để xem & copy)
+          </summary>
+          
+          <div style="margin-top: 12px; font-size: 13px; color: #333; line-height: 1.5;">
+            <p style="margin-bottom: 10px; color: #555;">
+              Sử dụng các câu lệnh bên dưới dán vào <strong>ChatGPT / Gemini</strong> để tự động tạo bài học đúng chuẩn:
+            </p>
 
-B. Kết quả
-Luôn trả kết quả dưới dạng bảng.
-Luôn đồng thời tạo và xuất một file Excel (.xlsx) chứa toàn bộ kết quả.
-Không cần hỏi lại tôi có muốn tạo Excel hay không.
-Nếu tôi gửi nhiều từ, hãy xử lý tất cả các từ trong cùng một bảng và cùng một file Excel.
+            <div style="margin-bottom: 12px; background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
+              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">1. Prompt Lập danh sách từ vựng chi tiết & Xuất Excel</div>
+              <pre id="prompt1" style="background: #f1f3f5; padding: 8px; border-radius: 4px; max-height: 120px; overflow-y: auto; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
 
-C. Quy tắc nội dung
-1. Vocabulary: Ghi chính xác từ/cụm từ mà tôi cung cấp.
-2. Từ loại: Chỉ sử dụng tên từ loại bằng tiếng Anh (Noun, Verb, Adjective, Adverb, Preposition, Conjunction, Pronoun, Determiner, Interjection).
-3. IPA: Cung cấp phiên âm IPA chính xác.
-4. Word family: Liệt kê các từ cùng họ có liên quan (word (n) — nghĩa tiếng Việt).
-5. English meaning: Giải thích nghĩa bằng tiếng Anh rõ ràng, tự nhiên.
-6. Vietnamese meaning: Dịch nghĩa chính xác sang tiếng Việt.
-7. Phrases: Collocations, Expressions, Idioms kèm nghĩa tiếng Việt.
-8. Example 1 và Example 2: Mỗi từ 2 câu ví dụ kèm bản dịch tiếng Việt.
-9. Synonyms: Từ đồng nghĩa kèm nghĩa tiếng Việt.
-10. Antonyms: Từ trái nghĩa kèm nghĩa tiếng Việt.
+A. Nhập từ vựng: Tôi có thể gửi một từ/cụm từ hoặc danh sách. Phân tích: Vocabulary, Từ loại, IPA, Word family, definition (en/vi), Phrases, Example 1, Example 2, Synonyms, Antonyms.
+B. Kết quả: Xuất bảng & File Excel (.xlsx) 11 cột.
+C. Quy tắc: Example 1 & Example 2 kèm bản dịch tiếng Việt.</pre>
+              <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt 1</button>
+            </div>
 
-D. Cấu trúc bảng và Excel
-Sử dụng đúng 11 cột: Vocabulary | Từ loại | IPA | Word family | English meaning | Vietnamese meaning | Phrases | Example 1 | Example 2 | Synonyms | Antonyms
-
-E. Quy tắc định dạng Excel
-Vocabulary, Từ loại, IPA: Căn giữa. Các cột còn lại: Căn phải (ngang), căn giữa (dọc). Bật Wrap Text, Line Break, Header in đậm, Border toàn bộ, AutoFilter, Freeze Panes B2. Tạo file .xlsx hoàn chỉnh và cung cấp link tải.
-
-F. Nguyên tắc chung
-Ưu tiên tính chính xác, tự nhiên. Không bỏ sót từ. Luôn trả về cả bảng kết quả và file Excel.</pre>
-      <button onclick="copyPrompt('prompt1', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">
-        📋 Copy Prompt 1
-      </button>
-    </div>
-
-    <!-- PROMPT 2: LẬP DANH SÁCH CÂU LUYỆN TẬP -->
-    <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
-      <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">
-        2. Prompt Trích xuất câu từ file Excel dán vào App
-      </div>
-      <pre id="prompt2" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
-      <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">
-        📋 Copy Prompt 2
-      </button>
-    </div>
-  </div>
-</details>
-
-<script>
-function copyPrompt(elementId, btn) {
-  const text = document.getElementById(elementId).innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const originalText = btn.innerText;
-    btn.innerText = "✅ Đã sao chép!";
-    btn.style.background = "#198754";
-    setTimeout(() => {
-      btn.innerText = originalText;
-      btn.style.background = "#0d6efd";
-    }, 2000);
-  });
-}
-</script>
-
+            <div style="background: #fff; border: 1px solid #cef; border-radius: 6px; padding: 10px; position: relative;">
+              <div style="font-weight: bold; color: #055160; margin-bottom: 4px;">2. Prompt Trích xuất câu từ file Excel dán vào App</div>
+              <pre id="prompt2" style="background: #f1f3f5; padding: 8px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 1px solid #e9ecef; white-space: pre-wrap; margin: 0;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
+              <button onclick="copyPrompt('prompt2', this)" style="margin-top: 8px; background: #0d6efd; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">📋 Copy Prompt 2</button>
+            </div>
+          </div>
+        </details>
     </div>
 
     <!-- GIAO DIỆN HỌC -->
@@ -196,41 +165,56 @@ function copyPrompt(elementId, btn) {
         </div>
     </div>
 
-    <script>
-        // --- 1. CẤU HÌNH FIREBASE ĐÃ KẾT NỐI DỰ ÁN CỦA BẠN ---
-       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD2G5uDoUmHIKDDsWfEGlEzUNQFouD04Ks",
-  authDomain: "my-dictation-project-4381e.firebaseapp.com",
-  projectId: "my-dictation-project-4381e",
-  storageBucket: "my-dictation-project-4381e.firebasestorage.app",
-  messagingSenderId: "694306099089",
-  appId: "1:694306099089:web:80e74c819b1daffa995430",
-  measurementId: "G-PWMD33HNDG"
-};
+    <!-- MÀN HÌNH BÁO CÁO BẢNG ĐIỂM KẾT QUẢ -->
+    <div id="summary-section" class="summary-card hidden">
+        <h2>🎉 Hoàn thành bài học!</h2>
+        <div style="font-size: 16px; color: #555;">Tỉ lệ chính xác lần đầu của bạn:</div>
+        <div id="accuracy-score" class="score-badge">0%</div>
+        <div id="stats-detail" style="font-size: 14px; color: #666;"></div>
 
-        // Khởi tạo Firebase
+        <div id="error-container" class="error-list hidden">
+            <strong>📌 Các câu bạn đã làm sai hoặc bỏ qua (Skip):</strong>
+            <ul id="error-list-items" style="margin: 8px 0; padding-left: 20px;"></ul>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+            <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
+            <button class="btn btn-next" onclick="backToSetup()">🏠 Về trang chọn Unit</button>
+        </div>
+    </div>
+
+    <script>
+        // FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2G5uDoUmHIKDDsWfEGlEzUNQFouD04Ks",
+            authDomain: "my-dictation-project-4381e.firebaseapp.com",
+            projectId: "my-dictation-project-4381e",
+            storageBucket: "my-dictation-project-4381e.firebasestorage.app",
+            messagingSenderId: "694306099089",
+            appId: "1:694306099089:web:80e74c819b1daffa995430",
+            measurementId: "G-PWMD33HNDG"
+        };
+
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
 
         let currentUser = null;
+        let parsedUnitsData = {};
 
-        // Xử lý Đăng nhập Google
         function loginWithGoogle() {
             const provider = new firebase.auth.GoogleAuthProvider();
             auth.signInWithPopup(provider).catch(error => alert("Lỗi đăng nhập: " + error.message));
         }
 
-        function logout() {
-            auth.signOut();
-        }
+        function logout() { auth.signOut(); }
 
-        // Lắng nghe trạng thái đăng nhập
         auth.onAuthStateChanged(user => {
             currentUser = user;
             const authContainer = document.getElementById('auth-container');
             const saveBtn = document.getElementById('save-cloud-btn');
+            const appendBtn = document.getElementById('append-cloud-btn');
+            const loadBtn = document.getElementById('load-cloud-btn');
 
             if (user) {
                 authContainer.innerHTML = `
@@ -241,48 +225,110 @@ const firebaseConfig = {
                     </div>
                 `;
                 saveBtn.classList.remove('hidden');
-                loadFromCloud(); // Tự động tải dữ liệu từ đám mây về
+                appendBtn.classList.remove('hidden');
+                loadBtn.classList.remove('hidden');
+                loadFromCloud();
             } else {
                 authContainer.innerHTML = `<button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>`;
                 saveBtn.classList.add('hidden');
+                appendBtn.classList.add('hidden');
+                loadBtn.classList.add('hidden');
             }
         });
 
-        // Lưu danh sách câu lên Firestore
         function saveToCloud() {
             if (!currentUser) return;
             const rawData = document.getElementById('raw-data').value;
-            
             db.collection('user_vocab').doc(currentUser.uid).set({
                 data: rawData,
                 updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                alert("☁️ Đã lưu dữ liệu bộ câu vào tài khoản của bạn thành công!");
-            }).catch(err => alert("Lỗi khi lưu: " + err.message));
+            }).then(() => alert("☁️ Đã lưu toàn bộ dữ liệu bài học lên tài khoản!"))
+            .catch(err => alert("Lỗi khi lưu: " + err.message));
         }
 
-        // Tải danh sách câu từ Firestore
+        function appendToCloud() {
+            if (!currentUser) return;
+            const newData = document.getElementById('raw-data').value.trim();
+            if (!newData) return alert("Vui lòng nhập thêm câu mới vào khung!");
+
+            db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
+                let existingData = doc.exists && doc.data().data ? doc.data().data : '';
+                let updatedData = existingData ? existingData + "\n\n" + newData : newData;
+                
+                db.collection('user_vocab').doc(currentUser.uid).set({
+                    data: updatedData,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                }).then(() => {
+                    document.getElementById('raw-data').value = updatedData;
+                    parseUnits();
+                    alert("➕ Đã nạp nối tiếp câu mới vào dữ liệu cũ trên đám mây!");
+                });
+            });
+        }
+
         function loadFromCloud() {
             if (!currentUser) return;
             db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
                 if (doc.exists && doc.data().data) {
                     document.getElementById('raw-data').value = doc.data().data;
+                    parseUnits();
                 }
             });
         }
 
-        // --- 2. LOGIC DICTATION APP ---
+        function loadSampleData() {
+            const sample = `# Unit 1: Giao tiếp Hàng ngày\nWhere is Jane? | Jane ở đâu vậy?\nThe meeting was brief but very productive | Cuộc họp rất ngắn gọn nhưng hiệu quả\n\n# Unit 2: Công sở & Công việc\nCan I help you with this project? | Tôi có thể giúp bạn dự án này không?\nPlease send me the report by end of day | Vui lòng gửi báo cáo cho tôi trước cuối ngày`;
+            document.getElementById('raw-data').value = sample;
+            parseUnits();
+        }
+
+        function parseUnits() {
+            const text = document.getElementById('raw-data').value;
+            const lines = text.split('\n');
+            parsedUnitsData = {};
+            let currentUnit = "Mặc định (Chưa phân Unit)";
+
+            lines.forEach(line => {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('#')) {
+                    currentUnit = trimmed.replace('#', '').trim();
+                } else if (trimmed) {
+                    if (!parsedUnitsData[currentUnit]) parsedUnitsData[currentUnit] = [];
+                    parsedUnitsData[currentUnit].push(trimmed);
+                }
+            });
+
+            const selector = document.getElementById('unit-selector');
+            selector.innerHTML = '';
+
+            const unitKeys = Object.keys(parsedUnitsData);
+            if (unitKeys.length === 0) {
+                selector.innerHTML = '<i style="color: #888; font-size: 13px;">Hãy nhập câu hoặc dán bài mẫu để chọn Unit...</i>';
+                return;
+            }
+
+            unitKeys.forEach((unit, idx) => {
+                const label = document.createElement('label');
+                label.className = 'unit-card';
+                label.innerHTML = `<input type="checkbox" value="${unit}" checked> ${unit} (${parsedUnitsData[unit].length} câu)`;
+                selector.appendChild(label);
+            });
+        }
+
+        // LOGIC HỌC & BÁO CÁO KẾT QUẢ
         let items = [];
         let currentIndex = 0;
         let englishVoices = [];
         let wordState = [];
+        
+        let stats = { correctFirstTry: 0, errors: [] };
+        let isFirstCheck = true;
 
         function loadVoices() {
             if ('speechSynthesis' in window) {
                 englishVoices = window.speechSynthesis.getVoices().filter(v => v.lang.toLowerCase().startsWith('en'));
                 const voiceSelect = document.getElementById('voice-select');
                 voiceSelect.innerHTML = '';
-
                 if (englishVoices.length === 0) {
                     const opt = document.createElement('option');
                     opt.innerText = "Giọng tiếng Anh mặc định";
@@ -298,7 +344,6 @@ const firebaseConfig = {
                 }
             }
         }
-
         if ('speechSynthesis' in window) {
             window.speechSynthesis.onvoiceschanged = loadVoices;
             loadVoices();
@@ -327,14 +372,22 @@ const firebaseConfig = {
         }
 
         function startApp() {
-            const raw = document.getElementById('raw-data').value.trim();
-            if (!raw) return alert("Vui lòng nhập dữ liệu!");
+            const checkboxes = document.querySelectorAll('#unit-selector input[type="checkbox"]:checked');
+            if (checkboxes.length === 0) return alert("Vui lòng tích chọn ít nhất 1 Unit để học!");
 
-            items = raw.split('\n').map(line => parseInputLine(line)).filter(x => x.en.length > 0);
-            if (items.length === 0) return;
+            items = [];
+            checkboxes.forEach(cb => {
+                const unitLines = parsedUnitsData[cb.value] || [];
+                unitLines.forEach(line => items.push(parseInputLine(line)));
+            });
+
+            if (items.length === 0) return alert("Không có dữ liệu câu để học!");
 
             shuffleArray(items);
+            stats = { correctFirstTry: 0, errors: [] };
+
             document.getElementById('setup-section').classList.add('hidden');
+            document.getElementById('summary-section').classList.add('hidden');
             document.getElementById('dictation-app').classList.remove('hidden');
 
             currentIndex = 0;
@@ -343,6 +396,7 @@ const firebaseConfig = {
 
         function loadQuestion(index) {
             const current = items[index];
+            isFirstCheck = true;
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
             document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
             document.getElementById('text-vi').classList.add('hidden-content');
@@ -396,10 +450,7 @@ const firebaseConfig = {
             let hasError = false;
 
             for (let i = 0; i < userWords.length; i++) {
-                if (i >= targetWords.length) {
-                    hasError = true;
-                    break;
-                }
+                if (i >= targetWords.length) { hasError = true; break; }
                 if (i === userWords.length - 1 && !userInput.endsWith(' ')) {
                     if (!targetWords[i].startsWith(userWords[i])) hasError = true;
                 } else {
@@ -415,6 +466,10 @@ const firebaseConfig = {
 
             if (hasError) {
                 inputEl.className = 'user-textarea has-error';
+                if (isFirstCheck) {
+                    stats.errors.push(items[currentIndex]);
+                    isFirstCheck = false;
+                }
             } else if (cleanUser === cleanTarget) {
                 inputEl.className = 'user-textarea is-correct';
                 wordState = wordState.map(() => true);
@@ -422,6 +477,11 @@ const firebaseConfig = {
                 revealAnswer();
                 document.getElementById('status-msg').classList.add('active');
                 inputEl.disabled = true;
+
+                if (isFirstCheck) {
+                    stats.correctFirstTry++;
+                    isFirstCheck = false;
+                }
             } else {
                 inputEl.className = 'user-textarea';
             }
@@ -456,6 +516,9 @@ const firebaseConfig = {
                 inputEl.className = 'user-textarea is-correct';
                 document.getElementById('status-msg').classList.add('active');
                 inputEl.disabled = true;
+            } else if (isFirstCheck) {
+                stats.errors.push(items[currentIndex]);
+                isFirstCheck = false;
             }
         }
 
@@ -468,6 +531,10 @@ const firebaseConfig = {
         }
 
         function skipCurrent() {
+            if (isFirstCheck) {
+                stats.errors.push(items[currentIndex]);
+                isFirstCheck = false;
+            }
             document.getElementById('user-input').value = items[currentIndex].en;
             document.getElementById('user-input').className = 'user-textarea is-correct';
             revealAnswer();
@@ -480,8 +547,73 @@ const firebaseConfig = {
                 currentIndex++;
                 loadQuestion(currentIndex);
             } else {
-                alert("🎉 Bạn đã hoàn thành tất cả các câu!");
+                showSummary();
             }
+        }
+
+        function showSummary() {
+            document.getElementById('dictation-app').classList.add('hidden');
+            document.getElementById('summary-section').classList.remove('hidden');
+
+            const total = items.length;
+            const accuracy = Math.round((stats.correctFirstTry / total) * 100);
+
+            document.getElementById('accuracy-score').innerText = `${accuracy}%`;
+            document.getElementById('stats-detail').innerText = `Đúng lần đầu: ${stats.correctFirstTry}/${total} câu | Sai/Bỏ qua: ${stats.errors.length} câu`;
+
+            const errorContainer = document.getElementById('error-container');
+            const errorList = document.getElementById('error-list-items');
+            const retryBtn = document.getElementById('retry-errors-btn');
+
+            if (stats.errors.length > 0) {
+                errorList.innerHTML = '';
+                // Lọc trùng câu sai
+                const uniqueErrors = Array.from(new Set(stats.errors.map(a => a.en)))
+                    .map(en => stats.errors.find(a => a.en === en));
+
+                stats.errors = uniqueErrors;
+
+                stats.errors.forEach(err => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${err.en}</strong> (${err.vi || 'Chưa có bản dịch'})`;
+                    errorList.appendChild(li);
+                });
+                errorContainer.classList.remove('hidden');
+                retryBtn.classList.remove('hidden');
+            } else {
+                errorContainer.classList.add('hidden');
+                retryBtn.classList.add('hidden');
+            }
+        }
+
+        function retryErrorsOnly() {
+            items = [...stats.errors];
+            shuffleArray(items);
+            stats = { correctFirstTry: 0, errors: [] };
+
+            document.getElementById('summary-section').classList.add('hidden');
+            document.getElementById('dictation-app').classList.remove('hidden');
+
+            currentIndex = 0;
+            loadQuestion(currentIndex);
+        }
+
+        function backToSetup() {
+            document.getElementById('summary-section').classList.add('hidden');
+            document.getElementById('setup-section').classList.remove('hidden');
+        }
+
+        function copyPrompt(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "✅ Đã sao chép!";
+                btn.style.background = "#198754";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "#0d6efd";
+                }, 2000);
+            });
         }
     </script>
 </body>
