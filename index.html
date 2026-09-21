@@ -114,23 +114,19 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .x-mobile-nav{display:none}
 @media(max-width:900px){body{padding-left:0!important}.x-sidebar{display:none}.x-main{padding:16px}.x-topbar{padding:0 16px}.x-hero{grid-template-columns:1fr;min-height:320px;padding:26px}.x-hero h1{font-size:34px}.x-hero:after{font-size:120px;right:20px;opacity:.75}.x-grid4{grid-template-columns:1fr 1fr}.x-panels{grid-template-columns:1fr}.x-mobile-nav{display:flex;position:fixed;z-index:1200;left:10px;right:10px;bottom:10px;background:white;border-radius:20px;box-shadow:0 10px 35px rgba(0,0,0,.16);padding:7px;justify-content:space-around}.x-mobile-nav button{border:0;background:none;font-size:20px;padding:8px}.x-main{padding-bottom:90px}}
 @media(max-width:560px){.x-grid4{grid-template-columns:1fr}.x-hero h1{font-size:30px}.x-search{font-size:12px}.x-statrow{grid-template-columns:1fr 1fr}}
+/* PATCH 02 — centered app header + lively interaction */
+body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height:78px;padding:0 22px;justify-content:center}.x-header-inner{width:min(1500px,calc(100vw - 44px));display:grid;grid-template-columns:220px 1fr 260px;align-items:center;gap:22px}.x-header-logo{border:0;background:transparent;text-align:left;font-size:21px;font-weight:950;line-height:1.02;cursor:pointer;color:var(--ink);transition:.2s}.x-header-logo:hover{transform:translateY(-2px) rotate(-1deg)}.x-header-center{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0}.x-header-nav{display:flex;gap:2px;align-items:center;white-space:nowrap}.x-header-nav button{border:0;background:transparent;padding:10px 9px;border-radius:13px;font-weight:800;color:#596176;cursor:pointer;transition:.18s}.x-header-nav button:hover{background:#fff2eb;transform:translateY(-2px)}.x-header-nav button.active{background:#ffe8e2;color:#ef5c49}.x-header-right{display:flex;justify-content:flex-end;align-items:center;gap:9px}.x-search-real{width:190px!important;max-width:190px!important;padding:10px 13px!important;transition:.2s}.x-search-real:focus{width:235px!important;max-width:235px!important;box-shadow:0 0 0 4px rgba(255,107,87,.09)}.x-auth-pill{cursor:pointer;white-space:nowrap;transition:.18s}.x-auth-pill:hover{transform:translateY(-2px);box-shadow:0 8px 20px #00000010}.x-main{max-width:1320px}.x-panel,.x-prompt-card,.x-kpi,.x-lesson,.x-stat,.x-chip,.btn,.x-primary,.x-mini-btn,.unit-card,.leader-item{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}.x-panel:hover,.x-prompt-card:hover,.x-kpi:hover,.x-lesson:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(49,44,73,.13)!important}.x-stat:hover,.unit-card:hover,.leader-item:hover{transform:translateY(-2px)}.btn:hover,.x-primary:hover,.x-mini-btn:hover{transform:translateY(-2px);filter:brightness(1.03)}.btn:active,.x-primary:active,.x-mini-btn:active,.x-action:active{transform:scale(.97)}
+.x-unit-meta{background:#f8fbff;border:1px solid #dbeafe;border-radius:14px;padding:12px;margin:12px 0}.x-unit-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.x-share-only{border-top:1px dashed #bfdbfe;margin-top:10px;padding-top:10px}.x-leader-home{margin-top:18px;background:#fff;border:1px solid #eee8e2;border-radius:24px;padding:18px;box-shadow:var(--shadow)}.x-leader-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.x-leader-scroll{max-height:245px;overflow:auto;margin-top:10px}.x-expand{border:0;background:#f4f5f7;border-radius:12px;padding:8px 11px;cursor:pointer;font-weight:850}.x-lb-modal{position:fixed;inset:0;background:#17203380;backdrop-filter:blur(7px);z-index:5000;display:grid;place-items:center;padding:24px}.x-lb-modal.hidden{display:none}.x-lb-dialog{width:min(780px,94vw);max-height:82vh;background:#fff;border-radius:28px;padding:22px;box-shadow:0 35px 90px #0004;animation:xPop .22s ease}.x-lb-modal-list{max-height:58vh;overflow:auto}.x-lb-close{border:0;background:#f3f4f6;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px}@keyframes xPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:none}}.x-about-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;background:linear-gradient(125deg,#fff0d7,#e5f4ff);border-radius:28px;padding:34px;box-shadow:var(--shadow)}.x-about-art{min-height:240px;border-radius:24px;background:linear-gradient(145deg,#fff,#f4f0ff);display:grid;place-items:center;font-size:110px}.x-about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+@media(max-width:1180px){.x-header-inner{grid-template-columns:170px 1fr 220px}.x-header-nav button{font-size:12px;padding:9px 6px}.x-search-real{width:150px!important}.x-header-logo{font-size:18px}}
+@media(max-width:900px){.x-topbar{height:auto;padding:10px 12px}.x-header-inner{width:100%;grid-template-columns:1fr auto}.x-header-center{display:none}.x-header-right{grid-column:2}.x-header-logo{display:block}.x-main{padding-top:14px}.x-unit-meta-grid,.x-about-grid{grid-template-columns:1fr}.x-about-hero{grid-template-columns:1fr}.x-search-real{display:none}.x-mobile-nav{display:flex}}
 </style>
 </head>
 <body>
-<aside class="x-sidebar">
-  <div class="x-logo" role="button" tabindex="0" onclick="xGo('home')" onkeydown="if(event.key==='Enter')xGo('home')" title="Về Trang chủ">🏘️ Xóm Này<br>Out Trình</div><div class="x-tag">Hàng xóm học tiếng Anh cùng nhau</div>
-  <nav class="x-nav">
-    <button class="active" data-view="home">🏠 &nbsp;Trang chủ</button>
-    <button data-view="learn">🎧 &nbsp;Học</button>
-    <button data-view="mine">📥 &nbsp;Bài của tôi</button>
-    <button data-view="community">🏘️ &nbsp;Kho cộng đồng</button>
-    <button data-view="progress">📈 &nbsp;Tiến bộ của tôi</button>
-    <button data-view="contribute">🤝 &nbsp;Đóng góp của tôi</button>
-    <button data-view="me">👤 &nbsp;Tôi</button>
-  </nav>
-  <div class="x-sidebar-foot">🐾 <b>Mèo Xóm nhắc nhẹ:</b><br>Học trước đi. Có gì hay thì góp sau. 😌</div>
-</aside>
-<header class="x-topbar"><input id="x-global-search" class="x-search-real" placeholder="🔎 Tìm bài học, chủ đề..." onkeydown="if(event.key==='Enter')xGlobalSearch()"><div id="x-auth-mini" class="x-auth-pill">👋 Khách trong xóm</div></header>
+<header class="x-topbar"><div class="x-header-inner">
+<button class="x-header-logo" onclick="xGo('home')" title="Về Trang chủ">🏘️ Xóm Này<br>Out Trình</button>
+<div class="x-header-center"><nav class="x-header-nav"><button class="active" data-view="home">Trang chủ</button><button data-view="learn">Học</button><button data-view="mine">Bài của tôi</button><button data-view="community">Kho cộng đồng</button><button data-view="progress">Tiến bộ</button><button data-view="contribute">Đóng góp</button><button data-view="about">Chuyện cái xóm</button></nav></div>
+<div class="x-header-right"><input id="x-global-search" class="x-search-real" placeholder="🔎 Tìm bài, chủ đề..." onkeydown="if(event.key==='Enter')xGlobalSearch()"><div id="x-auth-mini" class="x-auth-pill" onclick="xGo('me')">👋 Khách trong xóm</div></div>
+</div></header>
 <main class="x-main">
 <section id="x-home" class="x-view active">
  <div class="x-hero" id="x-hero"><div id="x-hero-copy"><div style="font-weight:800;color:#8b5d30;margin-bottom:8px">🏘️ XÓM NÀY OUT TRÌNH</div><h1>Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng em thì còn có thể.</h1><p>Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.</p><button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay →</button></div><div class="x-hero-dots"><button class="x-hero-dot active" onclick="xHeroGo(0)"></button><button class="x-hero-dot" onclick="xHeroGo(1)"></button><button class="x-hero-dot" onclick="xHeroGo(2)"></button><button class="x-hero-dot" onclick="xHeroGo(3)"></button></div></div>
@@ -141,6 +137,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
   <button class="x-action" onclick="xGo('progress')"><div class="ico">📈</div><b>Tiến bộ của tôi</b><span>Ngày ấy & Bây giờ — coi mình bò được bao xa.</span></button>
  </div>
  <div class="x-panels"><div class="x-panel"><h3>Xin chào, hàng xóm! 👋</h3><p style="color:#6f7686">“Hôm nay học một chút, ngày mai sẽ khác.”</p><div class="x-statrow"><div class="x-stat"><strong>🔥</strong><small>Ngày có mặt</small></div><div class="x-stat"><strong id="x-home-minutes">0</strong><small>Phút học</small></div><div class="x-stat"><strong>❤️</strong><small>Để dành</small></div><div class="x-stat"><strong id="x-home-units">0</strong><small>Bài của tôi</small></div></div></div><div class="x-panel"><h3>🔥 Làm ngay</h3><p>Nạp bài mẫu rồi chiến vài câu trước.</p><button class="x-primary" onclick="loadSampleData();xGo('mine')">🎲 Nạp bài mẫu</button></div><button class="x-panel x-prompt-card" style="text-align:left;cursor:pointer" onclick="xGo('prompts')"><div class="ico">🎁</div><h3>Kho Prompt</h3><p>Tạo bộ từ vựng & câu luyện bằng AI.</p><b>Mở kho →</b></button></div>
+ <div class="x-leader-home" id="x-home-leader"><div class="x-leader-head"><div><h3 style="margin:0">🏆 Hàng xóm chăm chỉ</h3><small style="color:#7b8290">Xem ai đang chăm chỉ quá mức cần thiết. :))</small></div><button class="x-expand" onclick="xOpenLeaderboard()">⛶ Phóng to</button></div><div class="tab-menu" style="margin:12px 0 0"><button class="tab-btn active" id="x-lb-home-daily" onclick="xLoadLeaderboard('daily')">Hôm nay</button><button class="tab-btn" id="x-lb-home-weekly" onclick="xLoadLeaderboard('weekly')">Tuần này</button><button class="tab-btn" id="x-lb-home-monthly" onclick="xLoadLeaderboard('monthly')">Tháng này</button></div><div id="x-home-leader-list" class="x-leader-scroll"><i>Đang ngó hàng xóm...</i></div></div>
 </section>
 <section id="x-learn" class="x-view"><div class="x-pagehead"><h2>🎧 Học</h2><p>Chọn bài xong là chiến. Không cần nghi thức nhập môn dài dòng.</p></div><div id="x-learn-slot"></div></section>
 <section id="x-mine" class="x-view"><div class="x-pagehead"><h2>📥 Bài của tôi</h2><p>Đem bài vở của bạn bỏ dô đây. Bỏ vào đây, nhai đầu nó luôn.</p></div><div id="x-mine-slot"></div></section>
@@ -148,6 +145,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 <section id="x-progress" class="x-view"><div class="x-pagehead"><h2>📈 Tiến bộ của tôi</h2><p>Con số để hệ thống tính. Tiến bộ phải để bạn cảm nhận được.</p></div><div id="x-progress-dashboard"></div><div id="x-progress-slot" style="margin-top:18px"></div></section>
 <section id="x-contribute" class="x-view"><div class="x-pagehead"><h2>🤝 Đóng góp của tôi</h2><p>Bếp nhà bạn dạo này cũng đông khách phết.</p></div><div class="x-panel"><div style="font-size:48px">🍚</div><h3>Góc bếp của bạn</h3><p id="x-contrib-copy">Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌</p><div class="x-statrow"><div class="x-stat"><strong id="x-contrib-units">0</strong><small>bài đã khao</small></div><div class="x-stat"><strong>—</strong><small>người đã học</small></div><div class="x-stat"><strong>—</strong><small>phiên học</small></div><div class="x-stat"><strong>❤️</strong><small>tình củm</small></div></div><br><button class="x-primary" onclick="xGo('mine')">Tôi có món này hay nè →</button><div id="x-contribution-list" style="margin-top:18px"></div></div></section>
 <section id="x-me" class="x-view"><div class="x-pagehead"><h2>👤 Tôi</h2><p>Mình đã trở thành người học như thế nào ở cái xóm này?</p></div><div id="x-me-dashboard"></div></section>
+<section id="x-about" class="x-view"><div class="x-pagehead"><h2>🏘️ Chuyện cái xóm này</h2><p>About us nghe hơi công ty. Xóm mình kể chuyện thôi. ^^</p></div><div class="x-about-hero"><div><div style="font-weight:900;color:#9a6230">XÓM NÀY OUT TRÌNH TỪ ĐÂU CHUI RA?</div><h2 style="font-size:36px;line-height:1.05">Vào học trước.<br>Có gì hay thì góp sau.</h2><p>Ban đầu chỉ là một chỗ luyện nghe tiếng Anh. Rồi tụi mình nghĩ: nếu ai cũng có vài thứ hay ho để học, sao không mang qua cho hàng xóm học ké?</p><button class="x-primary" onclick="xGo('learn')">🔥 Vào chiến vài câu</button></div><div class="x-about-art" title="Ảnh/illustration chính thức sẽ thay sau">🐱🏘️</div></div><div class="x-about-grid"><div class="x-panel"><h3>👋 Ai dựng cái xóm này?</h3><p>Chỗ này để dành cho câu chuyện của chủ xóm. Ảnh đẹp, tiểu sử ngầu và vài lời thiệt tình sẽ bổ sung sau.</p></div><div class="x-panel"><h3>💸 Xóm sống bằng gì?</h3><p>Hiện tại chủ yếu sống bằng tình cảm ^^. Sau này có thể có quảng cáo/affiliate phù hợp để trả chi phí và nâng cấp cộng đồng. Quảng cáo thì được. Phá buổi học thì không.</p></div><div class="x-panel"><h3>📜 Luật bất thành văn</h3><p>Học thì dễ. Chia sẻ thì có trách nhiệm. Không cần đóng góp trước mới được nhận giá trị. Tiến bộ là so với chính mình.</p></div></div></section>
 <section id="x-prompts" class="x-view x-prompt-page"><div class="x-pagehead"><h2>🎁 Kho Prompt</h2><p>Đồ nghề cho hàng xóm muốn biến nguyên liệu thành bài học.</p></div><div id="x-prompt-slot"></div></section>
 </main>
 <nav class="x-mobile-nav"><button onclick="xGo('home')">🏠</button><button onclick="xGo('learn')">🎧</button><button onclick="xGo('mine')">📥</button><button onclick="xGo('community')">🏘️</button><button onclick="xGo('me')">👤</button></nav>
@@ -180,8 +178,8 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div style="font-size: 13px; color: #555;">Tự tạo bài học hoặc chọn từ kho bài học do cộng đồng đóng góp:</div>
             <div>
-                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Bài mẫu để làm quen công cụ</button>
-                <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải dữ liệu cũ</button>
+                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Nạp bài mẫu để thử ngay</button>
+                <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải bài đã lưu trên tài khoản</button>
             </div>
         </div>
 
@@ -248,6 +246,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
                 <i style="color: #888;">Chưa có câu nào trong Unit này...</i>
             </div>
 
+            <div class="x-unit-meta"><b>🏷️ Phân loại bài học</b><div style="font-size:12px;color:#667085;margin:3px 0 9px">Bài riêng vẫn phân loại được. Không cần đợi tới lúc “Khao cả xóm”.</div><div class="x-unit-meta-grid"><div><label style="font-size:12px;font-weight:bold">Chủ đề</label><select id="unit-topic" class="form-input"><option>Đời sống</option><option>Ăn uống</option><option>Du lịch</option><option>Công việc</option><option>Học tập</option><option>Giải trí</option><option>Công nghệ</option><option>Xã hội</option><option>Khoa học</option><option>Tin tức</option></select></div><div><label style="font-size:12px;font-weight:bold">Trình độ</label><select id="unit-level" class="form-input"><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></div><div><label style="font-size:12px;font-weight:bold">Mục tiêu học</label><select id="unit-track" class="form-input"><option>Giao tiếp</option><option>TOEIC</option><option>IELTS</option></select></div></div></div>
             <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px; border-radius: 8px; margin: 15px 0;">
                 <label style="font-weight: bold; font-size: 14px; cursor: pointer; color: #1e40af;">
                     <input type="checkbox" id="share-community-check"> 🍚 Khao cả xóm? Chia sẻ bài này để hàng xóm cùng học
@@ -502,9 +501,9 @@ F. Nguyên tắc chung
 </div>
 
     <!-- SECTION 4: KHU XẾP HẠNG CỘNG ĐỒNG 🏆 -->
-    <div id="leaderboard-section" class="leaderboard-section">
+    <div id="leaderboard-section" class="leaderboard-section" style="display:none!important">
         <div class="section-title">
-            <span>🏆 SECTION 4: BẢNG XẾP HẠNG HỌC VIÊN CHĂM CHỈ</span>
+            <span>🏆 Hàng xóm chăm chỉ</span>
         </div>
 
         <div class="tab-menu" style="margin-bottom: 12px;">
@@ -518,6 +517,7 @@ F. Nguyên tắc chung
         </div>
     </div>
 
+    <div id="x-lb-modal" class="x-lb-modal hidden" onclick="if(event.target===this)xCloseLeaderboard()"><div class="x-lb-dialog"><div class="x-leader-head"><div><h2 style="margin:0">🏆 Hàng xóm chăm chỉ</h2><small>Top 10 hiện ngay; kéo xuống để ngó tiếp.</small></div><button class="x-lb-close" onclick="xCloseLeaderboard()">✕</button></div><div class="tab-menu" style="margin:14px 0"><button class="tab-btn active" id="x-lb-modal-daily" onclick="xLoadLeaderboard('daily')">Hôm nay</button><button class="tab-btn" id="x-lb-modal-weekly" onclick="xLoadLeaderboard('weekly')">Tuần này</button><button class="tab-btn" id="x-lb-modal-monthly" onclick="xLoadLeaderboard('monthly')">Tháng này</button></div><div id="x-lb-modal-list" class="x-lb-modal-list"></div></div></div>
     <!-- MODAL MY PROFILE -->
     <div id="profile-modal" class="modal-overlay hidden">
         <div class="modal-content">
@@ -593,18 +593,14 @@ F. Nguyên tắc chung
         function stopStudyTimerAndSave() {
             if (studyTimer) clearInterval(studyTimer);
             if (!currentUser || sessionSeconds < 10) return;
-
             const minutesEarned = Math.round(sessionSeconds / 60) || 1;
             userProfileData.totalMinutes = (userProfileData.totalMinutes || 0) + minutesEarned;
-
-            db.collection('users_profile').doc(currentUser.uid).set({
-                nickname: userProfileData.nickname || currentUser.displayName,
-                avatar: currentUser.photoURL,
-                totalMinutes: firebase.firestore.FieldValue.increment(minutesEarned),
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true }).then(() => {
-                loadLeaderboardData('daily');
-            });
+            const now=new Date(), pad=n=>String(n).padStart(2,'0');
+            const dayKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+            const monthKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
+            const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); const weekKey=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+            const ref=db.collection('users_profile').doc(currentUser.uid);
+            db.runTransaction(async tx=>{const snap=await tx.get(ref), old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||currentUser.displayName||currentUser.email,avatar:currentUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>xLoadLeaderboard('daily'));
         }
 
         function loginWithGoogle() {
@@ -965,7 +961,8 @@ F. Nguyên tắc chung
         }
 
         function saveToCloud() {
-            if (!currentUser) return;
+            if (!currentUser) { xGo('me'); return alert("🔐 Đăng nhập trước để lưu bài lên tài khoản nha."); }
+            if(window.xSyncUnitMeta) xSyncUnitMeta();
 
             db.collection('user_vocab').doc(currentUser.uid).set({
                 units: JSON.stringify(unitsData),
@@ -1012,8 +1009,9 @@ F. Nguyên tắc chung
                     updateUnitDropdown();
                     renderUnitSelector();
                     renderCurrentUnitPreview();
-                }
-            });
+                    alert("📂 Đã tải dữ liệu cũ từ tài khoản về máy này.");
+                } else alert("🐱 Tài khoản chưa có dữ liệu cũ để tải.");
+            }).catch(()=>alert("Có trục trặc khi tải dữ liệu cũ. Thử lại nha."));
         }
 
         function loadSampleData() {
@@ -1461,7 +1459,7 @@ function xResetPassword(){
 function xGo(view){
  document.querySelectorAll('.x-view').forEach(v=>v.classList.remove('active'));
  const target=document.getElementById('x-'+view); if(target) target.classList.add('active');
- document.querySelectorAll('.x-nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+ document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
  if(view==='community'){ try{switchMainTab('community');loadCommunityUnits();}catch(e){} }
  if(view==='mine'){ try{switchMainTab('my-units');}catch(e){} }
  window.scrollTo({top:0,behavior:'smooth'});
@@ -1471,8 +1469,13 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(setup) document.getElementById('x-mine-slot').appendChild(setup);
  if(study) document.getElementById('x-learn-slot').appendChild(study);
  if(summary) document.getElementById('x-learn-slot').appendChild(summary);
- if(lb) document.getElementById('x-progress-slot').appendChild(lb);
- document.querySelectorAll('.x-nav button').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
+ if(lb) lb.style.display='none';
+ document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
+ 
+function xSyncUnitMeta(){[['unit-topic','share-topic'],['unit-level','share-level'],['unit-track','share-track']].forEach(([a,b])=>{const A=document.getElementById(a),B=document.getElementById(b);if(A&&B)B.value=A.value})}
+['unit-topic','unit-level','unit-track'].forEach(id=>document.getElementById(id)?.addEventListener('change',xSyncUnitMeta));
+['share-topic','share-level','share-track'].forEach(id=>{const e=document.getElementById(id);if(e&&e.parentElement)e.parentElement.style.display='none'});xSyncUnitMeta();
+
  // Community reuses the existing setup engine, but the tab is switched automatically.
  const communityBtn=document.querySelector('[data-view="community"]');
  if(communityBtn) communityBtn.addEventListener('click',()=>{const slot=document.getElementById('x-community-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0)});
@@ -1518,6 +1521,19 @@ const xNavBase=window.xGo;window.xGo=function(v){xNavBase(v);if(v==='community')
 // auth state refresh
 try{auth.onAuthStateChanged(()=>{setTimeout(()=>{xRenderMe();xRenderContribution()},50)})}catch(e){}
 document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCommunityFilters();const gift=document.getElementById('gift-section'),ps=document.getElementById('x-prompt-slot');if(gift&&ps)ps.appendChild(gift);xHeroGo(0);});
+
+// PATCH 02 leaderboard, About, guest/cloud clarity
+function xPeriodInfo(type){const n=new Date(),pad=x=>String(x).padStart(2,'0');if(type==='daily')return{key:'dailyKey',minutes:'dailyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}-${pad(n.getDate())}`};if(type==='monthly')return{key:'monthlyKey',minutes:'monthlyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}`};const d=new Date(n);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return{key:'weeklyKey',minutes:'weeklyMinutes',value:`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}}
+function xLeaderRows(rows){if(!rows.length)return '<div class="x-empty">Chưa có ai ghi phút học trong khoảng này. Bạn mở hàng đi 😌</div>';return rows.map((r,i)=>`<div class="leader-item" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee"><div style="display:flex;align-items:center;gap:10px"><b style="width:30px">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</b><div style="width:34px;height:34px;border-radius:50%;background:#fff2d7;display:grid;place-items:center;overflow:hidden">${r.avatar?`<img src="${xEsc(r.avatar)}" style="width:100%;height:100%;object-fit:cover">`:'🐱'}</div><strong>${xEsc(r.nickname||'Hàng xóm')}</strong></div><b style="color:#0f8a5f">${r.minutes||0} phút</b></div>`).join('')}
+async function xLoadLeaderboard(type='daily'){['daily','weekly','monthly'].forEach(t=>{document.getElementById('x-lb-home-'+t)?.classList.toggle('active',t===type);document.getElementById('x-lb-modal-'+t)?.classList.toggle('active',t===type)});const info=xPeriodInfo(type), targets=[document.getElementById('x-home-leader-list'),document.getElementById('x-lb-modal-list')].filter(Boolean);targets.forEach(e=>e.innerHTML='<i>Đang ngó hàng xóm...</i>');try{const snap=await db.collection('users_profile').where(info.key,'==',info.value).get();const rows=[];snap.forEach(d=>{const v=d.data();rows.push({nickname:v.nickname,avatar:v.avatar,minutes:v[info.minutes]||0,uid:d.id})});rows.sort((a,b)=>b.minutes-a.minutes);const html=xLeaderRows(rows);targets.forEach(e=>e.innerHTML=html)}catch(e){targets.forEach(el=>el.innerHTML='<div class="x-empty">Chưa đọc được bảng xếp hạng lúc này.</div>')}}
+function xOpenLeaderboard(){document.getElementById('x-lb-modal')?.classList.remove('hidden');xLoadLeaderboard('daily')}
+function xCloseLeaderboard(){document.getElementById('x-lb-modal')?.classList.add('hidden')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseLeaderboard()});
+const xOldLeaderboard=window.loadLeaderboardData;window.loadLeaderboardData=function(type){xLoadLeaderboard(type)};
+window.xSyncUnitMeta=xSyncUnitMeta;
+// Guest history lives locally; account sync can be expanded without blocking learning.
+const xMeBase=xRenderMe;window.xRenderMe=function(){xMeBase();if(!window.currentUser){const el=document.getElementById('x-me-dashboard');if(el){const note=document.createElement('div');note.className='x-note';note.style.marginTop='12px';note.innerHTML='💾 <b>Lịch sử khách đang lưu tạm trên trình duyệt này.</b> Đổi máy/xóa dữ liệu trình duyệt có thể mất. Đăng nhập để giữ hành trình lâu dài.';el.appendChild(note)}}};
+document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>xLoadLeaderboard('daily'),300)});
 </script>
 </body>
 </html>
