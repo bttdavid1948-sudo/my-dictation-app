@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dictation Cloud MVP - Nền Tảng Học Tiếng Anh Cộng Đồng</title>
+    <title>Xóm Này Out Trình — Hàng xóm học tiếng Anh cùng nhau</title>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
@@ -87,11 +87,69 @@
 
         .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; }
         .modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
-    </style>
+    
+/* ===== XNOT FINAL V1 FUNCTIONAL LAYER ===== */
+.x-chiprow{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.x-chip{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:700;color:#596174}.x-chip.active,.x-chip:hover{background:#fff2d7;border-color:#f6bd55;color:#8a5a00}.x-cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.x-lesson{background:#fff;border:1px solid #eee8e2;border-radius:20px;padding:16px;box-shadow:var(--shadow);transition:.18s}.x-lesson:hover{transform:translateY(-2px)}.x-meta{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}.x-pill{font-size:11px;font-weight:800;background:#f3f5f8;border-radius:999px;padding:5px 8px}.x-pill.level{background:#dcfce7;color:#166534}.x-pill.track{background:#dbeafe;color:#1d4ed8}.x-empty{padding:28px;text-align:center;background:#fff;border:1px dashed #ddd;border-radius:20px;color:#707786}.x-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.x-kpi{background:#fff;border-radius:20px;padding:18px;border:1px solid #eee;box-shadow:var(--shadow)}.x-kpi strong{font-size:28px;display:block}.x-note{background:#fff8e8;border:1px solid #f8df9b;border-radius:16px;padding:12px 14px}.x-danger{background:#fff1f2;border:1px solid #fecdd3;border-radius:16px;padding:12px}.x-section-title{margin:22px 0 10px}.x-mini-btn{border:0;border-radius:12px;padding:8px 11px;cursor:pointer;font-weight:800}.x-save{background:#fff0f3}.x-study{background:#fff2c9}.x-profilehero{display:flex;align-items:center;gap:16px}.x-avatar{width:72px;height:72px;border-radius:24px;background:#fff2d7;display:grid;place-items:center;font-size:42px}.x-achievements{display:flex;gap:8px;flex-wrap:wrap}.x-ach{padding:9px 12px;background:#f8fafc;border-radius:14px;font-size:13px}.x-login-grid{display:grid;gap:10px;max-width:430px;margin:18px 0}.x-guest-lock{opacity:.8}.x-source-rights{margin-top:10px;padding:12px;background:#fff8e8;border-radius:14px;border:1px solid #f6dda2}.x-search-real{width:min(600px,60vw);border:0;background:#f4f5f7;border-radius:999px;padding:12px 18px;outline:none}.x-topbar{gap:12px}.x-toast{position:fixed;right:22px;bottom:22px;background:#252b3a;color:#fff;padding:12px 16px;border-radius:14px;z-index:3000;box-shadow:0 12px 30px #0003}.x-hidden{display:none!important}
+@media(max-width:900px){.x-cardgrid{grid-template-columns:1fr 1fr}.x-two{grid-template-columns:1fr}.x-search-real{width:65vw}}
+@media(max-width:560px){.x-cardgrid{grid-template-columns:1fr}.x-search-real{width:60vw}.x-profilehero{align-items:flex-start}}
+</style>
+
+<style id="xnot-v1-style">
+:root{--ink:#182033;--muted:#687086;--cream:#fffaf1;--card:#fff;--peach:#ffe9e2;--blue:#e6f4ff;--yellow:#fff2bf;--green:#e9f8e9;--brand:#ff6b57;--brand2:#ffb23f;--shadow:0 14px 40px rgba(49,44,73,.09)}
+body{max-width:none!important;margin:0!important;padding:0!important;background:linear-gradient(135deg,#fffaf4,#f7fbff)!important;color:var(--ink)!important;padding-left:230px!important}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 90% 10%,rgba(255,204,122,.18),transparent 28%),radial-gradient(circle at 30% 80%,rgba(116,190,255,.12),transparent 28%);z-index:-1}
+.x-sidebar{position:fixed;left:0;top:0;bottom:0;width:230px;padding:24px 16px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-right:1px solid #eee;z-index:1000;display:flex;flex-direction:column}
+.x-logo{font-size:22px;font-weight:900;line-height:1.05;margin-bottom:6px}.x-tag{font-size:11px;color:#8a6d61;margin-bottom:26px}.x-nav{display:grid;gap:8px}.x-nav button{border:0;background:transparent;padding:12px 14px;border-radius:15px;text-align:left;font-weight:750;color:#596176;cursor:pointer;transition:.2s}.x-nav button:hover{transform:translateX(4px);background:#fff5ef}.x-nav button.active{background:#ffe8e2;color:#ef5c49}.x-sidebar-foot{margin-top:auto;background:#fff5df;border-radius:18px;padding:13px;font-size:12px;line-height:1.4}
+.x-topbar{height:76px;display:flex;align-items:center;gap:18px;padding:0 28px;position:sticky;top:0;background:rgba(255,250,244,.82);backdrop-filter:blur(14px);z-index:900;border-bottom:1px solid rgba(230,225,219,.7)}.x-search{flex:1;max-width:620px;background:white;border:1px solid #eee;border-radius:18px;padding:13px 18px;color:#8a8fa0}.x-main{max-width:1180px;margin:0 auto;padding:22px 28px 60px}.x-view{display:none;animation:xFade .28s ease}.x-view.active{display:block}@keyframes xFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.x-hero{min-height:270px;border-radius:28px;padding:36px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;background:linear-gradient(125deg,#ffe59d,#ffc99e);box-shadow:var(--shadow);overflow:hidden;position:relative}.x-hero:after{content:"🐱";font-size:170px;position:absolute;right:60px;bottom:-25px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.12));transform:rotate(-4deg)}.x-hero h1{font-size:42px;line-height:1.05;margin:0 0 14px;max-width:580px}.x-hero p{font-size:16px;max-width:500px;line-height:1.55}.x-primary{border:0;background:#20263a;color:white;padding:13px 20px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(32,38,58,.18)}
+.x-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0}.x-action{border:0;border-radius:23px;padding:20px;text-align:left;min-height:140px;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}.x-action:hover{transform:translateY(-4px)}.x-action:nth-child(1){background:var(--peach)}.x-action:nth-child(2){background:var(--blue)}.x-action:nth-child(3){background:var(--yellow)}.x-action:nth-child(4){background:var(--green)}.x-action b{display:block;font-size:16px;margin:12px 0 6px}.x-action span{font-size:13px;color:#626a7b}.x-action .ico{font-size:30px}
+.x-panels{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}.x-panel{background:white;border:1px solid #f0ece8;border-radius:24px;padding:22px;box-shadow:var(--shadow)}.x-panel h3{margin:0 0 12px}.x-statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}.x-stat{text-align:center;background:#fafbfc;border-radius:16px;padding:12px 6px}.x-stat strong{display:block;font-size:20px}.x-stat small{color:#7c8392}
+.section-card,.leaderboard-section,.gift-section,.summary-card{max-width:none!important;border-radius:24px!important;box-shadow:var(--shadow)!important;border:1px solid #f0ece8!important}.section-title{color:#293047!important}.auth-bar{display:none!important}.x-old-banner{display:none!important}
+#setup-section,#dictation-app-section,#gift-section,#leaderboard-section,#summary-section{margin-bottom:18px}.x-view #setup-section,.x-view #dictation-app-section,.x-view #gift-section,.x-view #leaderboard-section{display:block}
+.x-pagehead{margin-bottom:18px}.x-pagehead h2{font-size:28px;margin:0 0 5px}.x-pagehead p{margin:0;color:var(--muted)}
+.x-coming{background:white;border:1px dashed #ddd;border-radius:24px;padding:38px;text-align:center;box-shadow:var(--shadow)}
+.x-mobile-nav{display:none}
+@media(max-width:900px){body{padding-left:0!important}.x-sidebar{display:none}.x-main{padding:16px}.x-topbar{padding:0 16px}.x-hero{grid-template-columns:1fr;min-height:320px;padding:26px}.x-hero h1{font-size:34px}.x-hero:after{font-size:120px;right:20px;opacity:.75}.x-grid4{grid-template-columns:1fr 1fr}.x-panels{grid-template-columns:1fr}.x-mobile-nav{display:flex;position:fixed;z-index:1200;left:10px;right:10px;bottom:10px;background:white;border-radius:20px;box-shadow:0 10px 35px rgba(0,0,0,.16);padding:7px;justify-content:space-around}.x-mobile-nav button{border:0;background:none;font-size:20px;padding:8px}.x-main{padding-bottom:90px}}
+@media(max-width:560px){.x-grid4{grid-template-columns:1fr}.x-hero h1{font-size:30px}.x-search{font-size:12px}.x-statrow{grid-template-columns:1fr 1fr}}
+</style>
 </head>
 <body>
+<aside class="x-sidebar">
+  <div class="x-logo">🏘️ Xóm Này<br>Out Trình</div><div class="x-tag">Hàng xóm học tiếng Anh cùng nhau</div>
+  <nav class="x-nav">
+    <button class="active" data-view="home">🏠 &nbsp;Trang chủ</button>
+    <button data-view="learn">🎧 &nbsp;Học</button>
+    <button data-view="mine">📥 &nbsp;Bài của tôi</button>
+    <button data-view="community">🏘️ &nbsp;Kho cộng đồng</button>
+    <button data-view="progress">📈 &nbsp;Tiến bộ của tôi</button>
+    <button data-view="contribute">🤝 &nbsp;Đóng góp của tôi</button>
+    <button data-view="me">👤 &nbsp;Tôi</button>
+  </nav>
+  <div class="x-sidebar-foot">🐾 <b>Mèo Xóm nhắc nhẹ:</b><br>Học trước đi. Có gì hay thì góp sau. 😌</div>
+</aside>
+<header class="x-topbar"><input id="x-global-search" class="x-search-real" placeholder="🔎 Tìm bài học, chủ đề..." onkeydown="if(event.key==='Enter')xGlobalSearch()"><div id="x-auth-mini">👋 Khách trong xóm</div></header>
+<main class="x-main">
+<section id="x-home" class="x-view active">
+ <div class="x-hero"><div><div style="font-weight:800;color:#8b5d30;margin-bottom:8px">🏘️ XÓM NÀY OUT TRÌNH</div><h1>Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng em thì còn có thể.</h1><p>Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.</p><button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay →</button></div></div>
+ <div class="x-grid4">
+  <button class="x-action" onclick="xQuickTrial()"><div class="ico">🎧</div><b>Thử 5 câu ngay</b><span>Bấm cái mần luôn, 2 phút chứ mấy ^^</span></button>
+  <button class="x-action" onclick="xGo('mine')"><div class="ico">📥</div><b>Đem bài vở của bạn bỏ dô đây</b><span>Bỏ vào đây, nhai đầu nó luôn.</span></button>
+  <button class="x-action" onclick="xGo('community')"><div class="ico">🏘️</div><b>Học ké bài của mọi người</b><span>Hàng xóm không có gì ngoài bài vở.</span></button>
+  <button class="x-action" onclick="xGo('progress')"><div class="ico">📈</div><b>Tiến bộ của tôi</b><span>Ngày ấy & Bây giờ — coi mình bò được bao xa.</span></button>
+ </div>
+ <div class="x-panels"><div class="x-panel"><h3>Xin chào, hàng xóm! 👋</h3><p style="color:#6f7686">“Hôm nay học một chút, ngày mai sẽ khác.”</p><div class="x-statrow"><div class="x-stat"><strong>🔥</strong><small>Ngày có mặt</small></div><div class="x-stat"><strong id="x-home-minutes">0</strong><small>Phút học</small></div><div class="x-stat"><strong>❤️</strong><small>Để dành</small></div><div class="x-stat"><strong id="x-home-units">0</strong><small>Bài của tôi</small></div></div></div><div class="x-panel"><h3>🔥 Việc có thể làm ngay</h3><p>Chưa biết bắt đầu đâu? Nạp bài mẫu rồi thử vài câu trước.</p><button class="x-primary" onclick="loadSampleData();xGo('mine')">🎲 Nạp bài mẫu</button></div></div>
+</section>
+<section id="x-learn" class="x-view"><div class="x-pagehead"><h2>🎧 Học</h2><p>Chọn bài xong là chiến. Không cần nghi thức nhập môn dài dòng.</p></div><div id="x-learn-slot"></div></section>
+<section id="x-mine" class="x-view"><div class="x-pagehead"><h2>📥 Bài của tôi</h2><p>Đem bài vở của bạn bỏ dô đây. Bỏ vào đây, nhai đầu nó luôn.</p></div><div id="x-mine-slot"></div></section>
+<section id="x-community" class="x-view"><div class="x-pagehead"><h2>🏘️ Kho cộng đồng</h2><p>Hàng xóm không có gì ngoài bài vở.</p></div><div id="x-community-slot"></div></section>
+<section id="x-progress" class="x-view"><div class="x-pagehead"><h2>📈 Tiến bộ của tôi</h2><p>Con số để hệ thống tính. Tiến bộ phải để bạn cảm nhận được.</p></div><div id="x-progress-dashboard"></div><div id="x-progress-slot" style="margin-top:18px"></div></section>
+<section id="x-contribute" class="x-view"><div class="x-pagehead"><h2>🤝 Đóng góp của tôi</h2><p>Bếp nhà bạn dạo này cũng đông khách phết.</p></div><div class="x-panel"><div style="font-size:48px">🍚</div><h3>Góc bếp của bạn</h3><p id="x-contrib-copy">Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌</p><div class="x-statrow"><div class="x-stat"><strong id="x-contrib-units">0</strong><small>bài đã khao</small></div><div class="x-stat"><strong>—</strong><small>người đã học</small></div><div class="x-stat"><strong>—</strong><small>phiên học</small></div><div class="x-stat"><strong>❤️</strong><small>tình củm</small></div></div><br><button class="x-primary" onclick="xGo('mine')">Tôi có món này hay nè →</button><div id="x-contribution-list" style="margin-top:18px"></div></div></section>
+<section id="x-me" class="x-view"><div class="x-pagehead"><h2>👤 Tôi</h2><p>Mình đã trở thành người học như thế nào ở cái xóm này?</p></div><div id="x-me-dashboard"></div></section>
+</main>
+<nav class="x-mobile-nav"><button onclick="xGo('home')">🏠</button><button onclick="xGo('learn')">🎧</button><button onclick="xGo('mine')">📥</button><button onclick="xGo('community')">🏘️</button><button onclick="xGo('me')">👤</button></nav>
+
 <!-- BANNER TRUYỀN CẢM HỨNG -->
-    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);">
+    <div class="x-old-banner" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);">
         <div style="font-size: 32px; margin-bottom: 8px;">🤝 ☁️ 🚀</div>
         <h1 style="margin: 0 0 8px 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">DICTATION CLOUD MVP</h1>
         <p style="margin: 0; font-size: 15px; font-style: italic; opacity: 0.95; font-weight: 500;">
@@ -209,6 +267,15 @@
                             <option value="C1-C2">Nâng cao (C1-C2)</option>
                         </select>
                     </div>
+                    <div>
+                        <label style="font-size:12px;font-weight:bold;">Mục tiêu học:</label>
+                        <select id="share-track" class="form-input" style="padding:4px;font-size:12px"><option value="Giao tiếp">Giao tiếp</option><option value="TOEIC">TOEIC</option><option value="IELTS">IELTS</option></select>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;font-weight:bold;">Quyền chia sẻ:</label>
+                        <select id="share-rights" class="form-input" style="padding:4px;font-size:12px"><option value="self">Tôi tự tạo nội dung này</option><option value="permitted">Tôi được phép chia sẻ</option><option value="cc">Public domain / Creative Commons</option><option value="other">Từ nguồn khác</option><option value="unsure">Tôi không chắc</option></select>
+                    </div>
+                    <div style="grid-column:1/-1;font-size:12px;color:#805b13">🍚 Học thì dễ. Chia sẻ thì có trách nhiệm. Nếu không chắc quyền chia sẻ, cứ giữ bài riêng để học nha.</div>
                 </div>
             </div>
 
@@ -267,7 +334,8 @@
                 </div>
 
                 <div class="audio-player">
-                    <button class="btn btn-audio" onclick="playAudio()">🔊 Phát Audio</button>
+                    <button class="btn btn-audio" onclick="playAudio()">🔊 Nghe lại</button>
+                    <button class="btn btn-note" onclick="playSlowAudio()">🐢 Nghe chậm</button>
                     <select id="rate-select" class="select-style">
                         <option value="1">1x</option>
                         <option value="0.8" selected>0.8x</option>
@@ -277,11 +345,11 @@
                 </div>
 
                 <div class="input-area-wrapper">
-                    <textarea id="user-input" class="user-textarea" placeholder="Gõ câu bạn nghe được vào đây..." autocomplete="off"></textarea>
+                    <textarea id="user-input" class="user-textarea" placeholder="cứ gõ mạnh vào, đừng sợ tôi đau..." autocomplete="off"></textarea>
                 </div>
 
                 <div class="translation-box" style="margin-top: 10px;">
-                    <div id="text-vi" style="font-size: 16px;">*** (Bấm Check để xem bản dịch)</div>
+                    <div id="text-vi" style="font-size: 16px;">*** Bắt được câu rồi mới hé bản dịch nha 😌</div>
                 </div>
 
                 <div class="pronunciation-box">
@@ -289,7 +357,7 @@
                     <div id="pronunciation-words" class="target-words-display"></div>
                 </div>
 
-                <div class="option-toggle-box">
+                <div class="option-toggle-box" style="display:none">
                     <label style="cursor: pointer;">
                         <input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> 
                         Show answer immediately (Kiểm tra từng từ ngay khi gõ)
@@ -303,8 +371,8 @@
                 <div class="bottom-left-controls">
                     <div id="status-msg" class="status-message">✔ You are correct!</div>
                     <div class="action-btns" style="display: flex; gap: 8px;">
-                        <button class="btn btn-check" onclick="checkAnswer()">Check</button>
-                        <button class="btn btn-next" onclick="nextQuestion()">Next ➔</button>
+                        <button class="btn btn-note" onclick="giveUpCurrent()">🏳️ Chịu thua chưa?</button>
+                        <button id="x-next-manual" class="btn btn-next hidden" onclick="nextQuestion()">Tới lun đê! ➔</button>
                     </div>
                 </div>
             </div>
@@ -320,8 +388,8 @@
 
     <!-- MÀN HÌNH KẾT QUẢ -->
     <div id="summary-section" class="summary-card hidden">
-        <h2 id="summary-title">🎉 Hoàn thành bài học!</h2>
-        <div id="accuracy-label" style="font-size: 16px; color: #555;">Tỉ lệ hoàn thành đúng của bạn:</div>
+        <h2 id="summary-title">Bạn vừa làm được gì?</h2>
+        <div id="accuracy-label" style="font-size: 16px; color: #555;">🎯 Bạn bắt được:</div>
         <div id="accuracy-score" class="score-badge">0%</div>
         <div id="stats-detail" style="font-size: 14px; color: #666;"></div>
 
@@ -337,7 +405,7 @@
     </div>
 
    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
-    <div class="gift-section">
+    <div id="gift-section" class="gift-section">
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
         <span style="font-size: 28px;">🎁</span>
         <h2 style="margin: 0; color: #b45309; font-size: 20px;">SECTION 3: QUÀ TẶNG PROMPT AI TẠO BÀI HỌC</h2>
@@ -904,6 +972,12 @@ F. Nguyên tắc chung
                     authorUid: currentUser.uid,
                     topic: document.getElementById('share-topic').value,
                     level: document.getElementById('share-level').value,
+                    track: document.getElementById('share-track') ? document.getElementById('share-track').value : 'Giao tiếp',
+                    permissionStatus: document.getElementById('share-rights') ? document.getElementById('share-rights').value : 'unsure',
+                    sharingStatus: 'public',
+                    copyrightStatus: 'unreviewed',
+                    learnedCount: 0,
+                    sessionCount: 0,
                     items: itemsList,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 }).then(() => {
@@ -1050,7 +1124,8 @@ F. Nguyên tắc chung
         function loadQuestion(index) {
             isQuestionResolved = false;
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
-            document.getElementById('text-vi').innerText = '*** (Bấm Check để xem bản dịch)';
+            document.getElementById('text-vi').innerText = '*** Bắt được câu rồi mới hé bản dịch nha 😌';
+            const nb=document.getElementById('x-next-manual'); if(nb) nb.classList.add('hidden');
             
             const inputEl = document.getElementById('user-input');
             inputEl.value = '';
@@ -1059,7 +1134,7 @@ F. Nguyên tắc chung
 
             const statusMsg = document.getElementById('status-msg');
             statusMsg.classList.remove('active', 'error-text');
-            statusMsg.innerText = '✔ You are correct!';
+            statusMsg.innerText = 'Có mùi cao thủ rồi.';
 
             renderPronunciationWords();
             playAudio();
@@ -1128,13 +1203,14 @@ F. Nguyên tắc chung
                 revealAnswer();
                 
                 const statusMsg = document.getElementById('status-msg');
-                statusMsg.innerText = '✔ You are correct!';
+                statusMsg.innerText = 'Có mùi cao thủ rồi.';
                 statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
 
                 if (!isQuestionResolved) {
                     correctCount++;
                     isQuestionResolved = true;
+                    setTimeout(() => { if (currentIndex < items.length - 1) nextQuestion(); else { stopStudyTimerAndSave(); showSummary(); } }, 850);
                 }
             } else {
                 inputEl.className = 'user-textarea';
@@ -1160,6 +1236,28 @@ F. Nguyên tắc chung
             window.speechSynthesis.speak(uttr);
         }
 
+        function playSlowAudio() {
+            const rate = document.getElementById('rate-select');
+            const old = rate.value;
+            rate.value = '0.6';
+            playAudio();
+            setTimeout(() => { rate.value = old; }, 50);
+        }
+
+        function giveUpCurrent() {
+            if (!items.length) return;
+            if (!failedItemsList.includes(items[currentIndex])) failedItemsList.push(items[currentIndex]);
+            isQuestionResolved = true;
+            revealAnswer();
+            const inputEl = document.getElementById('user-input');
+            inputEl.disabled = true;
+            const statusMsg = document.getElementById('status-msg');
+            statusMsg.innerText = '🏳️ Thôi, tao chịu. Cho xem đi.';
+            statusMsg.className = 'status-message active error-text';
+            const nb = document.getElementById('x-next-manual');
+            if (nb) nb.classList.remove('hidden');
+        }
+
         function checkAnswer() {
             revealAnswer();
             const inputEl = document.getElementById('user-input');
@@ -1170,7 +1268,7 @@ F. Nguyên tắc chung
 
             if (userWords.length === targetWords.length && userWords.every((val, index) => val === targetWords[index])) {
                 inputEl.className = 'user-textarea is-correct';
-                statusMsg.innerText = '✔ You are correct!';
+                statusMsg.innerText = 'Có mùi cao thủ rồi.';
                 statusMsg.className = 'status-message active';
                 inputEl.disabled = true;
 
@@ -1180,7 +1278,7 @@ F. Nguyên tắc chung
                 }
             } else {
                 inputEl.className = 'user-textarea has-error';
-                statusMsg.innerText = '✖ Incorrect!';
+                statusMsg.innerText = '😌 Có một từ vừa chạy mất.';
                 statusMsg.className = 'status-message active error-text';
             }
         }
@@ -1226,11 +1324,11 @@ F. Nguyên tắc chung
                 document.getElementById('error-container').classList.add('hidden');
                 document.getElementById('retry-errors-btn').classList.add('hidden');
             } else {
-                document.getElementById('summary-title').innerText = "🎉 Hoàn thành bài học!";
-                document.getElementById('accuracy-label').innerText = "Tỉ lệ hoàn thành đúng của bạn:";
+                document.getElementById('summary-title').innerText = "Bạn vừa làm được gì?";
+                document.getElementById('accuracy-label').innerText = "🎯 Bạn bắt được:";
                 const accuracy = Math.round((correctCount / total) * 100);
                 document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Chưa đúng / Bỏ qua: ${failedItemsList.length} câu`;
+                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Cơ hội gỡ gạc: ${failedItemsList.length} câu`;
 
                 const errorContainer = document.getElementById('error-container');
                 const errorList = document.getElementById('error-list-items');
@@ -1294,5 +1392,86 @@ F. Nguyên tắc chung
             });
         }
     </script>
+
+<script id="xnot-shell-js">
+function xQuickTrial(){
+ try{
+   loadSampleData();
+   const names=Object.keys(unitsData||{}); let pool=[];
+   names.forEach(n=>pool.push(...(unitsData[n]||[])));
+   items=pool.slice(0,5); if(!items.length){xGo('mine');return;}
+   correctCount=0; failedItemsList=[]; isRetryMode=false; currentIndex=0;
+   document.getElementById('dictation-placeholder').classList.add('hidden');
+   document.getElementById('summary-section').classList.add('hidden');
+   document.getElementById('dictation-app').classList.remove('hidden');
+   xGo('learn'); startStudyTimer(); loadQuestion(0);
+ }catch(e){xGo('mine')}
+}
+function xEmailSignUp(){
+ const email=document.getElementById('x-email').value.trim(), pass=document.getElementById('x-pass').value;
+ if(!email||pass.length<6){alert('Nhập email và mật khẩu ít nhất 6 ký tự nha hàng xóm 😌');return;}
+ auth.createUserWithEmailAndPassword(email,pass).then(()=>alert('🎉 Chào mừng hàng xóm mới!')).catch(e=>alert(e.message));
+}
+function xEmailLogin(){
+ const email=document.getElementById('x-email').value.trim(), pass=document.getElementById('x-pass').value;
+ auth.signInWithEmailAndPassword(email,pass).catch(e=>alert(e.message));
+}
+function xResetPassword(){
+ const email=document.getElementById('x-email').value.trim(); if(!email){alert('Nhập email trước nha ^^');return;}
+ auth.sendPasswordResetEmail(email).then(()=>alert('📮 Đã gửi email đặt lại mật khẩu.')).catch(e=>alert(e.message));
+}
+function xGo(view){
+ document.querySelectorAll('.x-view').forEach(v=>v.classList.remove('active'));
+ const target=document.getElementById('x-'+view); if(target) target.classList.add('active');
+ document.querySelectorAll('.x-nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+ if(view==='community'){ try{switchMainTab('community');loadCommunityUnits();}catch(e){} }
+ if(view==='mine'){ try{switchMainTab('my-units');}catch(e){} }
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ const setup=document.getElementById('setup-section'), study=document.getElementById('dictation-app-section'), summary=document.getElementById('summary-section'), lb=document.getElementById('leaderboard-section');
+ if(setup) document.getElementById('x-mine-slot').appendChild(setup);
+ if(study) document.getElementById('x-learn-slot').appendChild(study);
+ if(summary) document.getElementById('x-learn-slot').appendChild(summary);
+ if(lb) document.getElementById('x-progress-slot').appendChild(lb);
+ document.querySelectorAll('.x-nav button').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
+ // Community reuses the existing setup engine, but the tab is switched automatically.
+ const communityBtn=document.querySelector('[data-view="community"]');
+ if(communityBtn) communityBtn.addEventListener('click',()=>{const slot=document.getElementById('x-community-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0)});
+ const mineBtn=document.querySelector('[data-view="mine"]');
+ if(mineBtn) mineBtn.addEventListener('click',()=>{const slot=document.getElementById('x-mine-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)});
+ // quick cards need same relocation behavior
+ const oldGo=xGo; window.xGo=function(view){if(view==='mine'&&setup)document.getElementById('x-mine-slot').appendChild(setup);if(view==='community'&&setup)document.getElementById('x-community-slot').appendChild(setup);oldGo(view);if(view==='community')setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0);if(view==='mine')setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)};
+ setInterval(()=>{const m=document.getElementById('stat-time-spent'),u=document.getElementById('stat-unit-count');if(m)document.getElementById('x-home-minutes').textContent=m.textContent||'0';if(u)document.getElementById('x-home-units').textContent=u.textContent||'0';if(window.currentUser){const a=document.getElementById('x-auth-mini');if(a)a.textContent='🐱 '+(window.currentUser.displayName||window.currentUser.email||'Hàng xóm')}} ,1200);
+});
+</script>
+
+<script id="xnot-final-functional-js">
+const XNOT={favorites:[],review:[],history:[],replays:0,sessionStart:null};
+function xLoadLocal(){try{XNOT.favorites=JSON.parse(localStorage.getItem('xnot_favorites')||'[]');XNOT.review=JSON.parse(localStorage.getItem('xnot_review')||'[]');XNOT.history=JSON.parse(localStorage.getItem('xnot_history')||'[]')}catch(e){}}
+function xSaveLocal(){localStorage.setItem('xnot_favorites',JSON.stringify(XNOT.favorites));localStorage.setItem('xnot_review',JSON.stringify(XNOT.review));localStorage.setItem('xnot_history',JSON.stringify(XNOT.history));}
+function xToast(msg){const d=document.createElement('div');d.className='x-toast';d.textContent=msg;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+function xEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('community');setTimeout(()=>{const e=document.getElementById('community-search');if(e){e.value=q;filterCommunityUnits()}},80)}
+function xFavoriteUnit(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
+function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);try{db.collection('community_units').doc(id).update({sessionCount:firebase.firestore.FieldValue.increment(1)})}catch(e){}}
+function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa thấy món nào hợp gu. Thử đổi bộ lọc nha.</div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${u.learnedCount||0} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" onclick="xStartCommunity('${u.id}')">🔥 Chiến bài này</button><button class="x-mini-btn x-save" onclick="xFavoriteUnit('${u.id}')">❤️ Để dành</button></div></article>`).join('');}
+const xOldRenderCommunity=window.renderCommunityList;window.renderCommunityList=function(list){xRenderCommunityModern(list)};
+function xInjectCommunityFilters(){const sec=document.getElementById('section-community');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>🏘️ Vào kho là thấy bài ngay.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(communityUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCommunityModern(list)})}
+function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Đi hàng xóm ngó nghiêng thử đi.</p>'}</div></div>`}
+function xRetrySaved(){if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
+function xRenderContribution(){const el=document.getElementById('x-contribution-list');if(!el)return;if(!window.currentUser){el.innerHTML='<div class="x-empty">🍚 Học ké thoải mái. Khi muốn khao cả xóm thì đăng nhập để giữ tên chủ bếp nha.</div>';return}db.collection('community_units').where('authorUid','==',currentUser.uid).get().then(s=>{let learners=0,sessions=0;const rows=[];s.forEach(d=>{const u=d.data();learners+=u.learnedCount||0;sessions+=u.sessionCount||0;rows.push(u)});document.getElementById('x-contrib-units').textContent=s.size;document.getElementById('x-contrib-copy').textContent=s.size?'Có người đang học tiếng Anh bằng thứ bạn mang tới đây. Nghe cũng ấm lòng ha ^^':'Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌';el.innerHTML=s.size?`<div class="x-two"><div class="x-kpi"><strong>${learners}</strong>người đã học</div><div class="x-kpi"><strong>${sessions}</strong>phiên học từ bài của bạn</div></div><h3 class="x-section-title">👣 Dấu chân của bạn trong xóm</h3>${rows.slice(0,5).map(u=>`<div class="x-note" style="margin:8px 0">🍚 <b>${xEsc(u.unitName)}</b> đang phục vụ xóm · ${u.sessionCount||0} phiên học</div>`).join('')}`:'<div class="x-empty">Góc bếp vẫn đang trống.<br>Không sao. Cứ ăn ké thêm vài bữa đi. 😌</div>'}).catch(()=>{el.innerHTML='<div class="x-empty">Chưa đọc được góc bếp lúc này.</div>'})}
+function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
+// Session capture + review list
+const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xRenderProgress();};
+const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
+// Public sharing guard
+const xOldSaveCloud=window.saveToCloud;window.saveToCloud=function(){const pub=document.getElementById('share-community-check')?.checked;const rights=document.getElementById('share-rights')?.value;if(pub&&rights==='unsure'){alert('🔒 Bạn vẫn học bài này bình thường nha. Vì chưa chắc quyền chia sẻ nên mình giữ riêng trước.');document.getElementById('share-community-check').checked=false}return xOldSaveCloud()};
+// Navigate enhancements
+const xNavBase=window.xGo;window.xGo=function(v){xNavBase(v);if(v==='community'){setTimeout(()=>{xInjectCommunityFilters();loadCommunityUnits()},30)}if(v==='progress')xRenderProgress();if(v==='contribute')xRenderContribution();if(v==='me')xRenderMe()};
+// auth state refresh
+try{auth.onAuthStateChanged(()=>{setTimeout(()=>{xRenderMe();xRenderContribution()},50)})}catch(e){}
+document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCommunityFilters();});
+</script>
 </body>
 </html>
