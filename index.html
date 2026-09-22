@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xóm Này Out Trình — Hàng xóm học tiếng Anh cùng nhau</title>
+    <title>Mặn — Xóm Này Out Trình</title>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
@@ -131,7 +131,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 </head>
 <body>
 <header class="x-topbar"><div class="x-header-inner">
-<button class="x-header-logo" onclick="xGo('home')" title="Về Trang chủ">🏘️ Xóm Này Out Trình</button>
+<button class="x-header-logo man-logo" onclick="xGo('home')" title="Về Trang chủ" aria-label="Mặn — về Trang chủ"><span class="man-mark">M</span><span class="man-word">Mặn<span>.</span></span></button>
 <div class="x-header-center"><nav class="x-header-nav"><button class="active" data-view="home">Trang chủ</button><button data-view="learn">Học</button><button data-view="mine">Bài của tôi</button><button data-view="community">Kho cộng đồng</button><button data-view="progress">Tiến bộ</button><button data-view="contribute">Đóng góp</button><button data-view="about">Chuyện cái xóm</button></nav></div>
 <div class="x-header-right"><input id="x-global-search" class="x-search-real" placeholder="🔎 Tìm bài, chủ đề..." onkeydown="if(event.key==='Enter')xGlobalSearch()"><button class="x-bell" onclick="xGo('notifications')" title="Thông báo">🔔<span id="x-bell-badge" class="x-bell-badge">3</span></button><div id="x-auth-mini" class="x-auth-pill" onclick="xGo('me')">👤 Người lạ ơi!</div></div>
 </div></header>
@@ -1498,7 +1498,7 @@ function xSyncUnitMeta(){[['unit-topic','share-topic'],['unit-level','share-leve
  if(mineBtn) mineBtn.addEventListener('click',()=>{const slot=document.getElementById('x-mine-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)});
  // quick cards need same relocation behavior
  const oldGo=xGo; window.xGo=function(view){if(view==='mine'&&setup)document.getElementById('x-mine-slot').appendChild(setup);if(view==='community'&&setup)document.getElementById('x-community-slot').appendChild(setup);oldGo(view);if(view==='community')setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0);if(view==='mine')setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)};
- setInterval(()=>{const m=document.getElementById('stat-time-spent'),u=document.getElementById('stat-unit-count');if(m)document.getElementById('x-home-minutes').textContent=m.textContent||'0';if(u)document.getElementById('x-home-units').textContent=u.textContent||'0';if(window.currentUser){const a=document.getElementById('x-auth-mini');if(a)a.textContent='🐱 '+(window.currentUser.displayName||window.currentUser.email||'Hàng xóm')}} ,1200);
+ setInterval(()=>{const m=document.getElementById('stat-time-spent'),u=document.getElementById('stat-unit-count');if(m)document.getElementById('x-home-minutes').textContent=m.textContent||'0';if(u)document.getElementById('x-home-units').textContent=u.textContent||'0';if(window.currentUser){const a=document.getElementById('x-auth-mini');if(a){const n=(userProfileData&&userProfileData.nickname)||window.currentUser.displayName||(window.currentUser.email?window.currentUser.email.split('@')[0]:'Hàng xóm');a.textContent='😼 '+n}}} ,1200);
 });
 </script>
 
@@ -1663,5 +1663,46 @@ window.xHeroGo=function(i){
 document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>window.xHeroGo(0),260));
 </script>
 
+
+
+<style id="patch06-brand-contact">
+/* MẶN brand cleanup */
+.man-logo{display:flex!important;align-items:center!important;gap:9px!important;width:max-content!important;white-space:nowrap!important}
+.man-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#1f2537,#343c57);color:#fff;font-weight:1000;font-size:20px;box-shadow:0 8px 18px #20263a2a;position:relative;overflow:hidden}
+.man-mark:after{content:'';position:absolute;width:16px;height:5px;border-radius:50%;background:#ffb84d;right:-3px;top:4px;transform:rotate(35deg)}
+.man-word{font-size:25px;letter-spacing:-1.1px;font-weight:1000}.man-word>span{color:#f59e0b}
+.x-profile-card{grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;gap:18px!important}.x-profile-card>div:nth-child(2){min-width:0}.x-profile-card h2{line-height:1.15}.x-profile-card p{margin:7px 0 0;line-height:1.45}.x-avatar-img{flex:0 0 auto}
+.x-owner-chat{position:fixed;right:22px;bottom:22px;z-index:3900;border:1px solid #ffffffc7;background:#20263a;color:white;border-radius:999px;padding:9px 14px 9px 9px;display:flex;align-items:center;gap:8px;box-shadow:0 15px 38px #20263a38;cursor:pointer;font-weight:900;transition:.2s}.x-owner-chat span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#fff1c9;font-size:19px}.x-owner-chat:hover{transform:translateY(-3px) scale(1.02)}
+.x-owner-modal{position:fixed;inset:0;z-index:6000;background:#171d2d88;backdrop-filter:blur(8px);display:grid;place-items:center;padding:18px}.x-owner-modal.hidden{display:none}.x-owner-dialog{position:relative;width:min(520px,94vw);background:#fff;border-radius:28px;padding:24px;box-shadow:0 35px 100px #0005;animation:xPop .2s ease}.x-owner-close{position:absolute;right:14px;top:14px;border:0;width:36px;height:36px;border-radius:50%;font-size:23px;background:#f4f5f7;cursor:pointer}.x-owner-head{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding-right:32px}.x-owner-cat{width:64px;height:64px;border-radius:20px;background:linear-gradient(145deg,#fff0bd,#ffd78b);display:grid;place-items:center;font-size:36px}.x-owner-head small{font-weight:950;letter-spacing:.08em;color:#a16827}.x-owner-head h3{margin:3px 0 4px;font-size:22px}.x-owner-head p{margin:0;color:#697084;line-height:1.45}.x-owner-types{display:flex;gap:8px;margin:18px 0 10px}.x-owner-types button{border:1px solid #e8e8ed;background:#f8f9fb;border-radius:999px;padding:9px 12px;font-weight:850;cursor:pointer}.x-owner-types button.selected{background:#20263a;color:#fff;border-color:#20263a}.x-owner-dialog textarea{width:100%;resize:vertical;min-height:125px;box-sizing:border-box}.x-owner-meta{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#8a8fa0;margin:7px 2px 14px}.x-owner-send{width:100%}.x-owner-privacy{text-align:center;color:#7c8392;font-size:11px;margin:11px 0 0}
+@media(max-width:900px){.man-word{font-size:22px}.man-mark{width:31px;height:31px}.x-owner-chat{right:14px;bottom:82px;padding:7px}.x-owner-chat b{display:none}.x-owner-chat span{width:38px;height:38px}.x-profile-card{grid-template-columns:auto 1fr!important}.x-profile-actions{grid-column:1/-1!important;justify-content:flex-start!important}.x-owner-dialog{padding:20px}.x-owner-types{overflow:auto}}
+</style>
+<script id="patch06-brand-contact-js">
+function xIdentityName(){const u=auth.currentUser||window.currentUser;if(!u)return 'Người lạ ơi!';return (userProfileData&&userProfileData.nickname)||u.displayName||(u.email?u.email.split('@')[0]:'Hàng xóm')}
+window.xRefreshIdentity=function(){const u=auth.currentUser||window.currentUser,mini=document.getElementById('x-auth-mini'),g=document.getElementById('x-home-greeting');if(u){const name=xIdentityName(),avatar=(userProfileData&&userProfileData.avatarData)||u.photoURL||'';if(mini)mini.innerHTML=`${avatar?`<img src="${avatar}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:5px">`:'😼'} ${xEsc(name)}`;if(g)g.textContent=`Xin chào, ${name}! 👋`}else{if(mini)mini.textContent='👤 Người lạ ơi!';if(g)g.textContent='Người lạ ơi! 👋'}xRenderMe?.();xRenderProgress?.()}
+let xFeedbackKind='Góp ý';
+function xOpenOwnerChat(){document.getElementById('x-owner-modal')?.classList.remove('hidden');const page=document.querySelector('.x-view.active .x-pagehead h2')?.textContent?.trim()||document.querySelector('.x-view.active')?.id?.replace('view-','')||'Trang hiện tại';const p=document.getElementById('x-owner-page');if(p)p.textContent='📍 '+page;setTimeout(()=>document.getElementById('x-owner-message')?.focus(),100)}
+function xCloseOwnerChat(){document.getElementById('x-owner-modal')?.classList.add('hidden')}
+function xPickFeedbackKind(btn){xFeedbackKind=btn.dataset.kind;document.querySelectorAll('.x-owner-types button').forEach(b=>b.classList.toggle('selected',b===btn))}
+async function xSendOwnerFeedback(){const el=document.getElementById('x-owner-message'),message=(el?.value||'').trim();if(message.length<3)return xToast('😼 Nói Chủ Xóm nghe thêm xíu nữa đi.');const u=auth.currentUser||window.currentUser;const payload={kind:xFeedbackKind,message,page:document.querySelector('.x-view.active')?.id||'',uid:u?.uid||null,email:u?.email||null,nickname:u?xIdentityName():'Người lạ',userAgent:navigator.userAgent,createdAt:firebase.firestore.FieldValue.serverTimestamp(),status:'new'};try{await db.collection('owner_feedback').add(payload);el.value='';xCloseOwnerChat();xToast('💌 Mèo Mặn đã ôm thư chạy đi méc Chủ Xóm rồi!')}catch(e){xToast('⚠️ Chưa gửi được. Có vẻ cổng nhà Chủ Xóm đang kẹt.');console.error(e)}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
+</script>
+
+<!-- PATCH-06: Chủ Xóm feedback/contact -->
+<button id="x-owner-chat" class="x-owner-chat" onclick="xOpenOwnerChat()" aria-label="Nhắn Chủ Xóm" title="Nhắn Chủ Xóm"><span>😼</span><b>Nhắn Chủ Xóm</b></button>
+<div id="x-owner-modal" class="x-owner-modal hidden" onclick="if(event.target===this)xCloseOwnerChat()">
+  <div class="x-owner-dialog" role="dialog" aria-modal="true" aria-labelledby="x-owner-title">
+    <button class="x-owner-close" onclick="xCloseOwnerChat()" aria-label="Đóng">×</button>
+    <div class="x-owner-head"><div class="x-owner-cat">😼</div><div><small>MẶN · XÓM NÀY OUT TRÌNH</small><h3 id="x-owner-title">Có gì muốn méc Chủ Xóm?</h3><p>Bug, góp ý hay ý tưởng mặn mòi đều quăng qua đây. Chủ Xóm đọc được hết.</p></div></div>
+    <div class="x-owner-types">
+      <button class="selected" data-kind="Góp ý" onclick="xPickFeedbackKind(this)">💡 Góp ý</button>
+      <button data-kind="Báo bug" onclick="xPickFeedbackKind(this)">🐛 Báo bug</button>
+      <button data-kind="Tâm sự" onclick="xPickFeedbackKind(this)">💬 Tâm sự</button>
+    </div>
+    <textarea id="x-owner-message" class="form-input" rows="5" maxlength="1500" placeholder="Kể Chủ Xóm nghe coi..."></textarea>
+    <div class="x-owner-meta"><span id="x-owner-page"></span><span>Tối đa 1.500 ký tự</span></div>
+    <button class="x-primary x-owner-send" onclick="xSendOwnerFeedback()">Gửi Chủ Xóm →</button>
+    <p class="x-owner-privacy">🔒 Nội dung này được gửi riêng cho Chủ Xóm, không đăng công khai.</p>
+  </div>
+</div>
 </body>
 </html>
