@@ -694,14 +694,26 @@ F. Nguyên tắc chung
                     const medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `#${idx+1}`));
                     const div = document.createElement('div');
                     div.className = 'leader-item';
-                    div.innerHTML = `
-                        <div style="display:flex; align-items:center; gap: 10px;">
-                            <span style="font-weight:bold; width: 25px;">${medal}</span>
-                            <img src="${data.avatar || 'https://via.placeholder.com/32'}" style="width:32px; height:32px; border-radius:50%; border: 1px solid #ddd;">
-                            <strong>${data.nickname || 'Học viên'}</strong>
-                        </div>
-                        <span style="font-weight:bold; color: #0f8a5f;">${data.totalMinutes || 0} phút học</span>
-                    `;
+                    const identity = document.createElement('div');
+                    identity.style.cssText = 'display:flex; align-items:center; gap:10px';
+                    const rank = document.createElement('span');
+                    rank.style.cssText = 'font-weight:bold; width:25px';
+                    rank.textContent = medal;
+                    const avatar = document.createElement('img');
+                    avatar.style.cssText = 'width:32px; height:32px; border-radius:50%; border:1px solid #ddd';
+                    // A profile URL must never become markup or an executable URL.
+                    try {
+                        const url = new URL(data.avatar || '');
+                        if (url.protocol === 'https:') avatar.src = url.href;
+                    } catch (_) {}
+                    if (!avatar.src) avatar.alt = '🐱';
+                    const nickname = document.createElement('strong');
+                    nickname.textContent = String(data.nickname || 'Học viên');
+                    const minutes = document.createElement('span');
+                    minutes.style.cssText = 'font-weight:bold; color:#0f8a5f';
+                    minutes.textContent = Math.max(0, Number(data.totalMinutes) || 0) + ' phút học';
+                    identity.append(rank, avatar, nickname);
+                    div.append(identity, minutes);
                     listEl.appendChild(div);
                 });
             });
