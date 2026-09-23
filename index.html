@@ -1001,11 +1001,13 @@ F. Nguyên tắc chung
             const isShare = document.getElementById('share-community-check').checked;
             const activeUnit = getActiveUnitName();
             const itemsList = unitsData[activeUnit] || [];
+            let savedPrivate = false;
             try {
                 await db.collection('user_vocab').doc(currentUser.uid).set({
                     units: JSON.stringify(unitsData),
                     updatedAt: firebase.firestore.FieldValue.serverTimestamp()
                 }, {merge:true});
+                savedPrivate = true;
                 xRenderCarousel('mine');
                 if (!isShare) { xToast('💾 Bài đã ở Bài của tôi. Lúc nào muốn góp cho xóm cũng được nha.'); return; }
                 if (!itemsList.length) { xToast('Bài đã lưu riêng. Thêm câu rồi hẵng gửi duyệt nha.'); return; }
@@ -1048,7 +1050,7 @@ F. Nguyên tắc chung
                 xToast('🍚 Đã gửi duyệt. Bài vẫn nằm trong Bài của tôi để bạn học tiếp nha.');
             } catch (e) {
                 console.error(e);
-                xToast('Bài của bạn vẫn ở đây. Chưa gửi được lên tài khoản hoặc hàng chờ; thử lại nha.');
+                xToast(savedPrivate ? '💾 Bài đã lưu trong Bài của tôi; phần gửi duyệt chưa thành công. Thử lại nha.' : 'Bài vẫn ở trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
             }
         }
 
