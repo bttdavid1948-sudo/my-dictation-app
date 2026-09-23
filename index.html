@@ -1020,6 +1020,9 @@ F. Nguyên tắc chung
                 if (prior.exists && prior.data().sharingStatus === 'pending') {
                     xToast('Bài vẫn ở Bài của tôi và đang chờ duyệt nha.'); return;
                 }
+                 if (prior.exists && prior.data().sharingStatus === 'public') {
+                     xToast('Bài riêng đã lưu. Bài cộng đồng cũ đang được chuyển sang quy trình duyệt; bạn không cần gửi lại nha.'); return;
+                 }
                 const payload = {
                     unitName: activeUnit,
                     author: userProfileData.nickname || currentUser.displayName || 'Hàng xóm',
@@ -1040,7 +1043,7 @@ F. Nguyên tắc chung
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 };
                 if (prior.exists && prior.data().sharingStatus === 'rejected') {
-                    await ref.update({...payload, createdAt:prior.data().createdAt, resubmittedAt:firebase.firestore.FieldValue.serverTimestamp()});
+                    await ref.update({...payload, createdAt:prior.data().createdAt, learnedCount:prior.data().learnedCount, sessionCount:prior.data().sessionCount, resubmittedAt:firebase.firestore.FieldValue.serverTimestamp()});
                 } else {
                     await ref.set(payload);
                 }
@@ -1629,7 +1632,7 @@ async function xLoadContributionStatuses(){
 }
 auth.onAuthStateChanged(()=>xLoadContributionStatuses());
 function xCommunityLessons(){return (window.communityUnitsCache||communityUnitsCache||[]).map(x=>({...x,mine:false}))}
-function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p>${u.mine&&u.reviewStatus?`<small class="x-review-status">${u.reviewStatus==='approved'?'✅ Đã lên kho cộng đồng':u.reviewStatus==='pending'?'⏳ Đang chờ duyệt — vẫn học bình thường':'💛 Chưa lên kho cộng đồng — bài vẫn là của bạn'}</small>`:''}<button class="x-primary" onclick="${u.mine?`xStartMine('${xEsc(u.unitName)}')`:`xStartCommunity('${xEsc(u.id)}')`}">🔥 Chiến bài này</button></article>`}
+function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p>${u.mine&&u.reviewStatus?`<small class="x-review-status">${u.reviewStatus==='approved'?'✅ Đã lên kho cộng đồng':u.reviewStatus==='pending'?'⏳ Đang chờ duyệt — vẫn học bình thường':'💛 Chưa lên kho cộng đồng — bài vẫn là của bạn'}</small>`:''}<button class="x-primary" onclick="${u.mine?`xStartMine(decodeURIComponent('${encodeURIComponent(u.unitName).replace(/'/g,'%27')}'))`:`xStartCommunity(decodeURIComponent('${encodeURIComponent(u.id).replace(/'/g,'%27')}'))`}">🔥 Chiến bài này</button></article>`}
 function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-community-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6);if(!arr.length){el.innerHTML='<div class="x-empty">Chưa có bài nào ở đây. Mở hàng một món đi 😌</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
 function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
