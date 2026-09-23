@@ -977,7 +977,7 @@ F. Nguyên tắc chung
 
         function saveToCloud() {
             if (!currentUser) { xGo('me'); return alert("🔐 Đăng nhập trước để lưu bài lên tài khoản nha."); }
-            if(window.xSyncUnitMeta) xSyncUnitMeta();
+            if(window.xSyncUnitMeta) window.xSyncUnitMeta();
 
             db.collection('user_vocab').doc(currentUser.uid).set({
                 units: JSON.stringify(unitsData),
@@ -1488,6 +1488,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
  
 function xSyncUnitMeta(){[['unit-topic','share-topic'],['unit-level','share-level'],['unit-track','share-track']].forEach(([a,b])=>{const A=document.getElementById(a),B=document.getElementById(b);if(A&&B)B.value=A.value})}
+window.xSyncUnitMeta=xSyncUnitMeta;
 ['unit-topic','unit-level','unit-track'].forEach(id=>document.getElementById(id)?.addEventListener('change',xSyncUnitMeta));
 ['share-topic','share-level','share-track'].forEach(id=>{const e=document.getElementById(id);if(e&&e.parentElement)e.parentElement.style.display='none'});xSyncUnitMeta();
 
@@ -1544,7 +1545,6 @@ function xOpenLeaderboard(){document.getElementById('x-lb-modal')?.classList.rem
 function xCloseLeaderboard(){document.getElementById('x-lb-modal')?.classList.add('hidden')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseLeaderboard()});
 const xOldLeaderboard=window.loadLeaderboardData;window.loadLeaderboardData=function(type){xLoadLeaderboard(type)};
-window.xSyncUnitMeta=xSyncUnitMeta;
 // Guest history lives locally; account sync can be expanded without blocking learning.
 const xMeBase=xRenderMe;window.xRenderMe=function(){xMeBase();if(!window.currentUser){const el=document.getElementById('x-me-dashboard');if(el){const note=document.createElement('div');note.className='x-note';note.style.marginTop='12px';note.innerHTML='💾 <b>Lịch sử khách đang lưu tạm trên trình duyệt này.</b> Đổi máy/xóa dữ liệu trình duyệt có thể mất. Đăng nhập để giữ hành trình lâu dài.';el.appendChild(note)}}};
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>xLoadLeaderboard('daily'),300)});
