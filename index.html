@@ -1057,7 +1057,7 @@ F. Nguyên tắc chung
         }
 
         function loadSampleData() {
-            unitsData = {
+            const sampleUnits = {
                 "Unit 1: Giao tiếp Hàng ngày": [
                     { en: "Where is Jane?", vi: "Jane ở đâu vậy?" },
                     { en: "She is in the living room.", vi: "Cô ấy đang ở phòng khách." },
@@ -1068,6 +1068,18 @@ F. Nguyên tắc chung
                     { en: "Please send me the report by end of day.", vi: "Vui lòng gửi báo cáo cho tôi trước cuối ngày." }
                 ]
             };
+            for (const [name, lesson] of Object.entries(sampleUnits)) {
+                if (!Object.prototype.hasOwnProperty.call(unitsData, name)) {
+                    unitsData[name] = lesson;
+                } else if (JSON.stringify(unitsData[name]) !== JSON.stringify(lesson)) {
+                    let copy = name + ' (bài mẫu)', number = 2;
+                    while (Object.prototype.hasOwnProperty.call(unitsData, copy) &&
+                           JSON.stringify(unitsData[copy]) !== JSON.stringify(lesson)) {
+                        copy = name + ' (bài mẫu ' + number++ + ')';
+                    }
+                    unitsData[copy] = lesson;
+                }
+            }
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
