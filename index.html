@@ -328,13 +328,18 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
     <!-- SECTION 2: KHU HỌC TẬP CHUẨN DAILYDICTATION -->
     <div id="dictation-app-section" class="section-card">
         <div class="section-title">
-            <span>🎧 SECTION 2: KHU HỌC TẬP DICTATION</span>
+            <span>🎧 Luyện nghe và gõ lại</span>
         </div>
 
         <div id="dictation-placeholder" style="text-align: center; padding: 40px 20px; color: #666; background: #f8fafc; border-radius: 8px;">
             <span style="font-size: 40px;">🎧</span>
-            <h3 style="margin: 10px 0 5px 0;">Chưa có bài học nào được chọn</h3>
-            <p style="font-size: 13px; margin: 0;">Hãy tích chọn các Unit ở Section 1 rồi bấm nút <strong>🚀 Bắt đầu học</strong> để trải nghiệm ngay tại đây!</p>
+            <h3 style="margin: 10px 0 5px 0;">Chọn một bài để bắt đầu nha</h3>
+            <p style="font-size: 14px; margin: 0 0 16px;">Muốn nghe thử ngay thì chiến 5 câu. Có bài riêng hoặc thích học bài hàng xóm thì chọn kho bên dưới.</p>
+            <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px">
+                <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay</button>
+                <button class="btn btn-note" onclick="xGo('mine')">📥 Bài của tôi</button>
+                <button class="btn btn-note" onclick="xGo('community')">🏘️ Kho cộng đồng</button>
+            </div>
         </div>
 
         <div id="dictation-app" class="dictation-container hidden">
