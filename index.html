@@ -645,13 +645,26 @@ F. Nguyên tắc chung
             const loadBtn = document.getElementById('load-cloud-btn');
 
             if (user) {
-                authContainer.innerHTML = `
-                    <div class="user-profile" onclick="openProfileModal()">
-                        <img class="user-avatar" id="header-avatar" src="${user.photoURL}" alt="avatar">
-                        <span id="header-name" style="font-size: 14px; font-weight: bold;">${user.displayName}</span>
-                        <button class="btn btn-note" style="padding: 4px 8px; font-size: 12px;" onclick="event.stopPropagation(); logout()">Đăng xuất</button>
-                    </div>
-                `;
+                authContainer.replaceChildren();
+                const profile = document.createElement('div');
+                profile.className = 'user-profile';
+                profile.addEventListener('click', openProfileModal);
+                const avatar = document.createElement('img');
+                avatar.className = 'user-avatar';
+                avatar.id = 'header-avatar';
+                avatar.src = user.photoURL || '';
+                avatar.alt = 'avatar';
+                const name = document.createElement('span');
+                name.id = 'header-name';
+                name.style.cssText = 'font-size:14px;font-weight:bold';
+                name.textContent = user.displayName || 'Hàng xóm';
+                const signOut = document.createElement('button');
+                signOut.className = 'btn btn-note';
+                signOut.style.cssText = 'padding:4px 8px;font-size:12px';
+                signOut.textContent = 'Đăng xuất';
+                signOut.addEventListener('click', event => { event.stopPropagation(); logout(); });
+                profile.append(avatar, name, signOut);
+                authContainer.appendChild(profile);
                 saveBtn.classList.remove('hidden');
                 loadBtn.classList.remove('hidden');
                 loadFromCloud();
@@ -959,7 +972,17 @@ F. Nguyên tắc chung
             list.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = 'preview-item';
-                div.innerHTML = `<span><strong>${idx+1}. ${item.en}</strong> (${item.vi || 'Chưa dịch'})</span> <button onclick="deleteSentence('${unitName}', ${idx})" style="color:red; border:none; background:none; cursor:pointer;">❌</button>`;
+                const span = document.createElement('span');
+                const strong = document.createElement('strong');
+                strong.textContent = `${idx+1}. ${item.en}`;
+                span.append(strong, document.createTextNode(` (${item.vi || 'Chưa dịch'})`));
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.textContent = '❌';
+                remove.setAttribute('aria-label', `Xóa câu ${idx+1} trong ${unitName}`);
+                remove.style.cssText = 'color:red;border:none;background:none;cursor:pointer';
+                remove.addEventListener('click', () => deleteSentence(unitName, idx));
+                div.append(span, remove);
                 previewBox.appendChild(div);
             });
         }
@@ -983,7 +1006,11 @@ F. Nguyên tắc chung
             keys.forEach(u => {
                 const label = document.createElement('label');
                 label.className = 'unit-card';
-                label.innerHTML = `<input type="checkbox" value="${u}" checked> ${u} (${unitsData[u].length} câu)`;
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = u;
+                checkbox.checked = true;
+                label.append(checkbox, document.createTextNode(` ${u} (${unitsData[u].length} câu)`));
                 selector.appendChild(label);
             });
         }
@@ -1504,7 +1531,9 @@ F. Nguyên tắc chung
 
                     failedItemsList.forEach(err => {
                         const li = document.createElement('li');
-                        li.innerHTML = `<strong>${err.en}</strong> (${err.vi || 'Chưa có bản dịch'})`;
+                        const strong = document.createElement('strong');
+                        strong.textContent = err.en;
+                        li.append(strong, document.createTextNode(` (${err.vi || 'Chưa có bản dịch'})`));
                         errorList.appendChild(li);
                     });
                     errorContainer.classList.remove('hidden');
@@ -1598,6 +1627,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
  
 function xSyncUnitMeta(){[['unit-topic','share-topic'],['unit-level','share-level'],['unit-track','share-track']].forEach(([a,b])=>{const A=document.getElementById(a),B=document.getElementById(b);if(A&&B)B.value=A.value})}
+window.xSyncUnitMeta=xSyncUnitMeta;
 ['unit-topic','unit-level','unit-track'].forEach(id=>document.getElementById(id)?.addEventListener('change',xSyncUnitMeta));
 ['share-topic','share-level','share-track'].forEach(id=>{const e=document.getElementById(id);if(e&&e.parentElement)e.parentElement.style.display='none'});xSyncUnitMeta();
 
@@ -1654,7 +1684,6 @@ function xOpenLeaderboard(){document.getElementById('x-lb-modal')?.classList.rem
 function xCloseLeaderboard(){document.getElementById('x-lb-modal')?.classList.add('hidden')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseLeaderboard()});
 const xOldLeaderboard=window.loadLeaderboardData;window.loadLeaderboardData=function(type){xLoadLeaderboard(type)};
-window.xSyncUnitMeta=xSyncUnitMeta;
 // Guest history lives locally; account sync can be expanded without blocking learning.
 const xMeBase=xRenderMe;window.xRenderMe=function(){xMeBase();if(!window.currentUser){const el=document.getElementById('x-me-dashboard');if(el){const note=document.createElement('div');note.className='x-note';note.style.marginTop='12px';note.innerHTML='💾 <b>Lịch sử khách đang lưu tạm trên trình duyệt này.</b> Đổi máy/xóa dữ liệu trình duyệt có thể mất. Đăng nhập để giữ hành trình lâu dài.';el.appendChild(note)}}};
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>xLoadLeaderboard('daily'),300)});
@@ -1799,7 +1828,7 @@ document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>window.xHeroGo(0
 </style>
 <script id="patch06-brand-contact-js">
 function xIdentityName(){const u=auth.currentUser||window.currentUser;if(!u)return 'Người lạ ơi!';return (userProfileData&&userProfileData.nickname)||u.displayName||(u.email?u.email.split('@')[0]:'Hàng xóm')}
-window.xRefreshIdentity=function(){const u=auth.currentUser||window.currentUser,mini=document.getElementById('x-auth-mini'),g=document.getElementById('x-home-greeting');if(u){const name=xIdentityName(),avatar=(userProfileData&&userProfileData.avatarData)||u.photoURL||'';if(mini)mini.innerHTML=`${avatar?`<img src="${avatar}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:5px">`:'😼'} ${xEsc(name)}`;if(g)g.textContent=`Xin chào, ${name}! 👋`}else{if(mini)mini.textContent='👤 Người lạ ơi!';if(g)g.textContent='Người lạ ơi! 👋'}xRenderMe?.();xRenderProgress?.()}
+window.xRefreshIdentity=function(){const u=auth.currentUser||window.currentUser,mini=document.getElementById('x-auth-mini'),g=document.getElementById('x-home-greeting');if(u){const name=xIdentityName(),avatar=(userProfileData&&userProfileData.avatarData)||u.photoURL||'';if(mini){mini.replaceChildren();if(avatar){const img=document.createElement('img');img.src=avatar;img.alt='';img.style.cssText='width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:5px';mini.append(img)}else mini.append(document.createTextNode('😼'));mini.append(document.createTextNode(' '+name))}if(g)g.textContent=`Xin chào, ${name}! 👋`}else{if(mini)mini.textContent='👤 Người lạ ơi!';if(g)g.textContent='Người lạ ơi! 👋'}xRenderMe?.();xRenderProgress?.()}
 let xFeedbackKind='Góp ý';
 function xOpenOwnerChat(){document.getElementById('x-owner-modal')?.classList.remove('hidden');const page=document.querySelector('.x-view.active .x-pagehead h2')?.textContent?.trim()||document.querySelector('.x-view.active')?.id?.replace('view-','')||'Trang hiện tại';const p=document.getElementById('x-owner-page');if(p)p.textContent='📍 '+page;setTimeout(()=>document.getElementById('x-owner-message')?.focus(),100)}
 function xCloseOwnerChat(){document.getElementById('x-owner-modal')?.classList.add('hidden')}
