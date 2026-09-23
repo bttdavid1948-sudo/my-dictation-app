@@ -995,6 +995,24 @@ F. Nguyên tắc chung
             return uid + '_' + hash;
         }
 
+        let xCloudLoadedForUid = null;
+        let xCloudUnitsSnapshot = null;
+        function xMergePrivateUnits(local, remote) {
+            const merged = {...local};
+            let conflicts = 0;
+            for (const [name, lesson] of Object.entries(remote)) {
+                if (!Object.prototype.hasOwnProperty.call(merged, name)) { merged[name] = lesson; continue; }
+                if (JSON.stringify(merged[name]) === JSON.stringify(lesson)) continue;
+                conflicts++;
+                const base = name + ' (bản trên tài khoản)';
+                let copy = base, number = 2;
+                while (Object.prototype.hasOwnProperty.call(merged, copy) &&
+                       JSON.stringify(merged[copy]) !== JSON.stringify(lesson)) copy = base + ' ' + number++;
+                merged[copy] = lesson;
+            }
+            return {merged, conflicts};
+        }
+
         async function saveToCloud() {
             if (!currentUser) { xGo('me'); xToast('🔐 Đăng nhập để giữ bài của bạn nha.'); return; }
             if (window.xSyncUnitMeta) window.xSyncUnitMeta();
@@ -1003,10 +1021,24 @@ F. Nguyên tắc chung
             const itemsList = unitsData[activeUnit] || [];
             let savedPrivate = false;
             try {
-                await db.collection('user_vocab').doc(currentUser.uid).set({
-                    units: JSON.stringify(unitsData),
-                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-                }, {merge:true});
+                const uid = currentUser.uid;
+                if (xCloudLoadedForUid !== uid) {
+                    xToast('Đang kiểm tra bài trên tài khoản trước khi lưu. Bài trên máy vẫn nguyên nha.');
+                    await loadFromCloud();
+                    return;
+                }
+                const privateRef = db.collection('user_vocab').doc(uid);
+                const nextUnits = JSON.stringify(unitsData);
+                await db.runTransaction(async tx => {
+                    const current = await tx.get(privateRef);
+                    const remote = current.exists ? current.data().units : null;
+                    if (remote !== xCloudUnitsSnapshot) throw new Error('CLOUD_CHANGED');
+                    tx.set(privateRef, {
+                        units: nextUnits,
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    }, {merge:true});
+                });
+                xCloudUnitsSnapshot = nextUnits;
                 savedPrivate = true;
                 xRenderCarousel('mine');
                 if (!isShare) { xToast('💾 Bài đã ở Bài của tôi. Lúc nào muốn góp cho xóm cũng được nha.'); return; }
@@ -1053,25 +1085,49 @@ F. Nguyên tắc chung
                 xToast('🍚 Đã gửi duyệt. Bài vẫn nằm trong Bài của tôi để bạn học tiếp nha.');
             } catch (e) {
                 console.error(e);
+                if (e.message === 'CLOUD_CHANGED') {
+                    await loadFromCloud();
+                    xToast('Có bài mới từ phiên khác. Mình đã giữ cả hai bản; xem lại rồi bấm Lưu lần nữa nha.');
+                    return;
+                }
                 xToast(savedPrivate ? '💾 Bài đã lưu trong Bài của tôi; phần gửi duyệt chưa thành công. Thử lại nha.' : 'Bài vẫn ở trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
             }
         }
 
-        function loadFromCloud() {
+        async function loadFromCloud() {
             if (!currentUser) return;
-            db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
-                if (doc.exists && doc.data().units) {
-                    unitsData = JSON.parse(doc.data().units);
-                    updateUnitDropdown();
-                    renderUnitSelector();
-                    renderCurrentUnitPreview();
-                    alert("📂 Đã tải dữ liệu cũ từ tài khoản về máy này.");
-                } else alert("🐱 Tài khoản chưa có dữ liệu cũ để tải.");
-            }).catch(()=>alert("Có trục trặc khi tải dữ liệu cũ. Thử lại nha."));
+            const uid = currentUser.uid;
+            if (xCloudLoadedForUid && xCloudLoadedForUid !== uid && Object.keys(unitsData).length) {
+                xToast('Trên máy còn bài từ tài khoản trước. Mở cửa sổ mới để dùng tài khoản khác, tránh trộn bài nha.');
+                return;
+            }
+            try {
+                const doc = await db.collection('user_vocab').doc(uid).get();
+                if (currentUser?.uid !== uid) return;
+                const raw = doc.exists ? doc.data().units : null;
+                const remote = raw ? JSON.parse(raw) : {};
+                if (!remote || Array.isArray(remote) || typeof remote !== 'object' ||
+                    Object.values(remote).some(items => !Array.isArray(items))) {
+                    throw new Error('INVALID_CLOUD_UNITS');
+                }
+                const {merged, conflicts} = xMergePrivateUnits(unitsData, remote);
+                unitsData = merged;
+                xCloudLoadedForUid = uid;
+                xCloudUnitsSnapshot = raw;
+                updateUnitDropdown();
+                renderUnitSelector();
+                renderCurrentUnitPreview();
+                xRenderCarousel('mine');
+                if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
+                else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
+            } catch (e) {
+                console.error(e);
+                xToast('Chưa tải được bài trên tài khoản; bài trên máy vẫn nguyên nha.');
+            }
         }
 
         function loadSampleData() {
-            unitsData = {
+            const sampleUnits = {
                 "Unit 1: Giao tiếp Hàng ngày": [
                     { en: "Where is Jane?", vi: "Jane ở đâu vậy?" },
                     { en: "She is in the living room.", vi: "Cô ấy đang ở phòng khách." },
@@ -1082,9 +1138,22 @@ F. Nguyên tắc chung
                     { en: "Please send me the report by end of day.", vi: "Vui lòng gửi báo cáo cho tôi trước cuối ngày." }
                 ]
             };
+            for (const [name, lesson] of Object.entries(sampleUnits)) {
+                if (!Object.prototype.hasOwnProperty.call(unitsData, name)) {
+                    unitsData[name] = lesson;
+                } else if (JSON.stringify(unitsData[name]) !== JSON.stringify(lesson)) {
+                    let copy = name + ' (bài mẫu)', number = 2;
+                    while (Object.prototype.hasOwnProperty.call(unitsData, copy) &&
+                           JSON.stringify(unitsData[copy]) !== JSON.stringify(lesson)) {
+                        copy = name + ' (bài mẫu ' + number++ + ')';
+                    }
+                    unitsData[copy] = lesson;
+                }
+            }
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
+            xRenderCarousel('mine');
         }
 
         function cleanWord(word) { return word.toLowerCase().replace(/[^a-z0-9]/gi, ''); }
