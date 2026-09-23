@@ -977,7 +977,7 @@ F. Nguyên tắc chung
 
         function saveToCloud() {
             if (!currentUser) { xGo('me'); return alert("🔐 Đăng nhập trước để lưu bài lên tài khoản nha."); }
-            if(window.xSyncUnitMeta) xSyncUnitMeta();
+            if(window.xSyncUnitMeta) window.xSyncUnitMeta();
 
             db.collection('user_vocab').doc(currentUser.uid).set({
                 units: JSON.stringify(unitsData),
