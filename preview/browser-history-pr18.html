@@ -1563,6 +1563,7 @@ function xResetPassword(){
 const X_VIEWS=new Set(['home','learn','mine','community','progress','contribute','me','notifications','about','prompts']);
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
+ const previousScroll=window.scrollY;
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
  if(heading) heading.textContent=view==='community'?'🏘️ Chọn bài đã duyệt để học':'📥 Bài của tôi — tạo hoặc chọn bài';
  if(intro) intro.textContent=view==='community'?'Chọn bài hàng xóm đã chia sẻ và được duyệt để bắt đầu luyện nghe.':'Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.';
@@ -1573,8 +1574,11 @@ function xGo(view,options={}){
  if(view==='mine'){ try{switchMainTab('my-units');}catch(e){} }
  const route='#'+view;
  const address=location.pathname+location.search+route;
- if(options.historyMode==='replace') history.replaceState({xView:view},'',address);
- else if(options.historyMode!=='pop' && location.hash!==route) history.pushState({xView:view},'',address);
+ if(options.historyMode==='replace') history.replaceState({xView:view,scrollY:history.state?.scrollY||0},'',address);
+ else if(options.historyMode!=='pop' && location.hash!==route){
+  history.replaceState({...history.state,scrollY:previousScroll},'',location.href);
+  history.pushState({xView:view,scrollY:0},'',address);
+ }
  if(options.historyMode!=='pop')window.scrollTo({top:0,behavior:'smooth'});
 }
 document.addEventListener('DOMContentLoaded',()=>{
@@ -1683,7 +1687,7 @@ function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x
 function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
 function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
-function xOpenLibrary(mode,options={}){xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop')history.pushState({xView:mode,xModal:'library'},'',location.pathname+location.search+'#'+mode+'/library');document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'🏘️ Khám phá kho cộng đồng';xRenderLibrary()}
+function xOpenLibrary(mode,options={}){xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'🏘️ Khám phá kho cộng đồng';xRenderLibrary()}
 function xCloseLibrary(options={}){if(!options.fromHistory&&history.state?.xModal==='library'){history.back();return}document.getElementById('x-library-modal')?.classList.add('x-hidden');if(!options.fromHistory&&location.hash.endsWith('/library'))history.replaceState({xView:xLibMode},'',location.pathname+location.search+'#'+xLibMode)}
 function xRenderLibrary(){let arr=xLibMode==='mine'?xMineLessons():xCommunityLessons();const topics=[...new Set(arr.map(x=>x.topic).filter(Boolean))],levels=[...new Set(arr.map(x=>x.level).filter(Boolean))];const f=document.getElementById('x-lib-filters');if(f&&!f.dataset.ready){f.innerHTML=`<input id="x-lib-q" placeholder="🔎 Tìm bài..." oninput="xLibPage=1;xRenderLibrary()"><select id="x-lib-level" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả level</option></select><select id="x-lib-topic" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả chủ đề</option></select>`;f.dataset.ready='1'}const ls=document.getElementById('x-lib-level'),ts=document.getElementById('x-lib-topic');if(ls&&ls.options.length===1)levels.forEach(v=>ls.add(new Option(v,v)));if(ts&&ts.options.length===1)topics.forEach(v=>ts.add(new Option(v,v)));const q=(document.getElementById('x-lib-q')?.value||'').toLowerCase(),lv=ls?.value||'',tp=ts?.value||'';arr=arr.filter(x=>(!q||(x.unitName||'').toLowerCase().includes(q))&&(!lv||x.level===lv)&&(!tp||x.topic===tp));const pages=Math.max(1,Math.ceil(arr.length/12));xLibPage=Math.min(xLibPage,pages);document.getElementById('x-lib-grid').innerHTML=arr.slice((xLibPage-1)*12,xLibPage*12).map(xLessonCard).join('')||'<div class="x-empty">Chưa thấy món nào hợp bộ lọc này.</div>';document.getElementById('x-lib-pages').innerHTML=`<button ${xLibPage===1?'disabled':''} onclick="xLibPage--;xRenderLibrary()">← Previous</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===xLibPage?'active':''}" onclick="xLibPage=${i+1};xRenderLibrary()">${i+1}</button>`).join('')}<button ${xLibPage===pages?'disabled':''} onclick="xLibPage++;xRenderLibrary()">Next →</button>`}
 // Keep carousels fresh after existing render/update functions.
@@ -1891,16 +1895,18 @@ function xRestoreStudy(){
 }
 function xHashView(){try{return decodeURIComponent(location.hash.slice(1))}catch(e){return 'home'}}
 document.addEventListener('DOMContentLoaded',()=>{
+ history.scrollRestoration='manual';
  const route=xHashView();
  const library=/^(mine|community)\/library$/.exec(route);
  xGo(X_VIEWS.has(route)?route:library?library[1]:'home',{historyMode:library?'pop':'replace'});
  if(library)xOpenLibrary(library[1],{historyMode:'pop'});
  if(route==='learn')xRestoreStudy();
+ if(Number.isFinite(history.state?.scrollY))requestAnimationFrame(()=>window.scrollTo({top:history.state.scrollY,behavior:'instant'}));
  const input=document.getElementById('user-input');
  let saveTimer;
  input?.addEventListener('input',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(()=>xSaveStudyState('active'),350)});
 });
-window.addEventListener('popstate',()=>{
+window.addEventListener('popstate',event=>{
  const route=xHashView();
  const library=/^(mine|community)\/library$/.exec(route);
  xCloseLibrary({fromHistory:true});
@@ -1908,6 +1914,8 @@ window.addEventListener('popstate',()=>{
  xGo(view,{historyMode:'pop'});
  if(library)xOpenLibrary(library[1],{historyMode:'pop'});
  if(view==='learn'&&document.getElementById('dictation-app')?.classList.contains('hidden')&&document.getElementById('summary-section')?.classList.contains('hidden'))xRestoreStudy();
+ const top=Number.isFinite(event.state?.scrollY)?event.state.scrollY:0;
+ requestAnimationFrame(()=>window.scrollTo({top,behavior:'instant'}));
 });
 </script>
 </body>
