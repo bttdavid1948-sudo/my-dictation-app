@@ -1505,7 +1505,7 @@ Danh sách từ/cụm từ của tôi:
 
         function backToSetup() {
             stopStudyTimerAndSave();
-            sessionStorage.removeItem('man_study_v1');
+            try{sessionStorage.removeItem('man_study_v1')}catch(e){}
             document.getElementById('summary-section').classList.add('hidden');
             document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('dictation-placeholder').classList.remove('hidden');
@@ -1864,7 +1864,7 @@ function xRestoreStudy(){
  try{saved=JSON.parse(sessionStorage.getItem(MAN_STUDY_KEY)||'null')}catch(e){return false}
  if(!saved||Date.now()-saved.at>12*60*60*1000||!Array.isArray(saved.items)||!saved.items.length||saved.items.length>500||
     !['active','revealed','summary'].includes(saved.phase)||!Number.isInteger(saved.currentIndex)||saved.currentIndex<0||saved.currentIndex>=saved.items.length){
-  sessionStorage.removeItem(MAN_STUDY_KEY);return false;
+  try{sessionStorage.removeItem(MAN_STUDY_KEY)}catch(e){}return false;
  }
  items=saved.items;currentIndex=saved.currentIndex;
  correctCount=Math.max(0,Math.min(items.length,Number(saved.correctCount)||0));
