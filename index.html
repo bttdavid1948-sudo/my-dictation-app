@@ -407,7 +407,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 
             <div id="study-view-transcript" class="hidden">
                 <div class="transcript-container">
-                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Danh sách các câu trong đoạn văn (Bấm câu nào để nghe lại câu đó):</div>
+                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Bấm Phát để nghe từng câu. Chạm vào câu để quay lại phần Nghe và gõ.</div>
                     <div id="full-transcript-list"></div>
                 </div>
             </div>
@@ -1534,7 +1534,7 @@ function xQuickTrial(){
    names.forEach(n=>pool.push(...(unitsData[n]||[])));
    items=pool.slice(0,5); if(!items.length){xGo('mine');return;}
    correctCount=0; failedItemsList=[]; isRetryMode=false; currentIndex=0;
-   xSetStudyContext('Học thử 5 câu',items.length);
+   xSetStudyContext('Bài mẫu',items.length);
    document.getElementById('dictation-placeholder').classList.add('hidden');
    document.getElementById('summary-section').classList.add('hidden');
    document.getElementById('dictation-app').classList.remove('hidden');
