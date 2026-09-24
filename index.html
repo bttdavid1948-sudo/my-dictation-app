@@ -1558,7 +1558,7 @@ function xResetPassword(){
  const email=document.getElementById('x-email').value.trim(); if(!email){alert('Nhập email trước nha ^^');return;}
  auth.sendPasswordResetEmail(email).then(()=>alert('📮 Đã gửi email đặt lại mật khẩu.')).catch(e=>alert(e.message));
 }
-const X_VIEWS=new Set(['home','learn','mine','community','progress','contribute','me','notifications','about','prompt']);
+const X_VIEWS=new Set(['home','learn','mine','community','progress','contribute','me','notifications','about','prompts']);
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
@@ -1722,7 +1722,7 @@ const renderMe04=window.xRenderMe;window.xRenderMe=function(){const el=document.
 // Load profile data then refresh visible identity/profile.
 const loadProfile04=window.loadUserProfile;window.loadUserProfile=function(){if(!currentUser)return;return db.collection('users_profile').doc(currentUser.uid).get().then(doc=>{if(doc.exists)userProfileData={...userProfileData,...doc.data()};xRefreshIdentity();xRenderMe()})}
 // Friendly icon-rich toast style remains text-based but uses the Xóm icon vocabulary.
-const go04=window.xGo;window.xGo=function(view){go04(view);if(view==='notifications')xRenderNotifications()}
+const go04=window.xGo;window.xGo=function(view,options){go04(view,options);if(view==='notifications')xRenderNotifications()}
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{window.xHeroGo(0);xRenderNotifications();xUpdateBell()},180)});
 </script>
 
