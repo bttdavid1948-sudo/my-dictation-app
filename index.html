@@ -344,15 +344,16 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
         </div>
 
         <div id="dictation-app" class="dictation-container hidden">
+            <p id="study-context" class="study-context" aria-live="polite"></p>
             <div class="tab-menu" style="border-bottom: 2px solid #0f172a; margin-bottom: 15px;">
-                <button class="tab-btn active" id="tab-dictation-btn" onclick="switchStudyTab('dictation')">Dictation</button>
-                <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Full transcript</button>
+                <button class="tab-btn active" id="tab-dictation-btn" onclick="switchStudyTab('dictation')">Nghe và gõ</button>
+                <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Toàn bộ câu</button>
             </div>
 
             <div id="study-view-dictation">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
-                    <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">🏠 Dừng học</button>
+                    <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">Dừng lượt học</button>
                 </div>
 
                 <div class="audio-player">
@@ -406,7 +407,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 
             <div id="study-view-transcript" class="hidden">
                 <div class="transcript-container">
-                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Danh sách các câu trong đoạn văn (Bấm câu nào để nghe lại câu đó):</div>
+                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Bấm Phát để nghe từng câu. Chạm vào câu để quay lại phần Nghe và gõ.</div>
                     <div id="full-transcript-list"></div>
                 </div>
             </div>
@@ -714,33 +715,26 @@ Danh sách từ/cụm từ của tôi:
                 listEl.innerHTML = '<i style="color: #888;">Không tìm thấy bài học phù hợp...</i>';
                 return;
             }
-            listEl.innerHTML = '';
+            listEl.replaceChildren();
             list.forEach(item => {
-                const isChecked = selectedCommunityUnits[item.id] ? 'checked' : '';
-                const likes = item.likes || 0;
                 const card = document.createElement('div');
                 card.className = 'community-card';
                 card.style.cssText = 'background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;';
-                card.innerHTML = `
-                    <div style="flex: 1;">
-                        <div style="font-weight: bold; font-size: 15px; color: #1e293b;">${item.unitName}</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 3px;">
-                            👤 Tác giả: <strong>${item.author || 'Cộng đồng'}</strong> ${item.contact ? `(📱 ${item.contact})` : ''} • 📚 ${item.items ? item.items.length : 0} câu
-                        </div>
-                        <div style="margin-top: 6px; display: flex; gap: 6px; align-items: center;">
-                            <span class="badge badge-topic">${item.topic || 'Giao tiếp'}</span>
-                            <span class="badge badge-level">${item.level || 'Cơ bản'}</span>
-                            <button onclick="likeCommunityUnit('${item.id}', this)" style="border:none; background: #fef2f2; color: #ef4444; border-radius: 12px; padding: 2px 8px; font-size: 11px; font-weight: bold; cursor: pointer;">
-                                ❤️ ${likes} Tim
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="btn btn-note" style="font-size: 12px; padding: 6px 12px; cursor: pointer;">
-                            <input type="checkbox" onchange="toggleSelectCommunityUnit('${item.id}', this.checked)" ${isChecked}> Chọn học
-                        </label>
-                    </div>
-                `;
+                const detail = document.createElement('div'); detail.style.flex = '1';
+                const title = document.createElement('div'); title.style.cssText = 'font-weight:bold;font-size:15px;color:#1e293b'; title.textContent = item.unitName || 'Bài chưa đặt tên';
+                const meta = document.createElement('div'); meta.style.cssText = 'font-size:12px;color:#64748b;margin-top:3px';
+                meta.textContent = `👤 Tác giả: ${item.author || 'Cộng đồng'}${item.contact ? ` (📱 ${item.contact})` : ''} • 📚 ${item.items?.length || 0} câu`;
+                const tags = document.createElement('div'); tags.style.cssText = 'margin-top:6px;display:flex;gap:6px;align-items:center';
+                for (const [kind, value] of [['topic', item.topic || 'Giao tiếp'], ['level', item.level || 'Cơ bản']]) {
+                    const tag = document.createElement('span'); tag.className = `badge badge-${kind}`; tag.textContent = value; tags.appendChild(tag);
+                }
+                const like = document.createElement('button'); like.type = 'button'; like.style.cssText = 'border:0;background:#fef2f2;color:#ef4444;border-radius:12px;padding:2px 8px;font-size:11px;font-weight:bold;cursor:pointer';
+                like.textContent = `❤️ ${Number(item.likes) || 0} Tim`; like.addEventListener('click', () => likeCommunityUnit(item.id, like)); tags.appendChild(like);
+                detail.append(title, meta, tags);
+                const label = document.createElement('label'); label.className = 'btn btn-note'; label.style.cssText = 'font-size:12px;padding:6px 12px;cursor:pointer';
+                const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = !!selectedCommunityUnits[item.id];
+                checkbox.addEventListener('change', () => toggleSelectCommunityUnit(item.id, checkbox.checked));
+                label.append(checkbox, document.createTextNode(' Chọn học')); card.append(detail, label);
                 listEl.appendChild(card);
             });
         }
@@ -1137,7 +1131,9 @@ Danh sách từ/cụm từ của tôi:
                 }
             });
 
-            if (items.length === 0) return alert("Vui lòng tích chọn ít nhất 1 Unit (Cá nhân hoặc Cộng đồng) để học!");
+            if (items.length === 0) return xToast('Chọn ít nhất một bài để bắt đầu nha.');
+
+            xSetStudyContext('Bài đã chọn', items.length);
 
             shuffleArray(items);
             correctCount = 0;
@@ -1158,17 +1154,22 @@ Danh sách từ/cụm từ của tôi:
 
         function renderFullTranscript() {
             const listEl = document.getElementById('full-transcript-list');
-            listEl.innerHTML = '';
+            listEl.replaceChildren();
             items.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = `transcript-item ${idx === currentIndex ? 'active' : ''}`;
-                div.innerHTML = `
-                    <div>
-                        <strong>Câu ${idx+1}:</strong> ${item.en}
-                        <div style="font-size: 12px; color: #64748b; margin-top: 2px;">${item.vi || 'Chưa dịch'}</div>
-                    </div>
-                    <button class="btn btn-audio" style="font-size: 12px; padding: 4px 10px;" onclick="event.stopPropagation(); playTranscriptItem('${idx}')">▶ Phát</button>
-                `;
+                const text = document.createElement('div');
+                const number = document.createElement('strong'); number.textContent = `Câu ${idx + 1}: `;
+                const sentence = document.createTextNode(item.en || '');
+                const translation = document.createElement('div');
+                translation.style.cssText = 'font-size:12px;color:#64748b;margin-top:2px';
+                translation.textContent = item.vi || 'Chưa dịch';
+                text.append(number, sentence, translation);
+                const play = document.createElement('button'); play.type = 'button';
+                play.className = 'btn btn-audio'; play.style.cssText = 'font-size:12px;padding:4px 10px';
+                play.textContent = '▶ Phát';
+                play.addEventListener('click', event => { event.stopPropagation(); playTranscriptItem(idx); });
+                div.append(text, play);
                 div.onclick = () => jumpToQuestion(idx);
                 listEl.appendChild(div);
             });
@@ -1504,7 +1505,7 @@ Danh sách từ/cụm từ của tôi:
             document.getElementById('summary-section').classList.add('hidden');
             document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('dictation-placeholder').classList.remove('hidden');
-            document.getElementById('setup-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('dictation-placeholder').scrollIntoView({ behavior: 'smooth' });
         }
 
         function copyPrompt(elementId, btn) {
@@ -1522,6 +1523,10 @@ Danh sách từ/cụm từ của tôi:
     </script>
 
 <script id="xnot-shell-js">
+function xSetStudyContext(name, count){
+ const context=document.getElementById('study-context');
+ if(context) context.textContent=`${name} · ${count} câu`;
+}
 function xQuickTrial(){
  try{
    loadSampleData();
@@ -1529,6 +1534,7 @@ function xQuickTrial(){
    names.forEach(n=>pool.push(...(unitsData[n]||[])));
    items=pool.slice(0,5); if(!items.length){xGo('mine');return;}
    correctCount=0; failedItemsList=[]; isRetryMode=false; currentIndex=0;
+   xSetStudyContext('Bài mẫu',items.length);
    document.getElementById('dictation-placeholder').classList.add('hidden');
    document.getElementById('summary-section').classList.add('hidden');
    document.getElementById('dictation-app').classList.remove('hidden');
@@ -1598,8 +1604,8 @@ function xToast(msg){const d=document.createElement('div');d.className='x-toast'
 function xEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('community');setTimeout(()=>{const e=document.getElementById('community-search');if(e){e.value=q;filterCommunityUnits()}},80)}
 function xFavoriteUnit(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
-function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);try{db.collection('community_units').doc(id).update({sessionCount:firebase.firestore.FieldValue.increment(1)})}catch(e){}}
-function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài đã duyệt phù hợp lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${u.learnedCount||0} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" onclick="xStartCommunity('${u.id}')">🔥 Chiến bài này</button><button class="x-mini-btn x-save" onclick="xFavoriteUnit('${u.id}')">❤️ Để dành</button></div></article>`).join('');}
+function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài cộng đồng',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);try{db.collection('community_units').doc(id).update({sessionCount:firebase.firestore.FieldValue.increment(1)})}catch(e){}}
+function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài đã duyệt phù hợp lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${u.learnedCount||0} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" onclick="${xEsc(`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" onclick="${xEsc(`xFavoriteUnit(${JSON.stringify(String(u.id))})`)}">❤️ Để dành</button></div></article>`).join('');}
 const xOldRenderCommunity=window.renderCommunityList;window.renderCommunityList=function(list){xRenderCommunityModern(list)};
 function xInjectCommunityFilters(){const sec=document.getElementById('section-community');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>🏘️ Bài đã duyệt mới lên kho.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(communityUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCommunityModern(list)})}
 function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Đi hàng xóm ngó nghiêng thử đi.</p>'}</div></div>`}
@@ -1660,10 +1666,10 @@ const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!window.c
 let xCarouselIndex={mine:0,community:0},xLibMode='mine',xLibPage=1;
 function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}))}
 function xCommunityLessons(){return (window.communityUnitsCache||communityUnitsCache||[]).map(x=>({...x,mine:false}))}
-function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p><button class="x-primary" onclick="${u.mine?`xStartMine('${xEsc(u.unitName)}')`:`xStartCommunity('${xEsc(u.id)}')`}">🔥 Chiến bài này</button></article>`}
+function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p><button class="x-primary" onclick="${xEsc(u.mine?`xStartMine(${JSON.stringify(String(u.unitName))})`:`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button></article>`}
 function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-community-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang chờ bài được duyệt. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
-function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
+function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
 function xOpenLibrary(mode){xLibMode=mode;xLibPage=1;document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'🏘️ Khám phá kho cộng đồng';xRenderLibrary()}
 function xCloseLibrary(){document.getElementById('x-library-modal')?.classList.add('x-hidden')}
@@ -1816,6 +1822,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
   .x-mobile-nav small { display:block;font-size:10px;line-height:1.1;font-weight:750;color:#555d70;white-space:nowrap; }
   .x-mobile-nav button.active small { color:#1c628f; }
 }
+.study-context { margin:0 0 12px;padding:10px 14px;border-radius:12px;background:#eff8fc;color:#17466a;font-size:14px;line-height:1.4;font-weight:750;overflow-wrap:anywhere; }
 @media (max-width: 560px) {
   .x-hero h1 { font-size:clamp(23px,6.4vw,27px)!important;line-height:1.2!important; }
   .x-hero p { font-size:14px!important;line-height:1.5!important; }
