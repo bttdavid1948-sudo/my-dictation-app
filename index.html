@@ -1570,8 +1570,9 @@ function xGo(view,options={}){
  if(view==='community'){ try{switchMainTab('community');loadCommunityUnits();}catch(e){} }
  if(view==='mine'){ try{switchMainTab('my-units');}catch(e){} }
  const route='#'+view;
- if(options.historyMode==='replace') history.replaceState({xView:view},'',route);
- else if(options.historyMode!=='pop' && location.hash!==route) history.pushState({xView:view},'',route);
+ const address=location.pathname+location.search+route;
+ if(options.historyMode==='replace') history.replaceState({xView:view},'',address);
+ else if(options.historyMode!=='pop' && location.hash!==route) history.pushState({xView:view},'',address);
  window.scrollTo({top:0,behavior:'smooth'});
 }
 document.addEventListener('DOMContentLoaded',()=>{
