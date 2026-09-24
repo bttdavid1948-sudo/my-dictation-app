@@ -127,6 +127,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 .x-unit-meta{background:#f8fbff;border:1px solid #dbeafe;border-radius:14px;padding:12px;margin:12px 0}.x-unit-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.x-share-only{border-top:1px dashed #bfdbfe;margin-top:10px;padding-top:10px}.x-leader-home{margin-top:18px;background:#fff;border:1px solid #eee8e2;border-radius:24px;padding:18px;box-shadow:var(--shadow)}.x-leader-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.x-leader-scroll{max-height:245px;overflow:auto;margin-top:10px}.x-expand{border:0;background:#f4f5f7;border-radius:12px;padding:8px 11px;cursor:pointer;font-weight:850}.x-lb-modal{position:fixed;inset:0;background:#17203380;backdrop-filter:blur(7px);z-index:5000;display:grid;place-items:center;padding:24px}.x-lb-modal.hidden{display:none}.x-lb-dialog{width:min(780px,94vw);max-height:82vh;background:#fff;border-radius:28px;padding:22px;box-shadow:0 35px 90px #0004;animation:xPop .22s ease}.x-lb-modal-list{max-height:58vh;overflow:auto}.x-lb-close{border:0;background:#f3f4f6;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px}@keyframes xPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:none}}.x-about-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;background:linear-gradient(125deg,#fff0d7,#e5f4ff);border-radius:28px;padding:34px;box-shadow:var(--shadow)}.x-about-art{min-height:240px;border-radius:24px;background:linear-gradient(145deg,#fff,#f4f0ff);display:grid;place-items:center;font-size:110px}.x-about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
 @media(max-width:1180px){.x-header-inner{grid-template-columns:170px 1fr 220px}.x-header-nav button{font-size:12px;padding:9px 6px}.x-search-real{width:150px!important}.x-header-logo{font-size:18px}}
 @media(max-width:900px){.x-topbar{height:auto;padding:10px 12px}.x-header-inner{width:100%;grid-template-columns:1fr auto}.x-header-center{display:none}.x-header-right{grid-column:2}.x-header-logo{display:block}.x-main{padding-top:14px}.x-unit-meta-grid,.x-about-grid{grid-template-columns:1fr}.x-about-hero{grid-template-columns:1fr}.x-search-real{display:none}.x-mobile-nav{display:flex}}
+#x-community #setup-section > .tab-menu,#x-mine #setup-section > .tab-menu{display:none!important}#x-community #load-cloud-btn,#x-community #setup-try-btn{display:none!important}
 </style>
 </head>
 <body>
@@ -182,13 +183,13 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
     <!-- SECTION 1: KHU NHẬP LIỆU & QUẢN LÝ BÀI HỌC -->
     <div id="setup-section" class="section-card">
         <div class="section-title">
-            <span>📂 SECTION 1: KHU NHẬP LIỆU & QUẢN LÝ BÀI HỌC</span>
+            <span id="setup-heading">📥 Chọn bài để học</span>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div style="font-size: 13px; color: #555;">Tự tạo bài học hoặc chọn từ kho bài học do cộng đồng đóng góp:</div>
+            <div id="setup-intro" style="font-size: 13px; color: #555;">Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.</div>
             <div>
-                <button class="btn btn-note" onclick="loadSampleData()" style="font-size: 12px;">🎲 Nạp bài mẫu để thử ngay</button>
+                <button id="setup-try-btn" class="btn btn-note" onclick="xQuickTrial()" style="font-size: 12px;">🎧 Thử 5 câu ngay</button>
                 <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải bài đã lưu trên tài khoản</button>
             </div>
         </div>
@@ -1562,7 +1563,7 @@ Danh sách từ/cụm từ của tôi:
                 button.addEventListener('click', action);
                 panel.appendChild(button);
             };
-            addChoice('🎧 Thử 5 câu', () => xTryFive());
+            addChoice('🎧 Thử 5 câu', () => xQuickTrial());
             Object.keys(unitsData || {}).filter(name => (unitsData[name] || []).length).slice(0, 12)
                 .forEach(name => addChoice('📥 ' + name, () => xStartMine(name)));
             const label = document.createElement('p');
@@ -1646,6 +1647,9 @@ function xResetPassword(){
  auth.sendPasswordResetEmail(email).then(()=>alert('📮 Đã gửi email đặt lại mật khẩu.')).catch(e=>alert(e.message));
 }
 function xGo(view){
+ const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
+ if(heading) heading.textContent=view==='community'?'🏘️ Chọn bài đã duyệt để học':'📥 Bài của tôi — tạo hoặc chọn bài';
+ if(intro) intro.textContent=view==='community'?'Chọn bài hàng xóm đã chia sẻ và được duyệt để bắt đầu luyện nghe.':'Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.';
  document.querySelectorAll('.x-view').forEach(v=>v.classList.remove('active'));
  const target=document.getElementById('x-'+view); if(target) target.classList.add('active');
  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
