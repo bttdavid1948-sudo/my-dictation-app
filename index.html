@@ -189,7 +189,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div id="setup-intro" style="font-size: 13px; color: #555;">Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.</div>
             <div>
-                <button id="setup-try-btn" class="btn btn-note" onclick="xTryFive()" style="font-size: 12px;">🎧 Thử 5 câu ngay</button>
+                <button id="setup-try-btn" class="btn btn-note" onclick="xQuickTrial()" style="font-size: 12px;">🎧 Thử 5 câu ngay</button>
                 <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải bài đã lưu trên tài khoản</button>
             </div>
         </div>
@@ -1465,7 +1465,7 @@ Danh sách từ/cụm từ của tôi:
                 button.addEventListener('click', action);
                 panel.appendChild(button);
             };
-            addChoice('🎧 Thử 5 câu', () => xTryFive());
+            addChoice('🎧 Thử 5 câu', () => xQuickTrial());
             Object.keys(unitsData || {}).filter(name => (unitsData[name] || []).length).slice(0, 12)
                 .forEach(name => addChoice('📥 ' + name, () => xStartMine(name)));
             const label = document.createElement('p');
