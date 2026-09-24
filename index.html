@@ -1378,12 +1378,12 @@ Danh sách từ/cụm từ của tôi:
             const total = items.length;
 
             const accuracy = total ? Math.round((correctCount / total) * 100) : 0;
-            document.getElementById('summary-title').innerText = isRetryMode
-                ? (correctCount === total ? "🎉 Lần ôn này bạn đã tự bắt được hết câu!" : "Bạn vừa ôn thêm một lượt. Cứ luyện tiếp nhé!")
-                : "Bạn vừa làm được gì?";
+            document.getElementById('summary-title').innerText = "Bạn vừa làm được gì?";
             document.getElementById('accuracy-label').innerText = "🎯 Tự nghe và gõ đúng:";
             document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-            document.getElementById('stats-detail').innerText = `Tự làm đúng ${correctCount}/${total} câu. ${total - correctCount} câu cần ôn tiếp.`;
+            document.getElementById('stats-detail').innerText = correctCount === total
+                ? `Tự làm đúng ${correctCount}/${total} câu. Bạn đã bắt được hết ở lượt này!`
+                : `Tự làm đúng ${correctCount}/${total} câu. ${total - correctCount} câu cần ôn tiếp.`;
 
             const errorContainer = document.getElementById('error-container');
             const errorList = document.getElementById('error-list-items');
