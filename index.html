@@ -1894,6 +1894,32 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
     <p class="x-owner-privacy">🔒 Nội dung này được gửi riêng cho Chủ Xóm, không đăng công khai.</p>
   </div>
 </div>
+<style id="responsive-layout-20260924">
+/* Let the hero content determine its height on narrow screens. */
+@media (max-width: 900px) {
+  .x-hero { display:flex!important;flex-direction:column!important;align-items:stretch!important;height:auto!important;min-height:0!important;padding:30px 28px 54px!important;gap:20px!important; }
+  .x-hero-copy { width:100%!important;min-height:0!important;padding:0!important; }
+  .x-hero h1 { font-size:clamp(26px,4.3vw,34px)!important;line-height:1.12!important;letter-spacing:-.8px!important;overflow-wrap:anywhere; }
+  .x-hero p { max-width:100%!important;margin-bottom:16px!important; }
+  .x-hero-art { position:relative!important;inset:auto!important;width:100%!important;height:220px!important;flex:none!important;margin:0!important;transform:none!important; }
+  .x-hero-dots { left:28px!important;bottom:22px!important; }
+  .x-hero-mammeo { background-size:cover!important;background-position:center 18%!important;transform:none!important; }
+  .x-mobile-bell { top:14px!important;right:16px!important;width:42px;height:42px;place-items:center; }
+  .x-owner-chat { top:14px!important;right:66px!important;bottom:auto!important;width:42px;height:42px;padding:3px!important;justify-content:center;box-sizing:border-box;z-index:1190; }
+  .x-owner-chat span { width:34px!important;height:34px!important; }
+  .x-mobile-nav button { min-width:48px;min-height:48px;display:grid;place-items:center; }
+  .x-main img,.x-view img { max-width:100%;height:auto; }
+}
+@media (max-width: 560px) {
+  .x-hero { padding:24px 20px 52px!important;gap:16px!important; }
+  .x-hero h1 { font-size:clamp(25px,7vw,30px)!important; }
+  .x-hero-art { height:170px!important; }
+  .x-hero-mammeo { background-size:cover!important;background-position:center 18%!important;transform:none!important; }
+  .x-hero .x-primary { max-width:100%;white-space:normal; }
+  .x-hero-dots { left:20px!important;bottom:20px!important; }
+  .x-owner-dialog { max-height:calc(100dvh - 32px);overflow:auto; }
+}
+</style>
 </body>
 </html>
 
