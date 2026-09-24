@@ -865,35 +865,57 @@ Danh sách từ/cụm từ của tôi:
             alert(`⚡ Đã tự động phân tách và ghép cặp thành công ${count} câu vào ${unitName}!`);
         }
 
+        function parseLearningCSV(text) {
+            const rows = [];
+            let row = [], cell = '', quoted = false;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (quoted) {
+                    if (char === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+                    else if (char === '"') quoted = false;
+                    else cell += char;
+                } else if (char === '"') quoted = true;
+                else if (char === ',') { row.push(cell); cell = ''; }
+                else if (char === '\n' || char === '\r') {
+                    if (char === '\r' && text[i + 1] === '\n') i++;
+                    row.push(cell); rows.push(row); row = []; cell = '';
+                } else cell += char;
+            }
+            if (quoted) throw new Error('CSV có ô chưa đóng dấu ngoặc kép.');
+            if (cell || row.length) { row.push(cell); rows.push(row); }
+            const clean = value => String(value || '').replace(/^\uFEFF/, '').trim();
+            if (rows.length && /^(english|câu tiếng anh)$/i.test(clean(rows[0][0])) && /^(vietnamese|tiếng việt|bản dịch tiếng việt)$/i.test(clean(rows[0][1]))) rows.shift();
+            return rows.filter(row => row.some(value => clean(value))).map(row => {
+                if (row.length !== 2) throw new Error('CSV cần đúng hai cột English và Vietnamese.');
+                const en = clean(row[0]), vi = clean(row[1]);
+                if (!en || !vi) throw new Error('Mỗi dòng cần đủ câu tiếng Anh và bản dịch tiếng Việt.');
+                return { en, vi };
+            });
+        }
+
         function handleCSVUpload(e) {
             const file = e.target.files[0];
             if (!file) return;
-
             const reader = new FileReader();
             reader.onload = function(evt) {
-                const text = evt.target.result;
-                const lines = text.split('\n');
-                const unitName = getActiveUnitName();
-                if (!unitsData[unitName]) unitsData[unitName] = [];
-
-                lines.forEach(line => {
-                    const parts = line.split(',');
-                    if (parts.length >= 1) {
-                        const en = parts[0].replace(/"/g, '').trim();
-                        const vi = parts[1] ? parts[1].replace(/"/g, '').trim() : '';
-                        if (en) unitsData[unitName].push({ en, vi });
-                    }
-                });
-
-                updateUnitDropdown();
-                renderUnitSelector();
-                renderCurrentUnitPreview();
-                alert(`📁 Đã nạp thành công từ file CSV vào ${unitName}!`);
+                try {
+                    const newItems = parseLearningCSV(evt.target.result);
+                    if (!newItems.length) throw new Error('File chưa có câu nào để học.');
+                    const unitName = getActiveUnitName();
+                    if (!unitsData[unitName]) unitsData[unitName] = [];
+                    unitsData[unitName].push(...newItems);
+                    updateUnitDropdown();
+                    renderUnitSelector();
+                    renderCurrentUnitPreview();
+                    xToast(`📁 Đã nạp ${newItems.length} câu vào ${unitName}. Chọn bài này để học ngay nha!`);
+                } catch (error) { xToast('Chưa nạp được file: ' + error.message); }
+                e.target.value = '';
             };
-            reader.readAsText(file);
+            reader.onerror = () => xToast('Chưa đọc được file. Bạn thử lại nha.');
+            reader.readAsText(file, 'UTF-8');
         }
 
-        function onUnitSelectChange() {
+                function onUnitSelectChange() {
             const selectVal = document.getElementById('unit-select').value;
             if (selectVal) document.getElementById('new-unit-name').value = '';
             renderCurrentUnitPreview();
