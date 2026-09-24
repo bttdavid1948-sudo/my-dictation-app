@@ -423,13 +423,15 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <strong>📌 Các câu chưa hoàn thành đúng:</strong>
             <ul id="error-list-items" style="margin: 8px 0; padding-left: 20px;"></ul>
         </div>
-        <div class="x-note" style="margin-top:14px;text-align:left">🔥 <b>Chiến nóng người rồi hả?</b><br>Đem bài vở của bạn vào luyện tiếp, hoặc qua nghía bài hàng xóm đã cook sẵn nè.</div>
+        <div class="x-note" style="margin-top:14px;text-align:left">🌱 <b>Mỗi câu luyện là một bước tiến.</b><br>Bạn có thể ôn câu chưa đúng, học lại bài này hoặc chọn bài khác ngay tại đây.</div>
 
         <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
             <button class="btn btn-note" onclick="xGo('home')">🏠 Về trang chủ</button>
-            <button class="btn btn-next" onclick="xGo('mine')">📥 Chọn bài để học tiếp →</button>
+            <button class="btn btn-next" onclick="xRestartLesson()">🔁 Học lại lượt này</button>
+            <button class="btn btn-note" onclick="xShowNextLessons()">📚 Chọn bài khác tại đây</button>
         </div>
+        <div id="x-summary-lessons" class="x-summary-next hidden" aria-live="polite"></div>
     </div>
 
    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
@@ -441,80 +443,29 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
     
     <!-- CÂU GIẢI THÍCH CHUẨN DÀNH CHO HỌC VIÊN -->
     <p style="font-size: 13px; color: #78350f; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">
-        Dành cho những bạn chưa có bộ từ vựng, hoặc muốn tạo một bộ từ vựng chuẩn để học thì có thể dùng 2 câu lệnh dưới đây, dán vào GPT/Gemini để tạo ra bảng từ vựng đầy đủ thông tin. Đồng thời, bạn có thể trích xuất các câu ví dụ từ bảng đó, để vừa luyện nhớ từ vừa thực hành nghe viết chính tả ngay tại đây!
+        Dán một câu lệnh vào công cụ AI cùng danh sách từ của bạn để nhận hai file Excel: một bảng học từ và một bảng câu tiếng Anh – tiếng Việt để luyện nghe.
     </p>
 
     <!-- PROMPT 1: TRỢ LÝ TẠO BẢNG TỪ VỰNG EXCEL -->
     <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-        <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 1: Lệnh biến AI thành Trợ lý tạo bảng từ vựng Excel full thông tin:</div>
-        <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b; max-height: 200px; overflow-y: auto;">Hãy làm trợ lý học từ vựng tiếng Anh cho tôi theo các quy tắc sau:
+        <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Một prompt, hai file Excel để học từ và luyện nghe:</div>
+        <pre id="prompt1" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b; max-height: 200px; overflow-y: auto;">Bạn là trợ lý tạo học liệu tiếng Anh. Tôi sẽ gửi một từ/cụm từ hoặc danh sách từ/cụm từ ở cuối yêu cầu. Hãy xử lý tất cả trong MỘT LẦN và tạo ĐÚNG HAI file Excel (.xlsx) để tải về; đồng thời hiển thị bảng từ vựng trong câu trả lời. Không hỏi lại chỉ để xác nhận tạo file.
 
-A. Nhập từ vựng
-Tôi có thể gửi một từ/cụm từ hoặc một danh sách nhiều từ/cụm từ.
-Với mỗi từ/cụm từ, hãy phân tích đầy đủ các nội dung:
-Vocabulary
-Type
-IPA
-Word family
-Definition (in English)
-Definition (in Vietnamese)
-Phrases
-Example 1
-Example 2
-Synonyms
-Antonyms
+FILE 1 — Bang_tu_vung.xlsx: mỗi từ/cụm từ một hàng, đúng 11 cột theo thứ tự:
+Vocabulary | Từ loại | IPA | Word family | English meaning | Vietnamese meaning | Phrases | Example 1 | Example 2 | Synonyms | Antonyms.
+Giữ đúng từ/cụm tôi nhập. Từ loại chỉ viết bằng tiếng Anh. IPA chính xác, có thể thêm Anh-Anh/Anh-Mỹ khi khác biệt. Word family ghi từng mục dạng word (POS) – nghĩa tiếng Việt; Phrases gồm collocations, expressions, idioms hữu ích kèm nghĩa tiếng Việt, không có thì để trống. Mỗi ví dụ là một câu tiếng Anh tự nhiên kèm bản dịch tiếng Việt tương ứng, tách hai phần rõ ràng. Synonyms/Antonyms ghi từng mục dạng word – nghĩa tiếng Việt. Không bịa họ từ hay từ trái nghĩa.
+Định dạng: hàng tiêu đề in đậm, viền ô, lọc cột, Wrap Text; ba cột đầu căn giữa ngang/dọc, các cột còn lại căn phải ngang và giữa dọc. Freeze Panes B2 để giữ cả hàng tiêu đề lẫn cột Vocabulary. Chỉnh độ rộng cột và chiều cao hàng để đọc được.
 
-B. Kết quả
-Luôn trả kết quả dưới dạng bảng.
-Luôn đồng thời tạo và xuất một file Excel (.xlsx) chứa toàn bộ kết quả.
-Không cần hỏi lại tôi có muốn tạo Excel hay không.
-Nếu tôi gửi nhiều từ, hãy xử lý tất cả các từ trong cùng một bảng và cùng một file Excel.
+FILE 2 — Cau_luyen_nghe.xlsx: lấy cả Example 1 và Example 2 của MỖI hàng File 1, mỗi câu một hàng với đúng hai cột English | Vietnamese. Không để nhãn, IPA, tên từ hay dấu phân cách trong nội dung hai ô. Giữ nguyên câu và bản dịch đã dùng ở File 1; không bỏ sót câu. Dùng UTF-8, Wrap Text, hàng tiêu đề in đậm, AutoFilter và Freeze Panes A2. File này có thể xuất CSV hai cột English, Vietnamese từ Excel để nạp vào Mặn.
 
-C. Quy tắc nội dung
-1. Vocabulary
-Ghi chính xác từ/cụm từ mà tôi cung cấp.
-2. Type
-Chỉ sử dụng tên từ loại bằng tiếng Anh, ví dụ: Noun, Verb, Adjective, Adverb, Preposition, Conjunction, Pronoun, Determiner, Interjection. Không ghi bản dịch tiếng Việt trong cột này.
-3. IPA
-Cung cấp phiên âm IPA chính xác. Nếu cách phát âm Anh-Anh và Anh-Mỹ khác nhau đáng kể, có thể ghi cả hai.
-4. Word family
-Liệt kê các từ cùng họ có liên quan và thông dụng. Mỗi từ phải có từ loại + nghĩa tiếng Việt, theo dạng: word (n) — nghĩa tiếng Việt
-5. Definition (in English)
-Giải thích nghĩa bằng tiếng Anh một cách rõ ràng, tự nhiên và dễ hiểu. Nếu từ có nhiều nghĩa thông dụng, hãy phân biệt từng nghĩa.
-6. Definition (in Vietnamese)
-Dịch nghĩa chính xác và tự nhiên sang tiếng Việt. Nếu từ có nhiều nghĩa phổ biến, hãy trình bày đầy đủ các nghĩa phù hợp.
-7. Phrases
-Bao gồm các cụm từ liên quan và hữu ích (Collocations, Expressions, Idioms). Mỗi cụm phải đi kèm nghĩa tiếng Việt. Ưu tiên những cụm thực tế, thông dụng. Nếu không có thì để trống.
-8. Example 1 và Example 2
-Mỗi từ phải có 2 câu ví dụ tự nhiên, hiện đại, thể hiện rõ nghĩa. Mỗi câu phải có bản dịch tiếng Việt.
-9. Synonyms
-Liệt kê các từ đồng nghĩa phù hợp, dạng: word — nghĩa tiếng Việt.
-10. Antonyms
-Liệt kê các từ trái nghĩa phù hợp, dạng: word — nghĩa tiếng Việt.
+Trước khi gửi, đối chiếu số hàng File 2 bằng hai lần số hàng File 1 (trừ hàng tiêu đề), kiểm tra đủ 11 cột, đúng hai cột và đủ hai link tải. Nếu môi trường không tạo được .xlsx, nói rõ giới hạn và cung cấp dữ liệu có thể nhập vào Excel; không tuyên bố đã tạo file khi chưa tạo.
 
-D. Cấu trúc bảng và Excel
-Sử dụng đúng 11 cột, theo thứ tự:
-Vocabulary | Type | IPA | Word family | Definition (in English) | Definition (in Vietnamese) | Phrases | Example 1 | Example 2 | Synonyms | Antonyms
-
-E. Quy tắc định dạng Excel
-Vocabulary, Type, IPA: Căn giữa chiều ngang & dọc.
-Các cột còn lại: Căn phải chiều ngang, căn giữa chiều dọc.
-Tất cả các ô có nội dung dài phải bật Wrap Text, dùng Line Break trong ô.
-Header in đậm, có Border toàn bộ, tự động chỉnh độ rộng cột/chiều cao hàng.
-Bật AutoFilter & Freeze Panes tại ô B2 (cố định tiêu đề và cột Vocabulary).
-Tạo file .xlsx hoàn chỉnh và cung cấp link tải file.
-
-F. Nguyên tắc chung
-Ưu tiên tính chính xác, tự nhiên, dễ hiểu. Không bỏ sót từ nào. Trả về cả bảng và file Excel mà không cần hỏi lại.</pre>
-        <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 1 (Tạo Bảng Excel Từ Vựng)</button>
+Danh sách từ/cụm từ của tôi:
+[DÁN TỪ VỰNG VÀO ĐÂY]</pre>
+        <button onclick="copyPrompt('prompt1', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Sao chép prompt tạo 2 file Excel</button>
     </div>
 
-    <!-- PROMPT 2: LỆNH TRÍCH XUẤT CÂU ĐỂ NẠP VÀO APP -->
-    <div style="background: #fff; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-        <div style="font-weight: bold; color: #92400e; margin-bottom: 6px;">Prompt 2: Lệnh trích xuất các câu ví dụ từ file Excel để luyện nghe chính tả:</div>
-        <pre id="prompt2" style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 12px; font-family: monospace; white-space: pre-wrap; margin: 0; color: #451a03; border: 1px dashed #f59e0b;">Trích xuất tất cả các câu ở cột Example 1 và Example 2 trong file Excel, ghép phần tiếng Anh và bản dịch tiếng Việt tương ứng theo định dạng: [Câu tiếng Anh] | [Bản dịch tiếng Việt]</pre>
-        <button onclick="copyPrompt('prompt2', this)" style="margin-top: 10px; background: #d97706; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold;">📋 Copy Prompt 2 (Trích Xuất Câu Để Luyện Chính Tả)</button>
-    </div>
+
 </div>
 
     <!-- SECTION 4: KHU XẾP HẠNG CỘNG ĐỒNG 🏆 -->
@@ -927,35 +878,57 @@ F. Nguyên tắc chung
             alert(`⚡ Đã tự động phân tách và ghép cặp thành công ${count} câu vào ${unitName}!`);
         }
 
+        function parseLearningCSV(text) {
+            const rows = [];
+            let row = [], cell = '', quoted = false;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (quoted) {
+                    if (char === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+                    else if (char === '"') quoted = false;
+                    else cell += char;
+                } else if (char === '"') quoted = true;
+                else if (char === ',') { row.push(cell); cell = ''; }
+                else if (char === '\n' || char === '\r') {
+                    if (char === '\r' && text[i + 1] === '\n') i++;
+                    row.push(cell); rows.push(row); row = []; cell = '';
+                } else cell += char;
+            }
+            if (quoted) throw new Error('CSV có ô chưa đóng dấu ngoặc kép.');
+            if (cell || row.length) { row.push(cell); rows.push(row); }
+            const clean = value => String(value || '').replace(/^\uFEFF/, '').trim();
+            if (rows.length && /^(english|câu tiếng anh)$/i.test(clean(rows[0][0])) && /^(vietnamese|tiếng việt|bản dịch tiếng việt)$/i.test(clean(rows[0][1]))) rows.shift();
+            return rows.filter(row => row.some(value => clean(value))).map(row => {
+                if (row.length !== 2) throw new Error('CSV cần đúng hai cột English và Vietnamese.');
+                const en = clean(row[0]), vi = clean(row[1]);
+                if (!en || !vi) throw new Error('Mỗi dòng cần đủ câu tiếng Anh và bản dịch tiếng Việt.');
+                return { en, vi };
+            });
+        }
+
         function handleCSVUpload(e) {
             const file = e.target.files[0];
             if (!file) return;
-
             const reader = new FileReader();
             reader.onload = function(evt) {
-                const text = evt.target.result;
-                const lines = text.split('\n');
-                const unitName = getActiveUnitName();
-                if (!unitsData[unitName]) unitsData[unitName] = [];
-
-                lines.forEach(line => {
-                    const parts = line.split(',');
-                    if (parts.length >= 1) {
-                        const en = parts[0].replace(/"/g, '').trim();
-                        const vi = parts[1] ? parts[1].replace(/"/g, '').trim() : '';
-                        if (en) unitsData[unitName].push({ en, vi });
-                    }
-                });
-
-                updateUnitDropdown();
-                renderUnitSelector();
-                renderCurrentUnitPreview();
-                alert(`📁 Đã nạp thành công từ file CSV vào ${unitName}!`);
+                try {
+                    const newItems = parseLearningCSV(evt.target.result);
+                    if (!newItems.length) throw new Error('File chưa có câu nào để học.');
+                    const unitName = getActiveUnitName();
+                    if (!unitsData[unitName]) unitsData[unitName] = [];
+                    unitsData[unitName].push(...newItems);
+                    updateUnitDropdown();
+                    renderUnitSelector();
+                    renderCurrentUnitPreview();
+                    xToast(`📁 Đã nạp ${newItems.length} câu vào ${unitName}. Chọn bài này để học ngay nha!`);
+                } catch (error) { xToast('Chưa nạp được file: ' + error.message); }
+                e.target.value = '';
             };
-            reader.readAsText(file);
+            reader.onerror = () => xToast('Chưa đọc được file. Bạn thử lại nha.');
+            reader.readAsText(file, 'UTF-8');
         }
 
-        function onUnitSelectChange() {
+                function onUnitSelectChange() {
             const selectVal = document.getElementById('unit-select').value;
             if (selectVal) document.getElementById('new-unit-name').value = '';
             renderCurrentUnitPreview();
@@ -1453,7 +1426,7 @@ F. Nguyên tắc chung
         }
 
         function giveUpCurrent() {
-            if (!items.length) return;
+            if (!items.length || isQuestionResolved) return;
             if (!failedItemsList.includes(items[currentIndex])) failedItemsList.push(items[currentIndex]);
             isQuestionResolved = true;
             revealAnswer();
@@ -1520,29 +1493,23 @@ F. Nguyên tắc chung
         function showSummary() {
             document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('summary-section').classList.remove('hidden');
+            document.getElementById('x-summary-lessons')?.classList.add('hidden');
 
             const total = items.length;
 
-            if (isRetryMode) {
-                document.getElementById('summary-title').innerText = "🏆 Xuất sắc! Bạn đã ôn tập xong các câu chưa thuộc!";
-                document.getElementById('accuracy-label').innerText = "Số câu hoàn thành:";
-                document.getElementById('accuracy-score').innerText = "100%";
-                document.getElementById('stats-detail').innerText = `Đã chinh phục thành công toàn bộ ${total} câu từng bị Skip!`;
+            const accuracy = total ? Math.round((correctCount / total) * 100) : 0;
+            document.getElementById('summary-title').innerText = "Bạn vừa làm được gì?";
+            document.getElementById('accuracy-label').innerText = "🎯 Tự nghe và gõ đúng:";
+            document.getElementById('accuracy-score').innerText = `${accuracy}%`;
+            document.getElementById('stats-detail').innerText = correctCount === total
+                ? `Tự làm đúng ${correctCount}/${total} câu. Bạn đã bắt được hết ở lượt này!`
+                : `Tự làm đúng ${correctCount}/${total} câu. ${total - correctCount} câu cần ôn tiếp.`;
 
-                document.getElementById('error-container').classList.add('hidden');
-                document.getElementById('retry-errors-btn').classList.add('hidden');
-            } else {
-                document.getElementById('summary-title').innerText = "Bạn vừa làm được gì?";
-                document.getElementById('accuracy-label').innerText = "🎯 Bạn bắt được:";
-                const accuracy = Math.round((correctCount / total) * 100);
-                document.getElementById('accuracy-score').innerText = `${accuracy}%`;
-                document.getElementById('stats-detail').innerText = `Hoàn thành đúng: ${correctCount}/${total} câu | Cơ hội gỡ gạc: ${failedItemsList.length} câu`;
+            const errorContainer = document.getElementById('error-container');
+            const errorList = document.getElementById('error-list-items');
+            const retryBtn = document.getElementById('retry-errors-btn');
 
-                const errorContainer = document.getElementById('error-container');
-                const errorList = document.getElementById('error-list-items');
-                const retryBtn = document.getElementById('retry-errors-btn');
-
-                if (failedItemsList.length > 0) {
+            if (failedItemsList.length > 0) {
                     errorList.innerHTML = '';
                     const uniqueErrors = Array.from(new Set(failedItemsList.map(a => a.en)))
                         .map(en => failedItemsList.find(a => a.en === en));
@@ -1562,6 +1529,54 @@ F. Nguyên tắc chung
                     errorContainer.classList.add('hidden');
                     retryBtn.classList.add('hidden');
                 }
+        }
+
+        function xRestartLesson() {
+            if (!items.length) return;
+            items = [...items];
+            currentIndex = 0;
+            correctCount = 0;
+            failedItemsList = [];
+            isRetryMode = false;
+            document.getElementById('summary-section').classList.add('hidden');
+            document.getElementById('dictation-app').classList.remove('hidden');
+            switchStudyTab('dictation');
+            startStudyTimer();
+            loadQuestion(0);
+        }
+
+        async function xShowNextLessons() {
+            const panel = document.getElementById('x-summary-lessons');
+            if (!panel) return;
+            panel.classList.remove('hidden');
+            panel.replaceChildren();
+            const heading = document.createElement('h3');
+            heading.textContent = 'Học tiếp ngay ở đây';
+            panel.appendChild(heading);
+            const addChoice = (label, action) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'btn btn-note';
+                button.textContent = label;
+                button.style.margin = '4px';
+                button.addEventListener('click', action);
+                panel.appendChild(button);
+            };
+            addChoice('🎧 Thử 5 câu', () => xTryFive());
+            Object.keys(unitsData || {}).filter(name => (unitsData[name] || []).length).slice(0, 12)
+                .forEach(name => addChoice('📥 ' + name, () => xStartMine(name)));
+            const label = document.createElement('p');
+            label.textContent = 'Đang tìm bài đã duyệt trong kho...';
+            panel.appendChild(label);
+            try {
+                const snap = await db.collection('community_units').where('sharingStatus', '==', 'approved').limit(12).get();
+                if (!panel.isConnected || panel.classList.contains('hidden')) return;
+                communityUnitsCache = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                const available = communityUnitsCache.filter(unit => unit.items?.length);
+                label.textContent = available.length ? 'Bài từ Kho cộng đồng:' : 'Kho chưa có bài đã duyệt. Bạn có thể thử 5 câu hoặc học bài của mình.';
+                available.forEach(unit => addChoice('🏘️ ' + (unit.title || unit.name || 'Bài cộng đồng'), () => xStartCommunity(unit.id)));
+            } catch (e) {
+                label.textContent = 'Chưa tải được kho bài. Bạn có thể thử 5 câu hoặc học bài của mình.';
             }
         }
 
@@ -1877,3 +1892,4 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
 </div>
 </body>
 </html>
+
