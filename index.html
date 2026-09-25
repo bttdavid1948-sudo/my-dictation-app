@@ -279,6 +279,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <button class="btn btn-next" onclick="startApp()" style="font-size: 15px; padding: 10px 18px;">🚀 Bắt đầu học (Các Unit đã chọn)</button>
             <button id="save-cloud-btn" class="btn btn-note hidden" onclick="saveToCloud()">☁️ Lưu toàn bộ lên tài khoản</button>
         </div>
+        <div id="private-save-status" role="status" aria-live="polite" style="font-size:13px;margin-top:8px"></div>
     </div>
 
     <!-- SECTION 2: KHU HỌC TẬP CHUẨN DAILYDICTATION -->
@@ -900,15 +901,21 @@ Danh sách từ/cụm từ của tôi:
         let xCloudUnitsSnapshot = null;
         let xPrivateSaveQueue = Promise.resolve();
         function xPrivateDraftKey(uid) { return 'man_private_draft_v1_' + uid; }
+        function xPrivateSaveStatus(message) {
+            const el = document.getElementById('private-save-status');
+            if (el) el.textContent = message;
+        }
         function xQueuePrivateSave() {
             xRenderCarousel('mine');
             if (!currentUser) {
+                xPrivateSaveStatus('Bài chỉ đang ở trang này. Đăng nhập để lưu lên tài khoản.');
                 xToast('Bài đang ở trang này. Đăng nhập rồi lưu lên tài khoản để giữ bài sau khi tải lại.');
                 return;
             }
             const uid = currentUser.uid;
             try { sessionStorage.setItem(xPrivateDraftKey(uid), JSON.stringify(unitsData)); }
-            catch (e) { xToast('Trình duyệt chưa giữ được bản nháp. Hãy lưu lên tài khoản trước khi tải lại.'); }
+            catch (e) { xPrivateSaveStatus('⚠️ Không giữ được bản nháp trên thiết bị. Đừng tải lại trước khi thấy Đã lưu.'); }
+            xPrivateSaveStatus('⏳ Đang lưu bài riêng vào tài khoản…');
             xPrivateSaveQueue = xPrivateSaveQueue.catch(() => {}).then(() => {
                 if (currentUser?.uid === uid) return saveToCloud();
             });
@@ -937,23 +944,30 @@ Danh sách từ/cụm từ của tôi:
                 const ref=db.collection('user_vocab').doc(uid), next=JSON.stringify(unitsData);
                 await db.runTransaction(async tx=>{
                     const snapshot=await tx.get(ref);
-                    const existing=snapshot.exists?snapshot.data().units:null;
+                    const existing=snapshot.exists?(snapshot.data().units??null):null;
                     if(existing!==xCloudUnitsSnapshot)throw new Error('CLOUD_CHANGED');
                     tx.set(ref,{units:next,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
                 });
+                const verified = await ref.get({source:'server'});
+                if (!verified.exists || verified.data().units !== next) throw new Error('SAVE_NOT_VERIFIED');
                 xCloudUnitsSnapshot=next;
                 try {
                     if (sessionStorage.getItem(xPrivateDraftKey(uid)) === next)
                         sessionStorage.removeItem(xPrivateDraftKey(uid));
                 } catch (e) {}
                 xRenderCarousel('mine');
+                xPrivateSaveStatus('✅ Đã lưu vào tài khoản và kiểm tra lại trên server.');
                 xToast('💾 Đã lưu bài riêng vào tài khoản của bạn.');
             } catch(error) {
                 console.error('Could not save personal lessons',error);
                 if(error.message==='CLOUD_CHANGED'){
                     await loadFromCloud();
+                    xPrivateSaveStatus('⚠️ Có thay đổi từ phiên khác. Bài nháp còn trong phiên này; hãy xem lại và lưu lần nữa.');
                     xToast('Có bài mới từ phiên khác. Đã giữ cả hai bản; xem lại rồi lưu lần nữa nha.');
-                } else xToast('Bài vẫn trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
+                } else {
+                    xPrivateSaveStatus('⚠️ Chưa xác nhận lưu trên server. Bài nháp còn trong phiên này; bấm Lưu toàn bộ để thử lại.');
+                    xToast('Bài vẫn trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
+                }
             }
         }
 
@@ -988,12 +1002,15 @@ Danh sách từ/cụm từ của tôi:
                 renderUnitSelector();
                 renderCurrentUnitPreview();
                 xRenderCarousel('mine');
+                if (Object.keys(remote).length && !draft) xPrivateSaveStatus('📂 Đã tải bài riêng từ tài khoản.');
+                else if (draft) xPrivateSaveStatus('📂 Đã khôi phục bản nháp trên thiết bị; đang đối chiếu tài khoản.');
                 if (draft && currentUser?.uid === uid && JSON.stringify(merged) !== raw)
                     xQueuePrivateSave();
                 if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
                 else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
             } catch (e) {
                 console.error(e);
+                xPrivateSaveStatus('⚠️ Chưa tải được bài từ tài khoản. Bài nháp trong phiên vẫn được giữ.');
                 xToast('Chưa tải được bài trên tài khoản; bài trên máy vẫn nguyên nha.');
             }
         }
@@ -1615,14 +1632,14 @@ const xRenderMe03=window.xRenderMe;window.xRenderMe=function(){const el=document
 // Progress reminder for guests.
 const xRenderProgress03=window.xRenderProgress;window.xRenderProgress=function(){xRenderProgress03();const el=document.getElementById('x-progress-dashboard');if(el&&!window.currentUser){el.insertAdjacentHTML('beforeend',`<div class="x-guest-progress">🔐 <b>Người lạ ơi, đừng để công sức hôm nay bay màu nha.</b><br>Thống kê này lưu trên trình duyệt, kể cả khi đăng nhập; hãy học tiếp trên máy này để xem Ngày ấy & Bây giờ.<br><button class="x-primary" style="margin-top:10px" onclick="xGo('me')">Đăng nhập để lưu bài riêng →</button></div>`)}}
 // Cloud save guard: explain before sending guest to auth.
-const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!window.currentUser){xToast('🔐 Đăng nhập để lưu bài vở, lần sau còn gọi lại được nha.');setTimeout(()=>xGo('me'),650);return}return xSaveCloud03()}
+const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!auth.currentUser&&!currentUser){xToast('🔐 Đăng nhập để lưu bài vở, lần sau còn gọi lại được nha.');setTimeout(()=>xGo('me'),650);return}return xSaveCloud03()}
 // Lesson carousels and 12-card library.
 let xCarouselIndex={mine:0,catalog:0},xLibMode='mine',xLibPage=1;
 function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}))}
 function xCatalogLessons(){return (window.catalogUnitsCache||catalogUnitsCache||[]).map(x=>({...x,mine:false}))}
 function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu · ${u.mine?'Bài riêng của bạn':'Bài chính thức của Mặn'}</p><button class="x-primary" data-lesson-action="study" data-lesson-mine="${u.mine?'true':'false'}" data-unit-id="${xEsc(u.mine?u.unitName:u.id)}">🔥 Chiến bài này</button></article>`}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="study"]');if(!b)return;if(b.dataset.lessonMine==='true')xStartMine(b.dataset.unitId);else xStartCatalog(b.dataset.unitId)});
-function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-catalog-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCatalogLessons()).slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang tải bài của Mặn. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
+function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-catalog-carousel');if(!el)return;const lessons=mode==='mine'?xMineLessons():xCatalogLessons();const arr=mode==='mine'?lessons.slice(-6).reverse():lessons.slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang tải bài của Mặn. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCatalogLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
 function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
