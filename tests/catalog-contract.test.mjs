@@ -38,7 +38,7 @@ assert.ok(start>0&&end>start);
 const code=html.slice(start,end);
 const views=[];
 const topicOptions=[];
-const context={fetch:async()=>({ok:true,json:async()=>({lessons:[
+const context={xLibMode:'mine',fetch:async()=>({ok:true,json:async()=>({lessons:[
   ...catalog.lessons,
   {...catalog.lessons[0],id:'forged',publisher:'user'},
   {...catalog.lessons[0],id:'draft',status:'draft'},

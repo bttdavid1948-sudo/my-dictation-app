@@ -39,3 +39,10 @@ Chưa có quyền đọc Firestore từ Work. Cloud Browser Console từng Site 
 ## Remaining critical path
 
 P0: chặn quyền ghi công khai cũ và bảo vệ bài riêng; inventory/backup phục hồi được; QA luồng học và đồng bộ thật hai tài khoản. P1: tăng số lượng/chất lượng bài gốc và kiểm bản quyền; hoàn thiện auth/progress/feedback/mobile/accessibility; pilot nhỏ và đo lỗi. Không coi việc có draft PR hay Emulator pass là production ready.
+
+## Bổ sung kiểm tra sản phẩm ngày 2026-09-25
+
+- Luồng thử 5 câu dùng tập câu độc lập và không thêm bài vào `user_vocab`/Bài của tôi. Nút **Nạp bài mẫu** riêng vẫn là thao tác chủ động để tạo bài cá nhân.
+- Lịch sử học, câu cần ôn và bài để dành lưu trên trình duyệt được phân vùng theo UID; khách dùng khóa cũ. Dữ liệu ở các khóa cũ không thể tự gán chắc chắn cho UID nào, nên được giữ ở khách và không chuyển lén sang tài khoản. Đây chưa phải đồng bộ tiến bộ nhiều thiết bị.
+- Khi đăng xuất hoặc chuyển giữa hai UID, giao diện xóa bài riêng và phiên học trong bộ nhớ; lần tải hồ sơ bất đồng bộ kiểm UID trước khi hiển thị. Phiên học khôi phục chỉ nhận đúng UID sau khi Auth trả về.
+- Modal Kho bài học tải lại khi mở, thông báo tình trạng tải và cập nhật danh sách khi JSON chính thức đã về. Vẫn cần chạy thử trên trình duyệt thật với hai tài khoản sau khi có môi trường kiểm thử truy cập được.
