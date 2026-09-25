@@ -26,13 +26,13 @@ Danh mục tĩnh có `publisher: man`, ID ổn định, version, status, mức �
 
 ## Inventory production trước mọi thay đổi dữ liệu
 
-Chưa có quyền đọc Firestore từ Work. Cloud Browser Console từng Site Unavailable/502, API từ runtime không kết nối; GitHub connector chỉ có mã. **Không suy số tài liệu hay quyền hiện hành từ source hoặc kích thước export.** Cần inventory chỉ đọc: Rules đang deploy (kể cả wildcard allow), tên DB, collection và count, mẫu đã ẩn thông tin cá nhân của `community_units` phân theo `sharingStatus`, `contentOrigin`, `authorUid`, quan hệ với `user_vocab`, chỉ mục và dependencies. Tuyệt đối không gửi token/credential hoặc nội dung cá nhân vào issue/PR. Backup export sẵn có chưa được chứng minh khôi phục; lệnh import trước đó đã hủy theo chỉ thị mới. Việc phục hồi thử sau này cần được đặt lại phạm vi theo critical path mới.
+Inventory production và Rules hiện hành đã được kiểm tra qua kênh nội bộ riêng. Phát hiện cấu hình quyền hiện hành không đáp ứng kiến trúc bài riêng/kho chính thức; chi tiết và bằng chứng nằm trong Technical & Operations Manual nội bộ, không xuất bản trong repository công khai. Không suy số tài liệu từ kích thước export; chưa có kiểm thử khôi phục backup. Lệnh import/restore tiếp tục tạm dừng theo Owner.
 
 ## Chuyển production an toàn
 
 1. Hoàn thành QA nội dung original và kiểm giao diện/đồng bộ bằng môi trường thử. PR này là nháp, không tự merge.
-2. Lấy inventory và Rules production chỉ đọc. So toàn bộ chức năng còn dùng (Auth, profile, `user_vocab`, leaderboard, feedback, notifications) với Rules nháp; loại bỏ bất kỳ wildcard allow nào làm vô hiệu deny mới.
-3. Chuẩn bị thay Rules có rollback và kiểm thử hai tài khoản; đây là approval gate production. Có thể có khoảng thời gian giao diện cũ không thấy bài legacy nếu siết Rules trước khi cập nhật Pages; chọn cửa sổ triển khai và xác minh thực tế.
+2. Đã kiểm tra inventory và Rules production trong nguồn nội bộ. So toàn bộ chức năng còn dùng (Auth, profile, `user_vocab`, feedback, notifications) với Rules nháp; thay cả Rules hiện hành để quyền cũ không vô hiệu hóa các điều kiện mới. Bảng xếp hạng tạm nghỉ để giữ hồ sơ riêng tư.
+3. Chuẩn bị thay Rules có quy trình sửa lỗi/khôi phục quyền hẹp và kiểm thử hai tài khoản; đây là approval gate production. Ưu tiên siết quyền trước rồi phát hành giao diện mới trong cùng cửa sổ. Trong khoảng chuyển tiếp giao diện cũ có thể còn nút publish và bảng xếp hạng nhưng quyền mới từ chối; không khôi phục quyền rộng cũ làm rollback.
 4. Chỉ sau approval, triển khai Rules + giao diện/danh mục theo thứ tự đã thống nhất, verify live guest/login, bài cá nhân, Kho bài học, không có user publish; giám sát lỗi/chi phí và rollback khi cần.
 5. Dữ liệu legacy được lưu nguyên trạng cho đến khi Owner duyệt phương án cụ thể dựa trên inventory; nếu muốn chuyển bài user sang thư viện chính thức, phải có quyền sử dụng riêng cho từng bài.
 
