@@ -573,7 +573,20 @@ Danh sách từ/cụm từ của tôi:
             const monthKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
             const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); const weekKey=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
             const ref=db.collection('users_profile').doc(currentUser.uid);
-            db.runTransaction(async tx=>{const snap=await tx.get(ref), old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||currentUser.displayName||currentUser.email,avatar:currentUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>xLoadLeaderboard('daily'));
+            const publicRef=db.collection('leaderboard_public').doc(currentUser.uid);
+            db.runTransaction(async tx=>{
+                const snap=await tx.get(ref), old=snap.exists?snap.data():{};
+                const publicData={
+                    nickname:userProfileData.nickname||currentUser.displayName||'Hàng xóm',
+                    avatar:userProfileData.avatar||currentUser.photoURL||'',
+                    totalMinutes:(old.totalMinutes||0)+minutesEarned,
+                    dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,
+                    weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,
+                    monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned
+                };
+                tx.set(ref,{...publicData,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
+                tx.set(publicRef,publicData,{merge:true});
+            }).then(()=>xLoadLeaderboard('daily')).catch(e=>console.error('Could not save study time',e));
         }
 
         function loginWithGoogle() {
@@ -641,7 +654,7 @@ Danh sách từ/cụm từ của tôi:
             const listEl = document.getElementById('leaderboard-list');
             listEl.innerHTML = '<i style="color: #888;">Đang tải bảng xếp hạng...</i>';
 
-            db.collection('users_profile').orderBy('totalMinutes', 'desc').limit(10).get().then(snap => {
+            db.collection('leaderboard_public').orderBy('totalMinutes', 'desc').limit(10).get().then(snap => {
                 if (snap.empty) {
                     listEl.innerHTML = '<i style="color: #888;">Chưa có dữ liệu xếp hạng...</i>';
                     return;
@@ -990,58 +1003,142 @@ Danh sách từ/cụm từ của tôi:
             });
         }
 
-        function saveToCloud() {
-            if (!currentUser) { xGo('me'); return alert("🔐 Đăng nhập trước để lưu bài lên tài khoản nha."); }
-            if(window.xSyncUnitMeta) window.xSyncUnitMeta();
+        async function xContributionId(uid, name) {
+            const data = new TextEncoder().encode(name);
+            const digest = await crypto.subtle.digest('SHA-256', data);
+            const hash = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
+            return uid + '_' + hash;
+        }
 
-            db.collection('user_vocab').doc(currentUser.uid).set({
-                units: JSON.stringify(unitsData),
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            });
+        let xCloudLoadedForUid = null;
+        let xCloudUnitsSnapshot = null;
+        function xMergePrivateUnits(local, remote) {
+            const merged = {...local};
+            let conflicts = 0;
+            for (const [name, lesson] of Object.entries(remote)) {
+                if (!Object.prototype.hasOwnProperty.call(merged, name)) { merged[name] = lesson; continue; }
+                if (JSON.stringify(merged[name]) === JSON.stringify(lesson)) continue;
+                conflicts++;
+                const base = name + ' (bản trên tài khoản)';
+                let copy = base, number = 2;
+                while (Object.prototype.hasOwnProperty.call(merged, copy) &&
+                       JSON.stringify(merged[copy]) !== JSON.stringify(lesson)) copy = base + ' ' + number++;
+                merged[copy] = lesson;
+            }
+            return {merged, conflicts};
+        }
 
+        async function saveToCloud() {
+            if (!currentUser) { xGo('me'); xToast('🔐 Đăng nhập để giữ bài của bạn nha.'); return; }
+            if (window.xSyncUnitMeta) window.xSyncUnitMeta();
             const isShare = document.getElementById('share-community-check').checked;
-            if (isShare) {
-                const activeUnit = getActiveUnitName();
-                const itemsList = unitsData[activeUnit] || [];
-                if (itemsList.length === 0) return alert("Unit đang chọn không có câu nào để chia sẻ!");
-
-                db.collection('community_units').add({
+            const activeUnit = getActiveUnitName();
+            const itemsList = unitsData[activeUnit] || [];
+            let savedPrivate = false;
+            try {
+                const uid = currentUser.uid;
+                if (xCloudLoadedForUid !== uid) {
+                    xToast('Đang kiểm tra bài trên tài khoản trước khi lưu. Bài trên máy vẫn nguyên nha.');
+                    await loadFromCloud();
+                    return;
+                }
+                const privateRef = db.collection('user_vocab').doc(uid);
+                const nextUnits = JSON.stringify(unitsData);
+                await db.runTransaction(async tx => {
+                    const current = await tx.get(privateRef);
+                    const remote = current.exists ? current.data().units : null;
+                    if (remote !== xCloudUnitsSnapshot) throw new Error('CLOUD_CHANGED');
+                    tx.set(privateRef, {
+                        units: nextUnits,
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    }, {merge:true});
+                });
+                xCloudUnitsSnapshot = nextUnits;
+                savedPrivate = true;
+                xRenderCarousel('mine');
+                if (!isShare) { xToast('💾 Bài đã ở Bài của tôi. Lúc nào muốn góp cho xóm cũng được nha.'); return; }
+                if (!itemsList.length) { xToast('Bài đã lưu riêng. Thêm câu rồi hẵng gửi duyệt nha.'); return; }
+                const id = await xContributionId(currentUser.uid, activeUnit);
+                const ref = db.collection('community_units').doc(id);
+                const prior = await ref.get();
+                if (prior.exists && prior.data().sharingStatus === 'approved') {
+                    xToast('Bài đã ở kho cộng đồng. Bài riêng của bạn vẫn ở đây nha.'); return;
+                }
+                if (prior.exists && prior.data().sharingStatus === 'pending') {
+                    xToast('Bài vẫn ở Bài của tôi và đang chờ duyệt nha.'); return;
+                }
+                 if (prior.exists && prior.data().sharingStatus === 'public') {
+                     xToast('Bài riêng đã lưu. Bài cộng đồng cũ đang được chuyển sang quy trình duyệt; bạn không cần gửi lại nha.'); return;
+                 }
+                const payload = {
                     unitName: activeUnit,
-                    author: userProfileData.nickname || currentUser.displayName,
+                    author: userProfileData.nickname || currentUser.displayName || 'Hàng xóm',
                     authorUid: currentUser.uid,
                     topic: document.getElementById('share-topic').value,
                     level: document.getElementById('share-level').value,
-                    track: document.getElementById('share-track') ? document.getElementById('share-track').value : 'Giao tiếp',
-                    permissionStatus: document.getElementById('share-rights') ? document.getElementById('share-rights').value : 'unsure',
-                    licenseType: document.getElementById('share-license')?.value || '',
-                    sourceTitle: document.getElementById('share-source-title')?.value.trim() || '',
-                    sourceAuthor: document.getElementById('share-source-author')?.value.trim() || '',
-                    sourceUrl: document.getElementById('share-source-url')?.value.trim() || '',
-                    sharingStatus: 'public',
+                    track: document.getElementById('share-track').value,
+                    permissionStatus: document.getElementById('share-rights').value,
+                    licenseType: document.getElementById('share-license').value,
+                    sourceTitle: document.getElementById('share-source-title').value.trim(),
+                    sourceAuthor: document.getElementById('share-source-author').value.trim(),
+                    sourceUrl: document.getElementById('share-source-url').value.trim(),
+                    sharingStatus: 'pending',
                     copyrightStatus: 'unreviewed',
                     learnedCount: 0,
                     sessionCount: 0,
                     items: itemsList,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => {
-                    alert("🌐 Đã lưu lên cá nhân và Chia sẻ thành công vào Kho Cộng Đồng!");
-                });
-            } else {
-                alert("☁️ Đã lưu toàn bộ Unit bài học vào tài khoản cá nhân!");
+                };
+                if (prior.exists && prior.data().sharingStatus === 'rejected') {
+                    await ref.update({...payload, createdAt:prior.data().createdAt, learnedCount:prior.data().learnedCount, sessionCount:prior.data().sessionCount, resubmittedAt:firebase.firestore.FieldValue.serverTimestamp()});
+                } else {
+                    await ref.set(payload);
+                }
+                document.getElementById('share-community-check').checked = false;
+                document.getElementById('community-meta-box').classList.add('hidden');
+                xLoadContributionStatuses();
+                xToast('🍚 Đã gửi duyệt. Bài vẫn nằm trong Bài của tôi để bạn học tiếp nha.');
+            } catch (e) {
+                console.error(e);
+                if (e.message === 'CLOUD_CHANGED') {
+                    await loadFromCloud();
+                    xToast('Có bài mới từ phiên khác. Mình đã giữ cả hai bản; xem lại rồi bấm Lưu lần nữa nha.');
+                    return;
+                }
+                xToast(savedPrivate ? '💾 Bài đã lưu trong Bài của tôi; phần gửi duyệt chưa thành công. Thử lại nha.' : 'Bài vẫn ở trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
             }
         }
 
-        function loadFromCloud() {
+        async function loadFromCloud() {
             if (!currentUser) return;
-            db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
-                if (doc.exists && doc.data().units) {
-                    unitsData = JSON.parse(doc.data().units);
-                    updateUnitDropdown();
-                    renderUnitSelector();
-                    renderCurrentUnitPreview();
-                    alert("📂 Đã tải dữ liệu cũ từ tài khoản về máy này.");
-                } else alert("🐱 Tài khoản chưa có dữ liệu cũ để tải.");
-            }).catch(()=>alert("Có trục trặc khi tải dữ liệu cũ. Thử lại nha."));
+            const uid = currentUser.uid;
+            if (xCloudLoadedForUid && xCloudLoadedForUid !== uid && Object.keys(unitsData).length) {
+                xToast('Trên máy còn bài từ tài khoản trước. Mở cửa sổ mới để dùng tài khoản khác, tránh trộn bài nha.');
+                return;
+            }
+            try {
+                const doc = await db.collection('user_vocab').doc(uid).get();
+                if (currentUser?.uid !== uid) return;
+                const raw = doc.exists ? doc.data().units : null;
+                const remote = raw ? JSON.parse(raw) : {};
+                if (!remote || Array.isArray(remote) || typeof remote !== 'object' ||
+                    Object.values(remote).some(items => !Array.isArray(items))) {
+                    throw new Error('INVALID_CLOUD_UNITS');
+                }
+                const {merged, conflicts} = xMergePrivateUnits(unitsData, remote);
+                unitsData = merged;
+                xCloudLoadedForUid = uid;
+                xCloudUnitsSnapshot = raw;
+                updateUnitDropdown();
+                renderUnitSelector();
+                renderCurrentUnitPreview();
+                xRenderCarousel('mine');
+                if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
+                else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
+            } catch (e) {
+                console.error(e);
+                xToast('Chưa tải được bài trên tài khoản; bài trên máy vẫn nguyên nha.');
+            }
         }
 
         function loadSampleData() {
@@ -1071,6 +1168,7 @@ Danh sách từ/cụm từ của tôi:
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
+            xRenderCarousel('mine');
         }
 
         function cleanWord(word) { return word.toLowerCase().replace(/[^a-z0-9]/gi, ''); }
@@ -1558,10 +1656,12 @@ function xResetPassword(){
  const email=document.getElementById('x-email').value.trim(); if(!email){alert('Nhập email trước nha ^^');return;}
  auth.sendPasswordResetEmail(email).then(()=>alert('📮 Đã gửi email đặt lại mật khẩu.')).catch(e=>alert(e.message));
 }
+
 const X_VIEWS=new Set(['home','learn','mine','community','progress','contribute','me','notifications','about','prompts']);
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
  const previousScroll=window.scrollY;
+
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
  if(heading) heading.textContent=view==='community'?'🏘️ Chọn bài đã duyệt để học':'📥 Bài của tôi — tạo hoặc chọn bài';
  if(intro) intro.textContent=view==='community'?'Chọn bài hàng xóm đã chia sẻ và được duyệt để bắt đầu luyện nghe.':'Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.';
@@ -1618,19 +1718,22 @@ function xToast(msg){const d=document.createElement('div');d.className='x-toast'
 function xEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('community');setTimeout(()=>{const e=document.getElementById('community-search');if(e){e.value=q;filterCommunityUnits()}},80)}
 function xFavoriteUnit(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
-function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài cộng đồng',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);try{db.collection('community_units').doc(id).update({sessionCount:firebase.firestore.FieldValue.increment(1)})}catch(e){}}
-function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài đã duyệt phù hợp lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${u.learnedCount||0} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" onclick="${xEsc(`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" onclick="${xEsc(`xFavoriteUnit(${JSON.stringify(String(u.id))})`)}">❤️ Để dành</button></div></article>`).join('');}
+
+function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài cộng đồng',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);}
+function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài đã duyệt phù hợp lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${Math.max(0,Number(u.learnedCount)||0)} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" data-community-action="study" data-unit-id="${xEsc(u.id)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" data-community-action="favorite" data-unit-id="${xEsc(u.id)}">❤️ Để dành</button></div></article>`).join('');}
+document.getElementById('community-units-list')?.addEventListener('click',e=>{const button=e.target.closest('[data-community-action]');if(!button)return;const id=button.dataset.unitId;if(button.dataset.communityAction==='study')xStartCommunity(id);else if(button.dataset.communityAction==='favorite')xFavoriteUnit(id)});
 const xOldRenderCommunity=window.renderCommunityList;window.renderCommunityList=function(list){xRenderCommunityModern(list)};
 function xInjectCommunityFilters(){const sec=document.getElementById('section-community');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>🏘️ Bài đã duyệt mới lên kho.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(communityUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCommunityModern(list)})}
 function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Đi hàng xóm ngó nghiêng thử đi.</p>'}</div></div>`}
 function xRetrySaved(){if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
-function xRenderContribution(){const el=document.getElementById('x-contribution-list');if(!el)return;if(!window.currentUser){el.innerHTML='<div class="x-empty">🍚 Học ké thoải mái. Khi muốn khao cả xóm thì đăng nhập để giữ tên chủ bếp nha.</div>';return}db.collection('community_units').where('authorUid','==',currentUser.uid).get().then(s=>{let learners=0,sessions=0;const rows=[];s.forEach(d=>{const u=d.data();learners+=u.learnedCount||0;sessions+=u.sessionCount||0;rows.push(u)});document.getElementById('x-contrib-units').textContent=s.size;document.getElementById('x-contrib-copy').textContent=s.size?'Có người đang học tiếng Anh bằng thứ bạn mang tới đây. Nghe cũng ấm lòng ha ^^':'Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌';el.innerHTML=s.size?`<div class="x-two"><div class="x-kpi"><strong>${learners}</strong>người đã học</div><div class="x-kpi"><strong>${sessions}</strong>phiên học từ bài của bạn</div></div><h3 class="x-section-title">👣 Dấu chân của bạn trong xóm</h3>${rows.slice(0,5).map(u=>`<div class="x-note" style="margin:8px 0">🍚 <b>${xEsc(u.unitName)}</b> đang phục vụ xóm · ${u.sessionCount||0} phiên học</div>`).join('')}`:'<div class="x-empty">Góc bếp vẫn đang trống.<br>Không sao. Cứ ăn ké thêm vài bữa đi. 😌</div>'}).catch(()=>{el.innerHTML='<div class="x-empty">Chưa đọc được góc bếp lúc này.</div>'})}
+function xRenderContribution(){const el=document.getElementById('x-contribution-list');if(!el)return;if(!window.currentUser){el.innerHTML='<div class="x-empty">🍚 Học ké thoải mái. Khi muốn khao cả xóm thì đăng nhập để giữ tên chủ bếp nha.</div>';return}db.collection('community_units').where('authorUid','==',currentUser.uid).get().then(s=>{let learners=0,sessions=0;const rows=[];s.forEach(d=>{const u=d.data();if(u.sharingStatus==='approved'){learners+=Math.max(0,Number(u.learnedCount)||0);sessions+=Math.max(0,Number(u.sessionCount)||0)}rows.push(u)});document.getElementById('x-contrib-units').textContent=s.size;document.getElementById('x-contrib-copy').textContent=s.size?'Bài bạn gửi luôn nằm trong Bài của tôi. Chỉ bài đã duyệt mới lên kho cộng đồng nha.':'Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌';el.innerHTML=s.size?`<div class="x-two"><div class="x-kpi"><strong>${learners}</strong>người đã học</div><div class="x-kpi"><strong>${sessions}</strong>phiên học từ bài của bạn</div></div><h3 class="x-section-title">👣 Dấu chân của bạn trong xóm</h3>${rows.slice(0,5).map(u=>`<div class="x-note" style="margin:8px 0">🍚 <b>${xEsc(u.unitName)}</b> · ${u.sharingStatus==='approved'?'Đã lên kho cộng đồng':u.sharingStatus==='pending'?'Đang chờ duyệt — bạn vẫn học được':'Chưa lên kho cộng đồng — bài vẫn là của bạn'}</div>`).join('')}`:'<div class="x-empty">Góc bếp vẫn đang trống.<br>Không sao. Cứ ăn ké thêm vài bữa đi. 😌</div>'}).catch(()=>{el.innerHTML='<div class="x-empty">Chưa đọc được góc bếp lúc này.</div>'})}
+
 function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Session capture + review list
 const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xSaveStudyState('summary');xRenderProgress();};
 const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
 // Public sharing guard
-const xOldSaveCloud=window.saveToCloud;window.saveToCloud=function(){const pub=document.getElementById('share-community-check')?.checked;const rights=document.getElementById('share-rights')?.value;if(pub&&rights==='unsure'){alert('🔒 Bài vẫn được lưu để bạn học bình thường. Vì quyền chia sẻ chưa rõ nên mình giữ riêng trước nha.');document.getElementById('share-community-check').checked=false}return xOldSaveCloud()};
+// A contribution is sent for review even when rights need checking; personal access is unaffected.
 // Navigate enhancements
 const xNavBase=window.xGo;window.xGo=function(v,options){xNavBase(v,options);if(v==='community'){setTimeout(()=>{xInjectCommunityFilters();loadCommunityUnits()},30)}if(v==='progress')xRenderProgress();if(v==='contribute')xRenderContribution();if(v==='me')xRenderMe()};
 // auth state refresh
@@ -1639,8 +1742,8 @@ document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress()
 
 // PATCH 02 leaderboard, About, guest/cloud clarity
 function xPeriodInfo(type){const n=new Date(),pad=x=>String(x).padStart(2,'0');if(type==='daily')return{key:'dailyKey',minutes:'dailyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}-${pad(n.getDate())}`};if(type==='monthly')return{key:'monthlyKey',minutes:'monthlyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}`};const d=new Date(n);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return{key:'weeklyKey',minutes:'weeklyMinutes',value:`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}}
-function xLeaderRows(rows){if(!rows.length)return '<div class="x-empty">Chưa có ai ghi phút học trong khoảng này. Bạn mở hàng đi 😌</div>';return rows.map((r,i)=>`<div class="leader-item" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee"><div style="display:flex;align-items:center;gap:10px"><b style="width:30px">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</b><div style="width:34px;height:34px;border-radius:50%;background:#fff2d7;display:grid;place-items:center;overflow:hidden">${r.avatar?`<img src="${xEsc(r.avatar)}" style="width:100%;height:100%;object-fit:cover">`:'🐱'}</div><strong>${xEsc(r.nickname||'Hàng xóm')}</strong></div><b style="color:#0f8a5f">${r.minutes||0} phút</b></div>`).join('')}
-async function xLoadLeaderboard(type='daily'){['daily','weekly','monthly'].forEach(t=>{document.getElementById('x-lb-home-'+t)?.classList.toggle('active',t===type);document.getElementById('x-lb-modal-'+t)?.classList.toggle('active',t===type)});const info=xPeriodInfo(type), targets=[document.getElementById('x-home-leader-list'),document.getElementById('x-lb-modal-list')].filter(Boolean);targets.forEach(e=>e.innerHTML='<i>Đang ngó hàng xóm...</i>');try{const snap=await db.collection('users_profile').where(info.key,'==',info.value).get();const rows=[];snap.forEach(d=>{const v=d.data();rows.push({nickname:v.nickname,avatar:v.avatar,minutes:v[info.minutes]||0,uid:d.id})});rows.sort((a,b)=>b.minutes-a.minutes);const html=xLeaderRows(rows);targets.forEach(e=>e.innerHTML=html)}catch(e){targets.forEach(el=>el.innerHTML='<div class="x-empty">Chưa đọc được bảng xếp hạng lúc này.</div>')}}
+function xLeaderRows(rows){if(!rows.length)return '<div class="x-empty">Chưa có ai ghi phút học trong khoảng này. Bạn mở hàng đi 😌</div>';return rows.map((r,i)=>`<div class="leader-item" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee"><div style="display:flex;align-items:center;gap:10px"><b style="width:30px">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</b><div style="width:34px;height:34px;border-radius:50%;background:#fff2d7;display:grid;place-items:center;overflow:hidden">${r.avatar?`<img src="${xEsc(r.avatar)}" style="width:100%;height:100%;object-fit:cover">`:'🐱'}</div><strong>${xEsc(r.nickname||'Hàng xóm')}</strong></div><b style="color:#0f8a5f">${Math.max(0,Number(r.minutes)||0)} phút</b></div>`).join('')}
+async function xLoadLeaderboard(type='daily'){['daily','weekly','monthly'].forEach(t=>{document.getElementById('x-lb-home-'+t)?.classList.toggle('active',t===type);document.getElementById('x-lb-modal-'+t)?.classList.toggle('active',t===type)});const info=xPeriodInfo(type), targets=[document.getElementById('x-home-leader-list'),document.getElementById('x-lb-modal-list')].filter(Boolean);targets.forEach(e=>e.innerHTML='<i>Đang ngó hàng xóm...</i>');try{const snap=await db.collection('leaderboard_public').where(info.key,'==',info.value).get();const rows=[];snap.forEach(d=>{const v=d.data();rows.push({nickname:v.nickname,avatar:v.avatar,minutes:v[info.minutes]||0,uid:d.id})});rows.sort((a,b)=>b.minutes-a.minutes);const html=xLeaderRows(rows);targets.forEach(e=>e.innerHTML=html)}catch(e){targets.forEach(el=>el.innerHTML='<div class="x-empty">Chưa đọc được bảng xếp hạng lúc này.</div>')}}
 function xOpenLeaderboard(){document.getElementById('x-lb-modal')?.classList.remove('hidden');xLoadLeaderboard('daily')}
 function xCloseLeaderboard(){document.getElementById('x-lb-modal')?.classList.add('hidden')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseLeaderboard()});
@@ -1678,9 +1781,23 @@ const xRenderProgress03=window.xRenderProgress;window.xRenderProgress=function()
 const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!window.currentUser){xToast('🔐 Đăng nhập để lưu bài vở, lần sau còn gọi lại được nha.');setTimeout(()=>xGo('me'),650);return}return xSaveCloud03()}
 // Lesson carousels and 12-card library.
 let xCarouselIndex={mine:0,community:0},xLibMode='mine',xLibPage=1;
-function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}))}
+function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true,reviewStatus:window.xContributionStatuses?.[name]||''}))}
+window.xContributionStatuses={};
+async function xLoadContributionStatuses(){
+    const u=auth.currentUser;
+    if(!u){window.xContributionStatuses={};xRenderCarousel('mine');return}
+    try{
+        const snap=await db.collection('community_units').where('authorUid','==',u.uid).get();
+        const statuses={};snap.forEach(doc=>{const d=doc.data();if(d.unitName)statuses[d.unitName]=d.sharingStatus});
+        window.xContributionStatuses=statuses;xRenderCarousel('mine');
+    }catch(e){console.error(e)}
+}
+auth.onAuthStateChanged(()=>xLoadContributionStatuses());
 function xCommunityLessons(){return (window.communityUnitsCache||communityUnitsCache||[]).map(x=>({...x,mine:false}))}
-function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p><button class="x-primary" onclick="${xEsc(u.mine?`xStartMine(${JSON.stringify(String(u.unitName))})`:`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button></article>`}
+
+function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p>${u.mine&&u.reviewStatus?`<small class="x-review-status">${u.reviewStatus==='approved'?'✅ Đã lên kho cộng đồng':u.reviewStatus==='pending'?'⏳ Đang chờ duyệt — vẫn học bình thường':'💛 Chưa lên kho cộng đồng — bài vẫn là của bạn'}</small>`:''}<button class="x-primary" data-lesson-action="study" data-lesson-mine="${u.mine?'true':'false'}" data-unit-id="${xEsc(u.mine?u.unitName:u.id)}">🔥 Chiến bài này</button></article>`}
+document.addEventListener('click',e=>{const button=e.target.closest('[data-lesson-action="study"]');if(!button)return;if(button.dataset.lessonMine==='true')xStartMine(button.dataset.unitId);else xStartCommunity(button.dataset.unitId)});
+
 function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-community-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang chờ bài được duyệt. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
 function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
@@ -1690,7 +1807,7 @@ function xCloseLibrary(options={}){if(!options.fromHistory&&history.state?.xModa
 function xRenderLibrary(){let arr=xLibMode==='mine'?xMineLessons():xCommunityLessons();const topics=[...new Set(arr.map(x=>x.topic).filter(Boolean))],levels=[...new Set(arr.map(x=>x.level).filter(Boolean))];const f=document.getElementById('x-lib-filters');if(f&&!f.dataset.ready){f.innerHTML=`<input id="x-lib-q" placeholder="🔎 Tìm bài..." oninput="xLibPage=1;xRenderLibrary()"><select id="x-lib-level" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả level</option></select><select id="x-lib-topic" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả chủ đề</option></select>`;f.dataset.ready='1'}const ls=document.getElementById('x-lib-level'),ts=document.getElementById('x-lib-topic');if(ls&&ls.options.length===1)levels.forEach(v=>ls.add(new Option(v,v)));if(ts&&ts.options.length===1)topics.forEach(v=>ts.add(new Option(v,v)));const q=(document.getElementById('x-lib-q')?.value||'').toLowerCase(),lv=ls?.value||'',tp=ts?.value||'';arr=arr.filter(x=>(!q||(x.unitName||'').toLowerCase().includes(q))&&(!lv||x.level===lv)&&(!tp||x.topic===tp));const pages=Math.max(1,Math.ceil(arr.length/12));xLibPage=Math.min(xLibPage,pages);document.getElementById('x-lib-grid').innerHTML=arr.slice((xLibPage-1)*12,xLibPage*12).map(xLessonCard).join('')||'<div class="x-empty">Chưa thấy món nào hợp bộ lọc này.</div>';document.getElementById('x-lib-pages').innerHTML=`<button ${xLibPage===1?'disabled':''} onclick="xLibPage--;xRenderLibrary()">← Previous</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===xLibPage?'active':''}" onclick="xLibPage=${i+1};xRenderLibrary()">${i+1}</button>`).join('')}<button ${xLibPage===pages?'disabled':''} onclick="xLibPage++;xRenderLibrary()">Next →</button>`}
 // Keep carousels fresh after existing render/update functions.
 const xRenderUnits03=window.renderUnitsUI; if(xRenderUnits03)window.renderUnitsUI=function(){const r=xRenderUnits03.apply(this,arguments);setTimeout(()=>xRenderCarousel('mine'),20);return r};
-// loadCommunityUnits refreshes the carousel after Firestore responds.
+// loadCommunityUnits refreshes both lists when its Firestore request settles.
 // Keep transcript playback in transcript tab: old playSentence must not switch study tab.
 if(typeof window.playTranscriptSentence==='function'){} // reserved
 // auth state identity + initial renders
@@ -1719,10 +1836,10 @@ function xPreviewAvatar(input){const f=input.files&&input.files[0];if(!f)return;
 function xSocialRows(){return [...document.querySelectorAll('#x-social-links .x-social-row')].map(r=>({label:r.querySelector('select').value,url:r.querySelector('input').value.trim()})).filter(x=>x.url)}
 function xAddSocialRow(label='Facebook',url=''){const box=document.getElementById('x-social-links');if(!box)return;const row=document.createElement('div');row.className='x-social-row';row.innerHTML=`<select class="form-input"><option>Facebook</option><option>TikTok</option><option>YouTube</option><option>Instagram</option><option>LinkedIn</option><option>Website</option><option>Khác</option></select><input class="form-input" placeholder="https://..." value="${xEsc(url)}"><button type="button" class="x-mini-btn" onclick="this.parentElement.remove()">✕</button>`;row.querySelector('select').value=label;box.appendChild(row)}
 const openProfile04=window.openProfileModal;window.openProfileModal=function(){if(!window.currentUser)return xGo('me');openProfile04();document.querySelector('#profile-modal .modal-content')?.classList.add('x-profile-modal-wide');document.getElementById('profile-avatar-preview').src=userProfileData.avatarData||currentUser.photoURL||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" rx="25" fill="#fff0c9"/><text x="50" y="66" font-size="55" text-anchor="middle">🐱</text></svg>');document.getElementById('profile-phone').value=userProfileData.phone||'';document.getElementById('profile-phone-public').checked=!!userProfileData.phonePublic;const box=document.getElementById('x-social-links');box.innerHTML='';(userProfileData.socialLinks?.length?userProfileData.socialLinks:[{label:'Facebook',url:''}]).forEach(x=>xAddSocialRow(x.label,x.url));xAvatarData=userProfileData.avatarData||''}
-window.saveUserProfile=async function(){if(!currentUser)return;const nickname=document.getElementById('profile-nickname').value.trim(),motto=document.getElementById('profile-motto').value.trim(),phone=document.getElementById('profile-phone').value.trim(),phonePublic=document.getElementById('profile-phone-public').checked,socialLinks=xSocialRows();const data={nickname,motto,phone,phonePublic,socialLinks,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};if(xAvatarData)data.avatarData=xAvatarData;try{await db.collection('users_profile').doc(currentUser.uid).set(data,{merge:true});Object.assign(userProfileData,data);closeProfileModal();xToast('👤 Hồ sơ đã lên đồ xong!');xRefreshIdentity();xRenderMe()}catch(e){xToast('⚠️ Chưa lưu được hồ sơ. Thử lại nha.')}}
+window.saveUserProfile=async function(){if(!currentUser)return;const nickname=document.getElementById('profile-nickname').value.trim(),motto=document.getElementById('profile-motto').value.trim(),phone=document.getElementById('profile-phone').value.trim(),phonePublic=document.getElementById('profile-phone-public').checked,socialLinks=xSocialRows();const data={nickname,motto,phone,phonePublic,socialLinks,updatedAt:firebase.firestore.FieldValue.serverTimestamp()};if(xAvatarData)data.avatarData=xAvatarData;try{await db.collection('users_profile').doc(currentUser.uid).set(data,{merge:true});await db.collection('leaderboard_public').doc(currentUser.uid).set({nickname,avatar:userProfileData.avatar||currentUser.photoURL||''},{merge:true});Object.assign(userProfileData,data);closeProfileModal();xToast('👤 Hồ sơ đã lên đồ xong!');xRefreshIdentity();xRenderMe()}catch(e){xToast('⚠️ Chưa lưu được hồ sơ. Thử lại nha.')}}
 function xWearTitle(title){if(!currentUser)return;db.collection('users_profile').doc(currentUser.uid).set({wornTitle:title},{merge:true}).then(()=>{userProfileData.wornTitle=title;xToast('🏅 Đeo phong hàm mới rồi nè!');xRenderMe()})}
 function xUnlockedTitles(){const a=['🌱 Gương mặt mới toanh'];if(XNOT.review.length>=3)a.push('😤 Không phục');if(XNOT.history.length>=3)a.push('🌤️ Lại gặp nhau rồi');return a}
-const renderMe04=window.xRenderMe;window.xRenderMe=function(){const el=document.getElementById('x-me-dashboard'),u=window.currentUser;if(!el)return;if(!u){renderMe04();const note=el.querySelector('.x-note');if(note)note.innerHTML='💾 <b>Khuyến khích đăng nhập để dữ liệu học tập được lưu lại trong tài khoản cá nhân.</b><br>Lịch sử khách chỉ lưu tạm trên trình duyệt; đổi máy hoặc xóa dữ liệu có thể mất.';return}const name=userProfileData.nickname||u.displayName||(u.email?u.email.split('@')[0]:'Hàng xóm'),avatar=userProfileData.avatarData||u.photoURL||'',motto=userProfileData.motto||'Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.',titles=xUnlockedTitles(),worn=userProfileData.wornTitle||titles[0];el.innerHTML=`<div class="x-panel"><div class="x-profile-card"><div>${avatar?`<img class="x-avatar-img" src="${avatar}">`:`<div class="x-avatar">🐱</div>`}</div><div><h2 style="margin:0 0 4px">${xEsc(name)}</h2><b>${xEsc(worn)}</b><p>${xEsc(motto)}</p></div><div class="x-profile-actions"><button class="x-mini-btn" onclick="openProfileModal()">✏️ Sửa hồ sơ</button><button class="x-mini-btn" onclick="xGo('notifications')">🔔 Thông báo</button></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Chọn phong hàm để đeo</h3><div class="x-achievements">${titles.map(t=>`<button class="x-ach x-title-choice ${t===worn?'selected':''}" onclick="xWearTitle('${t.replace(/'/g,"\\'")}')">${xEsc(t)}</button>`).join('')}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
+const renderMe04=window.xRenderMe;window.xRenderMe=function(){const el=document.getElementById('x-me-dashboard'),u=window.currentUser;if(!el)return;if(!u){renderMe04();const note=el.querySelector('.x-note');if(note)note.innerHTML='💾 <b>Khuyến khích đăng nhập để dữ liệu học tập được lưu lại trong tài khoản cá nhân.</b><br>Lịch sử khách chỉ lưu tạm trên trình duyệt; đổi máy hoặc xóa dữ liệu có thể mất.';return}const name=userProfileData.nickname||u.displayName||(u.email?u.email.split('@')[0]:'Hàng xóm'),avatar=userProfileData.avatarData||u.photoURL||'',motto=userProfileData.motto||'Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.',titles=xUnlockedTitles(),worn=userProfileData.wornTitle||titles[0];el.innerHTML=`<div class="x-panel"><div class="x-profile-card"><div>${avatar?`<img class="x-avatar-img" src="${xEsc(avatar)}">`:`<div class="x-avatar">🐱</div>`}</div><div><h2 style="margin:0 0 4px">${xEsc(name)}</h2><b>${xEsc(worn)}</b><p>${xEsc(motto)}</p></div><div class="x-profile-actions"><button class="x-mini-btn" onclick="openProfileModal()">✏️ Sửa hồ sơ</button><button class="x-mini-btn" onclick="xGo('notifications')">🔔 Thông báo</button></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Chọn phong hàm để đeo</h3><div class="x-achievements">${titles.map(t=>`<button class="x-ach x-title-choice ${t===worn?'selected':''}" onclick="xWearTitle('${t.replace(/'/g,"\\'")}')">${xEsc(t)}</button>`).join('')}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Load profile data then refresh visible identity/profile.
 const loadProfile04=window.loadUserProfile;window.loadUserProfile=function(){if(!currentUser)return;return db.collection('users_profile').doc(currentUser.uid).get().then(doc=>{if(doc.exists)userProfileData={...userProfileData,...doc.data()};xRefreshIdentity();xRenderMe()})}
 // Friendly icon-rich toast style remains text-based but uses the Xóm icon vocabulary.
@@ -1829,6 +1946,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
   .x-hero-dots { left:20px!important;bottom:20px!important; }
   .x-owner-dialog { max-height:calc(100dvh - 32px);overflow:auto; }
 }
+
 @media (max-width: 900px) {
   .x-hero h1 { line-height:1.17!important;letter-spacing:-.4px!important;overflow-wrap:normal!important;word-break:normal!important;text-wrap:balance; }
   .x-mobile-nav { gap:2px; }
