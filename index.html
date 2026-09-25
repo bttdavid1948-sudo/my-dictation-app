@@ -730,6 +730,7 @@ Danh sách từ/cụm từ của tôi:
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
+            xQueuePrivateSave();
         }
 
         function parseAndAddParagraph() {
@@ -759,6 +760,7 @@ Danh sách từ/cụm từ của tôi:
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
+            if (count) xQueuePrivateSave();
             alert(`⚡ Đã tự động phân tách và ghép cặp thành công ${count} câu vào ${unitName}!`);
         }
 
@@ -804,6 +806,7 @@ Danh sách từ/cụm từ của tôi:
                     updateUnitDropdown();
                     renderUnitSelector();
                     renderCurrentUnitPreview();
+                    xQueuePrivateSave();
                     xToast(`📁 Đã nạp ${newItems.length} câu vào ${unitName}. Chọn bài này để học ngay nha!`);
                 } catch (error) { xToast('Chưa nạp được file: ' + error.message); }
                 e.target.value = '';
@@ -868,6 +871,7 @@ Danh sách từ/cụm từ của tôi:
             unitsData[unitName].splice(idx, 1);
             renderCurrentUnitPreview();
             renderUnitSelector();
+            xQueuePrivateSave();
         }
 
         function renderUnitSelector() {
@@ -894,6 +898,21 @@ Danh sách từ/cụm từ của tôi:
 
         let xCloudLoadedForUid = null;
         let xCloudUnitsSnapshot = null;
+        let xPrivateSaveQueue = Promise.resolve();
+        function xPrivateDraftKey(uid) { return 'man_private_draft_v1_' + uid; }
+        function xQueuePrivateSave() {
+            xRenderCarousel('mine');
+            if (!currentUser) {
+                xToast('Bài đang ở trang này. Đăng nhập rồi lưu lên tài khoản để giữ bài sau khi tải lại.');
+                return;
+            }
+            const uid = currentUser.uid;
+            try { sessionStorage.setItem(xPrivateDraftKey(uid), JSON.stringify(unitsData)); }
+            catch (e) { xToast('Trình duyệt chưa giữ được bản nháp. Hãy lưu lên tài khoản trước khi tải lại.'); }
+            xPrivateSaveQueue = xPrivateSaveQueue.catch(() => {}).then(() => {
+                if (currentUser?.uid === uid) return saveToCloud();
+            });
+        }
         function xMergePrivateUnits(local, remote) {
             const merged = {...local};
             let conflicts = 0;
@@ -923,6 +942,10 @@ Danh sách từ/cụm từ của tôi:
                     tx.set(ref,{units:next,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
                 });
                 xCloudUnitsSnapshot=next;
+                try {
+                    if (sessionStorage.getItem(xPrivateDraftKey(uid)) === next)
+                        sessionStorage.removeItem(xPrivateDraftKey(uid));
+                } catch (e) {}
                 xRenderCarousel('mine');
                 xToast('💾 Đã lưu bài riêng vào tài khoản của bạn.');
             } catch(error) {
@@ -942,6 +965,13 @@ Danh sách từ/cụm từ của tôi:
                 return;
             }
             try {
+                const draft = sessionStorage.getItem(xPrivateDraftKey(uid));
+                if (draft) {
+                    const parsed = JSON.parse(draft);
+                    if (parsed && !Array.isArray(parsed) && typeof parsed === 'object' &&
+                        Object.values(parsed).every(items => Array.isArray(items)))
+                        unitsData = xMergePrivateUnits(unitsData, parsed).merged;
+                }
                 const doc = await db.collection('user_vocab').doc(uid).get();
                 if (currentUser?.uid !== uid) return;
                 const raw = doc.exists ? doc.data().units : null;
@@ -958,6 +988,8 @@ Danh sách từ/cụm từ của tôi:
                 renderUnitSelector();
                 renderCurrentUnitPreview();
                 xRenderCarousel('mine');
+                if (draft && currentUser?.uid === uid && JSON.stringify(merged) !== raw)
+                    xQueuePrivateSave();
                 if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
                 else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
             } catch (e) {
@@ -993,6 +1025,7 @@ Danh sách từ/cụm từ của tôi:
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
+            xQueuePrivateSave();
         }
 
         function cleanWord(word) { return word.toLowerCase().replace(/[^a-z0-9]/gi, ''); }
