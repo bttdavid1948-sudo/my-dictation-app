@@ -601,46 +601,8 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function loadLeaderboardData(type) {
-            document.querySelectorAll('#leaderboard-section .tab-btn').forEach(b => b.classList.remove('active'));
-            if(document.getElementById(`lb-tab-${type}`)) document.getElementById(`lb-tab-${type}`).classList.add('active');
-
             const listEl = document.getElementById('leaderboard-list');
-            listEl.innerHTML = '<i style="color: #888;">Đang tải bảng xếp hạng...</i>';
-
-            db.collection('users_profile').orderBy('totalMinutes', 'desc').limit(10).get().then(snap => {
-                if (snap.empty) {
-                    listEl.innerHTML = '<i style="color: #888;">Chưa có dữ liệu xếp hạng...</i>';
-                    return;
-                }
-                listEl.innerHTML = '';
-                snap.docs.forEach((doc, idx) => {
-                    const data = doc.data();
-                    const medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `#${idx+1}`));
-                    const div = document.createElement('div');
-                    div.className = 'leader-item';
-                    const identity = document.createElement('div');
-                    identity.style.cssText = 'display:flex; align-items:center; gap:10px';
-                    const rank = document.createElement('span');
-                    rank.style.cssText = 'font-weight:bold; width:25px';
-                    rank.textContent = medal;
-                    const avatar = document.createElement('img');
-                    avatar.style.cssText = 'width:32px; height:32px; border-radius:50%; border:1px solid #ddd';
-                    // A profile URL must never become markup or an executable URL.
-                    try {
-                        const url = new URL(data.avatar || '');
-                        if (url.protocol === 'https:') avatar.src = url.href;
-                    } catch (_) {}
-                    if (!avatar.src) avatar.alt = '🐱';
-                    const nickname = document.createElement('strong');
-                    nickname.textContent = String(data.nickname || 'Học viên');
-                    const minutes = document.createElement('span');
-                    minutes.style.cssText = 'font-weight:bold; color:#0f8a5f';
-                    minutes.textContent = Math.max(0, Number(data.totalMinutes) || 0) + ' phút học';
-                    identity.append(rank, avatar, nickname);
-                    div.append(identity, minutes);
-                    listEl.appendChild(div);
-                });
-            });
+            if (listEl) listEl.textContent = 'Bảng xếp hạng đang tạm nghỉ để bảo vệ hồ sơ cá nhân. Tiến bộ của bạn vẫn ở trang Tiến bộ.';
         }
 
         function switchMainTab(tab) {
@@ -1585,7 +1547,7 @@ document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress()
 // PATCH 02 leaderboard, About, guest/cloud clarity
 function xPeriodInfo(type){const n=new Date(),pad=x=>String(x).padStart(2,'0');if(type==='daily')return{key:'dailyKey',minutes:'dailyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}-${pad(n.getDate())}`};if(type==='monthly')return{key:'monthlyKey',minutes:'monthlyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}`};const d=new Date(n);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return{key:'weeklyKey',minutes:'weeklyMinutes',value:`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}}
 function xLeaderRows(rows){if(!rows.length)return '<div class="x-empty">Chưa có ai ghi phút học trong khoảng này. Bạn mở hàng đi 😌</div>';return rows.map((r,i)=>`<div class="leader-item" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee"><div style="display:flex;align-items:center;gap:10px"><b style="width:30px">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</b><div style="width:34px;height:34px;border-radius:50%;background:#fff2d7;display:grid;place-items:center;overflow:hidden">${r.avatar?`<img src="${xEsc(r.avatar)}" style="width:100%;height:100%;object-fit:cover">`:'🐱'}</div><strong>${xEsc(r.nickname||'Hàng xóm')}</strong></div><b style="color:#0f8a5f">${r.minutes||0} phút</b></div>`).join('')}
-async function xLoadLeaderboard(type='daily'){['daily','weekly','monthly'].forEach(t=>{document.getElementById('x-lb-home-'+t)?.classList.toggle('active',t===type);document.getElementById('x-lb-modal-'+t)?.classList.toggle('active',t===type)});const info=xPeriodInfo(type), targets=[document.getElementById('x-home-leader-list'),document.getElementById('x-lb-modal-list')].filter(Boolean);targets.forEach(e=>e.innerHTML='<i>Đang ngó hàng xóm...</i>');try{const snap=await db.collection('users_profile').where(info.key,'==',info.value).get();const rows=[];snap.forEach(d=>{const v=d.data();rows.push({nickname:v.nickname,avatar:v.avatar,minutes:v[info.minutes]||0,uid:d.id})});rows.sort((a,b)=>b.minutes-a.minutes);const html=xLeaderRows(rows);targets.forEach(e=>e.innerHTML=html)}catch(e){targets.forEach(el=>el.innerHTML='<div class="x-empty">Chưa đọc được bảng xếp hạng lúc này.</div>')}}
+function xLoadLeaderboard(type='daily'){const text='Bảng xếp hạng đang tạm nghỉ để bảo vệ hồ sơ cá nhân. Bạn vẫn xem được tiến bộ riêng ở trang Tiến bộ.';['daily','weekly','monthly'].forEach(t=>{document.getElementById('x-lb-home-'+t)?.classList.toggle('active',t===type);document.getElementById('x-lb-modal-'+t)?.classList.toggle('active',t===type)});for(const id of ['x-home-leader-list','x-lb-modal-list']){const el=document.getElementById(id);if(el)el.textContent=text}}
 function xOpenLeaderboard(){document.getElementById('x-lb-modal')?.classList.remove('hidden');xLoadLeaderboard('daily')}
 function xCloseLeaderboard(){document.getElementById('x-lb-modal')?.classList.add('hidden')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseLeaderboard()});

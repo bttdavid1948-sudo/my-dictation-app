@@ -4,10 +4,6 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
-    function publicProfileFields() {
-      return ['nickname', 'avatar', 'totalMinutes', 'dailyKey', 'dailyMinutes',
-              'weeklyKey', 'weeklyMinutes', 'monthlyKey', 'monthlyMinutes'];
-    }
     match /user_vocab/{uid} {
       allow get: if isOwner(uid);
       allow list: if false;
@@ -31,16 +27,8 @@ service cloud.firestore {
     }
 
     match /leaderboard_public/{uid} {
-      allow get, list: if true;
-      // These minutes are self-reported by the account. This is not anti-cheat.
-      allow create, update: if isOwner(uid)
-        && request.resource.data.keys().hasOnly(publicProfileFields())
-        && request.resource.data.keys().hasAll(['nickname', 'avatar'])
-        && request.resource.data.nickname is string
-        && request.resource.data.nickname.size() <= 80
-        && request.resource.data.avatar is string
-        && request.resource.data.avatar.size() <= 2048;
-      allow delete: if false;
+      // Pause public rankings until opt-in and trusted scoring are designed.
+      allow read, write: if false;
     }
 
     // Legacy user contributions are retained for their author. No client may
