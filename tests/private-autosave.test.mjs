@@ -21,6 +21,7 @@ const context = vm.createContext({
   Promise,
   JSON,
   currentUser: {uid: 'learner'},
+  document: {getElementById: () => ({textContent: ''})},
   unitsData: {Private: [{en: 'This is a private test.', vi: 'Đây là bài kiểm tra riêng.'}]},
   sessionStorage: {
     setItem: (key, value) => stored.set(key, value),
@@ -37,4 +38,34 @@ await vm.runInContext('xPrivateSaveQueue', context);
 assert.equal(calls, 1);
 assert.equal(JSON.parse(stored.get('man_private_draft_v1_learner')).Private[0].en,
   'This is a private test.');
+const saveStart = html.indexOf('async function saveToCloud()');
+const saveEnd = html.indexOf('async function loadFromCloud()', saveStart);
+let serverUnits = null;
+const ref = {
+  get: async () => ({exists: true, data: () => ({units: serverUnits})})
+};
+context.db = {
+  collection: () => ({doc: () => ref}),
+  runTransaction: async fn => fn({
+    get: async () => ({exists: serverUnits !== null, data: () => ({units: serverUnits})}),
+    set: (_ref, data) => {serverUnits = data.units;}
+  })
+};
+context.firebase = {firestore: {FieldValue: {serverTimestamp: () => 'server-time'}}};
+context.loadFromCloud = async () => {};
+context.xRenderCarousel = () => {};
+context.xToast = () => {};
+context.console = {error: () => {}};
+vm.runInContext(html.slice(saveStart, saveEnd), context);
+vm.runInContext('xCloudLoadedForUid = "learner"; xCloudUnitsSnapshot = null', context);
+await vm.runInContext('saveToCloud()', context);
+assert.equal(JSON.parse(serverUnits).Private[0].en, 'This is a private test.');
+assert.equal(stored.has('man_private_draft_v1_learner'), false,
+  'draft clears only after readback');
+stored.set('man_private_draft_v1_learner', serverUnits);
+ref.get = async () => ({exists: true, data: () => ({units: 'stale'})});
+vm.runInContext('xCloudUnitsSnapshot = '+JSON.stringify(serverUnits), context);
+await vm.runInContext('saveToCloud()', context);
+assert.equal(stored.has('man_private_draft_v1_learner'), true,
+  'failed server readback retains the draft');
 console.log('Private autosave and reload draft contract passed');
