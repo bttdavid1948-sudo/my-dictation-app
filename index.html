@@ -1942,6 +1942,11 @@ async function xPersistPrivateMutation(oldName, expected, newName, items, removi
   xPrivateSaveStatus('✅ Đã lưu vào tài khoản và kiểm tra lại trên server.');
 }
 function xPrivateManagerRefresh() {
+  const selected = document.getElementById('unit-select');
+  if (selected.value === xPrivateManagedName || document.getElementById('new-unit-name').value.trim() === xPrivateManagedName) {
+    document.getElementById('new-unit-name').value = '';
+    selected.value = '';
+  }
   updateUnitDropdown(); renderUnitSelector(); renderCurrentUnitPreview();
   xRenderCarousel('mine');
   if (!document.getElementById('x-library-modal').classList.contains('x-hidden') && xLibMode === 'mine') xRenderLibrary();
@@ -1971,10 +1976,13 @@ async function xSavePrivateEdit() {
   xPrivateManagerBusy = true;
   xPrivateManagerError('⏳ Đang lưu thay đổi…');
   try {
+    const savedToAccount = !!currentUser?.uid;
     await xPersistPrivateMutation(xPrivateManagedName,xPrivateManagedOriginal,name,items,false);
+    document.getElementById('new-unit-name').value = '';
+    document.getElementById('unit-select').value = name;
     xPrivateManagerBusy = false;
     xPrivateManagerRefresh();
-    xToast('✅ Đã sửa bài riêng và kiểm tra lại trên server.');
+    xToast(savedToAccount?'✅ Đã sửa bài riêng và kiểm tra lại trên server.':'Đã sửa bài trong trang này. Đăng nhập để lưu lên tài khoản.');
   } catch (error) { xPrivateManagerFailure(error); xPrivateManagerBusy = false; }
 }
 function xAskPrivateDelete() {
@@ -1988,10 +1996,11 @@ async function xConfirmPrivateDelete() {
   xPrivateManagerBusy = true;
   xPrivateManagerError('⏳ Đang xóa bài riêng…');
   try {
+    const savedToAccount = !!currentUser?.uid;
     await xPersistPrivateMutation(xPrivateManagedName,xPrivateManagedOriginal,null,null,true);
     xPrivateManagerBusy = false;
     xPrivateManagerRefresh();
-    xToast('Đã xóa bài riêng và kiểm tra lại trên server.');
+    xToast(savedToAccount?'Đã xóa bài riêng và kiểm tra lại trên server.':'Đã xóa bài trong trang này.');
   } catch (error) { xPrivateManagerFailure(error); xPrivateManagerBusy = false; }
 }
 </script>
