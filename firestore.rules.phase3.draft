@@ -1,0 +1,87 @@
+// Phase 3 official catalog draft. DO NOT DEPLOY until production inventory and approval.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    function publicProfileFields() {
+      return ['nickname', 'avatar', 'totalMinutes', 'dailyKey', 'dailyMinutes',
+              'weeklyKey', 'weeklyMinutes', 'monthlyKey', 'monthlyMinutes'];
+    }
+    match /user_vocab/{uid} {
+      allow get: if isOwner(uid);
+      allow list: if false;
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['units', 'updatedAt'])
+        && request.resource.data.units is string
+        && request.resource.data.units.size() <= 900000;
+      allow delete: if false;
+    }
+
+    match /users_profile/{uid} {
+      allow get: if isOwner(uid);
+      allow list: if false;
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly([
+          'nickname','motto','avatar','avatarData','phone','phonePublic',
+          'socialLinks','wornTitle','updatedAt','totalMinutes','dailyKey',
+          'dailyMinutes','weeklyKey','weeklyMinutes','monthlyKey','monthlyMinutes'
+        ]);
+      allow delete: if false;
+    }
+
+    match /leaderboard_public/{uid} {
+      allow get, list: if true;
+      // These minutes are self-reported by the account. This is not anti-cheat.
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(publicProfileFields())
+        && request.resource.data.keys().hasAll(['nickname', 'avatar'])
+        && request.resource.data.nickname is string
+        && request.resource.data.nickname.size() <= 80
+        && request.resource.data.avatar is string
+        && request.resource.data.avatar.size() <= 2048;
+      allow delete: if false;
+    }
+
+    // Legacy user contributions are retained for their author. No client may
+    // publish, update, delete or publicly read them. Inventory before migration.
+    match /community_units/{id} {
+      allow get, list: if signedIn() && resource.data.authorUid == request.auth.uid;
+      allow create, update, delete: if false;
+    }
+
+    // Official lessons are versioned static assets; Firestore client writes
+    // cannot publish into a second public catalog accidentally.
+    match /official_lessons/{id} {
+      allow read, write: if false;
+    }
+
+    match /owner_feedback/{id} {
+      allow get, list, update, delete: if false;
+      allow create: if request.resource.data.keys().hasOnly([
+          'kind','message','page','uid','email','nickname','userAgent',
+          'createdAt','status'
+        ])
+        && request.resource.data.keys().hasAll(['kind','message','page',
+          'uid','email','nickname','userAgent','createdAt','status'])
+        && request.resource.data.status == 'new'
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 3
+        && request.resource.data.message.size() <= 1500
+        && request.resource.data.kind in ['Góp ý','Báo bug','Tâm sự']
+        && request.resource.data.page is string
+        && request.resource.data.page.size() <= 100
+        && request.resource.data.nickname is string
+        && request.resource.data.nickname.size() <= 100
+        && request.resource.data.userAgent is string
+        && request.resource.data.userAgent.size() <= 500
+        && request.resource.data.createdAt == request.time
+        && ((signedIn()
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.email == request.auth.token.email)
+          || (!signedIn()
+          && request.resource.data.uid == null
+          && request.resource.data.email == null));
+    }
+  }
+}

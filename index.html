@@ -80,7 +80,7 @@
         .leaderboard-section { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 25px; }
         .leader-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
 
-        .community-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .catalog-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
         .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; background: #e2e8f0; color: #334155; }
         .badge-level { background: #dbeafe; color: #1e40af; }
         .badge-topic { background: #fef3c7; color: #92400e; }
@@ -124,16 +124,16 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 @media(max-width:560px){.x-grid4{grid-template-columns:1fr}.x-hero h1{font-size:30px}.x-search{font-size:12px}.x-statrow{grid-template-columns:1fr 1fr}}
 /* PATCH 02 — centered app header + lively interaction */
 body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height:78px;padding:0 22px;justify-content:center}.x-header-inner{width:min(1500px,calc(100vw - 44px));display:grid;grid-template-columns:220px 1fr 260px;align-items:center;gap:22px}.x-header-logo{border:0;background:transparent;text-align:left;font-size:21px;font-weight:950;line-height:1.02;cursor:pointer;color:var(--ink);transition:.2s}.x-header-logo:hover{transform:translateY(-2px) rotate(-1deg)}.x-header-center{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0}.x-header-nav{display:flex;gap:2px;align-items:center;white-space:nowrap}.x-header-nav button{border:0;background:transparent;padding:10px 9px;border-radius:13px;font-weight:800;color:#596176;cursor:pointer;transition:.18s}.x-header-nav button:hover{background:#fff2eb;transform:translateY(-2px)}.x-header-nav button.active{background:#ffe8e2;color:#ef5c49}.x-header-right{display:flex;justify-content:flex-end;align-items:center;gap:9px}.x-search-real{width:190px!important;max-width:190px!important;padding:10px 13px!important;transition:.2s}.x-search-real:focus{width:235px!important;max-width:235px!important;box-shadow:0 0 0 4px rgba(255,107,87,.09)}.x-auth-pill{cursor:pointer;white-space:nowrap;transition:.18s}.x-auth-pill:hover{transform:translateY(-2px);box-shadow:0 8px 20px #00000010}.x-main{max-width:1320px}.x-panel,.x-prompt-card,.x-kpi,.x-lesson,.x-stat,.x-chip,.btn,.x-primary,.x-mini-btn,.unit-card,.leader-item{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}.x-panel:hover,.x-prompt-card:hover,.x-kpi:hover,.x-lesson:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(49,44,73,.13)!important}.x-stat:hover,.unit-card:hover,.leader-item:hover{transform:translateY(-2px)}.btn:hover,.x-primary:hover,.x-mini-btn:hover{transform:translateY(-2px);filter:brightness(1.03)}.btn:active,.x-primary:active,.x-mini-btn:active,.x-action:active{transform:scale(.97)}
-.x-unit-meta{background:#f8fbff;border:1px solid #dbeafe;border-radius:14px;padding:12px;margin:12px 0}.x-unit-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.x-share-only{border-top:1px dashed #bfdbfe;margin-top:10px;padding-top:10px}.x-leader-home{margin-top:18px;background:#fff;border:1px solid #eee8e2;border-radius:24px;padding:18px;box-shadow:var(--shadow)}.x-leader-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.x-leader-scroll{max-height:245px;overflow:auto;margin-top:10px}.x-expand{border:0;background:#f4f5f7;border-radius:12px;padding:8px 11px;cursor:pointer;font-weight:850}.x-lb-modal{position:fixed;inset:0;background:#17203380;backdrop-filter:blur(7px);z-index:5000;display:grid;place-items:center;padding:24px}.x-lb-modal.hidden{display:none}.x-lb-dialog{width:min(780px,94vw);max-height:82vh;background:#fff;border-radius:28px;padding:22px;box-shadow:0 35px 90px #0004;animation:xPop .22s ease}.x-lb-modal-list{max-height:58vh;overflow:auto}.x-lb-close{border:0;background:#f3f4f6;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px}@keyframes xPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:none}}.x-about-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;background:linear-gradient(125deg,#fff0d7,#e5f4ff);border-radius:28px;padding:34px;box-shadow:var(--shadow)}.x-about-art{min-height:240px;border-radius:24px;background:linear-gradient(145deg,#fff,#f4f0ff);display:grid;place-items:center;font-size:110px}.x-about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.x-leader-home{margin-top:18px;background:#fff;border:1px solid #eee8e2;border-radius:24px;padding:18px;box-shadow:var(--shadow)}.x-leader-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.x-leader-scroll{max-height:245px;overflow:auto;margin-top:10px}.x-expand{border:0;background:#f4f5f7;border-radius:12px;padding:8px 11px;cursor:pointer;font-weight:850}.x-lb-modal{position:fixed;inset:0;background:#17203380;backdrop-filter:blur(7px);z-index:5000;display:grid;place-items:center;padding:24px}.x-lb-modal.hidden{display:none}.x-lb-dialog{width:min(780px,94vw);max-height:82vh;background:#fff;border-radius:28px;padding:22px;box-shadow:0 35px 90px #0004;animation:xPop .22s ease}.x-lb-modal-list{max-height:58vh;overflow:auto}.x-lb-close{border:0;background:#f3f4f6;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px}@keyframes xPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:none}}.x-about-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;background:linear-gradient(125deg,#fff0d7,#e5f4ff);border-radius:28px;padding:34px;box-shadow:var(--shadow)}.x-about-art{min-height:240px;border-radius:24px;background:linear-gradient(145deg,#fff,#f4f0ff);display:grid;place-items:center;font-size:110px}.x-about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
 @media(max-width:1180px){.x-header-inner{grid-template-columns:170px 1fr 220px}.x-header-nav button{font-size:12px;padding:9px 6px}.x-search-real{width:150px!important}.x-header-logo{font-size:18px}}
-@media(max-width:900px){.x-topbar{height:auto;padding:10px 12px}.x-header-inner{width:100%;grid-template-columns:1fr auto}.x-header-center{display:none}.x-header-right{grid-column:2}.x-header-logo{display:block}.x-main{padding-top:14px}.x-unit-meta-grid,.x-about-grid{grid-template-columns:1fr}.x-about-hero{grid-template-columns:1fr}.x-search-real{display:none}.x-mobile-nav{display:flex}}
-#x-community #setup-section > .tab-menu,#x-mine #setup-section > .tab-menu{display:none!important}#x-community #load-cloud-btn,#x-community #setup-try-btn{display:none!important}
+@media(max-width:900px){.x-topbar{height:auto;padding:10px 12px}.x-header-inner{width:100%;grid-template-columns:1fr auto}.x-header-center{display:none}.x-header-right{grid-column:2}.x-header-logo{display:block}.x-main{padding-top:14px}.x-about-grid{grid-template-columns:1fr}.x-about-hero{grid-template-columns:1fr}.x-search-real{display:none}.x-mobile-nav{display:flex}}
+#x-catalog #setup-section > .tab-menu,#x-mine #setup-section > .tab-menu{display:none!important}#x-catalog #load-cloud-btn,#x-catalog #setup-try-btn{display:none!important}
 </style>
 </head>
 <body>
 <header class="x-topbar"><div class="x-header-inner">
 <button class="x-header-logo man-logo" onclick="xGo('home')" title="Về Trang chủ" aria-label="Mặn — về Trang chủ"><span class="man-mark">M</span><span class="man-word">Mặn<span>.</span></span></button>
-<div class="x-header-center"><nav class="x-header-nav"><button class="active" data-view="home">Trang chủ</button><button data-view="learn">Học</button><button data-view="mine">Bài của tôi</button><button data-view="community">Kho cộng đồng</button><button data-view="progress">Tiến bộ</button><button data-view="contribute">Đóng góp</button><button data-view="about">Chuyện cái xóm</button></nav></div>
+<div class="x-header-center"><nav class="x-header-nav"><button class="active" data-view="home">Trang chủ</button><button data-view="learn">Học</button><button data-view="mine">Bài của tôi</button><button data-view="catalog">Kho bài học</button><button data-view="progress">Tiến bộ</button><button data-view="about">Chuyện cái xóm</button></nav></div>
 <div class="x-header-right"><input id="x-global-search" class="x-search-real" placeholder="🔎 Tìm bài, chủ đề..." onkeydown="if(event.key==='Enter')xGlobalSearch()"><button class="x-bell" onclick="xGo('notifications')" title="Thông báo">🔔<span id="x-bell-badge" class="x-bell-badge">3</span></button><div id="x-auth-mini" class="x-auth-pill" onclick="xGo('me')">👤 Người lạ ơi!</div></div>
 </div></header>
 <main class="x-main">
@@ -142,24 +142,23 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
  <div class="x-grid4">
   <button class="x-action" onclick="xQuickTrial()"><div class="ico">🎧</div><b>Thử 5 câu ngay</b><span>Bấm cái mần luôn, 2 phút chứ mấy ^^</span></button>
   <button class="x-action" onclick="xGo('mine')"><div class="ico">📥</div><b>Đem bài vở của bạn bỏ dô đây</b><span>Bỏ vào đây, nhai đầu nó luôn.</span></button>
-  <button class="x-action" onclick="xGo('community')"><div class="ico">🏘️</div><b>Bài vở hàng xóm đã cook sẵn rồi nè</b><span>Hàng xóm không có gì ngoài bài vở.</span></button>
+  <button class="x-action" onclick="xGo('catalog')"><div class="ico">📚</div><b>Kho bài học của Mặn</b><span>Bài đã chuẩn bị sẵn, chọn là học ngay.</span></button>
   <button class="x-action" onclick="xGo('progress')"><div class="ico">📈</div><b>Tiến bộ của tôi</b><span>Ngày ấy & Bây giờ — coi mình bò được bao xa.</span></button>
  </div>
  <div class="x-panels"><div class="x-panel"><h3 id="x-home-greeting">Người lạ ơi! 👋</h3><p style="color:#6f7686">“Hôm nay học một chút, ngày mai sẽ khác.”</p><div class="x-statrow"><div class="x-stat"><strong>🔥</strong><small>Ngày có mặt</small></div><div class="x-stat"><strong id="x-home-minutes">0</strong><small>Phút học</small></div><div class="x-stat"><strong>❤️</strong><small>Để dành</small></div><div class="x-stat"><strong id="x-home-units">0</strong><small>Bài của tôi</small></div></div></div><div class="x-panel"><h3>🔥 Làm ngay</h3><p>Nạp bài mẫu rồi chiến vài câu trước.</p><button class="x-primary" onclick="loadSampleData();xGo('mine')">🎲 Nạp bài mẫu</button></div><button class="x-panel x-prompt-card" style="text-align:left;cursor:pointer" onclick="xGo('prompts')"><div class="ico">🎁</div><h3>Kho Prompt</h3><p>Tạo bộ từ vựng & câu luyện bằng AI.</p><b>Mở kho →</b></button></div>
  <div class="x-leader-home" id="x-home-leader"><div class="x-leader-head"><div><h3 style="margin:0">🏆 Hàng xóm chăm chỉ</h3><small style="color:#7b8290">Xem ai đang chăm chỉ quá mức cần thiết. :))</small></div><button class="x-expand" onclick="xOpenLeaderboard()">⛶ Phóng to</button></div><div class="tab-menu" style="margin:12px 0 0"><button class="tab-btn active" id="x-lb-home-daily" onclick="xLoadLeaderboard('daily')">Hôm nay</button><button class="tab-btn" id="x-lb-home-weekly" onclick="xLoadLeaderboard('weekly')">Tuần này</button><button class="tab-btn" id="x-lb-home-monthly" onclick="xLoadLeaderboard('monthly')">Tháng này</button></div><div id="x-home-leader-list" class="x-leader-scroll"><i>Đang ngó hàng xóm...</i></div></div>
 </section>
 <section id="x-learn" class="x-view"><div class="x-pagehead"><h2>🎧 Học</h2><p>Chọn bài xong là chiến. Không cần nghi thức nhập môn dài dòng.</p></div><div id="x-learn-slot"></div></section>
-<section id="x-mine" class="x-view"><div class="x-pagehead"><h2>📥 Bài của tôi</h2><p>Bài bạn tạo luôn ở đây để học tiếp. Chỉ khi muốn chia sẻ mới cần gửi duyệt.</p></div><div class="x-library-block"><div class="x-library-head"><div><h3>📚 Bài gần đây</h3><small>Hiển thị 6 bài gần nhất. Xem tất cả bài ở bên dưới.</small></div><button class="x-primary" onclick="xScrollToInput()">＋ Thêm bài mới</button></div><div id="x-mine-carousel" class="x-carousel-shell"></div><button class="x-discover" onclick="xOpenLibrary('mine')">Xem tất cả bài của tôi →</button></div><div id="x-mine-slot"></div></section>
-<section id="x-community" class="x-view"><div class="x-pagehead"><h2>🏘️ Kho cộng đồng</h2><p>Chọn bài đã được duyệt để học. Nếu kho còn trống, bạn có thể thử 5 câu trước nha.</p></div><div class="x-library-block"><div class="x-library-head"><div><h3>🍲 Bài mới trong kho</h3><small>Hiển thị 6 bài mới nhất. Xem tất cả bài ở bên dưới.</small></div></div><div id="x-community-carousel" class="x-carousel-shell"></div><button class="x-discover" onclick="xOpenLibrary('community')">Xem tất cả bài cộng đồng →</button></div><div id="x-community-slot"></div></section>
+<section id="x-mine" class="x-view"><div class="x-pagehead"><h2>📥 Bài của tôi</h2><p>Bài bạn tạo luôn ở đây để học tiếp. Bài của bạn chỉ bạn sử dụng; không lên kho chung.</p></div><div class="x-library-block"><div class="x-library-head"><div><h3>📚 Bài gần đây</h3><small>Hiển thị 6 bài gần nhất. Xem tất cả bài ở bên dưới.</small></div><button class="x-primary" onclick="xScrollToInput()">＋ Thêm bài mới</button></div><div id="x-mine-carousel" class="x-carousel-shell"></div><button class="x-discover" onclick="xOpenLibrary('mine')">Xem tất cả bài của tôi →</button></div><div id="x-mine-slot"></div></section>
+<section id="x-catalog" class="x-view"><div class="x-pagehead"><h2>📚 Kho bài học</h2><p>Bài chính thức do Mặn chuẩn bị, kiểm tra và xuất bản.</p></div><div class="x-library-block"><div class="x-library-head"><div><h3>🍲 Bài mới trong kho</h3><small>Hiển thị 6 bài mới nhất. Xem tất cả bài ở bên dưới.</small></div></div><div id="x-catalog-carousel" class="x-carousel-shell"></div><button class="x-discover" onclick="xOpenLibrary('catalog')">Xem tất cả bài học →</button></div><div id="x-catalog-slot"></div></section>
 <section id="x-progress" class="x-view"><div class="x-pagehead"><h2>📈 Tiến bộ của tôi</h2><p>Con số để hệ thống tính. Tiến bộ phải để bạn cảm nhận được.</p></div><div id="x-progress-dashboard"></div><div id="x-progress-slot" style="margin-top:18px"></div></section>
-<section id="x-contribute" class="x-view"><div class="x-pagehead"><h2>🤝 Đóng góp của tôi</h2><p>Bếp nhà bạn dạo này cũng đông khách phết.</p></div><div class="x-panel"><div style="font-size:48px">🍚</div><h3>Góc bếp của bạn</h3><p id="x-contrib-copy">Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌</p><div class="x-statrow"><div class="x-stat"><strong id="x-contrib-units">0</strong><small>bài đã khao</small></div><div class="x-stat"><strong>—</strong><small>người đã học</small></div><div class="x-stat"><strong>—</strong><small>phiên học</small></div><div class="x-stat"><strong>❤️</strong><small>tình củm</small></div></div><br><button class="x-primary" onclick="xGo('mine')">Tôi có món này hay nè →</button><div id="x-contribution-list" style="margin-top:18px"></div></div></section>
 <section id="x-me" class="x-view"><div class="x-pagehead"><h2>👤 Tôi</h2><p>Mình đã trở thành người học như thế nào ở cái xóm này?</p></div><div id="x-me-dashboard"></div></section>
-<section id="x-notifications" class="x-view"><div class="x-pagehead"><h2>🔔 Thông báo</h2><p>Có gì mới trong xóm, Mèo Xóm réo ở đây.</p></div><div class="x-panel"><div class="x-library-head"><div><h3>Tin mới trong xóm</h3><small>Cập nhật sản phẩm, học tập, thành tích và tương tác.</small></div><button class="x-mini-btn" onclick="xMarkAllRead()">✓ Đánh dấu đã đọc</button></div><div id="x-notif-list" class="x-notif-list"></div></div></section><section id="x-about" class="x-view"><div class="x-pagehead"><h2>🏘️ Chuyện cái xóm này</h2><p>About us nghe hơi công ty. Xóm mình kể chuyện thôi. ^^</p></div><div class="x-about-hero"><div><div style="font-weight:900;color:#9a6230">XÓM NÀY OUT TRÌNH TỪ ĐÂU CHUI RA?</div><h2 style="font-size:36px;line-height:1.05">Vào học trước.<br>Có gì hay thì góp sau.</h2><p>Ban đầu chỉ là một chỗ luyện nghe tiếng Anh. Rồi tụi mình nghĩ: nếu ai cũng có vài thứ hay ho để học, sao không mang qua cho hàng xóm học ké?</p><button class="x-primary" onclick="xGo('mine')">🔥 Chọn bài để chiến</button></div><div class="x-about-art" title="Ảnh/illustration chính thức sẽ thay sau">🐱🏘️</div></div><div class="x-about-grid"><div class="x-panel"><h3>👋 Ai dựng cái xóm này?</h3><p>Chỗ này để dành cho câu chuyện của chủ xóm. Ảnh đẹp, tiểu sử ngầu và vài lời thiệt tình sẽ bổ sung sau.</p></div><div class="x-panel"><h3>💸 Xóm sống bằng gì?</h3><p>Hiện tại chủ yếu sống bằng tình cảm ^^. Sau này có thể có quảng cáo/affiliate phù hợp để trả chi phí và nâng cấp cộng đồng. Quảng cáo thì được. Phá buổi học thì không.</p></div><div class="x-panel"><h3>📜 Luật bất thành văn</h3><p>Học thì dễ. Chia sẻ thì có trách nhiệm. Không cần đóng góp trước mới được nhận giá trị. Tiến bộ là so với chính mình.</p></div></div></section>
+<section id="x-notifications" class="x-view"><div class="x-pagehead"><h2>🔔 Thông báo</h2><p>Có gì mới trong xóm, Mèo Xóm réo ở đây.</p></div><div class="x-panel"><div class="x-library-head"><div><h3>Tin mới trong xóm</h3><small>Cập nhật sản phẩm, học tập, thành tích và tương tác.</small></div><button class="x-mini-btn" onclick="xMarkAllRead()">✓ Đánh dấu đã đọc</button></div><div id="x-notif-list" class="x-notif-list"></div></div></section><section id="x-about" class="x-view"><div class="x-pagehead"><h2>🏘️ Chuyện cái xóm này</h2><p>About us nghe hơi công ty. Xóm mình kể chuyện thôi. ^^</p></div><div class="x-about-hero"><div><div style="font-weight:900;color:#9a6230">XÓM NÀY OUT TRÌNH TỪ ĐÂU CHUI RA?</div><h2 style="font-size:36px;line-height:1.05">Vào học trước.<br>Có bài riêng thì học riêng; cần bài sẵn có Mặn lo.</h2><p>Ban đầu chỉ là một chỗ luyện nghe tiếng Anh. Rồi tụi mình nghĩ: Mặn chuẩn bị bài có kiểm tra nguồn để mọi người chọn và học ngay.</p><button class="x-primary" onclick="xGo('mine')">🔥 Chọn bài để chiến</button></div><div class="x-about-art" title="Ảnh/illustration chính thức sẽ thay sau">🐱🏘️</div></div><div class="x-about-grid"><div class="x-panel"><h3>👋 Ai dựng cái xóm này?</h3><p>Chỗ này để dành cho câu chuyện của chủ xóm. Ảnh đẹp, tiểu sử ngầu và vài lời thiệt tình sẽ bổ sung sau.</p></div><div class="x-panel"><h3>💸 Xóm sống bằng gì?</h3><p>Hiện tại chủ yếu sống bằng tình cảm ^^. Sau này có thể có quảng cáo/affiliate phù hợp để trả chi phí và nâng cấp bài học. Quảng cáo thì được. Phá buổi học thì không.</p></div><div class="x-panel"><h3>📜 Luật bất thành văn</h3><p>Bài riêng là của bạn. Kho bài học do Mặn chuẩn bị và chịu trách nhiệm. Tiến bộ là so với chính mình.</p></div></div></section>
 <section id="x-prompts" class="x-view x-prompt-page"><div class="x-pagehead"><h2>🎁 Kho Prompt</h2><p>Đồ nghề cho hàng xóm muốn biến nguyên liệu thành bài học.</p></div><div id="x-prompt-slot"></div></section>
 </main>
 <div id="x-library-modal" class="x-lib-modal x-hidden"><div class="x-lib-dialog"><div class="x-library-head"><div><h2 id="x-lib-title">Thư viện</h2><small id="x-lib-sub">12 bài mỗi trang</small></div><button class="x-lb-close" onclick="xCloseLibrary()">✕</button></div><div id="x-lib-filters" class="x-lib-filters"></div><div id="x-lib-grid" class="x-lib-grid"></div><div id="x-lib-pages" class="x-pagination"></div></div></div>
 <div id="x-auth-modal" class="x-lib-modal x-hidden"><div class="x-auth-dialog"><div class="x-library-head"><div><h2>👤 Tạo tài khoản</h2><small>Giữ bài vở và hành trình, khỏi bay màu oan uổng.</small></div><button class="x-lb-close" onclick="xCloseAuthModal()">✕</button></div><div class="x-auth-choice"><h3>📧 Email & mật khẩu</h3><input id="x-signup-email" class="form-input" type="email" placeholder="Email"><input id="x-signup-pass" class="form-input" type="password" placeholder="Tạo mật khẩu (ít nhất 6 ký tự)"><button class="x-primary" onclick="xModalEmailSignUp()">Đăng ký</button></div><div class="x-or">hoặc</div><button class="x-google-wide" onclick="loginWithGoogle()">G&nbsp; Đăng ký / đăng nhập bằng Google</button><div id="x-auth-message" class="x-form-message"></div></div></div>
-<button class="x-bell x-mobile-bell" onclick="xGo('notifications')" title="Thông báo" aria-label="Thông báo" style="display:none;position:fixed;right:18px;top:178px;z-index:1190">🔔<span class="x-bell-badge">3</span></button><nav class="x-mobile-nav" aria-label="Điều hướng chính"><button onclick="xGo('home')" aria-label="Trang chủ"><span aria-hidden="true">🏠</span><small>Trang chủ</small></button><button onclick="xGo('learn')" aria-label="Học"><span aria-hidden="true">🎧</span><small>Học</small></button><button onclick="xGo('mine')" aria-label="Bài của tôi"><span aria-hidden="true">📥</span><small>Bài của tôi</small></button><button onclick="xGo('community')" aria-label="Kho cộng đồng"><span aria-hidden="true">🏘️</span><small>Kho</small></button><button onclick="xGo('me')" aria-label="Tôi"><span aria-hidden="true">👤</span><small>Tôi</small></button></nav>
+<button class="x-bell x-mobile-bell" onclick="xGo('notifications')" title="Thông báo" aria-label="Thông báo" style="display:none;position:fixed;right:18px;top:178px;z-index:1190">🔔<span class="x-bell-badge">3</span></button><nav class="x-mobile-nav" aria-label="Điều hướng chính"><button onclick="xGo('home')" aria-label="Trang chủ"><span aria-hidden="true">🏠</span><small>Trang chủ</small></button><button onclick="xGo('learn')" aria-label="Học"><span aria-hidden="true">🎧</span><small>Học</small></button><button onclick="xGo('mine')" aria-label="Bài của tôi"><span aria-hidden="true">📥</span><small>Bài của tôi</small></button><button onclick="xGo('catalog')" aria-label="Kho bài học"><span aria-hidden="true">🏘️</span><small>Kho</small></button><button onclick="xGo('me')" aria-label="Tôi"><span aria-hidden="true">👤</span><small>Tôi</small></button></nav>
 
 <!-- BANNER TRUYỀN CẢM HỨNG -->
     <div class="x-old-banner" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);">
@@ -187,7 +186,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div id="setup-intro" style="font-size: 13px; color: #555;">Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.</div>
+            <div id="setup-intro" style="font-size: 13px; color: #555;">Tạo bài riêng để học ngay; chỉ bạn thấy bài này.</div>
             <div>
                 <button id="setup-try-btn" class="btn btn-note" onclick="xQuickTrial()" style="font-size: 12px;">🎧 Thử 5 câu ngay</button>
                 <button id="load-cloud-btn" class="btn btn-note hidden" onclick="loadFromCloud()" style="font-size: 12px;">📂 Tải bài đã lưu trên tài khoản</button>
@@ -196,7 +195,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 
         <div class="tab-menu" style="border-bottom: 3px solid #2563eb;">
             <button class="tab-btn active" id="tab-btn-my-units" onclick="switchMainTab('my-units')">👤 Bài học của tôi</button>
-            <button class="tab-btn" id="tab-btn-community" onclick="switchMainTab('community')">🌐 Kho Bài Học Cộng Đồng</button>
+            <button class="tab-btn" id="tab-btn-catalog" onclick="switchMainTab('catalog')">🌐 Kho bài học</button>
         </div>
 
         <div id="section-my-units">
@@ -257,66 +256,22 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                 <i style="color: #888;">Chưa có câu nào trong Unit này...</i>
             </div>
 
-            <div class="x-unit-meta"><b>🏷️ Phân loại bài học</b><div style="font-size:12px;color:#667085;margin:3px 0 9px">Bài riêng vẫn phân loại được. Không cần đợi tới lúc “Khao cả xóm”.</div><div class="x-unit-meta-grid"><div><label style="font-size:12px;font-weight:bold">Chủ đề</label><select id="unit-topic" class="form-input"><option>Đời sống</option><option>Ăn uống</option><option>Du lịch</option><option>Công việc</option><option>Học tập</option><option>Giải trí</option><option>Công nghệ</option><option>Xã hội</option><option>Khoa học</option><option>Tin tức</option></select></div><div><label style="font-size:12px;font-weight:bold">Trình độ</label><select id="unit-level" class="form-input"><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></div><div><label style="font-size:12px;font-weight:bold">Mục tiêu học</label><select id="unit-track" class="form-input"><option>Giao tiếp</option><option>TOEIC</option><option>IELTS</option></select></div></div></div>
-            <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px; border-radius: 8px; margin: 15px 0;">
-                <label style="font-weight: bold; font-size: 14px; cursor: pointer; color: #1e40af;">
-                    <input type="checkbox" id="share-community-check"> 🍚 Khao cả xóm? Chia sẻ bài này để hàng xóm cùng học
-                </label>
-                <div id="community-meta-box" class="hidden" style="margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <div>
-                        <label style="font-size: 12px; font-weight: bold;">Chủ đề (Topic):</label>
-                        <select id="share-topic" class="form-input" style="padding: 4px; font-size: 12px;">
-                            <option value="Đời sống">💬 Đời sống</option>
-                            <option value="Ăn uống">🍜 Ăn uống</option>
-                            <option value="Du lịch">✈️ Du lịch</option>
-                            <option value="Công việc">💼 Công việc</option>
-                            <option value="Học tập">📚 Học tập</option>
-                            <option value="Giải trí">🎬 Giải trí</option>
-                            <option value="Công nghệ">💻 Công nghệ</option>
-                            <option value="Xã hội">🌍 Xã hội</option>
-                            <option value="Khoa học">🔬 Khoa học</option>
-                            <option value="Tin tức">📰 Tin tức</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label style="font-size: 12px; font-weight: bold;">Trình độ (Level):</label>
-                        <select id="share-level" class="form-input" style="padding: 4px; font-size: 12px;">
-                            <option value="A1">A1</option><option value="A2">A2</option><option value="B1">B1</option><option value="B2">B2</option><option value="C1">C1</option><option value="C2">C2</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label style="font-size:12px;font-weight:bold;">Mục tiêu học:</label>
-                        <select id="share-track" class="form-input" style="padding:4px;font-size:12px"><option value="Giao tiếp">Giao tiếp</option><option value="TOEIC">TOEIC</option><option value="IELTS">IELTS</option></select>
-                    </div>
-                    <div>
-                        <label style="font-size:12px;font-weight:bold;">Quyền chia sẻ:</label>
-                        <select id="share-rights" class="form-input" style="padding:4px;font-size:12px"><option value="self">Tôi tự tạo nội dung này</option><option value="permitted">Tôi được phép chia sẻ</option><option value="cc">Public domain / Creative Commons</option><option value="other">Từ nguồn khác</option><option value="unsure">Tôi không chắc</option></select>
-                    </div>
-                    <div><label style="font-size:12px;font-weight:bold;">Loại giấy phép:</label><select id="share-license" class="form-input"><option value="self">Tự tạo / sở hữu</option><option value="permission">Được cho phép</option><option value="public-domain">Public domain</option><option value="cc">Creative Commons</option><option value="unknown">Khác / chưa rõ</option></select></div><div><label style="font-size:12px;font-weight:bold;">Tên nguồn (nếu có):</label><input id="share-source-title" class="form-input" placeholder="Ví dụ: bài tự soạn, tên sách..."></div><div><label style="font-size:12px;font-weight:bold;">Tác giả / nguồn:</label><input id="share-source-author" class="form-input" placeholder="Không bắt buộc"></div><div style="grid-column:1/-1"><label style="font-size:12px;font-weight:bold;">Link nguồn / giấy phép (nếu có):</label><input id="share-source-url" class="form-input" placeholder="https://..."></div><div style="grid-column:1/-1;font-size:12px;color:#805b13">🍚 Học thì dễ. Chia sẻ thì có trách nhiệm. Nếu không chắc quyền chia sẻ, cứ giữ bài riêng để học nha.</div>
-                </div>
-            </div>
-
             <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">☑ Tích chọn các Unit cá nhân muốn học:</div>
             <div id="unit-selector" class="unit-list-container">
                 <i style="color: #888; font-size: 13px;">Hãy tạo Unit hoặc dán bài mẫu...</i>
             </div>
         </div>
 
-        <div id="section-community" class="hidden">
+        <div id="section-catalog" class="hidden">
             <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
-                <input type="text" id="community-search" class="form-input" placeholder="🔍 Tìm kiếm bài học theo từ khóa / Hashtag..." style="flex: 2; min-width: 200px;" oninput="filterCommunityUnits()">
-                <select id="filter-topic" class="form-input" style="flex: 1; min-width: 130px;" onchange="filterCommunityUnits()">
+                <input type="text" id="catalog-search" class="form-input" placeholder="🔍 Tìm kiếm bài học theo từ khóa / Hashtag..." style="flex: 2; min-width: 200px;" oninput="filterCatalogUnits()">
+                <select id="filter-topic" class="form-input" style="flex: 1; min-width: 130px;" onchange="filterCatalogUnits()">
                     <option value="">Tất cả Chủ đề</option>
-                    <option value="Giao tiếp">Giao tiếp</option>
-                    <option value="Công sở">Công sở</option>
-                    <option value="Du lịch">Du lịch</option>
-                    <option value="IELTS/TOEIC">IELTS / TOEIC</option>
-                    <option value="Phim/Nhạc">Phim/Nhạc</option>
                 </select>
             </div>
 
-            <div id="community-units-list" style="max-height: 250px; overflow-y: auto;">
-                <i style="color: #888;">Đang tải danh sách bài học cộng đồng...</i>
+            <div id="catalog-units-list" style="max-height: 250px; overflow-y: auto;">
+                <i style="color: #888;">Đang tải Kho bài học của Mặn...</i>
             </div>
         </div>
 
@@ -339,7 +294,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px">
                 <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay</button>
                 <button class="btn btn-note" onclick="xGo('mine')">📥 Bài của tôi</button>
-                <button class="btn btn-note" onclick="xGo('community')">🏘️ Kho cộng đồng</button>
+                <button class="btn btn-note" onclick="xGo('catalog')">📚 Kho bài học</button>
             </div>
         </div>
 
@@ -483,7 +438,7 @@ Danh sách từ/cụm từ của tôi:
         </div>
 
         <div id="leaderboard-list" style="min-height: 180px;">
-            <i style="color: #888;">Đang tải bảng vinh danh cộng đồng...</i>
+            <i style="color: #888;">Đang tải bảng vinh danh bài học...</i>
         </div>
     </div>
 
@@ -518,7 +473,7 @@ Danh sách từ/cụm từ của tôi:
             </div>
             <div style="margin-bottom: 12px;">
                 <label style="font-size: 12px; cursor: pointer; color: #1e40af; font-weight: 600;">
-                    <input type="checkbox" id="profile-public-contact" checked> Hiển thị công khai thông tin liên hệ cho cộng đồng kết nối
+                    <input type="checkbox" id="profile-public-contact" checked> Hiển thị công khai thông tin liên hệ cho bài học kết nối
                 </label>
             </div>
             <div style="margin-bottom: 15px; background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 13px; color: #555;">
@@ -550,8 +505,8 @@ Danh sách từ/cụm từ của tôi:
 
         let currentUser = null;
         let unitsData = {}; 
-        let communityUnitsCache = [];
-        let selectedCommunityUnits = {};
+        let catalogUnitsCache = [];
+
         let userProfileData = { nickname: '', motto: '', totalMinutes: 0 };
 
         let studyTimer = null;
@@ -614,7 +569,7 @@ Danh sách từ/cụm từ của tôi:
                 loadBtn.classList.remove('hidden');
                 loadFromCloud();
                 loadUserProfile();
-                loadCommunityUnits();
+                loadCatalogUnits();
                 loadLeaderboardData('daily');
             } else {
                 authContainer.innerHTML = `<button class="btn btn-google" onclick="loginWithGoogle()">🔑 Đăng nhập Google</button>`;
@@ -622,12 +577,6 @@ Danh sách từ/cụm từ của tôi:
                 loadBtn.classList.add('hidden');
                 loadLeaderboardData('daily');
             }
-        });
-
-        document.getElementById('share-community-check').addEventListener('change', function(e) {
-            const metaBox = document.getElementById('community-meta-box');
-            if (e.target.checked) metaBox.classList.remove('hidden');
-            else metaBox.classList.add('hidden');
         });
 
         function scrollToLeaderboard() {
@@ -679,10 +628,10 @@ Danh sách từ/cụm từ của tôi:
 
         function switchMainTab(tab) {
             document.getElementById('tab-btn-my-units').classList.toggle('active', tab === 'my-units');
-            document.getElementById('tab-btn-community').classList.toggle('active', tab === 'community');
+            document.getElementById('tab-btn-catalog').classList.toggle('active', tab === 'catalog');
             document.getElementById('section-my-units').classList.toggle('hidden', tab !== 'my-units');
-            document.getElementById('section-community').classList.toggle('hidden', tab !== 'community');
-            if (tab === 'community') loadCommunityUnits();
+            document.getElementById('section-catalog').classList.toggle('hidden', tab !== 'catalog');
+            if (tab === 'catalog') loadCatalogUnits();
         }
 
         function switchStudyTab(tab) {
@@ -693,70 +642,39 @@ Danh sách từ/cụm từ của tôi:
             if (tab === 'transcript') renderFullTranscript();
         }
 
-        function loadCommunityUnits() {
-            const listEl = document.getElementById('community-units-list');
-            return db.collection('community_units').where('sharingStatus', '==', 'approved').limit(20).get().then(snap => {
-                communityUnitsCache = [];
-                snap.docs.forEach(doc => {
-                    communityUnitsCache.push({ id: doc.id, ...doc.data() });
+        let catalogPromise;
+        async function loadCatalogUnits() {
+            if (catalogPromise) return catalogPromise;
+            catalogPromise = fetch('assets/official-lessons.json', {cache:'no-cache'})
+                .then(response => { if(!response.ok) throw new Error('CATALOG_UNAVAILABLE'); return response.json(); })
+                .then(data => {
+                    if(!Array.isArray(data.lessons)) throw new Error('INVALID_CATALOG');
+                    const ids=new Set();
+                    catalogUnitsCache=data.lessons.filter(unit => {
+                        if(unit.status!=='published'||unit.publisher!=='man'||
+                           !unit.id||ids.has(unit.id)||!Array.isArray(unit.items)||!unit.items.length||
+                           unit.items.some(item=>typeof item.en!=='string'||typeof item.vi!=='string')) return false;
+                        ids.add(unit.id);return true;
+                    });
+                    const topicSelect=document.getElementById('filter-topic');
+                    if(topicSelect){topicSelect.replaceChildren(new Option('Tất cả chủ đề',''));
+                      [...new Set(catalogUnitsCache.map(unit=>unit.topic).filter(Boolean))].sort().forEach(topic=>topicSelect.add(new Option(topic,topic)));}
+                    renderCatalogList(catalogUnitsCache);
+                    xRenderCarousel('catalog');
+                    return catalogUnitsCache;
+                }).catch(error => {
+                    catalogPromise=null;
+                    console.error('Could not load official lessons',error);
+                    document.getElementById('catalog-units-list').textContent='Chưa tải được Kho bài học. Thử lại sau hoặc học thử 5 câu nha.';
+                    return [];
                 });
-                communityUnitsCache.sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));
-                renderCommunityList(communityUnitsCache);
-                xRenderCarousel('community');
-            }).catch(() => {
-                listEl.innerHTML = '<i style="color: #888;">Chưa tải được kho bài lúc này. Bạn có thể thử 5 câu trước nha.</i>';
-                xRenderCarousel('community');
-            });
+            return catalogPromise;
         }
-
-        function renderCommunityList(list) {
-            const listEl = document.getElementById('community-units-list');
-            if (list.length === 0) {
-                listEl.innerHTML = '<i style="color: #888;">Không tìm thấy bài học phù hợp...</i>';
-                return;
-            }
-            listEl.replaceChildren();
-            list.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'community-card';
-                card.style.cssText = 'background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;';
-                const detail = document.createElement('div'); detail.style.flex = '1';
-                const title = document.createElement('div'); title.style.cssText = 'font-weight:bold;font-size:15px;color:#1e293b'; title.textContent = item.unitName || 'Bài chưa đặt tên';
-                const meta = document.createElement('div'); meta.style.cssText = 'font-size:12px;color:#64748b;margin-top:3px';
-                meta.textContent = `👤 Tác giả: ${item.author || 'Cộng đồng'}${item.contact ? ` (📱 ${item.contact})` : ''} • 📚 ${item.items?.length || 0} câu`;
-                const tags = document.createElement('div'); tags.style.cssText = 'margin-top:6px;display:flex;gap:6px;align-items:center';
-                for (const [kind, value] of [['topic', item.topic || 'Giao tiếp'], ['level', item.level || 'Cơ bản']]) {
-                    const tag = document.createElement('span'); tag.className = `badge badge-${kind}`; tag.textContent = value; tags.appendChild(tag);
-                }
-                const like = document.createElement('button'); like.type = 'button'; like.style.cssText = 'border:0;background:#fef2f2;color:#ef4444;border-radius:12px;padding:2px 8px;font-size:11px;font-weight:bold;cursor:pointer';
-                like.textContent = `❤️ ${Number(item.likes) || 0} Tim`; like.addEventListener('click', () => likeCommunityUnit(item.id, like)); tags.appendChild(like);
-                detail.append(title, meta, tags);
-                const label = document.createElement('label'); label.className = 'btn btn-note'; label.style.cssText = 'font-size:12px;padding:6px 12px;cursor:pointer';
-                const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = !!selectedCommunityUnits[item.id];
-                checkbox.addEventListener('change', () => toggleSelectCommunityUnit(item.id, checkbox.checked));
-                label.append(checkbox, document.createTextNode(' Chọn học')); card.append(detail, label);
-                listEl.appendChild(card);
-            });
-        }
-
-        function toggleSelectCommunityUnit(id, isSelected) {
-            const found = communityUnitsCache.find(x => x.id === id);
-            if (found) {
-                if (isSelected) selectedCommunityUnits[id] = found;
-                else delete selectedCommunityUnits[id];
-            }
-        }
-
-        function filterCommunityUnits() {
-            const search = document.getElementById('community-search').value.toLowerCase().trim();
-            const topic = document.getElementById('filter-topic').value;
-
-            const filtered = communityUnitsCache.filter(item => {
-                const matchSearch = item.unitName.toLowerCase().includes(search) || (item.author && item.author.toLowerCase().includes(search));
-                const matchTopic = !topic || item.topic === topic;
-                return matchSearch && matchTopic;
-            });
-            renderCommunityList(filtered);
+        function renderCatalogList(list) { xRenderCatalogModern(list); }
+        function filterCatalogUnits() {
+            const q=document.getElementById('catalog-search').value.toLowerCase().trim();
+            const topic=document.getElementById('filter-topic').value;
+            renderCatalogList(catalogUnitsCache.filter(unit=>(!q||unit.unitName.toLowerCase().includes(q))&&(!topic||unit.topic===topic)));
         }
 
         function openProfileModal() {
@@ -990,58 +908,78 @@ Danh sách từ/cụm từ của tôi:
             });
         }
 
-        function saveToCloud() {
-            if (!currentUser) { xGo('me'); return alert("🔐 Đăng nhập trước để lưu bài lên tài khoản nha."); }
-            if(window.xSyncUnitMeta) window.xSyncUnitMeta();
+        let xCloudLoadedForUid = null;
+        let xCloudUnitsSnapshot = null;
+        function xMergePrivateUnits(local, remote) {
+            const merged = {...local};
+            let conflicts = 0;
+            for (const [name, lesson] of Object.entries(remote)) {
+                if (!Object.prototype.hasOwnProperty.call(merged, name)) { merged[name] = lesson; continue; }
+                if (JSON.stringify(merged[name]) === JSON.stringify(lesson)) continue;
+                conflicts++;
+                const base = name + ' (bản trên tài khoản)';
+                let copy = base, number = 2;
+                while (Object.prototype.hasOwnProperty.call(merged, copy) &&
+                       JSON.stringify(merged[copy]) !== JSON.stringify(lesson)) copy = base + ' ' + number++;
+                merged[copy] = lesson;
+            }
+            return {merged, conflicts};
+        }
 
-            db.collection('user_vocab').doc(currentUser.uid).set({
-                units: JSON.stringify(unitsData),
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
-            const isShare = document.getElementById('share-community-check').checked;
-            if (isShare) {
-                const activeUnit = getActiveUnitName();
-                const itemsList = unitsData[activeUnit] || [];
-                if (itemsList.length === 0) return alert("Unit đang chọn không có câu nào để chia sẻ!");
-
-                db.collection('community_units').add({
-                    unitName: activeUnit,
-                    author: userProfileData.nickname || currentUser.displayName,
-                    authorUid: currentUser.uid,
-                    topic: document.getElementById('share-topic').value,
-                    level: document.getElementById('share-level').value,
-                    track: document.getElementById('share-track') ? document.getElementById('share-track').value : 'Giao tiếp',
-                    permissionStatus: document.getElementById('share-rights') ? document.getElementById('share-rights').value : 'unsure',
-                    licenseType: document.getElementById('share-license')?.value || '',
-                    sourceTitle: document.getElementById('share-source-title')?.value.trim() || '',
-                    sourceAuthor: document.getElementById('share-source-author')?.value.trim() || '',
-                    sourceUrl: document.getElementById('share-source-url')?.value.trim() || '',
-                    sharingStatus: 'public',
-                    copyrightStatus: 'unreviewed',
-                    learnedCount: 0,
-                    sessionCount: 0,
-                    items: itemsList,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => {
-                    alert("🌐 Đã lưu lên cá nhân và Chia sẻ thành công vào Kho Cộng Đồng!");
+        async function saveToCloud() {
+            if(!currentUser){xGo('me');xToast('Đăng nhập để giữ bài của bạn nha.');return}
+            const uid=currentUser.uid;
+            try {
+                if(xCloudLoadedForUid!==uid){await loadFromCloud();if(xCloudLoadedForUid!==uid)return}
+                const ref=db.collection('user_vocab').doc(uid), next=JSON.stringify(unitsData);
+                await db.runTransaction(async tx=>{
+                    const snapshot=await tx.get(ref);
+                    const existing=snapshot.exists?snapshot.data().units:null;
+                    if(existing!==xCloudUnitsSnapshot)throw new Error('CLOUD_CHANGED');
+                    tx.set(ref,{units:next,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
                 });
-            } else {
-                alert("☁️ Đã lưu toàn bộ Unit bài học vào tài khoản cá nhân!");
+                xCloudUnitsSnapshot=next;
+                xRenderCarousel('mine');
+                xToast('💾 Đã lưu bài riêng vào tài khoản của bạn.');
+            } catch(error) {
+                console.error('Could not save personal lessons',error);
+                if(error.message==='CLOUD_CHANGED'){
+                    await loadFromCloud();
+                    xToast('Có bài mới từ phiên khác. Đã giữ cả hai bản; xem lại rồi lưu lần nữa nha.');
+                } else xToast('Bài vẫn trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
             }
         }
 
-        function loadFromCloud() {
+        async function loadFromCloud() {
             if (!currentUser) return;
-            db.collection('user_vocab').doc(currentUser.uid).get().then(doc => {
-                if (doc.exists && doc.data().units) {
-                    unitsData = JSON.parse(doc.data().units);
-                    updateUnitDropdown();
-                    renderUnitSelector();
-                    renderCurrentUnitPreview();
-                    alert("📂 Đã tải dữ liệu cũ từ tài khoản về máy này.");
-                } else alert("🐱 Tài khoản chưa có dữ liệu cũ để tải.");
-            }).catch(()=>alert("Có trục trặc khi tải dữ liệu cũ. Thử lại nha."));
+            const uid = currentUser.uid;
+            if (xCloudLoadedForUid && xCloudLoadedForUid !== uid && Object.keys(unitsData).length) {
+                xToast('Trên máy còn bài từ tài khoản trước. Mở cửa sổ mới để dùng tài khoản khác, tránh trộn bài nha.');
+                return;
+            }
+            try {
+                const doc = await db.collection('user_vocab').doc(uid).get();
+                if (currentUser?.uid !== uid) return;
+                const raw = doc.exists ? doc.data().units : null;
+                const remote = raw ? JSON.parse(raw) : {};
+                if (!remote || Array.isArray(remote) || typeof remote !== 'object' ||
+                    Object.values(remote).some(items => !Array.isArray(items))) {
+                    throw new Error('INVALID_CLOUD_UNITS');
+                }
+                const {merged, conflicts} = xMergePrivateUnits(unitsData, remote);
+                unitsData = merged;
+                xCloudLoadedForUid = uid;
+                xCloudUnitsSnapshot = raw;
+                updateUnitDropdown();
+                renderUnitSelector();
+                renderCurrentUnitPreview();
+                xRenderCarousel('mine');
+                if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
+                else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
+            } catch (e) {
+                console.error(e);
+                xToast('Chưa tải được bài trên tài khoản; bài trên máy vẫn nguyên nha.');
+            }
         }
 
         function loadSampleData() {
@@ -1122,13 +1060,6 @@ Danh sách từ/cụm từ của tôi:
             checkboxes.forEach(cb => {
                 const list = unitsData[cb.value] || [];
                 list.forEach(item => items.push(item));
-            });
-
-            Object.keys(selectedCommunityUnits).forEach(id => {
-                const comm = selectedCommunityUnits[id];
-                if (comm && comm.items) {
-                    comm.items.forEach(item => items.push(item));
-                }
             });
 
             if (items.length === 0) return xToast('Chọn ít nhất một bài để bắt đầu nha.');
@@ -1471,19 +1402,12 @@ Danh sách từ/cụm từ của tôi:
             addChoice('🎧 Thử 5 câu', () => xQuickTrial());
             Object.keys(unitsData || {}).filter(name => (unitsData[name] || []).length).slice(0, 12)
                 .forEach(name => addChoice('📥 ' + name, () => xStartMine(name)));
-            const label = document.createElement('p');
-            label.textContent = 'Đang tìm bài đã duyệt trong kho...';
-            panel.appendChild(label);
-            try {
-                const snap = await db.collection('community_units').where('sharingStatus', '==', 'approved').limit(12).get();
-                if (!panel.isConnected || panel.classList.contains('hidden')) return;
-                communityUnitsCache = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                const available = communityUnitsCache.filter(unit => unit.items?.length);
-                label.textContent = available.length ? 'Bài từ Kho cộng đồng:' : 'Kho chưa có bài đã duyệt. Bạn có thể thử 5 câu hoặc học bài của mình.';
-                available.forEach(unit => addChoice('🏘️ ' + (unit.title || unit.name || 'Bài cộng đồng'), () => xStartCommunity(unit.id)));
-            } catch (e) {
-                label.textContent = 'Chưa tải được kho bài. Bạn có thể thử 5 câu hoặc học bài của mình.';
-            }
+            const label=document.createElement('p');
+            label.textContent='Đang tải bài chính thức của Mặn...';panel.appendChild(label);
+            const official=await loadCatalogUnits();
+            if(!panel.isConnected||panel.classList.contains('hidden'))return;
+            label.textContent=official.length?'Kho bài học của Mặn:':'Chưa tải được kho. Bạn có thể thử 5 câu hoặc học bài riêng.';
+            official.slice(0,12).forEach(unit=>addChoice('📚 '+unit.unitName,()=>xStartCatalog(unit.id)));
         }
 
         function retryErrorsOnly() {
@@ -1558,17 +1482,17 @@ function xResetPassword(){
  const email=document.getElementById('x-email').value.trim(); if(!email){alert('Nhập email trước nha ^^');return;}
  auth.sendPasswordResetEmail(email).then(()=>alert('📮 Đã gửi email đặt lại mật khẩu.')).catch(e=>alert(e.message));
 }
-const X_VIEWS=new Set(['home','learn','mine','community','progress','contribute','me','notifications','about','prompts']);
+const X_VIEWS=new Set(['home','learn','mine','catalog','progress','me','notifications','about','prompts']);
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
  const previousScroll=window.scrollY;
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
- if(heading) heading.textContent=view==='community'?'🏘️ Chọn bài đã duyệt để học':'📥 Bài của tôi — tạo hoặc chọn bài';
- if(intro) intro.textContent=view==='community'?'Chọn bài hàng xóm đã chia sẻ và được duyệt để bắt đầu luyện nghe.':'Tạo bài riêng để học ngay. Khi muốn chia sẻ, bạn có thể gửi duyệt sau.';
+ if(heading) heading.textContent=view==='catalog'?'📚 Chọn bài học của Mặn':'📥 Bài của tôi — tạo hoặc chọn bài';
+ if(intro) intro.textContent=view==='catalog'?'Chọn bài chính thức do Mặn chuẩn bị để luyện nghe.':'Tạo bài riêng để học ngay; chỉ bạn thấy bài này.';
  document.querySelectorAll('.x-view').forEach(v=>v.classList.remove('active'));
  const target=document.getElementById('x-'+view); if(target) target.classList.add('active');
  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
- if(view==='community'){ try{switchMainTab('community');loadCommunityUnits();}catch(e){} }
+ if(view==='catalog'){ try{switchMainTab('catalog');loadCatalogUnits();}catch(e){} }
  if(view==='mine'){ try{switchMainTab('my-units');}catch(e){} }
  const route='#'+view;
  const address=location.pathname+location.search+route;
@@ -1587,18 +1511,15 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(lb) lb.style.display='none';
  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>xGo(b.dataset.view)));
  
-function xSyncUnitMeta(){[['unit-topic','share-topic'],['unit-level','share-level'],['unit-track','share-track']].forEach(([a,b])=>{const A=document.getElementById(a),B=document.getElementById(b);if(A&&B)B.value=A.value})}
-window.xSyncUnitMeta=xSyncUnitMeta;
-['unit-topic','unit-level','unit-track'].forEach(id=>document.getElementById(id)?.addEventListener('change',xSyncUnitMeta));
-['share-topic','share-level','share-track'].forEach(id=>{const e=document.getElementById(id);if(e&&e.parentElement)e.parentElement.style.display='none'});xSyncUnitMeta();
 
- // Community reuses the existing setup engine, but the tab is switched automatically.
- const communityBtn=document.querySelector('[data-view="community"]');
- if(communityBtn) communityBtn.addEventListener('click',()=>{const slot=document.getElementById('x-community-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0)});
+
+ // Catalog reuses the existing setup engine, but the tab is switched automatically.
+ const catalogBtn=document.querySelector('[data-view="catalog"]');
+ if(catalogBtn) catalogBtn.addEventListener('click',()=>{const slot=document.getElementById('x-catalog-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('catalog')}catch(e){}},0)});
  const mineBtn=document.querySelector('[data-view="mine"]');
  if(mineBtn) mineBtn.addEventListener('click',()=>{const slot=document.getElementById('x-mine-slot'); if(setup&&setup.parentNode!==slot) slot.appendChild(setup); setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)});
  // quick cards need same relocation behavior
- const oldGo=xGo; window.xGo=function(view,options){if(view==='mine'&&setup)document.getElementById('x-mine-slot').appendChild(setup);if(view==='community'&&setup)document.getElementById('x-community-slot').appendChild(setup);oldGo(view,options);if(view==='community')setTimeout(()=>{try{switchMainTab('community')}catch(e){}},0);if(view==='mine')setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)};
+ const oldGo=xGo; window.xGo=function(view,options){if(view==='mine'&&setup)document.getElementById('x-mine-slot').appendChild(setup);if(view==='catalog'&&setup)document.getElementById('x-catalog-slot').appendChild(setup);oldGo(view,options);if(view==='catalog')setTimeout(()=>{try{switchMainTab('catalog')}catch(e){}},0);if(view==='mine')setTimeout(()=>{try{switchMainTab('my-units')}catch(e){}},0)};
  setInterval(()=>{const m=document.getElementById('stat-time-spent'),u=document.getElementById('stat-unit-count');if(m)document.getElementById('x-home-minutes').textContent=m.textContent||'0';if(u)document.getElementById('x-home-units').textContent=u.textContent||'0';if(window.currentUser){const a=document.getElementById('x-auth-mini');if(a){const n=(userProfileData&&userProfileData.nickname)||window.currentUser.displayName||(window.currentUser.email?window.currentUser.email.split('@')[0]:'Hàng xóm');a.textContent='😼 '+n}}} ,1200);
 });
 </script>
@@ -1616,26 +1537,24 @@ const XHERO=[
 
 function xToast(msg){const d=document.createElement('div');d.className='x-toast';d.setAttribute('role','status');d.setAttribute('aria-live','polite');d.textContent=msg;const owner=document.getElementById('x-owner-modal');if(owner&&!owner.classList.contains('hidden')){d.style.top='22px';d.style.bottom='auto';}document.body.appendChild(d);setTimeout(()=>d.remove(),3200)}
 function xEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('community');setTimeout(()=>{const e=document.getElementById('community-search');if(e){e.value=q;filterCommunityUnits()}},80)}
-function xFavoriteUnit(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
-function xStartCommunity(id){const u=(communityUnitsCache||[]).find(x=>x.id===id);if(!u||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài cộng đồng',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);try{db.collection('community_units').doc(id).update({sessionCount:firebase.firestore.FieldValue.increment(1)})}catch(e){}}
-function xRenderCommunityModern(list){const el=document.getElementById('community-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài đã duyệt phù hợp lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">👤 ${xEsc(u.author||'Hàng xóm')} · 📚 ${(u.items||[]).length} câu · 👥 ${u.learnedCount||0} người học</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" onclick="${xEsc(`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" onclick="${xEsc(`xFavoriteUnit(${JSON.stringify(String(u.id))})`)}">❤️ Để dành</button></div></article>`).join('');}
-const xOldRenderCommunity=window.renderCommunityList;window.renderCommunityList=function(list){xRenderCommunityModern(list)};
-function xInjectCommunityFilters(){const sec=document.getElementById('section-community');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>🏘️ Bài đã duyệt mới lên kho.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(communityUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCommunityModern(list)})}
-function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Đi hàng xóm ngó nghiêng thử đi.</p>'}</div></div>`}
+function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('catalog');loadCatalogUnits().then(()=>{const e=document.getElementById('catalog-search');if(e){e.value=q;filterCatalogUnits()}})}
+function xFavoriteUnit(id){const u=(catalogUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
+function xStartCatalog(id){const u=(catalogUnitsCache||[]).find(x=>x.id===id);if(!u||u.publisher!=='man'||u.status!=='published'||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài chính thức',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);}
+function xRenderCatalogModern(list){const el=document.getElementById('catalog-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài học phù hợp bộ lọc lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">📚 ${(u.items||[]).length} câu · Mặn biên soạn</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" data-catalog-action="study" data-unit-id="${xEsc(u.id)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" data-catalog-action="favorite" data-unit-id="${xEsc(u.id)}">❤️ Để dành</button></div></article>`).join('');}
+
+document.getElementById('catalog-units-list')?.addEventListener('click',e=>{const b=e.target.closest('[data-catalog-action]');if(!b)return;if(b.dataset.catalogAction==='study')xStartCatalog(b.dataset.unitId);else xFavoriteUnit(b.dataset.unitId)});
+function xInjectCatalogFilters(){const sec=document.getElementById('section-catalog');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>📚 Bài chính thức của Mặn.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(catalogUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCatalogModern(list)})}
+function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Thử xem Kho bài học của Mặn nha.</p>'}</div></div>`}
 function xRetrySaved(){if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
-function xRenderContribution(){const el=document.getElementById('x-contribution-list');if(!el)return;if(!window.currentUser){el.innerHTML='<div class="x-empty">🍚 Học ké thoải mái. Khi muốn khao cả xóm thì đăng nhập để giữ tên chủ bếp nha.</div>';return}db.collection('community_units').where('authorUid','==',currentUser.uid).get().then(s=>{let learners=0,sessions=0;const rows=[];s.forEach(d=>{const u=d.data();learners+=u.learnedCount||0;sessions+=u.sessionCount||0;rows.push(u)});document.getElementById('x-contrib-units').textContent=s.size;document.getElementById('x-contrib-copy').textContent=s.size?'Có người đang học tiếng Anh bằng thứ bạn mang tới đây. Nghe cũng ấm lòng ha ^^':'Bạn chưa khao gì cho xóm cả. Không sao. Cứ ăn ké thêm vài bữa đi. 😌';el.innerHTML=s.size?`<div class="x-two"><div class="x-kpi"><strong>${learners}</strong>người đã học</div><div class="x-kpi"><strong>${sessions}</strong>phiên học từ bài của bạn</div></div><h3 class="x-section-title">👣 Dấu chân của bạn trong xóm</h3>${rows.slice(0,5).map(u=>`<div class="x-note" style="margin:8px 0">🍚 <b>${xEsc(u.unitName)}</b> đang phục vụ xóm · ${u.sessionCount||0} phiên học</div>`).join('')}`:'<div class="x-empty">Góc bếp vẫn đang trống.<br>Không sao. Cứ ăn ké thêm vài bữa đi. 😌</div>'}).catch(()=>{el.innerHTML='<div class="x-empty">Chưa đọc được góc bếp lúc này.</div>'})}
 function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Session capture + review list
 const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xSaveStudyState('summary');xRenderProgress();};
 const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
-// Public sharing guard
-const xOldSaveCloud=window.saveToCloud;window.saveToCloud=function(){const pub=document.getElementById('share-community-check')?.checked;const rights=document.getElementById('share-rights')?.value;if(pub&&rights==='unsure'){alert('🔒 Bài vẫn được lưu để bạn học bình thường. Vì quyền chia sẻ chưa rõ nên mình giữ riêng trước nha.');document.getElementById('share-community-check').checked=false}return xOldSaveCloud()};
 // Navigate enhancements
-const xNavBase=window.xGo;window.xGo=function(v,options){xNavBase(v,options);if(v==='community'){setTimeout(()=>{xInjectCommunityFilters();loadCommunityUnits()},30)}if(v==='progress')xRenderProgress();if(v==='contribute')xRenderContribution();if(v==='me')xRenderMe()};
-// auth state refresh
-try{auth.onAuthStateChanged(()=>{setTimeout(()=>{xRenderMe();xRenderContribution()},50)})}catch(e){}
-document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCommunityFilters();const gift=document.getElementById('gift-section'),ps=document.getElementById('x-prompt-slot');if(gift&&ps)ps.appendChild(gift);xHeroGo(0);});
+const xNavBase=window.xGo;window.xGo=function(v,options){xNavBase(v,options);if(v==='catalog'){setTimeout(()=>{xInjectCatalogFilters();loadCatalogUnits()},30)}if(v==='progress')xRenderProgress();if(v==='me')xRenderMe()};
+try{auth.onAuthStateChanged(()=>{setTimeout(()=>xRenderMe(),50)})}catch(e){}
+document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCatalogFilters();const gift=document.getElementById('gift-section'),ps=document.getElementById('x-prompt-slot');if(gift&&ps)ps.appendChild(gift);xHeroGo(0)});
+
 
 // PATCH 02 leaderboard, About, guest/cloud clarity
 function xPeriodInfo(type){const n=new Date(),pad=x=>String(x).padStart(2,'0');if(type==='daily')return{key:'dailyKey',minutes:'dailyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}-${pad(n.getDate())}`};if(type==='monthly')return{key:'monthlyKey',minutes:'monthlyMinutes',value:`${n.getFullYear()}-${pad(n.getMonth()+1)}`};const d=new Date(n);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return{key:'weeklyKey',minutes:'weeklyMinutes',value:`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}}
@@ -1677,35 +1596,36 @@ const xRenderProgress03=window.xRenderProgress;window.xRenderProgress=function()
 // Cloud save guard: explain before sending guest to auth.
 const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!window.currentUser){xToast('🔐 Đăng nhập để lưu bài vở, lần sau còn gọi lại được nha.');setTimeout(()=>xGo('me'),650);return}return xSaveCloud03()}
 // Lesson carousels and 12-card library.
-let xCarouselIndex={mine:0,community:0},xLibMode='mine',xLibPage=1;
+let xCarouselIndex={mine:0,catalog:0},xLibMode='mine',xLibPage=1;
 function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}))}
-function xCommunityLessons(){return (window.communityUnitsCache||communityUnitsCache||[]).map(x=>({...x,mine:false}))}
-function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu${u.author?` · ${xEsc(u.author)}`:''}</p><button class="x-primary" onclick="${xEsc(u.mine?`xStartMine(${JSON.stringify(String(u.unitName))})`:`xStartCommunity(${JSON.stringify(String(u.id))})`)}">🔥 Chiến bài này</button></article>`}
-function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-community-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang chờ bài được duyệt. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
-function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCommunityLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
+function xCatalogLessons(){return (window.catalogUnitsCache||catalogUnitsCache||[]).map(x=>({...x,mine:false}))}
+function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu · ${u.mine?'Bài riêng của bạn':'Bài chính thức của Mặn'}</p><button class="x-primary" data-lesson-action="study" data-lesson-mine="${u.mine?'true':'false'}" data-unit-id="${xEsc(u.mine?u.unitName:u.id)}">🔥 Chiến bài này</button></article>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="study"]');if(!b)return;if(b.dataset.lessonMine==='true')xStartMine(b.dataset.unitId);else xStartCatalog(b.dataset.unitId)});
+function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-catalog-carousel');if(!el)return;const arr=(mode==='mine'?xMineLessons():xCatalogLessons()).slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang tải bài của Mặn. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
+function xCarouselMove(mode,dir){const arr=(mode==='mine'?xMineLessons():xCatalogLessons()).slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
 function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
-function xOpenLibrary(mode,options={}){xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'🏘️ Khám phá kho cộng đồng';xRenderLibrary()}
+function xOpenLibrary(mode,options={}){if(xLibMode!==mode){const filters=document.getElementById('x-lib-filters');if(filters){filters.replaceChildren();delete filters.dataset.ready}}xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'📚 Khám phá Kho bài học';xRenderLibrary()}
 function xCloseLibrary(options={}){if(!options.fromHistory&&history.state?.xModal==='library'){history.back();return}document.getElementById('x-library-modal')?.classList.add('x-hidden');if(!options.fromHistory&&location.hash.endsWith('/library'))history.replaceState({xView:xLibMode},'',location.pathname+location.search+'#'+xLibMode)}
-function xRenderLibrary(){let arr=xLibMode==='mine'?xMineLessons():xCommunityLessons();const topics=[...new Set(arr.map(x=>x.topic).filter(Boolean))],levels=[...new Set(arr.map(x=>x.level).filter(Boolean))];const f=document.getElementById('x-lib-filters');if(f&&!f.dataset.ready){f.innerHTML=`<input id="x-lib-q" placeholder="🔎 Tìm bài..." oninput="xLibPage=1;xRenderLibrary()"><select id="x-lib-level" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả level</option></select><select id="x-lib-topic" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả chủ đề</option></select>`;f.dataset.ready='1'}const ls=document.getElementById('x-lib-level'),ts=document.getElementById('x-lib-topic');if(ls&&ls.options.length===1)levels.forEach(v=>ls.add(new Option(v,v)));if(ts&&ts.options.length===1)topics.forEach(v=>ts.add(new Option(v,v)));const q=(document.getElementById('x-lib-q')?.value||'').toLowerCase(),lv=ls?.value||'',tp=ts?.value||'';arr=arr.filter(x=>(!q||(x.unitName||'').toLowerCase().includes(q))&&(!lv||x.level===lv)&&(!tp||x.topic===tp));const pages=Math.max(1,Math.ceil(arr.length/12));xLibPage=Math.min(xLibPage,pages);document.getElementById('x-lib-grid').innerHTML=arr.slice((xLibPage-1)*12,xLibPage*12).map(xLessonCard).join('')||'<div class="x-empty">Chưa thấy món nào hợp bộ lọc này.</div>';document.getElementById('x-lib-pages').innerHTML=`<button ${xLibPage===1?'disabled':''} onclick="xLibPage--;xRenderLibrary()">← Previous</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===xLibPage?'active':''}" onclick="xLibPage=${i+1};xRenderLibrary()">${i+1}</button>`).join('')}<button ${xLibPage===pages?'disabled':''} onclick="xLibPage++;xRenderLibrary()">Next →</button>`}
+function xRenderLibrary(){let arr=xLibMode==='mine'?xMineLessons():xCatalogLessons();const topics=[...new Set(arr.map(x=>x.topic).filter(Boolean))],levels=[...new Set(arr.map(x=>x.level).filter(Boolean))];const f=document.getElementById('x-lib-filters');if(f&&!f.dataset.ready){f.innerHTML=`<input id="x-lib-q" placeholder="🔎 Tìm bài..." oninput="xLibPage=1;xRenderLibrary()"><select id="x-lib-level" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả level</option></select><select id="x-lib-topic" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả chủ đề</option></select>`;f.dataset.ready='1'}const ls=document.getElementById('x-lib-level'),ts=document.getElementById('x-lib-topic');if(ls&&ls.options.length===1)levels.forEach(v=>ls.add(new Option(v,v)));if(ts&&ts.options.length===1)topics.forEach(v=>ts.add(new Option(v,v)));const q=(document.getElementById('x-lib-q')?.value||'').toLowerCase(),lv=ls?.value||'',tp=ts?.value||'';arr=arr.filter(x=>(!q||(x.unitName||'').toLowerCase().includes(q))&&(!lv||x.level===lv)&&(!tp||x.topic===tp));const pages=Math.max(1,Math.ceil(arr.length/12));xLibPage=Math.min(xLibPage,pages);document.getElementById('x-lib-grid').innerHTML=arr.slice((xLibPage-1)*12,xLibPage*12).map(xLessonCard).join('')||'<div class="x-empty">Chưa thấy món nào hợp bộ lọc này.</div>';document.getElementById('x-lib-pages').innerHTML=`<button ${xLibPage===1?'disabled':''} onclick="xLibPage--;xRenderLibrary()">← Previous</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===xLibPage?'active':''}" onclick="xLibPage=${i+1};xRenderLibrary()">${i+1}</button>`).join('')}<button ${xLibPage===pages?'disabled':''} onclick="xLibPage++;xRenderLibrary()">Next →</button>`}
 // Keep carousels fresh after existing render/update functions.
 const xRenderUnits03=window.renderUnitsUI; if(xRenderUnits03)window.renderUnitsUI=function(){const r=xRenderUnits03.apply(this,arguments);setTimeout(()=>xRenderCarousel('mine'),20);return r};
-// loadCommunityUnits refreshes the carousel after Firestore responds.
+// The static catalog refreshes the carousel after its JSON loads.
 // Keep transcript playback in transcript tab: old playSentence must not switch study tab.
 if(typeof window.playTranscriptSentence==='function'){} // reserved
 // auth state identity + initial renders
-try{auth.onAuthStateChanged(u=>{window.currentUser=u||null;setTimeout(()=>{xRefreshIdentity();xRenderProgress();xRenderCarousel('mine');xRenderCarousel('community')},100)})}catch(e){}
-document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{xRefreshIdentity();xRenderCarousel('mine');xRenderCarousel('community')},150)});
+try{auth.onAuthStateChanged(u=>{window.currentUser=u||null;setTimeout(()=>{xRefreshIdentity();xRenderProgress();xRenderCarousel('mine');xRenderCarousel('catalog')},100)})}catch(e){}
+document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{xRefreshIdentity();xRenderCarousel('mine');xRenderCarousel('catalog')},150)});
 </script>
 
 
 <script id="patch04-js">
 // Hero: stable modern composition with a 3D-ish mascot object.
-const xHeroGo04=window.xHeroGo; window.xHeroGo=function(i){xHeroIndex=(i+XHERO.length)%XHERO.length;const h=XHERO[xHeroIndex],hero=document.getElementById('x-hero'),copy=document.getElementById('x-hero-copy');if(!hero||!copy)return;hero.style.setProperty('--hero-bg',h.bg);const artLabel=xHeroIndex===0?'🎧 nghe · gõ · tiến bộ':xHeroIndex===1?'📚 bài mình + bài xóm':'📈 lưu hành trình';copy.innerHTML=`<div style="font-weight:900;color:#8b5d30;margin-bottom:9px;letter-spacing:.3px">${h.tag}</div><h1>${h.title}</h1><p>${h.desc}</p><button class="x-primary" onclick="${h.act}">${h.btn}</button>`;let art=hero.querySelector('.x-hero-art');if(!art){art=document.createElement('div');art.className='x-hero-art';hero.appendChild(art)}art.innerHTML=`<div class="x-hero-orb"></div><div class="x-hero-cat">🐱</div><div class="x-hero-float one">✨ ${xHeroIndex===2?'đừng bay màu':'học tí hoy'}</div><div class="x-hero-float two">${artLabel}</div>`;document.querySelectorAll('.x-hero-dot').forEach((d,j)=>d.classList.toggle('active',j===xHeroIndex));clearInterval(xHeroTimer);xHeroTimer=setInterval(()=>window.xHeroGo(xHeroIndex+1),6000)};
+const xHeroGo04=window.xHeroGo; window.xHeroGo=function(i){xHeroIndex=(i+XHERO.length)%XHERO.length;const h=XHERO[xHeroIndex],hero=document.getElementById('x-hero'),copy=document.getElementById('x-hero-copy');if(!hero||!copy)return;hero.style.setProperty('--hero-bg',h.bg);const artLabel=xHeroIndex===0?'🎧 nghe · gõ · tiến bộ':xHeroIndex===1?'📚 bài mình + bài Mặn':'📈 lưu hành trình';copy.innerHTML=`<div style="font-weight:900;color:#8b5d30;margin-bottom:9px;letter-spacing:.3px">${h.tag}</div><h1>${h.title}</h1><p>${h.desc}</p><button class="x-primary" onclick="${h.act}">${h.btn}</button>`;let art=hero.querySelector('.x-hero-art');if(!art){art=document.createElement('div');art.className='x-hero-art';hero.appendChild(art)}art.innerHTML=`<div class="x-hero-orb"></div><div class="x-hero-cat">🐱</div><div class="x-hero-float one">✨ ${xHeroIndex===2?'đừng bay màu':'học tí hoy'}</div><div class="x-hero-float two">${artLabel}</div>`;document.querySelectorAll('.x-hero-dot').forEach((d,j)=>d.classList.toggle('active',j===xHeroIndex));clearInterval(xHeroTimer);xHeroTimer=setInterval(()=>window.xHeroGo(xHeroIndex+1),6000)};
 
 const XNOTIFS=[
  {id:'welcome',type:'info',icon:'🏘️',title:'Xóm đang sửa sang mỗi ngày',body:'Có món mới, thay đổi quan trọng hay bảo trì thì Mèo Xóm sẽ réo ở đây.',time:'Vừa xong'},
- {id:'learn',type:'learn',icon:'🎧',title:'Bài vở hàng xóm đang chờ',body:'Kho cộng đồng sẽ được bổ sung bài theo level, topic và mục tiêu học.',time:'Hôm nay'},
+ {id:'learn',type:'learn',icon:'🎧',title:'Bài vở hàng xóm đang chờ',body:'Kho bài học sẽ được bổ sung bài theo level, topic và mục tiêu học.',time:'Hôm nay'},
  {id:'profile',type:'heart',icon:'🏅',title:'Phong hàm để đeo chứ không phải để ngắm',body:'Bạn có thể chọn phong hàm đang mở để mang lên hồ sơ.',time:'Hôm nay'}
 ];
 function xReadNotifs(){try{return JSON.parse(localStorage.getItem('xnot_read_notifs')||'[]')}catch(e){return[]}}
@@ -1891,11 +1811,11 @@ function xRestoreStudy(){
  }
  return true;
 }
-function xHashView(){try{return decodeURIComponent(location.hash.slice(1))}catch(e){return 'home'}}
+function xHashView(){try{const route=decodeURIComponent(location.hash.slice(1));if(route==='community')return 'catalog';if(route==='community/library')return 'catalog/library';if(route==='contribute')return 'mine';return route}catch(e){return 'home'}}
 document.addEventListener('DOMContentLoaded',()=>{
  history.scrollRestoration='manual';
  const route=xHashView();
- const library=/^(mine|community)\/library$/.exec(route);
+ const library=/^(mine|catalog)\/library$/.exec(route);
  xGo(X_VIEWS.has(route)?route:library?library[1]:'home',{historyMode:library?'pop':'replace'});
  if(library)xOpenLibrary(library[1],{historyMode:'pop'});
  if(route==='learn')xRestoreStudy();
@@ -1906,7 +1826,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 window.addEventListener('popstate',event=>{
  const route=xHashView();
- const library=/^(mine|community)\/library$/.exec(route);
+ const library=/^(mine|catalog)\/library$/.exec(route);
  xCloseLibrary({fromHistory:true});
  const view=X_VIEWS.has(route)?route:library?library[1]:'home';
  xGo(view,{historyMode:'pop'});

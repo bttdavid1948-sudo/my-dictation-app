@@ -1,0 +1,187 @@
+{
+  "catalogVersion": 1,
+  "publisher": "man",
+  "rightsNote": "Original Mặn lessons. Publication requires code/content review before merge.",
+  "lessons": [
+    {
+      "unitName": "Một buổi sáng bớt vội",
+      "topic": "Đời sống",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe các câu ngắn về thói quen buổi sáng và nhận diện thời gian.",
+      "usefulLanguage": [
+        "wake up",
+        "have breakfast",
+        "leave home"
+      ],
+      "items": [
+        {
+          "en": "I wake up at seven on weekdays.",
+          "vi": "Tôi thức dậy lúc bảy giờ vào các ngày trong tuần."
+        },
+        {
+          "en": "I open the window and drink some water.",
+          "vi": "Tôi mở cửa sổ và uống một ít nước."
+        },
+        {
+          "en": "My sister makes breakfast in the kitchen.",
+          "vi": "Chị gái tôi chuẩn bị bữa sáng trong bếp."
+        },
+        {
+          "en": "We eat together before she goes to work.",
+          "vi": "Chúng tôi ăn cùng nhau trước khi chị ấy đi làm."
+        },
+        {
+          "en": "I leave home at eight with my bag.",
+          "vi": "Tôi rời nhà lúc tám giờ, mang theo túi của mình."
+        },
+        {
+          "en": "The bus stop is near our house.",
+          "vi": "Trạm xe buýt ở gần nhà chúng tôi."
+        }
+      ],
+      "id": "man-original-01",
+      "publisher": "man",
+      "status": "published",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "version": 1
+    },
+    {
+      "unitName": "Đổi lịch hẹn cà phê",
+      "topic": "Đời sống",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe một cuộc hẹn thay đổi và nắm thời điểm mới.",
+      "usefulLanguage": [
+        "running late",
+        "move it to",
+        "works for me"
+      ],
+      "items": [
+        {
+          "en": "Are we still meeting for coffee this afternoon?",
+          "vi": "Chiều nay mình vẫn gặp nhau uống cà phê chứ?"
+        },
+        {
+          "en": "I am running late because my bus broke down.",
+          "vi": "Tôi đến muộn vì xe buýt của tôi bị hỏng."
+        },
+        {
+          "en": "Can we move it to four thirty?",
+          "vi": "Mình dời cuộc hẹn sang bốn giờ rưỡi được không?"
+        },
+        {
+          "en": "That works for me, but I have to leave by six.",
+          "vi": "Giờ đó được với tôi, nhưng tôi phải về trước sáu giờ."
+        },
+        {
+          "en": "Let's meet outside the small cafe by the park.",
+          "vi": "Mình gặp nhau bên ngoài quán cà phê nhỏ cạnh công viên nhé."
+        },
+        {
+          "en": "I'll send you a message when I get there.",
+          "vi": "Khi đến nơi tôi sẽ nhắn cho bạn."
+        }
+      ],
+      "id": "man-original-02",
+      "publisher": "man",
+      "status": "published",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "version": 1
+    },
+    {
+      "unitName": "Giải quyết một đơn hàng lỗi",
+      "topic": "Công việc",
+      "level": "B1",
+      "track": "TOEIC",
+      "learningGoal": "Nắm vấn đề, cách xử lý và thời hạn trong một cuộc trao đổi công việc.",
+      "usefulLanguage": [
+        "missing items",
+        "check with",
+        "follow up"
+      ],
+      "items": [
+        {
+          "en": "A customer called about an order with two missing items.",
+          "vi": "Một khách hàng gọi về đơn hàng bị thiếu hai món."
+        },
+        {
+          "en": "I checked the invoice, and both items were listed there.",
+          "vi": "Tôi đã kiểm tra hóa đơn và thấy cả hai món đều được ghi trên đó."
+        },
+        {
+          "en": "The warehouse may have packed the wrong box.",
+          "vi": "Có thể kho đã đóng nhầm thùng hàng."
+        },
+        {
+          "en": "Could you check with the warehouse team this morning?",
+          "vi": "Sáng nay bạn kiểm tra lại với đội kho được không?"
+        },
+        {
+          "en": "I'll call the customer back before lunch.",
+          "vi": "Tôi sẽ gọi lại cho khách trước giờ ăn trưa."
+        },
+        {
+          "en": "We should follow up after the replacement is delivered.",
+          "vi": "Chúng ta nên hỏi thăm lại sau khi hàng thay thế được giao."
+        }
+      ],
+      "id": "man-original-03",
+      "publisher": "man",
+      "status": "published",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "version": 1
+    },
+    {
+      "unitName": "Một chuyến tàu đổi sân ga",
+      "topic": "Du lịch",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe thông báo thay đổi sân ga và xác định hành động cần làm.",
+      "usefulLanguage": [
+        "platform change",
+        "instead of",
+        "keep an eye on"
+      ],
+      "items": [
+        {
+          "en": "The platform for our train to the coast has changed.",
+          "vi": "Chuyến tàu ra biển của chúng ta đã đổi sân ga."
+        },
+        {
+          "en": "It will leave from platform eight instead of platform three.",
+          "vi": "Tàu sẽ khởi hành ở sân ga số tám thay vì sân ga số ba."
+        },
+        {
+          "en": "We have ten minutes, so there is no need to run.",
+          "vi": "Chúng ta còn mười phút nên không cần chạy."
+        },
+        {
+          "en": "Let's check the departure board once more.",
+          "vi": "Mình kiểm tra bảng giờ tàu thêm một lần nữa nhé."
+        },
+        {
+          "en": "Keep an eye on your bag while we walk through the station.",
+          "vi": "Nhớ để mắt đến túi của bạn khi mình đi qua nhà ga."
+        },
+        {
+          "en": "I can carry the small suitcase if your hands are full.",
+          "vi": "Nếu tay bạn đang bận, tôi có thể xách chiếc vali nhỏ."
+        }
+      ],
+      "id": "man-original-04",
+      "publisher": "man",
+      "status": "published",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "version": 1
+    }
+  ]
+}
