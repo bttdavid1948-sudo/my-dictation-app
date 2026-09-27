@@ -302,18 +302,43 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
         </div>
 
         <div id="dictation-app" class="dictation-container hidden">
-            <p id="study-context" class="study-context" aria-live="polite"></p>
+            <div class="x-study-heading"><p id="study-context" class="study-context" aria-live="polite"></p>
             <div class="tab-menu" style="border-bottom: 2px solid #0f172a; margin-bottom: 15px;">
                 <button class="tab-btn active" id="tab-dictation-btn" onclick="switchStudyTab('dictation')">Nghe và gõ</button>
                 <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Toàn bộ câu</button>
-            </div>
+            </div></div>
 
             <div id="study-view-dictation" class="x-dictation-layout">
+                <section class="x-practice-region" aria-label="Luyện nghe và gõ">
+                <h3>1 · Luyện nghe và gõ</h3>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
                     <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">Dừng lượt học</button>
                 </div>
 
+                <div class="input-area-wrapper">
+                    <textarea id="user-input" class="user-textarea" placeholder="cứ gõ mạnh vào, đừng sợ tôi đau..." autocomplete="off"></textarea>
+                </div>
+                </section>
+
+                <section class="x-feedback-region" aria-label="Phản hồi và gợi ý">
+                <h3>2 · Phản hồi và gợi ý</h3>
+                <div id="status-msg" class="status-message" aria-live="polite">✔ You are correct!</div>
+                <div class="translation-box" style="margin-top: 10px;">
+                    <div id="text-vi" style="font-size: 16px;">*** Bắt được câu rồi mới hé bản dịch nha 😌</div>
+                </div>
+                <div class="pronunciation-box">
+                    <div style="font-size: 13px; color: #6c757d; margin-bottom: 6px;">Gợi ý câu:</div>
+                    <div id="pronunciation-words" class="target-words-display"></div>
+                </div>
+                <div class="option-toggle-box" style="display:none">
+                    <label style="cursor: pointer;"><input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> Show answer immediately (Kiểm tra từng từ ngay khi gõ)</label>
+                    <label style="cursor: pointer;"><input type="checkbox" id="show-full" onchange="renderPronunciationWords()"> Show full answer (Hiện toàn bộ câu đáp án)</label>
+                </div>
+                </section>
+
+                <section class="x-control-region" aria-label="Điều khiển luyện nghe">
+                <h3>3 · Điều khiển</h3>
                 <div class="audio-player x-practice-controls">
                     <button class="btn btn-audio" onclick="playAudio()">🔊 Nghe lại</button>
                     <button class="btn btn-note" onclick="playSlowAudio()">🐢 Nghe chậm</button>
@@ -330,44 +355,25 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                     <select id="voice-select" class="select-style" style="max-width: 130px;"></select>
                 </div>
 
-                <div class="input-area-wrapper">
-                    <textarea id="user-input" class="user-textarea" placeholder="cứ gõ mạnh vào, đừng sợ tôi đau..." autocomplete="off"></textarea>
-                </div>
-
-                <div class="translation-box" style="margin-top: 10px;">
-                    <div id="text-vi" style="font-size: 16px;">*** Bắt được câu rồi mới hé bản dịch nha 😌</div>
-                </div>
-
-                <div class="pronunciation-box">
-                    <div style="font-size: 13px; color: #6c757d; margin-bottom: 6px;">Gợi ý câu:</div>
-                    <div id="pronunciation-words" class="target-words-display"></div>
-                </div>
-
-                <div class="option-toggle-box" style="display:none">
-                    <label style="cursor: pointer;">
-                        <input type="checkbox" id="show-immediately" checked onchange="renderPronunciationWords()"> 
-                        Show answer immediately (Kiểm tra từng từ ngay khi gõ)
-                    </label>
-                    <label style="cursor: pointer;">
-                        <input type="checkbox" id="show-full" onchange="renderPronunciationWords()"> 
-                        Show full answer (Hiện toàn bộ câu đáp án)
-                    </label>
-                </div>
-
                 <div class="bottom-left-controls x-practice-controls">
-                    <div id="status-msg" class="status-message">✔ You are correct!</div>
                     <div class="action-btns" style="display: flex; gap: 8px;">
                         <button class="btn btn-note" onclick="giveUpCurrent()">🏳️ Chịu thua chưa?</button>
                         <button id="x-next-manual" class="btn btn-next hidden" onclick="nextQuestion()">Tới lun đê! ➔</button>
                     </div>
                 </div>
+                </section>
             </div>
 
             <div id="study-view-transcript" class="hidden">
-                <div class="transcript-container">
-                    <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Bấm Phát để nghe từng câu. Chạm vào câu để quay lại phần Nghe và gõ.</div>
-                    <div class="x-transcript-tools"><label><input type="checkbox" id="x-transcript-repeat"> Lặp lại câu</label><label><input type="checkbox" id="x-transcript-scroll" checked> Tự cuộn tới câu đang phát</label><span>Space: Phát/Tạm dừng · ←/→: Câu trước/sau</span></div>
-                    <div id="full-transcript-list"></div>
+                <div class="x-transcript-layout">
+                    <section class="x-transcript-player" aria-label="Câu đang nghe">
+                        <h3>🎧 Nghe toàn bài</h3>
+                        <div class="x-player-controls"><button type="button" class="btn btn-audio" id="x-transcript-play" onclick="xToggleTranscriptPlay()">▶ Phát từ câu hiện tại</button><label><input type="checkbox" id="x-transcript-repeat"> Lặp toàn bài</label><label><input type="checkbox" id="x-transcript-scroll" checked> Tự cuộn</label></div>
+                        <div id="x-transcript-current" class="x-current-sentence" aria-live="polite"></div>
+                        <div class="x-sentence-nav"><button type="button" id="x-transcript-prev" onclick="xMoveTranscript(-1)" aria-label="Câu trước">←</button><span id="x-transcript-counter" aria-live="polite">1 / 1</span><button type="button" id="x-transcript-next" onclick="xMoveTranscript(1)" aria-label="Câu sau">→</button></div>
+                        <p class="x-shortcut-hint">Space: Phát/Tạm dừng · ←/→: Câu trước/sau</p>
+                    </section>
+                    <section class="transcript-container x-transcript-list" aria-label="Toàn bộ câu"><h3>📜 Toàn bộ câu</h3><div id="full-transcript-list"></div></section>
                 </div>
             </div>
         </div>
@@ -617,11 +623,12 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function switchStudyTab(tab) {
+            if (tab !== 'transcript') xStopTranscriptPlayback();
             document.getElementById('tab-dictation-btn').classList.toggle('active', tab === 'dictation');
             document.getElementById('tab-transcript-btn').classList.toggle('active', tab === 'transcript');
             document.getElementById('study-view-dictation').classList.toggle('hidden', tab !== 'dictation');
             document.getElementById('study-view-transcript').classList.toggle('hidden', tab !== 'transcript');
-            if (tab === 'transcript') { xTranscriptCursor = currentIndex; renderFullTranscript(); }
+            if (tab === 'transcript') { xStopTranscriptPlayback(); xTranscriptCursor = Math.max(0, Math.min(currentIndex, items.length - 1)); renderFullTranscript(); xSyncTranscriptView(); }
         }
 
         let catalogPromise;
@@ -1135,9 +1142,9 @@ Danh sách từ/cụm từ của tôi:
                 const play = document.createElement('button'); play.type = 'button';
                 play.className = 'btn btn-audio'; play.style.cssText = 'font-size:12px;padding:4px 10px';
                 play.textContent = '▶ Phát';
-                play.addEventListener('click', event => { event.stopPropagation(); xPlayTranscriptItem(idx); });
+                play.addEventListener('click', event => { event.stopPropagation(); xPlayTranscriptFrom(idx); });
                 div.append(text, play);
-                div.onclick = () => jumpToQuestion(idx);
+                div.onclick = () => xSelectTranscript(idx);
                 listEl.appendChild(div);
             });
         }
@@ -1448,6 +1455,7 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function backToSetup() {
+            xStopTranscriptPlayback();
             stopStudyTimerAndSave();
             try{sessionStorage.removeItem('man_study_v1')}catch(e){}
             document.getElementById('summary-section').classList.add('hidden');
@@ -1575,7 +1583,7 @@ function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)r
 const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xShowNextLessons();xSaveStudyState('summary');xRenderProgress();};
 const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
 // Navigate enhancements
-const xNavBase=window.xGo;window.xGo=function(v,options){xNavBase(v,options);if(v==='catalog'){setTimeout(()=>{xInjectCatalogFilters();loadCatalogUnits()},30)}if(v==='progress')xRenderProgress();if(v==='me')xRenderMe()};
+const xNavBase=window.xGo;window.xGo=function(v,options){if(v!=='learn')xStopTranscriptPlayback();xNavBase(v,options);if(v==='catalog'){setTimeout(()=>{xInjectCatalogFilters();loadCatalogUnits()},30)}if(v==='progress')xRenderProgress();if(v==='me')xRenderMe()};
 try{auth.onAuthStateChanged(()=>{setTimeout(()=>xRenderMe(),50)})}catch(e){}
 document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCatalogFilters();const gift=document.getElementById('gift-section'),ps=document.getElementById('x-prompt-slot');if(gift&&ps)ps.appendChild(gift);xHeroGo(0)});
 
@@ -1999,11 +2007,11 @@ async function xConfirmPrivateDelete() {
 @media(max-width:560px){.x-header-logo .man-word{font-size:17px}.x-header-right .x-search-real{min-width:0;font-size:12px;padding:9px 11px!important}}
 .x-hero-controls{position:absolute;right:22px;bottom:14px;display:flex;gap:8px;z-index:5}.x-hero-controls button{border:1px solid #e8d9ca;border-radius:50%;background:#fff;color:#20263a;width:32px;height:32px;font-size:21px;cursor:pointer}.x-hero-controls button:hover{background:#fff4dc}
 .x-study-choices,.x-next-group{margin-top:14px;text-align:left;padding:14px;background:#fff;border:1px solid #e8e9ed;border-radius:16px}.x-choice-list{display:flex;gap:8px;flex-wrap:wrap}.x-choice-list button{white-space:normal;text-align:left}.x-study-choices h4,.x-next-group h4{margin:0 0 10px}.x-next-group{margin-top:10px}
-#study-view-dictation:not(.hidden){display:flex;flex-direction:column;gap:10px}#study-view-dictation>.audio-player{order:4;margin-top:0}#study-view-dictation>.input-area-wrapper{order:1}#study-view-dictation>.translation-box,#study-view-dictation>.pronunciation-box{order:2}#study-view-dictation>.option-toggle-box{order:2}#study-view-dictation>.bottom-left-controls{order:3}#study-view-dictation>.bottom-left-controls .action-btns{flex-wrap:wrap}
-.x-transcript-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-size:13px}.x-transcript-tools label{border:1px solid #e5e7eb;border-radius:12px;padding:7px 9px}.x-transcript-tools span{color:#596174}.transcript-item.x-transcript-playing{outline:2px solid #f6bd55;outline-offset:-2px}
+#study-view-dictation:not(.hidden){display:grid;gap:14px}.x-study-heading{margin-bottom:12px}.x-practice-region,.x-feedback-region,.x-control-region{padding:18px;border-radius:18px;border:1px solid #e1e8ed}.x-practice-region{background:#f3fbf8;border-color:#c9eadc}.x-feedback-region{background:#fffaf0;border-color:#f3e1b8}.x-control-region{background:#f3f6fb;border-color:#dce5f2}.x-practice-region h3,.x-feedback-region h3,.x-control-region h3,.x-transcript-player h3,.x-transcript-list h3{font-size:15px;margin:0 0 12px;color:#334155}.x-practice-region .input-area-wrapper{margin:0}.x-feedback-region .status-message{margin-bottom:10px}.x-feedback-region .translation-box,.x-feedback-region .pronunciation-box{margin-bottom:8px}.x-control-region .audio-player{margin:0 0 10px;background:transparent;padding:0}.x-control-region .bottom-left-controls{margin:0}.x-control-region .action-btns{flex-wrap:wrap}
+.x-transcript-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}.x-transcript-player,.x-transcript-list{padding:20px;border:1px solid #dce5ee;border-radius:18px;background:#f8fbfd}.x-player-controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.x-player-controls label{font-size:13px;border:1px solid #e5e7eb;border-radius:12px;padding:7px 9px;background:#fff}.x-current-sentence{display:grid;place-content:center;min-height:190px;margin:18px 0 12px;padding:22px;border-radius:16px;background:#fff;border:2px solid #f1d48e;font-size:clamp(18px,2.2vw,27px);font-weight:750;line-height:1.45;text-align:center;overflow-wrap:anywhere}.x-sentence-nav{display:flex;align-items:center;justify-content:center;gap:26px;font-size:18px;font-weight:800}.x-sentence-nav button{border:1px solid #d4dce6;background:#fff;border-radius:10px;min-width:44px;min-height:40px;font-size:21px;cursor:pointer}.x-sentence-nav button:disabled{opacity:.45;cursor:default}.x-shortcut-hint{font-size:12px;color:#64748b;text-align:center}.x-transcript-list{min-width:0}.x-transcript-list #full-transcript-list{max-height:430px;overflow-y:auto}.x-transcript-list .transcript-item.active{background:#ffe8b6;outline:2px solid #dfad4c;outline-offset:-2px}.x-transcript-list .transcript-item>div{min-width:0;overflow-wrap:anywhere}.x-transcript-list .transcript-item button{flex-shrink:0}@media(max-width:760px){.x-transcript-layout{grid-template-columns:1fr}.x-transcript-player,.x-transcript-list{padding:14px}.x-current-sentence{min-height:150px}.x-transcript-list #full-transcript-list{max-height:330px}}
 </style>
 <script id="pilot-targeted-js">
-let xTranscriptCursor=0,xTranscriptToken=0;
+let xTranscriptCursor=0,xTranscriptToken=0,xTranscriptPlaying=false,xTranscriptPaused=false;
 function xChoiceButton(label,action){const button=document.createElement('button');button.type='button';button.className='btn btn-note';button.textContent=label;button.addEventListener('click',action);return button}
 async function xRenderStudyChoices(mode,target){
  if(!target)return;target.replaceChildren();
@@ -2027,25 +2035,56 @@ function xShowStudyChoices(mode){
  if(!panel.classList.contains('hidden')&&panel.dataset.mode===mode){panel.classList.add('hidden');return}
  panel.dataset.mode=mode;panel.classList.remove('hidden');xRenderStudyChoices(mode,panel);
 }
-function xPlayTranscriptItem(index){
+function xSyncTranscriptView(){
+ const item=items?.[xTranscriptCursor],counter=document.getElementById('x-transcript-counter'),screen=document.getElementById('x-transcript-current');
+ if(counter)counter.textContent=items?.length?`${xTranscriptCursor+1} / ${items.length}`:'0 / 0';
+ if(screen)screen.textContent=item?.en||'Chưa có câu nào trong bài này.';
+ document.getElementById('x-transcript-prev').disabled=xTranscriptCursor<=0;
+ document.getElementById('x-transcript-next').disabled=xTranscriptCursor>=items.length-1;
+ document.getElementById('x-transcript-play').textContent=xTranscriptPaused?'▶ Tiếp tục':xTranscriptPlaying?'⏸ Tạm dừng':'▶ Phát từ câu hiện tại';
+ const rows=document.querySelectorAll('#full-transcript-list .transcript-item');rows.forEach((row,i)=>row.classList.toggle('active',i===xTranscriptCursor));
+ if(item&&document.getElementById('x-transcript-scroll')?.checked)rows[xTranscriptCursor]?.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function xStopTranscriptPlayback(){
+ ++xTranscriptToken;xTranscriptPlaying=false;xTranscriptPaused=false;
+ if('speechSynthesis' in window)speechSynthesis.cancel();
+ if(document.getElementById('x-transcript-play'))xSyncTranscriptView();
+}
+function xSelectTranscript(index){
+ const next=Number(index);if(!Number.isInteger(next)||next<0||next>=items.length)return;
+ const wasPlaying=xTranscriptPlaying&&!xTranscriptPaused;
+ xStopTranscriptPlayback();xTranscriptCursor=next;xSyncTranscriptView();
+ if(wasPlaying)xPlayTranscriptFrom(next);
+}
+function xMoveTranscript(delta){const next=Math.max(0,Math.min(items.length-1,xTranscriptCursor+delta));if(next!==xTranscriptCursor)xSelectTranscript(next)}
+function xPlayTranscriptFrom(index){
  const idx=Number(index),item=items?.[idx];if(!item||!('speechSynthesis' in window))return;
- const token=++xTranscriptToken;xTranscriptCursor=idx;
- document.querySelectorAll('#full-transcript-list .transcript-item').forEach((row,i)=>row.classList.toggle('x-transcript-playing',i===idx));
- if(document.getElementById('x-transcript-scroll')?.checked)document.querySelectorAll('#full-transcript-list .transcript-item')[idx]?.scrollIntoView({block:'nearest',behavior:'smooth'});
- speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
+ xStopTranscriptPlayback();xTranscriptCursor=idx;xTranscriptPlaying=true;xSyncTranscriptView();
+ const token=++xTranscriptToken,utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
  const voiceSelect=document.getElementById('voice-select');if(englishVoices.length&&voiceSelect?.value!=='')utterance.voice=englishVoices[Number(voiceSelect.value)];
  utterance.rate=Number(document.getElementById('rate-select')?.value||1);
- utterance.onend=()=>{if(token===xTranscriptToken&&document.getElementById('x-transcript-repeat')?.checked&&!document.getElementById('study-view-transcript')?.classList.contains('hidden'))xPlayTranscriptItem(idx)};
+ utterance.onend=()=>{
+  if(token!==xTranscriptToken||!xTranscriptPlaying)return;
+  if(idx+1<items.length)xPlayTranscriptFrom(idx+1);
+  else if(document.getElementById('x-transcript-repeat')?.checked)xPlayTranscriptFrom(0);
+  else{xTranscriptPlaying=false;xTranscriptPaused=false;xSyncTranscriptView()}
+ };
+ utterance.onerror=()=>{if(token===xTranscriptToken){xTranscriptPlaying=false;xTranscriptPaused=false;xSyncTranscriptView()}};
  speechSynthesis.speak(utterance);
+}
+function xToggleTranscriptPlay(){
+ if(!items?.length)return;
+ if(xTranscriptPaused){speechSynthesis.resume();xTranscriptPaused=false;xTranscriptPlaying=true;xSyncTranscriptView()}
+ else if(xTranscriptPlaying){speechSynthesis.pause();xTranscriptPaused=true;xSyncTranscriptView()}
+ else xPlayTranscriptFrom(xTranscriptCursor);
 }
 document.addEventListener('keydown',event=>{
  if(document.getElementById('study-view-transcript')?.classList.contains('hidden')||!document.getElementById('x-learn')?.classList.contains('active'))return;
- if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.closest('input,textarea,select,button,[contenteditable="true"]'))return;
+ if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target?.closest?.('input,textarea,select,button,[contenteditable]'))return;
  if(!['Space','ArrowLeft','ArrowRight'].includes(event.code))return;
  event.preventDefault();
- if(event.code==='Space'){
-  if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause();else xPlayTranscriptItem(xTranscriptCursor);
- }else xPlayTranscriptItem(Math.max(0,Math.min(items.length-1,xTranscriptCursor+(event.code==='ArrowLeft'?-1:1))));
+ if(event.code==='Space')xToggleTranscriptPlay();
+ else xMoveTranscript(event.code==='ArrowLeft'?-1:1);
 });
 </script>
 </body>
