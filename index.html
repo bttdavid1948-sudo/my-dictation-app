@@ -395,6 +395,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 
         <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
+            <button class="btn btn-note" type="button" onclick="xEndStudyFromSummary()">Dừng lượt học</button>
             <button class="btn btn-note" onclick="xGo('home')">🏠 Về trang chủ</button>
             <button class="btn btn-next" onclick="xRestartLesson()">🔁 Học lại lượt này</button>
         </div>
@@ -556,6 +557,7 @@ Danh sách từ/cụm từ của tôi:
                 unitsData={};
                 xCloudLoadedForUid=null;
                 xCloudUnitsSnapshot=null;
+                xPrivateCloudRevision++;
                 userProfileData={nickname:'',motto:'',totalMinutes:0};
                 items=[];
                 try{sessionStorage.removeItem('man_study_v1')}catch(e){}
@@ -910,6 +912,7 @@ Danh sách từ/cụm từ của tôi:
 
         let xCloudLoadedForUid = null;
         let xCloudUnitsSnapshot = null;
+        let xPrivateCloudRevision = 0;
         let xPrivateSaveQueue = Promise.resolve();
         function xPrivateDraftKey(uid) { return 'man_private_draft_v1_' + uid; }
         function xPrivateSaveStatus(message) {
@@ -985,6 +988,7 @@ Danh sách từ/cụm từ của tôi:
         async function loadFromCloud() {
             if (!currentUser) return;
             const uid = currentUser.uid;
+            const revision = xPrivateCloudRevision;
             if (xCloudLoadedForUid && xCloudLoadedForUid !== uid && Object.keys(unitsData).length) {
                 xToast('Trên máy còn bài từ tài khoản trước. Mở cửa sổ mới để dùng tài khoản khác, tránh trộn bài nha.');
                 return;
@@ -997,15 +1001,17 @@ Danh sách từ/cụm từ của tôi:
                         Object.values(parsed).every(items => Array.isArray(items)))
                         unitsData = xMergePrivateUnits(unitsData, parsed).merged;
                 }
-                const doc = await db.collection('user_vocab').doc(uid).get();
-                if (currentUser?.uid !== uid) return;
+                const doc = await db.collection('user_vocab').doc(uid).get({source:'server'});
+                if (currentUser?.uid !== uid || revision !== xPrivateCloudRevision) return;
                 const raw = doc.exists ? doc.data().units : null;
                 const remote = raw ? JSON.parse(raw) : {};
                 if (!remote || Array.isArray(remote) || typeof remote !== 'object' ||
                     Object.values(remote).some(items => !Array.isArray(items))) {
                     throw new Error('INVALID_CLOUD_UNITS');
                 }
-                const {merged, conflicts} = xMergePrivateUnits(unitsData, remote);
+                // An account read is authoritative unless this session has an unsaved draft.
+                // Otherwise an old in-memory lesson can override a confirmed edit on reload.
+                const {merged, conflicts} = draft ? xMergePrivateUnits(unitsData, remote) : {merged:remote, conflicts:0};
                 unitsData = merged;
                 xCloudLoadedForUid = uid;
                 xCloudUnitsSnapshot = raw;
@@ -1464,6 +1470,19 @@ Danh sách từ/cụm từ của tôi:
             document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('dictation-placeholder').classList.remove('hidden');
             document.getElementById('dictation-placeholder').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function xEndStudyFromSummary() {
+            xStopTranscriptPlayback();
+            stopStudyTimerAndSave();
+            try { sessionStorage.removeItem('man_study_v1'); } catch (e) {}
+            items = []; currentIndex = 0; failedItemsList = []; correctCount = 0; isRetryMode = false;
+            document.getElementById('summary-section').classList.add('hidden');
+            document.getElementById('dictation-app').classList.add('hidden');
+            document.getElementById('dictation-placeholder').classList.remove('hidden');
+            const choices = document.getElementById('x-study-choices');
+            choices.classList.add('hidden'); choices.replaceChildren(); choices.dataset.mode = '';
+            xGo('learn');
         }
 
         function copyPrompt(elementId, btn) {
@@ -1932,6 +1951,7 @@ async function xPersistPrivateMutation(oldName, expected, newName, items, removi
   const verified = await ref.get({source:'server'});
   if (!verified.exists || verified.data().units !== JSON.stringify(next)) throw new Error('SAVE_NOT_VERIFIED');
   if (currentUser?.uid !== uid) throw new Error('ACCOUNT_CHANGED');
+  xPrivateCloudRevision++;
   unitsData = next;
   xCloudUnitsSnapshot = verified.data().units;
   xPrivateSaveStatus('✅ Đã lưu vào tài khoản và kiểm tra lại trên server.');
