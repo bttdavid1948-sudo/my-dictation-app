@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mặn Global Lesson Registry foundation",
+  "description": "Integration envelope from Pipeline Contract v0.2; lane-owned lifecycle semantics remain in Curriculum/Practice specifications. No lessons populated before pipeline freeze.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_ref",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "contract_ref": {
+      "const": "content-pipeline-contract@v0.2"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "lesson_id",
+          "unique_purpose_id",
+          "curriculum_state",
+          "calibration_status",
+          "blocking_code",
+          "next_responsible_lane"
+        ],
+        "properties": {
+          "lesson_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unique_purpose_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unique_purpose_class": {
+            "type": "string"
+          },
+          "curriculum_spec_ref": {
+            "type": "string"
+          },
+          "curriculum_spec_version": {
+            "type": "string"
+          },
+          "curriculum_state": {
+            "type": "string"
+          },
+          "curriculum_ready": {
+            "type": "boolean"
+          },
+          "practice_spec_ref": {
+            "type": "string"
+          },
+          "practice_spec_version": {
+            "type": "string"
+          },
+          "practice_preprod_ready": {
+            "type": "boolean"
+          },
+          "practice_ready": {
+            "type": "boolean"
+          },
+          "contract_version": {
+            "const": "v0.3"
+          },
+          "contract_precheck_status": {
+            "type": "string"
+          },
+          "contract_validation_status": {
+            "type": "string"
+          },
+          "production_ready": {
+            "type": "boolean"
+          },
+          "batch_id": {
+            "type": "string"
+          },
+          "production_status_ref": {
+            "type": "string"
+          },
+          "qa_status_ref": {
+            "type": "string"
+          },
+          "lesson_asset_version": {
+            "type": "string"
+          },
+          "calibration_status": {
+            "type": "string"
+          },
+          "blocking_code": {
+            "type": "string"
+          },
+          "blocking_reason_ref": {
+            "type": "string"
+          },
+          "next_responsible_lane": {
+            "enum": [
+              "CURRICULUM_3",
+              "PRACTICE_2",
+              "OPERATIONS_4",
+              "OWNER",
+              "NONE"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

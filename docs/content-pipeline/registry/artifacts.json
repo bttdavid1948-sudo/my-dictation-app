@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-28",
+  "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
+  "current": {
+    "curriculum-practice-contract": "v0.3",
+    "curriculum-production-spec": "v0.1",
+    "practice-production-spec": "v0.1",
+    "content-pipeline-contract": "v0.2"
+  },
+  "artifacts": [
+    {
+      "id": "curriculum-practice-contract",
+      "name": "MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx",
+      "version": "v0.3",
+      "status": "FROZEN",
+      "owner_lane": "CURRICULUM_3+PRACTICE_2",
+      "source": [
+        "Owner-declared frozen Curriculum ↔ Practice Contract"
+      ],
+      "dependencies": [],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx"
+      },
+      "sha256": "0235f171e4d28d9fe3157b1e432930128e620be1736da3316bfbbd777fa01dcc",
+      "size_bytes": 70153,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "curriculum-production-spec",
+      "name": "MAN-Curriculum-Production-Specification-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 production specification"
+      ],
+      "dependencies": [
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Production-Specification-v0.1.xlsx"
+      },
+      "sha256": "cd9ec79c9ee67b5cf5aea3b9b88eccc301a4ff8d9f2c3e2626b7453339af5de7",
+      "size_bytes": 267886,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "practice-production-spec",
+      "name": "MAN-Practice-Production-Specification-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 production specification"
+      ],
+      "dependencies": [
+        "curriculum-practice-contract@v0.3",
+        "curriculum-production-spec@v0.1"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Practice-Production-Specification-v0.1.xlsx"
+      },
+      "sha256": "6f2517fcfb53156f2784ee80050ed98a5697d5f9cf632d11c2d3769ea4921d28",
+      "size_bytes": 86475,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "content-pipeline-contract",
+      "name": "MAN-Content-Production-Pipeline-Contract-Candidate-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 integration candidate"
+      ],
+      "dependencies": [
+        "curriculum-production-spec@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": "content-pipeline-contract@v0.2",
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Content-Production-Pipeline-Contract-Candidate-v0.1.xlsx"
+      },
+      "sha256": "1de045af41c556288619f3fc87fdac3a488d797ae1d0aee6745ba499349cf1c4",
+      "size_bytes": 28070,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "content-pipeline-contract",
+      "name": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+      "version": "v0.2",
+      "status": "FREEZE_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Curriculum #3 candidate v0.1",
+        "Practice #2 final compatibility review PASS"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.1",
+        "curriculum-production-spec@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": "content-pipeline-contract@v0.1",
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx"
+      },
+      "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec",
+      "size_bytes": 39776,
+      "validation_status": "HASH_VERIFIED"
+    }
+  ]
+}
