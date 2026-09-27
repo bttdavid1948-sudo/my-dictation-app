@@ -138,7 +138,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 </div></header>
 <main class="x-main">
 <section id="x-home" class="x-view active">
- <div class="x-hero" id="x-hero"><div id="x-hero-copy"><div style="font-weight:800;color:#8b5d30;margin-bottom:8px">🏘️ XÓM NÀY OUT TRÌNH</div><h1>Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng em thì còn có thể.</h1><p>Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.</p><button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay →</button></div><div class="x-hero-dots"><button class="x-hero-dot active" onclick="xHeroGo(0)"></button><button class="x-hero-dot" onclick="xHeroGo(1)"></button><button class="x-hero-dot" onclick="xHeroGo(2)"></button></div></div>
+ <div class="x-hero" id="x-hero"><div id="x-hero-copy"><div style="font-weight:800;color:#8b5d30;margin-bottom:8px">🏘️ XÓM NÀY OUT TRÌNH</div><h1>Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng em thì còn có thể.</h1><p>Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.</p><button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay →</button></div><div class="x-hero-controls"><button type="button" onclick="xHeroGo(xHeroIndex-1)" aria-label="Slide trước">‹</button><button type="button" onclick="xHeroGo(xHeroIndex+1)" aria-label="Slide tiếp theo">›</button></div><div class="x-hero-dots"><button class="x-hero-dot active" onclick="xHeroGo(0)" aria-label="Slide 1"></button><button class="x-hero-dot" onclick="xHeroGo(1)" aria-label="Slide 2"></button><button class="x-hero-dot" onclick="xHeroGo(2)" aria-label="Slide 3"></button></div></div>
  <div class="x-grid4">
   <button class="x-action" onclick="xQuickTrial()"><div class="ico">🎧</div><b>Thử 5 câu ngay</b><span>Bấm cái mần luôn, 2 phút chứ mấy ^^</span></button>
   <button class="x-action" onclick="xGo('mine')"><div class="ico">📥</div><b>Đem bài vở của bạn bỏ dô đây</b><span>Bỏ vào đây, nhai đầu nó luôn.</span></button>
@@ -295,9 +295,10 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <p style="font-size: 14px; margin: 0 0 16px;">Muốn nghe thử ngay thì chiến 5 câu. Có bài riêng hoặc thích học bài hàng xóm thì chọn kho bên dưới.</p>
             <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px">
                 <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu ngay</button>
-                <button class="btn btn-note" onclick="xGo('mine')">📥 Bài của tôi</button>
-                <button class="btn btn-note" onclick="xGo('catalog')">📚 Kho bài học</button>
+                <button class="btn btn-note" type="button" onclick="xShowStudyChoices('mine')">📥 Bài của tôi</button>
+                <button class="btn btn-note" type="button" onclick="xShowStudyChoices('catalog')">📚 Kho bài học</button>
             </div>
+            <div id="x-study-choices" class="x-study-choices hidden" aria-live="polite"></div>
         </div>
 
         <div id="dictation-app" class="dictation-container hidden">
@@ -307,13 +308,13 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                 <button class="tab-btn" id="tab-transcript-btn" onclick="switchStudyTab('transcript')">Toàn bộ câu</button>
             </div>
 
-            <div id="study-view-dictation">
+            <div id="study-view-dictation" class="x-dictation-layout">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <div id="progress-tag" style="font-weight: bold; color: #0f8a5f;">Câu 1/1</div>
                     <button class="btn btn-note" onclick="backToSetup()" style="font-size: 12px; padding: 4px 8px;">Dừng lượt học</button>
                 </div>
 
-                <div class="audio-player">
+                <div class="audio-player x-practice-controls">
                     <button class="btn btn-audio" onclick="playAudio()">🔊 Nghe lại</button>
                     <button class="btn btn-note" onclick="playSlowAudio()">🐢 Nghe chậm</button>
                     <select id="rate-select" class="select-style">
@@ -353,7 +354,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                     </label>
                 </div>
 
-                <div class="bottom-left-controls">
+                <div class="bottom-left-controls x-practice-controls">
                     <div id="status-msg" class="status-message">✔ You are correct!</div>
                     <div class="action-btns" style="display: flex; gap: 8px;">
                         <button class="btn btn-note" onclick="giveUpCurrent()">🏳️ Chịu thua chưa?</button>
@@ -365,6 +366,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <div id="study-view-transcript" class="hidden">
                 <div class="transcript-container">
                     <div style="font-size: 13px; font-weight: bold; color: #475569; margin-bottom: 10px;">📜 Bấm Phát để nghe từng câu. Chạm vào câu để quay lại phần Nghe và gõ.</div>
+                    <div class="x-transcript-tools"><label><input type="checkbox" id="x-transcript-repeat"> Lặp lại câu</label><label><input type="checkbox" id="x-transcript-scroll" checked> Tự cuộn tới câu đang phát</label><span>Space: Phát/Tạm dừng · ←/→: Câu trước/sau</span></div>
                     <div id="full-transcript-list"></div>
                 </div>
             </div>
@@ -388,9 +390,8 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
             <button id="retry-errors-btn" class="btn btn-audio hidden" onclick="retryErrorsOnly()">🔄 Chỉ ôn lại các câu chưa thuộc</button>
             <button class="btn btn-note" onclick="xGo('home')">🏠 Về trang chủ</button>
             <button class="btn btn-next" onclick="xRestartLesson()">🔁 Học lại lượt này</button>
-            <button class="btn btn-note" onclick="xShowNextLessons()">📚 Chọn bài khác tại đây</button>
         </div>
-        <div id="x-summary-lessons" class="x-summary-next hidden" aria-live="polite"></div>
+        <div id="x-summary-lessons" class="x-summary-next" aria-live="polite"></div>
     </div>
 
    <!-- SECTION 3: KHU QUÀ TẶNG PROMPT AI -->
@@ -620,7 +621,7 @@ Danh sách từ/cụm từ của tôi:
             document.getElementById('tab-transcript-btn').classList.toggle('active', tab === 'transcript');
             document.getElementById('study-view-dictation').classList.toggle('hidden', tab !== 'dictation');
             document.getElementById('study-view-transcript').classList.toggle('hidden', tab !== 'transcript');
-            if (tab === 'transcript') renderFullTranscript();
+            if (tab === 'transcript') { xTranscriptCursor = currentIndex; renderFullTranscript(); }
         }
 
         let catalogPromise;
@@ -1123,7 +1124,7 @@ Danh sách từ/cụm từ của tôi:
             listEl.replaceChildren();
             items.forEach((item, idx) => {
                 const div = document.createElement('div');
-                div.className = `transcript-item ${idx === currentIndex ? 'active' : ''}`;
+                div.className = `transcript-item ${idx === xTranscriptCursor ? 'active' : ''}`;
                 const text = document.createElement('div');
                 const number = document.createElement('strong'); number.textContent = `Câu ${idx + 1}: `;
                 const sentence = document.createTextNode(item.en || '');
@@ -1134,7 +1135,7 @@ Danh sách từ/cụm từ của tôi:
                 const play = document.createElement('button'); play.type = 'button';
                 play.className = 'btn btn-audio'; play.style.cssText = 'font-size:12px;padding:4px 10px';
                 play.textContent = '▶ Phát';
-                play.addEventListener('click', event => { event.stopPropagation(); playTranscriptItem(idx); });
+                play.addEventListener('click', event => { event.stopPropagation(); xPlayTranscriptItem(idx); });
                 div.append(text, play);
                 div.onclick = () => jumpToQuestion(idx);
                 listEl.appendChild(div);
@@ -1422,27 +1423,11 @@ Danh sách từ/cụm từ của tôi:
             if (!panel) return;
             panel.classList.remove('hidden');
             panel.replaceChildren();
-            const heading = document.createElement('h3');
-            heading.textContent = 'Học tiếp ngay ở đây';
-            panel.appendChild(heading);
-            const addChoice = (label, action) => {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'btn btn-note';
-                button.textContent = label;
-                button.style.margin = '4px';
-                button.addEventListener('click', action);
-                panel.appendChild(button);
-            };
-            addChoice('🎧 Thử 5 câu', () => xQuickTrial());
-            Object.keys(unitsData || {}).filter(name => (unitsData[name] || []).length).slice(0, 12)
-                .forEach(name => addChoice('📥 ' + name, () => xStartMine(name)));
-            const label=document.createElement('p');
-            label.textContent='Đang tải bài chính thức của Mặn...';panel.appendChild(label);
-            const official=await loadCatalogUnits();
-            if(!panel.isConnected||panel.classList.contains('hidden'))return;
-            label.textContent=official.length?'Kho bài học của Mặn:':'Chưa tải được kho. Bạn có thể thử 5 câu hoặc học bài riêng.';
-            official.slice(0,12).forEach(unit=>addChoice('📚 '+unit.unitName,()=>xStartCatalog(unit.id)));
+            const heading=document.createElement('h3');heading.textContent='Học tiếp ngay ở đây';panel.appendChild(heading);
+            const mine=document.createElement('section'),catalog=document.createElement('section');
+            mine.className=catalog.className='x-next-group';panel.append(mine,catalog);
+            xRenderStudyChoices('mine',mine);
+            await xRenderStudyChoices('catalog',catalog);
         }
 
         function retryErrorsOnly() {
@@ -1587,7 +1572,7 @@ function xRenderProgress(){const el=document.getElementById('x-progress-dashboar
 function xRetrySaved(){if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Session capture + review list
-const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xSaveStudyState('summary');xRenderProgress();};
+const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xShowNextLessons();xSaveStudyState('summary');xRenderProgress();};
 const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
 // Navigate enhancements
 const xNavBase=window.xGo;window.xGo=function(v,options){xNavBase(v,options);if(v==='catalog'){setTimeout(()=>{xInjectCatalogFilters();loadCatalogUnits()},30)}if(v==='progress')xRenderProgress();if(v==='me')xRenderMe()};
@@ -1643,7 +1628,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-act
 document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="manage"]');if(b)xOpenPrivateManager(b.dataset.unitId)});
 function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-catalog-carousel');if(!el)return;const lessons=mode==='mine'?xMineLessons():xCatalogLessons();const arr=mode==='mine'?lessons.slice(-6).reverse():lessons.slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang tải bài của Mặn. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const lessons=mode==='mine'?xMineLessons():xCatalogLessons();const arr=mode==='mine'?lessons.slice(-6):lessons.slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
-function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
+function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
 function xOpenLibrary(mode,options={}){if(xLibMode!==mode){const filters=document.getElementById('x-lib-filters');if(filters){filters.replaceChildren();delete filters.dataset.ready}}xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'📚 Khám phá Kho bài học';xRenderLibrary();if(mode==='catalog')loadCatalogUnits()}
 function xCloseLibrary(options={}){if(!options.fromHistory&&history.state?.xModal==='library'){history.back();return}document.getElementById('x-library-modal')?.classList.add('x-hidden');if(!options.fromHistory&&location.hash.endsWith('/library'))history.replaceState({xView:xLibMode},'',location.pathname+location.search+'#'+xLibMode)}
@@ -1718,7 +1703,7 @@ window.xHeroGo=function(i){
  let art=hero.querySelector('.x-hero-art');if(!art){art=document.createElement('div');art.className='x-hero-art';hero.appendChild(art)}
  const pos=['17% 49%','82% 18%','82% 82%']; const labels=['🎧 Mèo Mặn bật tai lên','📚 Học cái dùng được','📈 Đừng để tiến bộ bay màu'];
  art.innerHTML=`<div class="x-hero-mammeo" style="background-position:${pos[xHeroIndex]}"></div><div class="x-hero-float one">✨ ${xHeroIndex===0?'nghe rõ từng chữ':xHeroIndex===1?'real English':'có lưu mới có nhớ'}</div><div class="x-hero-float two">${labels[xHeroIndex]}</div>`;
- document.querySelectorAll('.x-hero-dot').forEach((d,j)=>d.classList.toggle('active',j===xHeroIndex));clearInterval(xHeroTimer);xHeroTimer=setInterval(()=>window.xHeroGo(xHeroIndex+1),6000)
+ document.querySelectorAll('.x-hero-dot').forEach((d,j)=>d.classList.toggle('active',j===xHeroIndex));clearInterval(xHeroTimer);xHeroTimer=setInterval(()=>window.xHeroGo(xHeroIndex+1),7000)
 };
 document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>window.xHeroGo(0),260));
 </script>
@@ -2001,6 +1986,67 @@ async function xConfirmPrivateDelete() {
     xToast(savedToAccount?'Đã xóa bài riêng và kiểm tra lại trên server.':'Đã xóa bài trong trang này.');
   } catch (error) { xPrivateManagerFailure(error); xPrivateManagerBusy = false; }
 }
+</script>
+<style id="pilot-targeted-ui">
+.x-header-inner{grid-template-columns:minmax(135px,180px) minmax(0,1fr) minmax(220px,350px)!important;gap:12px}
+.x-header-center,.x-header-nav,.x-header-right{min-width:0}
+.x-header-nav{justify-content:center;width:100%}.x-header-nav button{padding:9px clamp(4px,.6vw,9px);font-size:clamp(11px,.85vw,13px)}
+.x-header-right .x-search-real,.x-header-right .x-search-real:focus{display:block;width:auto!important;max-width:none!important;min-width:80px;flex:1 1 auto}
+.x-header-right .x-auth-pill{display:block;max-width:130px;min-width:0;overflow:hidden;text-overflow:ellipsis;flex:0 1 130px}
+.x-header-right .x-bell{flex:0 0 42px}
+@media(max-width:1100px){.x-header-inner{grid-template-columns:minmax(110px,145px) minmax(0,1fr) minmax(170px,260px)!important;gap:6px}.x-header-nav button{padding:8px 4px;font-size:11px}.x-header-right .x-auth-pill{max-width:100px}}
+@media(max-width:900px){.x-header-inner{grid-template-columns:auto minmax(0,1fr)!important;gap:10px}.x-header-right{grid-column:2;display:flex!important}.x-header-right .x-search-real{display:block!important}.x-header-right .x-auth-pill{display:none!important}}
+@media(max-width:560px){.x-header-logo .man-word{font-size:17px}.x-header-right .x-search-real{min-width:0;font-size:12px;padding:9px 11px!important}}
+.x-hero-controls{position:absolute;right:22px;bottom:14px;display:flex;gap:8px;z-index:5}.x-hero-controls button{border:1px solid #e8d9ca;border-radius:50%;background:#fff;color:#20263a;width:32px;height:32px;font-size:21px;cursor:pointer}.x-hero-controls button:hover{background:#fff4dc}
+.x-study-choices,.x-next-group{margin-top:14px;text-align:left;padding:14px;background:#fff;border:1px solid #e8e9ed;border-radius:16px}.x-choice-list{display:flex;gap:8px;flex-wrap:wrap}.x-choice-list button{white-space:normal;text-align:left}.x-study-choices h4,.x-next-group h4{margin:0 0 10px}.x-next-group{margin-top:10px}
+#study-view-dictation:not(.hidden){display:flex;flex-direction:column;gap:10px}#study-view-dictation>.audio-player{order:4;margin-top:0}#study-view-dictation>.input-area-wrapper{order:1}#study-view-dictation>.translation-box,#study-view-dictation>.pronunciation-box{order:2}#study-view-dictation>.option-toggle-box{order:2}#study-view-dictation>.bottom-left-controls{order:3}#study-view-dictation>.bottom-left-controls .action-btns{flex-wrap:wrap}
+.x-transcript-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-size:13px}.x-transcript-tools label{border:1px solid #e5e7eb;border-radius:12px;padding:7px 9px}.x-transcript-tools span{color:#596174}.transcript-item.x-transcript-playing{outline:2px solid #f6bd55;outline-offset:-2px}
+</style>
+<script id="pilot-targeted-js">
+let xTranscriptCursor=0,xTranscriptToken=0;
+function xChoiceButton(label,action){const button=document.createElement('button');button.type='button';button.className='btn btn-note';button.textContent=label;button.addEventListener('click',action);return button}
+async function xRenderStudyChoices(mode,target){
+ if(!target)return;target.replaceChildren();
+ const heading=document.createElement('h4');heading.textContent=mode==='mine'?'📥 Bài của tôi':'📚 Kho bài học của Mặn';target.appendChild(heading);
+ const list=document.createElement('div');list.className='x-choice-list';target.appendChild(list);
+ if(mode==='mine'){
+  const names=Object.keys(unitsData||{}).filter(name=>(unitsData[name]||[]).length);
+  if(!names.length)list.textContent='Chưa có bài riêng nào có câu để học.';
+  else names.slice(0,12).forEach(name=>list.appendChild(xChoiceButton(name,()=>xStartMine(name))));
+  return;
+ }
+ list.textContent='Đang tải bài của Mặn…';
+ let official=[];try{official=await loadCatalogUnits()}catch(e){}
+ if(!target.isConnected||target.id==='x-study-choices'&&target.dataset.mode!==mode)return;
+ list.replaceChildren();
+ if(!official.length)list.textContent='Chưa tải được Kho bài học. Bạn thử lại sau nha.';
+ else official.slice(0,12).forEach(unit=>list.appendChild(xChoiceButton(unit.unitName,()=>xStartCatalog(unit.id))));
+}
+function xShowStudyChoices(mode){
+ const panel=document.getElementById('x-study-choices');if(!panel)return;
+ if(!panel.classList.contains('hidden')&&panel.dataset.mode===mode){panel.classList.add('hidden');return}
+ panel.dataset.mode=mode;panel.classList.remove('hidden');xRenderStudyChoices(mode,panel);
+}
+function xPlayTranscriptItem(index){
+ const idx=Number(index),item=items?.[idx];if(!item||!('speechSynthesis' in window))return;
+ const token=++xTranscriptToken;xTranscriptCursor=idx;
+ document.querySelectorAll('#full-transcript-list .transcript-item').forEach((row,i)=>row.classList.toggle('x-transcript-playing',i===idx));
+ if(document.getElementById('x-transcript-scroll')?.checked)document.querySelectorAll('#full-transcript-list .transcript-item')[idx]?.scrollIntoView({block:'nearest',behavior:'smooth'});
+ speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
+ const voiceSelect=document.getElementById('voice-select');if(englishVoices.length&&voiceSelect?.value!=='')utterance.voice=englishVoices[Number(voiceSelect.value)];
+ utterance.rate=Number(document.getElementById('rate-select')?.value||1);
+ utterance.onend=()=>{if(token===xTranscriptToken&&document.getElementById('x-transcript-repeat')?.checked&&!document.getElementById('study-view-transcript')?.classList.contains('hidden'))xPlayTranscriptItem(idx)};
+ speechSynthesis.speak(utterance);
+}
+document.addEventListener('keydown',event=>{
+ if(document.getElementById('study-view-transcript')?.classList.contains('hidden')||!document.getElementById('x-learn')?.classList.contains('active'))return;
+ if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.target.closest('input,textarea,select,button,[contenteditable="true"]'))return;
+ if(!['Space','ArrowLeft','ArrowRight'].includes(event.code))return;
+ event.preventDefault();
+ if(event.code==='Space'){
+  if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause();else xPlayTranscriptItem(xTranscriptCursor);
+ }else xPlayTranscriptItem(Math.max(0,Math.min(items.length-1,xTranscriptCursor+(event.code==='ArrowLeft'?-1:1))));
+});
 </script>
 </body>
 </html>
