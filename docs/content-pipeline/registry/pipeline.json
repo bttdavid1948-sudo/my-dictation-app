@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "contract_status": "FREEZE_READY",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "production_queue_enabled": false,
+  "next_action": {
+    "code": "FREEZE_REVIEW",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "correct compatibility/freeze authority; do not auto-freeze"
+  },
+  "preproduction_gates": [
+    "UNIQUE_PURPOSE_PASS",
+    "CURRICULUM_READY",
+    "PRACTICE_PREPROD_READY",
+    "CONTRACT_PRECHECK_VALID"
+  ],
+  "preproduction_result": "PRODUCTION_READY only after all gates PASS and contract freeze",
+  "postproduction_gates": [
+    "PRACTICE_READY",
+    "CONTRACT_VALID"
+  ],
+  "boundaries": [
+    "Anchor_Intent supports planning only; produced target_anchors[] required for final Practice readiness",
+    "Batch_ID never replaces lesson_id",
+    "DUPLICATE blocks production globally across reserved future purposes"
+  ],
+  "happy_path": [
+    "CURRICULUM_3",
+    "PRACTICE_2",
+    "READINESS_VALIDATION",
+    "PRODUCTION_QUEUE",
+    "OPERATIONS_4",
+    "QA",
+    "CALIBRATION",
+    "REGISTRY_UPDATE"
+  ],
+  "routes": [
+    {
+      "code": "RETURN_TO_CURRICULUM",
+      "responsible_lane": "CURRICULUM_3",
+      "blocking": true,
+      "trigger": "Missing/invalid Curriculum fields, unresolved purpose conflict, prerequisite/progression ambiguity"
+    },
+    {
+      "code": "PRACTICE_CONFLICT",
+      "responsible_lane": "PRACTICE_2",
+      "blocking": true,
+      "trigger": "Practice mapping/operator/response/support/evidence/ownership validation fails"
+    },
+    {
+      "code": "IMPLEMENTATION_ISSUE",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "depends_on_issue",
+      "trigger": "Tool/audio/runtime issue without Curriculum or Practice semantic defect"
+    },
+    {
+      "code": "OWNER_DECISION_REQUIRED",
+      "responsible_lane": "OWNER",
+      "blocking": true,
+      "trigger": "Genuine product/curriculum authority decision remains"
+    },
+    {
+      "code": "DUPLICATE",
+      "responsible_lane": "CURRICULUM_3",
+      "blocking": true,
+      "trigger": "unique_purpose_class = DUPLICATE; no Operations override"
+    },
+    {
+      "code": "WAIT_FOR_PRODUCTION_ASSET",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "expected",
+      "trigger": "Actual produced target_anchors[] needed after planning"
+    }
+  ]
+}

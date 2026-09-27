@@ -1,0 +1,5 @@
+{
+  "schema_version": "0.1",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "records": []
+}
