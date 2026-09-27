@@ -2055,28 +2055,31 @@ function xStopTranscriptPlayback(){
 function xSelectTranscript(index){
  const next=Number(index);if(!Number.isInteger(next)||next<0||next>=items.length)return;
  const wasPlaying=xTranscriptPlaying&&!xTranscriptPaused;
- xStopTranscriptPlayback();xTranscriptCursor=next;xSyncTranscriptView();
  if(wasPlaying)xPlayTranscriptFrom(next);
+ else{xStopTranscriptPlayback();xTranscriptCursor=next;xSyncTranscriptView()}
 }
 function xMoveTranscript(delta){const next=Math.max(0,Math.min(items.length-1,xTranscriptCursor+delta));if(next!==xTranscriptCursor)xSelectTranscript(next)}
 function xPlayTranscriptFrom(index){
+ xStopTranscriptPlayback();xSpeakTranscriptItem(index);
+}
+function xSpeakTranscriptItem(index){
  const idx=Number(index),item=items?.[idx];if(!item)return;
  if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){
-  xStopTranscriptPlayback();xTranscriptCursor=idx;xSyncTranscriptView();
+  xTranscriptPlaying=false;xTranscriptPaused=false;xTranscriptCursor=idx;xSyncTranscriptView();
   document.getElementById('x-transcript-support').textContent='Trình duyệt này chưa hỗ trợ giọng đọc. Hãy thử trên Chrome, Edge hoặc Safari.';return;
  }
  document.getElementById('x-transcript-support').textContent='';
- xStopTranscriptPlayback();xTranscriptCursor=idx;xTranscriptPlaying=true;xSyncTranscriptView();
+ xTranscriptCursor=idx;xTranscriptPlaying=true;xTranscriptPaused=false;xSyncTranscriptView();
  const token=++xTranscriptToken,utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
  const voiceSelect=document.getElementById('voice-select');if(englishVoices.length&&voiceSelect?.value!=='')utterance.voice=englishVoices[Number(voiceSelect.value)];
  utterance.rate=Number(document.getElementById('rate-select')?.value||1);
  utterance.onend=()=>{
   if(token!==xTranscriptToken||!xTranscriptPlaying)return;
-  if(idx+1<items.length)xPlayTranscriptFrom(idx+1);
-  else if(document.getElementById('x-transcript-repeat')?.checked)xPlayTranscriptFrom(0);
+  if(idx+1<items.length)xSpeakTranscriptItem(idx+1);
+  else if(document.getElementById('x-transcript-repeat')?.checked)xSpeakTranscriptItem(0);
   else{xTranscriptPlaying=false;xTranscriptPaused=false;xSyncTranscriptView()}
  };
- utterance.onerror=()=>{if(token===xTranscriptToken){xTranscriptPlaying=false;xTranscriptPaused=false;xSyncTranscriptView()}};
+ utterance.onerror=event=>{if(token===xTranscriptToken){xTranscriptPlaying=false;xTranscriptPaused=false;xSyncTranscriptView();document.getElementById('x-transcript-support').textContent=`Không phát được giọng đọc (${event?.error||'không rõ nguyên nhân'}). Bạn có thể thử giọng khác hoặc trình duyệt khác.`}};
  speechSynthesis.speak(utterance);
 }
 function xToggleTranscriptPlay(){
