@@ -369,6 +369,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                     <section class="x-transcript-player" aria-label="Câu đang nghe">
                         <h3>🎧 Nghe toàn bài</h3>
                         <div class="x-player-controls"><button type="button" class="btn btn-audio" id="x-transcript-play" onclick="xToggleTranscriptPlay()">▶ Phát từ câu hiện tại</button><label><input type="checkbox" id="x-transcript-repeat"> Lặp toàn bài</label><label><input type="checkbox" id="x-transcript-scroll" checked> Tự cuộn</label></div>
+                        <p id="x-transcript-support" class="x-shortcut-hint" role="status"></p>
                         <div id="x-transcript-current" class="x-current-sentence" aria-live="polite"></div>
                         <div class="x-sentence-nav"><button type="button" id="x-transcript-prev" onclick="xMoveTranscript(-1)" aria-label="Câu trước">←</button><span id="x-transcript-counter" aria-live="polite">1 / 1</span><button type="button" id="x-transcript-next" onclick="xMoveTranscript(1)" aria-label="Câu sau">→</button></div>
                         <p class="x-shortcut-hint">Space: Phát/Tạm dừng · ←/→: Câu trước/sau</p>
@@ -2058,7 +2059,12 @@ function xSelectTranscript(index){
 }
 function xMoveTranscript(delta){const next=Math.max(0,Math.min(items.length-1,xTranscriptCursor+delta));if(next!==xTranscriptCursor)xSelectTranscript(next)}
 function xPlayTranscriptFrom(index){
- const idx=Number(index),item=items?.[idx];if(!item||!('speechSynthesis' in window))return;
+ const idx=Number(index),item=items?.[idx];if(!item)return;
+ if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){
+  xStopTranscriptPlayback();xTranscriptCursor=idx;xSyncTranscriptView();
+  document.getElementById('x-transcript-support').textContent='Trình duyệt này chưa hỗ trợ giọng đọc. Hãy thử trên Chrome, Edge hoặc Safari.';return;
+ }
+ document.getElementById('x-transcript-support').textContent='';
  xStopTranscriptPlayback();xTranscriptCursor=idx;xTranscriptPlaying=true;xSyncTranscriptView();
  const token=++xTranscriptToken,utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
  const voiceSelect=document.getElementById('voice-select');if(englishVoices.length&&voiceSelect?.value!=='')utterance.voice=englishVoices[Number(voiceSelect.value)];
