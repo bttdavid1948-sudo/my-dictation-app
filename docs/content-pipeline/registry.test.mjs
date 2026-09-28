@@ -17,12 +17,12 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
   assert.equal(pipeline.production_queue_enabled,false);
-  assert.equal(pipeline.next_action.code,'PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE');
-  assert.equal(pipeline.next_action.responsible_lane,'PRACTICE_2');
+  assert.equal(pipeline.next_action.code,'REVIEW_BATCH_01_OPENING');
+  assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').classification,'NON_BREAKING_EXTENSION_NEEDED');
   const preparation=load('batch-01-readiness.json');
-  assert.equal(preparation.preparation_status,'PRACTICE_INPUT_PENDING');
+  assert.equal(preparation.preparation_status,'OPERATIONS_PRECHECK_PASS_QUEUE_CLOSED');
   assert.equal(preparation.batch_open,false);
   assert.equal(preparation.production_queue_enabled,false);
   assert.equal(preparation.lesson_ids.length,12);
@@ -31,6 +31,7 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(preparation.curriculum_selection_ref,'batch-01-curriculum-selection@v0.1');
   assert.equal(index.get('global-lesson-registry-snapshot@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('batch-01-curriculum-selection@v0.1').status,'REVIEW_READY');
+  assert.equal(index.get('batch-01-practice-preproduction-evidence@v0.1').status,'REVIEW_READY');
   assert.equal(preparation.next_action.responsible_lane,pipeline.next_action.responsible_lane);
   assert.equal(pipeline.freeze_manifest_ref,'docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json');
   assert.deepEqual(lessons.records,[]);

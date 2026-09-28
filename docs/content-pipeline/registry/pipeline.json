@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+    "code": "REVIEW_BATCH_01_OPENING",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Practice #2 evidence is ready: batch-01-practice-preproduction-evidence@v0.1 confirms PRACTICE_PREPROD_READY for all 12 selected lessons. #4 must validate CONTRACT_PRECHECK_VALID, source/version refs, queue safety and the four-gate PRODUCTION_READY composite before any separate batch-open or queue-enable change. Final PRACTICE_READY still requires produced target_anchors[]."
+    "requires": "Separate reviewed queue-opening change only after fresh snapshot/no-reproduction check, production/QA status reference mechanism, rollback and applicable approval; this precheck does not open the batch or production queue."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",

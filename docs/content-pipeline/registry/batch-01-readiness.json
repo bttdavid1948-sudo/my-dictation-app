@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "OPERATIONS_PRECHECK_PENDING",
+  "preparation_status": "OPERATIONS_PRECHECK_PASS_QUEUE_CLOSED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -55,22 +55,22 @@
     {
       "code": "CONTRACT_PRECHECK",
       "owner_lane": "OPERATIONS_4",
-      "status": "PENDING",
-      "evidence_ref": null,
+      "status": "PASS",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
       "requirement": "Validate stable lesson IDs, versioned references, CONTRACT_PRECHECK_VALID, source refs and four-gate PRODUCTION_READY for each selected lesson without inferring Curriculum or Practice semantics."
     },
     {
       "code": "CALIBRATION_AND_QUEUE_SAFETY",
       "owner_lane": "OPERATIONS_4",
-      "status": "PENDING",
-      "evidence_ref": null,
+      "status": "PASS",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
       "requirement": "Confirm prior systemic calibration blockers, no duplicate/reproduction without explicit rework version, production/QA status references and rollback path before opening queue; empirical PNG9 remains pending for mass production."
     }
   ],
   "next_action": {
-    "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+    "code": "REVIEW_BATCH_01_OPENING",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Use batch-01-practice-preproduction-evidence@v0.1 with the existing Curriculum inputs. Validate CONTRACT_PRECHECK_VALID, stable versioned refs, queue safety and the four-gate PRODUCTION_READY composite. Batch stays closed and production_queue_enabled=false until a separate valid queue-opening action. Final PRACTICE_READY still waits for produced target_anchors[]."
+    "requires": "Separate reviewed queue-opening change only after fresh snapshot/no-reproduction check, production/QA status reference mechanism, rollback and applicable approval; this precheck does not open the batch or production queue."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
