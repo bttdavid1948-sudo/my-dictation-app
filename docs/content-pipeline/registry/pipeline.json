@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "REVIEW_BATCH_01_OPENING",
+    "code": "IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Separate reviewed queue-opening change only after fresh snapshot/no-reproduction check, production/QA status reference mechanism, rollback and applicable approval; this precheck does not open the batch or production queue."
+    "requires": "Build and test bounded queue/status reference mechanism through a separate reviewed branch; keep batch and queue closed. Then repeat opening review with fresh snapshot and applicable authority."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
