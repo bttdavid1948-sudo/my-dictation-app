@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "INPUT_PENDING",
+  "preparation_status": "PAUSED_PRE_GLOBAL_READINESS",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [],
@@ -55,8 +55,9 @@
     }
   ],
   "next_action": {
-    "code": "PROVIDE_VERSIONED_GLOBAL_REGISTRY_SNAPSHOT_AND_BATCH_SELECTION",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "#3 publishes versioned reserved-identity snapshot and justified calibration selection to the shared store; #2 then supplies preproduction evidence; #4 validates and alone proposes queue opening. No Owner file transfer."
-  }
+    "code": "GLOBAL_READINESS_SUPPORT_LOCALE_EXTENSION",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Batch 01 remains closed and empty. Complete the non-breaking support-locale separation described by global-readiness-compatibility-check@v0.1 before resuming Curriculum snapshot or batch selection."
+  },
+  "pause_reason_ref": "global-readiness-compatibility-check@v0.1"
 }
