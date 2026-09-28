@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mặn learner-support bundle registry",
+  "description": "Reference metadata only. Support text stays in access-controlled content storage; never duplicate canonical English transcript or anchors here.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "bundle_id",
+          "bundle_version",
+          "lesson_id",
+          "canonical_lesson_asset_version",
+          "support_locale",
+          "coverage",
+          "qa_status",
+          "content_ref"
+        ],
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bundle_version": {
+            "type": "string",
+            "pattern": "^v[^@]+$"
+          },
+          "lesson_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "canonical_lesson_asset_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "support_locale": {
+            "type": "string",
+            "minLength": 2
+          },
+          "coverage": {
+            "enum": [
+              "FULL",
+              "PARTIAL"
+            ]
+          },
+          "qa_status": {
+            "enum": [
+              "PENDING",
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "content_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alignment_ref": {
+            "type": "string",
+            "description": "Optional mapping to stable segment_id or target_anchor_id; never the canonical span source."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

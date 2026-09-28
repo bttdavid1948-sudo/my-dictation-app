@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "learning_language": "en",
+  "official_v1": {
+    "default_support_locale": "vi-VN",
+    "required_support_locales": [
+      "vi-VN"
+    ],
+    "publication_requires": {
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "canonical_lesson_asset_version_match": true
+    }
+  },
+  "boundaries": [
+    "Learner-support locale never changes lesson_id, Unique Purpose, progression, target anchors or audio realization identity.",
+    "Bundle-only revisions increment bundle_version without changing canonical English lesson_asset_version unless the canonical asset itself changes.",
+    "Missing support bundle can block publication for a locale but does not change the four preproduction PRODUCTION_READY gates.",
+    "Canonical English segment.text is the only span-offset source; translations may refer to stable segment_id/target_anchor_id for display."
+  ]
+}

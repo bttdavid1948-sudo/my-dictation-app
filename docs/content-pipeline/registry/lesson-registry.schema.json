@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Mặn Global Lesson Registry foundation",
-  "description": "Integration envelope from Pipeline Contract v0.2; lane-owned lifecycle semantics remain in Curriculum/Practice specifications. No lessons populated before pipeline freeze.",
+  "description": "Integration envelope from Pipeline Contract v0.2. Optional support bundle references are outside lesson identity and Curriculum/Practice gates.",
   "type": "object",
   "required": [
     "schema_version",
@@ -104,6 +104,15 @@
               "OWNER",
               "NONE"
             ]
+          },
+          "support_bundle_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^.+@v[^@]+$"
+            },
+            "description": "Optional references to separately versioned learner-support bundles; never part of lesson_id or Unique Purpose."
           }
         },
         "additionalProperties": true
