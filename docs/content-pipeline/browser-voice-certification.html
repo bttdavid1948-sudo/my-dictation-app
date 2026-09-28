@@ -17,6 +17,7 @@
   <h1>Browser Voice · kiểm tra runtime</h1>
   <p class="note">Công cụ QA nội bộ: phát 5 mẫu đại diện một lần cho một tổ hợp browser/OS/voice. Không gửi dữ liệu lên máy chủ, không chứng nhận từng bài, không dùng làm bằng chứng accent, prosody hoặc overlap.</p>
   <label>Mã người kiểm tra (không nhập thông tin cá nhân)<input id="reviewer" autocomplete="off" placeholder="QA-01"></label>
+  <label>Hệ điều hành và phiên bản (ví dụ Android 14, Windows 11 23H2)<input id="os-version" autocomplete="off" placeholder="Android 14"></label>
   <label>Số giọng phân biệt cần kiểm tra<select id="capacity"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
   <fieldset><legend>Giọng tiếng Anh theo vai nói</legend><div id="voice-slots"></div></fieldset>
   <p id="state" role="status"></p>
@@ -50,7 +51,7 @@ function reset(){index=0;results=[];last=null;lockedVoices=null;$('download').di
 function renderFixture(){
  $('pass').disabled=$('fail').disabled=!last;
  if(index>=FIXTURE_SET.fixtures.length){$('fixture').textContent='Đã kiểm tra đủ 5 mẫu.';$('play').disabled=true;$('download').disabled=false;return}
- $('play').disabled=!supported;$('fixture').textContent=`${index+1}/5 — ${FIXTURE_SET.fixtures[index].id}: ${FIXTURE_SET.fixtures[index].text||FIXTURE_SET.fixtures[index].turns.join(' / ')}`;
+ $('play').disabled=!supported||voices.length<Number($('capacity').value);$('fixture').textContent=`${index+1}/5 — ${FIXTURE_SET.fixtures[index].id}: ${FIXTURE_SET.fixtures[index].text||FIXTURE_SET.fixtures[index].turns.join(' / ')}`;
 }
 async function speak(text,voice){
  return new Promise(resolve=>{
@@ -84,13 +85,13 @@ function download(){
  const chosen=lockedVoices||[];const evidence={schema_version:'1.0',fixture_set_id:FIXTURE_SET.id,fixture_set_version:FIXTURE_SET.version,
    producer_type:'browser_voice',delivery_mode:'RUNTIME_RENDERED',alignment_mode:'SEGMENT_ADDRESSABLE',
    reviewer_ref:$('reviewer').value.trim(),claimed_scopes:['LOW_STAKES_PRACTICE'],
-   runtime:{browser_user_agent:navigator.userAgent,platform:navigator.platform,tested_at:new Date().toISOString(),
+   runtime:{browser_user_agent:navigator.userAgent,platform:navigator.platform,os_version_label:$('os-version').value.trim(),tested_at:new Date().toISOString(),
      speaker_capacity:chosen.length,voices:chosen.map(v=>({voice_uri:v.voiceURI,name:v.name,lang:v.lang,local_service:v.localService}))},results};
  const check=validateRuntimeEvidence(evidence);status(`Validator: ${check.status}${check.reason?' — '+check.reason:''}. Evidence tải về máy, chưa ghi vào Registry.`);
  const url=URL.createObjectURL(new Blob([JSON.stringify(evidence,null,2)+'\n'],{type:'application/json'}));
  const link=document.createElement('a');link.href=url;link.download='MAN-Browser-Voice-Runtime-Evidence-v0.1.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
 }
-$('capacity').addEventListener('change',renderSlots);$('play').addEventListener('click',play);
+$('capacity').addEventListener('change',renderSlots);$('os-version').addEventListener('change',reset);$('play').addEventListener('click',play);
 $('pass').addEventListener('click',()=>mark('PASS'));$('fail').addEventListener('click',()=>mark('FAIL'));
 $('download').addEventListener('click',download);
 if(supported){window.speechSynthesis.addEventListener('voiceschanged',loadVoices);loadVoices();status('Chọn giọng, nghe 5 mẫu đại diện và xuất evidence.')}else{status('Browser này không hỗ trợ Web Speech. Đây chỉ là giới hạn của runtime hiện tại; hãy dùng browser/OS có giọng tiếng Anh.');renderFixture()}
