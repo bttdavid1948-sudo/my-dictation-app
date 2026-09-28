@@ -15,7 +15,8 @@
     "batch-01-curriculum-review": "v0.1",
     "batch-01-canonical-lesson-assets": "v0.1",
     "batch-01-practice-postproduction-validation": "v0.1",
-    "batch-01-browser-voice-runtime-candidates": "v0.1"
+    "batch-01-browser-voice-runtime-candidates": "v0.1",
+    "browser-voice-runtime-evidence": "v0.1"
   },
   "artifacts": [
     {
@@ -482,6 +483,35 @@
         "responsible_lane": "AUDIO_QA",
         "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
       }
+    },
+    {
+      "id": "browser-voice-runtime-evidence",
+      "name": "MAN-Browser-Voice-Runtime-Evidence-v0.1.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Five representative fixtures listened and graded by QA-01 on supported Chrome 153 / Windows 10 22H2 runtime"
+      ],
+      "dependencies": [
+        "batch-01-browser-voice-runtime-candidates@v0.1"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Browser-Voice-Runtime-Evidence-v0.1.json",
+        "library_file_id": "libfile_178a4182d94c8191bac81e7bf9f08962"
+      },
+      "sha256": "b9ee38d11fd978677731cf014f49b0cd1d6efea7634859f967d617dc7ac9ce12",
+      "size_bytes": 2477,
+      "validation_status": "HASH_VERIFIED",
+      "validator_result": "CAPABILITY_QA_PASS",
+      "scope": "LOW_STAKES_PRACTICE",
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "lesson_audio_realizations_created": 0
     }
   ]
 }

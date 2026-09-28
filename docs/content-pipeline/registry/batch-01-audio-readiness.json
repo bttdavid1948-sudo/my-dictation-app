@@ -15,7 +15,7 @@
   "realization_count": 0,
   "available_audio_realization_refs_count": 0,
   "approved_qa_count": 0,
-  "status": "RUNTIME_QA_HARNESS_READY_AWAITING_REAL_EVIDENCE",
+  "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
@@ -39,9 +39,9 @@
     "paid_api_enabled_by_this_action": false
   },
   "next_action": {
-    "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
+    "code": "BIND_NON_EXCEPTION_AUDIO_PROFILES_AND_VALIDATE_LESSON_REALIZATIONS",
     "responsible_lane": "AUDIO_QA",
-    "requires": "Use docs/content-pipeline/browser-voice-certification.html on one supported browser/OS/voice per reusable runtime profile. Listen to five representative fixtures once, export local evidence, run browser-voice-certification-cli.mjs and register versioned evidence/hash. The Work cloud browser cannot provide acoustic evidence. Recertify after browser major/OS/voice/fixture drift; do not QA 62 segments by default. Bind exact per-lesson realizations only after output AudioProfile and audio QA; route five sensitive lessons by exception and final Practice checks to #2. No paid dependency or Owner execution in the happy path."
+    "requires": "For each of seven ordinary lessons independently, obtain/approve its versioned producer-neutral output AudioProfile, map stable segment_id and script_speaker_id to this certified runtime/actual voices, verify its required acoustic target(s), and register a QA-PASS realization_id only for exact lesson_id+lesson_asset_version and matching runtime. Then route only that realization-dependent final Practice validation to #2. Five sensitive lessons remain in batch-01-audio-exceptions.json; do not gate ordinary lessons or assume paid TTS. No publication/calibrated scoring until their separate gates pass."
   },
   "correction": {
     "reason": "Previous Operations review incorrectly promoted optional paid TTS to a mandatory Batch 01 dependency and generalized this Work cloud browser's missing speechSynthesis to all user runtimes.",
@@ -71,8 +71,15 @@
     "guide_ref": "docs/content-pipeline/browser-voice-qa.md",
     "scope": "LOW_STAKES_PRACTICE_ONLY",
     "required_human_listening": "Five representative fixtures per browser/OS/voice combination, once and on drift; exception lessons require separate QA.",
-    "evidence_status": "PENDING_REAL_SUPPORTED_RUNTIME",
+    "evidence_status": "CAPABILITY_QA_PASS",
     "approved_realization_count": 0,
-    "new_paid_services": 0
+    "new_paid_services": 0,
+    "evidence_ref": "browser-voice-runtime-evidence@v0.1",
+    "evidence_sha256": "b9ee38d11fd978677731cf014f49b0cd1d6efea7634859f967d617dc7ac9ce12",
+    "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+    "ordinary_candidate_count": 7,
+    "parked_exception_count": 5,
+    "assessment_ref": "docs/content-pipeline/registry/batch-01-browser-voice-assessment.json",
+    "exception_backlog_ref": "docs/content-pipeline/registry/batch-01-audio-exceptions.json"
   }
 }

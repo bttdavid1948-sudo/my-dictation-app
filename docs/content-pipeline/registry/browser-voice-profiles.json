@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-28",
+  "profiles": [
+    {
+      "profile_id": "MAN-BV-CHROME153-WIN10-22H2-VOICES4",
+      "version": "v0.1",
+      "status": "CAPABILITY_QA_PASS",
+      "producer_type": "browser_voice",
+      "delivery_mode": "RUNTIME_RENDERED",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "scope": "LOW_STAKES_PRACTICE",
+      "fixture_set_ref": "MAN-BV-BASELINE@v0.1",
+      "evidence_ref": "browser-voice-runtime-evidence@v0.1",
+      "evidence_sha256": "b9ee38d11fd978677731cf014f49b0cd1d6efea7634859f967d617dc7ac9ce12",
+      "reviewer_ref": "QA-01",
+      "tested_at": "2026-09-28T14:48:17.207Z",
+      "runtime": {
+        "browser_family_major": "Chrome/153",
+        "platform": "Win32",
+        "os_version_label": "Windows 10 22H2",
+        "speaker_capacity": 4,
+        "voices": [
+          {
+            "voice_uri": "Microsoft David - English (United States)",
+            "name": "Microsoft David - English (United States)",
+            "lang": "en-US",
+            "local_service": true
+          },
+          {
+            "voice_uri": "Microsoft Mark - English (United States)",
+            "name": "Microsoft Mark - English (United States)",
+            "lang": "en-US",
+            "local_service": true
+          },
+          {
+            "voice_uri": "Microsoft Zira - English (United States)",
+            "name": "Microsoft Zira - English (United States)",
+            "lang": "en-US",
+            "local_service": true
+          },
+          {
+            "voice_uri": "Google US English",
+            "name": "Google US English",
+            "lang": "en-US",
+            "local_service": false
+          }
+        ]
+      },
+      "inheritance_rule": "Exact browser major, platform, reported OS version, voice URIs, language and local_service; recertify on drift and periodically listen for silent voice updates.",
+      "limits": [
+        "Not an output AudioProfile",
+        "No per-lesson audio QA",
+        "No calibrated or realization-sensitive claim",
+        "No available_audio_realization_ref"
+      ],
+      "approved_realization_refs_count": 0
+    }
+  ]
+}
