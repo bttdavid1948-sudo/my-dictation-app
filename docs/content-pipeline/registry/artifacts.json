@@ -110,11 +110,12 @@
       "id": "content-pipeline-contract",
       "name": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
       "version": "v0.2",
-      "status": "FREEZE_READY",
+      "status": "FROZEN",
       "owner_lane": "PRACTICE_2",
       "source": [
         "Curriculum #3 candidate v0.1",
-        "Practice #2 final compatibility review PASS"
+        "Practice #2 final compatibility review PASS",
+        "Curriculum #3 final freeze verification PASS"
       ],
       "dependencies": [
         "content-pipeline-contract@v0.1",
@@ -132,7 +133,9 @@
       },
       "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec",
       "size_bytes": 39776,
-      "validation_status": "HASH_VERIFIED"
+      "validation_status": "HASH_VERIFIED",
+      "frozen_at": "2026-09-28",
+      "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"
     }
   ]
 }

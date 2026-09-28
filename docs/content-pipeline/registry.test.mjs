@@ -10,13 +10,16 @@ const load=n=>JSON.parse(fs.readFileSync(path.join(base,'registry',n),'utf8'));
 const registry=load('artifacts.json'), pipeline=load('pipeline.json'), lessons=load('lessons.json');
 const clone=x=>structuredClone(x);
 
-test('version resolution retains previous artifact and current freeze-ready status',()=>{
+test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   const index=validate(registry,pipeline,lessons);
   assert.equal(index.get('content-pipeline-contract@v0.1').status,'SUPERSEDED');
-  assert.equal(index.get('content-pipeline-contract@v0.2').status,'FREEZE_READY');
+  assert.equal(index.get('content-pipeline-contract@v0.2').status,'FROZEN');
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
   assert.equal(pipeline.production_queue_enabled,false);
+  assert.equal(pipeline.next_action.code,'PRODUCTION_READINESS_BATCH_01_PREPARATION');
+  assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
+  assert.equal(pipeline.freeze_manifest_ref,'docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json');
   assert.deepEqual(lessons.records,[]);
 });
 test('routes preserve ownership and keep Owner outside happy path',()=>{

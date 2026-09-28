@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "contract_ref": "content-pipeline-contract@v0.2",
-  "contract_status": "FREEZE_READY",
+  "contract_status": "FROZEN",
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "FREEZE_REVIEW",
+    "code": "PRODUCTION_READINESS_BATCH_01_PREPARATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "correct compatibility/freeze authority; do not auto-freeze"
+    "requires": "Pipeline Contract v0.2 is FROZEN. Keep lesson registry empty and production queue disabled until #4 completes Production Readiness / Batch 01 preparation."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -15,7 +15,7 @@
     "PRACTICE_PREPROD_READY",
     "CONTRACT_PRECHECK_VALID"
   ],
-  "preproduction_result": "PRODUCTION_READY only after all gates PASS and contract freeze",
+  "preproduction_result": "PRODUCTION_READY only after UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + CONTRACT_PRECHECK_VALID all PASS. Contract freeze alone does not enable the production queue.",
   "postproduction_gates": [
     "PRACTICE_READY",
     "CONTRACT_VALID"
@@ -72,5 +72,6 @@
       "blocking": "expected",
       "trigger": "Actual produced target_anchors[] needed after planning"
     }
-  ]
+  ],
+  "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"
 }

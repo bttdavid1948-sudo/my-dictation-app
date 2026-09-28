@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "artifact_ref": "content-pipeline-contract@v0.2",
+  "artifact_name": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+  "artifact_store": "ChatGPT Library",
+  "artifact_path": "/MẶN — VẬN HÀNH/MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+  "version": "v0.2",
+  "status": "FROZEN",
+  "frozen_at": "2026-09-28",
+  "freeze_authority_lane": "CURRICULUM_3",
+  "compatibility_review_lane": "PRACTICE_2",
+  "registry_baseline_commit": "9ea54e7c6ab865ed230ae36ce9f9211d455264f0",
+  "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec",
+  "size_bytes": 39776,
+  "artifact_validation_status": "HASH_VERIFIED",
+  "artifact_byte_verification_provenance": "PR #35 shared artifact registry HASH_VERIFIED record",
+  "verification": [
+    {
+      "id": "FV-01",
+      "check": "v0.2 is the exact #2-reviewed artifact",
+      "result": "PASS",
+      "evidence": "Registry current content-pipeline-contract=v0.2; exact Library path/checksum; source includes Practice #2 final compatibility review PASS."
+    },
+    {
+      "id": "FV-02",
+      "check": "No unresolved integration blocker",
+      "result": "PASS",
+      "evidence": "Registry/pipeline has no blocker state; v0.2 entered FREEZE_READY after #2 review; freeze verification found no contradiction in machine-readable integration rules."
+    },
+    {
+      "id": "FV-03",
+      "check": "Pre-production/post-production separation",
+      "result": "PASS",
+      "evidence": "Preproduction gates: PRACTICE_PREPROD_READY + CONTRACT_PRECHECK_VALID. Postproduction gates: PRACTICE_READY + CONTRACT_VALID. Anchor_Intent is planning-only; produced target_anchors[] required for final Practice readiness."
+    },
+    {
+      "id": "FV-04",
+      "check": "UNIQUE_PURPOSE remains hard gate",
+      "result": "PASS",
+      "evidence": "UNIQUE_PURPOSE_PASS is a preproduction gate; DUPLICATE route is blocking, owned by CURRICULUM_3, and explicitly has no Operations override."
+    },
+    {
+      "id": "FV-05",
+      "check": "PRODUCTION_READY is composite and does not require Operations to infer Curriculum/Practice semantics",
+      "result": "PASS",
+      "evidence": "PRODUCTION_READY depends only on explicit gate outputs: UNIQUE_PURPOSE_PASS, CURRICULUM_READY, PRACTICE_PREPROD_READY, CONTRACT_PRECHECK_VALID."
+    },
+    {
+      "id": "FV-06",
+      "check": "Ownership/routing preserved",
+      "result": "PASS",
+      "evidence": "RETURN_TO_CURRICULUM/DUPLICATE→CURRICULUM_3; PRACTICE_CONFLICT→PRACTICE_2; IMPLEMENTATION_ISSUE→OPERATIONS_4; OWNER_DECISION_REQUIRED→OWNER; Owner absent from happy path."
+    },
+    {
+      "id": "FV-07",
+      "check": "No breaking conflict with frozen Curriculum ↔ Practice Contract v0.3",
+      "result": "PASS",
+      "evidence": "pipeline.frozen_interface_ref=curriculum-practice-contract@v0.3; registry v0.3 status remains FROZEN; no change to v0.3 artifact/checksum."
+    }
+  ],
+  "unresolved_blockers": [],
+  "pending_outside_schema_freeze": [
+    "PNG9 empirical calibration",
+    "Production Readiness / Batch 01 preparation",
+    "Operations production queue implementation/readiness"
+  ],
+  "production_queue_enabled": false,
+  "lesson_registry_population_allowed": false,
+  "next_gate": {
+    "code": "PRODUCTION_READINESS_BATCH_01_PREPARATION",
+    "responsible_lane": "OPERATIONS_4"
+  },
+  "frozen_invariants": [
+    "Stable lesson identity remains lesson_id across the pipeline.",
+    "UNIQUE_PURPOSE_PASS is mandatory; DUPLICATE blocks production with no Operations override.",
+    "PRACTICE_PREPROD_READY and CONTRACT_PRECHECK_VALID are pre-production gates.",
+    "PRACTICE_READY and CONTRACT_VALID are post-production gates.",
+    "Anchor_Intent is planning-only; final Practice grounding requires produced target_anchors[].",
+    "Owner is not in the happy path and is used only for genuine authority/product decisions.",
+    "Frozen Curriculum ↔ Practice Contract v0.3 is not modified."
+  ]
+}
