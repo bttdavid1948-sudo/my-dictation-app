@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Read batch-01-curriculum-review@v0.1 from Shared Artifact Registry and verify SHA-256. Canonicalize the 12 reviewed candidate lessons using the reviewed English segments and Curriculum-owned target anchors. Do not change lesson identity/Unique Purpose/Curriculum semantics; do not publish; do not assert final PRACTICE_READY or CONTRACT_VALID before produced-asset validation."
+    "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
