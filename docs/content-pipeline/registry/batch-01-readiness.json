@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PAUSED_AWAITING_PRACTICE_POSTPRODUCTION",
+  "preparation_status": "AUDIO_REALIZATION_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -79,12 +79,26 @@
       "status": "PASS",
       "evidence_ref": "batch-01-canonical-lesson-assets@v0.1",
       "requirement": "12 versioned canonical assets exactly reflect Curriculum-reviewed segments and target anchors; no final Practice, audio, rights, support locale or publication claim."
+    },
+    {
+      "code": "PRACTICE_POSTPRODUCTION_GROUNDING",
+      "owner_lane": "PRACTICE_2",
+      "status": "PASS",
+      "evidence_ref": "batch-01-practice-postproduction-validation@v0.1",
+      "requirement": "Validate 12 canonical lesson assets and 24 Curriculum-owned target anchors against Practice v0.1 and frozen v0.3; map each target without inventing Curriculum semantics and record per-lesson Practice grounding/conflicts."
+    },
+    {
+      "code": "AUDIO_REALIZATION",
+      "owner_lane": "OPERATIONS_4",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "Provide/bind actual audio realization refs and verify realization-dependent speech phenomena, speaker/accent transfer conditions and prosodic cues before final Practice evidence/readiness claims."
     }
   ],
   "next_action": {
-    "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
+    "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use batch-01-practice-postproduction-validation@v0.1 and batch-01-canonical-lesson-assets@v0.1. Provide/bind actual realization refs, verify realization-dependent cues/conditions, and keep publication disabled. Return only realization-dependent final Practice checks to #2."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -105,5 +119,13 @@
     "canonical_lesson_asset_versions_created": 12
   },
   "canonical_asset_ref": "batch-01-canonical-lesson-assets@v0.1",
-  "canonical_lesson_asset_versions_created": 12
+  "canonical_lesson_asset_versions_created": 12,
+  "practice_postproduction_ref": "batch-01-practice-postproduction-validation@v0.1",
+  "practice_postproduction_result": {
+    "grounding_pass": 12,
+    "target_anchors_mapped": 24,
+    "practice_conflicts": 0,
+    "final_practice_ready": 0,
+    "blocker": "AUDIO_REALIZATION_PENDING"
+  }
 }
