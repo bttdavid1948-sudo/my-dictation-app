@@ -51,6 +51,8 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 ## Batch 01 preparation
 
+Practice #2 has completed post-production grounding for the 12 canonical assets: `batch-01-practice-postproduction-validation@v0.1` records 12/12 lesson grounding PASS, 24/24 anchors mapped, 0 Practice conflicts, and 0 final `PRACTICE_READY` because canonical assets currently expose no `available_audio_realization_refs`. The next action is `PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE` → #4. Audio realization, rights/support-locale and publication remain separate gates; the queue/public release state is unchanged.
+
 [`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) remains the machine-readable preparation record. Curriculum #3 has now published the first versioned reserved-identity snapshot and calibration selection:
 
 - `global-lesson-registry-snapshot@v0.1`: all 1,000 reserved lesson identities/purposes, kept in the access-controlled Library.
