@@ -59,7 +59,7 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 The proposed 12 are not a new Curriculum truth or fixed production quota. The design uses one complete `SF065` A1→C2 spiral chain plus one contrasting lesson per level, yielding two lessons at each A1–C2 level, both strands, 3 `NEW` and 9 `OVERLAP_JUSTIFIED` paths, and 12 distinct primary listening skills/phenomena. `DUPLICATE=0`; all future RESERVED purposes remain protected by the snapshot.
 
-Batch 01 is still **not open** and the production queue stays disabled. Next action is `PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE` → #2. #2 must provide `PRACTICE_PREPROD_READY` for the selected lessons from Practice v0.1; `Anchor_Intent` remains planning-only. After that, #4 validates `CONTRACT_PRECHECK_VALID`, queue safety and the four-gate `PRODUCTION_READY` composite before any separate queue-opening change. PNG9 empirical calibration remains pending for mass production.
+Batch 01 is still **not open** and the production queue stays disabled. Practice #2 has published `batch-01-practice-preproduction-evidence@v0.1`: all 12 selected lessons are `PRACTICE_PREPROD_READY`, with `Final_PRACTICE_READY=false`; `Anchor_Intent` remains planning-only and produced `target_anchors[]` are still required for final grounding. Next action is `VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY` → #4. #4 validates `CONTRACT_PRECHECK_VALID`, source/version references, queue safety and the four-gate `PRODUCTION_READY` composite before any separate queue-opening change. PNG9 empirical calibration remains pending for mass production.
 
 ## Updating the registry
 
