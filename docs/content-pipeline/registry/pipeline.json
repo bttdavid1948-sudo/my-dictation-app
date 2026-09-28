@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PRODUCTION_READINESS_BATCH_01_PREPARATION",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Pipeline Contract v0.2 is FROZEN. Keep lesson registry empty and production queue disabled until #4 completes Production Readiness / Batch 01 preparation."
+    "code": "PROVIDE_VERSIONED_GLOBAL_REGISTRY_SNAPSHOT_AND_BATCH_SELECTION",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "Batch 01 preparation is recorded in registry/batch-01-readiness.json. #3 supplies a versioned reserved-identity snapshot and justified calibration batch selection; #2 supplies Practice preproduction evidence; #4 validates readiness before any separate queue-opening change."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
