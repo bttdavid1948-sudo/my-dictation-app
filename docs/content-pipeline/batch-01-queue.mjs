@@ -21,13 +21,14 @@ export function validateQueueFoundation(queue,ledger,batch,precheck,pipeline,les
  }else fail('Invalid queue state');
  const allowed=new Set(queue.allowed_lesson_ids),seen=new Set(),started=new Set(),submitted=new Set();
  for(const e of ledger.events){
-  if(seen.has(e.event_id)||!allowed.has(e.lesson_id)||!e.source_ref||!e.lesson_asset_version||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(e.type))fail('Invalid or duplicate production event');
+  if(seen.has(e.event_id)||!allowed.has(e.lesson_id)||!e.source_ref||!e.draft_version||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(e.type))fail('Invalid or duplicate production event');
   seen.add(e.event_id);
   if(e.type==='PRODUCTION_STARTED'){
    if(started.has(e.lesson_id)&&!e.rework_ref)fail('Reproduction requires versioned rework');
    started.add(e.lesson_id);
   }
   if(e.type==='PRODUCTION_SUBMITTED'){
+   if(e.submission_stage!=='CURRICULUM_CANDIDATE_REVIEW')fail('Draft submission stage required');
    if(!started.has(e.lesson_id))fail('Submitted asset without production start');
    submitted.add(e.lesson_id);
   }
@@ -58,11 +59,12 @@ export function deriveStatusRefs(queue,ledger){
 }
 export function proposeEvent(queue,ledger,event){
  if(queue.state!=='OPEN'||!queue.enabled)fail('Cannot record production on closed queue');
- if(!queue.allowed_lesson_ids.includes(event.lesson_id)||!event.source_ref?.startsWith('original://')||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(event.type)||!event.event_id||!event.source_ref||!event.lesson_asset_version)fail('Invalid production event');
+ if(!queue.allowed_lesson_ids.includes(event.lesson_id)||!event.source_ref?.startsWith('original://')||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(event.type)||!event.event_id||!event.source_ref||!event.draft_version)fail('Invalid production event');
  if(ledger.events.some(x=>x.event_id===event.event_id))fail('Duplicate production event ID');
  const previous=ledger.events.filter(x=>x.lesson_id===event.lesson_id);
  if(event.type==='PRODUCTION_STARTED'&&previous.some(x=>x.type==='PRODUCTION_STARTED')&&!event.rework_ref)fail('Reproduction requires versioned rework');
  if(event.type==='PRODUCTION_SUBMITTED'&&!previous.some(x=>x.type==='PRODUCTION_STARTED'))fail('Submission requires production start');
+ if(event.type==='PRODUCTION_SUBMITTED'&&event.submission_stage!=='CURRICULUM_CANDIDATE_REVIEW')fail('Draft submission stage required');
  if(event.type.startsWith('QA_')&&!previous.some(x=>x.type==='PRODUCTION_SUBMITTED'))fail('QA requires submitted asset');
  return {...ledger,events:[...ledger.events,event]};
 }

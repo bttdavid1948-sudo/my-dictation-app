@@ -88,3 +88,7 @@ The next separate step is `REVIEW_BATCH_01_OPENING` with #4. Recheck the snapsho
 ## Batch 01 opened for internal drafting
 
 The separate opening review used the SHA-256 verified 1,000-ID snapshot and checked all 12 selected IDs as unproduced, with no conflicts or ledger events. The reviewed authority covers reversible original-content calibration drafts only. `registry/batch-01-opening-evidence.json` records the scope and limitation. The queue is OPEN for the 12 listed IDs; no background worker runs, no event or lesson asset exists yet, and **publication remains prohibited** pending actual per-asset rights and content QA. A draft may use only an original source reference. Before each production start, recheck the current registry to prevent duplicate work; a support locale and final Practice validation remain later publication/QA gates.
+
+## Batch 01 candidate scripts handed to Curriculum
+
+`batch-01-original-draft-candidates@v0.1` is a private Library artifact with 12 original English candidate scripts and 61 candidate segments. Its checksum and exact path are indexed in `registry/artifacts.json`; the public repository contains metadata only. These are **not canonical** Curriculum assets: `target_anchors[]` is empty and `lesson_asset_version`, audio, Vietnamese support bundle and final Practice QA are pending. The event ledger records start and draft submission for each selected ID. The queue is now PAUSED, with history retained and no new work permitted, while #3 reviews/accepts or requests revision. Public publication remains prohibited.
