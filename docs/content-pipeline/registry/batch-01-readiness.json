@@ -4,9 +4,9 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "QUEUE_FOUNDATION_READY_CLOSED",
-  "production_queue_enabled": false,
-  "batch_open": false,
+  "preparation_status": "OPEN_INTERNAL_CALIBRATION_DRAFTS",
+  "production_queue_enabled": true,
+  "batch_open": true,
   "lesson_ids": [
     "MAN-0065",
     "MAN-0165",
@@ -68,9 +68,9 @@
     }
   ],
   "next_action": {
-    "code": "REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE",
+    "code": "DRAFT_BATCH_01_ORIGINAL_ASSETS",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Queue foundation validates closed state and rejects unauthorized opening; repeat opening review using fresh reserved/production snapshot and verified rights/authority before a separate reviewed activation. No background worker or public publication is implied."
+    "requires": "Produce original English calibration drafts only for the 12 queued IDs, preserving source/rights provenance and versioned production events. No public publication, Firebase write, paid audio, or postproduction Practice PASS without produced anchors and #2 QA."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {

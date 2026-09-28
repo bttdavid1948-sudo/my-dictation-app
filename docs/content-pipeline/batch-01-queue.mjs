@@ -16,7 +16,7 @@ export function validateQueueFoundation(queue,ledger,batch,precheck,pipeline,les
  if(queue.state==='CLOSED'){
   if(queue.enabled||queue.items.length||ledger.events.length||queue.opening_evidence!==null)fail('Closed queue cannot have work or events');
  }else if(queue.state==='OPEN'||queue.state==='PAUSED'){
-  if(queue.enabled!==(queue.state==='OPEN')||!queue.opening_evidence?.snapshot_validation_ref||!queue.opening_evidence?.authorization_ref||!queue.opening_evidence?.rights_check_ref)fail('Opening evidence missing or pause not disabled');
+  if(queue.enabled!==(queue.state==='OPEN')||!queue.opening_evidence?.snapshot_validation_ref||!queue.opening_evidence?.authorization_ref||!queue.opening_evidence?.rights_check_ref||queue.opening_evidence?.mode!=='INTERNAL_ORIGINAL_DRAFTS_ONLY')fail('Opening evidence missing or pause not disabled');
   if(!same(queue.items.map(x=>x.lesson_id),queue.allowed_lesson_ids))fail('Active/history queue must contain exactly selected work');
  }else fail('Invalid queue state');
  const allowed=new Set(queue.allowed_lesson_ids),seen=new Set(),started=new Set(),submitted=new Set();
@@ -43,7 +43,7 @@ export function validateQueueFoundation(queue,ledger,batch,precheck,pipeline,les
 export function proposeOpen(queue,ledger,batch,precheck,pipeline,lessons,evidence){
  validateQueueFoundation(queue,ledger,batch,precheck,pipeline,lessons);
  if(queue.state!=='CLOSED')fail('Batch already open');
- if(!evidence?.snapshot_validation_ref||!evidence?.checked_at||!evidence?.authorization_ref||!evidence?.rights_check_ref||evidence.selected_unproduced_count!==12||evidence.open_conflicts!==0)fail('Fresh snapshot, rights and authority evidence required');
+ if(!evidence?.snapshot_validation_ref||!evidence?.checked_at||!evidence?.authorization_ref||!evidence?.rights_check_ref||evidence.mode!=='INTERNAL_ORIGINAL_DRAFTS_ONLY'||evidence.selected_unproduced_count!==12||evidence.open_conflicts!==0)fail('Fresh snapshot, rights and authority evidence required');
  return {...queue,state:'OPEN',enabled:true,opening_evidence:evidence,items:queue.allowed_lesson_ids.map(lesson_id=>({lesson_id,status:'QUEUED',production_status_ref:null,qa_status_ref:null}))};
 }
 export function deriveStatusRefs(queue,ledger){
@@ -58,7 +58,7 @@ export function deriveStatusRefs(queue,ledger){
 }
 export function proposeEvent(queue,ledger,event){
  if(queue.state!=='OPEN'||!queue.enabled)fail('Cannot record production on closed queue');
- if(!queue.allowed_lesson_ids.includes(event.lesson_id)||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(event.type)||!event.event_id||!event.source_ref||!event.lesson_asset_version)fail('Invalid production event');
+ if(!queue.allowed_lesson_ids.includes(event.lesson_id)||!event.source_ref?.startsWith('original://')||!['PRODUCTION_STARTED','PRODUCTION_SUBMITTED','QA_PASSED','QA_FAILED'].includes(event.type)||!event.event_id||!event.source_ref||!event.lesson_asset_version)fail('Invalid production event');
  if(ledger.events.some(x=>x.event_id===event.event_id))fail('Duplicate production event ID');
  const previous=ledger.events.filter(x=>x.lesson_id===event.lesson_id);
  if(event.type==='PRODUCTION_STARTED'&&previous.some(x=>x.type==='PRODUCTION_STARTED')&&!event.rework_ref)fail('Reproduction requires versioned rework');

@@ -5,10 +5,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const dir=path.join(path.dirname(fileURLToPath(import.meta.url)),'registry');
 const read=n=>JSON.parse(fs.readFileSync(path.join(dir,n),'utf8'));
-test('composite gate joins exact 12 Curriculum and Practice IDs and versioned sources, while queue remains closed',()=>{
+test('composite gate joins exact 12 Curriculum and Practice IDs and versioned sources, while queue opens only for internal drafts',()=>{
  const batch=read('batch-01-readiness.json'), c=read('batch-01-curriculum-inputs.json'), p=read('batch-01-practice-inputs.json'), e=read('batch-01-operations-precheck.json'), pipe=read('pipeline.json'), registry=read('artifacts.json'), lessons=read('lessons.json');
  const artifacts=new Map(registry.artifacts.map(a=>[a.id+'@'+a.version,a]));
- assert.equal(batch.preparation_status,'QUEUE_FOUNDATION_READY_CLOSED');
+ assert.equal(batch.preparation_status,'OPEN_INTERNAL_CALIBRATION_DRAFTS');
  assert.deepEqual(batch.lesson_ids,p.lesson_ids);
  assert.deepEqual(batch.lesson_ids,c.selected_lessons.map(x=>x.lesson_id));
  assert.deepEqual(batch.lesson_ids,e.selected_lessons.map(x=>x.lesson_id));
@@ -22,6 +22,6 @@ test('composite gate joins exact 12 Curriculum and Practice IDs and versioned so
   assert.equal(z.contract_precheck_valid,true);assert.equal(z.production_ready,true);assert.equal(z.final_practice_ready,false);
  }
  assert.ok(batch.inputs.every(x=>x.status==='PASS'&&x.evidence_ref));
- assert.equal(pipe.production_queue_enabled,false);assert.equal(batch.batch_open,false);assert.equal(e.queue_safety.production_queue_enabled,false);
- assert.deepEqual(lessons.records,[]);assert.equal(pipe.next_action.code,'REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE');
+ assert.equal(pipe.production_queue_enabled,true);assert.equal(batch.batch_open,true);assert.equal(e.queue_safety.production_queue_enabled,false);
+ assert.deepEqual(lessons.records,[]);assert.equal(pipe.next_action.code,'DRAFT_BATCH_01_ORIGINAL_ASSETS');
 });

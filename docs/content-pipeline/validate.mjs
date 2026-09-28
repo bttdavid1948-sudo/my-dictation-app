@@ -38,8 +38,13 @@ export function validate(registry, pipeline, lessons) {
     throw Error('Frozen v0.3 interface missing');
   if (pipeline.contract_status !== 'FROZEN' && pipeline.production_queue_enabled)
     throw Error('Production queue cannot open before freeze');
-  if (pipeline.production_queue_enabled && !lessons.records.length)
-    throw Error('Production queue cannot open before Batch 01 readiness');
+  {
+    const queue=read('batch-01-queue.json'), batch=read('batch-01-readiness.json');
+    if (queue.enabled!==pipeline.production_queue_enabled||queue.enabled!==batch.batch_open||queue.enabled!==batch.production_queue_enabled)
+      throw Error('Production queue activation mismatch');
+    if (pipeline.production_queue_enabled && (queue.state!=='OPEN'||queue.items.length!==12||!queue.opening_evidence?.rights_check_ref))
+      throw Error('Production queue cannot open before Batch 01 readiness');
+  }
   if (lessons.contract_ref !== pipeline.contract_ref || !Array.isArray(lessons.records))
     throw Error('Global lesson registry contract mismatch');
   if (pipeline.contract_status !== 'FROZEN' && lessons.records.length)

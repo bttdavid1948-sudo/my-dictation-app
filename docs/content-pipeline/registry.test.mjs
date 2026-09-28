@@ -16,16 +16,16 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(index.get('content-pipeline-contract@v0.2').status,'FROZEN');
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
-  assert.equal(pipeline.production_queue_enabled,false);
-  assert.equal(pipeline.next_action.code,'REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE');
+  assert.equal(pipeline.production_queue_enabled,true);
+  assert.equal(pipeline.next_action.code,'DRAFT_BATCH_01_ORIGINAL_ASSETS');
   assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').classification,'NON_BREAKING_EXTENSION_NEEDED');
   const preparation=load('batch-01-readiness.json');
-  assert.equal(preparation.preparation_status,'QUEUE_FOUNDATION_READY_CLOSED');
-  assert.equal(load('batch-01-opening-review.json').review_result,'FOUNDATION_IMPLEMENTED_OPENING_REVIEW_PENDING');
-  assert.equal(preparation.batch_open,false);
-  assert.equal(preparation.production_queue_enabled,false);
+  assert.equal(preparation.preparation_status,'OPEN_INTERNAL_CALIBRATION_DRAFTS');
+  assert.equal(load('batch-01-opening-review.json').review_result,'OPEN_INTERNAL_DRAFTS_ONLY');
+  assert.equal(preparation.batch_open,true);
+  assert.equal(preparation.production_queue_enabled,true);
   assert.equal(preparation.lesson_ids.length,12);
   assert.equal(preparation.proposed_lesson_count,12);
   assert.equal(preparation.registry_snapshot_ref,'global-lesson-registry-snapshot@v0.1');
@@ -47,8 +47,8 @@ test('routes preserve ownership and keep Owner outside happy path',()=>{
   assert.ok(!pipeline.happy_path.includes('OWNER'));
 });
 test('validator rejects counterfeit freeze and broken version links',()=>{
-  const altered=clone(pipeline); altered.production_queue_enabled=true;
-  assert.throws(()=>validate(registry,altered,lessons),/cannot open before Batch 01 readiness/);
+  const altered=clone(pipeline); altered.production_queue_enabled=false;
+  assert.throws(()=>validate(registry,altered,lessons),/activation mismatch/);
   const broken=clone(registry);
   broken.artifacts.find(a=>a.id==='content-pipeline-contract'&&a.version==='v0.1').superseded_by=null;
   assert.throws(()=>validate(broken,pipeline,lessons),/Broken supersedes/);

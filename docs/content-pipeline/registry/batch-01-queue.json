@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
   "role": "CALIBRATION",
-  "state": "CLOSED",
-  "enabled": false,
+  "state": "OPEN",
+  "enabled": true,
   "selection_ref": "batch-01-curriculum-selection@v0.1",
   "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
   "snapshot_ref": "global-lesson-registry-snapshot@v0.1",
@@ -21,7 +21,89 @@
     "MAN-0844",
     "MAN-0986"
   ],
-  "opening_evidence": null,
-  "items": [],
-  "event_ledger_ref": "docs/content-pipeline/registry/batch-01-production-events.json"
+  "opening_evidence": {
+    "snapshot_validation_ref": "docs/content-pipeline/registry/batch-01-opening-evidence.json#snapshot_validation",
+    "checked_at": "2026-09-28T07:20:27.266444Z",
+    "authorization_ref": "docs/content-pipeline/registry/batch-01-opening-evidence.json#authority",
+    "rights_check_ref": "docs/content-pipeline/registry/batch-01-opening-evidence.json#source_rights",
+    "selected_unproduced_count": 12,
+    "open_conflicts": 0,
+    "mode": "INTERNAL_ORIGINAL_DRAFTS_ONLY"
+  },
+  "items": [
+    {
+      "lesson_id": "MAN-0065",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "status": "QUEUED",
+      "production_status_ref": null,
+      "qa_status_ref": null
+    }
+  ],
+  "event_ledger_ref": "docs/content-pipeline/registry/batch-01-production-events.json",
+  "purpose": "INTERNAL_ORIGINAL_DRAFTS_ONLY"
 }
