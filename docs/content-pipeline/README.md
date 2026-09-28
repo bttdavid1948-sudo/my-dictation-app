@@ -51,11 +51,15 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 ## Batch 01 preparation
 
-[`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) is the machine-readable preparation record. `INPUT_PENDING` means Batch 01 is **not open**: there are no selected lessons or proposed count, no versioned reserved-identity snapshot, and the production queue stays disabled. This record does not certify per-lesson gates.
+[`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) remains the machine-readable preparation record. Curriculum #3 has now published the first versioned reserved-identity snapshot and calibration selection:
 
-The support-locale separation is complete at the content/registry model level. The existing Batch 01 flow resumes: #3 publishes a versioned Global Lesson Registry snapshot covering future RESERVED purposes and a justified A1–C2 calibration selection using existing IDs; #2 supplies Practice preproduction evidence; #4 checks the four explicit preproduction gates, contract references and queue safety. `DUPLICATE` or `OPEN` purpose conflicts block production. The count is proposed with evidence, not prescribed here; PNG9 empirical calibration remains required before mass production. Each lane reads shared canonical files directly, without Owner transferring attachments.
+- `global-lesson-registry-snapshot@v0.1`: all 1,000 reserved lesson identities/purposes, kept in the access-controlled Library.
+- `batch-01-curriculum-selection@v0.1`: 12 proposed calibration lessons using existing IDs only.
+- `registry/batch-01-curriculum-inputs.json`: public orchestration metadata confirming `UNIQUE_PURPOSE_PASS` + `CURRICULUM_READY` for the selected IDs without exposing Curriculum content.
 
-Opening Batch 01 or enabling the production queue requires a separate reviewed change backed by the snapshot and per-lesson evidence. Production and QA status references remain owned by #4; this preparation does not redefine Curriculum or Practice semantics.
+The proposed 12 are not a new Curriculum truth or fixed production quota. The design uses one complete `SF065` A1→C2 spiral chain plus one contrasting lesson per level, yielding two lessons at each A1–C2 level, both strands, 3 `NEW` and 9 `OVERLAP_JUSTIFIED` paths, and 12 distinct primary listening skills/phenomena. `DUPLICATE=0`; all future RESERVED purposes remain protected by the snapshot.
+
+Batch 01 is still **not open** and the production queue stays disabled. Next action is `PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE` → #2. #2 must provide `PRACTICE_PREPROD_READY` for the selected lessons from Practice v0.1; `Anchor_Intent` remains planning-only. After that, #4 validates `CONTRACT_PRECHECK_VALID`, queue safety and the four-gate `PRODUCTION_READY` composite before any separate queue-opening change. PNG9 empirical calibration remains pending for mass production.
 
 ## Updating the registry
 
