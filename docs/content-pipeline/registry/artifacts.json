@@ -202,7 +202,7 @@
       "sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836",
       "size_bytes": 185636,
       "validation_status": "HASH_VERIFIED",
-      "logical_snapshot_sha256": "6cb0fc4c7e0ef2798912043944df9033921f3ed3f0db6114729570f72eeac0dc",
+      "logical_snapshot_sha256": "cd41247c25bb804df9b58ac099b70ab955d0518230a242c38836161781995849",
       "row_count": 1000
     },
     {
