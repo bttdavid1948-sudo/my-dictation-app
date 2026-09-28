@@ -94,3 +94,7 @@ The separate opening review used the SHA-256 verified 1,000-ID snapshot and chec
 ## Batch 01 candidate scripts handed to Curriculum
 
 `batch-01-original-draft-candidates@v0.1` is a private Library artifact with 12 original English candidate scripts and 61 candidate segments. Its checksum and exact path are indexed in `registry/artifacts.json`; the public repository contains metadata only. These are **not canonical** Curriculum assets: `target_anchors[]` is empty and `lesson_asset_version`, audio, Vietnamese support bundle and final Practice QA are pending. The event ledger records start and draft submission for each selected ID. The queue is now PAUSED, with history retained and no new work permitted, while #3 reviews/accepts or requests revision. Public publication remains prohibited.
+
+## Browser Voice certification foundation
+
+The no-cost, same-origin [QA page](browser-voice-certification.html), [validator](browser-voice-certification.mjs), [CLI](browser-voice-certification-cli.mjs) and [guide](browser-voice-qa.md) support a reusable browser/OS/voice capability profile. They test five representative clips per runtime combination and reject stale voice/browser or unsupported scoring claims. No certificate or eligible lesson realization exists until a supported runtime produces acoustic QA evidence; `batch-01-audio-readiness.json` remains fail closed. The five realization-sensitive Batch 01 lessons keep individual exception routing.
