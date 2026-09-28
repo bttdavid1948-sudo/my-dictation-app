@@ -13,7 +13,8 @@
     "batch-01-practice-preproduction-evidence": "v0.1",
     "batch-01-original-draft-candidates": "v0.1",
     "batch-01-curriculum-review": "v0.1",
-    "batch-01-canonical-lesson-assets": "v0.1"
+    "batch-01-canonical-lesson-assets": "v0.1",
+    "batch-01-practice-postproduction-validation": "v0.1"
   },
   "artifacts": [
     {
@@ -396,6 +397,50 @@
         "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
         "responsible_lane": "PRACTICE_2",
         "requires": "Download and hash-verify canonical assets. Ground each lesson's produced target_anchors[] against the actual English segments under frozen v0.3 and Practice spec. Report exact per-lesson PRACTICE_READY / conflicts; do not infer audio realization, rights, or final publication readiness."
+      }
+    },
+    {
+      "id": "batch-01-practice-postproduction-validation",
+      "name": "MAN-Batch-01-Practice-Postproduction-Validation-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 next action from Shared Artifact Registry",
+        "Exact HASH_VERIFIED batch-01-canonical-lesson-assets@v0.1",
+        "Exact HASH_VERIFIED practice-production-spec@v0.1",
+        "12/12 canonical lesson assets and 24/24 Curriculum-owned target anchors validated",
+        "12/12 Practice grounding PASS; 0 Practice conflicts; final PRACTICE_READY remains pending audio realization"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-preproduction-evidence@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3",
+        "content-pipeline-contract@v0.2"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Practice-Postproduction-Validation-v0.1.xlsx"
+      },
+      "sha256": "4bec5890faf8f70a16c3e94f4a31f8b182220fbdf07ac92f8aa40eedaa000bd6",
+      "size_bytes": 47117,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "target_anchor_count": 24,
+      "practice_grounding_pass_count": 12,
+      "practice_conflict_count": 0,
+      "final_practice_ready_count": 0,
+      "blocker_class": "AUDIO_REALIZATION_PENDING",
+      "next_action": {
+        "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Provide or bind actual audio realization refs for the 12 canonical lesson assets and verify realization-dependent speech/transfer/prosody conditions. Do not reinterpret Curriculum or Practice mappings. After audio evidence is available, route back to Practice #2 only for the realization-dependent final PRACTICE_READY check."
       }
     }
   ]

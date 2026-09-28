@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
+    "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice #2 post-production grounding is complete: batch-01-practice-postproduction-validation@v0.1 reports 12/12 lesson grounding PASS, 24/24 anchors mapped, 0 Practice conflicts and 0 final PRACTICE_READY because available_audio_realization_refs are absent. #4 must provide/bind actual audio realization refs and validate realization-dependent cues. No public release; route back to #2 only for final realization-dependent Practice readiness."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
