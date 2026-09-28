@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "OPERATIONS_PRECHECK_PASS_QUEUE_CLOSED",
+  "preparation_status": "QUEUE_FOUNDATION_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -68,9 +68,9 @@
     }
   ],
   "next_action": {
-    "code": "REVIEW_BATCH_01_OPENING",
+    "code": "IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Separate reviewed queue-opening change only after fresh snapshot/no-reproduction check, production/QA status reference mechanism, rollback and applicable approval; this precheck does not open the batch or production queue."
+    "requires": "Build and test bounded queue/status reference mechanism through a separate reviewed branch; keep batch and queue closed. Then repeat opening review with fresh snapshot and applicable authority."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -78,5 +78,6 @@
     "rationale": "One complete SF065 A1→C2 longitudinal spiral chain plus one contrasting lesson per CEFR level. Two lessons per level; covers NEW and OVERLAP_JUSTIFIED paths and varies construct/context/content/skill/phenomenon. Count 12 is a calibration proposal, not canonical Curriculum truth.",
     "longitudinal_spiral_family_id": "SF065",
     "per_level_count": 2
-  }
+  },
+  "opening_review_ref": "docs/content-pipeline/registry/batch-01-opening-review.json"
 }
