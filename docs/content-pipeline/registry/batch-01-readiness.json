@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "contract_status": "FROZEN",
+  "role": "CALIBRATION",
+  "preparation_status": "INPUT_PENDING",
+  "production_queue_enabled": false,
+  "batch_open": false,
+  "lesson_ids": [],
+  "proposed_lesson_count": null,
+  "registry_snapshot_ref": null,
+  "inputs": [
+    {
+      "code": "VERSIONED_GLOBAL_REGISTRY_SNAPSHOT",
+      "owner_lane": "CURRICULUM_3",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "Versioned snapshot includes produced, specified and future RESERVED lesson identities and purposes; validate collisions against the full snapshot."
+    },
+    {
+      "code": "CALIBRATION_BATCH_SELECTION",
+      "owner_lane": "CURRICULUM_3",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "Propose count with evidence and existing lesson IDs only; represent A1–C2, NEW and justified spiral overlap, and vary construct, context, content, skill, phenomenon and progression. No fixed count is imposed."
+    },
+    {
+      "code": "CURRICULUM_AND_UNIQUE_PURPOSE",
+      "owner_lane": "CURRICULUM_3",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "For each selected lesson, explicit UNIQUE_PURPOSE_PASS and CURRICULUM_READY; DUPLICATE or OPEN blocks entry, including conflicts with future RESERVED purposes."
+    },
+    {
+      "code": "PRACTICE_PREPRODUCTION",
+      "owner_lane": "PRACTICE_2",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "For each selected lesson, explicit PRACTICE_PREPROD_READY; Anchor_Intent is planning only and produced target_anchors[] await final Practice validation."
+    },
+    {
+      "code": "CONTRACT_PRECHECK",
+      "owner_lane": "OPERATIONS_4",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "Validate stable lesson IDs, versioned references, CONTRACT_PRECHECK_VALID, source refs and four-gate PRODUCTION_READY for each selected lesson without inferring Curriculum or Practice semantics."
+    },
+    {
+      "code": "CALIBRATION_AND_QUEUE_SAFETY",
+      "owner_lane": "OPERATIONS_4",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "requirement": "Confirm prior systemic calibration blockers, no duplicate/reproduction without explicit rework version, production/QA status references and rollback path before opening queue; empirical PNG9 remains pending for mass production."
+    }
+  ],
+  "next_action": {
+    "code": "PROVIDE_VERSIONED_GLOBAL_REGISTRY_SNAPSHOT_AND_BATCH_SELECTION",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "#3 publishes versioned reserved-identity snapshot and justified calibration selection to the shared store; #2 then supplies preproduction evidence; #4 validates and alone proposes queue opening. No Owner file transfer."
+  }
+}
