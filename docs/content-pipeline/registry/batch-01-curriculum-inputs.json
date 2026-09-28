@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "role": "CALIBRATION",
+  "status": "CURRICULUM_INPUTS_READY",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "curriculum_spec_ref": "curriculum-production-spec@v0.1",
+  "registry_snapshot_ref": "global-lesson-registry-snapshot@v0.1",
+  "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
+  "proposed_lesson_count": 12,
+  "selection_is_proposal": true,
+  "selection_design": {
+    "longitudinal_spiral_family_id": "SF065",
+    "longitudinal_chain_lesson_ids": [
+      "MAN-0065",
+      "MAN-0165",
+      "MAN-0365",
+      "MAN-0565",
+      "MAN-0765",
+      "MAN-0905"
+    ],
+    "contrast_lesson_ids": [
+      "MAN-0044",
+      "MAN-0238",
+      "MAN-0414",
+      "MAN-0604",
+      "MAN-0844",
+      "MAN-0986"
+    ],
+    "per_level_count": 2,
+    "coverage": {
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "identity_classes": {
+        "NEW": 3,
+        "OVERLAP_JUSTIFIED": 9,
+        "DUPLICATE": 0
+      },
+      "strands": {
+        "A": 6,
+        "B": 6
+      },
+      "unique_listening_skills": 12,
+      "unique_listening_phenomena": 12
+    }
+  },
+  "selected_lessons": [
+    {
+      "lesson_id": "MAN-0065",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "curriculum_spec_version": "v0.1",
+      "conflict_status": "NONE",
+      "practice_preprod_ready": false
+    }
+  ],
+  "invariants": {
+    "duplicate_blocks": true,
+    "operations_override_duplicate": false,
+    "all_future_reserved_purposes_in_snapshot": true,
+    "batch_open": false,
+    "production_queue_enabled": false,
+    "png9_empirical_calibration": "PENDING"
+  },
+  "next_action": {
+    "code": "PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE",
+    "responsible_lane": "PRACTICE_2"
+  }
+}
