@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "reviewed_at": "2026-09-28",
+  "owner_lane": "OPERATIONS_4",
+  "source_refs": [
+    "batch-01-canonical-lesson-assets@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "curriculum-practice-contract@v0.3",
+    "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx (research artifact, not production specification)"
+  ],
+  "lesson_count": 12,
+  "segment_count": 62,
+  "english_characters": 6283,
+  "realization_count": 0,
+  "available_audio_realization_refs_count": 0,
+  "approved_qa_count": 0,
+  "status": "BLOCKED_NO_REALIZATION",
+  "evidence": {
+    "local_tts_engine": "NONE_FOUND",
+    "cloud_browser_speech_synthesis": "NOT_AVAILABLE_IN_CURRENT_BROWSER",
+    "production_audio_assets": "NONE_REGISTERED_FOR_BATCH_01",
+    "cloud_tts_api_access": "NOT_VERIFIED_NO_AUTHENTICATED_EXECUTION_PATH",
+    "frozen_interface_requirements": [
+      "stable realization_id and exact lesson_id + lesson_asset_version",
+      "versioned producer-neutral audio_profile_id/version",
+      "PERSISTED_ASSET or RUNTIME_RENDERED and segment_mapping to stable segment_id",
+      "producer provenance and speaker/accent fields where relevant",
+      "QA status/version before approved use"
+    ],
+    "research_boundary": "V3.4 is CALIBRATION-READY / NOT MASS-PRODUCTION-READY; AudioProfile_Key has no approved per-asset production audio_profile_version or acoustic QA.",
+    "runtime_boundary": "Browser Voice runtime requires specific browser/OS/voice/profile QA and cannot stand in for calibrated benchmark or scored accent/prosody/overlap without certification."
+  },
+  "proposal": {
+    "scope": "Non-public, capped evaluation of original Batch 01 scripts: at most 20,000 synthesized characters total, no more than three candidates per segment, with a small initial sample and stop on acoustic failure. Do not enable client credentials or publish.",
+    "candidate": "Google Cloud Text-to-Speech persisted assets, with selective human recording/editing where synthesis fails accent, overlap, contrast or prosody QA.",
+    "cost_basis": "6,283 source characters. Chirp 3 HD list price US$30/million characters; one plain pass approximately US$0.19, three plain passes approximately US$0.57 before markup, retries, storage, human QA or alternative model. These are estimates, not a hard project spend cap.",
+    "pricing_ref": "https://cloud.google.com/text-to-speech/pricing",
+    "authorization_needed": "Owner approval for a bounded Google Cloud Text-to-Speech trial of up to US$5 estimated API charges and permission to enable the billable API, with #4-authenticated execution. The 20,000-character limit is enforced by the execution script; billing alerts are not a hard project spending cap. Arrange human recording only if this trial cannot satisfy QA."
+  },
+  "safety": {
+    "queue_enabled": false,
+    "publication_allowed": false,
+    "practice_ready": false,
+    "contract_valid": false,
+    "production_default_import": false,
+    "paid_api_enabled_by_this_action": false
+  },
+  "next_action": {
+    "code": "OWNER_DECISION_REQUIRED",
+    "responsible_lane": "OWNER",
+    "requires": "Approve/reject a non-public Google Cloud Text-to-Speech trial capped by #4 to 20,000 input characters and US$5 estimated API charges, including enabling the billable API; or choose a qualified recording path. No Owner technical execution requested. After approval #4 obtains authenticated capability, produces and QA-checks real audio, and routes only final realization-dependent Practice checks to #2."
+  }
+}
