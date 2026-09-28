@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "role": "CALIBRATION",
+  "result": "PREPRODUCTION_COMPOSITE_PASS_QUEUE_CLOSED",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "source_refs": [
+    {
+      "ref": "global-lesson-registry-snapshot@v0.1",
+      "sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836"
+    },
+    {
+      "ref": "batch-01-curriculum-selection@v0.1",
+      "sha256": "90739f4f936509c1191c087eac66363743377e35df9e3f5772ae5c744fb08656"
+    },
+    {
+      "ref": "batch-01-practice-preproduction-evidence@v0.1",
+      "sha256": "af6e8177bbcad806597abfc8acc56ce0ccb450825e8a07fdc44cda534f5ad026"
+    }
+  ],
+  "source_validation": {
+    "snapshot_rows": 1000,
+    "unique_lesson_ids": 1000,
+    "unique_purpose_ids": 1000,
+    "all_reserved": true,
+    "open_conflicts": 0,
+    "duplicates": 0,
+    "selected_count": 12,
+    "selected_previously_produced": 0,
+    "all_selected_predecessors_in_snapshot": true,
+    "practice_preprod_ready_count": 12,
+    "verified_against_exact_workbook_bytes": true
+  },
+  "preproduction_gates": [
+    "UNIQUE_PURPOSE_PASS",
+    "CURRICULUM_READY",
+    "PRACTICE_PREPROD_READY",
+    "CONTRACT_PRECHECK_VALID"
+  ],
+  "selected_lessons": [
+    {
+      "lesson_id": "MAN-0065",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "source_refs": {
+        "curriculum": "curriculum-production-spec@v0.1",
+        "practice": "practice-production-spec@v0.1",
+        "snapshot": "global-lesson-registry-snapshot@v0.1",
+        "selection": "batch-01-curriculum-selection@v0.1",
+        "practice_evidence": "batch-01-practice-preproduction-evidence@v0.1",
+        "pipeline": "content-pipeline-contract@v0.2",
+        "frozen_interface": "curriculum-practice-contract@v0.3"
+      },
+      "final_practice_ready": false,
+      "production_status_ref": null,
+      "qa_status_ref": null
+    }
+  ],
+  "queue_safety": {
+    "result": "PRECHECK_PASS_OPENING_NOT_EXECUTED",
+    "batch_open": false,
+    "production_queue_enabled": false,
+    "first_batch_prior_calibration_blockers": "NONE_RECORDED",
+    "mass_production_empirical_png9": "PENDING",
+    "open_gate_requirements": [
+      "Before queue opening: review fresh registry snapshot and verify no selected lesson was produced or reclassified since v0.1; require explicit versioned rework for any rerun.",
+      "Before any production execution: establish per-lesson production_status_ref and qa_status_ref; never treat absent produced assets or final target_anchors[] as postproduction PASS.",
+      "Keep production restricted to the 12 approved calibration IDs; disable queue and revert its reviewed change to roll back before producing further lessons.",
+      "Do not publish official lessons without rights, content QA and the full approved vi-VN support bundle; queue opening alone grants no public publication."
+    ],
+    "rollback": "Revert the separate queue-opening commit and set production_queue_enabled=false; preserve immutable snapshot, selection, Practice evidence and produced versions for diagnosis."
+  },
+  "next_action": {
+    "code": "REVIEW_BATCH_01_OPENING",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Separate reviewed queue-opening change only after fresh snapshot/no-reproduction check, production/QA status reference mechanism, rollback and applicable approval; this precheck does not open the batch or production queue."
+  }
+}
