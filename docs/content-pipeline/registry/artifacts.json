@@ -12,7 +12,8 @@
     "batch-01-curriculum-selection": "v0.1",
     "batch-01-practice-preproduction-evidence": "v0.1",
     "batch-01-original-draft-candidates": "v0.1",
-    "batch-01-curriculum-review": "v0.1"
+    "batch-01-curriculum-review": "v0.1",
+    "batch-01-canonical-lesson-assets": "v0.1"
   },
   "artifacts": [
     {
@@ -357,6 +358,44 @@
         "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Read batch-01-curriculum-review@v0.1 from the Shared Artifact Registry and verify SHA-256. Create canonical lesson assets exactly from reviewed segments and Curriculum-owned target anchors; do not reinterpret Curriculum semantics. Preserve publication_allowed=false and final PRACTICE_READY=false until downstream gates pass."
+      }
+    },
+    {
+      "id": "batch-01-canonical-lesson-assets",
+      "name": "MAN-Batch-01-Canonical-Lesson-Assets-v0.1.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Exact reviewed English segments and Curriculum-owned anchors from batch-01-curriculum-review@v0.1",
+        "Original Operations candidate scripts verified against reviewed source"
+      ],
+      "dependencies": [
+        "batch-01-curriculum-review@v0.1",
+        "batch-01-original-draft-candidates@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Canonical-Lesson-Assets-v0.1.json"
+      },
+      "sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+      "size_bytes": 47772,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "segment_count": 62,
+      "target_anchor_count": 24,
+      "publication_allowed": false,
+      "final_practice_ready": false,
+      "next_action": {
+        "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Download and hash-verify canonical assets. Ground each lesson's produced target_anchors[] against the actual English segments under frozen v0.3 and Practice spec. Report exact per-lesson PRACTICE_READY / conflicts; do not infer audio realization, rights, or final publication readiness."
       }
     }
   ]

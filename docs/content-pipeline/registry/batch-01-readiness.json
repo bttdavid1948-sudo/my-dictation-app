@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PAUSED_AWAITING_OPERATIONS_CANONICALIZATION",
+  "preparation_status": "PAUSED_AWAITING_PRACTICE_POSTPRODUCTION",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -72,12 +72,19 @@
       "status": "PASS",
       "evidence_ref": "batch-01-curriculum-review@v0.1",
       "requirement": "Review draft originality/naturalness/level/progression/Unique Purpose fit; accept/revise English segments and Curriculum-owned target anchors before canonical lesson_asset_version. Rejected rows would return to #4."
+    },
+    {
+      "code": "OPERATIONS_CANONICALIZATION",
+      "owner_lane": "OPERATIONS_4",
+      "status": "PASS",
+      "evidence_ref": "batch-01-canonical-lesson-assets@v0.1",
+      "requirement": "12 versioned canonical assets exactly reflect Curriculum-reviewed segments and target anchors; no final Practice, audio, rights, support locale or publication claim."
     }
   ],
   "next_action": {
-    "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Use batch-01-curriculum-review@v0.1 as the reviewed content source. Verify its hash, create canonical lesson assets/versions without semantic inference, keep publication disabled, and route produced target_anchors[] back through postproduction Practice grounding."
+    "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -95,6 +102,8 @@
     "accepted_with_revision": 3,
     "rejected": 0,
     "target_anchors": 24,
-    "canonical_lesson_asset_versions_created": 0
-  }
+    "canonical_lesson_asset_versions_created": 12
+  },
+  "canonical_asset_ref": "batch-01-canonical-lesson-assets@v0.1",
+  "canonical_lesson_asset_versions_created": 12
 }
