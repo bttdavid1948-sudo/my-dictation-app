@@ -17,13 +17,12 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
   assert.equal(pipeline.production_queue_enabled,false);
-  assert.equal(pipeline.next_action.code,'GLOBAL_READINESS_SUPPORT_LOCALE_EXTENSION');
-  assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
+  assert.equal(pipeline.next_action.code,'PROVIDE_VERSIONED_GLOBAL_REGISTRY_SNAPSHOT_AND_BATCH_SELECTION');
+  assert.equal(pipeline.next_action.responsible_lane,'CURRICULUM_3');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').classification,'NON_BREAKING_EXTENSION_NEEDED');
   const preparation=load('batch-01-readiness.json');
-  assert.equal(preparation.preparation_status,'PAUSED_PRE_GLOBAL_READINESS');
-  assert.equal(preparation.pause_reason_ref,'global-readiness-compatibility-check@v0.1');
+  assert.equal(preparation.preparation_status,'INPUT_PENDING');
   assert.equal(preparation.batch_open,false);
   assert.equal(preparation.production_queue_enabled,false);
   assert.deepEqual(preparation.lesson_ids,[]);
@@ -42,7 +41,7 @@ test('routes preserve ownership and keep Owner outside happy path',()=>{
 });
 test('validator rejects counterfeit freeze and broken version links',()=>{
   const altered=clone(pipeline); altered.production_queue_enabled=true;
-  assert.throws(()=>validate(registry,altered,lessons),/cannot open before freeze/);
+  assert.throws(()=>validate(registry,altered,lessons),/cannot open before Batch 01 readiness/);
   const broken=clone(registry);
   broken.artifacts.find(a=>a.id==='content-pipeline-contract'&&a.version==='v0.1').superseded_by=null;
   assert.throws(()=>validate(broken,pipeline,lessons),/Broken supersedes/);

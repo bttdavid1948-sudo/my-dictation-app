@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "GLOBAL_READINESS_SUPPORT_LOCALE_EXTENSION",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Consume global-readiness-compatibility-check@v0.1. Formalize learner-support locale as a non-breaking content/registry layer outside lesson identity and Unique Purpose; keep vi-VN full/default/required for Mặn V1. Do not populate lessons, select Batch 01, or enable the production queue. After verification, return next action to Production Readiness / Batch 01 preparation."
+    "code": "PROVIDE_VERSIONED_GLOBAL_REGISTRY_SNAPSHOT_AND_BATCH_SELECTION",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "Support-locale separation verified in registry/support-locale-policy.json and support-bundles.schema.json. Resume Batch 01 preparation: #3 supplies versioned reserved-identity snapshot and calibration selection; #2 supplies Practice preproduction evidence; #4 validates before any separate queue-opening change."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
