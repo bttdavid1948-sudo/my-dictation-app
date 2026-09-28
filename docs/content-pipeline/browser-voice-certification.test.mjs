@@ -6,7 +6,7 @@ const evidence=()=>({
   schema_version:'1.0',fixture_set_id:FIXTURE_SET.id,fixture_set_version:FIXTURE_SET.version,
   producer_type:'browser_voice',delivery_mode:'RUNTIME_RENDERED',alignment_mode:'SEGMENT_ADDRESSABLE',
   reviewer_ref:'QA-01',claimed_scopes:['LOW_STAKES_PRACTICE'],
-  runtime:{browser_user_agent:'Example Browser/1.0',platform:'Example OS',tested_at:'2026-09-28T00:00:00Z',speaker_capacity:2,
+  runtime:{browser_user_agent:'Example Browser/1.0',platform:'Example OS',os_version_label:'Example OS 1',tested_at:'2026-09-28T00:00:00Z',speaker_capacity:2,
     voices:[{voice_uri:'voice-1',name:'English 1',lang:'en-US'}, {voice_uri:'voice-2',name:'English 2',lang:'en-GB'}]},
   results:FIXTURE_SET.fixtures.map((f,i)=>({fixture_id:f.id,event_status:'ENDED',started_at_ms:i*1000+1,ended_at_ms:i*1000+900,listening_result:'PASS',tested_speaker_count:f.id==='speaker_turns'?2:1}))
 });
@@ -38,5 +38,7 @@ test('a certificate is reusable only on its certified browser/OS/voice combinati
   assert.equal(matchesCertifiedRuntime(e,observed),false);
   assert.equal(assessLessonEligibility(e,candidate(),profile,observed).reason,'RUNTIME_DRIFT');
   observed.voices[0].voice_uri='voice-1';observed.browser_user_agent='Another Browser/3.0';
+  assert.equal(matchesCertifiedRuntime(e,observed),false);
+  observed.browser_user_agent=e.runtime.browser_user_agent;observed.os_version_label='Example OS 2';
   assert.equal(matchesCertifiedRuntime(e,observed),false);
 });

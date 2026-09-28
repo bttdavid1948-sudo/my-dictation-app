@@ -22,7 +22,7 @@ export function validateRuntimeEvidence(e) {
   if (e.delivery_mode!=='RUNTIME_RENDERED' || e.alignment_mode!=='SEGMENT_ADDRESSABLE' ||
       e.producer_type!=='browser_voice') return fail('MODE');
   const r=e.runtime;
-  if (!r?.browser_user_agent || !r?.platform || !r?.tested_at ||
+  if (!r?.browser_user_agent || !r?.platform || !r?.os_version_label || !r?.tested_at ||
       !Number.isInteger(r.speaker_capacity) || r.speaker_capacity<1 || r.speaker_capacity>4 ||
       !Array.isArray(r.voices) || r.voices.length!==r.speaker_capacity ||
       !r.voices.every(v=>v.voice_uri&&v.lang?.toLowerCase().startsWith('en')&&typeof v.name==='string'))
@@ -58,7 +58,7 @@ function browserFamilyMajor(userAgent) {
 export function matchesCertifiedRuntime(evidence, observed) {
   if (validateRuntimeEvidence(evidence).status!=='CAPABILITY_QA_PASS') return false;
   const certified=evidence.runtime;
-  if (!observed || certified.platform!==observed.platform ||
+  if (!observed || certified.platform!==observed.platform || certified.os_version_label!==observed.os_version_label ||
       browserFamilyMajor(certified.browser_user_agent)!==browserFamilyMajor(observed.browser_user_agent) ||
       !Array.isArray(observed.voices) || observed.voices.length!==certified.voices.length) return false;
   return certified.voices.every((voice,i)=>voice.voice_uri===observed.voices[i]?.voice_uri &&
