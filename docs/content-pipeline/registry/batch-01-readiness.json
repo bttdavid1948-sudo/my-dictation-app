@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PAUSED_AWAITING_BROWSER_VOICE_RUNTIME_QA",
+  "preparation_status": "PAUSED_AWAITING_SUPPORTED_RUNTIME_QA",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -98,7 +98,7 @@
   "next_action": {
     "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
     "responsible_lane": "AUDIO_QA",
-    "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
+    "requires": "Use docs/content-pipeline/browser-voice-certification.html on one supported browser/OS/voice per reusable runtime profile. Listen to five representative fixtures once, export local evidence, run browser-voice-certification-cli.mjs and register versioned evidence/hash. The Work cloud browser cannot provide acoustic evidence. Recertify after browser major/OS/voice/fixture drift; do not QA 62 segments by default. Bind exact per-lesson realizations only after output AudioProfile and audio QA; route five sensitive lessons by exception and final Practice checks to #2. No paid dependency or Owner execution in the happy path."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -129,5 +129,6 @@
     "blocker": "AUDIO_REALIZATION_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
-  "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1"
+  "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
+  "runtime_qa_tool_ref": "docs/content-pipeline/browser-voice-certification.html"
 }

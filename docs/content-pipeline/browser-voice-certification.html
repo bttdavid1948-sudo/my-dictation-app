@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mặn · Browser Voice QA</title>
+  <style>
+    body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#17324d;background:#f7fafc}
+    main{background:white;border-radius:16px;padding:24px;box-shadow:0 3px 20px #17324d12}
+    h1{font-size:1.5rem}fieldset{border:1px solid #cbd5e1;border-radius:10px;margin:14px 0;padding:14px}
+    label{display:block;margin:10px 0}input,select,button{font:inherit;padding:9px;border-radius:8px}
+    select,input{width:100%;border:1px solid #94a3b8}button{border:0;background:#176399;color:white;margin:5px 5px 5px 0;cursor:pointer}
+    button:disabled{opacity:.45;cursor:not-allowed}.fail{background:#a32f36}.pass{background:#19734c}
+    #state{padding:12px;background:#eaf2f8;border-radius:8px;white-space:pre-wrap}.note{color:#475569}
+  </style>
+</head>
+<body><main>
+  <h1>Browser Voice · kiểm tra runtime</h1>
+  <p class="note">Công cụ QA nội bộ: phát 5 mẫu đại diện một lần cho một tổ hợp browser/OS/voice. Không gửi dữ liệu lên máy chủ, không chứng nhận từng bài, không dùng làm bằng chứng accent, prosody hoặc overlap.</p>
+  <label>Mã người kiểm tra (không nhập thông tin cá nhân)<input id="reviewer" autocomplete="off" placeholder="QA-01"></label>
+  <label>Số giọng phân biệt cần kiểm tra<select id="capacity"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+  <fieldset><legend>Giọng tiếng Anh theo vai nói</legend><div id="voice-slots"></div></fieldset>
+  <p id="state" role="status"></p>
+  <div id="fixture"></div>
+  <button id="play">Phát mẫu đang chọn</button>
+  <button id="pass" class="pass" disabled>Nghe đạt</button>
+  <button id="fail" class="fail" disabled>Nghe không đạt</button>
+  <button id="download" disabled>Tải evidence JSON</button>
+  <p class="note">Kết quả JSON chỉ là bằng chứng năng lực runtime; validator sẽ từ chối môi trường thiếu giọng, lỗi phát, mẫu chưa nghe hoặc scope vượt mức luyện tập thông thường. AudioProfile của bài và QA cuối vẫn là gate riêng.</p>
+</main>
+<script type="module">
+import {FIXTURE_SET,validateRuntimeEvidence} from './browser-voice-certification.mjs';
+const $=id=>document.getElementById(id);
+const supported='speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+let voices=[],index=0,last=null,results=[],lockedVoices=null;
+function status(s){$('state').textContent=s}
+function selectedVoices(){return [...$('voice-slots').querySelectorAll('select')].map(s=>voices.find(v=>v.voiceURI===s.value)).filter(Boolean)}
+function renderSlots(){
+ const count=Number($('capacity').value),previous=[...$('voice-slots').querySelectorAll('select')].map(x=>x.value);
+ $('voice-slots').replaceChildren();
+ for(let i=0;i<count;i++){
+   const label=document.createElement('label');label.textContent=`Vai nói ${i+1}`;
+   const select=document.createElement('select');
+   for(const voice of voices){const option=document.createElement('option');option.value=voice.voiceURI;option.textContent=`${voice.name} (${voice.lang})`;select.append(option)}
+   select.value=previous[i]||voices[i]?.voiceURI||'';select.addEventListener('change',reset);label.append(select);$('voice-slots').append(label);
+ }
+ reset();
+}
+function loadVoices(){voices=window.speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().startsWith('en'));renderSlots();if(!voices.length)status('Chưa tìm thấy giọng tiếng Anh. Chọn browser/OS có Web Speech voice rồi thử lại.')}
+function reset(){index=0;results=[];last=null;lockedVoices=null;$('download').disabled=true;renderFixture()}
+function renderFixture(){
+ $('pass').disabled=$('fail').disabled=!last;
+ if(index>=FIXTURE_SET.fixtures.length){$('fixture').textContent='Đã kiểm tra đủ 5 mẫu.';$('play').disabled=true;$('download').disabled=false;return}
+ $('play').disabled=!supported;$('fixture').textContent=`${index+1}/5 — ${FIXTURE_SET.fixtures[index].id}: ${FIXTURE_SET.fixtures[index].text||FIXTURE_SET.fixtures[index].turns.join(' / ')}`;
+}
+async function speak(text,voice){
+ return new Promise(resolve=>{
+   const utterance=new SpeechSynthesisUtterance(text);utterance.lang='en-US';utterance.voice=voice;utterance.rate=1;
+   let started=null,finished=false;
+   const timer=setTimeout(()=>done('TIMEOUT'),30000);
+   function done(value){if(finished)return;finished=true;clearTimeout(timer);resolve({event_status:value,started_at_ms:started,ended_at_ms:Date.now()})}
+   utterance.onstart=()=>{started=Date.now()};utterance.onend=()=>done('ENDED');utterance.onerror=()=>done('ERROR');
+   window.speechSynthesis.speak(utterance);
+ });
+}
+async function play(){
+ const chosen=selectedVoices(),capacity=Number($('capacity').value);
+ if(chosen.length!==capacity||new Set(chosen.map(v=>v.voiceURI)).size!==capacity){status('Chọn đủ giọng tiếng Anh khác nhau cho từng vai.');return}
+ if(lockedVoices && chosen.some((v,i)=>v.voiceURI!==lockedVoices[i].voiceURI)){reset();status('Giọng đã thay đổi; bắt đầu lại bộ mẫu.');return}
+ lockedVoices??=chosen;
+ const fixture=FIXTURE_SET.fixtures[index];$('play').disabled=true;$('pass').disabled=$('fail').disabled=true;last=null;
+ window.speechSynthesis.cancel();status('Đang phát. Hãy nghe và đánh giá khi phát xong.');
+ const turns=fixture.turns||[fixture.text];let first=null,end=null,ok=true;
+ for(let i=0;i<turns.length;i++){
+   const event=await speak(turns[i],chosen[i%chosen.length]);
+   first??=event.started_at_ms;end=event.ended_at_ms;
+   if(event.event_status!=='ENDED'||!event.started_at_ms){ok=false;break}
+ }
+ last={fixture_id:fixture.id,event_status:ok?'ENDED':'ERROR',started_at_ms:first,ended_at_ms:end,tested_speaker_count:fixture.id==='speaker_turns'?capacity:1};
+ $('pass').disabled=$('fail').disabled=!ok;$('play').disabled=false;
+ status(ok?'Phát xong. Chọn “Nghe đạt” hoặc “Nghe không đạt”.':'Không hoàn tất phát audio. Chọn browser/giọng khác; mẫu này chưa được chứng nhận.');
+}
+function mark(result){if(!last)return;results.push({...last,listening_result:result});last=null;index++;renderFixture();status(result==='PASS'?'Đã ghi PASS cho mẫu.':'Đã ghi FAIL; kết quả cuối sẽ bị validator từ chối.')}
+function download(){
+ const chosen=lockedVoices||[];const evidence={schema_version:'1.0',fixture_set_id:FIXTURE_SET.id,fixture_set_version:FIXTURE_SET.version,
+   producer_type:'browser_voice',delivery_mode:'RUNTIME_RENDERED',alignment_mode:'SEGMENT_ADDRESSABLE',
+   reviewer_ref:$('reviewer').value.trim(),claimed_scopes:['LOW_STAKES_PRACTICE'],
+   runtime:{browser_user_agent:navigator.userAgent,platform:navigator.platform,tested_at:new Date().toISOString(),
+     speaker_capacity:chosen.length,voices:chosen.map(v=>({voice_uri:v.voiceURI,name:v.name,lang:v.lang,local_service:v.localService}))},results};
+ const check=validateRuntimeEvidence(evidence);status(`Validator: ${check.status}${check.reason?' — '+check.reason:''}. Evidence tải về máy, chưa ghi vào Registry.`);
+ const url=URL.createObjectURL(new Blob([JSON.stringify(evidence,null,2)+'\n'],{type:'application/json'}));
+ const link=document.createElement('a');link.href=url;link.download='MAN-Browser-Voice-Runtime-Evidence-v0.1.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+$('capacity').addEventListener('change',renderSlots);$('play').addEventListener('click',play);
+$('pass').addEventListener('click',()=>mark('PASS'));$('fail').addEventListener('click',()=>mark('FAIL'));
+$('download').addEventListener('click',download);
+if(supported){window.speechSynthesis.addEventListener('voiceschanged',loadVoices);loadVoices();status('Chọn giọng, nghe 5 mẫu đại diện và xuất evidence.')}else{status('Browser này không hỗ trợ Web Speech. Đây chỉ là giới hạn của runtime hiện tại; hãy dùng browser/OS có giọng tiếng Anh.');renderFixture()}
+</script></body></html>
