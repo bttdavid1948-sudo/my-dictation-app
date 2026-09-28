@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PRACTICE_INPUT_PENDING",
+  "preparation_status": "OPERATIONS_PRECHECK_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -48,8 +48,8 @@
     {
       "code": "PRACTICE_PREPRODUCTION",
       "owner_lane": "PRACTICE_2",
-      "status": "PENDING",
-      "evidence_ref": null,
+      "status": "PASS",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1",
       "requirement": "For each selected lesson, explicit PRACTICE_PREPROD_READY; Anchor_Intent is planning only and produced target_anchors[] await final Practice validation."
     },
     {
@@ -68,9 +68,9 @@
     }
   ],
   "next_action": {
-    "code": "PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Use batch-01-curriculum-selection@v0.1 and global-lesson-registry-snapshot@v0.1. For each selected lesson, provide explicit PRACTICE_PREPROD_READY evidence from Practice v0.1. Anchor_Intent remains planning-only; produced target_anchors[] are still required for final PRACTICE_READY. Batch stays closed and queue disabled."
+    "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use batch-01-practice-preproduction-evidence@v0.1 with the existing Curriculum inputs. Validate CONTRACT_PRECHECK_VALID, stable versioned refs, queue safety and the four-gate PRODUCTION_READY composite. Batch stays closed and production_queue_enabled=false until a separate valid queue-opening action. Final PRACTICE_READY still waits for produced target_anchors[]."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
