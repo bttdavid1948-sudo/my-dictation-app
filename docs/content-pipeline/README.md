@@ -1,6 +1,6 @@
 # Mặn — Shared Artifact Registry
 
-Phase 3 is **CLOSED**. This directory prepares Content Production; it does not freeze the Pipeline Contract or open a lesson production queue.
+Phase 3 is **CLOSED**. The Content Production Pipeline Contract v0.2 is now **FROZEN**. This directory still does not open a lesson production queue.
 
 ## Two stores, one lookup
 
@@ -35,7 +35,7 @@ The validator fails for a missing, duplicated or inconsistent registry record, b
 
 ## Lifecycle and routing
 
-Artifact statuses are `DRAFT`, `CANDIDATE`, `REVIEW_READY`, `FREEZE_READY`, `FROZEN`, `SUPERSEDED`. `content-pipeline-contract@v0.2` is **FREEZE_READY**, not `FROZEN`; `v0.1` is `SUPERSEDED`. Curriculum ↔ Practice `v0.3` remains **FROZEN**. The production queue stays disabled until the separate compatibility/freeze authority acts.
+Artifact statuses are `DRAFT`, `CANDIDATE`, `REVIEW_READY`, `FREEZE_READY`, `FROZEN`, `SUPERSEDED`. `content-pipeline-contract@v0.2` is **FROZEN**; `v0.1` remains `SUPERSEDED`. Curriculum ↔ Practice `v0.3` remains **FROZEN**. The production queue stays disabled: the next gate is **Production Readiness / Batch 01 preparation** owned by #4.
 
 `registry/pipeline.json` maps exception codes deterministically: `RETURN_TO_CURRICULUM` and `DUPLICATE` → #3; `PRACTICE_CONFLICT` → #2; `IMPLEMENTATION_ISSUE` → #4; genuine `OWNER_DECISION_REQUIRED` → Owner. Normal sequence: Curriculum → Practice → pre-production gate → production queue → #4 → QA → Calibration → registry update. A valid pre-production plan does not prove final Practice grounding: produced `target_anchors[]` and post-production validation are still required.
 
@@ -43,8 +43,8 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 ## Global Lesson Registry foundation
 
-`registry/lessons.json` contains zero rows. Its schema reserves stable `lesson_id`, `unique_purpose_id` and classification, Curriculum/Practice spec references and versions, pre-production/final readiness, batch assignment, production/QA/calibration references, blocker, and next responsible lane. Detailed Curriculum/Practice state semantics remain owned by #3/#2. Do not import the 1,000 concept map or open Batch 01 until the Pipeline Contract is formally frozen and the next implementation scope is approved.
+`registry/lessons.json` contains zero rows. Its schema reserves stable `lesson_id`, `unique_purpose_id` and classification, Curriculum/Practice spec references and versions, pre-production/final readiness, batch assignment, production/QA/calibration references, blocker, and next responsible lane. Detailed Curriculum/Practice state semantics remain owned by #3/#2. The Pipeline Contract is frozen, but do not import/populate the 1,000 concept map, open Batch 01, or enable the production queue until #4 completes the separate Production Readiness / Batch 01 preparation gate.
 
 ## Updating the registry
 
-Create a separate branch, place a new version in the access-controlled artifact store, verify its content/hash, update this registry and machine-readable routing only as allowed by lane ownership, validate, inspect diff, then PR/merge and read the files back on `main`. Never overwrite a `FROZEN` workbook; use versioned governance for breaking changes. Repository write permission is not freeze authority. Changes to production Firebase, UI or Rules are outside this foundation.
+Create a separate branch, place a new version in the access-controlled artifact store, verify its content/hash, update this registry and machine-readable routing only as allowed by lane ownership, validate, inspect diff, then PR/merge and read the files back on `main`. The freeze record for v0.2 is `registry/freeze-manifests/content-pipeline-contract-v0.2.json`. Never overwrite a `FROZEN` workbook; use versioned governance for breaking changes. Repository write permission is not freeze authority. Changes to production Firebase, UI or Rules are outside this foundation.
