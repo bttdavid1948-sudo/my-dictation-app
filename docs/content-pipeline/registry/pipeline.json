@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "OWNER_DECISION_REQUIRED",
-    "responsible_lane": "OWNER",
-    "requires": "Approve/reject a non-public Google Cloud Text-to-Speech trial capped by #4 to 20,000 input characters and US$5 estimated API charges, including enabling the billable API; or choose a qualified recording path. No Owner technical execution requested. After approval #4 obtains authenticated capability, produces and QA-checks real audio, and routes only final realization-dependent Practice checks to #2."
+    "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
+    "responsible_lane": "AUDIO_QA",
+    "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -71,6 +71,12 @@
       "responsible_lane": "OPERATIONS_4",
       "blocking": "expected",
       "trigger": "Actual produced target_anchors[] needed after planning"
+    },
+    {
+      "code": "BROWSER_VOICE_QA_REQUIRED",
+      "responsible_lane": "AUDIO_QA",
+      "blocking": true,
+      "trigger": "A runtime-rendered candidate needs a versioned profile, actual browser/OS/voice provenance and realization-specific acoustic QA before its ID can become available to Practice."
     }
   ],
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"

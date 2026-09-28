@@ -14,7 +14,8 @@
     "batch-01-original-draft-candidates": "v0.1",
     "batch-01-curriculum-review": "v0.1",
     "batch-01-canonical-lesson-assets": "v0.1",
-    "batch-01-practice-postproduction-validation": "v0.1"
+    "batch-01-practice-postproduction-validation": "v0.1",
+    "batch-01-browser-voice-runtime-candidates": "v0.1"
   },
   "artifacts": [
     {
@@ -441,6 +442,45 @@
         "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Provide or bind actual audio realization refs for the 12 canonical lesson assets and verify realization-dependent speech/transfer/prosody conditions. Do not reinterpret Curriculum or Practice mappings. After audio evidence is available, route back to Practice #2 only for the realization-dependent final PRACTICE_READY check."
+      }
+    },
+    {
+      "id": "batch-01-browser-voice-runtime-candidates",
+      "name": "MAN-Batch-01-Browser-Voice-Runtime-Candidates-v0.1.json",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Canonical Mặn V1 Web Speech baseline in Product Bible and Current State",
+        "Exact HASH_VERIFIED batch-01-canonical-lesson-assets@v0.1 and batch-01-practice-postproduction-validation@v0.1",
+        "Frozen Curriculum ↔ Practice Contract v0.3 RUNTIME_RENDERED / SEGMENT_ADDRESSABLE interface"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Browser-Voice-Runtime-Candidates-v0.1.json"
+      },
+      "sha256": "5cbbe7ef70876434b91e090376c462a7eafb3becf4123bb1c1bb932a1b353040",
+      "size_bytes": 21243,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "candidate_count": 12,
+      "segment_mapping_count": 62,
+      "exception_path_count": 5,
+      "approved_realization_count": 0,
+      "publication_allowed": false,
+      "next_action": {
+        "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
+        "responsible_lane": "AUDIO_QA",
+        "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
       }
     }
   ]
