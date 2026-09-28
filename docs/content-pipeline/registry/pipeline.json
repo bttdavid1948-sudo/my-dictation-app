@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PROVIDE_PRACTICE_PREPRODUCTION_EVIDENCE",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Curriculum #3 inputs ready: global-lesson-registry-snapshot@v0.1 + batch-01-curriculum-selection@v0.1. #2 supplies per-lesson PRACTICE_PREPROD_READY evidence for the selected 12; #4 later validates CONTRACT_PRECHECK_VALID and queue safety before any separate batch-open change."
+    "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice #2 evidence is ready: batch-01-practice-preproduction-evidence@v0.1 confirms PRACTICE_PREPROD_READY for all 12 selected lessons. #4 must validate CONTRACT_PRECHECK_VALID, source/version refs, queue safety and the four-gate PRODUCTION_READY composite before any separate batch-open or queue-enable change. Final PRACTICE_READY still requires produced target_anchors[]."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
