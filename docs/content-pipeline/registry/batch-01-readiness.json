@@ -4,9 +4,9 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "OPEN_INTERNAL_CALIBRATION_DRAFTS",
-  "production_queue_enabled": true,
-  "batch_open": true,
+  "preparation_status": "PAUSED_AWAITING_CURRICULUM_REVIEW",
+  "production_queue_enabled": false,
+  "batch_open": false,
   "lesson_ids": [
     "MAN-0065",
     "MAN-0165",
@@ -68,9 +68,9 @@
     }
   ],
   "next_action": {
-    "code": "DRAFT_BATCH_01_ORIGINAL_ASSETS",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Produce original English calibration drafts only for the 12 queued IDs, preserving source/rights provenance and versioned production events. No public publication, Firebase write, paid audio, or postproduction Practice PASS without produced anchors and #2 QA."
+    "code": "CURRICULUM_REVIEW_BATCH_01_DRAFTS",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "Read batch-01-original-draft-candidates@v0.1 from Shared Artifact Registry and verify SHA-256. Review originality, naturalness, level/progression/Unique Purpose fit; accept or revise candidate English segments and Curriculum-owned target_anchors before canonical lesson_asset_version. Return rejected rows to #4; no public publication or postproduction Practice PASS."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -79,5 +79,6 @@
     "longitudinal_spiral_family_id": "SF065",
     "per_level_count": 2
   },
-  "opening_review_ref": "docs/content-pipeline/registry/batch-01-opening-review.json"
+  "opening_review_ref": "docs/content-pipeline/registry/batch-01-opening-review.json",
+  "draft_artifact_ref": "batch-01-original-draft-candidates@v0.1"
 }

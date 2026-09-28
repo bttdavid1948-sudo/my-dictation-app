@@ -16,16 +16,16 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(index.get('content-pipeline-contract@v0.2').status,'FROZEN');
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
-  assert.equal(pipeline.production_queue_enabled,true);
-  assert.equal(pipeline.next_action.code,'DRAFT_BATCH_01_ORIGINAL_ASSETS');
-  assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
+  assert.equal(pipeline.production_queue_enabled,false);
+  assert.equal(pipeline.next_action.code,'CURRICULUM_REVIEW_BATCH_01_DRAFTS');
+  assert.equal(pipeline.next_action.responsible_lane,'CURRICULUM_3');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').classification,'NON_BREAKING_EXTENSION_NEEDED');
   const preparation=load('batch-01-readiness.json');
-  assert.equal(preparation.preparation_status,'OPEN_INTERNAL_CALIBRATION_DRAFTS');
+  assert.equal(preparation.preparation_status,'PAUSED_AWAITING_CURRICULUM_REVIEW');
   assert.equal(load('batch-01-opening-review.json').review_result,'OPEN_INTERNAL_DRAFTS_ONLY');
-  assert.equal(preparation.batch_open,true);
-  assert.equal(preparation.production_queue_enabled,true);
+  assert.equal(preparation.batch_open,false);
+  assert.equal(preparation.production_queue_enabled,false);
   assert.equal(preparation.lesson_ids.length,12);
   assert.equal(preparation.proposed_lesson_count,12);
   assert.equal(preparation.registry_snapshot_ref,'global-lesson-registry-snapshot@v0.1');
@@ -33,6 +33,7 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(index.get('global-lesson-registry-snapshot@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('batch-01-curriculum-selection@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('batch-01-practice-preproduction-evidence@v0.1').status,'REVIEW_READY');
+  assert.equal(index.get('batch-01-original-draft-candidates@v0.1').status,'REVIEW_READY');
   assert.equal(preparation.next_action.responsible_lane,pipeline.next_action.responsible_lane);
   assert.equal(pipeline.freeze_manifest_ref,'docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json');
   assert.deepEqual(lessons.records,[]);
@@ -47,7 +48,7 @@ test('routes preserve ownership and keep Owner outside happy path',()=>{
   assert.ok(!pipeline.happy_path.includes('OWNER'));
 });
 test('validator rejects counterfeit freeze and broken version links',()=>{
-  const altered=clone(pipeline); altered.production_queue_enabled=false;
+  const altered=clone(pipeline); altered.production_queue_enabled=true;
   assert.throws(()=>validate(registry,altered,lessons),/activation mismatch/);
   const broken=clone(registry);
   broken.artifacts.find(a=>a.id==='content-pipeline-contract'&&a.version==='v0.1').superseded_by=null;

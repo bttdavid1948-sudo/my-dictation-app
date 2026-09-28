@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
   "role": "CALIBRATION",
-  "state": "OPEN",
-  "enabled": true,
+  "state": "PAUSED",
+  "enabled": false,
   "selection_ref": "batch-01-curriculum-selection@v0.1",
   "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
   "snapshot_ref": "global-lesson-registry-snapshot@v0.1",
@@ -33,74 +33,74 @@
   "items": [
     {
       "lesson_id": "MAN-0065",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0065-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0165",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0165-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0365",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0365-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0565",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0565-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0765",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0765-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0905",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0905-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0044",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0044-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0238",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0238-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0414",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0414-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0604",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0604-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0844",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0844-SUBMIT-v0.1",
       "qa_status_ref": null
     },
     {
       "lesson_id": "MAN-0986",
-      "status": "QUEUED",
-      "production_status_ref": null,
+      "status": "PRODUCTION_SUBMITTED",
+      "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0986-SUBMIT-v0.1",
       "qa_status_ref": null
     }
   ],
