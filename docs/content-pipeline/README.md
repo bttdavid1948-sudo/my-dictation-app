@@ -45,6 +45,14 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 `registry/lessons.json` contains zero rows. Its schema reserves stable `lesson_id`, `unique_purpose_id` and classification, Curriculum/Practice spec references and versions, pre-production/final readiness, batch assignment, production/QA/calibration references, blocker, and next responsible lane. Detailed Curriculum/Practice state semantics remain owned by #3/#2. The Pipeline Contract is frozen, but do not import/populate the 1,000 concept map, open Batch 01, or enable the production queue until #4 completes the separate Production Readiness / Batch 01 preparation gate.
 
+## Batch 01 preparation
+
+[`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) is the machine-readable preparation record. `INPUT_PENDING` means Batch 01 is **not open**: there are no selected lessons or proposed count, no versioned reserved-identity snapshot, and the production queue stays disabled. This record does not certify per-lesson gates.
+
+Next, #3 publishes a versioned Global Lesson Registry snapshot covering future RESERVED purposes and a justified A1–C2 calibration selection using existing IDs. #2 supplies Practice preproduction evidence for selected lessons. #4 checks the four explicit preproduction gates, contract references and queue safety. `DUPLICATE` or `OPEN` purpose conflicts block production. The count is proposed with evidence, not prescribed here; PNG9 empirical calibration remains required before mass production. Each lane reads shared canonical files directly, without Owner transferring attachments.
+
+Opening Batch 01 or enabling the production queue requires a separate reviewed change backed by the snapshot and per-lesson evidence. Production and QA status references remain owned by #4; this preparation does not redefine Curriculum or Practice semantics.
+
 ## Updating the registry
 
 Create a separate branch, place a new version in the access-controlled artifact store, verify its content/hash, update this registry and machine-readable routing only as allowed by lane ownership, validate, inspect diff, then PR/merge and read the files back on `main`. The freeze record for v0.2 is `registry/freeze-manifests/content-pipeline-contract-v0.2.json`. Never overwrite a `FROZEN` workbook; use versioned governance for breaking changes. Repository write permission is not freeze authority. Changes to production Firebase, UI or Rules are outside this foundation.
