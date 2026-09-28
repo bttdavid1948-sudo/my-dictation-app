@@ -17,13 +17,13 @@ test('version resolution retains superseded v0.1 and frozen v0.2 status',()=>{
   assert.equal(registry.current['content-pipeline-contract'],'v0.2');
   assert.equal(index.get('curriculum-practice-contract@v0.3').status,'FROZEN');
   assert.equal(pipeline.production_queue_enabled,false);
-  assert.equal(pipeline.next_action.code,'IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION');
+  assert.equal(pipeline.next_action.code,'REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE');
   assert.equal(pipeline.next_action.responsible_lane,'OPERATIONS_4');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').status,'REVIEW_READY');
   assert.equal(index.get('global-readiness-compatibility-check@v0.1').classification,'NON_BREAKING_EXTENSION_NEEDED');
   const preparation=load('batch-01-readiness.json');
-  assert.equal(preparation.preparation_status,'QUEUE_FOUNDATION_PENDING');
-  assert.equal(load('batch-01-opening-review.json').review_result,'BLOCKED_IMPLEMENTATION');
+  assert.equal(preparation.preparation_status,'QUEUE_FOUNDATION_READY_CLOSED');
+  assert.equal(load('batch-01-opening-review.json').review_result,'FOUNDATION_IMPLEMENTED_OPENING_REVIEW_PENDING');
   assert.equal(preparation.batch_open,false);
   assert.equal(preparation.production_queue_enabled,false);
   assert.equal(preparation.lesson_ids.length,12);

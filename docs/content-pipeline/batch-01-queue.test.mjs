@@ -1,0 +1,35 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {validateQueueFoundation,proposeOpen,proposeEvent,deriveStatusRefs} from './batch-01-queue.mjs';
+const dir=path.join(path.dirname(fileURLToPath(import.meta.url)),'registry');
+const read=n=>JSON.parse(fs.readFileSync(path.join(dir,n),'utf8'));
+const inputs=()=>['batch-01-queue.json','batch-01-production-events.json','batch-01-readiness.json','batch-01-operations-precheck.json','pipeline.json','lessons.json'].map(read);
+test('closed queue validates but cannot execute or silently enable',()=>{
+ const [q,l,b,p,line,lessons]=inputs();
+ assert.deepEqual(validateQueueFoundation(q,l,b,p,line,lessons),{batch_id:'BATCH_01',state:'CLOSED',allowed:12,events:0});
+ assert.throws(()=>proposeEvent(q,l,{lesson_id:q.allowed_lesson_ids[0],type:'PRODUCTION_STARTED'}),/closed queue/);
+ assert.throws(()=>validateQueueFoundation({...q,enabled:true},l,b,p,line,lessons),/activation mismatch/);
+ assert.throws(()=>validateQueueFoundation({...q,allowed_lesson_ids:[...q.allowed_lesson_ids,'UNSELECTED']},l,b,p,line,lessons),/allowlist mismatch/);
+});
+test('opening proposal requires fresh evidence, rights and authority and cannot duplicate work',()=>{
+ const [q,l,b,p,line,lessons]=inputs();
+ assert.throws(()=>proposeOpen(q,l,b,p,line,lessons,{}),/Fresh snapshot/);
+ const ev={snapshot_validation_ref:'reviewed://snapshot-check-v1',checked_at:'2026-09-28T00:00:00Z',authorization_ref:'reviewed://authorization-v1',rights_check_ref:'reviewed://rights-v1',selected_unproduced_count:12,open_conflicts:0};
+ const open=proposeOpen(q,l,b,p,line,lessons,ev);
+ assert.equal(open.items.length,12);assert.deepEqual(open.items.map(x=>x.lesson_id),q.allowed_lesson_ids);
+ const id=q.allowed_lesson_ids[0],e={event_id:'event-1',lesson_id:id,type:'PRODUCTION_STARTED',source_ref:'reviewed://asset-source',lesson_asset_version:'v1'};
+ const next=proposeEvent(open,l,e);
+ assert.equal(next.events.length,1);
+ assert.equal(deriveStatusRefs(open,next)[0].production_status_ref,'docs/content-pipeline/registry/batch-01-production-events.json#event-1');
+ const paused={...open,state:'PAUSED',enabled:false,items:deriveStatusRefs(open,next)};
+ const pausedPipeline={...line,production_queue_enabled:false},pausedBatch={...b,batch_open:false,production_queue_enabled:false};
+ assert.equal(validateQueueFoundation(paused,next,pausedBatch,p,pausedPipeline,lessons).state,'PAUSED');
+ assert.throws(()=>proposeEvent(paused,next,{...e,event_id:'event-5'}),/closed queue/);
+ assert.throws(()=>proposeEvent(open,next,{...e,event_id:'event-2'}),/Reproduction/);
+ assert.throws(()=>proposeEvent(open,next,{...e,event_id:'event-3',lesson_id:'UNKNOWN'}),/Invalid production event/);
+ assert.throws(()=>proposeEvent(open,l,{...e,event_id:'event-4',type:'QA_PASSED'}),/QA requires submitted asset/);
+ assert.throws(()=>proposeEvent(open,l,{...e,event_id:'event-6',type:'PRODUCTION_SUBMITTED'}),/Submission requires production start/);
+});

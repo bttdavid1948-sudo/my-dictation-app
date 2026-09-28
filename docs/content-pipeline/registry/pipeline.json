@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION",
+    "code": "REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Build and test bounded queue/status reference mechanism through a separate reviewed branch; keep batch and queue closed. Then repeat opening review with fresh snapshot and applicable authority."
+    "requires": "Queue foundation validates closed state and rejects unauthorized opening; repeat opening review using fresh reserved/production snapshot and verified rights/authority before a separate reviewed activation. No background worker or public publication is implied."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",

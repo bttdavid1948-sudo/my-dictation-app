@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "role": "CALIBRATION",
+  "state": "CLOSED",
+  "enabled": false,
+  "selection_ref": "batch-01-curriculum-selection@v0.1",
+  "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
+  "snapshot_ref": "global-lesson-registry-snapshot@v0.1",
+  "allowed_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "opening_evidence": null,
+  "items": [],
+  "event_ledger_ref": "docs/content-pipeline/registry/batch-01-production-events.json"
+}

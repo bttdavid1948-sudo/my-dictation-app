@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
   "review_code": "REVIEW_BATCH_01_OPENING",
-  "review_result": "BLOCKED_IMPLEMENTATION",
+  "review_result": "FOUNDATION_IMPLEMENTED_OPENING_REVIEW_PENDING",
   "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
   "preproduction_ready_count": 12,
   "observed_repository_state": {
@@ -22,13 +22,13 @@
     {
       "code": "CONTROLLED_QUEUE",
       "owner_lane": "OPERATIONS_4",
-      "status": "MISSING",
+      "status": "FOUNDATION_READY",
       "acceptance": "A reviewed, bounded Batch 01 mechanism selects only the 12 IDs, checks gates and current snapshot again immediately before enqueue, blocks re-production without versioned rework, and can be disabled without deleting history."
     },
     {
       "code": "DURABLE_STATUS_REFERENCES",
       "owner_lane": "OPERATIONS_4",
-      "status": "MISSING",
+      "status": "FOUNDATION_READY",
       "acceptance": "Each actual production and QA transition has a durable versioned reference and evidence; do not report postproduction Practice readiness until produced anchors and audio are validated."
     },
     {
@@ -39,8 +39,13 @@
     }
   ],
   "next_action": {
-    "code": "IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION",
+    "code": "REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Build and test bounded queue/status reference mechanism through a separate reviewed branch; keep batch and queue closed. Then repeat opening review with fresh snapshot and applicable authority."
-  }
+    "requires": "Queue foundation validates closed state and rejects unauthorized opening; repeat opening review using fresh reserved/production snapshot and verified rights/authority before a separate reviewed activation. No background worker or public publication is implied."
+  },
+  "foundation_refs": [
+    "docs/content-pipeline/registry/batch-01-queue.json",
+    "docs/content-pipeline/registry/batch-01-production-events.json",
+    "docs/content-pipeline/batch-01-queue.mjs"
+  ]
 }
