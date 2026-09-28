@@ -35,7 +35,7 @@ The validator fails for a missing, duplicated or inconsistent registry record, b
 
 ## Lifecycle and routing
 
-Artifact statuses are `DRAFT`, `CANDIDATE`, `REVIEW_READY`, `FREEZE_READY`, `FROZEN`, `SUPERSEDED`. `content-pipeline-contract@v0.2` is **FROZEN**; `v0.1` remains `SUPERSEDED`. Curriculum ↔ Practice `v0.3` remains **FROZEN**. The production queue stays disabled: the next gate is **Production Readiness / Batch 01 preparation** owned by #4.
+Artifact statuses are `DRAFT`, `CANDIDATE`, `REVIEW_READY`, `FREEZE_READY`, `FROZEN`, `SUPERSEDED`. `content-pipeline-contract@v0.2` is **FROZEN**; `v0.1` remains `SUPERSEDED`. Curriculum ↔ Practice `v0.3` remains **FROZEN**. The production queue stays disabled. A narrow pre-Batch-01 Global-Readiness check found **NON_BREAKING_EXTENSION_NEEDED**: #4 must first separate learner-support locale data from canonical English lesson identity/content while keeping Vietnamese (`vi-VN`) full/default/required for Mặn V1.
 
 `registry/pipeline.json` maps exception codes deterministically: `RETURN_TO_CURRICULUM` and `DUPLICATE` → #3; `PRACTICE_CONFLICT` → #2; `IMPLEMENTATION_ISSUE` → #4; genuine `OWNER_DECISION_REQUIRED` → Owner. Normal sequence: Curriculum → Practice → pre-production gate → production queue → #4 → QA → Calibration → registry update. A valid pre-production plan does not prove final Practice grounding: produced `target_anchors[]` and post-production validation are still required.
 
@@ -45,11 +45,15 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 `registry/lessons.json` contains zero rows. Its schema reserves stable `lesson_id`, `unique_purpose_id` and classification, Curriculum/Practice spec references and versions, pre-production/final readiness, batch assignment, production/QA/calibration references, blocker, and next responsible lane. Detailed Curriculum/Practice state semantics remain owned by #3/#2. The Pipeline Contract is frozen, but do not import/populate the 1,000 concept map, open Batch 01, or enable the production queue until #4 completes the separate Production Readiness / Batch 01 preparation gate.
 
+## Pre-Batch-01 global-readiness gate
+
+`global-readiness-compatibility-check@v0.1` is indexed in the Shared Artifact Registry. Its result is **NON_BREAKING_EXTENSION_NEEDED**: Curriculum, Practice and frozen contracts are already learner-support-locale-neutral, but current Product/Tech content wording still couples official English lessons to Vietnamese translation as a core field. #4 must formalize a separate support-locale bundle/reference layer before Batch 01. This is non-breaking: lesson identity, Unique Purpose, progression, target anchors and frozen contracts stay unchanged.
+
 ## Batch 01 preparation
 
-[`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) is the machine-readable preparation record. `INPUT_PENDING` means Batch 01 is **not open**: there are no selected lessons or proposed count, no versioned reserved-identity snapshot, and the production queue stays disabled. This record does not certify per-lesson gates.
+[`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) is the machine-readable preparation record. `PAUSED_PRE_GLOBAL_READINESS` means Batch 01 is **not open**: there are no selected lessons or proposed count, no versioned reserved-identity snapshot, and the production queue stays disabled. This record does not certify per-lesson gates.
 
-Next, #3 publishes a versioned Global Lesson Registry snapshot covering future RESERVED purposes and a justified A1–C2 calibration selection using existing IDs. #2 supplies Practice preproduction evidence for selected lessons. #4 checks the four explicit preproduction gates, contract references and queue safety. `DUPLICATE` or `OPEN` purpose conflicts block production. The count is proposed with evidence, not prescribed here; PNG9 empirical calibration remains required before mass production. Each lane reads shared canonical files directly, without Owner transferring attachments.
+After #4 completes and verifies the non-breaking support-locale separation, the pipeline returns to the existing Batch 01 flow: #3 publishes a versioned Global Lesson Registry snapshot covering future RESERVED purposes and a justified A1–C2 calibration selection using existing IDs; #2 supplies Practice preproduction evidence; #4 checks the four explicit preproduction gates, contract references and queue safety. `DUPLICATE` or `OPEN` purpose conflicts block production. The count is proposed with evidence, not prescribed here; PNG9 empirical calibration remains required before mass production. Each lane reads shared canonical files directly, without Owner transferring attachments.
 
 Opening Batch 01 or enabling the production queue requires a separate reviewed change backed by the snapshot and per-lesson evidence. Production and QA status references remain owned by #4; this preparation does not redefine Curriculum or Practice semantics.
 
