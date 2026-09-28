@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "QUEUE_FOUNDATION_PENDING",
+  "preparation_status": "QUEUE_FOUNDATION_READY_CLOSED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -68,9 +68,9 @@
     }
   ],
   "next_action": {
-    "code": "IMPLEMENT_CONTROLLED_BATCH_01_QUEUE_FOUNDATION",
+    "code": "REVIEW_BATCH_01_OPENING_WITH_FRESH_EVIDENCE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Build and test bounded queue/status reference mechanism through a separate reviewed branch; keep batch and queue closed. Then repeat opening review with fresh snapshot and applicable authority."
+    "requires": "Queue foundation validates closed state and rejects unauthorized opening; repeat opening review using fresh reserved/production snapshot and verified rights/authority before a separate reviewed activation. No background worker or public publication is implied."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
