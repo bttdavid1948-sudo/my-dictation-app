@@ -51,7 +51,7 @@ Routing files specify **deterministic handoff**, not background execution or cha
 
 ## Batch 01 preparation
 
-Practice #2 has completed post-production grounding for the 12 canonical assets: `batch-01-practice-postproduction-validation@v0.1` records 12/12 lesson grounding PASS, 24/24 anchors mapped, 0 Practice conflicts, and 0 final `PRACTICE_READY` because canonical assets currently expose no `available_audio_realization_refs`. The next action is `PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE` → #4. Audio realization, rights/support-locale and publication remain separate gates; the queue/public release state is unchanged.
+Practice #2 has completed post-production grounding for the 12 canonical assets: `batch-01-practice-postproduction-validation@v0.1` records 12/12 lesson grounding PASS, 24/24 anchors mapped, 0 Practice conflicts, and 0 final `PRACTICE_READY` because canonical assets currently expose no `available_audio_realization_refs`. The prior paid-TTS-required route was corrected. Mặn V1 uses free Browser Voice as its baseline. `batch-01-browser-voice-runtime-candidates@v0.1` holds 12 non-eligible `RUNTIME_RENDERED` / `SEGMENT_ADDRESSABLE` candidate mappings (62 segments; five realization-sensitive exception paths). QA must certify a concrete browser/OS/voice/profile combination before any `available_audio_realization_ref` is bound; no candidate implies final `PRACTICE_READY` or calibrated scoring. Next action: `CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS` → Audio QA. Paid cached TTS and human recordings remain optional producer paths. Rights/support-locale and publication remain separate gates; queue/public release state is unchanged.
 
 [`registry/batch-01-readiness.json`](registry/batch-01-readiness.json) remains the machine-readable preparation record. Curriculum #3 has now published the first versioned reserved-identity snapshot and calibration selection:
 
@@ -61,7 +61,7 @@ Practice #2 has completed post-production grounding for the 12 canonical assets:
 
 The proposed 12 are not a new Curriculum truth or fixed production quota. The design uses one complete `SF065` A1→C2 spiral chain plus one contrasting lesson per level, yielding two lessons at each A1–C2 level, both strands, 3 `NEW` and 9 `OVERLAP_JUSTIFIED` paths, and 12 distinct primary listening skills/phenomena. `DUPLICATE=0`; all future RESERVED purposes remain protected by the snapshot.
 
-Batch 01 is still **not open** and the production queue stays disabled. Practice #2 has published `batch-01-practice-preproduction-evidence@v0.1`: all 12 selected lessons are `PRACTICE_PREPROD_READY`, with `Final_PRACTICE_READY=false`; `Anchor_Intent` remains planning-only and produced `target_anchors[]` are still required for final grounding. Next action is `VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY` → #4. #4 validates `CONTRACT_PRECHECK_VALID`, source/version references, queue safety and the four-gate `PRODUCTION_READY` composite before any separate queue-opening change. PNG9 empirical calibration remains pending for mass production.
+Batch 01 is still **not open** and the production queue stays disabled. Its four preproduction gates and subsequent Curriculum/Practice grounding have passed. Final audio-dependent Practice validation remains pending actual eligible realization evidence; PNG9 empirical calibration remains pending for mass production.
 
 ## Updating the registry
 
