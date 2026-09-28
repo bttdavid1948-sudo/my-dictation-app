@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PAUSED_AWAITING_CURRICULUM_REVIEW",
+  "preparation_status": "PAUSED_AWAITING_OPERATIONS_CANONICALIZATION",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -65,12 +65,19 @@
       "status": "PASS",
       "evidence_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
       "requirement": "Confirm prior systemic calibration blockers, no duplicate/reproduction without explicit rework version, production/QA status references and rollback path before opening queue; empirical PNG9 remains pending for mass production."
+    },
+    {
+      "code": "CURRICULUM_DRAFT_REVIEW",
+      "owner_lane": "CURRICULUM_3",
+      "status": "PASS",
+      "evidence_ref": "batch-01-curriculum-review@v0.1",
+      "requirement": "Review draft originality/naturalness/level/progression/Unique Purpose fit; accept/revise English segments and Curriculum-owned target anchors before canonical lesson_asset_version. Rejected rows would return to #4."
     }
   ],
   "next_action": {
-    "code": "CURRICULUM_REVIEW_BATCH_01_DRAFTS",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Read batch-01-original-draft-candidates@v0.1 from Shared Artifact Registry and verify SHA-256. Review originality, naturalness, level/progression/Unique Purpose fit; accept or revise candidate English segments and Curriculum-owned target_anchors before canonical lesson_asset_version. Return rejected rows to #4; no public publication or postproduction Practice PASS."
+    "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use batch-01-curriculum-review@v0.1 as the reviewed content source. Verify its hash, create canonical lesson assets/versions without semantic inference, keep publication disabled, and route produced target_anchors[] back through postproduction Practice grounding."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -80,5 +87,14 @@
     "per_level_count": 2
   },
   "opening_review_ref": "docs/content-pipeline/registry/batch-01-opening-review.json",
-  "draft_artifact_ref": "batch-01-original-draft-candidates@v0.1"
+  "draft_artifact_ref": "batch-01-original-draft-candidates@v0.1",
+  "curriculum_review_ref": "batch-01-curriculum-review@v0.1",
+  "curriculum_review_result": {
+    "status": "PASS_WITH_CURRICULUM_REVISIONS",
+    "accepted_unchanged": 9,
+    "accepted_with_revision": 3,
+    "rejected": 0,
+    "target_anchors": 24,
+    "canonical_lesson_asset_versions_created": 0
+  }
 }
