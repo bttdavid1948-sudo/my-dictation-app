@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CURRICULUM_REVIEW_BATCH_01_DRAFTS",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Read batch-01-original-draft-candidates@v0.1 from Shared Artifact Registry and verify SHA-256. Review originality, naturalness, level/progression/Unique Purpose fit; accept or revise candidate English segments and Curriculum-owned target_anchors before canonical lesson_asset_version. Return rejected rows to #4; no public publication or postproduction Practice PASS."
+    "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Read batch-01-curriculum-review@v0.1 from Shared Artifact Registry and verify SHA-256. Canonicalize the 12 reviewed candidate lessons using the reviewed English segments and Curriculum-owned target anchors. Do not change lesson identity/Unique Purpose/Curriculum semantics; do not publish; do not assert final PRACTICE_READY or CONTRACT_VALID before produced-asset validation."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
