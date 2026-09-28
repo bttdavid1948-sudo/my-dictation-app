@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "version": "v0.1",
+  "assessed_at": "2026-09-28",
+  "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+  "evidence_ref": "browser-voice-runtime-evidence@v0.1",
+  "source_refs": [
+    "batch-01-browser-voice-runtime-candidates@v0.1",
+    "batch-01-canonical-lesson-assets@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1"
+  ],
+  "compatible_candidate_count": 7,
+  "parked_exception_count": 5,
+  "approved_realization_count": 0,
+  "available_audio_realization_refs_count": 0,
+  "lesson_assessments": [
+    {
+      "lesson_id": "MAN-0065",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0065-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 2,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify clear, intended realization of the room identifier and time/day information."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0165-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 2,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify the intended connected/reduced realization; do not score the phenomenon if it is absent."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0365-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 2,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify phrase-boundary/thought-group realization in the multi-clause instruction."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0565-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 2,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "PARKED_AUDIO_EXCEPTION",
+      "blockers": [
+        "REALIZATION_SENSITIVE_QA_NOT_COVERED_BY_RUNTIME_PROFILE"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0765-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 3,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify intelligible realization of the marked discourse signals; Practice decides form-vs-function behavior after grounding."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0905-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 3,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "PARKED_AUDIO_EXCEPTION",
+      "blockers": [
+        "REALIZATION_SENSITIVE_QA_NOT_COVERED_BY_RUNTIME_PROFILE"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0044-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 2,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify the contractions are actually realized naturally."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0238-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 1,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify a natural unstressed-function-word realization; do not infer the phenomenon from text alone."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0414-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 1,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "RUNTIME_CAPABILITY_PASS_LESSON_AUDIO_QA_PENDING",
+      "blockers": [
+        "OUTPUT_AUDIO_PROFILE_NOT_APPROVED",
+        "LESSON_REALIZATION_QA_PENDING"
+      ],
+      "required_qa_notes": [
+        "Audio QA must verify natural connected-speech reductions in the selected segments; keep any scored decoding span short."
+      ]
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0604-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 1,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "PARKED_AUDIO_EXCEPTION",
+      "blockers": [
+        "REALIZATION_SENSITIVE_QA_NOT_COVERED_BY_RUNTIME_PROFILE"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0844-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 3,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "PARKED_AUDIO_EXCEPTION",
+      "blockers": [
+        "REALIZATION_SENSITIVE_QA_NOT_COVERED_BY_RUNTIME_PROFILE"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "lesson_asset_version": "v0.1",
+      "candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1#MAN-0986-browser-voice-runtime-plan-v0.1",
+      "script_speaker_count": 3,
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "output_audio_profile_ref": null,
+      "realization_id": null,
+      "available_audio_realization_ref": null,
+      "practice_ready": false,
+      "publication_allowed": false,
+      "calibrated_scoring_allowed": false,
+      "status": "PARKED_AUDIO_EXCEPTION",
+      "blockers": [
+        "REALIZATION_SENSITIVE_QA_NOT_COVERED_BY_RUNTIME_PROFILE"
+      ]
+    }
+  ],
+  "independent_progression": "Seven ordinary lessons may continue one at a time through output AudioProfile approval, exact speaker/segment mapping, lesson audio QA, then #2 final realization-dependent Practice. Parked exceptions do not gate them."
+}

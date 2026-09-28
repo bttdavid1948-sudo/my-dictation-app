@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "PAUSED_AWAITING_SUPPORTED_RUNTIME_QA",
+  "preparation_status": "RUNTIME_CAPABILITY_CERTIFIED_SEVEN_ORDINARY_PENDING_PER_LESSON_QA",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -96,9 +96,9 @@
     }
   ],
   "next_action": {
-    "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
+    "code": "BIND_NON_EXCEPTION_AUDIO_PROFILES_AND_VALIDATE_LESSON_REALIZATIONS",
     "responsible_lane": "AUDIO_QA",
-    "requires": "Use docs/content-pipeline/browser-voice-certification.html on one supported browser/OS/voice per reusable runtime profile. Listen to five representative fixtures once, export local evidence, run browser-voice-certification-cli.mjs and register versioned evidence/hash. The Work cloud browser cannot provide acoustic evidence. Recertify after browser major/OS/voice/fixture drift; do not QA 62 segments by default. Bind exact per-lesson realizations only after output AudioProfile and audio QA; route five sensitive lessons by exception and final Practice checks to #2. No paid dependency or Owner execution in the happy path."
+    "requires": "For each of seven ordinary lessons independently, obtain/approve its versioned producer-neutral output AudioProfile, map stable segment_id and script_speaker_id to this certified runtime/actual voices, verify its required acoustic target(s), and register a QA-PASS realization_id only for exact lesson_id+lesson_asset_version and matching runtime. Then route only that realization-dependent final Practice validation to #2. Five sensitive lessons remain in batch-01-audio-exceptions.json; do not gate ordinary lessons or assume paid TTS. No publication/calibrated scoring until their separate gates pass."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -130,5 +130,9 @@
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
-  "runtime_qa_tool_ref": "docs/content-pipeline/browser-voice-certification.html"
+  "runtime_qa_tool_ref": "docs/content-pipeline/browser-voice-certification.html",
+  "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+  "audio_assessment_ref": "docs/content-pipeline/registry/batch-01-browser-voice-assessment.json",
+  "audio_exception_backlog_ref": "docs/content-pipeline/registry/batch-01-audio-exceptions.json",
+  "ordinary_lesson_independent_progression": true
 }
