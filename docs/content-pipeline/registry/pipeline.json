@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Practice #2 post-production grounding is complete: batch-01-practice-postproduction-validation@v0.1 reports 12/12 lesson grounding PASS, 24/24 anchors mapped, 0 Practice conflicts and 0 final PRACTICE_READY because available_audio_realization_refs are absent. #4 must provide/bind actual audio realization refs and validate realization-dependent cues. No public release; route back to #2 only for final realization-dependent Practice readiness."
+    "code": "OWNER_DECISION_REQUIRED",
+    "responsible_lane": "OWNER",
+    "requires": "Approve/reject a non-public Google Cloud Text-to-Speech trial capped by #4 to 20,000 input characters and US$5 estimated API charges, including enabling the billable API; or choose a qualified recording path. No Owner technical execution requested. After approval #4 obtains authenticated capability, produces and QA-checks real audio, and routes only final realization-dependent Practice checks to #2."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
