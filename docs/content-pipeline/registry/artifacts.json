@@ -16,7 +16,9 @@
     "batch-01-canonical-lesson-assets": "v0.1",
     "batch-01-practice-postproduction-validation": "v0.1",
     "batch-01-browser-voice-runtime-candidates": "v0.1",
-    "browser-voice-runtime-evidence": "v0.1"
+    "browser-voice-runtime-evidence": "v0.1",
+    "batch-01-ordinary-browser-voice-qa-bundle": "v0.1",
+    "batch-01-ordinary-audio-qa-page": "v0.1"
   },
   "artifacts": [
     {
@@ -512,6 +514,66 @@
       "scope": "LOW_STAKES_PRACTICE",
       "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
       "lesson_audio_realizations_created": 0
+    },
+    {
+      "id": "batch-01-ordinary-browser-voice-qa-bundle",
+      "name": "MAN-Batch-01-Ordinary-Browser-Voice-QA-Bundle-v0.1.json",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Exact HASH_VERIFIED canonical lesson assets and Browser Voice candidates",
+        "Certified runtime evidence browser-voice-runtime-evidence@v0.1"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-browser-voice-runtime-candidates@v0.1",
+        "browser-voice-runtime-evidence@v0.1"
+      ],
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Batch-01-Ordinary-Browser-Voice-QA-Bundle-v0.1.json",
+        "library_file_id": "libfile_930e583c13b481919f86ec8521c1634c"
+      },
+      "sha256": "fd2f061c92603fa460c13796acab2128d6383d8337096f49e5d5c603fcecbfd6",
+      "size_bytes": 25698,
+      "validation_status": "HASH_VERIFIED",
+      "lesson_count": 7,
+      "segment_count": 32,
+      "target_segment_count": 13,
+      "approved_realization_count": 0,
+      "created_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "supersedes": null,
+      "superseded_by": null
+    },
+    {
+      "id": "batch-01-ordinary-audio-qa-page",
+      "name": "MAN-Batch-01-Ordinary-Audio-QA-v0.1.html",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Self-contained local-browser QA runner generated from hash-verified private bundle; no network upload"
+      ],
+      "dependencies": [
+        "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
+        "browser-voice-runtime-evidence@v0.1"
+      ],
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Batch-01-Ordinary-Audio-QA-v0.1.html",
+        "library_file_id": "libfile_6b019e22c28081918edfce42270f8acc"
+      },
+      "sha256": "4d162c149033ec7877139dda0aac7da99e94aad471b7c1957aa27f6e2e512672",
+      "size_bytes": 26370,
+      "validation_status": "HASH_VERIFIED",
+      "lesson_count": 7,
+      "publication_allowed": false,
+      "created_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "supersedes": null,
+      "superseded_by": null
     }
   ]
 }

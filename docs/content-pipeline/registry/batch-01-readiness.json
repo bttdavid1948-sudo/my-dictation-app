@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "RUNTIME_CAPABILITY_CERTIFIED_SEVEN_ORDINARY_PENDING_PER_LESSON_QA",
+  "preparation_status": "SEVEN_ORDINARY_BOUND_PENDING_LESSON_AUDIO_QA_FIVE_EXCEPTIONS_PARKED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -96,9 +96,9 @@
     }
   ],
   "next_action": {
-    "code": "BIND_NON_EXCEPTION_AUDIO_PROFILES_AND_VALIDATE_LESSON_REALIZATIONS",
+    "code": "COLLECT_SEVEN_INDEPENDENT_LESSON_AUDIO_QA_RESULTS",
     "responsible_lane": "AUDIO_QA",
-    "requires": "For each of seven ordinary lessons independently, obtain/approve its versioned producer-neutral output AudioProfile, map stable segment_id and script_speaker_id to this certified runtime/actual voices, verify its required acoustic target(s), and register a QA-PASS realization_id only for exact lesson_id+lesson_asset_version and matching runtime. Then route only that realization-dependent final Practice validation to #2. Five sensitive lessons remain in batch-01-audio-exceptions.json; do not gate ordinary lessons or assume paid TTS. No publication/calibrated scoring until their separate gates pass."
+    "requires": "Run batch-01-ordinary-audio-qa-page@v0.1 on the same certified Chrome 153 / Windows 10 22H2 / voice set. It plays each of seven ordinary lessons end-to-end with exact segment/speaker mapping and collects one PASS/FAIL per lesson. Validate JSON with docs/content-pipeline/lesson-audio-qa-validator.mjs against hash-verified private bundle. Register only each QA-PASS exact lesson realization and route it to #2 final realization-dependent Practice; park each failure in versioned audio-exception backlog. The five pre-existing sensitive exceptions remain parked. Do not publish or claim calibrated scoring."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -134,5 +134,7 @@
   "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
   "audio_assessment_ref": "docs/content-pipeline/registry/batch-01-browser-voice-assessment.json",
   "audio_exception_backlog_ref": "docs/content-pipeline/registry/batch-01-audio-exceptions.json",
-  "ordinary_lesson_independent_progression": true
+  "ordinary_lesson_independent_progression": true,
+  "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
+  "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1"
 }
