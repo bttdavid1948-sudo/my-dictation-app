@@ -22,7 +22,8 @@ test('stale voice and incomplete playback fail closed; listener grade does not c
   const e=evidence();e.runtime.voices[1].voice_uri='voice-1';assert.equal(validateRuntimeEvidence(e).reason,'SPEAKER_SEPARATION');
   const f=evidence();f.results[1].event_status='ERROR';assert.match(validateRuntimeEvidence(f).reason,/FIXTURE_contractions/);
   const g=evidence();g.results.pop();assert.equal(validateRuntimeEvidence(g).reason,'REVIEW_COMPLETENESS');
-  const h=evidence();h.results[0].listening_result='FAIL';assert.equal(validateRuntimeEvidence(h).status,'RUNTIME_PLAYBACK_SMOKE_PASS');
+  const h=evidence();h.results[0].listening_result='FAIL';assert.match(validateRuntimeEvidence(h).reason,/FIXTURE_numbers/);
+  const i=evidence();i.results[0].playback_result='FAIL';assert.match(validateRuntimeEvidence(i).reason,/FIXTURE_numbers/);
 });
 test('high stakes and realization sensitive lessons do not inherit a generic runtime pass',()=>{
   const e=evidence();e.claimed_scopes=['CALIBRATED_SCORING'];assert.equal(validateRuntimeEvidence(e).reason,'UNSUPPORTED_SCOPE');

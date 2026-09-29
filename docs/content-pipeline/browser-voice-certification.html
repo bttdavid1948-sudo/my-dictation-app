@@ -80,7 +80,7 @@ async function play(){
  $('pass').disabled=$('fail').disabled=!ok;$('play').disabled=false;
  status(ok?'Phát xong. Chỉ ghi nhận lỗi phát rõ ràng, không chấm chất lượng tiếng Anh.':'Không hoàn tất phát audio. Chọn browser/giọng khác.');
 }
-function mark(result){if(!last)return;results.push({...last,listening_result:result});last=null;index++;renderFixture();status(result==='PASS'?'Đã ghi nhận phát hết.':'Đã ghi nhận lỗi phát; cần kiểm tra kỹ thuật.')}
+function mark(result){if(!last)return;results.push({...last,playback_result:result});last=null;index++;renderFixture();status(result==='PASS'?'Đã ghi nhận phát hết.':'Đã ghi nhận lỗi phát; cần kiểm tra kỹ thuật.')}
 function download(){
  const chosen=lockedVoices||[];const evidence={schema_version:'1.0',fixture_set_id:FIXTURE_SET.id,fixture_set_version:FIXTURE_SET.version,
    producer_type:'browser_voice',delivery_mode:'RUNTIME_RENDERED',alignment_mode:'SEGMENT_ADDRESSABLE',

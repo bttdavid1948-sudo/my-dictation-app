@@ -34,7 +34,8 @@ export function validateRuntimeEvidence(e) {
     const result=e.results[i],fixture=FIXTURE_SET.fixtures[i];
     if (result?.fixture_id!==fixture.id || result?.event_status!=='ENDED' ||
         !Number.isFinite(result.started_at_ms) || !Number.isFinite(result.ended_at_ms) ||
-        result.ended_at_ms<=result.started_at_ms)
+        result.ended_at_ms<=result.started_at_ms ||
+        result.playback_result==='FAIL' || result.listening_result==='FAIL')
       return fail(`FIXTURE_${fixture.id}`);
     if (fixture.id==='speaker_turns' && result.tested_speaker_count!==r.speaker_capacity)
       return fail('SPEAKER_CAPACITY');
