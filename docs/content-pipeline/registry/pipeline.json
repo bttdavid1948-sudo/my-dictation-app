@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "COLLECT_SEVEN_INDEPENDENT_LESSON_AUDIO_QA_RESULTS",
-    "responsible_lane": "AUDIO_QA",
-    "requires": "Run batch-01-ordinary-audio-qa-page@v0.1 on the same certified Chrome 153 / Windows 10 22H2 / voice set. It plays each of seven ordinary lessons end-to-end with exact segment/speaker mapping and collects one PASS/FAIL per lesson. Validate JSON with docs/content-pipeline/lesson-audio-qa-validator.mjs against hash-verified private bundle. Register only each QA-PASS exact lesson realization and route it to #2 final realization-dependent Practice; park each failure in versioned audio-exception backlog. The five pre-existing sensitive exceptions remain parked. Do not publish or claim calibrated scoring."
+    "code": "ESTABLISH_QUALIFIED_LESSON_ACOUSTIC_QA_PATH",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "A static contract validation passed for seven ordinary lessons; actual per-lesson playback events on a supported runtime and linguistic/acoustic judgment remain pending. Do not route Owner as listener. Use a qualified English-audio reviewer with documented competence, rubric, exact lesson/version/voice provenance and independent adjudication for disputed cases. Free qualified reviewer first if actually available; otherwise seek Owner cost/vendor approval against the priced proposal before engagement. Register QA-PASS realization_ids only per lesson with valid expert evidence; park failures independently and route only passing lessons to #2 final Practice. Five sensitive exceptions remain parked; publication/calibrated scoring remain false."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",

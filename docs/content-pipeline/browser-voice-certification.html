@@ -15,7 +15,7 @@
 </head>
 <body><main>
   <h1>Browser Voice · kiểm tra runtime</h1>
-  <p class="note">Công cụ QA nội bộ: phát 5 mẫu đại diện một lần cho một tổ hợp browser/OS/voice. Không gửi dữ liệu lên máy chủ, không chứng nhận từng bài, không dùng làm bằng chứng accent, prosody hoặc overlap.</p>
+  <p class="note">Kiểm tra kỹ thuật: phát 5 mẫu trên một browser/OS/voice. Người vận hành chỉ ghi nhận có phát hết và có lỗi rõ ràng hay không. Đây không phải đánh giá phát âm, ngữ điệu, accent hoặc chất lượng lesson.</p>
   <label>Mã người kiểm tra (không nhập thông tin cá nhân)<input id="reviewer" autocomplete="off" placeholder="QA-01"></label>
   <label>Hệ điều hành và phiên bản (ví dụ Android 14, Windows 11 23H2)<input id="os-version" autocomplete="off" placeholder="Android 14"></label>
   <label>Số giọng phân biệt cần kiểm tra<select id="capacity"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
@@ -23,10 +23,10 @@
   <p id="state" role="status"></p>
   <div id="fixture"></div>
   <button id="play">Phát mẫu đang chọn</button>
-  <button id="pass" class="pass" disabled>Nghe đạt</button>
-  <button id="fail" class="fail" disabled>Nghe không đạt</button>
+  <button id="pass" class="pass" disabled>Phát hết, không lỗi rõ ràng</button>
+  <button id="fail" class="fail" disabled>Có lỗi phát rõ ràng</button>
   <button id="download" disabled>Tải evidence JSON</button>
-  <p class="note">Kết quả JSON chỉ là bằng chứng năng lực runtime; validator sẽ từ chối môi trường thiếu giọng, lỗi phát, mẫu chưa nghe hoặc scope vượt mức luyện tập thông thường. AudioProfile của bài và QA cuối vẫn là gate riêng.</p>
+  <p class="note">Kết quả JSON chỉ xác nhận sự kiện phát trên runtime quan sát. Không dùng kết quả này để cấp QA-PASS cho lesson.</p>
 </main>
 <script type="module">
 import {FIXTURE_SET,validateRuntimeEvidence} from './browser-voice-certification.mjs';
@@ -78,13 +78,13 @@ async function play(){
  }
  last={fixture_id:fixture.id,event_status:ok?'ENDED':'ERROR',started_at_ms:first,ended_at_ms:end,tested_speaker_count:fixture.id==='speaker_turns'?capacity:1};
  $('pass').disabled=$('fail').disabled=!ok;$('play').disabled=false;
- status(ok?'Phát xong. Chọn “Nghe đạt” hoặc “Nghe không đạt”.':'Không hoàn tất phát audio. Chọn browser/giọng khác; mẫu này chưa được chứng nhận.');
+ status(ok?'Phát xong. Chỉ ghi nhận lỗi phát rõ ràng, không chấm chất lượng tiếng Anh.':'Không hoàn tất phát audio. Chọn browser/giọng khác.');
 }
-function mark(result){if(!last)return;results.push({...last,listening_result:result});last=null;index++;renderFixture();status(result==='PASS'?'Đã ghi PASS cho mẫu.':'Đã ghi FAIL; kết quả cuối sẽ bị validator từ chối.')}
+function mark(result){if(!last)return;results.push({...last,listening_result:result});last=null;index++;renderFixture();status(result==='PASS'?'Đã ghi nhận phát hết.':'Đã ghi nhận lỗi phát; cần kiểm tra kỹ thuật.')}
 function download(){
  const chosen=lockedVoices||[];const evidence={schema_version:'1.0',fixture_set_id:FIXTURE_SET.id,fixture_set_version:FIXTURE_SET.version,
    producer_type:'browser_voice',delivery_mode:'RUNTIME_RENDERED',alignment_mode:'SEGMENT_ADDRESSABLE',
-   reviewer_ref:$('reviewer').value.trim(),claimed_scopes:['LOW_STAKES_PRACTICE'],
+   reviewer_ref:$('reviewer').value.trim(),claimed_scopes:['PLAYBACK_CAPABILITY_ONLY'],
    runtime:{browser_user_agent:navigator.userAgent,platform:navigator.platform,os_version_label:$('os-version').value.trim(),tested_at:new Date().toISOString(),
      speaker_capacity:chosen.length,voices:chosen.map(v=>({voice_uri:v.voiceURI,name:v.name,lang:v.lang,local_service:v.localService}))},results};
  const check=validateRuntimeEvidence(evidence);status(`Validator: ${check.status}${check.reason?' — '+check.reason:''}. Evidence tải về máy, chưa ghi vào Registry.`);

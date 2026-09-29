@@ -23,12 +23,13 @@ function fixture(){
       audio_profile_id:l.profile.audio_profile_id,audio_profile_version:l.profile.audio_profile_version,listener_result:'PASS',
       segment_events:l.segments.map((s,i)=>({segment_id:s.segment_id,voice_uri:l.binding.script_speaker_map.find(x=>x.script_speaker_id===s.script_speaker_id).realized_speaker_ref,event_status:'ENDED',started_at_ms:1000+i*50,ended_at_ms:1020+i*50}))}))};
 }
-test('exact runtime and all mapped segments yield seven independent QA evidence outcomes',()=>{
-  const r=validateLessonAudioQa(bundle,fixture(),hash);assert.equal(r.pass.length,7);assert.equal(r.park.length,0);
+test('exact runtime and all mapped segments yield technical evidence, never acoustic QA PASS',()=>{
+  const r=validateLessonAudioQa(bundle,fixture(),hash);assert.equal(r.technical_playback.length,7);assert.equal(r.approved_realization_count,0);
+  assert.equal(r.linguistic_acoustic_qa,'PENDING_QUALIFIED_REVIEW');
 });
-test('one listener failure parks only that lesson',()=>{
+test('one listener flag isolates only that lesson without certifying the others',()=>{
   const e=fixture();e.lesson_results[2].listener_result='FAIL';const r=validateLessonAudioQa(bundle,e,hash);
-  assert.equal(r.pass.length,6);assert.equal(r.park.length,1);assert.equal(r.park[0].lesson_id,bundle.lessons[2].lesson_id);
+  assert.equal(r.technical_playback.length,6);assert.equal(r.flagged.length,1);assert.equal(r.flagged[0].lesson_id,bundle.lessons[2].lesson_id);
 });
 test('wrong voice on a target segment rejects provenance',()=>{
   const e=fixture();e.lesson_results[0].segment_events[0].voice_uri='different';

@@ -13,11 +13,11 @@ if (!path) {
     const report={schema_version:'1.0',fixture_set_ref:`${evidence.fixture_set_id}@${evidence.fixture_set_version}`,
       evidence_sha256:createHash('sha256').update(bytes).digest('hex'),
       result:outcome.status, reason:outcome.reason||null,
-      certified_runtime:outcome.status==='CAPABILITY_QA_PASS'?evidence.runtime:null,
-      scope:outcome.status==='CAPABILITY_QA_PASS'?'LOW_STAKES_PRACTICE':null,
+      observed_runtime:outcome.status==='RUNTIME_PLAYBACK_SMOKE_PASS'?evidence.runtime:null,
+      scope:outcome.status==='RUNTIME_PLAYBACK_SMOKE_PASS'?'PLAYBACK_CAPABILITY_ONLY':null,
       lesson_audio_realizations_created:0, practice_ready:false,
-      note:'Reviewer evidence requires governance review. This CLI does not issue a realization_id or certify exception lessons.'};
+      note:'This verifies playback events on the observed device only. Owner listener grades cannot certify acoustic/language quality. Qualified lesson QA remains separate; no realization_id is issued.'};
     console.log(JSON.stringify(report,null,2));
-    if (outcome.status!=='CAPABILITY_QA_PASS') process.exitCode=1;
+    if (outcome.status!=='RUNTIME_PLAYBACK_SMOKE_PASS') process.exitCode=1;
   } catch (error) {console.error(error.message);process.exitCode=2}
 }

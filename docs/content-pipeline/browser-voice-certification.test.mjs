@@ -14,14 +14,15 @@ const candidate=()=>({lesson_id:'MAN-0065',lesson_asset_version:'v0.1',delivery_
 const profile={audio_profile_id:'PROFILE-TEST',audio_profile_version:'v0.1',status:'APPROVED_FOR_CALIBRATION'};
 
 test('representative capability is separate from final realization approval',()=>{
-  const e=evidence();assert.equal(validateRuntimeEvidence(e).status,'CAPABILITY_QA_PASS');
+  const e=evidence();assert.equal(validateRuntimeEvidence(e).status,'RUNTIME_PLAYBACK_SMOKE_PASS');
   assert.equal(assessLessonEligibility(e,candidate(),profile).status,'PROFILE_COMPATIBILITY_CANDIDATE');
   assert.equal(assessLessonEligibility(e,candidate(),profile).available_audio_realization_ref,undefined);
 });
-test('stale voice, incomplete playback and missing listener evidence fail closed',()=>{
+test('stale voice and incomplete playback fail closed; listener grade does not certify quality',()=>{
   const e=evidence();e.runtime.voices[1].voice_uri='voice-1';assert.equal(validateRuntimeEvidence(e).reason,'SPEAKER_SEPARATION');
   const f=evidence();f.results[1].event_status='ERROR';assert.match(validateRuntimeEvidence(f).reason,/FIXTURE_contractions/);
   const g=evidence();g.results.pop();assert.equal(validateRuntimeEvidence(g).reason,'REVIEW_COMPLETENESS');
+  const h=evidence();h.results[0].listening_result='FAIL';assert.equal(validateRuntimeEvidence(h).status,'RUNTIME_PLAYBACK_SMOKE_PASS');
 });
 test('high stakes and realization sensitive lessons do not inherit a generic runtime pass',()=>{
   const e=evidence();e.claimed_scopes=['CALIBRATED_SCORING'];assert.equal(validateRuntimeEvidence(e).reason,'UNSUPPORTED_SCOPE');
