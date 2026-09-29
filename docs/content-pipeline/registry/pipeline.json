@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "ESTABLISH_QUALIFIED_LESSON_ACOUSTIC_QA_PATH",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "A static contract validation passed for seven ordinary lessons; actual per-lesson playback events on a supported runtime and linguistic/acoustic judgment remain pending. Do not route Owner as listener. Use a qualified English-audio reviewer with documented competence, rubric, exact lesson/version/voice provenance and independent adjudication for disputed cases. Free qualified reviewer first if actually available; otherwise seek Owner cost/vendor approval against the priced proposal before engagement. Register QA-PASS realization_ids only per lesson with valid expert evidence; park failures independently and route only passing lessons to #2 final Practice. Five sensitive exceptions remain parked; publication/calibrated scoring remain false."
+    "code": "AUTHORIZE_CHIRP3_HD_NARROW_SAMPLE_AND_ACCESS",
+    "responsible_lane": "OWNER",
+    "requires": "Approve enabling texttospeech.googleapis.com on my-dictation-project-4381e and a narrow Chirp 3 HD synthesis trial capped at 10,000 input characters; provide an authenticated execution path to #4 without making Owner run CLI. Published free allowance is up to 1M characters/month; gross synthesis ceiling beyond free allowance is US$0.30, plus any separately approved storage/delivery. #4 then compares two Google voices on the same 237-character Batch 01 sample, optionally tries ElevenLabs privately at no commitment, asks Owner for Product/UX voice preference only, generates fixed cached audio for eligible lessons, runs final acoustic QA with qualified reviewer and routes independent PASS lessons to #2. Browser Voice stays fallback; do not QA its seven candidates for production. Five sensitive lessons stay parked; no import/publication until gates pass."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
