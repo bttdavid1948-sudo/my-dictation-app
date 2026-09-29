@@ -36,12 +36,13 @@ export function validateLessonAudioQa(bundle, evidence, bundleHash) {
         }))) return fail(`PLAYBACK_PROVENANCE_${l.lesson_id}`);
     outcomes.push({lesson_id:l.lesson_id,lesson_asset_version:l.lesson_asset_version,
       audio_profile_ref:`${l.profile.audio_profile_id}@${l.profile.audio_profile_version}`,
-      status:r.listener_result==='PASS'?'LESSON_AUDIO_QA_EVIDENCE_PASS':'PARK_AUDIO_EXCEPTION'});
+      status:r.listener_result==='PASS'?'TECHNICAL_PLAYBACK_EVENTS_PASS_EXPERT_REVIEW_PENDING':'LISTENER_FLAGGED_FOR_REVIEW'});
   }
-  return {status:'VALIDATED_LESSON_AUDIO_QA_EVIDENCE',bundle_sha256:bundleHash,
-    pass:outcomes.filter(x=>x.status==='LESSON_AUDIO_QA_EVIDENCE_PASS'),
-    park:outcomes.filter(x=>x.status==='PARK_AUDIO_EXCEPTION'),
-    note:'#4 reviews provenance, registers exact-version realizations for PASS only, then routes #2 final Practice. No publication or calibrated scoring inferred.'};
+  return {status:'TECHNICAL_EVIDENCE_VALIDATED',bundle_sha256:bundleHash,
+    technical_playback:outcomes.filter(x=>x.status==='TECHNICAL_PLAYBACK_EVENTS_PASS_EXPERT_REVIEW_PENDING'),
+    flagged:outcomes.filter(x=>x.status==='LISTENER_FLAGGED_FOR_REVIEW'),
+    linguistic_acoustic_qa:'PENDING_QUALIFIED_REVIEW',approved_realization_count:0,
+    note:'Listener PASS/FAIL in this file is unqualified unless a separate authorized expert QA record proves competence and acoustic judgments. This validator never issues QA-PASS realization IDs.'};
 }
 
 if(process.argv[1]?.endsWith('lesson-audio-qa-validator.mjs')) {

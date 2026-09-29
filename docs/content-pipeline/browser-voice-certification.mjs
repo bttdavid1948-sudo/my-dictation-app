@@ -34,16 +34,17 @@ export function validateRuntimeEvidence(e) {
     const result=e.results[i],fixture=FIXTURE_SET.fixtures[i];
     if (result?.fixture_id!==fixture.id || result?.event_status!=='ENDED' ||
         !Number.isFinite(result.started_at_ms) || !Number.isFinite(result.ended_at_ms) ||
-        result.ended_at_ms<=result.started_at_ms || result.listening_result!=='PASS')
+        result.ended_at_ms<=result.started_at_ms ||
+        result.playback_result==='FAIL' || result.listening_result==='FAIL')
       return fail(`FIXTURE_${fixture.id}`);
     if (fixture.id==='speaker_turns' && result.tested_speaker_count!==r.speaker_capacity)
       return fail('SPEAKER_CAPACITY');
   }
-  if (e.claimed_scopes?.some(x=>x!=='LOW_STAKES_PRACTICE')) return fail('UNSUPPORTED_SCOPE');
-  return {status:'CAPABILITY_QA_PASS',
-    scope:'LOW_STAKES_PRACTICE',
+  if (e.claimed_scopes?.some(x=>!['LOW_STAKES_PRACTICE','PLAYBACK_CAPABILITY_ONLY'].includes(x))) return fail('UNSUPPORTED_SCOPE');
+  return {status:'RUNTIME_PLAYBACK_SMOKE_PASS',
+    scope:'PLAYBACK_CAPABILITY_ONLY',
     speaker_capacity:r.speaker_capacity,
-    note:'Capability evidence only; per-lesson output profile, voice mapping, acoustic targets and Practice readiness remain separate.'};
+    note:'Device events and obvious playback observations only. Unqualified listener PASS does not certify pronunciation, prosody, accent, per-lesson audio quality or Practice readiness.'};
 }
 
 function browserFamilyMajor(userAgent) {
@@ -56,7 +57,7 @@ function browserFamilyMajor(userAgent) {
 }
 
 export function matchesCertifiedRuntime(evidence, observed) {
-  if (validateRuntimeEvidence(evidence).status!=='CAPABILITY_QA_PASS') return false;
+  if (validateRuntimeEvidence(evidence).status!=='RUNTIME_PLAYBACK_SMOKE_PASS') return false;
   const certified=evidence.runtime;
   if (!observed || certified.platform!==observed.platform || certified.os_version_label!==observed.os_version_label ||
       browserFamilyMajor(certified.browser_user_agent)!==browserFamilyMajor(observed.browser_user_agent) ||
@@ -67,7 +68,7 @@ export function matchesCertifiedRuntime(evidence, observed) {
 
 export function assessLessonEligibility(certification, candidate, outputProfile, observedRuntime) {
   const check=validateRuntimeEvidence(certification);
-  if (check.status!=='CAPABILITY_QA_PASS') return fail('UNCERTIFIED_RUNTIME');
+  if (check.status!=='RUNTIME_PLAYBACK_SMOKE_PASS') return fail('UNCERTIFIED_RUNTIME');
   if (observedRuntime && !matchesCertifiedRuntime(certification,observedRuntime)) return fail('RUNTIME_DRIFT');
   if (!candidate || candidate.delivery_mode!=='RUNTIME_RENDERED' ||
       candidate.alignment_mode!=='SEGMENT_ADDRESSABLE' || !candidate.lesson_id ||

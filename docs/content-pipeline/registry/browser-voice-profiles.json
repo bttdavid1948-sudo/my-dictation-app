@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-28",
+  "updated_at": "2026-09-29",
   "profiles": [
     {
       "profile_id": "MAN-BV-CHROME153-WIN10-22H2-VOICES4",
       "version": "v0.1",
-      "status": "CAPABILITY_QA_PASS",
+      "status": "RUNTIME_PLAYBACK_SMOKE_PASS",
       "producer_type": "browser_voice",
       "delivery_mode": "RUNTIME_RENDERED",
       "alignment_mode": "SEGMENT_ADDRESSABLE",
-      "scope": "LOW_STAKES_PRACTICE",
+      "scope": "PLAYBACK_CAPABILITY_ONLY",
       "fixture_set_ref": "MAN-BV-BASELINE@v0.1",
       "evidence_ref": "browser-voice-runtime-evidence@v0.1",
       "evidence_sha256": "b9ee38d11fd978677731cf014f49b0cd1d6efea7634859f967d617dc7ac9ce12",
@@ -47,14 +47,16 @@
           }
         ]
       },
-      "inheritance_rule": "Exact browser major, platform, reported OS version, voice URIs, language and local_service; recertify on drift and periodically listen for silent voice updates.",
+      "inheritance_rule": "Exact browser major, platform, reported OS version and voice identifiers for playback smoke only; rerun on drift. No linguistic quality inheritance.",
       "limits": [
+        "Owner observation is only device/browser/voice playback smoke",
+        "No pronunciation, prosody, accent or lesson acoustic-quality certification",
         "Not an output AudioProfile",
-        "No per-lesson audio QA",
-        "No calibrated or realization-sensitive claim",
+        "No per-lesson QA or calibrated scoring",
         "No available_audio_realization_ref"
       ],
-      "approved_realization_refs_count": 0
+      "approved_realization_refs_count": 0,
+      "acoustic_quality_verified": false
     }
   ]
 }
