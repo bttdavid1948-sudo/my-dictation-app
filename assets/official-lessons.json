@@ -42,11 +42,14 @@
       ],
       "id": "man-original-01",
       "publisher": "man",
-      "status": "published",
+      "status": "archived",
       "sourceType": "original",
       "copyrightStatus": "reviewed",
       "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
-      "version": 1
+      "version": 1,
+      "archiveReason": "PRE_CANONICAL_TRANSITION_CATALOG_SEED",
+      "archiveEvidenceRef": "docs/content-pipeline/registry/man-0065-seed-exit.json",
+      "archivedAt": "2026-09-30"
     },
     {
       "unitName": "Đổi lịch hẹn cà phê",
@@ -87,11 +90,14 @@
       ],
       "id": "man-original-02",
       "publisher": "man",
-      "status": "published",
+      "status": "archived",
       "sourceType": "original",
       "copyrightStatus": "reviewed",
       "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
-      "version": 1
+      "version": 1,
+      "archiveReason": "PRE_CANONICAL_TRANSITION_CATALOG_SEED",
+      "archiveEvidenceRef": "docs/content-pipeline/registry/man-0065-seed-exit.json",
+      "archivedAt": "2026-09-30"
     },
     {
       "unitName": "Giải quyết một đơn hàng lỗi",
@@ -132,11 +138,14 @@
       ],
       "id": "man-original-03",
       "publisher": "man",
-      "status": "published",
+      "status": "archived",
       "sourceType": "original",
       "copyrightStatus": "reviewed",
       "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
-      "version": 1
+      "version": 1,
+      "archiveReason": "PRE_CANONICAL_TRANSITION_CATALOG_SEED",
+      "archiveEvidenceRef": "docs/content-pipeline/registry/man-0065-seed-exit.json",
+      "archivedAt": "2026-09-30"
     },
     {
       "unitName": "Một chuyến tàu đổi sân ga",
@@ -177,11 +186,14 @@
       ],
       "id": "man-original-04",
       "publisher": "man",
-      "status": "published",
+      "status": "archived",
       "sourceType": "original",
       "copyrightStatus": "reviewed",
       "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
-      "version": 1
+      "version": 1,
+      "archiveReason": "PRE_CANONICAL_TRANSITION_CATALOG_SEED",
+      "archiveEvidenceRef": "docs/content-pipeline/registry/man-0065-seed-exit.json",
+      "archivedAt": "2026-09-30"
     },
     {
       "id": "MAN-0065",
