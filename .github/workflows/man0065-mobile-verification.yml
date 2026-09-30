@@ -1,0 +1,33 @@
+name: MAN-0065 mobile live verification
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - mobile-release-runner/**
+      - .github/workflows/man0065-mobile-verification.yml
+permissions:
+  contents: read
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned runner
+        run: npm ci --prefix mobile-release-runner
+      - name: Install official Chromium and runtime dependencies
+        run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Execute approved mobile-only live flow
+        env:
+          MAN_MOBILE_PLAYWRIGHT_AUTHORIZED: '1'
+        run: node mobile-release-runner/verify-mobile.mjs
+      - name: Preserve review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: man0065-mobile-evidence
+          path: mobile-release-runner/evidence/
+          retention-days: 7
