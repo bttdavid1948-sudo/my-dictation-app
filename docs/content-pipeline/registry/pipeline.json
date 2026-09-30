@@ -5,14 +5,17 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
+    "code": "WAIT_FOR_WORK_AUTH_INFRASTRUCTURE_RECOVERY",
     "responsible_lane": "OPERATIONS_4",
-    "pairs": [
-      "MAN-0238",
-      "MAN-0414"
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "global_batch_blocker": false,
+    "resume_actions": [
+      "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+      "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
     ],
-    "requires": "Practice #2 PASS for exact pairs MAN-0238@v0.1 + MAN-0238-OPENAI-FIXED-v0.2 and MAN-0414@v0.1 + MAN-0414-OPENAI-FIXED-v0.2. Reuse established MAN-0065 support/rights/import/desktop-mobile/exact-feedback/rollback machinery. Keep phenomenon-sensitive scoring restricted to verified target instances; no human acoustic certification required.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+    "requires": "Operations reads only 10 retained exact smoke feedback records after a functioning authorized Work Firebase authentication path is restored. Preserve six live-runtime PASS lessons and MAN-0065 COMPLETE. No Google Sign-in retry in this action. Six sensitive/cast lessons remain parked outside current scope; no other independent Operations work is authorized in this action.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
+    "owner_execution_required": false
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -129,8 +132,46 @@
       "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
       "existing_runtime_pass_preserved": true,
       "not_attempted_this_action": true
+    },
+    {
+      "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0238",
+        "MAN-0414"
+      ],
+      "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+      "retained_record_count": 4,
+      "verified_admin_reads": 0,
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true,
+      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS."
     }
   ],
   "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
-  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+  "two_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+  "remaining_work_checkpoint_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
+  "live_runtime_verified_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0065"
+  ],
+  "feedback_admin_read_pending_lesson_ids": [
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ]
 }
