@@ -53,17 +53,15 @@
     "batch_wide_false_flags_do_not_override_independent_lesson_pass": true
   },
   "next_action": {
-    "code": "WAIT_FOR_WORK_AUTH_INFRASTRUCTURE_RECOVERY",
-    "responsible_lane": "OPERATIONS_4",
-    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "code": "OWNER_PERMISSION_REQUIRED",
+    "responsible_lane": "OWNER",
+    "resume_lane": "OPERATIONS_4",
+    "resume_action": "CONFIGURE_APPROVED_KEYLESS_INTERNAL_FEEDBACK_READ_AND_VERIFY_TEN_RETAINED_RECORDS",
+    "blocking_code": "INTERNAL_FEEDBACK_READ_AUTHORIZATION_REQUIRED",
     "global_batch_blocker": false,
-    "resume_actions": [
-      "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
-      "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
-    ],
-    "requires": "Operations reads only 10 retained exact smoke feedback records after a functioning authorized Work Firebase authentication path is restored. Preserve six live-runtime PASS lessons and MAN-0065 COMPLETE. No Google Sign-in retry in this action. Six sensitive/cast lessons remain parked outside current scope; no other independent Operations work is authorized in this action.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
-    "owner_execution_required": false
+    "requires": "Approve and provision the exact temporary database-level GET scope via dedicated GitHub OIDC Workload Identity Federation described in operations/feedback-read/access-plan.json. No key, Auth provider, Rules or privacy-policy change. This grants GET of known IDs in (default), not a document-level IAM allowlist. Operations executes only the ten retained synthetic feedback reads. No Work Google sign-in retry.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+    "owner_execution_of_verification_required": false
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -211,7 +209,9 @@
       "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
       "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
       "existing_runtime_pass_preserved": true,
-      "not_attempted_this_action": true
+      "not_attempted_this_action": true,
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": true
     },
     {
       "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
@@ -229,7 +229,9 @@
       "verified_admin_reads": 0,
       "existing_runtime_pass_preserved": true,
       "not_attempted_this_action": true,
-      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS."
+      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS.",
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": true
     }
   ],
   "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
@@ -242,5 +244,7 @@
     "MAN-0238",
     "MAN-0414"
   ],
-  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+  "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+  "feedback_gui_dependency_replacement_status": "PREPARED_NOT_YET_AUTHORIZED_OR_PROVEN"
 }

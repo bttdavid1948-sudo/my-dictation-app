@@ -1,0 +1,31 @@
+{
+  "status": "OWNER_PERMISSION_REQUIRED_NOT_APPLIED",
+  "project_id": "my-dictation-project-4381e",
+  "custom_role_id": "manFeedbackExactGet",
+  "custom_role_title": "Man feedback exact GET",
+  "permissions": ["datastore.entities.get"],
+  "pool_id": "man-feedback-verify",
+  "provider_id": "github",
+  "issuer": "https://token.actions.githubusercontent.com",
+  "attribute_mapping": {
+    "google.subject": "assertion.sub",
+    "attribute.repository_id": "assertion.repository_id",
+    "attribute.repository_owner_id": "assertion.repository_owner_id",
+    "attribute.actor_id": "assertion.actor_id",
+    "attribute.ref": "assertion.ref",
+    "attribute.workflow_ref": "assertion.workflow_ref",
+    "attribute.event_name": "assertion.event_name"
+  },
+  "provider_condition": "assertion.repository_id == '1377742729' && assertion.repository_owner_id == '331456773' && assertion.actor_id == '331456773' && assertion.ref == 'refs/heads/main' && assertion.event_name == 'workflow_dispatch' && assertion.workflow_ref == 'bttdavid1948-sudo/my-dictation-app/.github/workflows/verify-feedback.yml@refs/heads/main'",
+  "principal_template": "principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/man-feedback-verify/attribute.repository_id/1377742729",
+  "iam_condition": "resource.name == 'projects/my-dictation-project-4381e/databases/(default)' && request.time < timestamp('2026-10-08T00:00:00Z')",
+  "iam_scope_limitation": "Database-level permission to GET a known document ID. This is NOT an IAM allowlist of 10 documents or owner_feedback-only access. Exact collection/10-record constraints are verifier controls, not IAM security boundaries.",
+  "new_service_account_keys": 0,
+  "new_service_accounts": 0,
+  "writes_or_lists_allowed_by_custom_role": false,
+  "rules_or_auth_provider_changes": false,
+  "direct_federated_token_live_acceptance": "NOT_VERIFIED; if unsupported, stop and request a separately reviewed keyless service-account option, never silently widen access.",
+  "manifest_sha256": "8f66a1837eba7f8e83cf1d4da4dfc7532046651e92cc6209949235bd36ff1a99",
+  "required_live_reads": 10,
+  "live_reads_verified": 0
+}
