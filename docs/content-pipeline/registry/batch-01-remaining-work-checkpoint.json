@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "checked_at": "2026-09-30T17:00:44.692677+00:00",
+  "status": "CURRENT_SCOPE_OPERATIONS_EXECUTION_DONE_ISOLATED_FEEDBACK_READ_PENDING",
+  "published_official_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "live_runtime_pass_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0065"
+  ],
+  "pending_feedback_admin_read_lesson_ids": [
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "pending_exact_feedback_record_count": 10,
+  "verified_new_feedback_admin_reads": 0,
+  "parked_sensitive_cast_lesson_ids": [
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "independent_progression": true,
+  "global_batch_blocker": false,
+  "current_scope_independent_operations_work_remaining": false,
+  "next_action": {
+    "code": "WAIT_FOR_WORK_AUTH_INFRASTRUCTURE_RECOVERY",
+    "responsible_lane": "OPERATIONS_4",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "global_batch_blocker": false,
+    "resume_actions": [
+      "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+      "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
+    ],
+    "requires": "Operations reads only 10 retained exact smoke feedback records after a functioning authorized Work Firebase authentication path is restored. Preserve six live-runtime PASS lessons and MAN-0065 COMPLETE. No Google Sign-in retry in this action. Six sensitive/cast lessons remain parked outside current scope; no other independent Operations work is authorized in this action.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
+    "owner_execution_required": false
+  },
+  "preserved_evidence_refs": [
+    "docs/content-pipeline/registry/man-0065-live-release.json",
+    "docs/content-pipeline/registry/batch-01-three-live-release.json",
+    "docs/content-pipeline/registry/batch-01-two-live-release.json"
+  ],
+  "no_google_sign_in_retry_this_action": true,
+  "incremental_tts_api_requests": 0,
+  "incremental_tts_api_cost_usd": 0,
+  "total_metered_tts_api_cost_usd": 0.093048,
+  "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
+  "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
+  "owner_action_required_now": false,
+  "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work."
+}

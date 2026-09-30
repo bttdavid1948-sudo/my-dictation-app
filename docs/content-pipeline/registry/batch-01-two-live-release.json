@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "status": "PUBLISHED_PENDING_LIVE_VERIFICATION",
+  "status": "TWO_LESSONS_LIVE_RUNTIME_PASS_FEEDBACK_READ_ISOLATED_PENDING",
   "source_main": "a5596d87a9686d0105f28c6324c39ef5f0b5e939",
   "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
   "rights_ref": "docs/content-pipeline/registry/batch-01-two-rights.json",
@@ -45,14 +45,147 @@
     "support": "PASS_FULL_9_CANONICAL_SEGMENTS",
     "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
     "import_binding": "PASS_CANONICAL_TEXT_SEGMENT_VERSION_AND_ASSET_HASHES",
-    "desktop_live": "PENDING",
-    "mobile_live": "PENDING",
-    "feedback_write_read": "PENDING"
+    "desktop_live": "PASS_TWO_EXACT_PAIRS_9_SEGMENTS_AND_DICTATION_COMPLETION",
+    "mobile_live": "PASS_OWNER_APPROVED_PIXEL_5_CHROMIUM_EMULATION",
+    "feedback_write_read": "WRITE_PASS_EXACT_CONTEXT; ADMIN_READ_PENDING_INFRASTRUCTURE"
   },
   "incremental_tts_api_cost_usd": 0,
   "pairs_scoring_boundary": {
     "MAN-0238": "Use only verified target instances/regions for phenomenon-sensitive scoring. Do not score unverified function-word tokens as unstressed.",
     "MAN-0414": "Bind phenomenon-sensitive practice only to the verified article weak-form instances. Do not infer or score reductions for 'to' or other unverified tokens."
   },
-  "feedback_read_branch": "ISOLATED_INFRASTRUCTURE_PENDING_NOT_ATTEMPTED"
+  "feedback_read_branch": {
+    "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
+    "status": "PENDING_INFRASTRUCTURE_RECOVERY",
+    "global_batch_blocker": false,
+    "lesson_ids": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+    "retained_record_count": 4,
+    "verified_admin_reads": 0,
+    "existing_runtime_pass_preserved": true,
+    "not_attempted_this_action": true,
+    "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS."
+  },
+  "verified_at": "2026-09-30T17:00:44.692677+00:00",
+  "release_prs": [
+    78,
+    79
+  ],
+  "runtime_source_main": "b9c1148bd9beb9388d2f63e078b4988f6527fc7c",
+  "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+  "evidence_ref": "batch-01-two-new-live-runtime-evidence@v0.1",
+  "next_action": {
+    "code": "WAIT_FOR_WORK_AUTH_INFRASTRUCTURE_RECOVERY",
+    "responsible_lane": "OPERATIONS_4",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "global_batch_blocker": false,
+    "resume_actions": [
+      "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+      "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
+    ],
+    "requires": "Operations reads only 10 retained exact smoke feedback records after a functioning authorized Work Firebase authentication path is restored. Preserve six live-runtime PASS lessons and MAN-0065 COMPLETE. No Google Sign-in retry in this action. Six sensitive/cast lessons remain parked outside current scope; no other independent Operations work is authorized in this action.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
+    "owner_execution_required": false
+  },
+  "results": [
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "status": "LIVE_RUNTIME_VERIFIED_PENDING_AUTHENTICATED_FEEDBACK_READ",
+      "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_5_OF_5",
+        "mobile_playback_completion": "PASS_5_OF_5",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "PENDING_AUTH_CONNECTION_BLOCKED_NOT_ATTEMPTED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW",
+        "practice_scoring_boundary": "PRESERVED_EXACT_PRACTICE_2_RESTRICTION"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 5,
+        "all_media_ended": true,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36742359411,
+        "head_sha": "bc20cc4b66dc3f39c567384e4775fe9dc0d91b68",
+        "job_id": 109979726251,
+        "artifact_id": 11110349476,
+        "segment_count": 5,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile IDs and expected versioned contexts retained in private runtime evidence; admin read not verified."
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "status": "LIVE_RUNTIME_VERIFIED_PENDING_AUTHENTICATED_FEEDBACK_READ",
+      "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_4_OF_4",
+        "mobile_playback_completion": "PASS_4_OF_4",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "PENDING_AUTH_CONNECTION_BLOCKED_NOT_ATTEMPTED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW",
+        "practice_scoring_boundary": "PRESERVED_EXACT_PRACTICE_2_RESTRICTION"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 4,
+        "all_media_ended": true,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36742359411,
+        "head_sha": "bc20cc4b66dc3f39c567384e4775fe9dc0d91b68",
+        "job_id": 109979725913,
+        "artifact_id": 11111525251,
+        "segment_count": 4,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile IDs and expected versioned contexts retained in private runtime evidence; admin read not verified."
+    }
+  ],
+  "limitations": [
+    "Pixel 5 Chromium device emulation; physical Android/iOS/native keyboard not verified.",
+    "Playback and supporting acoustic/model evidence do not constitute human pronunciation/prosody certification.",
+    "Four writes backend-acknowledged; zero independent admin reads claimed. Existing infrastructure blocker not retried this action."
+  ]
 }
