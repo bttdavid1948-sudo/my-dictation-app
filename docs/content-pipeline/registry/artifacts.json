@@ -709,7 +709,9 @@
       "sha256": "3139de7206b0d0079e16978d95a1587c6dcb17020908d5c3c2cb561750c6b2d9",
       "size_bytes": 8185128,
       "validation_status": "HASH_VERIFIED",
-      "remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ"
+      "remaining_gate": "NONE_SYSTEM_CAPABILITY_REUSED",
+      "previous_remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ",
+      "gate_scope_resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
     },
     {
       "id": "batch-01-two-phenomena-practice-handoff",
@@ -816,7 +818,9 @@
       "sha256": "be025ddf4000268e5bbe023edec4ec642937c4d0e8fc052e8f68e92a62e4e6b5",
       "size_bytes": 5988980,
       "validation_status": "HASH_VERIFIED",
-      "remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ"
+      "remaining_gate": "NONE_SYSTEM_CAPABILITY_REUSED",
+      "previous_remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ",
+      "gate_scope_resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
     }
   ]
 }

@@ -1,5 +1,14 @@
 # Exact retained feedback verification
 
+**Current disposition: NOT_NEEDED, not applied.** The [system capability review](../../docs/content-pipeline/registry/batch-01-feedback-system-capability.json)
+reuses MAN-0065 authenticated read PASS for the byte-identical feedback path.
+Every release still requires actual backend write ACK and exact versioned context.
+The ten later documents have **not** been independently read; no read PASS is claimed.
+No Owner IAM/WIF action is requested. Keep this optional verifier and inactive template
+dormant; future activation requires a new justified access review and authorization.
+
+The remainder documents the historical, superseded proposal, not a current action list.
+
 Prepared, locally tested, **not authorized or production-verified**. No IAM changes,
 new credentials, enabled workflow or live read have occurred.
 
