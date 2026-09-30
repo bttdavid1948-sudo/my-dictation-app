@@ -15,11 +15,11 @@
   "realization_count": 1,
   "available_audio_realization_refs_count": 1,
   "approved_qa_count": 0,
-  "status": "MAN_0065_FIRST_LIVE_COMPLETE_OTHER_CANDIDATES_PARKED",
+  "status": "MAN_0065_COMPLETE_FIVE_ADDITIONAL_INTERNAL_ELIGIBLE_AWAIT_FINAL_PRACTICE",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "MAN-0065 fixed v0.2 released with desktop + approved Pixel 5 Chromium mobile emulation, Dictation completion and feedback write/read PASS. Other candidates remain parked; no human acoustic certification claimed.",
+    "production_audio_assets": "MAN-0065 fixed v0.2 live COMPLETE; five additional immutable fixed v0.2 candidates internally eligible, await final Practice, not published. Six sensitive/cast candidates remain parked.",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -44,9 +44,10 @@
     "man_0065_live_definition_of_done_complete": true
   },
   "next_action": {
-    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
+    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -122,29 +123,29 @@
       "MAN-0986"
     ],
     "additional_park_reason": "MAN-0765 requires a three-speaker realization; no third voice was benchmarked.",
-    "metered_api_requests": 41,
-    "metered_api_cost_usd": 0.074775,
+    "metered_api_requests": 49,
+    "metered_api_cost_usd": 0.093048,
     "final_candidate_synthesis_cost_usd": 0.0460668,
-    "cost_scope": "Actual returned API token usage valued at published rates; includes draft/comparator API requests. Excludes three earlier Playground requests, invoice reconciliation, storage/delivery and acoustic review. No acoustic approval inferred from technical checks. Internal offline ASR and silence trimming made no additional paid API requests.",
+    "cost_scope": "Actual returned API token usage valued at published rates; includes prior draft/comparator requests and eight targeted rework calls. Excludes three earlier Playground requests, invoice reconciliation and storage/delivery. No acoustic certification. Offline ASR and silence trimming add no paid requests.",
     "qualified_reviewer_required": false,
-    "internal_asr_model": "vosk-model-small-en-us-0.15 (offline, unprompted)"
+    "internal_asr_model": "Unprompted offline Vosk 0.15; pinned tiny.en supplemental evidence for five residual mismatches only",
+    "targeted_rework_incremental_requests": 8,
+    "targeted_rework_incremental_cost_usd": 0.018273
   },
-  "internal_release_gate_ref": "MAN-INTERNAL-AUDIO-RELEASE@v0.1",
-  "internal_release_eligible_count": 1,
+  "internal_release_gate_ref": "MAN-INTERNAL-AUDIO-RELEASE@v0.2",
+  "internal_release_eligible_count": 6,
   "internal_release_eligible_realization_ids": [
-    "MAN-0065-OPENAI-FIXED-v0.2"
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2"
   ],
   "human_acoustic_certification": "NOT_PERFORMED_NOT_REQUIRED_BY_OWNER_DIRECTION_2026_09_30",
   "internal_release_exception_summary": {
-    "ANOMALOUS": [
-      "MAN-0165"
-    ],
-    "UNCERTAIN": [
-      "MAN-0365",
-      "MAN-0044",
-      "MAN-0238",
-      "MAN-0414"
-    ],
+    "ANOMALOUS": [],
+    "UNCERTAIN": [],
     "SENSITIVE_OR_CAST_PARKED": [
       "MAN-0565",
       "MAN-0765",
@@ -156,5 +157,13 @@
   },
   "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
   "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
-  "man_0065_first_live_complete": true
+  "man_0065_first_live_complete": true,
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
+  "eligible_final_practice_realization_ids": [
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2"
+  ]
 }

@@ -1,14 +1,18 @@
 """Internal fixed-audio gate; no human/acoustic certification is emitted."""
 import argparse, array, hashlib, json, math, pathlib, re, subprocess, wave
-VERSION = 'MAN-INTERNAL-AUDIO-RELEASE@v0.1'
+VERSION = 'MAN-INTERNAL-AUDIO-RELEASE@v0.2'
 def digest(data): return hashlib.sha256(data).hexdigest()
 def words(text):
     # Orthographic normalization only. Letter B and ASR 'be' are homophones;
     # this is probabilistic phonetic support, never an exact-text acoustic proof.
     text=text.lower().replace('’', "'")
     text=re.sub(r'\bb\b','be',text)
+    # Audited spelling/word-boundary and en-US homophone equivalences only.
+    # This cannot distinguish spelling or prove a semantic target. No edit-distance tolerance.
+    for source, replacement in [('road work','roadwork'),('short cut','shortcut'),('four','for'),('due','do'),('bare','bear')]:
+        text=re.sub(r'\b'+re.escape(source)+r'\b',replacement,text)
     return re.findall(r"[a-z0-9]+(?:'[a-z]+)?",text)
-def check_segment(s, expected, root, asr, voices):
+def check_segment(s, expected, root, asr, voices, secondary):
     deterministic=[]; anomalies=[]
     binding=all(s.get(k)==expected.get(k) for k in ['segment_id','script_speaker_id','text'])
     if not binding or digest(s['text'].encode())!=s['input_sha256']: anomalies.append('CANONICAL_BINDING_OR_INPUT_HASH')
@@ -43,13 +47,24 @@ def check_segment(s, expected, root, asr, voices):
         anomalies.append('DECODE_FAILURE');metrics={}
     recognition=asr.get((s['lesson_id'],s['segment_id']))
     aligned=bool(recognition and recognition['asset_sha256']==sha and words(recognition['text'])==words(s['text']))
+    supplement=secondary.get((s['lesson_id'],s['segment_id']))
+    secondary_aligned=bool(supplement and supplement['asset_sha256']==sha and words(supplement['text'])==words(s['text']))
+    if supplement and supplement['asset_sha256']!=sha: anomalies.append('SECONDARY_ASR_WRONG_ASSET')
+    signal='NORMALIZED_ASR_MATCH_PROBABILISTIC' if aligned else ('SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES' if secondary_aligned else 'UNCERTAIN_ASR_MISMATCH')
+    aligned=aligned or secondary_aligned
     if not recognition or recognition['asset_sha256']!=sha: anomalies.append('ASR_EVIDENCE_MISSING_OR_WRONG_ASSET')
-    return {'segment_id':s['segment_id'],'sha256':sha,'deterministically_verified':deterministic,'metrics':metrics,'asr_text':recognition.get('text') if recognition else None,'fidelity_signal':'NORMALIZED_ASR_MATCH_PROBABILISTIC' if aligned else 'UNCERTAIN_ASR_MISMATCH','anomalies':anomalies,'status':'ANOMALOUS' if anomalies else ('INTERNAL_PASS' if aligned else 'UNCERTAIN')}
-def evaluate(bundle, canonical, asr_evidence, root):
+    return {'segment_id':s['segment_id'],'sha256':sha,'deterministically_verified':deterministic,'metrics':metrics,'asr_text':recognition.get('text') if recognition else None,'secondary_asr_text':supplement.get('text') if supplement else None,'fidelity_signal':signal,'anomalies':anomalies,'status':'ANOMALOUS' if anomalies else ('INTERNAL_PASS' if aligned else 'UNCERTAIN')}
+def evaluate(bundle, canonical, asr_evidence, root, secondary_evidence=None):
     canonical_map={a['lesson_id']:a for a in canonical['assets']}
     asr={(a['lesson_id'],a['segment_id']):a for a in asr_evidence['segments']}
     if len(asr)!=len(asr_evidence['segments']): raise ValueError('Duplicate ASR binding')
     if asr_evidence.get('reference_prompt_supplied') is not False or asr_evidence.get('model')!='vosk-model-small-en-us-0.15': raise ValueError('Untrusted or reference-prompted ASR')
+    secondary={}
+    if secondary_evidence is not None:
+        e=secondary_evidence
+        if e.get('model')!='faster-whisper-tiny.en' or e.get('model_revision')!='53b4a348cf5fad713d6322c9120d56326f831b0d' or e.get('reference_prompt_supplied') is not False or e.get('initial_prompt') is not None or e.get('hotwords') is not None or e.get('model_files_sha256',{}).get('model.bin')!='1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a': raise ValueError('Untrusted or reference-prompted secondary ASR')
+        secondary={(s['lesson_id'],s['segment_id']):s for s in e['segments']}
+        if len(secondary)!=len(e['segments']): raise ValueError('Duplicate secondary ASR binding')
     outcomes=[]
     if len({l['lesson_id'] for l in bundle['lessons']})!=len(bundle['lessons']): raise ValueError('Duplicate lesson')
     for lesson in bundle['lessons']:
@@ -61,15 +76,15 @@ def evaluate(bundle, canonical, asr_evidence, root):
         actual_ids=[s['segment_id'] for s in lesson['segments']]
         if len(set(actual_ids))!=len(actual_ids) or set(actual_ids)!=set(expected_segments): raise ValueError('Incomplete/duplicate segment coverage')
         voices={s['script_speaker_id']:s['voice'] for s in lesson['audio_profile']['speaker_mapping']}
-        results=[check_segment(s,expected_segments[s['segment_id']],root,asr,voices) for s in lesson['segments']]
+        results=[check_segment(s,expected_segments[s['segment_id']],root,asr,voices,secondary) for s in lesson['segments']]
         status='CONTROLLED_INTERNAL_RELEASE_ELIGIBLE' if all(s['status']=='INTERNAL_PASS' for s in results) else ('ANOMALOUS' if any(s['status']=='ANOMALOUS' for s in results) else 'UNCERTAIN')
         targets=[{'anchor_id':a['anchor_id'],'phenomenon_type':a.get('phenomenon_type'),'segment_binding':'DETERMINISTIC_PASS' if set(a['segment_ids'])<=set(actual_ids) else 'FAIL','acoustic_condition':'ASR_LEXICAL_SUPPORT_PROBABILISTIC' if a.get('phenomenon_type')=='numbers/letter names' and status=='CONTROLLED_INTERNAL_RELEASE_ELIGIBLE' else 'UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION'} for a in lesson['target_anchors'] if a['anchor_kind']=='SPEECH_PHENOMENON']
         outcomes.append({'lesson_id':lesson['lesson_id'],'lesson_asset_version':lesson['lesson_asset_version'],'realization_id':lesson['candidate_realization_id'],'profile_ref':lesson['audio_profile']['audio_profile_id']+'@'+lesson['audio_profile']['audio_profile_version'],'status':status,'segments':results,'target_conditions':targets,'human_acoustic_certification':'NOT_PERFORMED_NOT_REQUIRED','unverified':['perceived speaker identity/accent','fine pronunciation','natural prosody/reductions/stress','semantic or scored target suitability beyond lexical ASR signal'],'next_lane':'PRACTICE_2' if status=='CONTROLLED_INTERNAL_RELEASE_ELIGIBLE' else 'OPERATIONS_4_EXCEPTION_BACKLOG','practice_ready':False,'publication_allowed':False})
-    return {'gate_version':VERSION,'trusted_provider':'OpenAI','canonical_source_sha256':bundle['canonical_source_sha256'],'asr_model':asr_evidence['model'],'asr_reference_prompt_supplied':asr_evidence['reference_prompt_supplied'],'asr_evidence_sha256':digest(json.dumps(asr_evidence,sort_keys=True).encode()),'classification_note':'Internal eligibility permits controlled release after final Practice/support/rights/runtime gates. No QA-PASS or human certification is inferred. User reports are observability signals only.','lessons':outcomes}
+    return {'gate_version':VERSION,'trusted_provider':'OpenAI','canonical_source_sha256':bundle['canonical_source_sha256'],'secondary_asr_evidence_sha256':digest(json.dumps(secondary_evidence,sort_keys=True).encode()) if secondary_evidence else None,'asr_model':asr_evidence['model'],'asr_reference_prompt_supplied':asr_evidence['reference_prompt_supplied'],'asr_evidence_sha256':digest(json.dumps(asr_evidence,sort_keys=True).encode()),'classification_note':'Internal eligibility permits controlled release after final Practice/support/rights/runtime gates. No QA-PASS or human certification is inferred. User reports are observability signals only.','lessons':outcomes}
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('bundle');p.add_argument('canonical');p.add_argument('asr');p.add_argument('output');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('bundle');p.add_argument('canonical');p.add_argument('asr');p.add_argument('output');p.add_argument('--secondary-asr');a=p.parse_args()
     path=pathlib.Path(a.bundle);b=json.loads(path.read_text());cbytes=pathlib.Path(a.canonical).read_bytes()
     if digest(cbytes)!=b['canonical_source_sha256']:raise ValueError('Canonical source hash mismatch')
-    result=evaluate(b,json.loads(cbytes),json.loads(pathlib.Path(a.asr).read_text()),path.parent)
+    result=evaluate(b,json.loads(cbytes),json.loads(pathlib.Path(a.asr).read_text()),path.parent,json.loads(pathlib.Path(a.secondary_asr).read_text()) if a.secondary_asr else None)
     pathlib.Path(a.output).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps([{'lesson_id':l['lesson_id'],'status':l['status'],'next_lane':l['next_lane']} for l in result['lessons']]))

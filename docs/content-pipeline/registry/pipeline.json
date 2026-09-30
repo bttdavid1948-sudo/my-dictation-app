@@ -5,9 +5,10 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
+    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -93,5 +94,6 @@
   ],
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
   "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
-  "man_0065_first_live_complete": true
+  "man_0065_first_live_complete": true,
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json"
 }
