@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-28",
+  "updated_at": "2026-09-30",
   "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
   "current": {
     "curriculum-practice-contract": "v0.3",
@@ -18,7 +18,8 @@
     "batch-01-browser-voice-runtime-candidates": "v0.1",
     "browser-voice-runtime-evidence": "v0.1",
     "batch-01-ordinary-browser-voice-qa-bundle": "v0.1",
-    "batch-01-ordinary-audio-qa-page": "v0.1"
+    "batch-01-ordinary-audio-qa-page": "v0.1",
+    "batch-01-internal-audio-release": "v0.2"
   },
   "artifacts": [
     {
@@ -574,6 +575,32 @@
       "updated_at": "2026-09-29",
       "supersedes": null,
       "superseded_by": null
+    },
+    {
+      "id": "batch-01-internal-audio-release",
+      "name": "MAN-Batch01-Internal-Audio-Release-v0.2.zip",
+      "version": "v0.2",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch01-Internal-Audio-Release-v0.2.zip"
+      },
+      "sha256": "236e1b14c101078a7fbc3d8e651a58ac5741e86fefa59b3bc9c3dc3daae2fc9f",
+      "size_bytes": 5582201,
+      "validation_status": "HASH_VERIFIED",
+      "result": "ONE_INTERNAL_ELIGIBLE_FINAL_PRACTICE_PENDING",
+      "supersedes": null,
+      "superseded_by": null,
+      "source": [
+        "Owner internal audio QA direction 2026-09-30",
+        "Actual fixed WAV files plus canonical hash, automated decode/anomaly checks and unprompted offline ASR"
+      ]
     }
   ]
 }

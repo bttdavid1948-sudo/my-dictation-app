@@ -1,4 +1,6 @@
-# Browser Voice lesson audio QA · authority and scale
+# Historical Browser Voice lesson audio QA · superseded operating assumption
+
+**2026-09-30:** The external-review planning below is historical and must not be executed or block release. Owner removed external/outsourced acoustic certification, including future default sourcing. Current release policy: [internal audio release gate](internal-audio-release.md). Prior Browser Voice evidence remains playback smoke only; do not upgrade it to acoustic PASS.
 
 ## Evidence boundaries
 
