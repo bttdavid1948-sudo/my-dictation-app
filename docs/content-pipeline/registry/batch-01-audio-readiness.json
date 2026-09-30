@@ -15,7 +15,7 @@
   "realization_count": 0,
   "available_audio_realization_refs_count": 0,
   "approved_qa_count": 0,
-  "status": "ONE_INTERNAL_RELEASE_ELIGIBLE_PENDING_FINAL_PRACTICE",
+  "status": "MAN_0065_PRACTICE_READY_CONTROLLED_IMPORT_PENDING",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
@@ -36,12 +36,16 @@
     "practice_ready": false,
     "contract_valid": false,
     "production_default_import": false,
-    "paid_api_enabled_by_this_action": false
+    "paid_api_enabled_by_this_action": false,
+    "man_0065_practice_ready": true,
+    "man_0065_contract_valid": true,
+    "man_0065_realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
+    "man_0065_publication_allowed": false
   },
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
+    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice accepted the exact MAN-0065 fixed realization for its DETAIL + FORM_RECOGNITION evidence semantics. Complete controlled import, support/rights checks, desktop/mobile smoke and exact-realization feedback verification. Keep fine pronunciation/prosody/accent explicitly uncertified and keep other lessons parked."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -148,5 +152,6 @@
       "MAN-0844",
       "MAN-0986"
     ]
-  }
+  },
+  "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json"
 }
