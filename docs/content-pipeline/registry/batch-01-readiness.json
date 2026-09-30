@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "MAN_0065_CONTROLLED_LIVE_MOBILE_AND_FEEDBACK_READ_PENDING",
+  "preparation_status": "MAN_0065_LIVE_MOBILE_EXECUTION_BLOCKED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -103,9 +103,9 @@
     }
   ],
   "next_action": {
-    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
+    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
+    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
