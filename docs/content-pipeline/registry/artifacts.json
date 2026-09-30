@@ -20,7 +20,8 @@
     "batch-01-ordinary-browser-voice-qa-bundle": "v0.1",
     "batch-01-ordinary-audio-qa-page": "v0.1",
     "batch-01-internal-audio-release": "v0.2",
-    "batch-01-targeted-audio-practice-handoff": "v0.2"
+    "batch-01-targeted-audio-practice-handoff": "v0.2",
+    "batch-01-final-realization-practice-validation-reworked": "v0.1"
   },
   "artifacts": [
     {
@@ -636,6 +637,43 @@
         "responsible_lane": "PRACTICE_2",
         "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
         "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+      }
+    },
+    {
+      "id": "batch-01-final-realization-practice-validation-reworked",
+      "name": "batch-01-final-realization-practice-reworked.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 final realization validation for five exact reworked fixed OpenAI pairs",
+        "Exact HASH_VERIFIED batch-01-targeted-audio-practice-handoff@v0.2",
+        "Preserved prior static Curriculum/Practice grounding PASS"
+      ],
+      "dependencies": [
+        "batch-01-targeted-audio-practice-handoff@v0.2",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
+      },
+      "validation_status": "STRUCTURED_EVIDENCE_RECORDED",
+      "reviewed_pair_count": 5,
+      "practice_ready_pass_count": 3,
+      "contract_valid_pass_count": 3,
+      "blocked_pair_count": 2,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
       }
     }
   ]
