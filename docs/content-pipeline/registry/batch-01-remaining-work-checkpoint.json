@@ -67,5 +67,26 @@
   "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
   "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
   "owner_action_required_now": false,
-  "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work."
+  "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work.",
+  "latest_resume_attempt": {
+    "checked_at": "2026-09-30T22:45:40.213Z",
+    "source_main": "36e56c045ad1931466f04e3396b98ec38dfb2127",
+    "action": "VERIFY_EXACT_FEEDBACK_READ_RETAINED_FIVE_LIVE_PAIRS",
+    "result": "BLOCKED",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "execution_environment": "Fresh Work browser inventory showed one about:blank tab, no retained Firebase page.",
+    "recovery_actions": [
+      "Open canonical authorized Firebase Firestore console",
+      "One reload after Google sign-in redirect connection failure"
+    ],
+    "observed_error": "502 Bad Gateway / [Errno 111] Connection refused before an authentication form",
+    "authenticated_feedback_reads_verified": 0,
+    "expected_feedback_record_count": 10,
+    "authentication_form_available": false,
+    "credentials_requested": false,
+    "product_verification_rerun": false,
+    "existing_pass_evidence_preserved": true,
+    "owner_execution_required": false,
+    "available_capability_limitation": "Available tools expose browser navigation/reload and secure form authentication, but no connection-service restart or authenticated Firebase connector. No form rendered, so Owner credential action cannot resolve the observed connection failure."
+  }
 }
