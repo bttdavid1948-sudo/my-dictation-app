@@ -200,7 +200,8 @@
     "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
     "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
     "resume_lane": "OPERATIONS_4",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+    "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified."
   },
   "evidence_ref": "batch-01-three-live-runtime-evidence@v0.1",
   "limitations": [
@@ -216,5 +217,30 @@
     "classification": "CONNECTION_FAILURE_NOT_BOT_DETECTION",
     "owner_action_available": false,
     "existing_runtime_pass_preserved": true
+  },
+  "latest_recovery_result": {
+    "checked_at": "2026-09-30T21:35:14+07:00",
+    "completed_before": "2026-09-30T21:40:43+07:00",
+    "source_main": "da61d6349de02ab39b124c22520ac8a7aee6e236",
+    "action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+    "recovery_actions": [
+      "Read documented browser-troubleshooting and secure browserAuth capabilities",
+      "Open fresh tab in existing supported Work cloud browser at canonical Firebase feedback console",
+      "Reload once and inspect resulting accessibility state"
+    ],
+    "result": "BLOCKED",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "observed_error": "HTTP 502 Bad Gateway / [Errno 111] Connection refused on Google sign-in redirect",
+    "authentication_form_available": false,
+    "authenticated_feedback_reads_verified": 0,
+    "expected_feedback_record_count": 6,
+    "browser_connection_disconnected_reported": false,
+    "classification": "INFRASTRUCTURE_CONNECTION_FAILURE_NOT_PRODUCT_FAILURE_OR_BOT_DETECTION",
+    "available_recovery_limitation": "Documented capabilities expose tab navigation/reload and secure form authentication; no underlying connection-service restart or repair capability is exposed. A credential request cannot be grounded because no sign-in form rendered.",
+    "next_operations_action": "Restore functioning Work connection to Google sign-in, securely authenticate existing authorized Firebase account if required, read only six retained exact records, reconcile eligible pairs, then evaluate Batch 01 remaining-work checkpoint.",
+    "owner_execution_required": false,
+    "runtime_pass_preserved": true,
+    "man_0065_complete_preserved": true,
+    "completion_claimed": false
   }
 }
