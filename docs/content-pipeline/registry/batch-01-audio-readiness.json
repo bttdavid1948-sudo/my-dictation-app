@@ -15,11 +15,11 @@
   "realization_count": 0,
   "available_audio_realization_refs_count": 0,
   "approved_qa_count": 0,
-  "status": "APPROVED_FIXED_TTS_PENDING_ACCESS_AND_FINAL_REALIZATION_QA",
+  "status": "FIXED_REALIZATIONS_TECHNICAL_PASS_PENDING_QUALIFIED_ACOUSTIC_QA",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "NONE_REGISTERED_FOR_BATCH_01",
+    "production_audio_assets": "SIX_FIXED_CANDIDATES_PERSISTED_TECHNICAL_PASS; NONE_ACOUSTIC_QA_APPROVED",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -39,9 +39,9 @@
     "paid_api_enabled_by_this_action": false
   },
   "next_action": {
-    "code": "CONFIGURE_APPROVED_OPENAI_TTS_ACCESS_AND_GENERATE_ASH_SAMPLE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Configure approved dedicated OpenAI API project and spending guardrail; synthesize minimal Ash sample using gpt-4o-mini-tts, measure actual usage/cost, then persist versioned producer-neutral fixed audio for eligible lessons. Technical checks and qualified acoustic QA apply to final realizations. Route each PASS independently to PRACTICE_2 final validation before controlled import and supported desktop/mobile verification. Park failures separately; five sensitive exceptions remain parked. Owner is not the acoustic reviewer. Google Chirp 3 HD is alternative; Browser Voice is fallback. No additional provider benchmark or reopening completed gates."
+    "code": "QUALIFIED_ACOUSTIC_QA_FINAL_FIXED_REALIZATIONS",
+    "responsible_lane": "AUDIO_QA",
+    "requires": "Assign an authorized qualified acoustic reviewer to six persisted final realizations and their exact segment hashes. Owner is not the acoustic reviewer. Evaluate text fidelity, pronunciation/intelligibility, natural prosody, speaker consistency and lesson target phenomena. Register each acoustic PASS independently, then route only that realization to PRACTICE_2 final validation before controlled import and desktop/mobile verification. FAIL or UNCERTAIN remains parked without blocking independent PASS lessons. Preserve completed Curriculum/Practice static gates; no additional provider benchmark."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -84,5 +84,42 @@
   },
   "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
   "qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
-  "qa_page_ref": "batch-01-ordinary-audio-qa-page@v0.1"
+  "qa_page_ref": "batch-01-ordinary-audio-qa-page@v0.1",
+  "candidate_realization_count": 6,
+  "final_candidate_segment_count": 26,
+  "fixed_audio_progress": {
+    "model": "gpt-4o-mini-tts",
+    "primary_voice": "ash",
+    "secondary_speaker_voice": "cedar",
+    "delivery_mode": "PERSISTED_ASSET",
+    "alignment_mode": "SEGMENT_ADDRESSABLE",
+    "access_status": "CONFIGURED_AND_API_VERIFIED",
+    "monthly_spending_limit_usd": 5,
+    "hard_limit_enabled": true,
+    "auto_recharge": false,
+    "final_candidate_lesson_ids": [
+      "MAN-0065",
+      "MAN-0165",
+      "MAN-0365",
+      "MAN-0044",
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "technical_pass_count": 6,
+    "acoustic_pass_count": 0,
+    "qualified_reviewer_assigned": false,
+    "parked_lesson_ids": [
+      "MAN-0565",
+      "MAN-0765",
+      "MAN-0905",
+      "MAN-0604",
+      "MAN-0844",
+      "MAN-0986"
+    ],
+    "additional_park_reason": "MAN-0765 requires a three-speaker realization; no third voice was benchmarked.",
+    "metered_api_requests": 41,
+    "metered_api_cost_usd": 0.074775,
+    "final_candidate_synthesis_cost_usd": 0.0460668,
+    "cost_scope": "Actual returned API token usage valued at published rates; includes draft/comparator API requests. Excludes three earlier Playground requests, invoice reconciliation, storage/delivery and acoustic review. No acoustic approval inferred from technical checks."
+  }
 }
