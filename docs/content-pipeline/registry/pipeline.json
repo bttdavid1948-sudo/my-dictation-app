@@ -5,14 +5,14 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "BLOCKED",
-    "responsible_lane": "OPERATIONS_4",
-    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-    "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
-    "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
-    "resume_lane": "OPERATIONS_4",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
-    "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified."
+    "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+    "responsible_lane": "PRACTICE_2",
+    "pairs": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -112,5 +112,25 @@
     "MAN-0414-OPENAI-FIXED-v0.2"
   ],
   "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
-  "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result"
+  "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result",
+  "isolated_pending_branches": [
+    {
+      "branch_id": "THREE_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0165",
+        "MAN-0365",
+        "MAN-0044"
+      ],
+      "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true
+    }
+  ],
+  "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
 }

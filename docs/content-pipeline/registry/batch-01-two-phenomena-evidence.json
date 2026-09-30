@@ -1,0 +1,98 @@
+{
+  "artifact_id": "batch-01-two-phenomena-practice-handoff",
+  "version": "v0.1",
+  "owner_lane": "OPERATIONS_4",
+  "status": "REVIEW_READY",
+  "source_main": "07e47d98c3b47df51768d60451085bd78b74dfac",
+  "audio_changed": false,
+  "regenerated_segments": 0,
+  "incremental_metered_api_requests": 0,
+  "incremental_metered_api_cost_usd": 0,
+  "practice_authority": "PRACTICE_2",
+  "PRACTICE_PASS_claimed": false,
+  "deterministic_evidence": [
+    "Exact9 WAV SHA256 match existing v0.2 manifest",
+    "Reproducible PCM energy conditional on explicit intervals and all stated boundary variants",
+    "Unchanged canonical English/anchors and prior fixed technical/internal evidence"
+  ],
+  "probabilistic_evidence": [
+    "Word timestamps/identities from prior unprompted Vosk",
+    "Phone labels/boundaries from unprompted PocketSphinx5.1.1; uniform and phone-LM sensitivity runs",
+    "Autocorrelation F0; relative acoustic prominence and weak-vowel interpretation"
+  ],
+  "unverified": [
+    "Final semantic adequacy for Practice",
+    "Perceptual naturalness",
+    "Human pronunciation/prosody/accent certification"
+  ],
+  "regeneration_decision": "Reuse exact v0.2. New evidence identifies plausible target instances; neither audio defect nor need for changed delivery established. Regeneration would add cost/stochastic variance without resolving measurement uncertainty.",
+  "isolated_pending_branch": {
+    "code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "scope": "Six feedback admin reads for three runtime-PASS live lessons only",
+    "global_batch_blocker": false,
+    "not_attempted_this_action": true
+  },
+  "next_action": {
+    "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+    "responsible_lane": "PRACTICE_2",
+    "pairs": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision."
+  },
+  "evidence_ref": "batch-01-two-phenomena-practice-handoff@v0.1",
+  "measurement_sha256": "80f0f5f53d3f61266cd23186c88b0d1f9ef08e687a78c73e35f6fb095a150998",
+  "evidence_binding_validation": "PASS_EXACT_ASSET_AND_INTERVAL_SANITY_ONLY",
+  "human_review_required": false,
+  "pairs": [
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "prior_blocker": "UNSTRESSED_FUNCTION_WORD_REALIZATION_NOT_VERIFIED",
+      "status": "NEW_REALIZATION_SENSITIVE_EVIDENCE_READY_FOR_PRACTICE_REVIEW",
+      "anchor_id": "MAN-0238-A-SPCH-01",
+      "anchor_segments": [
+        "S002",
+        "S004"
+      ],
+      "supporting_observations": [
+        "S002: the before same word window 60ms versus same 450ms. Unprompted uniform-phone run gives DH+AH near 1.28–1.35s; phone-LM run gives AH 1.30–1.35s. Focused function region RMS -23.763 dBFS/F0 97.17Hz versus same vowel -19.545 dBFS/121.22Hz.",
+        "S002: the before date focused region 90ms/-27.951dBFS versus date vowel 170ms/-21.312dBFS.",
+        "S004: the before newsletter focused region RMS -25.081dBFS/F0 93.02Hz versus newsletter first vowel -15.250dBFS/140.35Hz. Energy contrast remains directional under all stated +/-20ms variants."
+      ],
+      "counterevidence": [
+        "S004 the before problem focused region is higher-energy/higher-F0 than the chosen problem vowel: -21.081 vs -22.739 dBFS and 115.67 vs96.13Hz. No claim all function words are unstressed.",
+        "S004 primary Vosk missegments librarian/newsletter; prior secondary unprompted lexical evidence is reused, not replaced.",
+        "Word identity/boundaries and focused vowel attribution remain model-derived; duration compared across unequal phones/syllables cannot alone decide stress."
+      ],
+      "decision_requested": "Determine whether the combined exact acoustic contrasts in anchor segments suffice for the frozen unstressed-function-word Practice construct; retain/precisely park any insufficiency."
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "prior_blocker": "COMMON_REDUCTIONS_REALIZATION_NOT_VERIFIED",
+      "status": "NEW_REALIZATION_SENSITIVE_EVIDENCE_READY_FOR_PRACTICE_REVIEW",
+      "anchor_id": "MAN-0414-A-SPCH-01",
+      "anchor_segments": [
+        "S003",
+        "S004"
+      ],
+      "supporting_observations": [
+        "S003: both uniform and phone-LM decoding identify AH at 3.92–3.96s, near article a in built a raised. That window has 40ms duration and -24.139dBFS RMS; raised vowel 170ms/-18.232dBFS.",
+        "S004: uniform allphone identifies AH at2.11–2.15s, phone-LM AH at2.07–2.15s, near a before restriction. No reference transcript or synthesis instructions were supplied to phone decoding. This supports a central-vowel weak-form hypothesis rather than the full EY form."
+      ],
+      "counterevidence": [
+        "Both phone runs use the same acoustic model, not two independent classifiers. AH can also represent a stressed vowel; the label alone does not certify reduction.",
+        "S003 Vosk article a window3.96–4.02s is shifted relative to the phone window3.92–3.96s: exact linguistic attribution is uncertain. S004 phone onset differs40ms between runs.",
+        "S004 to before keep receives IY/absence rather than agreed AH; do not claim to-reduction. Article a after as is OW/omitted; do not claim reduction at that token.",
+        "No reliable F0 estimate for the short selected AH windows. Energy contrast at S004 versus preceding walkway is weak and boundary-sensitive.",
+        "No controlled full-versus-weak reference recording, calibrated phoneme confidence or human certification exists."
+      ],
+      "decision_requested": "Assess whether the observed short central-vowel article weak-form instances in both selected segments satisfy the frozen common-reductions construct. Do not generalize to all reductions; park if the construct requires a different specific instance."
+    }
+  ],
+  "rollback": "No audio/text/import/runtime mutation; existing versioned v0.2 realizations and all prior evidence retained. New evidence can be withdrawn independently."
+}
