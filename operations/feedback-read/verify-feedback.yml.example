@@ -1,0 +1,47 @@
+# Inactive preparation template. Do not move into .github/workflows before Owner IAM approval.
+name: Verify retained audio feedback
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main' && github.actor_id == '331456773'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require approved provider and private synthetic expectations
+        env:
+          PROVIDER: ${{ vars.MAN_FEEDBACK_WIF_PROVIDER }}
+          EXPECTATIONS: ${{ vars.MAN_FEEDBACK_EXPECTATIONS_JSON }}
+        run: |
+          test -n "$PROVIDER"
+          test -n "$EXPECTATIONS"
+          umask 077
+          mkdir -p "$RUNNER_TEMP/man-feedback"
+          printf '%s\n' "$EXPECTATIONS" > "$RUNNER_TEMP/man-feedback/expectations.json"
+      - id: auth
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: my-dictation-project-4381e
+          workload_identity_provider: ${{ vars.MAN_FEEDBACK_WIF_PROVIDER }}
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Exact independent server reads
+        env:
+          MAN_FIRESTORE_READ_TOKEN: ${{ steps.auth.outputs.auth_token }}
+          MAN_FEEDBACK_MANIFEST_SHA256: 8f66a1837eba7f8e83cf1d4da4dfc7532046651e92cc6209949235bd36ff1a99
+        run: node operations/feedback-read/verify.mjs "$RUNNER_TEMP/man-feedback/expectations.json" "$RUNNER_TEMP/man-feedback/receipt.json"
+      - name: Retain only redacted evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retained-feedback-read-receipt
+          path: ${{ runner.temp }}/man-feedback/receipt.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Remove private local inputs
+        if: always()
+        run: rm -f "$RUNNER_TEMP/man-feedback/expectations.json"

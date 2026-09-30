@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
   "checked_at": "2026-09-30T17:00:44.692677+00:00",
-  "status": "CURRENT_SCOPE_OPERATIONS_EXECUTION_DONE_ISOLATED_FEEDBACK_READ_PENDING",
+  "status": "CURRENT_SCOPE_LIVE_PASS_INTERNAL_FEEDBACK_READ_ACCESS_PERMISSION_REQUIRED",
   "published_official_lesson_ids": [
     "MAN-0065",
     "MAN-0165",
@@ -43,17 +43,15 @@
   "global_batch_blocker": false,
   "current_scope_independent_operations_work_remaining": false,
   "next_action": {
-    "code": "WAIT_FOR_WORK_AUTH_INFRASTRUCTURE_RECOVERY",
-    "responsible_lane": "OPERATIONS_4",
-    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "code": "OWNER_PERMISSION_REQUIRED",
+    "responsible_lane": "OWNER",
+    "resume_lane": "OPERATIONS_4",
+    "resume_action": "CONFIGURE_APPROVED_KEYLESS_INTERNAL_FEEDBACK_READ_AND_VERIFY_TEN_RETAINED_RECORDS",
+    "blocking_code": "INTERNAL_FEEDBACK_READ_AUTHORIZATION_REQUIRED",
     "global_batch_blocker": false,
-    "resume_actions": [
-      "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
-      "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
-    ],
-    "requires": "Operations reads only 10 retained exact smoke feedback records after a functioning authorized Work Firebase authentication path is restored. Preserve six live-runtime PASS lessons and MAN-0065 COMPLETE. No Google Sign-in retry in this action. Six sensitive/cast lessons remain parked outside current scope; no other independent Operations work is authorized in this action.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
-    "owner_execution_required": false
+    "requires": "Approve and provision the exact temporary database-level GET scope via dedicated GitHub OIDC Workload Identity Federation described in operations/feedback-read/access-plan.json. No key, Auth provider, Rules or privacy-policy change. This grants GET of known IDs in (default), not a document-level IAM allowlist. Operations executes only the ten retained synthetic feedback reads. No Work Google sign-in retry.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+    "owner_execution_of_verification_required": false
   },
   "preserved_evidence_refs": [
     "docs/content-pipeline/registry/man-0065-live-release.json",
@@ -66,7 +64,7 @@
   "total_metered_tts_api_cost_usd": 0.093048,
   "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
   "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
-  "owner_action_required_now": false,
+  "owner_action_required_now": true,
   "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work.",
   "latest_resume_attempt": {
     "checked_at": "2026-09-30T22:45:40.213Z",
@@ -88,5 +86,8 @@
     "existing_pass_evidence_preserved": true,
     "owner_execution_required": false,
     "available_capability_limitation": "Available tools expose browser navigation/reload and secure form authentication, but no connection-service restart or authenticated Firebase connector. No form rendered, so Owner credential action cannot resolve the observed connection failure."
-  }
+  },
+  "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+  "feedback_gui_dependency_replacement_status": "PREPARED_NOT_YET_AUTHORIZED_OR_PROVEN",
+  "owner_action_scope": "Security provisioning only; Owner is not test executor. Exact temporary scope and minimum UI sequence prepared in operations/feedback-read/README.md."
 }
