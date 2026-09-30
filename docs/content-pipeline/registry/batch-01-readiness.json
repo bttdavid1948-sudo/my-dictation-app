@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "SIX_OFFICIAL_FIXED_LESSONS_LIVE_RUNTIME_PASS_ONE_COMPLETE_FIVE_FEEDBACK_ADMIN_READ_ISOLATED_PENDING_SIX_SENSITIVE_CAST_PARKED",
+  "preparation_status": "SIX_OFFICIAL_FIXED_LESSONS_COMPLETE_SIX_SENSITIVE_CAST_PARKED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -92,7 +92,7 @@
       "owner_lane": "OPERATIONS_4",
       "status": "PARTIAL_PASS",
       "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2",
-      "requirement": "Six exact fixed v0.2 realizations internally eligible and final Practice PASS; all six now live-runtime PASS, MAN-0065 COMPLETE. Five feedback-read closures independently pending infrastructure. Six sensitive/cast remain parked."
+      "requirement": "Six exact fixed v0.2 realizations internally eligible, final Practice PASS and live release COMPLETE. Per-release feedback write ACK/exact context PASS plus unchanged MAN-0065 authenticated read system capability reused. Six sensitive/cast remain parked."
     },
     {
       "code": "FINAL_REALIZATION_PRACTICE_MAN_0065",
@@ -110,15 +110,13 @@
     }
   ],
   "next_action": {
-    "code": "OWNER_PERMISSION_REQUIRED",
-    "responsible_lane": "OWNER",
-    "resume_lane": "OPERATIONS_4",
-    "resume_action": "CONFIGURE_APPROVED_KEYLESS_INTERNAL_FEEDBACK_READ_AND_VERIFY_TEN_RETAINED_RECORDS",
-    "blocking_code": "INTERNAL_FEEDBACK_READ_AUTHORIZATION_REQUIRED",
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
     "global_batch_blocker": false,
-    "requires": "Approve and provision the exact temporary database-level GET scope via dedicated GitHub OIDC Workload Identity Federation described in operations/feedback-read/access-plan.json. No key, Auth provider, Rules or privacy-policy change. This grants GET of known IDs in (default), not a document-level IAM allowlist. Operations executes only the ten retained synthetic feedback reads. No Work Google sign-in retry.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-    "owner_execution_of_verification_required": false
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -146,7 +144,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 6,
-    "blocker": "SIX_SENSITIVE_CAST_PARKED; FIVE_LIVE_FEEDBACK_ADMIN_READ_ISOLATED_PENDING"
+    "blocker": "SIX_SENSITIVE_CAST_PARKED_OUTSIDE_CURRENT_SCOPE"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -181,47 +179,6 @@
   },
   "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
   "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result",
-  "isolated_pending_branches": [
-    {
-      "branch_id": "THREE_LIVE_FEEDBACK_ADMIN_READ",
-      "status": "PENDING_INFRASTRUCTURE_RECOVERY",
-      "global_batch_blocker": false,
-      "lesson_ids": [
-        "MAN-0165",
-        "MAN-0365",
-        "MAN-0044"
-      ],
-      "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-      "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
-      "responsible_lane": "OPERATIONS_4",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
-      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
-      "existing_runtime_pass_preserved": true,
-      "not_attempted_this_action": true,
-      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-      "replacement_permission_pending": true
-    },
-    {
-      "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
-      "status": "PENDING_INFRASTRUCTURE_RECOVERY",
-      "global_batch_blocker": false,
-      "lesson_ids": [
-        "MAN-0238",
-        "MAN-0414"
-      ],
-      "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-      "resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS",
-      "responsible_lane": "OPERATIONS_4",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
-      "retained_record_count": 4,
-      "verified_admin_reads": 0,
-      "existing_runtime_pass_preserved": true,
-      "not_attempted_this_action": true,
-      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS.",
-      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-      "replacement_permission_pending": true
-    }
-  ],
   "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
   "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
   "final_realization_practice_two_phenomena_result": {
@@ -245,15 +202,73 @@
     "MAN-0414-OPENAI-FIXED-v0.2"
   ],
   "fully_complete_lesson_ids": [
-    "MAN-0065"
-  ],
-  "feedback_admin_read_pending_lesson_ids": [
+    "MAN-0065",
     "MAN-0165",
     "MAN-0365",
     "MAN-0044",
     "MAN-0238",
     "MAN-0414"
   ],
+  "feedback_admin_read_pending_lesson_ids": [],
   "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-  "feedback_gui_dependency_replacement_status": "PREPARED_NOT_YET_AUTHORIZED_OR_PROVEN"
+  "feedback_gui_dependency_replacement_status": "NOT_NEEDED_SYSTEM_CAPABILITY_REUSED",
+  "isolated_pending_branches": [],
+  "superseded_feedback_read_branches": [
+    {
+      "branch_id": "THREE_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0165",
+        "MAN-0365",
+        "MAN-0044"
+      ],
+      "blocking_code": "NONE",
+      "resume_action": "NONE",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true,
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": false,
+      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "required_for_release": false,
+      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS"
+    },
+    {
+      "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0238",
+        "MAN-0414"
+      ],
+      "blocking_code": "NONE",
+      "resume_action": "NONE",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+      "retained_record_count": 4,
+      "verified_admin_reads": 0,
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true,
+      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS.",
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": false,
+      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "required_for_release": false,
+      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
+    }
+  ],
+  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "retained_feedback_independent_read_status": {
+    "count": 10,
+    "verified": 0,
+    "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
+    "release_gate": false
+  }
 }

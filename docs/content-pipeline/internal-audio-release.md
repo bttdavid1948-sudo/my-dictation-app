@@ -20,7 +20,7 @@ Client fetches versioned static audio, never the TTS API. Show AI-generated disc
 
 Before import, preview the exact catalog/audio release. Retain current catalog and immutable audio versions in git for rollback. After official content is verified, archive/depublish the legacy learner-visible catalog entries; do not physically destroy their data. Restore the prior catalog release by reviewed revert if official playback or learning breaks. Corrected audio gets a new realization/file version and goes through this gate and final Practice again. No per-Play paid synthesis.
 
-The current runtime/report implementation is ready for release integration; backend write/read and actual fixed-audio desktop/mobile smoke remain required after Practice approval. No released official Batch 01 lesson is claimed at this handoff.
+After Practice approval, actual fixed-audio desktop/mobile smoke and per-release backend write ACK with exact versioned feedback context remain required. Authenticated feedback read is a shared system capability, reusable across unchanged releases. MAN-0065 proved it; subsequent five releases reuse that capability with actual write ACK/context evidence. Individual admin-read is NOT_PERFORMED, not relabeled PASS. See [scope review](registry/batch-01-feedback-system-capability.json) for audited commits, evidence and invalidation triggers. Reverify the affected capability if implementation, schema, storage route, Rules/Auth/IAM/read boundary changes or a relevant regression is known. Repository continuity does not constitute a fresh live Rules/IAM inventory. Frozen content/Practice contracts and realization-specific Practice requirements remain unchanged.
 
 ## v0.2 normalization correction
 

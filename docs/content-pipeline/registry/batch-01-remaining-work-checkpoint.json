@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "checked_at": "2026-09-30T17:00:44.692677+00:00",
-  "status": "CURRENT_SCOPE_LIVE_PASS_INTERNAL_FEEDBACK_READ_ACCESS_PERMISSION_REQUIRED",
+  "checked_at": "2026-09-30T23:33:39.006535+00:00",
+  "status": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS_SIX_SENSITIVE_CAST_PARKED",
   "published_official_lesson_ids": [
     "MAN-0065",
     "MAN-0165",
@@ -20,16 +20,15 @@
     "MAN-0414"
   ],
   "fully_complete_lesson_ids": [
-    "MAN-0065"
-  ],
-  "pending_feedback_admin_read_lesson_ids": [
+    "MAN-0065",
     "MAN-0165",
     "MAN-0365",
     "MAN-0044",
     "MAN-0238",
     "MAN-0414"
   ],
-  "pending_exact_feedback_record_count": 10,
+  "pending_feedback_admin_read_lesson_ids": [],
+  "pending_exact_feedback_record_count": 0,
   "verified_new_feedback_admin_reads": 0,
   "parked_sensitive_cast_lesson_ids": [
     "MAN-0565",
@@ -43,15 +42,13 @@
   "global_batch_blocker": false,
   "current_scope_independent_operations_work_remaining": false,
   "next_action": {
-    "code": "OWNER_PERMISSION_REQUIRED",
-    "responsible_lane": "OWNER",
-    "resume_lane": "OPERATIONS_4",
-    "resume_action": "CONFIGURE_APPROVED_KEYLESS_INTERNAL_FEEDBACK_READ_AND_VERIFY_TEN_RETAINED_RECORDS",
-    "blocking_code": "INTERNAL_FEEDBACK_READ_AUTHORIZATION_REQUIRED",
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
     "global_batch_blocker": false,
-    "requires": "Approve and provision the exact temporary database-level GET scope via dedicated GitHub OIDC Workload Identity Federation described in operations/feedback-read/access-plan.json. No key, Auth provider, Rules or privacy-policy change. This grants GET of known IDs in (default), not a document-level IAM allowlist. Operations executes only the ten retained synthetic feedback reads. No Work Google sign-in retry.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-    "owner_execution_of_verification_required": false
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
   },
   "preserved_evidence_refs": [
     "docs/content-pipeline/registry/man-0065-live-release.json",
@@ -64,7 +61,7 @@
   "total_metered_tts_api_cost_usd": 0.093048,
   "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
   "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
-  "owner_action_required_now": true,
+  "owner_action_required_now": false,
   "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work.",
   "latest_resume_attempt": {
     "checked_at": "2026-09-30T22:45:40.213Z",
@@ -88,6 +85,14 @@
     "available_capability_limitation": "Available tools expose browser navigation/reload and secure form authentication, but no connection-service restart or authenticated Firebase connector. No form rendered, so Owner credential action cannot resolve the observed connection failure."
   },
   "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-  "feedback_gui_dependency_replacement_status": "PREPARED_NOT_YET_AUTHORIZED_OR_PROVEN",
-  "owner_action_scope": "Security provisioning only; Owner is not test executor. Exact temporary scope and minimum UI sequence prepared in operations/feedback-read/README.md."
+  "feedback_gui_dependency_replacement_status": "NOT_NEEDED_SYSTEM_CAPABILITY_REUSED",
+  "owner_action_scope": "NONE: WIF/IAM is not needed for this release workflow; no Owner testing or security provisioning requested.",
+  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "retained_feedback_independent_read_status": {
+    "count": 10,
+    "verified": 0,
+    "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
+    "release_gate": false
+  },
+  "retained_not_independently_read_feedback_record_count": 10
 }

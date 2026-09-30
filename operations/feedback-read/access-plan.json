@@ -1,9 +1,11 @@
 {
-  "status": "OWNER_PERMISSION_REQUIRED_NOT_APPLIED",
+  "status": "NOT_NEEDED_NOT_APPLIED",
   "project_id": "my-dictation-project-4381e",
   "custom_role_id": "manFeedbackExactGet",
   "custom_role_title": "Man feedback exact GET",
-  "permissions": ["datastore.entities.get"],
+  "permissions": [
+    "datastore.entities.get"
+  ],
   "pool_id": "man-feedback-verify",
   "provider_id": "github",
   "issuer": "https://token.actions.githubusercontent.com",
@@ -26,6 +28,10 @@
   "rules_or_auth_provider_changes": false,
   "direct_federated_token_live_acceptance": "NOT_VERIFIED; if unsupported, stop and request a separately reviewed keyless service-account option, never silently widen access.",
   "manifest_sha256": "8f66a1837eba7f8e83cf1d4da4dfc7532046651e92cc6209949235bd36ff1a99",
-  "required_live_reads": 10,
-  "live_reads_verified": 0
+  "required_live_reads": 0,
+  "live_reads_verified": 0,
+  "historical_status": "OWNER_PERMISSION_REQUIRED_NOT_APPLIED",
+  "superseded_by": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "historical_required_live_reads": 10,
+  "owner_action_required": false
 }

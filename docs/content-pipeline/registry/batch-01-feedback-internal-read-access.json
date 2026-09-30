@@ -3,7 +3,7 @@
   "owner_lane": "OPERATIONS_4",
   "assessed_at": "2026-09-30T23:14:37.087229+00:00",
   "source_main": "20510d105a73a4f33a433939647e73a7548d42f8",
-  "status": "PREPARED_TESTED_OWNER_PERMISSION_REQUIRED",
+  "status": "NOT_NEEDED_SUPERSEDED_BY_SYSTEM_CAPABILITY_REUSE",
   "capability_ref": "operations/feedback-read/README.md",
   "access_plan_ref": "operations/feedback-read/access-plan.json",
   "workflow_template_ref": "operations/feedback-read/verify-feedback.yml.example",
@@ -40,27 +40,29 @@
     "scope": "Database (default) known-document GET. IAM does not enforce the verifier collection/10-ID allowlist.",
     "expiry": "2026-10-08T00:00:00Z",
     "provider_constraints": "Numeric repository, owner and actor IDs; main ref; workflow_dispatch; exact workflow path.",
-    "requires_owner_security_authorization": true,
-    "rules_auth_privacy_changes": false
+    "requires_owner_security_authorization": false,
+    "rules_auth_privacy_changes": false,
+    "historical_plan_activation_requires_separate_authorization": true
   },
   "browser_dependency": {
     "previous_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-    "current_action": "DO_NOT_WAIT_OR_RETRY_GUI; PREPARED_REPLACEMENT_REQUIRES_AUTHORIZATION",
-    "superseded": false,
-    "supersede_condition": "Actual authenticated server GET receipts satisfy exact retained context/timestamp/existence gate for each pair; then reconcile independently. No supersession from code/unit tests."
+    "current_action": "NO_INFRASTRUCTURE_REQUIRED_REUSE_MAN0065_SYSTEM_CAPABILITY",
+    "superseded": true,
+    "supersede_condition": "Resolved by evidence-based scope normalization; no new authenticated reads claimed. Historical browser failure remains unrepaired."
   },
   "existing_six_runtime_pass_and_man0065_complete_preserved": true,
   "next_action": {
-    "code": "OWNER_PERMISSION_REQUIRED",
-    "responsible_lane": "OWNER",
-    "resume_lane": "OPERATIONS_4",
-    "resume_action": "CONFIGURE_APPROVED_KEYLESS_INTERNAL_FEEDBACK_READ_AND_VERIFY_TEN_RETAINED_RECORDS",
-    "blocking_code": "INTERNAL_FEEDBACK_READ_AUTHORIZATION_REQUIRED",
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
     "global_batch_blocker": false,
-    "requires": "Approve and provision the exact temporary database-level GET scope via dedicated GitHub OIDC Workload Identity Federation described in operations/feedback-read/access-plan.json. No key, Auth provider, Rules or privacy-policy change. This grants GET of known IDs in (default), not a document-level IAM allowlist. Operations executes only the ten retained synthetic feedback reads. No Work Google sign-in retry.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-    "owner_execution_of_verification_required": false
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
   },
   "rollback": "Revoke only new scoped binding or disable dedicated pool; remove verification workflow. No learner data or existing security bindings changed.",
-  "incremental_tts_api_cost_usd": 0
+  "incremental_tts_api_cost_usd": 0,
+  "historical_preparation_status": "PREPARED_TESTED_OWNER_PERMISSION_REQUIRED",
+  "supersession_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "superseded_at": "2026-09-30T23:33:39.006535+00:00"
 }
