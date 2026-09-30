@@ -1,0 +1,28 @@
+{
+  "bundle_id": "MAN-0165-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0165",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review of every stable canonical segment: negation, questions, times/days/locations, causal and conditional scope preserved. English/anchors unchanged.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Tôi định tham gia buổi hướng dẫn viết lúc ba giờ, nhưng lớp của tôi phải đến ba giờ rưỡi mới kết thúc."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Chúng tôi đã dời buổi hướng dẫn sang bốn giờ. Giờ buổi đó diễn ra ở thư viện, không phải phòng học cũ."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Vậy tôi vẫn có thể tham gia nếu đi thẳng đến thư viện đúng không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Đúng rồi. Trước tiên, bạn vui lòng ghi tên vào danh sách tại quầy lễ tân."
+    }
+  ]
+}

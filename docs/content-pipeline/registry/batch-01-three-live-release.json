@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "PUBLISHED_PENDING_LIVE_VERIFICATION",
+  "source_main": "db89a2ea3945c41562395aabf1e3394904c83371",
+  "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+  "rights_ref": "docs/content-pipeline/registry/batch-01-three-rights.json",
+  "catalog_sha256": "5ce4d1351dbf1c759f557f92887acd42bfa70f6e94e3be4ca2e4c48c42d8a371",
+  "pairs": [
+    {
+      "lesson_id": "MAN-0165",
+      "version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "7ff7e30918366f0c25821da5c5d6103f3a70e8373e31d95ab74d2219972e9239",
+      "asset_bytes": 947216,
+      "source_asset_sha256": [
+        "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+        "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3",
+        "1f9caaff7dc4d123f5ee46c3792ba7880e4aa7fb931e1662e50c04fd6f9f9881",
+        "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 5,
+      "support_sha256": "c82a31b289358dc7d40e2b7db9a428d442ba53a5519e17d2aa3be725f8cd2ee8",
+      "asset_bytes": 1437820,
+      "source_asset_sha256": [
+        "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+        "39bc6c6627c78d8380bde674212b7dd54a8255f6cd47e8144f4f06f78ba97342",
+        "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613",
+        "155c05fba378f914ab97db7ce4c5e5675f9cbc2486816bb5a6d756bbea428e5a",
+        "5d310dc5e6e377cb86171a440e2222112405d42781dbc985561fbad62d57fe52"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "903be5f2b948587a0d571da6b7beb571463a1feece2d34e0f67eeccb74c04589",
+      "asset_bytes": 660176,
+      "source_asset_sha256": [
+        "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+        "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3",
+        "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf",
+        "74a9164a55773200917878e38e8f2329737494997b1c0007b04f1ee4bcd05246"
+      ]
+    }
+  ],
+  "man_0065_complete_preserved": true,
+  "rollback": "Per-lesson status change through reviewed PR; retain immutable audio/support files. Original catalog retained in private evidence and git parent. No seed deletion or Rules change.",
+  "checks": {
+    "support": "PASS_FULL_13_CANONICAL_SEGMENTS",
+    "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
+    "import_binding": "PASS_CANONICAL_TEXT_SEGMENT_VERSION_AND_ASSET_HASHES",
+    "desktop_live": "PENDING",
+    "mobile_live": "PENDING",
+    "feedback_write_read": "PENDING"
+  },
+  "incremental_tts_api_cost_usd": 0
+}
