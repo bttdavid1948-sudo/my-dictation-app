@@ -12,14 +12,14 @@
   "lesson_count": 12,
   "segment_count": 62,
   "english_characters": 6283,
-  "realization_count": 1,
-  "available_audio_realization_refs_count": 1,
+  "realization_count": 4,
+  "available_audio_realization_refs_count": 4,
   "approved_qa_count": 0,
-  "status": "MAN_0065_COMPLETE_FIVE_ADDITIONAL_INTERNAL_ELIGIBLE_AWAIT_FINAL_PRACTICE",
+  "status": "FOUR_OFFICIAL_FIXED_LESSONS_LIVE_THREE_AWAIT_FEEDBACK_ADMIN_READ",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "MAN-0065 fixed v0.2 live COMPLETE; five additional immutable fixed v0.2 candidates internally eligible, await final Practice, not published. Six sensitive/cast candidates remain parked.",
+    "production_audio_assets": "MAN-0065 COMPLETE unchanged. MAN-0165, MAN-0365 and MAN-0044 published with exact fixed v0.2 audio; actual desktop/mobile playback+completion+feedback-write PASS. Authenticated feedback-read pending reauthentication. Other eight candidates untouched.",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -44,10 +44,13 @@
     "man_0065_live_definition_of_done_complete": true
   },
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
-    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+    "code": "BLOCKED",
+    "responsible_lane": "OPERATIONS_4",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
+    "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+    "resume_lane": "OPERATIONS_4",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -165,5 +168,15 @@
     "MAN-0044-OPENAI-FIXED-v0.2",
     "MAN-0238-OPENAI-FIXED-v0.2",
     "MAN-0414-OPENAI-FIXED-v0.2"
+  ],
+  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+  "live_runtime_verified_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0065"
   ]
 }

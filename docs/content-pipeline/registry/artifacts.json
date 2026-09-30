@@ -21,7 +21,8 @@
     "batch-01-ordinary-audio-qa-page": "v0.1",
     "batch-01-internal-audio-release": "v0.2",
     "batch-01-targeted-audio-practice-handoff": "v0.2",
-    "batch-01-final-realization-practice-validation-reworked": "v0.1"
+    "batch-01-final-realization-practice-validation-reworked": "v0.1",
+    "batch-01-three-live-runtime-evidence": "v0.1"
   },
   "artifacts": [
     {
@@ -677,6 +678,35 @@
       },
       "sha256": "52f36fd0f73ddff910151740581cb05991238424b52c55dd347cdc2ac7f4d22c",
       "size_bytes": 6871
+    },
+    {
+      "id": "batch-01-three-live-runtime-evidence",
+      "name": "MAN-Three-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Exact canonical Practice-PASS pairs",
+        "Actual live desktop and Owner-approved Pixel 5 Chromium mobile smoke"
+      ],
+      "dependencies": [
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "batch-01-targeted-audio-practice-handoff@v0.2"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Three-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+        "library_file_id": "libfile_e2f24d87493481919f7720f22fadb91e",
+        "version": 0
+      },
+      "sha256": "3139de7206b0d0079e16978d95a1587c6dcb17020908d5c3c2cb561750c6b2d9",
+      "size_bytes": 8185128,
+      "validation_status": "HASH_VERIFIED",
+      "remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ"
     }
   ]
 }

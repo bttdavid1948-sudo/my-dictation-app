@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "THREE_ADDITIONAL_PRACTICE_PASS_READY_FOR_CONTROLLED_IMPORT_TWO_REWORK_BLOCKED",
+  "preparation_status": "MAN_0065_COMPLETE_THREE_MORE_LIVE_RUNTIME_PASS_FEEDBACK_READ_AUTH_CONNECTION_BLOCKED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,10 +110,13 @@
     }
   ],
   "next_action": {
-    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+    "code": "BLOCKED",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
+    "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+    "resume_lane": "OPERATIONS_4",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -172,5 +175,6 @@
     ],
     "man_0065_first_live_complete": true,
     "sensitive_cast_parked_count": 6
-  }
+  },
+  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
 }

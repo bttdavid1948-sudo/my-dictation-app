@@ -29,7 +29,7 @@
       "unique_purpose_id": "ULP-MAN-0165",
       "curriculum_state": "CURRICULUM_READY",
       "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
-      "blocking_code": "LIVE_VERIFICATION_PENDING",
+      "blocking_code": "FEEDBACK_ADMIN_READ_REAUTH_REQUIRED",
       "next_responsible_lane": "OPERATIONS_4",
       "practice_ready": true,
       "contract_valid": true,
@@ -39,8 +39,10 @@
       "available_audio_realization_refs": [
         "MAN-0165-OPENAI-FIXED-v0.2"
       ],
-      "publication_state": "PUBLISHED_PENDING_LIVE_VERIFICATION",
-      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL_PENDING_FEEDBACK_ADMIN_READ",
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": false
     },
     {
       "lesson_id": "MAN-0365",
@@ -48,7 +50,7 @@
       "unique_purpose_id": "ULP-MAN-0365",
       "curriculum_state": "CURRICULUM_READY",
       "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
-      "blocking_code": "LIVE_VERIFICATION_PENDING",
+      "blocking_code": "FEEDBACK_ADMIN_READ_REAUTH_REQUIRED",
       "next_responsible_lane": "OPERATIONS_4",
       "practice_ready": true,
       "contract_valid": true,
@@ -58,8 +60,10 @@
       "available_audio_realization_refs": [
         "MAN-0365-OPENAI-FIXED-v0.2"
       ],
-      "publication_state": "PUBLISHED_PENDING_LIVE_VERIFICATION",
-      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL_PENDING_FEEDBACK_ADMIN_READ",
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": false
     },
     {
       "lesson_id": "MAN-0044",
@@ -67,7 +71,7 @@
       "unique_purpose_id": "ULP-MAN-0044",
       "curriculum_state": "CURRICULUM_READY",
       "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
-      "blocking_code": "LIVE_VERIFICATION_PENDING",
+      "blocking_code": "FEEDBACK_ADMIN_READ_REAUTH_REQUIRED",
       "next_responsible_lane": "OPERATIONS_4",
       "practice_ready": true,
       "contract_valid": true,
@@ -77,8 +81,10 @@
       "available_audio_realization_refs": [
         "MAN-0044-OPENAI-FIXED-v0.2"
       ],
-      "publication_state": "PUBLISHED_PENDING_LIVE_VERIFICATION",
-      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL_PENDING_FEEDBACK_ADMIN_READ",
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": false
     }
   ]
 }
