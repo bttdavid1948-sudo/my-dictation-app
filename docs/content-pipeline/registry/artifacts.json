@@ -596,7 +596,11 @@
       "validation_status": "HASH_VERIFIED",
       "result": "ONE_INTERNAL_ELIGIBLE_FINAL_PRACTICE_PENDING",
       "supersedes": null,
-      "superseded_by": null
+      "superseded_by": null,
+      "source": [
+        "Owner internal audio QA direction 2026-09-30",
+        "Actual fixed WAV files plus canonical hash, automated decode/anomaly checks and unprompted offline ASR"
+      ]
     }
   ]
 }
