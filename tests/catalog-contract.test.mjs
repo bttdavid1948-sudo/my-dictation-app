@@ -18,10 +18,13 @@ assert.ok(!html.includes("db.collection('users_profile').where("));
 assert.ok(!html.includes("db.collection('users_profile').orderBy("));
 assert.equal(catalog.publisher,'man');
 assert.ok(catalog.lessons.length>=1);
+const published=catalog.lessons.filter(unit=>unit.status==='published');
+assert.deepEqual(published.map(unit=>unit.id),['MAN-0065']);
+assert.equal(catalog.lessons.filter(unit=>unit.status==='archived').length,4);
 const ids=new Set();
 for(const unit of catalog.lessons){
   assert.equal(unit.publisher,'man');
-  assert.equal(unit.status,'published');
+  assert.ok(['published','archived'].includes(unit.status));
   assert.equal(unit.sourceType,'original');
   assert.ok(unit.rightsEvidenceId);
   assert.ok(unit.items.length>=1);
@@ -53,8 +56,8 @@ const context={xLibMode:'mine',fetch:async()=>({ok:true,json:async()=>({lessons:
 vm.createContext(context);
 vm.runInContext(code+';globalThis.loadCatalogUnits=loadCatalogUnits;',context);
 const loaded=await context.loadCatalogUnits();
-assert.equal(loaded.length,catalog.lessons.length);
+assert.equal(loaded.length,published.length);
 assert.equal(views.length,1);
-assert.deepEqual([...loaded.map(x=>x.id)],catalog.lessons.map(x=>x.id));
-assert.ok(topicOptions.some(option=>option.value===catalog.lessons[0].topic));
+assert.deepEqual([...loaded.map(x=>x.id)],published.map(x=>x.id));
+assert.ok(topicOptions.some(option=>option.value===published[0].topic));
 console.log(`Catalog contract and ${scripts} inline scripts passed`);
