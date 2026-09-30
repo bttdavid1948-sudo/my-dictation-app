@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Practice #2 final realization validation PASS for MAN-0065@v0.1 + MAN-0065-OPENAI-FIXED-v0.2. PRACTICE_READY=true and CONTRACT_VALID=true for this exact realization only. Perform controlled import; complete vi-VN support-bundle and rights checks, desktop/mobile live verification, and exact-realization audio-feedback write/read verification. Preserve AI-generated disclosure, immutable realization binding and rollback. Human/outsourced acoustic certification was not performed and is not required; probabilistic ASR support is not pronunciation/accent/prosody certification. Other Batch 01 lessons remain parked."
+    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -91,5 +91,6 @@
       "trigger": "Owner removed outsourced acoustic certification. Deterministic binding/integrity/decode/technical checks plus unprompted internal ASR lexical support establish controlled internal eligibility, not human/acoustic QA-PASS. FAIL/UNCERTAIN/ANOMALOUS are parked; each eligible realization routes independently to final Practice."
     }
   ],
-  "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"
+  "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json"
 }

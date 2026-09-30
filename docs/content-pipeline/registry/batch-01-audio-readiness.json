@@ -12,14 +12,14 @@
   "lesson_count": 12,
   "segment_count": 62,
   "english_characters": 6283,
-  "realization_count": 0,
-  "available_audio_realization_refs_count": 0,
+  "realization_count": 1,
+  "available_audio_realization_refs_count": 1,
   "approved_qa_count": 0,
-  "status": "MAN_0065_PRACTICE_READY_CONTROLLED_IMPORT_PENDING",
+  "status": "MAN_0065_CONTROLLED_LIVE_PARTIAL_VERIFICATION",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "SIX_FIXED_CANDIDATES_PERSISTED; MAN-0065 v0.2 INTERNALLY_ELIGIBLE; NO FINAL_PRACTICE_APPROVAL_OR_RELEASE",
+    "production_audio_assets": "MAN-0065 v0.2 exact fixed realization live; desktop 4/4 PASS; mobile and feedback administrative read pending. Other candidates parked.",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -40,12 +40,13 @@
     "man_0065_practice_ready": true,
     "man_0065_contract_valid": true,
     "man_0065_realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
-    "man_0065_publication_allowed": false
+    "man_0065_publication_allowed": true,
+    "man_0065_live_definition_of_done_complete": false
   },
   "next_action": {
-    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Practice accepted the exact MAN-0065 fixed realization for its DETAIL + FORM_RECOGNITION evidence semantics. Complete controlled import, support/rights checks, desktop/mobile smoke and exact-realization feedback verification. Keep fine pronunciation/prosody/accent explicitly uncertified and keep other lessons parked."
+    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -74,7 +75,7 @@
     "test_ref": "docs/content-pipeline/browser-voice-certification.test.mjs",
     "guide_ref": "docs/content-pipeline/browser-voice-qa.md",
     "scope": "DEVICE_BROWSER_VOICE_PLAYBACK_SMOKE_ONLY",
-    "required_human_listening": "Existing operator evidence is limited to playback and obvious runtime errors. Qualified final-realization acoustic QA is required separately; Owner is not the acoustic reviewer.",
+    "required_human_listening": "SUPERSEDED: Owner removed mandatory external human acoustic certification; preserve historical Browser Voice evidence only.",
     "evidence_status": "RUNTIME_SMOKE_PASS",
     "approved_realization_count": 0,
     "new_paid_services": 0,
@@ -153,5 +154,6 @@
       "MAN-0986"
     ]
   },
-  "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json"
+  "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json"
 }

@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "MAN_0065_CONTROLLED_IMPORT_PENDING",
+  "preparation_status": "MAN_0065_CONTROLLED_LIVE_MOBILE_AND_FEEDBACK_READ_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -103,9 +103,9 @@
     }
   ],
   "next_action": {
-    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Use docs/content-pipeline/registry/man-0065-final-realization-practice.json. Controlled import exactly MAN-0065@v0.1 with MAN-0065-OPENAI-FIXED-v0.2; finish support/rights checks, desktop/mobile live verification and exact-realization audio-feedback write/read verification. Keep publication blocked until those owning gates pass. Do not review/import other parked lessons from this action."
+    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -132,8 +132,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 0,
-    "blocker": "FINAL_REALIZATION_PRACTICE_VALIDATION_PENDING"
+    "final_practice_ready": 1,
+    "blocker": "OTHER_11_LESSONS_REMAIN_PARKED"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -143,5 +143,6 @@
   "audio_exception_backlog_ref": "docs/content-pipeline/registry/batch-01-audio-exceptions.json",
   "ordinary_lesson_independent_progression": true,
   "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
-  "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1"
+  "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json"
 }
