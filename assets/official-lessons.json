@@ -1,5 +1,5 @@
 {
-  "catalogVersion": 3,
+  "catalogVersion": 4,
   "publisher": "man",
   "rightsNote": "Original Mặn lessons. Publication requires code/content review before merge.",
   "lessons": [
@@ -608,6 +608,226 @@
       "contractValid": true,
       "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
       "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0238",
+      "unitName": "MAN-0238 · Ngày ghi dưới bức ảnh bị nhầm",
+      "topic": "Học tập",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe cách kiểm tra nguồn để giải thích hai ngày ghi khác nhau dưới cùng một bức ảnh.",
+      "usefulLanguage": [
+        "original file",
+        "upload date",
+        "by mistake"
+      ],
+      "items": [
+        {
+          "en": "Mina saw an old date under a photo in the school newsletter. She thought the picture was from last year.",
+          "vi": "Mina thấy một ngày cũ ghi dưới bức ảnh trong bản tin của trường. Cô ấy nghĩ bức ảnh được chụp từ năm ngoái.",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0238-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0238",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0238-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0238-FIXED-EN-US@v0.2",
+            "sha256": "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41",
+            "durationSeconds": 6.95,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Then she found the same photo on the library website, but the date was different.",
+          "vi": "Sau đó, cô ấy tìm thấy cùng bức ảnh trên trang web của thư viện, nhưng ngày ghi ở đó lại khác.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0238-S002-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0238",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0238-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0238-FIXED-EN-US@v0.2",
+            "sha256": "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4",
+            "durationSeconds": 6.6,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "She asked the librarian to check the original file.",
+          "vi": "Cô ấy nhờ thủ thư kiểm tra tệp gốc.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0238-S003-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0238",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0238-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0238-FIXED-EN-US@v0.2",
+            "sha256": "d791126cef9f194ac795693b880159d52b67c1db4d3e6e91f8441903fcfabbcb",
+            "durationSeconds": 4.55,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The librarian found the problem: the newsletter had used the upload date by mistake.",
+          "vi": "Thủ thư tìm ra vấn đề: bản tin đã dùng nhầm ngày tải ảnh lên.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0238-S004-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0238",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0238-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0238-FIXED-EN-US@v0.2",
+            "sha256": "5b6b760750b1f6086f254a57b5a438436d3242ef0265771e4391304da4d41506",
+            "durationSeconds": 6.45,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Mina corrected her note and kept a link to the original file so other people could check it too.",
+          "vi": "Mina sửa lại ghi chú và giữ một đường dẫn đến tệp gốc để những người khác cũng có thể kiểm tra.",
+          "segmentId": "S005",
+          "audio": {
+            "url": "assets/audio/MAN-0238-S005-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0238",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0238-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0238-FIXED-EN-US@v0.2",
+            "sha256": "4c72fa7932dff22f21edd0270a8edb727150b667b6c112428379410c377265db",
+            "durationSeconds": 6.45,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0238-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0238-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0238-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true,
+      "practiceScoringBoundary": "Use only verified target instances/regions for phenomenon-sensitive scoring. Do not score unverified function-word tokens as unstressed.",
+      "practiceEvidenceRef": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+    },
+    {
+      "id": "MAN-0414",
+      "unitName": "MAN-0414 · Lối đi qua vùng đất ngập nước",
+      "topic": "Môi trường",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe giải pháp giữ lối đi cho người dân đồng thời bảo vệ môi trường sống tự nhiên.",
+      "usefulLanguage": [
+        "raised walkway",
+        "public access",
+        "habitat"
+      ],
+      "items": [
+        {
+          "en": "The town once used a narrow path across the wetland as a shortcut to the station. After heavy rain, people began to leave the path to avoid the water.",
+          "vi": "Thị trấn từng dùng một lối đi hẹp xuyên qua vùng đất ngập nước làm đường tắt đến nhà ga. Sau những trận mưa lớn, mọi người bắt đầu đi ra ngoài lối đi để tránh nước.",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0414-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0414",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0414-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0414-FIXED-EN-US@v0.2",
+            "sha256": "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+            "durationSeconds": 9.75,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Their footsteps damaged the plants that held the soft ground together. The wider the bare area became, the longer it took for the water to drain.",
+          "vi": "Những bước chân của họ làm hư hại các cây giữ cho lớp đất mềm kết dính. Vùng đất trống càng rộng thì nước càng mất nhiều thời gian để thoát đi.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0414-S002-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0414",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0414-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0414-FIXED-EN-US@v0.2",
+            "sha256": "a2e866798350e44bd14fac88ebc64790ba4f195c30756c14cb854308fbb36b6f",
+            "durationSeconds": 10.6,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The council did not close the wetland. Instead, it built a raised walkway along the old route and placed signs explaining why visitors should stay on it.",
+          "vi": "Hội đồng thị trấn không đóng cửa vùng đất ngập nước. Thay vào đó, họ xây một lối đi cao dọc theo tuyến cũ và đặt biển giải thích vì sao khách tham quan nên đi trên lối đó.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0414-S003-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0414",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0414-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0414-FIXED-EN-US@v0.2",
+            "sha256": "3b01e353dee6fbd8dd1a7f1ed6872ff51890fbe773e6455a1e47ee081f1fab99",
+            "durationSeconds": 10.6,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Some residents called the walkway a restriction, while others saw it as a way to keep both public access and the habitat.",
+          "vi": "Một số cư dân cho rằng lối đi là một sự hạn chế, trong khi những người khác xem đó là cách giữ được cả quyền tiếp cận của người dân lẫn môi trường sống tự nhiên.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0414-S004-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0414",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0414-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0414-FIXED-EN-US@v0.2",
+            "sha256": "bac199ca6489828a787a0618d6bb97690dede2f6668e88b8221e441303a53831",
+            "durationSeconds": 8.7,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0414-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0414-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0414-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true,
+      "practiceScoringBoundary": "Bind phenomenon-sensitive practice only to the verified article weak-form instances. Do not infer or score reductions for 'to' or other unverified tokens.",
+      "practiceEvidenceRef": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
     }
   ]
 }

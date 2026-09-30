@@ -1,0 +1,28 @@
+{
+  "bundle_id": "MAN-0414-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0414",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review of every stable canonical segment: negation, questions, times/days/locations, causal and conditional scope preserved. English/anchors unchanged.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Thị trấn từng dùng một lối đi hẹp xuyên qua vùng đất ngập nước làm đường tắt đến nhà ga. Sau những trận mưa lớn, mọi người bắt đầu đi ra ngoài lối đi để tránh nước."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Những bước chân của họ làm hư hại các cây giữ cho lớp đất mềm kết dính. Vùng đất trống càng rộng thì nước càng mất nhiều thời gian để thoát đi."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Hội đồng thị trấn không đóng cửa vùng đất ngập nước. Thay vào đó, họ xây một lối đi cao dọc theo tuyến cũ và đặt biển giải thích vì sao khách tham quan nên đi trên lối đó."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Một số cư dân cho rằng lối đi là một sự hạn chế, trong khi những người khác xem đó là cách giữ được cả quyền tiếp cận của người dân lẫn môi trường sống tự nhiên."
+    }
+  ]
+}
