@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "AUTHORIZE_CHIRP3_HD_NARROW_SAMPLE_AND_ACCESS",
-    "responsible_lane": "OWNER",
-    "requires": "Approve enabling texttospeech.googleapis.com on my-dictation-project-4381e and a narrow Chirp 3 HD synthesis trial capped at 10,000 input characters; provide an authenticated execution path to #4 without making Owner run CLI. Published free allowance is up to 1M characters/month; gross synthesis ceiling beyond free allowance is US$0.30, plus any separately approved storage/delivery. #4 then compares two Google voices on the same 237-character Batch 01 sample, optionally tries ElevenLabs privately at no commitment, asks Owner for Product/UX voice preference only, generates fixed cached audio for eligible lessons, runs final acoustic QA with qualified reviewer and routes independent PASS lessons to #2. Browser Voice stays fallback; do not QA its seven candidates for production. Five sensitive lessons stay parked; no import/publication until gates pass."
+    "code": "CONFIGURE_APPROVED_OPENAI_TTS_ACCESS_AND_GENERATE_ASH_SAMPLE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Configure approved dedicated OpenAI API project and spending guardrail; synthesize minimal Ash sample using gpt-4o-mini-tts, measure actual usage/cost, then persist versioned producer-neutral fixed audio for eligible lessons. Technical checks and qualified acoustic QA apply to final realizations. Route each PASS independently to PRACTICE_2 final validation before controlled import and supported desktop/mobile verification. Park failures separately; five sensitive exceptions remain parked. Owner is not the acoustic reviewer. Google Chirp 3 HD is alternative; Browser Voice is fallback. No additional provider benchmark or reopening completed gates."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
