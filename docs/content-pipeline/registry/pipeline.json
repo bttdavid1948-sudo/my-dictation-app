@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
+    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice #2 final realization validation PASS for MAN-0065@v0.1 + MAN-0065-OPENAI-FIXED-v0.2. PRACTICE_READY=true and CONTRACT_VALID=true for this exact realization only. Perform controlled import; complete vi-VN support-bundle and rights checks, desktop/mobile live verification, and exact-realization audio-feedback write/read verification. Preserve AI-generated disclosure, immutable realization binding and rollback. Human/outsourced acoustic certification was not performed and is not required; probabilistic ASR support is not pronunciation/accent/prosody certification. Other Batch 01 lessons remain parked."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
