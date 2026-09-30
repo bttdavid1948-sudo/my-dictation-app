@@ -5,10 +5,10 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
-    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -95,5 +95,16 @@
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
   "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
   "man_0065_first_live_complete": true,
-  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json"
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
+  "final_realization_practice_reworked_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+  "practice_ready_fixed_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2"
+  ],
+  "practice_blocked_fixed_realization_ids": [
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2"
+  ]
 }

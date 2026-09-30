@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-01-final-realization-practice-validation-reworked",
+  "version": "v0.1",
+  "status": "REVIEW_READY",
+  "owner_lane": "PRACTICE_2",
+  "batch_id": "BATCH_01",
+  "action_code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+  "source_refs": [
+    {
+      "ref": "batch-01-targeted-audio-practice-handoff@v0.2",
+      "sha256": "0018d9ece50126bb13eddaa8d0506c3d7bf3767c56ec0fe5623ce68e03a328df"
+    },
+    {
+      "ref": "batch-01-canonical-lesson-assets@v0.1",
+      "sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d"
+    },
+    {
+      "ref": "batch-01-practice-postproduction-validation@v0.1",
+      "sha256": "4bec5890faf8f70a16c3e94f4a31f8b182220fbdf07ac92f8aa40eedaa000bd6"
+    },
+    {
+      "ref": "practice-production-spec@v0.1",
+      "sha256": "6f2517fcfb53156f2784ee80050ed98a5697d5f9cf632d11c2d3769ea4921d28"
+    },
+    {
+      "ref": "curriculum-practice-contract@v0.3",
+      "status": "FROZEN"
+    }
+  ],
+  "preserved_truth": {
+    "static_curriculum_practice_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "man_0065_first_live": "COMPLETE_UNCHANGED",
+    "sensitive_cast_lessons": "NOT_REVIEWED_PARKED_UNCHANGED",
+    "human_acoustic_certification": "NOT_REQUIRED",
+    "internal_asr_semantics": "PROBABILISTIC_LEXICAL_SUPPORT_ONLY"
+  },
+  "pair_results": [
+    {
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "phenomenon": "simple reductions",
+      "speech_anchor_id": "MAN-0165-A-SPCH-01",
+      "practice_operator": "TARGETED_DICTATION",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "practice_conflict": "NONE",
+      "basis": "Exact target span is 'We've moved'; unprompted ASR preserves 'we've moved'. Together with exact version/segment binding and fixed-asset integrity, this supports controlled short-span segmentation of the reduced lexical form. No human-certified pronunciation/accent/prosody claim.",
+      "next_route": "OPERATIONS_4_CONTROLLED_IMPORT_LIVE_RELEASE"
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "phenomenon": "thought groups",
+      "speech_anchor_id": "MAN-0365-A-SPCH-01",
+      "practice_operator": "TARGETED_DICTATION",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "practice_conflict": "NONE",
+      "basis": "Measured pause gaps align intended thought-group boundaries in S004: 0.51s after 'slot', 0.33s before 'collect', 0.30s after 'Friday'; independent secondary ASR reconstructs the same clause grouping. Sufficient for controlled thought-group segmentation without human certification.",
+      "next_route": "OPERATIONS_4_CONTROLLED_IMPORT_LIVE_RELEASE"
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "phenomenon": "basic contractions",
+      "speech_anchor_id": "MAN-0044-A-SPCH-01",
+      "practice_operator": "TARGETED_DICTATION",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "practice_conflict": "NONE",
+      "basis": "Both Curriculum-owned contraction spans are independently recognized in unprompted ASR: doesn't (S002) and It's (S004). Exact segment binding and fixed-asset integrity make the realization sufficient for controlled short-span contraction/segmentation practice.",
+      "next_route": "OPERATIONS_4_CONTROLLED_IMPORT_LIVE_RELEASE"
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "phenomenon": "unstressed function words",
+      "speech_anchor_id": "MAN-0238-A-SPCH-01",
+      "practice_operator": "TARGETED_DICTATION",
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false,
+      "blocker_code": "UNSTRESSED_FUNCTION_WORD_REALIZATION_NOT_VERIFIED",
+      "basis": "Available evidence supports lexical presence/fidelity but does not measure or otherwise verify that relevant function words are actually realized unstressed. A synthesis instruction requesting unstressed delivery is not realization evidence.",
+      "next_route": "OPERATIONS_4_AUTOMATED_REALIZATION_EVIDENCE_OR_REWORK",
+      "human_review_required": false
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "phenomenon": "common reductions",
+      "speech_anchor_id": "MAN-0414-A-SPCH-01",
+      "practice_operator": "TARGETED_DICTATION",
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false,
+      "blocker_code": "COMMON_REDUCTIONS_REALIZATION_NOT_VERIFIED",
+      "basis": "Lexical fidelity is broadly supported, but no specific reduction instance/acoustic feature is established by the available evidence. The performance prompt requests reductions; it does not prove they occurred.",
+      "next_route": "OPERATIONS_4_AUTOMATED_REALIZATION_EVIDENCE_OR_REWORK",
+      "human_review_required": false
+    }
+  ],
+  "summary": {
+    "reviewed_pair_count": 5,
+    "practice_ready_pass_count": 3,
+    "contract_valid_pass_count": 3,
+    "blocked_pair_count": 2,
+    "pass_pairs": [
+      "MAN-0165",
+      "MAN-0365",
+      "MAN-0044"
+    ],
+    "blocked_pairs": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "independent_progression": true,
+    "owner_decision_required": false
+  },
+  "routing": {
+    "pass_route": {
+      "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+      "responsible_lane": "OPERATIONS_4",
+      "pairs": [
+        "MAN-0165",
+        "MAN-0365",
+        "MAN-0044"
+      ],
+      "requires": "Reuse established MAN-0065 path: support/rights checks, exact fixed realization import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. No redesign."
+    },
+    "blocked_route": {
+      "code": "TARGETED_AUTOMATED_REALIZATION_EVIDENCE_OR_REWORK",
+      "responsible_lane": "OPERATIONS_4",
+      "pairs": [
+        "MAN-0238",
+        "MAN-0414"
+      ],
+      "requires": "Provide stronger realization-specific automated evidence for the actual unstressed/reduction phenomenon or regenerate/rework the affected realization. Do not require outsourced/human acoustic review; do not change Curriculum semantics."
+    }
+  },
+  "explicit_nonclaims": [
+    "No human-certified pronunciation, prosody or accent quality is claimed.",
+    "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE does not by itself establish Practice readiness for a phenomenon-dependent target.",
+    "ASR lexical agreement alone is not evidence of stress/reduction where the Practice construct specifically depends on that acoustic behavior.",
+    "PASS decisions apply only to the exact lesson+realization pairs."
+  ]
+}
