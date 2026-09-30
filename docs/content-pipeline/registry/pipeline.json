@@ -11,7 +11,8 @@
     "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
     "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
     "resume_lane": "OPERATIONS_4",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+    "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -110,5 +111,6 @@
     "MAN-0238-OPENAI-FIXED-v0.2",
     "MAN-0414-OPENAI-FIXED-v0.2"
   ],
-  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+  "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result"
 }
