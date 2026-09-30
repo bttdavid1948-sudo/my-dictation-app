@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "status": "PUBLISHED_PENDING_LIVE_VERIFICATION",
+  "status": "THREE_LESSONS_LIVE_RUNTIME_PASS_FEEDBACK_READ_AUTH_CONNECTION_BLOCKED",
   "source_main": "db89a2ea3945c41562395aabf1e3394904c83371",
   "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
   "rights_ref": "docs/content-pipeline/registry/batch-01-three-rights.json",
@@ -60,9 +60,161 @@
     "support": "PASS_FULL_13_CANONICAL_SEGMENTS",
     "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
     "import_binding": "PASS_CANONICAL_TEXT_SEGMENT_VERSION_AND_ASSET_HASHES",
-    "desktop_live": "PENDING",
-    "mobile_live": "PENDING",
-    "feedback_write_read": "PENDING"
+    "desktop_live": "PASS_3_LESSONS_13_SEGMENTS_AND_COMPLETION",
+    "mobile_live": "PASS_3_INDEPENDENT_PIXEL_5_JOBS_13_SEGMENTS_AND_COMPLETION",
+    "feedback_write_read": "WRITE_PASS_READ_PENDING_AUTH_CONNECTION"
   },
-  "incremental_tts_api_cost_usd": 0
+  "incremental_tts_api_cost_usd": 0,
+  "definition_of_done": "PENDING_AUTHENTICATED_FEEDBACK_READ",
+  "verified_at": "2026-09-30T12:02:23.457628+00:00",
+  "release_prs": [
+    72,
+    73
+  ],
+  "results": [
+    {
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "status": "LIVE_RUNTIME_VERIFIED_PENDING_AUTHENTICATED_FEEDBACK_READ",
+      "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_4_OF_4",
+        "mobile_playback_completion": "PASS_4_OF_4",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "PENDING_AUTH_CONNECTION_BLOCKED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 4,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 4,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile record IDs and contexts retained in private evidence; admin read not yet verified."
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "status": "LIVE_RUNTIME_VERIFIED_PENDING_AUTHENTICATED_FEEDBACK_READ",
+      "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_5_OF_5",
+        "mobile_playback_completion": "PASS_5_OF_5",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "PENDING_AUTH_CONNECTION_BLOCKED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 5,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 5,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile record IDs and contexts retained in private evidence; admin read not yet verified."
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "status": "LIVE_RUNTIME_VERIFIED_PENDING_AUTHENTICATED_FEEDBACK_READ",
+      "definition_of_done": "PENDING_FEEDBACK_ADMIN_READ",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_4_OF_4",
+        "mobile_playback_completion": "PASS_4_OF_4",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "PENDING_AUTH_CONNECTION_BLOCKED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 4,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 4,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile record IDs and contexts retained in private evidence; admin read not yet verified."
+    }
+  ],
+  "next_action": {
+    "code": "BLOCKED",
+    "responsible_lane": "OPERATIONS_4",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
+    "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+    "resume_lane": "OPERATIONS_4",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json"
+  },
+  "evidence_ref": "batch-01-three-live-runtime-evidence@v0.1",
+  "limitations": [
+    "Pixel 5 Chromium emulation, not physical Android/iOS/native keyboard certification",
+    "Playback/ASR evidence is not human acoustic certification",
+    "Backend acknowledged feedback writes; independent authenticated read is pending. Work Google sign-in currently returns 502 / Connection refused; no read PASS claimed."
+  ],
+  "execution_capability_check": {
+    "date": "2026-09-30",
+    "target": "Google sign-in redirect from canonical Firebase Firestore owner_feedback console",
+    "observed": "HTTP 502 Bad Gateway; [Errno 111] Connection refused",
+    "recovery": "One reload; same error",
+    "classification": "CONNECTION_FAILURE_NOT_BOT_DETECTION",
+    "owner_action_available": false,
+    "existing_runtime_pass_preserved": true
+  }
 }
