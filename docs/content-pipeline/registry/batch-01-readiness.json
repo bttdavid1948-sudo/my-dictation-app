@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "APPROVED_FIXED_TTS_PENDING_ACCESS_AND_FINAL_REALIZATION_QA",
+  "preparation_status": "FIXED_REALIZATIONS_TECHNICAL_PASS_PENDING_QUALIFIED_ACOUSTIC_QA",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -96,9 +96,9 @@
     }
   ],
   "next_action": {
-    "code": "CONFIGURE_APPROVED_OPENAI_TTS_ACCESS_AND_GENERATE_ASH_SAMPLE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Configure approved dedicated OpenAI API project and spending guardrail; synthesize minimal Ash sample using gpt-4o-mini-tts, measure actual usage/cost, then persist versioned producer-neutral fixed audio for eligible lessons. Technical checks and qualified acoustic QA apply to final realizations. Route each PASS independently to PRACTICE_2 final validation before controlled import and supported desktop/mobile verification. Park failures separately; five sensitive exceptions remain parked. Owner is not the acoustic reviewer. Google Chirp 3 HD is alternative; Browser Voice is fallback. No additional provider benchmark or reopening completed gates."
+    "code": "QUALIFIED_ACOUSTIC_QA_FINAL_FIXED_REALIZATIONS",
+    "responsible_lane": "AUDIO_QA",
+    "requires": "Assign an authorized qualified acoustic reviewer to six persisted final realizations and their exact segment hashes. Owner is not the acoustic reviewer. Evaluate text fidelity, pronunciation/intelligibility, natural prosody, speaker consistency and lesson target phenomena. Register each acoustic PASS independently, then route only that realization to PRACTICE_2 final validation before controlled import and desktop/mobile verification. FAIL or UNCERTAIN remains parked without blocking independent PASS lessons. Preserve completed Curriculum/Practice static gates; no additional provider benchmark."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -126,7 +126,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 0,
-    "blocker": "AUDIO_REALIZATION_PENDING"
+    "blocker": "QUALIFIED_FINAL_REALIZATION_ACOUSTIC_QA_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
