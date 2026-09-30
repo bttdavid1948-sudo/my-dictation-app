@@ -1,0 +1,28 @@
+{
+  "bundle_id": "MAN-0065-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0065",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review: all four stable segments; negation/question/scope and room/time/day/card/pencil preserved. No canonical text/anchor change.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Bài kiểm tra tiếng Anh có ở phòng B12 không?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Đúng rồi. Bài kiểm tra bắt đầu lúc chín giờ vào thứ Sáu."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Tôi có cần mang thẻ sinh viên không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Có. Hãy mang theo thẻ sinh viên và một cây bút chì."
+    }
+  ]
+}

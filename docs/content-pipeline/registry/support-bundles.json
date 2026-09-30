@@ -1,4 +1,16 @@
 {
   "schema_version": "1.0",
-  "records": []
+  "records": [
+    {
+      "bundle_id": "MAN-0065-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0065",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0065-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0065:S001-S004"
+    }
+  ]
 }

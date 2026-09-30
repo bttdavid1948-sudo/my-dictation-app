@@ -1,5 +1,5 @@
 {
-  "catalogVersion": 1,
+  "catalogVersion": 2,
   "publisher": "man",
   "rightsNote": "Original Mặn lessons. Publication requires code/content review before merge.",
   "lessons": [
@@ -182,6 +182,105 @@
       "copyrightStatus": "reviewed",
       "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
       "version": 1
+    },
+    {
+      "id": "MAN-0065",
+      "unitName": "MAN-0065 · Phòng thi ở đâu?",
+      "topic": "Học tập",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe và nhận diện phòng thi, thời gian và đồ dùng cần mang theo.",
+      "usefulLanguage": [
+        "student card",
+        "a pencil",
+        "on Friday"
+      ],
+      "items": [
+        {
+          "en": "Is the English test in room B twelve?",
+          "vi": "Bài kiểm tra tiếng Anh có ở phòng B12 không?",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0065-S001-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0065",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0065-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0065-FIXED-EN-US@v0.2",
+            "sha256": "8a4b37a1515e1b70f92cda02ccc201a57af9a1673ce3be33a6df32fc8c20331d",
+            "durationSeconds": 3.7,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes. It starts at nine on Friday.",
+          "vi": "Đúng rồi. Bài kiểm tra bắt đầu lúc chín giờ vào thứ Sáu.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0065-S002-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0065",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0065-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0065-FIXED-EN-US@v0.2",
+            "sha256": "4a50efd791f190f57d8e89e687c69993ec93788c33c85a495b55df2c579143d9",
+            "durationSeconds": 2.5,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Do I need my student card?",
+          "vi": "Tôi có cần mang thẻ sinh viên không?",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0065-S003-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0065",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0065-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0065-FIXED-EN-US@v0.2",
+            "sha256": "1dd7e64228ecc66f5bd63d6e00b34dda1cdf7139e9672a66a576096a8d4a19f1",
+            "durationSeconds": 2.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes. Bring your card and a pencil.",
+          "vi": "Có. Hãy mang theo thẻ sinh viên và một cây bút chì.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0065-S004-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0065",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0065-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0065-FIXED-EN-US@v0.2",
+            "sha256": "d262232ae7acbb0623d90f4af34def8c67aa92122bf0e158c28b969cfc1b73ba",
+            "durationSeconds": 2.9,
+            "voice": "cedar"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0065-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0065-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0065-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true
     }
   ]
 }
