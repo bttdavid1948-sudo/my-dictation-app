@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "PUBLISHED_PENDING_LIVE_VERIFICATION",
+  "source_main": "a5596d87a9686d0105f28c6324c39ef5f0b5e939",
+  "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+  "rights_ref": "docs/content-pipeline/registry/batch-01-two-rights.json",
+  "catalog_sha256": "3f0b5b31f14a47f7a13b5676cda41489902de279ee4af977cd8ec86ca35d9a3f",
+  "pairs": [
+    {
+      "lesson_id": "MAN-0238",
+      "version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 5,
+      "support_sha256": "e163aab5b5fdfbd083142cbe68c097623165157a7ad159acec030c7569d1f66d",
+      "asset_bytes": 1488220,
+      "source_asset_sha256": [
+        "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41",
+        "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4",
+        "d791126cef9f194ac795693b880159d52b67c1db4d3e6e91f8441903fcfabbcb",
+        "5b6b760750b1f6086f254a57b5a438436d3242ef0265771e4391304da4d41506",
+        "4c72fa7932dff22f21edd0270a8edb727150b667b6c112428379410c377265db"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "08d47f643762e021e4a4b80f3cb05375083469eae649e441023050bab5587358",
+      "asset_bytes": 1903376,
+      "source_asset_sha256": [
+        "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+        "a2e866798350e44bd14fac88ebc64790ba4f195c30756c14cb854308fbb36b6f",
+        "3b01e353dee6fbd8dd1a7f1ed6872ff51890fbe773e6455a1e47ee081f1fab99",
+        "bac199ca6489828a787a0618d6bb97690dede2f6668e88b8221e441303a53831"
+      ]
+    }
+  ],
+  "man_0065_complete_preserved": true,
+  "rollback": "Per-lesson status change through reviewed PR; retain immutable audio/support files. Original catalog retained in private evidence and git parent. No seed deletion or Rules change.",
+  "checks": {
+    "support": "PASS_FULL_9_CANONICAL_SEGMENTS",
+    "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
+    "import_binding": "PASS_CANONICAL_TEXT_SEGMENT_VERSION_AND_ASSET_HASHES",
+    "desktop_live": "PENDING",
+    "mobile_live": "PENDING",
+    "feedback_write_read": "PENDING"
+  },
+  "incremental_tts_api_cost_usd": 0,
+  "pairs_scoring_boundary": {
+    "MAN-0238": "Use only verified target instances/regions for phenomenon-sensitive scoring. Do not score unverified function-word tokens as unstressed.",
+    "MAN-0414": "Bind phenomenon-sensitive practice only to the verified article weak-form instances. Do not infer or score reductions for 'to' or other unverified tokens."
+  },
+  "feedback_read_branch": "ISOLATED_INFRASTRUCTURE_PENDING_NOT_ATTEMPTED"
+}

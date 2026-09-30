@@ -1,0 +1,32 @@
+{
+  "bundle_id": "MAN-0238-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0238",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review of every stable canonical segment: negation, questions, times/days/locations, causal and conditional scope preserved. English/anchors unchanged.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Mina thấy một ngày cũ ghi dưới bức ảnh trong bản tin của trường. Cô ấy nghĩ bức ảnh được chụp từ năm ngoái."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Sau đó, cô ấy tìm thấy cùng bức ảnh trên trang web của thư viện, nhưng ngày ghi ở đó lại khác."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Cô ấy nhờ thủ thư kiểm tra tệp gốc."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Thủ thư tìm ra vấn đề: bản tin đã dùng nhầm ngày tải ảnh lên."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Mina sửa lại ghi chú và giữ một đường dẫn đến tệp gốc để những người khác cũng có thể kiểm tra."
+    }
+  ]
+}

@@ -19,7 +19,7 @@ assert.ok(!html.includes("db.collection('users_profile').orderBy("));
 assert.equal(catalog.publisher,'man');
 assert.ok(catalog.lessons.length>=1);
 const published=catalog.lessons.filter(unit=>unit.status==='published');
-assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044']);
+assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044','MAN-0238','MAN-0414']);
 assert.equal(catalog.lessons.filter(unit=>unit.status==='archived').length,4);
 const ids=new Set();
 for(const unit of catalog.lessons){
