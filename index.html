@@ -341,7 +341,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                 <section class="x-control-region" aria-label="Điều khiển luyện nghe">
                 <h3>3 · Điều khiển</h3>
                 <p data-audio-disclosure hidden>Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.</p><div class="audio-player x-practice-controls">
-                    <button class="btn btn-audio" onclick="playAudio()">🔊 Nghe lại</button><button type="button" class="btn" data-audio-report hidden onclick="xOpenAudioReport()">🔊 Âm thanh có vấn đề?</button>
+                    <button class="btn btn-audio" onclick="playAudio()">🔊 Nghe lại</button><button type="button" class="btn" data-audio-report hidden onclick="xOpenAudioReport()">🔊 Âm thanh có vấn đề?</button><button type="button" class="btn" data-audio-report hidden onclick="xUseBrowserVoiceFallback()">🔁 Dùng giọng dự phòng</button>
                     <button class="btn btn-note" onclick="playSlowAudio()">🐢 Nghe chậm</button>
                     <select id="rate-select" class="select-style">
                         <option value="0.2">0.2x</option>
@@ -375,7 +375,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
                         <div class="x-sentence-nav"><button type="button" id="x-transcript-prev" onclick="xMoveTranscript(-1)" aria-label="Câu trước">←</button><span id="x-transcript-counter" aria-live="polite">1 / 1</span><button type="button" id="x-transcript-next" onclick="xMoveTranscript(1)" aria-label="Câu sau">→</button></div>
                         <p class="x-shortcut-hint">Space: Phát/Tạm dừng · ←/→: Câu trước/sau</p>
                     </section>
-                    <section class="transcript-container x-transcript-list" aria-label="Toàn bộ câu"><h3>📜 Toàn bộ câu</h3><p data-audio-disclosure hidden>Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.</p><button type="button" class="btn" data-audio-report hidden onclick="xOpenAudioReport()">🔊 Âm thanh có vấn đề?</button><div id="full-transcript-list"></div></section>
+                    <section class="transcript-container x-transcript-list" aria-label="Toàn bộ câu"><h3>📜 Toàn bộ câu</h3><p data-audio-disclosure hidden>Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.</p><button type="button" class="btn" data-audio-report hidden onclick="xOpenAudioReport()">🔊 Âm thanh có vấn đề?</button><button type="button" class="btn" data-audio-report hidden onclick="xUseBrowserVoiceFallback()">🔁 Dùng giọng dự phòng</button><div id="full-transcript-list"></div></section>
                 </div>
             </div>
         </div>
@@ -2164,6 +2164,17 @@ document.addEventListener('keydown',event=>{
 <script>
 let xAudioReportContext=null,xAudioReportFocus=null;
 function xSyncAudioReleaseUI(item){const visible=!!ManFixedAudio.context(item);document.querySelectorAll('[data-audio-report],[data-audio-disclosure]').forEach(e=>e.hidden=!visible)}
+function xUseBrowserVoiceFallback(){
+ const transcript=!document.getElementById('study-view-transcript').classList.contains('hidden');
+ const item=items[transcript?xTranscriptCursor:currentIndex];if(!ManFixedAudio.context(item))return;
+ if(!('speechSynthesis' in window))return xToast('Trình duyệt này chưa có giọng dự phòng. Bạn thử lại audio hoặc báo lỗi nha.');
+ xStopTranscriptPlayback();speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(item.en);utterance.lang='en-US';
+ const voice=englishVoices[Number(document.getElementById('voice-select').value)];if(voice)utterance.voice=voice;
+ utterance.rate=Number(document.getElementById('rate-select').value)||1;
+ ManFixedAudio.noteFallback(item,voice?.voiceURI,utterance.rate);speechSynthesis.speak(utterance);
+ xToast('Đang dùng giọng dự phòng của trình duyệt cho câu này.');
+}
 function xOpenAudioReport(){
  const transcript=!document.getElementById('study-view-transcript').classList.contains('hidden');
  xAudioReportContext=ManFixedAudio.reportContext(items[transcript?xTranscriptCursor:currentIndex],Number(document.getElementById('rate-select').value));
