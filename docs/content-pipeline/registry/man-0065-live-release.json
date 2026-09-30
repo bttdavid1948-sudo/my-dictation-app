@@ -5,8 +5,8 @@
   "lesson_id": "MAN-0065",
   "lesson_asset_version": "v0.1",
   "realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
-  "status": "BLOCKED_MOBILE_EXECUTION_CAPABILITY",
-  "definition_of_done": "NOT_COMPLETE",
+  "status": "MAN_0065_FIRST_LIVE_COMPLETE",
+  "definition_of_done": "COMPLETE",
   "checks": {
     "practice_exact_pair": "PASS_REUSED_CANONICAL_PRACTICE_2",
     "vi_VN_support": "PASS_FULL_4_SEGMENTS",
@@ -18,9 +18,10 @@
     "desktop_dictation_completion": "PASS_4_OF_4",
     "feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
     "feedback_admin_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_DOCUMENT",
-    "mobile_live": "BLOCKED_NO_SUPPORTED_MOBILE_DEVICE_OR_EMULATION_CAPABILITY",
+    "mobile_live": "PASS_OWNER_APPROVED_PIXEL_5_CHROMIUM_EMULATION",
     "legacy_seed_preview": "PASS_HASHES_AND_PROVENANCE",
-    "legacy_seed_archive": "PASS_LIVE_CATALOG_ONLY_MAN_0065"
+    "legacy_seed_archive": "PASS_LIVE_CATALOG_ONLY_MAN_0065",
+    "mobile_feedback_write_read": "PASS_EXACT_NEW_REPORT"
   },
   "desktop_evidence": {
     "viewport": "1363x936",
@@ -95,7 +96,8 @@
   "release_prs": [
     63,
     64,
-    65
+    65,
+    68
   ],
   "rollback": {
     "lesson_release": "Depublish MAN-0065 through reviewed catalog status change; retain versioned WAVs and metadata. Do not restore broad Firestore permissions.",
@@ -105,11 +107,47 @@
   "limitations": [
     "Internal ASR support is probabilistic; no human pronunciation/prosody/accent certification is claimed.",
     "No other parked Batch 01 lessons imported or modified.",
-    "Desktop completion and authenticated feedback write/read do not prove supported mobile behavior. No mobile live PASS is claimed."
+    "Device emulation, not physical Android hardware, native software keyboard, or iOS Safari certification.",
+    "Playback evidence is successful browser decode/play-to-end, not human acoustic certification."
   ],
   "next_action": {
-    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
+    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
+  },
+  "mobile_evidence": {
+    "status": "PASS",
+    "scope": "OWNER_APPROVED_PIXEL_5_CHROMIUM_MOBILE_DEVICE_EMULATION",
+    "workflow_run_id": 36689890576,
+    "workflow_head_sha": "ff002bf0b6b86f56aafc35f01eacdf05ec467b18",
+    "artifact_id": 11085103290,
+    "artifact_sha256": "db2e86277a6e3e3bc4a02dffb97028106dd8ccdc3f1005c7692479d3791e1d4e",
+    "evidence_library_file_id": "libfile_57572e1449bc8191a1dd608a23506fee",
+    "browser_version": "153.0.8010.12",
+    "device": {
+      "viewport": "393x727",
+      "screen": "393x851",
+      "device_scale_factor": 2.75,
+      "is_mobile": true,
+      "has_touch": true,
+      "max_touch_points": 1,
+      "coarse_pointer": true,
+      "hover": false
+    },
+    "fixed_segments_played": 4,
+    "all_media_ended": true,
+    "all_media_errors": null,
+    "all_sha256_match": true,
+    "dictation_completed": "4/4",
+    "layout": "PASS_CORE_FLOW_TAP_HIT_TESTS_AND_SCREENSHOT_REVIEW_NO_BLOCKING_OVERLAP_OR_HORIZONTAL_OVERFLOW",
+    "feedback_write": "PASS",
+    "feedback_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_NEW_RECORD",
+    "runtime_errors": [],
+    "limitations": [
+      "Device emulation, not physical Android hardware, native software keyboard, or iOS Safari certification.",
+      "Playback evidence is successful browser decode/play-to-end, not human acoustic certification."
+    ],
+    "reviewed_at": "2026-09-30",
+    "owner_lane": "OPERATIONS_4"
   }
 }
