@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
+    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -92,5 +92,6 @@
     }
   ],
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
-  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json"
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+  "man_0065_first_live_complete": true
 }

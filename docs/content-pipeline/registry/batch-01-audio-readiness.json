@@ -15,11 +15,11 @@
   "realization_count": 1,
   "available_audio_realization_refs_count": 1,
   "approved_qa_count": 0,
-  "status": "MAN_0065_LIVE_MOBILE_EXECUTION_BLOCKED",
+  "status": "MAN_0065_FIRST_LIVE_COMPLETE_OTHER_CANDIDATES_PARKED",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "MAN-0065 v0.2 exact fixed realization live; desktop 4/4 and feedback write/read PASS; supported mobile live verification blocked by execution capability. Other candidates parked.",
+    "production_audio_assets": "MAN-0065 fixed v0.2 released with desktop + approved Pixel 5 Chromium mobile emulation, Dictation completion and feedback write/read PASS. Other candidates remain parked; no human acoustic certification claimed.",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -41,12 +41,12 @@
     "man_0065_contract_valid": true,
     "man_0065_realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
     "man_0065_publication_allowed": true,
-    "man_0065_live_definition_of_done_complete": false
+    "man_0065_live_definition_of_done_complete": true
   },
   "next_action": {
-    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
+    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -155,5 +155,6 @@
     ]
   },
   "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
-  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json"
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+  "man_0065_first_live_complete": true
 }
