@@ -22,7 +22,8 @@
     "batch-01-internal-audio-release": "v0.2",
     "batch-01-targeted-audio-practice-handoff": "v0.2",
     "batch-01-final-realization-practice-validation-reworked": "v0.1",
-    "batch-01-three-live-runtime-evidence": "v0.1"
+    "batch-01-three-live-runtime-evidence": "v0.1",
+    "batch-01-two-phenomena-practice-handoff": "v0.1"
   },
   "artifacts": [
     {
@@ -707,6 +708,46 @@
       "size_bytes": 8185128,
       "validation_status": "HASH_VERIFIED",
       "remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ"
+    },
+    {
+      "id": "batch-01-two-phenomena-practice-handoff",
+      "name": "MAN-Two-Phenomena-Practice-Handoff-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Unchanged exact fixed v0.2 nine assets",
+        "Offline PCM acoustic contrasts and unprompted allphone evidence"
+      ],
+      "dependencies": [
+        "batch-01-targeted-audio-practice-handoff@v0.2",
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Two-Phenomena-Practice-Handoff-v0.1.zip",
+        "library_file_id": "libfile_30a66f2344ec819192527b3fa18d7acd",
+        "version": 0
+      },
+      "sha256": "41e08b347f7d2b8ac0163994faac5ed21a488d4a7f276e9e9a26c96688bc39e5",
+      "size_bytes": 2724571,
+      "validation_status": "HASH_VERIFIED",
+      "next_action": {
+        "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+        "responsible_lane": "PRACTICE_2",
+        "pairs": [
+          "MAN-0238",
+          "MAN-0414"
+        ],
+        "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision.",
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
+      },
+      "practice_semantic_pass_claimed": false
     }
   ]
 }
