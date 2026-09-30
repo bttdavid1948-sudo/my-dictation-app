@@ -25,7 +25,9 @@
       "practice_grounding": "PASS",
       "practice_conflict": "NONE",
       "final_practice_ready": false,
-      "blocker": "AUDIO_REALIZATION_PENDING"
+      "blocker": "FINAL_REALIZATION_PRACTICE_VALIDATION_PENDING",
+      "candidate_realization_ref": "MAN-0065-OPENAI-FIXED-v0.2",
+      "internal_release_class": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE"
     },
     {
       "lesson_id": "MAN-0165",
@@ -106,7 +108,8 @@
     }
   ],
   "next_action": {
-    "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
-    "responsible_lane": "OPERATIONS_4"
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
   }
 }

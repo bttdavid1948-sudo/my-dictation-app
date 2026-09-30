@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "QUALIFIED_ACOUSTIC_QA_FINAL_FIXED_REALIZATIONS",
-    "responsible_lane": "AUDIO_QA",
-    "requires": "Assign an authorized qualified acoustic reviewer to six persisted final realizations and their exact segment hashes. Owner is not the acoustic reviewer. Evaluate text fidelity, pronunciation/intelligibility, natural prosody, speaker consistency and lesson target phenomena. Register each acoustic PASS independently, then route only that realization to PRACTICE_2 final validation before controlled import and desktop/mobile verification. FAIL or UNCERTAIN remains parked without blocking independent PASS lessons. Preserve completed Curriculum/Practice static gates; no additional provider benchmark."
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -83,6 +83,12 @@
       "responsible_lane": "AUDIO_QA",
       "blocking": "lesson_only",
       "trigger": "A lesson requires accent/prosody/overlap/prominence evidence beyond reusable runtime baseline; park with versioned lesson-specific reason without blocking other lessons."
+    },
+    {
+      "code": "INTERNAL_FIXED_AUDIO_RELEASE_GATE",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "lesson_only",
+      "trigger": "Owner removed outsourced acoustic certification. Deterministic binding/integrity/decode/technical checks plus unprompted internal ASR lexical support establish controlled internal eligibility, not human/acoustic QA-PASS. FAIL/UNCERTAIN/ANOMALOUS are parked; each eligible realization routes independently to final Practice."
     }
   ],
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"

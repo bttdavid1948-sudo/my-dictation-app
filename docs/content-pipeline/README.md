@@ -1,3 +1,5 @@
+> Current Batch 01 release policy: [internal audio release gate](internal-audio-release.md). Owner removed external acoustic-review requirements on 2026-09-30. The historical Browser Voice certification section does not block trusted-provider fixed-audio internal eligibility. See canonical pipeline for independent final Practice routing.
+
 # Mặn — Shared Artifact Registry
 
 Phase 3 is **CLOSED**. The Content Production Pipeline Contract v0.2 is now **FROZEN**. This directory still does not open a lesson production queue.

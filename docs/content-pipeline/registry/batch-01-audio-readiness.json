@@ -15,11 +15,11 @@
   "realization_count": 0,
   "available_audio_realization_refs_count": 0,
   "approved_qa_count": 0,
-  "status": "FIXED_REALIZATIONS_TECHNICAL_PASS_PENDING_QUALIFIED_ACOUSTIC_QA",
+  "status": "ONE_INTERNAL_RELEASE_ELIGIBLE_PENDING_FINAL_PRACTICE",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
-    "production_audio_assets": "SIX_FIXED_CANDIDATES_PERSISTED_TECHNICAL_PASS; NONE_ACOUSTIC_QA_APPROVED",
+    "production_audio_assets": "SIX_FIXED_CANDIDATES_PERSISTED; MAN-0065 v0.2 INTERNALLY_ELIGIBLE; NO FINAL_PRACTICE_APPROVAL_OR_RELEASE",
     "frozen_interface_requirements": [
       "stable realization_id and exact lesson_id + lesson_asset_version",
       "versioned producer-neutral audio_profile_id/version",
@@ -39,9 +39,9 @@
     "paid_api_enabled_by_this_action": false
   },
   "next_action": {
-    "code": "QUALIFIED_ACOUSTIC_QA_FINAL_FIXED_REALIZATIONS",
-    "responsible_lane": "AUDIO_QA",
-    "requires": "Assign an authorized qualified acoustic reviewer to six persisted final realizations and their exact segment hashes. Owner is not the acoustic reviewer. Evaluate text fidelity, pronunciation/intelligibility, natural prosody, speaker consistency and lesson target phenomena. Register each acoustic PASS independently, then route only that realization to PRACTICE_2 final validation before controlled import and desktop/mobile verification. FAIL or UNCERTAIN remains parked without blocking independent PASS lessons. Preserve completed Curriculum/Practice static gates; no additional provider benchmark."
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -120,6 +120,33 @@
     "metered_api_requests": 41,
     "metered_api_cost_usd": 0.074775,
     "final_candidate_synthesis_cost_usd": 0.0460668,
-    "cost_scope": "Actual returned API token usage valued at published rates; includes draft/comparator API requests. Excludes three earlier Playground requests, invoice reconciliation, storage/delivery and acoustic review. No acoustic approval inferred from technical checks."
+    "cost_scope": "Actual returned API token usage valued at published rates; includes draft/comparator API requests. Excludes three earlier Playground requests, invoice reconciliation, storage/delivery and acoustic review. No acoustic approval inferred from technical checks. Internal offline ASR and silence trimming made no additional paid API requests.",
+    "qualified_reviewer_required": false,
+    "internal_asr_model": "vosk-model-small-en-us-0.15 (offline, unprompted)"
+  },
+  "internal_release_gate_ref": "MAN-INTERNAL-AUDIO-RELEASE@v0.1",
+  "internal_release_eligible_count": 1,
+  "internal_release_eligible_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2"
+  ],
+  "human_acoustic_certification": "NOT_PERFORMED_NOT_REQUIRED_BY_OWNER_DIRECTION_2026_09_30",
+  "internal_release_exception_summary": {
+    "ANOMALOUS": [
+      "MAN-0165"
+    ],
+    "UNCERTAIN": [
+      "MAN-0365",
+      "MAN-0044",
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "SENSITIVE_OR_CAST_PARKED": [
+      "MAN-0565",
+      "MAN-0765",
+      "MAN-0905",
+      "MAN-0604",
+      "MAN-0844",
+      "MAN-0986"
+    ]
   }
 }
