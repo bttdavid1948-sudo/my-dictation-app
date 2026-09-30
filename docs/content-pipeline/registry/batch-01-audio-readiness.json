@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
-  "reviewed_at": "2026-09-28",
+  "reviewed_at": "2026-09-30",
   "owner_lane": "OPERATIONS_4",
   "source_refs": [
     "batch-01-canonical-lesson-assets@v0.1",
@@ -15,7 +15,7 @@
   "realization_count": 0,
   "available_audio_realization_refs_count": 0,
   "approved_qa_count": 0,
-  "status": "SEVEN_ORDINARY_BOUND_FOR_LESSON_AUDIO_QA_FIVE_EXCEPTIONS_PARKED",
+  "status": "APPROVED_FIXED_TTS_PENDING_ACCESS_AND_FINAL_REALIZATION_QA",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
@@ -39,15 +39,15 @@
     "paid_api_enabled_by_this_action": false
   },
   "next_action": {
-    "code": "COLLECT_SEVEN_INDEPENDENT_LESSON_AUDIO_QA_RESULTS",
-    "responsible_lane": "AUDIO_QA",
-    "requires": "Run batch-01-ordinary-audio-qa-page@v0.1 on the same certified Chrome 153 / Windows 10 22H2 / voice set. It plays each of seven ordinary lessons end-to-end with exact segment/speaker mapping and collects one PASS/FAIL per lesson. Validate JSON with docs/content-pipeline/lesson-audio-qa-validator.mjs against hash-verified private bundle. Register only each QA-PASS exact lesson realization and route it to #2 final realization-dependent Practice; park each failure in versioned audio-exception backlog. The five pre-existing sensitive exceptions remain parked. Do not publish or claim calibrated scoring."
+    "code": "CONFIGURE_APPROVED_OPENAI_TTS_ACCESS_AND_GENERATE_ASH_SAMPLE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Configure approved dedicated OpenAI API project and spending guardrail; synthesize minimal Ash sample using gpt-4o-mini-tts, measure actual usage/cost, then persist versioned producer-neutral fixed audio for eligible lessons. Technical checks and qualified acoustic QA apply to final realizations. Route each PASS independently to PRACTICE_2 final validation before controlled import and supported desktop/mobile verification. Park failures separately; five sensitive exceptions remain parked. Owner is not the acoustic reviewer. Google Chirp 3 HD is alternative; Browser Voice is fallback. No additional provider benchmark or reopening completed gates."
   },
   "correction": {
-    "reason": "Previous Operations review incorrectly promoted optional paid TTS to a mandatory Batch 01 dependency and generalized this Work cloud browser's missing speechSynthesis to all user runtimes.",
-    "product_constraint": "Browser/Web Speech API is Mặn V1 free baseline; premium cached cloud TTS and human recording are optional later producer paths.",
-    "contract_resolution": "Frozen v0.3 supports RUNTIME_RENDERED + SEGMENT_ADDRESSABLE without file URL; frozen Pipeline v0.2 does not make paid TTS a gate.",
-    "corrected_on": "2026-09-28"
+    "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
+    "product_constraint": "gpt-4o-mini-tts is the approved Batch 01 primary production-audio candidate; Ash is accepted for Product/UX. Preserve producer-neutral architecture.",
+    "contract_resolution": "Use versioned PERSISTED_ASSET realizations; existing frozen interfaces and completed static gates remain valid.",
+    "corrected_on": "2026-09-30"
   },
   "baseline": {
     "candidate_artifact_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -58,9 +58,9 @@
     "segment_mapping_count": 62,
     "exception_path_count": 5,
     "eligible_realization_refs_count": 0,
-    "low_stakes_condition": "A concrete browser/OS/voice/profile combination must pass appropriate acoustic QA; candidate metadata alone is not an eligible realization.",
+    "low_stakes_condition": "Runtime smoke evidence confirms playback operability only, not linguistic/acoustic correctness or lesson QA.",
     "exception_rule": "Accent transfer, prominence, overlap/interruption and subtle prosody need actual realization-sensitive evidence; if Browser Voice cannot meet it, route that lesson to an alternative producer without gating the other lessons.",
-    "premium_and_human": "OPTIONAL_LATER; paid activation would require its own approval when a specific exception actually requires it."
+    "premium_and_human": "SUPERSEDED_FOR_BATCH_01: fixed OpenAI TTS is primary; Browser Voice is fallback."
   },
   "certification_foundation": {
     "fixture_set_ref": "MAN-BV-BASELINE@v0.1",
@@ -69,9 +69,9 @@
     "cli_ref": "docs/content-pipeline/browser-voice-certification-cli.mjs",
     "test_ref": "docs/content-pipeline/browser-voice-certification.test.mjs",
     "guide_ref": "docs/content-pipeline/browser-voice-qa.md",
-    "scope": "LOW_STAKES_PRACTICE_ONLY",
-    "required_human_listening": "Five representative fixtures per browser/OS/voice combination, once and on drift; exception lessons require separate QA.",
-    "evidence_status": "CAPABILITY_QA_PASS",
+    "scope": "DEVICE_BROWSER_VOICE_PLAYBACK_SMOKE_ONLY",
+    "required_human_listening": "Existing operator evidence is limited to playback and obvious runtime errors. Qualified final-realization acoustic QA is required separately; Owner is not the acoustic reviewer.",
+    "evidence_status": "RUNTIME_SMOKE_PASS",
     "approved_realization_count": 0,
     "new_paid_services": 0,
     "evidence_ref": "browser-voice-runtime-evidence@v0.1",
