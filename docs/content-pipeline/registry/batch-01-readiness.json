@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "MAN_0065_COMPLETE_FIVE_FIXED_CANDIDATES_AWAIT_FINAL_PRACTICE",
+  "preparation_status": "THREE_ADDITIONAL_PRACTICE_PASS_READY_FOR_CONTROLLED_IMPORT_TWO_REWORK_BLOCKED",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -100,13 +100,20 @@
       "status": "PASS",
       "evidence_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
       "requirement": "Preserve prior static grounding PASS and validate only realization-dependent Practice conditions for exact MAN-0065-OPENAI-FIXED-v0.2. Controlled internal release eligibility may support Practice when target semantics do not require human-certified fine pronunciation/prosody/accent."
+    },
+    {
+      "code": "FINAL_REALIZATION_PRACTICE_REWORKED_CANDIDATES",
+      "owner_lane": "PRACTICE_2",
+      "status": "PARTIAL_PASS",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+      "requirement": "Exact-pair final Practice validation only. MAN-0165, MAN-0365 and MAN-0044 PASS; MAN-0238 and MAN-0414 remain realization-dependent blockers. Independent progression applies."
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
-    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -133,8 +140,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 1,
-    "blocker": "FIVE_EXACT_FIXED_V0_2_PAIRS_REQUIRE_FINAL_PRACTICE_SIX_SENSITIVE_CAST_PARKED"
+    "final_practice_ready": 4,
+    "blocker": "MAN_0238_AND_MAN_0414_REALIZATION_DEPENDENT_PHENOMENA_NOT_VERIFIED; SIX_SENSITIVE_CAST_PARKED"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -147,5 +154,23 @@
   "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
   "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
   "man_0065_first_live_complete": true,
-  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json"
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
+  "final_realization_practice_reworked_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+  "final_realization_practice_reworked_result": {
+    "reviewed_pairs": 5,
+    "practice_ready_pass": 3,
+    "contract_valid_pass": 3,
+    "blocked": 2,
+    "pass_lesson_ids": [
+      "MAN-0165",
+      "MAN-0365",
+      "MAN-0044"
+    ],
+    "blocked_lesson_ids": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "man_0065_first_live_complete": true,
+    "sensitive_cast_parked_count": 6
+  }
 }
