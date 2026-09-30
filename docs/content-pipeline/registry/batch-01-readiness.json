@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "ONE_INTERNAL_RELEASE_ELIGIBLE_PENDING_FINAL_PRACTICE",
+  "preparation_status": "MAN_0065_CONTROLLED_IMPORT_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -93,12 +93,19 @@
       "status": "PENDING",
       "evidence_ref": null,
       "requirement": "Provide/bind actual audio realization refs and verify realization-dependent speech phenomena, speaker/accent transfer conditions and prosodic cues before final Practice evidence/readiness claims."
+    },
+    {
+      "code": "FINAL_REALIZATION_PRACTICE_MAN_0065",
+      "owner_lane": "PRACTICE_2",
+      "status": "PASS",
+      "evidence_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
+      "requirement": "Preserve prior static grounding PASS and validate only realization-dependent Practice conditions for exact MAN-0065-OPENAI-FIXED-v0.2. Controlled internal release eligibility may support Practice when target semantics do not require human-certified fine pronunciation/prosody/accent."
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
+    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use docs/content-pipeline/registry/man-0065-final-realization-practice.json. Controlled import exactly MAN-0065@v0.1 with MAN-0065-OPENAI-FIXED-v0.2; finish support/rights checks, desktop/mobile live verification and exact-realization audio-feedback write/read verification. Keep publication blocked until those owning gates pass. Do not review/import other parked lessons from this action."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
