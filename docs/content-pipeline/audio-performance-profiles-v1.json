@@ -1,0 +1,60 @@
+{
+  "name": "Mặn Audio Performance Profile",
+  "version": "v1",
+  "fields": [
+    "language_locale",
+    "text_fidelity",
+    "pace",
+    "phrase_boundaries",
+    "connected_speech"
+  ],
+  "profiles": [
+    {
+      "profile_id": "MAN-0165-AUDIO-PERFORMANCE",
+      "profile_version": "v1",
+      "language_locale": "en-US",
+      "text_fidelity": "VERBATIM_NO_ADDITIONS_OR_OMISSIONS",
+      "pace": "MEASURED_CONVERSATIONAL_APPROX_150_WPM",
+      "phrase_boundaries": "WRITTEN_PUNCTUATION",
+      "connected_speech": "simple_reductions"
+    },
+    {
+      "profile_id": "MAN-0365-AUDIO-PERFORMANCE",
+      "profile_version": "v1",
+      "language_locale": "en-US",
+      "text_fidelity": "VERBATIM_NO_ADDITIONS_OR_OMISSIONS",
+      "pace": "MEASURED_CONVERSATIONAL_APPROX_150_WPM",
+      "phrase_boundaries": "SENTENCES_AND_CLAUSES",
+      "connected_speech": "natural"
+    },
+    {
+      "profile_id": "MAN-0044-AUDIO-PERFORMANCE",
+      "profile_version": "v1",
+      "language_locale": "en-US",
+      "text_fidelity": "VERBATIM_NO_ADDITIONS_OR_OMISSIONS",
+      "pace": "MEASURED_CONVERSATIONAL_APPROX_150_WPM",
+      "phrase_boundaries": "WRITTEN_PUNCTUATION",
+      "connected_speech": "basic_contractions"
+    },
+    {
+      "profile_id": "MAN-0238-AUDIO-PERFORMANCE",
+      "profile_version": "v1",
+      "language_locale": "en-US",
+      "text_fidelity": "VERBATIM_NO_ADDITIONS_OR_OMISSIONS",
+      "pace": "MEASURED_CONVERSATIONAL_APPROX_150_WPM",
+      "phrase_boundaries": "WRITTEN_PUNCTUATION",
+      "connected_speech": "unstressed_function_words"
+    },
+    {
+      "profile_id": "MAN-0414-AUDIO-PERFORMANCE",
+      "profile_version": "v1",
+      "language_locale": "en-US",
+      "text_fidelity": "VERBATIM_NO_ADDITIONS_OR_OMISSIONS",
+      "pace": "MEASURED_CONVERSATIONAL_APPROX_150_WPM",
+      "phrase_boundaries": "WRITTEN_PUNCTUATION",
+      "connected_speech": "common_reductions"
+    }
+  ],
+  "requested_performance_not_verified_certification": true,
+  "reused_assets_retain_original_synthesis_instructions": true
+}

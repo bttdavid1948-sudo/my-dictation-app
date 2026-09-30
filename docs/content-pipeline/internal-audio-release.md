@@ -21,3 +21,11 @@ Client fetches versioned static audio, never the TTS API. Show AI-generated disc
 Before import, preview the exact catalog/audio release. Retain current catalog and immutable audio versions in git for rollback. After official content is verified, archive/depublish the legacy learner-visible catalog entries; do not physically destroy their data. Restore the prior catalog release by reviewed revert if official playback or learning breaks. Corrected audio gets a new realization/file version and goes through this gate and final Practice again. No per-Play paid synthesis.
 
 The current runtime/report implementation is ready for release integration; backend write/read and actual fixed-audio desktop/mobile smoke remain required after Practice approval. No released official Batch 01 lesson is claimed at this handoff.
+
+## v0.2 normalization correction
+
+Retains all integrity, binding, voice, coverage and anomaly thresholds. The same unprompted Vosk gate now treats road work/roadwork and shortcut/short cut as orthographic segmentation, and en-US four/for, due/do, bare/bear as narrowly enumerated phonetic equivalences. No article, verb ending, inserted word or edit-distance mismatch is accepted. Raw transcripts remain evidence. This supplies probabilistic acoustic support only, never spelling, semantic-number, pronunciation, reduction or prosody certification. MAN-0065 existing PASS is not rerun or rewritten.
+
+## Bounded secondary evidence in v0.2
+
+Optional `--secondary-asr` accepts only pinned offline faster-whisper tiny.en revision 53b4a348cf5fad713d6322c9120d56326f831b0d and recorded model.bin SHA256, with no initial prompt, hotwords or reference text. Duplicate or wrong-asset bindings are rejected. Primary raw mismatch remains visible when secondary normalized lexical match supports internal eligibility. This is probabilistic lexical support from one recognizer, not consensus or acoustic certification. All deterministic checks and final Practice authority remain unchanged. Missing words/articles/verb endings are not normalized away.

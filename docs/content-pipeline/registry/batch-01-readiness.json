@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "MAN_0065_FIRST_LIVE_COMPLETE_OTHER_11_PARKED",
+  "preparation_status": "MAN_0065_COMPLETE_FIVE_FIXED_CANDIDATES_AWAIT_FINAL_PRACTICE",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -90,9 +90,9 @@
     {
       "code": "AUDIO_REALIZATION",
       "owner_lane": "OPERATIONS_4",
-      "status": "PENDING",
-      "evidence_ref": null,
-      "requirement": "Provide/bind actual audio realization refs and verify realization-dependent speech phenomena, speaker/accent transfer conditions and prosodic cues before final Practice evidence/readiness claims."
+      "status": "PARTIAL_PASS",
+      "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2",
+      "requirement": "MAN-0065 released COMPLETE; five additional fixed v0.2 candidates internally eligible and independently routed to final Practice. Six sensitive/cast candidates remain parked."
     },
     {
       "code": "FINAL_REALIZATION_PRACTICE_MAN_0065",
@@ -103,9 +103,10 @@
     }
   ],
   "next_action": {
-    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
+    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -133,7 +134,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 1,
-    "blocker": "OTHER_11_LESSONS_REMAIN_PARKED"
+    "blocker": "FIVE_EXACT_FIXED_V0_2_PAIRS_REQUIRE_FINAL_PRACTICE_SIX_SENSITIVE_CAST_PARKED"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -145,5 +146,6 @@
   "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
   "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
   "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
-  "man_0065_first_live_complete": true
+  "man_0065_first_live_complete": true,
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json"
 }
