@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
+    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
+    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",

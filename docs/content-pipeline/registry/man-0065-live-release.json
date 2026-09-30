@@ -5,7 +5,7 @@
   "lesson_id": "MAN-0065",
   "lesson_asset_version": "v0.1",
   "realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
-  "status": "CONTROLLED_LIVE_PARTIAL_VERIFICATION",
+  "status": "BLOCKED_MOBILE_EXECUTION_CAPABILITY",
   "definition_of_done": "NOT_COMPLETE",
   "checks": {
     "practice_exact_pair": "PASS_REUSED_CANONICAL_PRACTICE_2",
@@ -17,7 +17,7 @@
     "silent_browser_voice_fallback": "NONE_OBSERVED_FIXED_AUDIO_ONLY",
     "desktop_dictation_completion": "PASS_4_OF_4",
     "feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
-    "feedback_admin_read": "OWNER_AUTHENTICATION_REQUIRED_GOOGLE_FIREBASE",
+    "feedback_admin_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_DOCUMENT",
     "mobile_live": "BLOCKED_NO_SUPPORTED_MOBILE_DEVICE_OR_EMULATION_CAPABILITY",
     "legacy_seed_preview": "PASS_HASHES_AND_PROVENANCE",
     "legacy_seed_archive": "PASS_LIVE_CATALOG_ONLY_MAN_0065"
@@ -68,8 +68,18 @@
       "currentTime"
     ],
     "write_acknowledged": true,
-    "admin_read_verified": false,
-    "private_record_id_retained_in_operations_evidence": true
+    "admin_read_verified": true,
+    "private_record_id_retained_in_operations_evidence": true,
+    "read_binding_verified": [
+      "lessonId",
+      "lessonVersion",
+      "segmentId",
+      "realizationId",
+      "realizationVersion",
+      "profileRef",
+      "assetSha256",
+      "deliveryMode"
+    ]
   },
   "archive_evidence_ref": "docs/content-pipeline/registry/man-0065-seed-exit.json",
   "live_catalog_sha256": "87edc59a4766f975f3a6cf0037e5f38608e1b5077391413308edbba89e59a0c5",
@@ -94,12 +104,12 @@
   },
   "limitations": [
     "Internal ASR support is probabilistic; no human pronunciation/prosody/accent certification is claimed.",
-    "Desktop completion and feedback acknowledgement do not prove supported mobile behavior or administrative readback.",
-    "No other parked Batch 01 lessons imported or modified."
+    "No other parked Batch 01 lessons imported or modified.",
+    "Desktop completion and authenticated feedback write/read do not prove supported mobile behavior. No mobile live PASS is claimed."
   ],
   "next_action": {
-    "code": "VERIFY_MAN_0065_MOBILE_AND_AUDIO_FEEDBACK_READ",
+    "code": "SUPPORTED_MOBILE_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Authenticated Firebase administrative read of the already written test report; supported mobile live playback, Dictation completion and audio feedback smoke. Preserve exact v0.2 binding, archived seeds, rollback and other parked lessons."
+    "requires": "Provide supported mobile browser execution capability. Run exact fixed audio playback, Dictation completion and audio feedback smoke; desktop and feedback write/read are already PASS. Preserve archived seeds and other parked lessons."
   }
 }
