@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    {
+      "schema_version": "1.0",
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "status": "PASS_FOR_CONTROLLED_RELEASE",
+      "content_basis": "Original Mặn Batch 01 calibration draft, then canonical Curriculum review. No attributed third-party excerpt, personal identity, cloned human voice or licensed recording.",
+      "content_provenance_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0165",
+      "canonical_source_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+      "audio_basis": "OpenAI API generated speech using built-in Ash/Cedar voices and exact original canonical input; immutable output reused.",
+      "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+      "provider_terms_sections": [
+        "4.1",
+        "4.3",
+        "4.4"
+      ],
+      "reviewed_at": "2026-09-30",
+      "reviewer_lane": "OPERATIONS_4",
+      "claim_limit": "Operational provenance and terms review; no legal guarantee of exclusive or copyrightable AI output.",
+      "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản."
+    },
+    {
+      "schema_version": "1.0",
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "status": "PASS_FOR_CONTROLLED_RELEASE",
+      "content_basis": "Original Mặn Batch 01 calibration draft, then canonical Curriculum review. No attributed third-party excerpt, personal identity, cloned human voice or licensed recording.",
+      "content_provenance_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0365",
+      "canonical_source_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+      "audio_basis": "OpenAI API generated speech using built-in Ash/Cedar voices and exact original canonical input; immutable output reused.",
+      "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+      "provider_terms_sections": [
+        "4.1",
+        "4.3",
+        "4.4"
+      ],
+      "reviewed_at": "2026-09-30",
+      "reviewer_lane": "OPERATIONS_4",
+      "claim_limit": "Operational provenance and terms review; no legal guarantee of exclusive or copyrightable AI output.",
+      "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản."
+    },
+    {
+      "schema_version": "1.0",
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "status": "PASS_FOR_CONTROLLED_RELEASE",
+      "content_basis": "Original Mặn Batch 01 calibration draft, then canonical Curriculum review. No attributed third-party excerpt, personal identity, cloned human voice or licensed recording.",
+      "content_provenance_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0044",
+      "canonical_source_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+      "audio_basis": "OpenAI API generated speech using built-in Ash/Cedar voices and exact original canonical input; immutable output reused.",
+      "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+      "provider_terms_sections": [
+        "4.1",
+        "4.3",
+        "4.4"
+      ],
+      "reviewed_at": "2026-09-30",
+      "reviewer_lane": "OPERATIONS_4",
+      "claim_limit": "Operational provenance and terms review; no legal guarantee of exclusive or copyrightable AI output.",
+      "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản."
+    }
+  ]
+}

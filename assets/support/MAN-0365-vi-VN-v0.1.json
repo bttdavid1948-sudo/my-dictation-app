@@ -1,0 +1,32 @@
+{
+  "bundle_id": "MAN-0365-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0365",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review of every stable canonical segment: negation, questions, times/days/locations, causal and conditional scope preserved. English/anchors unchanged.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Nhóm dự án của chúng tôi đã đặt phòng thí nghiệm khoa học vào chiều thứ Năm. Tại sao lịch đặt phòng lại bị hủy?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Đợt kiểm tra an toàn được dời lên sớm hơn, nên phòng thí nghiệm sẽ đóng cửa sau giờ ăn trưa."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Chúng tôi cần thiết bị để hoàn thành các phép đo trước hạn nộp báo cáo."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Hãy hỏi kỹ thuật viên xem còn khung giờ buổi sáng không. Nếu khung giờ đó đã kín, hãy thu thập các số liệu đo còn lại vào thứ Sáu và báo cho tôi trước khi nộp."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Tôi sẽ kiểm tra lịch buổi sáng trước và gửi email cho thầy/cô nếu thứ Sáu là lựa chọn duy nhất của nhóm."
+    }
+  ]
+}

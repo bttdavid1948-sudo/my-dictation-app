@@ -1,5 +1,5 @@
 {
-  "catalogVersion": 2,
+  "catalogVersion": 3,
   "publisher": "man",
   "rightsNote": "Original Mặn lessons. Publication requires code/content review before merge.",
   "lessons": [
@@ -289,6 +289,321 @@
       "rightsEvidenceId": "MAN-0065-RIGHTS-v0.1",
       "supportBundleRef": "MAN-0065-SUPPORT-VI-VN@v0.1",
       "audioRealizationRef": "MAN-0065-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0165",
+      "unitName": "MAN-0165 · Đổi lịch buổi hướng dẫn viết",
+      "topic": "Học tập",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe và nhận diện giờ, địa điểm mới và việc cần làm trước khi tham gia.",
+      "usefulLanguage": [
+        "writing workshop",
+        "sign in",
+        "front desk"
+      ],
+      "items": [
+        {
+          "en": "I was planning to go to the writing workshop at three, but my class doesn't finish until half past three.",
+          "vi": "Tôi định tham gia buổi hướng dẫn viết lúc ba giờ, nhưng lớp của tôi phải đến ba giờ rưỡi mới kết thúc.",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0165-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0165",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0165-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0165-FIXED-EN-US@v0.2",
+            "sha256": "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+            "durationSeconds": 6.75,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "We've moved the workshop to four. It is in the library now, not the old classroom.",
+          "vi": "Chúng tôi đã dời buổi hướng dẫn sang bốn giờ. Giờ buổi đó diễn ra ở thư viện, không phải phòng học cũ.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0165-S002-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0165",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0165-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0165-FIXED-EN-US@v0.2",
+            "sha256": "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3",
+            "durationSeconds": 5.65,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "So I can still join if I go straight to the library?",
+          "vi": "Vậy tôi vẫn có thể tham gia nếu đi thẳng đến thư viện đúng không?",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0165-S003-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0165",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0165-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0165-FIXED-EN-US@v0.2",
+            "sha256": "1f9caaff7dc4d123f5ee46c3792ba7880e4aa7fb931e1662e50c04fd6f9f9881",
+            "durationSeconds": 4.08,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes. Please sign in at the front desk first.",
+          "vi": "Đúng rồi. Trước tiên, bạn vui lòng ghi tên vào danh sách tại quầy lễ tân.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0165-S004-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0165",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0165-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0165-FIXED-EN-US@v0.2",
+            "sha256": "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a",
+            "durationSeconds": 3.25,
+            "voice": "cedar"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0165-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0165-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0165-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0365",
+      "unitName": "MAN-0365 · Vì sao lịch phòng thí nghiệm bị đổi?",
+      "topic": "Học tập",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe nguyên nhân đổi lịch và trình tự xử lý để hoàn thành các phép đo.",
+      "usefulLanguage": [
+        "safety inspection",
+        "morning slot",
+        "measurements"
+      ],
+      "items": [
+        {
+          "en": "Our project group booked the science lab for Thursday afternoon. Why was the booking cancelled?",
+          "vi": "Nhóm dự án của chúng tôi đã đặt phòng thí nghiệm khoa học vào chiều thứ Năm. Tại sao lịch đặt phòng lại bị hủy?",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0365-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0365",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0365-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0365-FIXED-EN-US@v0.2",
+            "sha256": "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+            "durationSeconds": 7.1,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "A safety inspection was moved forward, so the lab will be closed after lunch.",
+          "vi": "Đợt kiểm tra an toàn được dời lên sớm hơn, nên phòng thí nghiệm sẽ đóng cửa sau giờ ăn trưa.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0365-S002-cedar-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0365",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0365-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0365-FIXED-EN-US@v0.2",
+            "sha256": "39bc6c6627c78d8380bde674212b7dd54a8255f6cd47e8144f4f06f78ba97342",
+            "durationSeconds": 4.95,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "We need the equipment to finish our measurements before the report is due.",
+          "vi": "Chúng tôi cần thiết bị để hoàn thành các phép đo trước hạn nộp báo cáo.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0365-S003-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0365",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0365-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0365-FIXED-EN-US@v0.2",
+            "sha256": "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613",
+            "durationSeconds": 4.45,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Ask the technician for a morning slot. If that is full, collect the remaining measurements on Friday and tell me before you submit.",
+          "vi": "Hãy hỏi kỹ thuật viên xem còn khung giờ buổi sáng không. Nếu khung giờ đó đã kín, hãy thu thập các số liệu đo còn lại vào thứ Sáu và báo cho tôi trước khi nộp.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0365-S004-cedar-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0365",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0365-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0365-FIXED-EN-US@v0.2",
+            "sha256": "155c05fba378f914ab97db7ce4c5e5675f9cbc2486816bb5a6d756bbea428e5a",
+            "durationSeconds": 7.2,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "I will check the morning timetable first and email you if Friday is our only option.",
+          "vi": "Tôi sẽ kiểm tra lịch buổi sáng trước và gửi email cho thầy/cô nếu thứ Sáu là lựa chọn duy nhất của nhóm.",
+          "segmentId": "S005",
+          "audio": {
+            "url": "assets/audio/MAN-0365-S005-ash-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0365",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0365-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0365-FIXED-EN-US@v0.2",
+            "sha256": "5d310dc5e6e377cb86171a440e2222112405d42781dbc985561fbad62d57fe52",
+            "durationSeconds": 6.25,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0365-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0365-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0365-OPENAI-FIXED-v0.2",
+      "practiceReady": true,
+      "contractValid": true,
+      "publicationClass": "CONTROLLED_INTERNAL_RELEASE",
+      "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0044",
+      "unitName": "MAN-0044 · Xe buýt có trạm dừng mới",
+      "topic": "Đi lại",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe thông tin thay đổi trạm dừng và xác định nơi xuống xe để đến chợ.",
+      "usefulLanguage": [
+        "get off",
+        "road work",
+        "one stop after"
+      ],
+      "items": [
+        {
+          "en": "Does this bus still stop at Green Street?",
+          "vi": "Xe buýt này còn dừng ở phố Green không?",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0044-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0044",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0044-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0044-FIXED-EN-US@v0.2",
+            "sha256": "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+            "durationSeconds": 3.65,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "No, it doesn't. Road work starts today.",
+          "vi": "Không, xe không dừng ở đó nữa. Công việc sửa đường bắt đầu hôm nay.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0044-S002-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0044",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0044-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0044-FIXED-EN-US@v0.2",
+            "sha256": "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3",
+            "durationSeconds": 3.55,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Where can I get off for the market?",
+          "vi": "Tôi có thể xuống ở đâu để đến chợ?",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0044-S003-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0044",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0044-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0044-FIXED-EN-US@v0.2",
+            "sha256": "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf",
+            "durationSeconds": 2.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Get off at River Road. It's one stop after the bridge.",
+          "vi": "Hãy xuống ở đường River. Trạm đó nằm sau cây cầu một trạm.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0044-S004-cedar-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0044",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0044-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0044-FIXED-EN-US@v0.2",
+            "sha256": "74a9164a55773200917878e38e8f2329737494997b1c0007b04f1ee4bcd05246",
+            "durationSeconds": 4.2,
+            "voice": "cedar"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0044-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0044-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0044-OPENAI-FIXED-v0.2",
       "practiceReady": true,
       "contractValid": true,
       "publicationClass": "CONTROLLED_INTERNAL_RELEASE",

@@ -664,7 +664,7 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
       },
-      "validation_status": "STRUCTURED_EVIDENCE_RECORDED",
+      "validation_status": "HASH_VERIFIED",
       "reviewed_pair_count": 5,
       "practice_ready_pass_count": 3,
       "contract_valid_pass_count": 3,
@@ -674,7 +674,9 @@
         "responsible_lane": "OPERATIONS_4",
         "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
         "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
-      }
+      },
+      "sha256": "52f36fd0f73ddff910151740581cb05991238424b52c55dd347cdc2ac7f4d22c",
+      "size_bytes": 6871
     }
   ]
 }
