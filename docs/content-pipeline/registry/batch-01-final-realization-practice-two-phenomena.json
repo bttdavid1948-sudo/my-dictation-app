@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-01-final-realization-practice-two-phenomena",
+  "version": "v0.1",
+  "status": "REVIEW_READY",
+  "owner_lane": "PRACTICE_2",
+  "action_code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+  "source_refs": [
+    "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
+    "batch-01-final-realization-practice-validation-reworked@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3"
+  ],
+  "preserved_truth": {
+    "static_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "audio_changed": false,
+    "human_acoustic_certification": "NOT_REQUIRED_NOT_CLAIMED",
+    "probabilistic_phone_and_asr_evidence": "SUPPORTING_ONLY",
+    "man_0065_first_live": "COMPLETE_UNCHANGED",
+    "other_live_runtime_pass_lessons": "PASS_PRESERVED",
+    "sensitive_cast_lessons": "PARKED_UNCHANGED"
+  },
+  "pair_results": [
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "anchor_id": "MAN-0238-A-SPCH-01",
+      "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+      "phenomenon_type": "unstressed function words",
+      "practice_operator": "TARGETED_DICTATION",
+      "prior_blocker": "UNSTRESSED_FUNCTION_WORD_REALIZATION_NOT_VERIFIED",
+      "decision": "PASS",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "rationale": [
+        "Frozen target requires an actual natural unstressed-function-word realization in the selected anchor segments; it does not require every function-word token in those segments to be unstressed.",
+        "New exact-asset evidence shows multiple directional weak-function-word instances: S002 article/function 'the' regions are markedly shorter/lower-energy than adjacent content-vowel comparators; S004 'the' before newsletter is substantially lower-energy/lower-F0 than the following stressed content vowel.",
+        "The counterexample before 'problem' is retained and prevents overgeneralization; it does not invalidate the target because Practice evidence can bind to verified target instances rather than claiming all function words share the property.",
+        "Phone/ASR boundaries remain probabilistic, so this PASS supports controlled segmentation practice only and does not certify pronunciation, stress, prosody, accent, or universal weak-form realization."
+      ],
+      "scoring_boundary": "Use only verified target instances/regions for phenomenon-sensitive scoring. Do not score unverified function-word tokens as unstressed.",
+      "conflict": "NONE"
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "anchor_id": "MAN-0414-A-SPCH-01",
+      "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+      "phenomenon_type": "common reductions",
+      "practice_operator": "TARGETED_DICTATION",
+      "prior_blocker": "COMMON_REDUCTIONS_REALIZATION_NOT_VERIFIED",
+      "decision": "PASS",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "rationale": [
+        "Frozen target requires actual connected-speech reduction instances in the selected segments; it does not require a particular catalog of reductions or that every candidate token be reduced.",
+        "S003 and S004 each contain an independently decoded short central-vowel AH candidate aligned to article 'a', consistent with a common weak-form realization rather than a full strong-form vowel.",
+        "The evidence is sufficient for controlled local decoding because the same weak-form pattern occurs in both anchor segments and the exact WAV/assets are unchanged and deterministically bound.",
+        "Uncertain or contradictory tokens such as 'to' and the article after 'as' are explicitly excluded from scoring; no claim is made that all reductions in the segments are verified."
+      ],
+      "scoring_boundary": "Bind phenomenon-sensitive practice only to the verified article weak-form instances. Do not infer or score reductions for 'to' or other unverified tokens.",
+      "conflict": "NONE"
+    }
+  ],
+  "summary": {
+    "reviewed_pair_count": 2,
+    "practice_ready_pass_count": 2,
+    "contract_valid_pass_count": 2,
+    "blocked_pair_count": 0,
+    "independent_progression": true,
+    "total_fixed_realization_practice_ready_after_action": 6,
+    "owner_decision_required": false
+  },
+  "explicit_nonclaims": [
+    "No human-certified pronunciation, stress, prosody, accent or perceptual naturalness is claimed.",
+    "Probabilistic phone/ASR evidence is used only with deterministic exact-asset binding and directional acoustic measurements.",
+    "PASS is instance-bounded: only verified target regions may support phenomenon-sensitive scoring.",
+    "These decisions do not change Curriculum semantics, Practice taxonomy, or frozen contracts."
+  ],
+  "next_action": {
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "requires": "Reuse the established MAN-0065 controlled release path and existing support/rights/runtime/feedback machinery for the exact v0.1 + fixed v0.2 pairs. Keep phenomenon-sensitive scoring bound only to the verified target instances described here. Do not redesign pipeline or require human acoustic review."
+  }
+}
