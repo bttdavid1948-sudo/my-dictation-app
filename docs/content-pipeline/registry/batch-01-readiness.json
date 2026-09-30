@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "FOUR_LIVE_RUNTIME_PASS_TWO_PHENOMENA_REVALIDATION_READY_FEEDBACK_READ_ISOLATED_PENDING",
+  "preparation_status": "SIX_FIXED_REALIZATIONS_PRACTICE_READY_FOUR_LIVE_RUNTIME_PASS_TWO_AWAIT_CONTROLLED_RELEASE_FEEDBACK_READ_ISOLATED_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,14 +110,14 @@
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
-    "responsible_lane": "PRACTICE_2",
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
     "pairs": [
       "MAN-0238",
       "MAN-0414"
     ],
-    "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision.",
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
+    "requires": "Practice #2 PASS for exact pairs MAN-0238@v0.1 + MAN-0238-OPENAI-FIXED-v0.2 and MAN-0414@v0.1 + MAN-0414-OPENAI-FIXED-v0.2. Reuse established MAN-0065 support/rights/import/desktop-mobile/exact-feedback/rollback machinery. Keep phenomenon-sensitive scoring restricted to verified target instances; no human acoustic certification required.",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -144,8 +144,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 4,
-    "blocker": "MAN_0238_AND_MAN_0414_REALIZATION_DEPENDENT_PHENOMENA_NOT_VERIFIED; SIX_SENSITIVE_CAST_PARKED"
+    "final_practice_ready": 6,
+    "blocker": "SIX_SENSITIVE_CAST_PARKED; THREE_LIVE_FEEDBACK_ADMIN_READ_ISOLATED_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -198,5 +198,16 @@
       "not_attempted_this_action": true
     }
   ],
-  "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
+  "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
+  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+  "final_realization_practice_two_phenomena_result": {
+    "reviewed_pairs": 2,
+    "practice_ready_pass": 2,
+    "contract_valid_pass": 2,
+    "blocked": 0,
+    "pass_lesson_ids": [
+      "MAN-0238",
+      "MAN-0414"
+    ]
+  }
 }

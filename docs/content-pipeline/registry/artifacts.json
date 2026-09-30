@@ -23,7 +23,8 @@
     "batch-01-targeted-audio-practice-handoff": "v0.2",
     "batch-01-final-realization-practice-validation-reworked": "v0.1",
     "batch-01-three-live-runtime-evidence": "v0.1",
-    "batch-01-two-phenomena-practice-handoff": "v0.1"
+    "batch-01-two-phenomena-practice-handoff": "v0.1",
+    "batch-01-final-realization-practice-two-phenomena": "v0.1"
   },
   "artifacts": [
     {
@@ -748,6 +749,46 @@
         "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
       },
       "practice_semantic_pass_claimed": false
+    },
+    {
+      "id": "batch-01-final-realization-practice-two-phenomena",
+      "name": "batch-01-final-realization-practice-two-phenomena.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 revalidation using exact acoustic/phonetic evidence",
+        "Static Curriculum/Practice grounding preserved PASS",
+        "Exact unchanged v0.2 realizations for MAN-0238 and MAN-0414"
+      ],
+      "dependencies": [
+        "batch-01-two-phenomena-practice-handoff@v0.1",
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 2,
+      "practice_ready_pass_count": 2,
+      "contract_valid_pass_count": 2,
+      "blocked_pair_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          "MAN-0238",
+          "MAN-0414"
+        ],
+        "requires": "Reuse the established MAN-0065 controlled release path and existing support/rights/runtime/feedback machinery for the exact v0.1 + fixed v0.2 pairs. Keep phenomenon-sensitive scoring bound only to the verified target instances described here. Do not redesign pipeline or require human acoustic review."
+      }
     }
   ]
 }
