@@ -11,14 +11,14 @@
       userAgent:(global.navigator?.userAgent||'').slice(0,300),viewport:`${global.innerWidth||0}x${global.innerHeight||0}`,
       playbackRate:runtime.rate||1,playbackState:runtime.state||'not_played',currentTime:runtime.currentTime||0};
   }
-  function stop() { ++generation; if (player) { player.pause(); player.removeAttribute('src'); player.load(); player = null; } }
+  function stop() { ++generation; if (player) { player.pause(); player.removeAttribute('src'); player.load(); player.remove?.(); player = null; } }
   function play(item, rate, ended, failed) {
     const c = context(item,{rate,state:'loading'});
     if (!c) { if(item?.audio){failed?.();return true;}return false; }
     stop(); const token=generation;
     const url=new URL(item.audio.url,global.location.href);
     if(url.origin!==global.location.origin || !url.pathname.includes('/assets/audio/')) {lastContext={...c,playbackState:'invalid_asset_url'};failed?.();return true;}
-    const audio=player=new global.Audio(url.href);audio.playbackRate=Math.max(.2,Math.min(2,Number(rate)||1));
+    const audio=player=new global.Audio(url.href);audio.id='man-fixed-audio-player';audio.hidden=true;audio.dataset&&(audio.dataset.realizationId=c.realizationId,audio.dataset.segmentId=c.segmentId,audio.dataset.assetSha256=c.assetSha256);global.document?.body.append(audio);audio.playbackRate=Math.max(.2,Math.min(2,Number(rate)||1));
     lastContext=c;
     audio.onplaying=()=>{if(token===generation)lastContext={...c,playbackState:'playing'};};
     audio.onended=()=>{if(token===generation){lastContext={...c,playbackState:'ended',currentTime:audio.currentTime};ended?.();}};

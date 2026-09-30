@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "lesson_id": "MAN-0065",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
+  "status": "PASS_FOR_CONTROLLED_RELEASE",
+  "content_basis": "Original Mặn calibration draft B01-MAN-0065-START-v0.1 and SUBMIT-v0.1; canonical Curriculum-reviewed original classroom dialogue. No attributed third-party excerpt, personal identity, cloned human voice or licensed recording used.",
+  "content_provenance_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0065",
+  "canonical_source_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+  "audio_basis": "OpenAI API generated speech using built-in Ash/Cedar voices and the canonical original input; fixed generated output retained.",
+  "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+  "provider_terms_section": "4.1 Output ownership; 4.3 input rights/customer evaluation; 4.4 non-unique output limitation",
+  "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.",
+  "reviewed_at": "2026-09-30",
+  "reviewer_lane": "OPERATIONS_4",
+  "claim_limit": "Operational provenance/terms review, not a legal guarantee of unique or copyrightable AI output."
+}

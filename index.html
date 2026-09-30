@@ -2191,7 +2191,7 @@ async function xSendAudioReport(){
  if(!message)return;button.disabled=true;
  const u=auth.currentUser||window.currentUser;
  const payload={kind:'Báo bug',message,page:'audio',uid:u?.uid||null,email:u?.email||null,nickname:u?xIdentityName():'Người lạ',userAgent:navigator.userAgent.slice(0,500),createdAt:firebase.firestore.FieldValue.serverTimestamp(),status:'new'};
- try{await db.collection('owner_feedback').add(payload);document.getElementById('x-audio-report-status').textContent='Đã gửi. Cảm ơn bạn đã giúp Mặn nghe tốt hơn!';}
+ try{const reportRef=await db.collection('owner_feedback').add(payload);document.getElementById('x-audio-report-status').dataset.reportId=reportRef.id;document.getElementById('x-audio-report-status').textContent='Đã gửi. Cảm ơn bạn đã giúp Mặn nghe tốt hơn!';}
  catch(error){document.getElementById('x-audio-report-status').textContent='Chưa gửi được. Bạn thử lại nha; thông tin vẫn còn ở đây.';}
  finally{button.disabled=false;}
 }

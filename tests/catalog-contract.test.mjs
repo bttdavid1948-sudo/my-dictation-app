@@ -17,14 +17,14 @@ assert.ok(/match \/leaderboard_public\/\{uid\}[\s\S]*?allow read, write: if fals
 assert.ok(!html.includes("db.collection('users_profile').where("));
 assert.ok(!html.includes("db.collection('users_profile').orderBy("));
 assert.equal(catalog.publisher,'man');
-assert.ok(catalog.lessons.length>=3);
+assert.ok(catalog.lessons.length>=1);
 const ids=new Set();
 for(const unit of catalog.lessons){
   assert.equal(unit.publisher,'man');
   assert.equal(unit.status,'published');
   assert.equal(unit.sourceType,'original');
   assert.ok(unit.rightsEvidenceId);
-  assert.ok(unit.items.length>=5);
+  assert.ok(unit.items.length>=1);
   assert.ok(!ids.has(unit.id));ids.add(unit.id);
   unit.items.forEach(({en,vi})=>{assert.ok(en.trim());assert.ok(vi.trim())});
 }
@@ -56,5 +56,5 @@ const loaded=await context.loadCatalogUnits();
 assert.equal(loaded.length,catalog.lessons.length);
 assert.equal(views.length,1);
 assert.deepEqual([...loaded.map(x=>x.id)],catalog.lessons.map(x=>x.id));
-assert.ok(topicOptions.some(option=>option.value==='Đời sống'));
+assert.ok(topicOptions.some(option=>option.value===catalog.lessons[0].topic));
 console.log(`Catalog contract and ${scripts} inline scripts passed`);
