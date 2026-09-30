@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<script src="assets/fixed-audio-runtime.js"></script>
+<script src="assets/fixed-audio-runtime.js?release=MAN-0065-v0.2"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mặn — Xóm Này Out Trình</title>
@@ -2179,6 +2179,7 @@ function xOpenAudioReport(){
  const transcript=!document.getElementById('study-view-transcript').classList.contains('hidden');
  xAudioReportContext=ManFixedAudio.reportContext(items[transcript?xTranscriptCursor:currentIndex],Number(document.getElementById('rate-select').value));
  if(!xAudioReportContext)return;
+ document.getElementById('x-audio-report-modal').dataset.audioContext=JSON.stringify(xAudioReportContext);
  xAudioReportFocus=document.activeElement;
  const select=document.getElementById('x-audio-report-category');select.replaceChildren(...ManFixedAudio.categories.map(c=>new Option(c,c)));
  document.getElementById('x-audio-report-note').value='';document.getElementById('x-audio-report-status').textContent='';
