@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "SIX_OFFICIAL_COMPLETE_THREE_INTERNAL_ELIGIBLE_PRACTICE_PENDING_THREE_EXCEPTIONS",
+  "preparation_status": "SIX_OFFICIAL_COMPLETE_THREE_MORE_PRACTICE_READY_AWAIT_CONTROLLED_RELEASE_THREE_ISOLATED_EXCEPTIONS",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,27 +110,14 @@
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_THREE_INDEPENDENT_EXCEPTION_PAIRS",
-    "responsible_lane": "PRACTICE_2",
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
     "pairs": [
-      {
-        "lesson_id": "MAN-0765",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
-      },
-      {
-        "lesson_id": "MAN-0604",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
-      },
-      {
-        "lesson_id": "MAN-0986",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
-      }
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
     ],
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-    "requires": "Validate each exact pair independently using private fixed audio and actual model/conditional acoustic evidence. Preserve completed static gates. No Operations semantic PASS, human certification or live publication claimed. After each PASS return independently to Operations established controlled release. Three accent/overlap exceptions are isolated and do not block these pairs."
+    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -157,8 +144,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 6,
-    "blocker": "THREE_FINAL_REALIZATION_PRACTICE_PENDING; THREE_ISOLATED_AUDIO_EXCEPTIONS"
+    "final_practice_ready": 9,
+    "blocker": "THREE_ISOLATED_AUDIO_EXCEPTIONS_MAN_0565_MAN_0905_MAN_0844"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -318,5 +305,17 @@
       "lesson_asset_version": "v0.1",
       "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
     }
-  ]
+  ],
+  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+  "final_realization_practice_three_exceptions_result": {
+    "reviewed_pairs": 3,
+    "practice_ready_pass": 3,
+    "contract_valid_pass": 3,
+    "blocked": 0,
+    "pass_lesson_ids": [
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
+    ]
+  }
 }

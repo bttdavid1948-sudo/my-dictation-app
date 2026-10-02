@@ -27,7 +27,8 @@
     "batch-01-final-realization-practice-two-phenomena": "v0.1",
     "batch-01-two-new-live-runtime-evidence": "v0.1",
     "batch-01-six-exceptions-man0765-practice-handoff": "v0.1",
-    "batch-01-independent-exceptions-practice-handoff": "v0.1"
+    "batch-01-independent-exceptions-practice-handoff": "v0.1",
+    "batch-01-final-realization-practice-three-independent-exceptions": "v0.1"
   },
   "artifacts": [
     {
@@ -881,6 +882,48 @@
       "size_bytes": 4321889,
       "validation_status": "HASH_VERIFIED",
       "next_gate": "PRACTICE_2_EXACT_FINAL_REALIZATIONS"
+    },
+    {
+      "id": "batch-01-final-realization-practice-three-independent-exceptions",
+      "name": "batch-01-final-realization-practice-three-exceptions.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 exact final-realization validation for MAN-0765, MAN-0604 and MAN-0986",
+        "Private fixed-audio handoffs and actual acoustic/model evidence",
+        "Previously completed static Curriculum/Practice grounding preserved"
+      ],
+      "dependencies": [
+        "batch-01-six-exceptions-man0765-practice-handoff@v0.1",
+        "batch-01-independent-exceptions-practice-handoff@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-02",
+      "updated_at": "2026-10-02",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 3,
+      "practice_ready_pass_count": 3,
+      "contract_valid_pass_count": 3,
+      "blocked_pair_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          "MAN-0765",
+          "MAN-0604",
+          "MAN-0986"
+        ],
+        "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+      }
     }
   ]
 }
