@@ -289,23 +289,7 @@
     "global_batch_blocker": false,
     "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
   },
-  "pending_final_practice_exception_pairs": [
-    {
-      "lesson_id": "MAN-0765",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
-    },
-    {
-      "lesson_id": "MAN-0604",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
-    },
-    {
-      "lesson_id": "MAN-0986",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
-    }
-  ],
+  "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "final_realization_practice_three_exceptions_result": {
     "reviewed_pairs": 3,
