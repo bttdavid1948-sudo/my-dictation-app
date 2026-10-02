@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-01-final-realization-practice-three-independent-exceptions",
+  "version": "v0.1",
+  "status": "REVIEW_READY",
+  "owner_lane": "PRACTICE_2",
+  "action_code": "FINAL_REALIZATION_PRACTICE_VALIDATION_THREE_INDEPENDENT_EXCEPTION_PAIRS",
+  "source_refs": [
+    "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+    "batch-01-six-exceptions-man0765-practice-handoff@v0.1",
+    "batch-01-independent-exceptions-practice-handoff@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3"
+  ],
+  "preserved_truth": {
+    "static_curriculum_practice_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "existing_six_official_complete": "PRESERVED",
+    "human_acoustic_certification": "NOT_REQUIRED_NOT_CLAIMED",
+    "operations_semantic_override": "NONE",
+    "accent_overlap_exceptions": "ISOLATED_UNCHANGED"
+  },
+  "pair_results": [
+    {
+      "lesson_id": "MAN-0765",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2",
+      "anchor_id": "MAN-0765-A-SPCH-01",
+      "construct_type": "FORM_OR_MEANING_ACCESS",
+      "phenomenon_type": "discourse markers",
+      "practice_operator": "MEANING_PARAPHRASE",
+      "decision": "PASS",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "rationale": [
+        "Prior Practice grounding already selected function/meaning behavior for the discourse-marker anchor; this action does not reopen that decision.",
+        "All three Curriculum-marked discourse signals are deterministically bound to exact canonical spans and have unprompted timestamped lexical recognition support: 'On the face of it', 'although', and 'In other words'.",
+        "The realization requirement is intelligible realization of the marked discourse signals. Perceptual distinctness of the three requested voices is not part of this Practice target and is therefore not required for final Practice readiness.",
+        "No pronunciation/prosody/accent or perceptual speaker-identity certification is inferred."
+      ],
+      "scoring_boundary": "Assess discourse-marker function/meaning in context. Do not score accent, speaker identity or fine pronunciation from this evidence.",
+      "conflict": "NONE"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1",
+      "anchor_id": "MAN-0604-A-SPCH-01",
+      "construct_type": "ACOUSTIC_CONTRAST_OR_MEANING_CUE",
+      "phenomenon_type": "prominence",
+      "practice_operator": "ACOUSTIC_DISCRIMINATION_OR_COMPREHENSION_CONDITION",
+      "decision": "PASS",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "rationale": [
+        "Exact target spans are deterministically bound and the realization contains measurable relative acoustic differences across the contrastive targets.",
+        "In S001, 'efficient' and 'dismissive' show a defensible contrast across F0/intensity dimensions; 'dismissive' is materially higher in RMS while 'efficient' shows a higher median F0 than nearby material. This supports contrastive-prominence evidence without requiring one universal acoustic direction.",
+        "In S003, 'context' versus the clause ending in 'clear instruction' participates in the explicit semantic contrast already grounded by Curriculum. Acoustic measurements provide supporting differentiation, but isolated lexical prominence on every word in 'clear instruction' is not claimed.",
+        "Because the frozen construct is ACOUSTIC_CONTRAST_OR_MEANING_CUE, Practice may use the verified S001 contrast for separate prominence-sensitive evidence and use S003 only as a meaning-cue/comprehension condition where appropriate."
+      ],
+      "scoring_boundary": "Do not assign a universal prominence score to all four spans. Separate acoustic-discrimination scoring is permitted only on verified contrastive instances; otherwise prominence remains a condition on comprehension evidence.",
+      "conflict": "NONE"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2",
+      "anchor_id": "MAN-0986-A-SPCH-01",
+      "construct_type": "PROSODIC_MEANING_CUE",
+      "phenomenon_type": "subtle prosody",
+      "practice_operator": "INFERENCE_STANCE",
+      "decision": "PASS",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "rationale": [
+        "The frozen Practice mapping treats subtle prosody as a meaning cue for INFERENCE_STANCE, not as a standalone prosody-production or pronunciation score.",
+        "S005 shows a measurable prosodic contrast within 'wonderfully clear and wonderfully misleading': the first 'wonderfully' has substantially elevated F0, while the second 'wonderfully' is substantially higher in intensity and 'misleading' drops in F0. Combined with the canonical ironic wording, this provides a defensible realized cue.",
+        "S007 shows a distinct contour across 'Not catchy, perhaps': 'catchy' reaches higher F0 while 'perhaps' is lower in both F0 and intensity, consistent with a parenthetical/wry qualification before the sober continuation.",
+        "These measurements are conditional on probabilistic word windows and do not certify perceived irony or naturalness. They are sufficient only to support the already-grounded inference key in controlled Practice."
+      ],
+      "scoring_boundary": "Score the learner's defensible inference/stance interpretation, not their identification of a prescribed pitch contour. Transcript exposure would change the construct and must remain support-aware.",
+      "conflict": "NONE"
+    }
+  ],
+  "summary": {
+    "reviewed_pair_count": 3,
+    "practice_ready_pass_count": 3,
+    "contract_valid_pass_count": 3,
+    "blocked_pair_count": 0,
+    "independent_progression": true,
+    "total_fixed_realization_practice_ready_after_action": 9,
+    "total_official_live_complete_before_operations_release": 6,
+    "owner_decision_required": false
+  },
+  "explicit_nonclaims": [
+    "No human-certified pronunciation, prosody, accent, speaker identity or perceptual naturalness is claimed.",
+    "ASR, word timing, F0 and acoustic interpretation remain probabilistic where stated.",
+    "PASS decisions are exact-realization decisions and do not generalize to other audio versions.",
+    "Three accent/overlap capability-gap lessons remain independent and unchanged."
+  ],
+  "next_action": {
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
+    ],
+    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+  }
+}
