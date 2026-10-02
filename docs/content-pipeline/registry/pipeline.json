@@ -5,13 +5,17 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
-    "responsible_lane": "NONE",
-    "blocking_code": "NONE",
-    "global_batch_blocker": false,
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
-    "owner_action_required": false
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_MAN_0765_FIXED_V0_2",
+    "responsible_lane": "PRACTICE_2",
+    "pairs": [
+      {
+        "lesson_id": "MAN-0765",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+      }
+    ],
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+    "requires": "Validate only exact final realization against existing static grounding PASS and frozen contracts. Technical/internal eligibility and unprompted discourse-marker support are available; perceptual speaker identity and fine pronunciation/prosody/accent are unverified. Operations does not assert final PRACTICE_READY or CONTRACT_VALID. After PASS route back to Operations for established controlled release. Do not wait for the five independent remaining exceptions."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -192,5 +196,18 @@
     "verified": 0,
     "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
     "release_gate": false
+  },
+  "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+  "authorized_remaining_audio_exception_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "independent_operations_next_action": {
+    "code": "TARGETED_PROMINENCE_REALIZATION_AND_INTERNAL_EVIDENCE_MAN_0604",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Authorized remaining branch; no additional Owner permission. Targeted minimum synthesis and actual acoustic evidence, then Practice #2 disposition. Other remaining branches stay independent."
   }
 }

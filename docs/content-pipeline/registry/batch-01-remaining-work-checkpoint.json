@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "checked_at": "2026-09-30T23:33:39.006535+00:00",
-  "status": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS_SIX_SENSITIVE_CAST_PARKED",
+  "checked_at": "2026-10-02T11:57:43.873280+00:00",
+  "status": "SIX_OFFICIAL_COMPLETE_MAN0765_ELIGIBLE_PRACTICE_PENDING_FIVE_OPERATIONS_EXCEPTIONS",
   "published_official_lesson_ids": [
     "MAN-0065",
     "MAN-0165",
@@ -32,7 +32,6 @@
   "verified_new_feedback_admin_reads": 0,
   "parked_sensitive_cast_lesson_ids": [
     "MAN-0565",
-    "MAN-0765",
     "MAN-0905",
     "MAN-0604",
     "MAN-0844",
@@ -40,15 +39,19 @@
   ],
   "independent_progression": true,
   "global_batch_blocker": false,
-  "current_scope_independent_operations_work_remaining": false,
+  "current_scope_independent_operations_work_remaining": true,
   "next_action": {
-    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
-    "responsible_lane": "NONE",
-    "blocking_code": "NONE",
-    "global_batch_blocker": false,
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
-    "owner_action_required": false
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_MAN_0765_FIXED_V0_2",
+    "responsible_lane": "PRACTICE_2",
+    "pairs": [
+      {
+        "lesson_id": "MAN-0765",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+      }
+    ],
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+    "requires": "Validate only exact final realization against existing static grounding PASS and frozen contracts. Technical/internal eligibility and unprompted discourse-marker support are available; perceptual speaker identity and fine pronunciation/prosody/accent are unverified. Operations does not assert final PRACTICE_READY or CONTRACT_VALID. After PASS route back to Operations for established controlled release. Do not wait for the five independent remaining exceptions."
   },
   "preserved_evidence_refs": [
     "docs/content-pipeline/registry/man-0065-live-release.json",
@@ -56,13 +59,13 @@
     "docs/content-pipeline/registry/batch-01-two-live-release.json"
   ],
   "no_google_sign_in_retry_this_action": true,
-  "incremental_tts_api_requests": 0,
-  "incremental_tts_api_cost_usd": 0,
-  "total_metered_tts_api_cost_usd": 0.093048,
+  "incremental_tts_api_requests": 4,
+  "incremental_tts_api_cost_usd": 0.0080958,
+  "total_metered_tts_api_cost_usd": 0.1011438,
   "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
   "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
   "owner_action_required_now": false,
-  "next_scope_boundary": "Six sensitive/cast lessons remain parked outside the authorized current action; no provider benchmarking or unrelated UX work.",
+  "next_scope_boundary": "All six exceptions authorized by Owner 2026-10-02. MAN-0765 routes to Practice #2; five remaining independent Operations branches stay authorized. No unrelated UX/providers or renewed Owner approval.",
   "latest_resume_attempt": {
     "checked_at": "2026-09-30T22:45:40.213Z",
     "source_main": "36e56c045ad1931466f04e3396b98ec38dfb2127",
@@ -94,5 +97,18 @@
     "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
     "release_gate": false
   },
-  "retained_not_independently_read_feedback_record_count": 10
+  "retained_not_independently_read_feedback_record_count": 10,
+  "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+  "authorized_remaining_audio_exception_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "independent_operations_next_action": {
+    "code": "TARGETED_PROMINENCE_REALIZATION_AND_INTERNAL_EVIDENCE_MAN_0604",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Authorized remaining branch; no additional Owner permission. Targeted minimum synthesis and actual acoustic evidence, then Practice #2 disposition. Other remaining branches stay independent."
+  }
 }
