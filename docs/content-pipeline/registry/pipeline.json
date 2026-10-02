@@ -5,27 +5,14 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_THREE_INDEPENDENT_EXCEPTION_PAIRS",
-    "responsible_lane": "PRACTICE_2",
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
     "pairs": [
-      {
-        "lesson_id": "MAN-0765",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
-      },
-      {
-        "lesson_id": "MAN-0604",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
-      },
-      {
-        "lesson_id": "MAN-0986",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
-      }
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
     ],
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-    "requires": "Validate each exact pair independently using private fixed audio and actual model/conditional acoustic evidence. Preserve completed static gates. No Operations semantic PASS, human certification or live publication claimed. After each PASS return independently to Operations established controlled release. Three accent/overlap exceptions are isolated and do not block these pairs."
+    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -120,7 +107,10 @@
     "MAN-0365-OPENAI-FIXED-v0.2",
     "MAN-0044-OPENAI-FIXED-v0.2",
     "MAN-0238-OPENAI-FIXED-v0.2",
-    "MAN-0414-OPENAI-FIXED-v0.2"
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
   ],
   "practice_blocked_fixed_realization_ids": [],
   "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
@@ -224,21 +214,6 @@
     "global_batch_blocker": false,
     "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
   },
-  "pending_final_practice_exception_pairs": [
-    {
-      "lesson_id": "MAN-0765",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
-    },
-    {
-      "lesson_id": "MAN-0604",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
-    },
-    {
-      "lesson_id": "MAN-0986",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
-    }
-  ]
+  "pending_final_practice_exception_pairs": [],
+  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json"
 }
