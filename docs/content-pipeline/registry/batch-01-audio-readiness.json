@@ -15,7 +15,7 @@
   "realization_count": 6,
   "available_audio_realization_refs_count": 6,
   "approved_qa_count": 0,
-  "status": "SIX_OFFICIAL_COMPLETE_MAN0765_ELIGIBLE_PRACTICE_PENDING_FIVE_OPERATIONS_EXCEPTIONS",
+  "status": "SIX_OFFICIAL_COMPLETE_THREE_INTERNAL_ELIGIBLE_PRACTICE_PENDING_THREE_EXCEPTIONS",
   "evidence": {
     "local_tts_engine": "NONE_FOUND",
     "cloud_browser_speech_synthesis": "UNAVAILABLE_IN_THIS_WORK_CLOUD_BROWSER_ONLY; NOT EVIDENCE AGAINST USER_DEVICE_WEB_SPEECH",
@@ -53,17 +53,27 @@
     "batch_wide_false_flags_do_not_override_independent_lesson_pass": true
   },
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_MAN_0765_FIXED_V0_2",
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_THREE_INDEPENDENT_EXCEPTION_PAIRS",
     "responsible_lane": "PRACTICE_2",
     "pairs": [
       {
         "lesson_id": "MAN-0765",
         "lesson_asset_version": "v0.1",
         "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+      },
+      {
+        "lesson_id": "MAN-0604",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
+      },
+      {
+        "lesson_id": "MAN-0986",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
       }
     ],
     "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-    "requires": "Validate only exact final realization against existing static grounding PASS and frozen contracts. Technical/internal eligibility and unprompted discourse-marker support are available; perceptual speaker identity and fine pronunciation/prosody/accent are unverified. Operations does not assert final PRACTICE_READY or CONTRACT_VALID. After PASS route back to Operations for established controlled release. Do not wait for the five independent remaining exceptions."
+    "requires": "Validate each exact pair independently using private fixed audio and actual model/conditional acoustic evidence. Preserve completed static gates. No Operations semantic PASS, human certification or live publication claimed. After each PASS return independently to Operations established controlled release. Three accent/overlap exceptions are isolated and do not block these pairs."
   },
   "correction": {
     "reason": "Owner superseded Browser Voice baseline and Chirp-first routing for Batch 01.",
@@ -107,8 +117,8 @@
   "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
   "qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
   "qa_page_ref": "batch-01-ordinary-audio-qa-page@v0.1",
-  "candidate_realization_count": 7,
-  "final_candidate_segment_count": 32,
+  "candidate_realization_count": 9,
+  "final_candidate_segment_count": 43,
   "fixed_audio_progress": {
     "model": "gpt-4o-mini-tts",
     "primary_voice": "ash",
@@ -126,21 +136,21 @@
       "MAN-0044",
       "MAN-0238",
       "MAN-0414",
-      "MAN-0765"
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
     ],
-    "technical_pass_count": 7,
+    "technical_pass_count": 9,
     "acoustic_pass_count": 0,
     "qualified_reviewer_assigned": false,
     "parked_lesson_ids": [
       "MAN-0565",
       "MAN-0905",
-      "MAN-0604",
-      "MAN-0844",
-      "MAN-0986"
+      "MAN-0844"
     ],
-    "additional_park_reason": "MAN-0765 three-voice requested mapping now produced and internally eligible; final Practice pending. Five independent realization-sensitive requirements remain.",
-    "metered_api_requests": 53,
-    "metered_api_cost_usd": 0.1011438,
+    "additional_park_reason": "Two accent-evidence capability gaps and one overlap/context-binding gap; three independent new fixed realizations internally eligible pending Practice.",
+    "metered_api_requests": 65,
+    "metered_api_cost_usd": 0.1322208,
     "final_candidate_synthesis_cost_usd": 0.0460668,
     "cost_scope": "Actual returned API token usage valued at published rates; includes prior draft/comparator requests and eight targeted rework calls. Excludes three earlier Playground requests, invoice reconciliation and storage/delivery. No acoustic certification. Offline ASR and silence trimming add no paid requests.",
     "qualified_reviewer_required": false,
@@ -149,7 +159,7 @@
     "targeted_rework_incremental_cost_usd": 0.018273
   },
   "internal_release_gate_ref": "MAN-INTERNAL-AUDIO-RELEASE@v0.2",
-  "internal_release_eligible_count": 7,
+  "internal_release_eligible_count": 9,
   "internal_release_eligible_realization_ids": [
     "MAN-0065-OPENAI-FIXED-v0.2",
     "MAN-0165-OPENAI-FIXED-v0.2",
@@ -157,7 +167,9 @@
     "MAN-0044-OPENAI-FIXED-v0.2",
     "MAN-0238-OPENAI-FIXED-v0.2",
     "MAN-0414-OPENAI-FIXED-v0.2",
-    "MAN-0765-OPENAI-FIXED-v0.2"
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
   ],
   "human_acoustic_certification": "NOT_PERFORMED_NOT_REQUIRED_BY_OWNER_DIRECTION_2026_09_30",
   "internal_release_exception_summary": {
@@ -166,9 +178,7 @@
     "SENSITIVE_OR_CAST_PARKED": [
       "MAN-0565",
       "MAN-0905",
-      "MAN-0604",
-      "MAN-0844",
-      "MAN-0986"
+      "MAN-0844"
     ]
   },
   "final_realization_practice_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
@@ -270,13 +280,34 @@
   "authorized_remaining_audio_exception_lesson_ids": [
     "MAN-0565",
     "MAN-0905",
-    "MAN-0604",
-    "MAN-0844",
-    "MAN-0986"
+    "MAN-0844"
   ],
   "independent_operations_next_action": {
-    "code": "TARGETED_PROMINENCE_REALIZATION_AND_INTERNAL_EVIDENCE_MAN_0604",
+    "code": "ISOLATED_ACCENT_EVIDENCE_AND_OVERLAP_BINDING_CAPABILITY_GAPS",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Authorized remaining branch; no additional Owner permission. Targeted minimum synthesis and actual acoustic evidence, then Practice #2 disposition. Other remaining branches stay independent."
-  }
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905",
+      "MAN-0844"
+    ],
+    "global_batch_blocker": false,
+    "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
+  },
+  "pending_final_practice_exception_pairs": [
+    {
+      "lesson_id": "MAN-0765",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
+    }
+  ]
 }

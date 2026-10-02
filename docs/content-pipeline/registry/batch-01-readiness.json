@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "SIX_OFFICIAL_COMPLETE_MAN0765_ELIGIBLE_PRACTICE_PENDING_FIVE_OPERATIONS_EXCEPTIONS",
+  "preparation_status": "SIX_OFFICIAL_COMPLETE_THREE_INTERNAL_ELIGIBLE_PRACTICE_PENDING_THREE_EXCEPTIONS",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,17 +110,27 @@
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_MAN_0765_FIXED_V0_2",
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_THREE_INDEPENDENT_EXCEPTION_PAIRS",
     "responsible_lane": "PRACTICE_2",
     "pairs": [
       {
         "lesson_id": "MAN-0765",
         "lesson_asset_version": "v0.1",
         "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+      },
+      {
+        "lesson_id": "MAN-0604",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
+      },
+      {
+        "lesson_id": "MAN-0986",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
       }
     ],
     "evidence_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-    "requires": "Validate only exact final realization against existing static grounding PASS and frozen contracts. Technical/internal eligibility and unprompted discourse-marker support are available; perceptual speaker identity and fine pronunciation/prosody/accent are unverified. Operations does not assert final PRACTICE_READY or CONTRACT_VALID. After PASS route back to Operations for established controlled release. Do not wait for the five independent remaining exceptions."
+    "requires": "Validate each exact pair independently using private fixed audio and actual model/conditional acoustic evidence. Preserve completed static gates. No Operations semantic PASS, human certification or live publication claimed. After each PASS return independently to Operations established controlled release. Three accent/overlap exceptions are isolated and do not block these pairs."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -148,7 +158,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 6,
-    "blocker": "MAN_0765_FINAL_PRACTICE_PENDING; FIVE_INDEPENDENT_AUDIO_EXCEPTIONS"
+    "blocker": "THREE_FINAL_REALIZATION_PRACTICE_PENDING; THREE_ISOLATED_AUDIO_EXCEPTIONS"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -279,13 +289,34 @@
   "authorized_remaining_audio_exception_lesson_ids": [
     "MAN-0565",
     "MAN-0905",
-    "MAN-0604",
-    "MAN-0844",
-    "MAN-0986"
+    "MAN-0844"
   ],
   "independent_operations_next_action": {
-    "code": "TARGETED_PROMINENCE_REALIZATION_AND_INTERNAL_EVIDENCE_MAN_0604",
+    "code": "ISOLATED_ACCENT_EVIDENCE_AND_OVERLAP_BINDING_CAPABILITY_GAPS",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Authorized remaining branch; no additional Owner permission. Targeted minimum synthesis and actual acoustic evidence, then Practice #2 disposition. Other remaining branches stay independent."
-  }
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905",
+      "MAN-0844"
+    ],
+    "global_batch_blocker": false,
+    "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
+  },
+  "pending_final_practice_exception_pairs": [
+    {
+      "lesson_id": "MAN-0765",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2"
+    }
+  ]
 }

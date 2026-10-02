@@ -26,7 +26,8 @@
     "batch-01-two-phenomena-practice-handoff": "v0.1",
     "batch-01-final-realization-practice-two-phenomena": "v0.1",
     "batch-01-two-new-live-runtime-evidence": "v0.1",
-    "batch-01-six-exceptions-man0765-practice-handoff": "v0.1"
+    "batch-01-six-exceptions-man0765-practice-handoff": "v0.1",
+    "batch-01-independent-exceptions-practice-handoff": "v0.1"
   },
   "artifacts": [
     {
@@ -852,6 +853,34 @@
       "size_bytes": 1654898,
       "validation_status": "HASH_VERIFIED",
       "next_gate": "PRACTICE_2_EXACT_FINAL_REALIZATION"
+    },
+    {
+      "id": "batch-01-independent-exceptions-practice-handoff",
+      "name": "MAN-Batch-01-Independent-Exceptions-Practice-Handoff-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Actual fixed MAN-0604 and MAN-0986 realizations",
+        "Internal technical/ASR gate and target acoustic measurements"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1"
+      ],
+      "created_at": "2026-10-02",
+      "updated_at": "2026-10-02",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Independent-Exceptions-Practice-Handoff-v0.1.zip",
+        "access": "PRIVATE_OWNING_LANES_ONLY"
+      },
+      "sha256": "fb185c502e0861e3461fe05479601ca9a893af8bddcb8feee4c8bc916ee6a0b3",
+      "size_bytes": 4321889,
+      "validation_status": "HASH_VERIFIED",
+      "next_gate": "PRACTICE_2_EXACT_FINAL_REALIZATIONS"
     }
   ]
 }
