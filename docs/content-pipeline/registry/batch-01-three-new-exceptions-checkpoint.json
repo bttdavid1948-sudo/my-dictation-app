@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "scope": "MAN-0765 MAN-0604 MAN-0986 controlled release closeout",
+  "status": "THREE_NEW_PRACTICE_PASS_PAIRS_COMPLETE",
+  "checked_at": "2026-10-03T10:19:43.786Z",
+  "published_official_lesson_ids": [
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
+  ],
+  "live_runtime_pass_lesson_ids": [
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
+  ],
+  "previous_batch_checkpoint_commit": "0be9aef462b4f8c59315a6ff47eab4b599b48c1a",
+  "previous_batch_history_preserved": true,
+  "latest_release_evidence_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+  "next_action": {
+    "code": "THREE_PAIR_CONTROLLED_RELEASE_COMPLETE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "No further release or verification work for these exact three pairs. Preserve existing Batch 01 history and other lanes' decisions."
+  },
+  "owner_action_required_now": false,
+  "incremental_tts_api_requests": 0,
+  "mobile_verification_scope": "Chromium Pixel 5 emulation; no physical-device claim",
+  "verification_run_id": 37115492518,
+  "verified_jobs": 6
+}
