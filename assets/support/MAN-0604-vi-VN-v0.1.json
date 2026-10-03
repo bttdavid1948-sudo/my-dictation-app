@@ -1,0 +1,26 @@
+{
+  "bundle_id": "MAN-0604-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0604",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Một câu trả lời ngắn có thể khiến người gửi thấy hiệu quả, nhưng người đọc lại thấy bị xem nhẹ. Sự khác biệt đó đặc biệt thường gặp khi hai người không có cùng nếp làm việc."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Một nhóm đề xuất thêm những lời thân thiện vào mọi tin nhắn. Nhóm khác cho rằng câu trả lời dài hơn sẽ làm chậm những quyết định khẩn cấp."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Bất đồng thực ra không chỉ nằm ở sự lịch sự. Nó nằm ở việc tin nhắn nào cần thêm bối cảnh và tin nhắn nào chỉ cần một chỉ dẫn rõ ràng."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Nhóm thống nhất một cách làm đơn giản: đánh dấu rõ các yêu cầu khẩn cấp và thêm một câu giải thích khi quyết định có thể khiến người đọc bất ngờ."
+    }
+  ]
+}

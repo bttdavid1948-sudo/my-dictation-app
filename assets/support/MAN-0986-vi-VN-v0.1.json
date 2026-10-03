@@ -1,0 +1,38 @@
+{
+  "bundle_id": "MAN-0986-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0986",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Khảo sát mới mâu thuẫn với khảo sát trước. Liệu việc nhận định có trách nhiệm có đòi hỏi chúng ta từ bỏ kết luận trước đó không?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Chỉ khi hai khảo sát đáng tin cậy ngang nhau. Mẫu khảo sát trước lớn hơn, nhưng các câu hỏi của nó đã ngầm loại bỏ một câu trả lời có thể hợp lý."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Còn mẫu mới, dù nhỏ hơn, lại được thu thập ngay sau một sự kiện được truyền thông đưa tin rộng rãi. Thời điểm đó cũng khó có thể coi là trung lập."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Chính xác. Nói rằng bằng chứng đã thay đổi thì dễ; xác định thay đổi đến mức nào mới là lúc bắt đầu lập luận."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy tiêu đề “Mọi điều chúng ta từng biết đều sai” sẽ rõ ràng tuyệt vời, mà cũng gây hiểu lầm tuyệt vời."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Vậy thay vào đó, bạn sẽ đăng gì?"
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Rằng mức độ tin tưởng vào ước tính cũ đã giảm, trong khi hướng thay đổi vẫn chưa chắc chắn. Có lẽ không hấp dẫn lắm, nhưng sát hơn với những gì bằng chứng cho phép kết luận."
+    }
+  ]
+}

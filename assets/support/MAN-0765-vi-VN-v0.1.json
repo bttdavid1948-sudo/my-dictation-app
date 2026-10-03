@@ -1,0 +1,34 @@
+{
+  "bundle_id": "MAN-0765-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0765",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Đề xuất là để mỗi nhóm tự chọn hạn hoàn thành seminar. Thoạt nhìn, như vậy có vẻ linh hoạt hơn."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Có lẽ là linh hoạt cho các nhóm. Nhưng điều đó cũng có nghĩa là chúng ta sẽ so sánh những bài làm hoàn thành trong các điều kiện rất khác nhau."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Tôi hiểu ý đó, dù một hạn chung lại gây bất lợi cho những sinh viên mà việc tiếp cận thực địa phụ thuộc vào các tổ chức bên ngoài."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Tôi không đề nghị một ngày cố định cứng nhắc. Tôi đề nghị một khoảng thời gian chung và quy định rõ ràng về các trường hợp ngoại lệ."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Nói cách khác, bất đồng không nằm nhiều ở bản thân sự linh hoạt, mà ở cách chúng ta giải thích và ghi nhận lý do cho nó."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Vậy đề xuất cần nêu ai phê duyệt ngoại lệ và quyết định đó phải được đưa ra khi nào."
+    }
+  ]
+}
