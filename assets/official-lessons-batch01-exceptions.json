@@ -1,0 +1,385 @@
+{
+  "catalogVersion": 5,
+  "publisher": "man",
+  "rightsNote": "Original Mặn lessons. Publication requires code/content review before merge.",
+  "lessons": [
+    {
+      "id": "MAN-0765",
+      "unitName": "MAN-0765 · Linh hoạt hạn seminar đến đâu?",
+      "topic": "Học tập",
+      "level": "C1",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe các dấu hiệu diễn ngôn và hiểu lập luận trong cuộc trao đổi.",
+      "usefulLanguage": [
+        "on the face of it",
+        "although",
+        "in other words"
+      ],
+      "items": [
+        {
+          "en": "The proposal is to let each group choose its own seminar deadline. On the face of it, that sounds more flexible.",
+          "vi": "Đề xuất là để mỗi nhóm tự chọn hạn hoàn thành seminar. Thoạt nhìn, như vậy có vẻ linh hoạt hơn.",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "d870487fda3aaec1651bc5adf61799e0d2dc65f4da5ee8fc056fa5bd63ed8b90",
+            "durationSeconds": 9.0,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Flexible for the groups, perhaps. It also means we would be comparing work completed under very different conditions.",
+          "vi": "Có lẽ là linh hoạt cho các nhóm. Nhưng điều đó cũng có nghĩa là chúng ta sẽ so sánh những bài làm hoàn thành trong các điều kiện rất khác nhau.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S002-cedar-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "fffed9d2d727e962509fc57b044795552354a7ad64203a8c2e533762864c3572",
+            "durationSeconds": 6.75,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "I take that point, although a single deadline penalizes students whose field access depends on outside organizations.",
+          "vi": "Tôi hiểu ý đó, dù một hạn chung lại gây bất lợi cho những sinh viên mà việc tiếp cận thực địa phụ thuộc vào các tổ chức bên ngoài.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S003-marin-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "23d6ca6e0c86e84df450729c6ab1e80772b32e5f2bacde6eb622b161d49e34ba",
+            "durationSeconds": 7.4,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "I am not arguing for a rigid date. I am arguing for a common window and a clear rule for exceptions.",
+          "vi": "Tôi không đề nghị một ngày cố định cứng nhắc. Tôi đề nghị một khoảng thời gian chung và quy định rõ ràng về các trường hợp ngoại lệ.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S004-cedar-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "ecb47e5c7cf2c42746a5e9ed84d6f06ca2f669bff4121eb527da0dd3eb225b82",
+            "durationSeconds": 5.9,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "In other words, the disagreement is less about flexibility itself than about how we justify and document it.",
+          "vi": "Nói cách khác, bất đồng không nằm nhiều ở bản thân sự linh hoạt, mà ở cách chúng ta giải thích và ghi nhận lý do cho nó.",
+          "segmentId": "S005",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S005-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "ec8c5b3a338586c9b309daee9b411ca75497fc2d863c95a7bdfc07fe0a8a4eb2",
+            "durationSeconds": 7.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Then the proposal should say who approves an exception and when that decision must be made.",
+          "vi": "Vậy đề xuất cần nêu ai phê duyệt ngoại lệ và quyết định đó phải được đưa ra khi nào.",
+          "segmentId": "S006",
+          "audio": {
+            "url": "assets/audio/MAN-0765-S006-marin-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0765",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0765-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0765-FIXED-EN-US@v0.2",
+            "sha256": "058c90ee2cdc496ab53bb340d7b3cdd79144195fbc4c970e942125b6d1606612",
+            "durationSeconds": 5.9,
+            "voice": "marin"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0765-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0765-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0765-OPENAI-FIXED-v0.2",
+      "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0604",
+      "unitName": "MAN-0604 · Tin nhắn ngắn: hiệu quả hay lạnh nhạt?",
+      "topic": "Công việc",
+      "level": "B2",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe và hiểu sự tương phản giữa hiệu quả, thái độ và bối cảnh.",
+      "usefulLanguage": [
+        "efficient",
+        "dismissive",
+        "clear instruction"
+      ],
+      "items": [
+        {
+          "en": "A short reply can look efficient to its sender and dismissive to its reader. That difference is especially common when the two people do not share the same work routine.",
+          "vi": "Một câu trả lời ngắn có thể khiến người gửi thấy hiệu quả, nhưng người đọc lại thấy bị xem nhẹ. Sự khác biệt đó đặc biệt thường gặp khi hai người không có cùng nếp làm việc.",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0604-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0604",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0604-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0604-FIXED-EN-US@v0.1",
+            "sha256": "bd1f0cf00ce24a6d6dcd35b5fb6c7c3947f0c7f78648972931045e8891b90ace",
+            "durationSeconds": 11.55,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "One team suggested adding friendly words to every message. Another argued that longer replies would slow urgent decisions.",
+          "vi": "Một nhóm đề xuất thêm những lời thân thiện vào mọi tin nhắn. Nhóm khác cho rằng câu trả lời dài hơn sẽ làm chậm những quyết định khẩn cấp.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0604-S002-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0604",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0604-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0604-FIXED-EN-US@v0.1",
+            "sha256": "2a33518a00168f51a9b71d3b1309a9bd9faec7047dc84a4829f49c566acc6e2b",
+            "durationSeconds": 10.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The disagreement was not really about politeness alone. It was about which messages needed context and which only needed a clear instruction.",
+          "vi": "Bất đồng thực ra không chỉ nằm ở sự lịch sự. Nó nằm ở việc tin nhắn nào cần thêm bối cảnh và tin nhắn nào chỉ cần một chỉ dẫn rõ ràng.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0604-S003-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0604",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0604-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0604-FIXED-EN-US@v0.1",
+            "sha256": "a21bacea73e7269ed2c56d739a8d78222cb16ea6f9852e890f51c2630d00a257",
+            "durationSeconds": 10.0,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The team settled on a simple practice: mark urgent requests clearly, and add one sentence of explanation when a decision may surprise the reader.",
+          "vi": "Nhóm thống nhất một cách làm đơn giản: đánh dấu rõ các yêu cầu khẩn cấp và thêm một câu giải thích khi quyết định có thể khiến người đọc bất ngờ.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0604-S004-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0604",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0604-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0604-FIXED-EN-US@v0.1",
+            "sha256": "298b9154365ca02bc3080c75f343cdfe8a12c0abc96e0c6d88f31e61e0780582",
+            "durationSeconds": 10.8,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0604-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0604-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0604-OPENAI-FIXED-v0.1",
+      "aiGeneratedAudio": true
+    },
+    {
+      "id": "MAN-0986",
+      "unitName": "MAN-0986 · Bằng chứng thay đổi đến mức nào?",
+      "topic": "Tư duy",
+      "level": "C2",
+      "track": "Giao tiếp",
+      "learningGoal": "Nghe và suy luận thái độ, sự dè dặt trong cách đánh giá bằng chứng.",
+      "usefulLanguage": [
+        "credible",
+        "misleading",
+        "uncertain"
+      ],
+      "items": [
+        {
+          "en": "The new survey contradicts the earlier one. Does responsible judgment require us to abandon the earlier conclusion?",
+          "vi": "Khảo sát mới mâu thuẫn với khảo sát trước. Liệu việc nhận định có trách nhiệm có đòi hỏi chúng ta từ bỏ kết luận trước đó không?",
+          "segmentId": "S001",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S001-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "dd56e91636b7314521c52540d4eebbcf70436361804460e998d7b60145cb001e",
+            "durationSeconds": 8.85,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Only if the surveys are equally credible. The earlier sample was larger, but its questions quietly ruled out one plausible answer.",
+          "vi": "Chỉ khi hai khảo sát đáng tin cậy ngang nhau. Mẫu khảo sát trước lớn hơn, nhưng các câu hỏi của nó đã ngầm loại bỏ một câu trả lời có thể hợp lý.",
+          "segmentId": "S002",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S002-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "b9f68052efa343e896a6785e2b949069abdb453e2c7ee2de5431a3ed9b7f14ce",
+            "durationSeconds": 7.8,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "And the new sample, though smaller, was collected just after a highly publicized event. That timing is hardly neutral either.",
+          "vi": "Còn mẫu mới, dù nhỏ hơn, lại được thu thập ngay sau một sự kiện được truyền thông đưa tin rộng rãi. Thời điểm đó cũng khó có thể coi là trung lập.",
+          "segmentId": "S003",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S003-marin-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "84366254df0d5479554f11ae8cb26387e45d20a5243feeefd2efe620fa9d7ce4",
+            "durationSeconds": 7.85,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Precisely. Saying the evidence has changed is easy; saying by how much is where the reasoning begins.",
+          "vi": "Chính xác. Nói rằng bằng chứng đã thay đổi thì dễ; xác định thay đổi đến mức nào mới là lúc bắt đầu lập luận.",
+          "segmentId": "S004",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S004-cedar-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "12897baa7b1db40f1173ced752471193d3ad824131b8156b36e99675c76f11fd",
+            "durationSeconds": 7.1,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "So the headline \"Everything we knew was wrong\" would be wonderfully clear and wonderfully misleading.",
+          "vi": "Vậy tiêu đề “Mọi điều chúng ta từng biết đều sai” sẽ rõ ràng tuyệt vời, mà cũng gây hiểu lầm tuyệt vời.",
+          "segmentId": "S005",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S005-marin-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "591072673294111dcd5800138eccd3a820c0b50ff3a96ce4f51eda494d0145fc",
+            "durationSeconds": 6.45,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "What would you print instead?",
+          "vi": "Vậy thay vào đó, bạn sẽ đăng gì?",
+          "segmentId": "S006",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S006-ash-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "9c8b7911cb9daedaffaf4612d94a11fb464c6d341dafbb4f3fa0005413dd298a",
+            "durationSeconds": 2.55,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "That confidence in the old estimate has weakened, while the direction of the change remains uncertain. Not catchy, perhaps, but closer to what the evidence permits.",
+          "vi": "Rằng mức độ tin tưởng vào ước tính cũ đã giảm, trong khi hướng thay đổi vẫn chưa chắc chắn. Có lẽ không hấp dẫn lắm, nhưng sát hơn với những gì bằng chứng cho phép kết luận.",
+          "segmentId": "S007",
+          "audio": {
+            "url": "assets/audio/MAN-0986-S007-marin-v0.2.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0986",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0986-OPENAI-FIXED-v0.2",
+            "realizationVersion": "v0.2",
+            "profileRef": "MAN-0986-FIXED-EN-US@v0.2",
+            "sha256": "aa52beea2343d61eaeb50e1af3e4601810fa2582d2513d0e5fd6f7f460cc1865",
+            "durationSeconds": 10.45,
+            "voice": "marin"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0986-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0986-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0986-OPENAI-FIXED-v0.2",
+      "aiGeneratedAudio": true
+    }
+  ]
+}

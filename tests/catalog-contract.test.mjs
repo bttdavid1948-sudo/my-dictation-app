@@ -18,8 +18,10 @@ assert.ok(!html.includes("db.collection('users_profile').where("));
 assert.ok(!html.includes("db.collection('users_profile').orderBy("));
 assert.equal(catalog.publisher,'man');
 assert.ok(catalog.lessons.length>=1);
+const extension=JSON.parse(fs.readFileSync(new URL('../assets/official-lessons-batch01-exceptions.json',import.meta.url),'utf8'));
+catalog.lessons.push(...extension.lessons);
 const published=catalog.lessons.filter(unit=>unit.status==='published');
-assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044','MAN-0238','MAN-0414']);
+assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044','MAN-0238','MAN-0414','MAN-0765','MAN-0604','MAN-0986']);
 assert.equal(catalog.lessons.filter(unit=>unit.status==='archived').length,4);
 const ids=new Set();
 for(const unit of catalog.lessons){
@@ -44,7 +46,7 @@ assert.ok(start>0&&end>start);
 const code=html.slice(start,end);
 const views=[];
 const topicOptions=[];
-const context={xLibMode:'mine',fetch:async()=>({ok:true,json:async()=>({lessons:[
+const context={xLibMode:'mine',fetch:async(url)=>({ok:true,json:async()=>url.includes('batch01-exceptions')?{lessons:[]}:({lessons:[
   ...catalog.lessons,
   {...catalog.lessons[0],id:'forged',publisher:'user'},
   {...catalog.lessons[0],id:'draft',status:'draft'},

@@ -1,0 +1,41 @@
+name: Three new exception Practice PASS lessons mobile live verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/official-lessons-batch01-exceptions.json
+      - index.html
+      - new-exceptions-verification/verify-mobile.mjs
+      - .github/workflows/new-exceptions-mobile-verification.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile:
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [MAN-0765, MAN-0604, MAN-0986]
+        mode: [desktop, mobile]
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify exact live fixed realization independently
+        env:
+          MAN_MOBILE_PLAYWRIGHT_AUTHORIZED: '1'
+          MAN_LESSON_ID: ${{ matrix.lesson }}
+          MAN_EXECUTION_MODE: ${{ matrix.mode }}
+        run: node new-exceptions-verification/verify-mobile.mjs
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-exceptions-${{ matrix.lesson }}-${{ matrix.mode }}
+          path: new-exceptions-verification/evidence/${{ matrix.lesson }}/${{ matrix.mode }}/
+          retention-days: 7

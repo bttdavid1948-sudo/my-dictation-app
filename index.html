@@ -642,7 +642,12 @@ Danh sách từ/cụm từ của tôi:
             if (catalogPromise) return catalogPromise;
             catalogPromise = fetch('assets/official-lessons.json', {cache:'no-cache'})
                 .then(response => { if(!response.ok) throw new Error('CATALOG_UNAVAILABLE'); return response.json(); })
-                .then(data => {
+                .then(async data => {
+                    const extraResponse = await fetch('assets/official-lessons-batch01-exceptions.json', {cache:'no-cache'});
+                    if(!extraResponse.ok) throw new Error('CATALOG_EXTENSION_UNAVAILABLE');
+                    const extra = await extraResponse.json();
+                    if(!Array.isArray(extra.lessons)) throw new Error('INVALID_CATALOG_EXTENSION');
+                    data = {...data, lessons:[...data.lessons, ...extra.lessons]};
                     if(!Array.isArray(data.lessons)) throw new Error('INVALID_CATALOG');
                     const ids=new Set();
                     xCatalogLoadError=false;
