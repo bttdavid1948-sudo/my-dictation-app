@@ -5,7 +5,7 @@
   "source_main": "8b1bf375e9e9595a6b5bbe61e91a167a16647c08",
   "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "rights_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-rights.json",
-  "catalog_sha256": "d1592f4e915218c2424440c5f5f458652c34224a70d5ccd2fce337f4343b3fc2",
+  "catalog_sha256": "2807a411ca879fd5a570f93fc0e981b463b4e00eee0fb5b1cc34e17b2e869c17",
   "pairs": [
     {
       "lesson_id": "MAN-0765",
@@ -26,7 +26,9 @@
       "desktop_live": "PASS",
       "mobile_live": "PASS_EMULATED",
       "complete": true,
-      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged.",
+      "published_support_sha256": "3a4e0a9599cd8c1ae153dbc2edce0b7a127192532343d2a973b9b471e51387e4",
+      "support_sha256_basis": "Original QA-complete source bundle; published learner projection hash recorded separately."
     },
     {
       "lesson_id": "MAN-0604",
@@ -45,7 +47,9 @@
       "desktop_live": "PASS",
       "mobile_live": "PASS_EMULATED",
       "complete": true,
-      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged.",
+      "published_support_sha256": "8e21c01e74ad84cd5e8791b3f8d62653d8bb9a6c329898d7188c2025c7d856ad",
+      "support_sha256_basis": "Original QA-complete source bundle; published learner projection hash recorded separately."
     },
     {
       "lesson_id": "MAN-0986",
@@ -67,7 +71,9 @@
       "desktop_live": "PASS",
       "mobile_live": "PASS_EMULATED",
       "complete": true,
-      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged.",
+      "published_support_sha256": "4ea45ea783f726b05c18761fdcf56d0570b278133cfb12f83f42d223d2d245a3",
+      "support_sha256_basis": "Original QA-complete source bundle; published learner projection hash recorded separately."
     }
   ],
   "man_0065_complete_preserved": true,
