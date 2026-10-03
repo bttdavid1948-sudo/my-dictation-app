@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "COMPLETE",
+  "source_main": "8b1bf375e9e9595a6b5bbe61e91a167a16647c08",
+  "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+  "rights_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-rights.json",
+  "catalog_sha256": "d1592f4e915218c2424440c5f5f458652c34224a70d5ccd2fce337f4343b3fc2",
+  "pairs": [
+    {
+      "lesson_id": "MAN-0765",
+      "version": "v0.1",
+      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 6,
+      "support_sha256": "eed637c54632af548dfc0bf1cf68daa7f1cd95dc6d6ce942a9f94e41aeec4ab7",
+      "asset_bytes": 2057064,
+      "source_asset_sha256": [
+        "d870487fda3aaec1651bc5adf61799e0d2dc65f4da5ee8fc056fa5bd63ed8b90",
+        "fffed9d2d727e962509fc57b044795552354a7ad64203a8c2e533762864c3572",
+        "23d6ca6e0c86e84df450729c6ab1e80772b32e5f2bacde6eb622b161d49e34ba",
+        "ecb47e5c7cf2c42746a5e9ed84d6f06ca2f669bff4121eb527da0dd3eb225b82",
+        "ec8c5b3a338586c9b309daee9b411ca75497fc2d863c95a7bdfc07fe0a8a4eb2",
+        "058c90ee2cdc496ab53bb340d7b3cdd79144195fbc4c970e942125b6d1606612"
+      ],
+      "desktop_live": "PASS",
+      "mobile_live": "PASS_EMULATED",
+      "complete": true,
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "version": "v0.1",
+      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "cb2af262601c686df13e421ce5d10b61666010f67300deee8bb5bee46dbd39fb",
+      "asset_bytes": 2049776,
+      "source_asset_sha256": [
+        "bd1f0cf00ce24a6d6dcd35b5fb6c7c3947f0c7f78648972931045e8891b90ace",
+        "2a33518a00168f51a9b71d3b1309a9bd9faec7047dc84a4829f49c566acc6e2b",
+        "a21bacea73e7269ed2c56d739a8d78222cb16ea6f9852e890f51c2630d00a257",
+        "298b9154365ca02bc3080c75f343cdfe8a12c0abc96e0c6d88f31e61e0780582"
+      ],
+      "desktop_live": "PASS",
+      "mobile_live": "PASS_EMULATED",
+      "complete": true,
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "version": "v0.1",
+      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 7,
+      "support_sha256": "0f4eabbaf5b4a09c71a3194a103b3c060c3899d26dd83d0ff9b6602275f1f1fd",
+      "asset_bytes": 2450708,
+      "source_asset_sha256": [
+        "dd56e91636b7314521c52540d4eebbcf70436361804460e998d7b60145cb001e",
+        "b9f68052efa343e896a6785e2b949069abdb453e2c7ee2de5431a3ed9b7f14ce",
+        "84366254df0d5479554f11ae8cb26387e45d20a5243feeefd2efe620fa9d7ce4",
+        "12897baa7b1db40f1173ced752471193d3ad824131b8156b36e99675c76f11fd",
+        "591072673294111dcd5800138eccd3a820c0b50ff3a96ce4f51eda494d0145fc",
+        "9c8b7911cb9daedaffaf4612d94a11fb464c6d341dafbb4f3fa0005413dd298a",
+        "aa52beea2343d61eaeb50e1af3e4601810fa2582d2513d0e5fd6f7f460cc1865"
+      ],
+      "desktop_live": "PASS",
+      "mobile_live": "PASS_EMULATED",
+      "complete": true,
+      "published_support_projection": "Private QA status and review notes omitted; canonical translations unchanged."
+    }
+  ],
+  "man_0065_complete_preserved": true,
+  "rollback": "Per-lesson status change through reviewed PR; retain immutable audio/support files. Original catalog retained in private evidence and git parent. No seed deletion or Rules change.",
+  "checks": {
+    "support": "PASS_FULL_17_CANONICAL_SEGMENTS",
+    "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
+    "import_binding": "PASS_PUBLISHED_CANONICAL_BINDING",
+    "desktop_live": "PASS_ALL_THREE",
+    "mobile_live": "PASS_ALL_THREE_CHROMIUM_PIXEL5_EMULATION",
+    "feedback_write_read": "SIX_BACKEND_WRITE_ACKS_SYSTEM_READ_CAPABILITY_REUSED_NO_NEW_ADMIN_READ_CLAIM"
+  },
+  "incremental_tts_api_cost_usd": 0,
+  "blocking_code": "NONE",
+  "automatic_review_result": "Scoped three-lesson catalog approved and published after explicit runtime metadata permission.",
+  "practice_scoring_boundaries": {
+    "MAN-0765": "Assess discourse-marker function/meaning in context. Do not score accent, speaker identity or fine pronunciation from this evidence.",
+    "MAN-0604": "Do not assign a universal prominence score to all four spans. Separate acoustic-discrimination scoring is permitted only on verified contrastive instances; otherwise prominence remains a condition on comprehension evidence.",
+    "MAN-0986": "Score the learner's defensible inference/stance interpretation, not their identification of a prescribed pitch contour. Transcript exposure would change the construct and must remain support-aware."
+  },
+  "owner_publication_permission": "Owner explicitly approved public publication of the exact 17 production WAVs on 2026-10-02; private QA packets/receipts/secrets excluded.",
+  "recovery": {
+    "at": "2026-10-03T09:39:23.941113+00:00",
+    "exact_audio_sha256_verified_count": 17,
+    "prior_upload_blob_count": 8,
+    "incremental_tts_api_requests": 0,
+    "prior_execution_commit": "221289e",
+    "canonical_reconciled": true
+  },
+  "release_pr": 90,
+  "release_commit": "0be9aef462b4f8c59315a6ff47eab4b599b48c1a",
+  "catalog_ref": "assets/official-lessons-batch01-exceptions.json",
+  "verification_run_id": 37115492518,
+  "mobile_scope": "Pixel 5 Chromium mobile emulation, not a physical-device claim",
+  "incremental_tts_api_requests": 0,
+  "checked_at": "2026-10-03T10:17:54.219953+00:00",
+  "visual_operations_review": "PASS_REVIEWED_COMPLETION_AND_LEARNING_SCREENSHOTS",
+  "retry_record": {
+    "lesson_id": "MAN-0604",
+    "mode": "mobile",
+    "initial_failure": "PRE_NAVIGATION_PAGES_DEPLOYMENT_WINDOW",
+    "successful_attempt": 2,
+    "only_failed_job_reexecuted": true
+  },
+  "artifact_evidence": {
+    "MAN-0986:desktop": {
+      "source_evidence_sha256": "1b1c1e5709b2ee0ec614c25e498ef4bc8e1e6080fe1f61b205b452b64ceab2c7",
+      "segments_verified": 7,
+      "completion": "7_OF_7",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    },
+    "MAN-0765:desktop": {
+      "source_evidence_sha256": "cfa26ce13fe4cd6e801d9245a95515e8ce9a65fb82e1e21bd8f70065dea32511",
+      "segments_verified": 6,
+      "completion": "6_OF_6",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    },
+    "MAN-0765:mobile": {
+      "source_evidence_sha256": "3aa31619d85f899c7a0b8b549311dbf4e87299a06646e83366d85dc848897a08",
+      "segments_verified": 6,
+      "completion": "6_OF_6",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    },
+    "MAN-0604:mobile": {
+      "source_evidence_sha256": "258ef7f282fb5d1f73de5603fb01f209f360fd88756fd03a9740024063190493",
+      "segments_verified": 4,
+      "completion": "4_OF_4",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    },
+    "MAN-0604:desktop": {
+      "source_evidence_sha256": "405c6a5f4b00e6bc089061d0d0a9920fdcc966f2d9f7e1cd67bcfaee20008d7a",
+      "segments_verified": 4,
+      "completion": "4_OF_4",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    },
+    "MAN-0986:mobile": {
+      "source_evidence_sha256": "734b2eb302641b3a7f5b8c895bd95825a0bf62229d767c2f77ce7a95224c83d9",
+      "segments_verified": 7,
+      "completion": "7_OF_7",
+      "feedback_backend_ack": true,
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_verified": false
+    }
+  }
+}
