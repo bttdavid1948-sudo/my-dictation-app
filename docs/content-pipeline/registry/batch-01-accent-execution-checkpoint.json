@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "checked_at": "2026-10-04",
+  "status": "TWO_INDEPENDENT_VALIDATION_CAPABILITY_EXCEPTIONS",
+  "source_main": "ba24ef5bbc03b7203a5a9805ad5c2d932904c5cb",
+  "remaining_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905"
+  ],
+  "man0844_complete_preserved": true,
+  "complete_lesson_count": 10,
+  "new_audio_generation_requests": 0,
+  "new_audio_api_cost_usd": 0,
+  "reference_capability_probe": {
+    "official_source": "https://doi.org/10.7488/ds/2645",
+    "method": "Real-speech formant sensitivity and fixed MFCC/logistic classifier with speaker-disjoint holdout",
+    "reference_speakers": 10,
+    "reference_utterances": 20,
+    "balanced_accuracy": 0.65,
+    "speaker_accuracy": 0.7,
+    "descriptive_speaker_accuracy_wilson95": [
+      0.39677321997956516,
+      0.892210712513788
+    ],
+    "production_ready": false,
+    "generated_domain_calibrated": false,
+    "specialist_pronunciation_verified": false,
+    "limitations": "Small studio corpus scope, uncalibrated probabilities, no generated-domain acceptance threshold or phoneme-aligned truth. These probes are not asset-bound lesson approval."
+  },
+  "exceptions": [
+    {
+      "lesson_id": "MAN-0565",
+      "blocking_code": "ACCENT_VARIATION_REALIZATION_NOT_VERIFIED",
+      "required": "Validated internal accent classification or phonetic-landmark evidence with exact asset binding and bounded uncertainty."
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "blocking_code": "ACCENT_SPECIALIST_PRONUNCIATION_REALIZATION_NOT_VERIFIED",
+      "required": "Validated internal accent and specialist pronunciation evidence with exact asset binding and bounded uncertainty."
+    }
+  ],
+  "next_action": {
+    "code": "ESTABLISH_EXECUTABLE_BOUNDED_ACCENT_VERIFICATION_CAPABILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Obtain a reliable validation source/capability, validate bounded uncertainty and generated-domain applicability, then targeted synthesis and independent exact-pair Practice disposition. No speculative paid generation, human certification requirement, construct override or completed gate rerun."
+  },
+  "batch_close_complete": false,
+  "autonomous_orchestration_readiness_started": false,
+  "public_scope": "Aggregate execution metadata and bounded evidence summary only; no reference WAVs, private QA packets, receipts or credentials."
+}

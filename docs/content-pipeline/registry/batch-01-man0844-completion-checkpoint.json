@@ -51,9 +51,9 @@
   "batch_close_complete": false,
   "autonomous_orchestration_readiness_transition_complete": false,
   "next_action": {
-    "code": "CONTINUE_INDEPENDENT_MAN_0565_MAN_0905",
+    "code": "ESTABLISH_EXECUTABLE_BOUNDED_ACCENT_VERIFICATION_CAPABILITY",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Apply canonical accent-sensitive realization requirements and current authority independently. Do not mark Batch Close or advance orchestration readiness until 12/12 COMPLETE."
+    "requires": "Continue MAN-0565 and MAN-0905 independently under the scoped accent checkpoint. Keep MAN-0844 COMPLETE. Batch Close and orchestration readiness require all 12 COMPLETE."
   },
   "audio_reuse": {
     "context_blobs_reused": 6,
@@ -61,5 +61,6 @@
     "audio_regenerations": 0,
     "tts_api_requests": 0
   },
-  "publication_scope": "Only the Owner-authorized MAN-0844 learner release and its scoped completion/count metadata. No private QA packets, acoustic reference assets, receipts, credentials, or full registry publication."
+  "publication_scope": "Only the Owner-authorized MAN-0844 learner release and its scoped completion/count metadata. No private QA packets, acoustic reference assets, receipts, credentials, or full registry publication.",
+  "remaining_execution_checkpoint_ref": "docs/content-pipeline/registry/batch-01-accent-execution-checkpoint.json"
 }
