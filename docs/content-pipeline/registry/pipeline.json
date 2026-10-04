@@ -5,14 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
     "responsible_lane": "OPERATIONS_4",
-    "pairs": [
-      "MAN-0765",
-      "MAN-0604",
-      "MAN-0986"
-    ],
-    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+    "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -125,7 +120,10 @@
     "MAN-0365-OPENAI-FIXED-v0.2",
     "MAN-0044-OPENAI-FIXED-v0.2",
     "MAN-0238-OPENAI-FIXED-v0.2",
-    "MAN-0414-OPENAI-FIXED-v0.2"
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
   ],
   "fully_complete_lesson_ids": [
     "MAN-0065",
@@ -133,7 +131,10 @@
     "MAN-0365",
     "MAN-0044",
     "MAN-0238",
-    "MAN-0414"
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
   ],
   "feedback_admin_read_pending_lesson_ids": [],
   "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
@@ -204,7 +205,7 @@
     "MAN-0844"
   ],
   "independent_operations_next_action": {
-    "code": "ISOLATED_ACCENT_EVIDENCE_AND_OVERLAP_BINDING_CAPABILITY_GAPS",
+    "code": "ACCENT_GAPS_PLUS_MAN_0844_IMPLEMENTATION",
     "responsible_lane": "OPERATIONS_4",
     "lesson_ids": [
       "MAN-0565",
@@ -212,8 +213,26 @@
       "MAN-0844"
     ],
     "global_batch_blocker": false,
-    "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
+    "branches": [
+      {
+        "lesson_ids": [
+          "MAN-0565",
+          "MAN-0905"
+        ],
+        "status": "PARKED_INTERNAL_ACCENT_EVIDENCE_CAPABILITY_GAP",
+        "requires": "Establish bounded internal accent/phonetic evidence capability before synthesis/validation; no speculative paid generation."
+      },
+      {
+        "lesson_ids": [
+          "MAN-0844"
+        ],
+        "status": "PRACTICE_REPRESENTATION_RESOLVED_IMPLEMENTATION_PENDING",
+        "evidence_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
+        "requires": "Implement approved continuous/mixed overlap-context realization and return exact realization evidence to Practice #2."
+      }
+    ]
   },
   "pending_final_practice_exception_pairs": [],
-  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json"
+  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json"
 }
