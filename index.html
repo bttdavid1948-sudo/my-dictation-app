@@ -648,6 +648,11 @@ Danh sách từ/cụm từ của tôi:
                     const extra = await extraResponse.json();
                     if(!Array.isArray(extra.lessons)) throw new Error('INVALID_CATALOG_EXTENSION');
                     data = {...data, lessons:[...data.lessons, ...extra.lessons]};
+                    const panelResponse = await fetch('assets/official-lessons-man0844.json', {cache:'no-cache'});
+                    if(!panelResponse.ok) throw new Error('PANEL_CATALOG_UNAVAILABLE');
+                    const panel = await panelResponse.json();
+                    if(!Array.isArray(panel.lessons)) throw new Error('INVALID_PANEL_CATALOG');
+                    data = {...data, lessons:[...data.lessons, ...panel.lessons]};
                     if(!Array.isArray(data.lessons)) throw new Error('INVALID_CATALOG');
                     const ids=new Set();
                     xCatalogLoadError=false;
@@ -2180,9 +2185,9 @@ function xUseBrowserVoiceFallback(){
  ManFixedAudio.noteFallback(item,voice?.voiceURI,utterance.rate);speechSynthesis.speak(utterance);
  xToast('Đang dùng giọng dự phòng của trình duyệt cho câu này.');
 }
-function xOpenAudioReport(){
+function xOpenAudioReport(itemOverride){
  const transcript=!document.getElementById('study-view-transcript').classList.contains('hidden');
- xAudioReportContext=ManFixedAudio.reportContext(items[transcript?xTranscriptCursor:currentIndex],Number(document.getElementById('rate-select').value));
+ xAudioReportContext=ManFixedAudio.reportContext(itemOverride||items[transcript?xTranscriptCursor:currentIndex],Number(document.getElementById('rate-select').value));
  if(!xAudioReportContext)return;
  document.getElementById('x-audio-report-modal').dataset.audioContext=JSON.stringify(xAudioReportContext);
  xAudioReportFocus=document.activeElement;
@@ -2204,5 +2209,6 @@ async function xSendAudioReport(){
 document.addEventListener('keydown',event=>{if(event.key==='Escape')xCloseAudioReport()});
 </script>
 
+<script src="assets/mixed-panel-runtime.js?release=MAN-0844-v0.1"></script>
 </body>
 </html>
