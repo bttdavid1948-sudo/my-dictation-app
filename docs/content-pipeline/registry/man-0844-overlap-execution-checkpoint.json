@@ -2,19 +2,19 @@
   "schema_version": "1.0",
   "artifact_id": "man-0844-overlap-execution-checkpoint",
   "version": "v0.1",
-  "status": "REVIEW_READY",
+  "status": "RELEASE_PREPARED_BLOCKED_PUBLIC_ASSET_PERMISSION",
   "owner_lane": "OPERATIONS_4",
   "lesson_id": "MAN-0844",
   "lesson_asset_version": "v0.1",
   "realization_id": "MAN-0844-MIXED-v0.1",
   "mixed_asset_sha256": "96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc",
-  "practice_ready": false,
-  "contract_valid": false,
+  "practice_ready": true,
+  "contract_valid": true,
   "publication_allowed": false,
-  "blocker": "FINAL_REALIZATION_DEPENDENT_PRACTICE_VALIDATION_PENDING_WITH_LEXICAL_UNCERTAINTY",
+  "blocker": "OWNER_PERMISSION_REQUIRED_PUBLIC_MAN0844_LEARNER_WAVS",
   "next_action": {
-    "code": "FINAL_REALIZATION_DEPENDENT_MAN_0844_PRACTICE_READY_CONTRACT_VALID",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Review exact MAN-0844 v0.1 / MAN-0844-MIXED-v0.1 using privately retained evidence; decide final gates or exact rework. Preserve passed static and representation gates."
+    "code": "AUTHORIZE_PUBLIC_MAN0844_LEARNER_ASSETS_THEN_CONTROLLED_RELEASE",
+    "responsible_lane": "OWNER",
+    "requires": "Explicit authorization to publish exact MAN-0844 learner WAVs and accompanying catalog/support/runtime metadata in bttdavid1948-sudo/my-dictation-app; Operations then reuses existing blobs and performs controlled release/live verification."
   }
 }
