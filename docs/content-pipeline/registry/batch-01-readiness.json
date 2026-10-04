@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "NINE_OFFICIAL_COMPLETE_MAN0844_PRACTICE_READY_RELEASE_PENDING_TWO_ACCENT_GAPS",
+  "preparation_status": "TEN_OFFICIAL_COMPLETE_FINAL_TWO_EXACT_REALIZATIONS_PENDING_PRACTICE",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,9 +110,14 @@
     }
   ],
   "next_action": {
-    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
+    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+    "responsible_lane": "PRACTICE_2",
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905"
+    ],
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -140,7 +145,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 10,
-    "blocker": "MAN_0565_AND_MAN_0905_ACCENT_EVIDENCE_CAPABILITY_GAPS; MAN_0844_CONTROLLED_RELEASE_PENDING"
+    "blocker": "FINAL_TWO_EXACT_REALIZATION_PRACTICE_2_DISPOSITIONS_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -151,7 +156,7 @@
   "ordinary_lesson_independent_progression": true,
   "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
   "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
-  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
   "man_0065_first_live_complete": true,
   "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
   "final_realization_practice_reworked_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
@@ -209,7 +214,8 @@
     "MAN-0414",
     "MAN-0765",
     "MAN-0604",
-    "MAN-0986"
+    "MAN-0986",
+    "MAN-0844"
   ],
   "feedback_admin_read_pending_lesson_ids": [],
   "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
@@ -276,21 +282,34 @@
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
   "authorized_remaining_audio_exception_lesson_ids": [
     "MAN-0565",
-    "MAN-0905",
-    "MAN-0844"
+    "MAN-0905"
   ],
   "independent_operations_next_action": {
-    "code": "ISOLATED_ACCENT_EVIDENCE_AND_OVERLAP_BINDING_CAPABILITY_GAPS",
+    "code": "RESUME_CONTROLLED_RELEASE_PER_EXACT_PRACTICE_PASS",
     "responsible_lane": "OPERATIONS_4",
     "lesson_ids": [
       "MAN-0565",
-      "MAN-0905",
-      "MAN-0844"
+      "MAN-0905"
     ],
     "global_batch_blocker": false,
-    "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
+    "requires": "Catalog/support drafts prepared privately. Release each exact pair after #2 disposition; no accent certification infrastructure."
   },
-  "pending_final_practice_exception_pairs": [],
+  "pending_final_practice_exception_pairs": [
+    {
+      "lesson_id": "MAN-0565",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+      "status": "REVIEW_READY",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+      "status": "REVIEW_READY",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json"
+    }
+  ],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "final_realization_practice_three_exceptions_result": {
     "reviewed_pairs": 3,
@@ -318,5 +337,7 @@
     "practice_ready": true,
     "contract_valid": true,
     "conflict": "NONE"
-  }
+  },
+  "complete_lesson_count": 10,
+  "latest_completion_checkpoint_ref": "docs/content-pipeline/registry/batch-01-man0844-completion-checkpoint.json"
 }
