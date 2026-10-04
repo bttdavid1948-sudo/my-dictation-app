@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "checked_at": "2026-10-04T14:35:43.316Z",
+  "status": "TEN_OF_TWELVE_COMPLETE_TWO_INDEPENDENT_EXCEPTIONS",
+  "complete_lesson_count": 10,
+  "selected_lesson_count": 12,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986",
+    "MAN-0844"
+  ],
+  "published_official_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986",
+    "MAN-0844"
+  ],
+  "live_runtime_pass_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986",
+    "MAN-0844"
+  ],
+  "remaining_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905"
+  ],
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
+  "prior_nine_complete_checkpoint_ref": "docs/content-pipeline/registry/batch-01-three-new-exceptions-checkpoint.json",
+  "precedence": "Supersedes older MAN-0844 release-pending and batch six/nine counts. Retains the prior nine exact COMPLETE evidence; does not rerun their Practice/Contract gates.",
+  "batch_close_complete": false,
+  "autonomous_orchestration_readiness_transition_complete": false,
+  "next_action": {
+    "code": "CONTINUE_INDEPENDENT_MAN_0565_MAN_0905",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Apply canonical accent-sensitive realization requirements and current authority independently. Do not mark Batch Close or advance orchestration readiness until 12/12 COMPLETE."
+  },
+  "audio_reuse": {
+    "context_blobs_reused": 6,
+    "mixed_blob_uploaded": 1,
+    "audio_regenerations": 0,
+    "tts_api_requests": 0
+  },
+  "publication_scope": "Only the Owner-authorized MAN-0844 learner release and its scoped completion/count metadata. No private QA packets, acoustic reference assets, receipts, credentials, or full registry publication."
+}
