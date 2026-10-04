@@ -1,0 +1,36 @@
+{
+  "bundle_id": "MAN-0844-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0844",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Nghiên cứu cho thấy những bệnh nhân có nồng độ một chỉ dấu trong máu cao hơn thường hồi phục nhanh hơn sau điều trị. Từ đó, chúng ta có thể suy ra điều gì?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Chúng ta có thể ghi nhận mối liên hệ đó. Nhưng chưa thể nói rằng chỉ dấu này gây ra sự hồi phục; mức độ nặng của bệnh và thời điểm điều trị cũng có thể ảnh hưởng."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Nhưng nếu cứ đợi đến khi cơ chế được làm rõ, chúng ta có thể bỏ qua một tín hiệu giúp xác định bệnh nhân nào cần được theo dõi sát hơn."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Tôi không đề nghị bỏ qua tín hiệu đó. Tôi cho rằng mức độ khẳng định phải tương xứng với độ mạnh của bằng chứng."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy hãy dùng chỉ dấu này trong một nghiên cứu theo dõi nhỏ, thay vì thay đổi phác đồ điều trị cho tất cả mọi người."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Như vậy, mô hình quan sát được cho chúng ta một giả thuyết có thể kiểm chứng và một bước tiếp theo thận trọng, chứ chưa chứng minh được cơ chế."
+    }
+  ],
+  "qa_status": "PASS",
+  "qa_basis": "Operations translation/alignment review of all six canonical segments: association vs causation, negation, cautious inference, competing risks and small follow-up study vs universal protocol change preserved."
+}

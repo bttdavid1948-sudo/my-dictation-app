@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "lesson_id": "MAN-0844",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0844-MIXED-v0.1",
+  "status": "PASS_FOR_CONTROLLED_RELEASE",
+  "content_basis": "Original Mặn Batch 01 canonical Curriculum-reviewed panel; no third-party excerpt or personal voice clone.",
+  "audio_basis": "Reuse six immutable OpenAI built-in Ash/Cedar/Marin source WAVs composed into the exact Practice-approved mixed realization and context windows. No new synthesis.",
+  "provenance_ref": "MAN-0844-Exact-Realization-Practice-Handoff-v0.1.zip",
+  "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+  "owner_publication_authorization": "Owner explicit authorization 2026-10-04 for mixed WAV, six context WAVs and learner catalog/support/runtime metadata in bttdavid1948-sudo/my-dictation-app",
+  "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.",
+  "claim_limit": "Operational provenance review, no exclusive copyright or human acoustic certification claim."
+}

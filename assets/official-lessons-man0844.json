@@ -1,0 +1,196 @@
+{
+  "catalogVersion": 1,
+  "publisher": "man",
+  "lessons": [
+    {
+      "id": "MAN-0844",
+      "unitName": "MAN-0844 · Có liên hệ, chưa chắc là nguyên nhân",
+      "topic": "Khoa học",
+      "level": "C1",
+      "track": "Giao tiếp",
+      "learningGoal": "Theo dõi lập luận của một cuộc thảo luận: phân biệt mối liên hệ với cơ chế đã được chứng minh, và hiểu đề xuất tiếp theo.",
+      "usefulLanguage": [
+        "association",
+        "strength of the evidence",
+        "testable hypothesis"
+      ],
+      "items": [
+        {
+          "en": "The study found that patients with higher levels of one blood marker tended to recover faster after treatment. What can we infer from that?",
+          "vi": "Nghiên cứu cho thấy những bệnh nhân có nồng độ một chỉ dấu trong máu cao hơn thường hồi phục nhanh hơn sau điều trị. Từ đó, chúng ta có thể suy ra điều gì?",
+          "segmentId": "S001",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S001-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "77e0e6fdd650bc6b397cfaa5fa68db4ea042485de979f066c387d9ffafd72c2c",
+            "durationSeconds": 10.15,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 0,
+            "primaryEndFrame": 219600,
+            "contextStartFrame": 0,
+            "contextEndFrame": 243600,
+            "sampleRate": 24000
+          }
+        },
+        {
+          "en": "We can report the association. We cannot yet say the marker caused the recovery; disease severity and treatment timing may also matter.",
+          "vi": "Chúng ta có thể ghi nhận mối liên hệ đó. Nhưng chưa thể nói rằng chỉ dấu này gây ra sự hồi phục; mức độ nặng của bệnh và thời điểm điều trị cũng có thể ảnh hưởng.",
+          "segmentId": "S002",
+          "speakerRole": "researcher",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S002-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "8bede51e70a717dd6f99eb5002fcd507949ed5d4381c1454ddfe7f627f2f5a6a",
+            "durationSeconds": 10.25,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 225600,
+            "primaryEndFrame": 423600,
+            "contextStartFrame": 201600,
+            "contextEndFrame": 447600,
+            "sampleRate": 24000
+          }
+        },
+        {
+          "en": "But if we wait for the mechanism to be settled, we may ignore a signal that could help us decide which patients need closer follow-up.",
+          "vi": "Nhưng nếu cứ đợi đến khi cơ chế được làm rõ, chúng ta có thể bỏ qua một tín hiệu giúp xác định bệnh nhân nào cần được theo dõi sát hơn.",
+          "segmentId": "S003",
+          "speakerRole": "clinician",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S003-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "bb42d6d55291273dbe4c36ae86462f99ae97808ef0c5bec7116b5d01fdc82a68",
+            "durationSeconds": 10.35,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 401848,
+            "primaryEndFrame": 602248,
+            "contextStartFrame": 377848,
+            "contextEndFrame": 626248,
+            "sampleRate": 24000
+          }
+        },
+        {
+          "en": "I am not arguing that we ignore it. I am arguing that the claim should match the strength of the evidence.",
+          "vi": "Tôi không đề nghị bỏ qua tín hiệu đó. Tôi cho rằng mức độ khẳng định phải tương xứng với độ mạnh của bằng chứng.",
+          "segmentId": "S004",
+          "speakerRole": "researcher",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S004-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "f4eb3309470da39a1a2b0d45f30e7b88641fb14033ffa8592c7c0f1e5eef5a93",
+            "durationSeconds": 8.25,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 576536,
+            "primaryEndFrame": 726536,
+            "contextStartFrame": 552536,
+            "contextEndFrame": 750536,
+            "sampleRate": 24000
+          }
+        },
+        {
+          "en": "Then use the marker in a small follow-up study, rather than changing the treatment protocol for everyone.",
+          "vi": "Vậy hãy dùng chỉ dấu này trong một nghiên cứu theo dõi nhỏ, thay vì thay đổi phác đồ điều trị cho tất cả mọi người.",
+          "segmentId": "S005",
+          "speakerRole": "clinician",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S005-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "0485a707ad7fdfee118d4d7d6e21a01f9b046ef48b8eba8e2016012bce6ad9a5",
+            "durationSeconds": 7.5,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 701666,
+            "primaryEndFrame": 833666,
+            "contextStartFrame": 677666,
+            "contextEndFrame": 857666,
+            "sampleRate": 24000
+          }
+        },
+        {
+          "en": "So the pattern gives us a testable hypothesis and a cautious next step, not a proven mechanism.",
+          "vi": "Như vậy, mô hình quan sát được cho chúng ta một giả thuyết có thể kiểm chứng và một bước tiếp theo thận trọng, chứ chưa chứng minh được cơ chế.",
+          "segmentId": "S006",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0844-S006-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0844",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0844-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+            "sha256": "975dda3851c9a0cb41641e0b85a13c86ea7c3bd9f8546f4bbea8ac44320b5346",
+            "durationSeconds": 8.65,
+            "replayEvidence": "CONTEXT_PRESERVING_ASSISTED",
+            "primaryStartFrame": 839666,
+            "primaryEndFrame": 1023266,
+            "contextStartFrame": 815666,
+            "contextEndFrame": 1023266,
+            "sampleRate": 24000
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0844-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0844-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0844-MIXED-v0.1",
+      "aiGeneratedAudio": true,
+      "fullPanelAudio": {
+        "url": "assets/audio/MAN-0844-MIXED-v0.1.wav",
+        "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+        "lessonId": "MAN-0844",
+        "lessonVersion": "v0.1",
+        "segmentId": "FULL_PANEL",
+        "realizationId": "MAN-0844-MIXED-v0.1",
+        "realizationVersion": "v0.1",
+        "profileRef": "MAN-0844-MIXED-CONTEXT@v0.1",
+        "sha256": "96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc",
+        "durationSeconds": 42.63608333333333,
+        "replayEvidence": "FULL_CONTEXT",
+        "sampleRate": 24000
+      },
+      "practice": {
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DISCOURSE_STRUCTURE_AND_DETAIL",
+        "speechCondition": "OVERLAP_INTERRUPTION_CONDITION",
+        "anchorId": "MAN-0844-A-COMP-01",
+        "referenceAnswer": "Nhóm phân biệt mối liên hệ quan sát được với cơ chế đã được chứng minh. Họ cân nhắc nguy cơ bỏ lỡ một tín hiệu hữu ích và nguy cơ khẳng định quá mức, rồi đề xuất một nghiên cứu theo dõi nhỏ thay vì đổi phác đồ cho tất cả mọi người.",
+        "scoringBoundary": "COMPREHENSION_ONLY_NO_OVERLAP_MASTERY_NO_CALIBRATION"
+      }
+    }
+  ]
+}
