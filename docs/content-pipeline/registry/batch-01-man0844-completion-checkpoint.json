@@ -51,9 +51,14 @@
   "batch_close_complete": false,
   "autonomous_orchestration_readiness_transition_complete": false,
   "next_action": {
-    "code": "TARGETED_SYNTHESIS_ORDINARY_AUDIO_QA_THEN_FINAL_PRACTICE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Apply Owner 2026-10-04 accent soft-quality clarification through the scoped remaining checkpoint. Continue each exact pair independently; preserve MAN-0844 COMPLETE. Batch Close and orchestration readiness require all 12 COMPLETE."
+    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+    "responsible_lane": "PRACTICE_2",
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905"
+    ],
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
   },
   "audio_reuse": {
     "context_blobs_reused": 6,

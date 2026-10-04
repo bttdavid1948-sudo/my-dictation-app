@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-30",
+  "updated_at": "2026-10-04",
   "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
   "current": {
     "curriculum-practice-contract": "v0.3",
@@ -30,7 +30,8 @@
     "batch-01-independent-exceptions-practice-handoff": "v0.1",
     "batch-01-final-realization-practice-three-independent-exceptions": "v0.1",
     "man-0844-overlap-practice-representation": "v0.1",
-    "man-0844-final-realization-practice": "v0.1"
+    "man-0844-final-realization-practice": "v0.1",
+    "batch-01-final-two-exact-realization-practice-handoff": "v0.1"
   },
   "artifacts": [
     {
@@ -996,6 +997,45 @@
         "responsible_lane": "OPERATIONS_4",
         "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
       }
+    },
+    {
+      "id": "batch-01-final-two-exact-realization-practice-handoff",
+      "name": "MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner 2026-10-04 soft-accent clarification",
+        "Canonical exact segments and approved existing audio producer"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-04",
+      "updated_at": "2026-10-04",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library (access controlled)",
+        "path": "MẶN — VẬN HÀNH/MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+        "library_file_id": "libfile_834ba6b9ecc081918f3e9b20b10757d7"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "sha256": "1a38e68032f54b53c1e8e45609a7c029777a124c29092753d5e55e34b28cea75",
+      "next_action": {
+        "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+        "responsible_lane": "PRACTICE_2",
+        "lesson_ids": [
+          "MAN-0565",
+          "MAN-0905"
+        ],
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+        "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
+      },
+      "size_bytes": 3831914,
+      "audio_qa_status": "ORDINARY_AUTOMATED_AUDIO_QA_PASS_FINAL_PRACTICE_PENDING"
     }
   ]
 }

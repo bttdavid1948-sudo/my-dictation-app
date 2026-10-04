@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "checked_at": "2026-10-04T22:16:27+07:00",
-  "status": "TARGETED_SYNTHESIS_ORDINARY_QA_PENDING_AUTHENTICATION",
-  "source_main": "ba24ef5bbc03b7203a5a9805ad5c2d932904c5cb",
+  "checked_at": "2026-10-04T16:03:08.098582+00:00",
+  "status": "FINAL_TWO_EXACT_REALIZATION_PRACTICE_HANDOFF_READY",
+  "source_main": "a08f5f20a38802e516a10e4b37ec844c5c17c91c",
   "remaining_lesson_ids": [
     "MAN-0565",
     "MAN-0905"
   ],
   "man0844_complete_preserved": true,
   "complete_lesson_count": 10,
-  "new_audio_generation_requests": 0,
-  "new_audio_api_cost_usd": 0,
+  "new_audio_generation_requests": 16,
+  "new_audio_api_cost_usd": null,
   "reference_capability_probe": {
     "official_source": "https://doi.org/10.7488/ds/2645",
     "method": "Real-speech formant sensitivity and fixed MFCC/logistic classifier with speaker-disjoint holdout",
@@ -31,9 +31,14 @@
     "release_gate": false
   },
   "next_action": {
-    "code": "TARGETED_SYNTHESIS_ORDINARY_AUDIO_QA_THEN_FINAL_PRACTICE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Use approved existing producer. Independently synthesize exact canonical segments, perform ordinary high-quality learner-outcome QA, bind immutable WAVs to exact version/segment/speaker/hash, then hand each realization to Practice #2. Block only learner-impacting corruption/truncation/mismatch/intelligibility/pronunciation/binding errors or frozen contract conflict. Accept residual accent uncertainty. No classifier/acoustic certification infrastructure or completed-gate rerun."
+    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+    "responsible_lane": "PRACTICE_2",
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905"
+    ],
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
   },
   "batch_close_complete": false,
   "autonomous_orchestration_readiness_started": false,
@@ -61,9 +66,10 @@
     "after_release": "feedback system -> exception routing -> versioned replacement"
   },
   "current_execution_blocker": {
-    "code": "PRODUCTION_AUTHENTICATION_REQUIRED",
-    "scope": "Current execution session, not lesson QA or Owner scope permission",
-    "evidence": "No authenticated producer credential in execution environment; retained browser inventory has no production session. OpenAI Platform renders sign-in methods and saved account; account selection/authentication required."
+    "code": "FINAL_PRACTICE_2_DISPOSITION_PENDING",
+    "scope": "Exact new realization pair review; no accent certification blocker",
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+    "self_resolution_boundary": "Operations cannot substitute Practice final semantic disposition; available tools do not activate another project conversation."
   },
   "synthesis_preparation": {
     "MAN-0565": {
@@ -79,6 +85,11 @@
     "model": "gpt-4o-mini-tts",
     "monthly_guardrail_usd": 5,
     "auto_recharge": false,
-    "new_generation_requests": 0
-  }
+    "new_generation_requests": 16,
+    "status": "EXECUTED_BOUND_ORDINARY_AUTOMATED_QA_PASS",
+    "api_generation_requests": 15,
+    "browser_generation_requests": 1,
+    "cost_reconciliation": "PENDING_PROVIDER_INVOICE_NO_ZERO_COST_CLAIM"
+  },
+  "exact_realization_handoff_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json"
 }

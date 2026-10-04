@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "generated_at": "2026-10-04T16:01:06.371596+00:00",
+  "status": "EXACT_REALIZATION_PRACTICE_HANDOFF_READY",
+  "complete_lesson_count": 10,
+  "audio_api_requests": 15,
+  "browser_synthesis_requests": 1,
+  "api_cost_usd": null,
+  "cost_note": "Direct WAV response contains no metered token usage; invoice reconciliation pending. No cost-zero claim.",
+  "method_escalation": "Browser WAV export failed; reused existing approved credential via production API.",
+  "container_normalization": "Finite WAV RIFF header; PCM unchanged and hash-bound.",
+  "targeted_rework_segments": [
+    "MAN-0565/S001",
+    "MAN-0905/S003"
+  ],
+  "accent_policy": "SOFT_QUALITY_TARGET_RESIDUAL_UNCERTAINTY_ACCEPTED",
+  "pairs": [
+    {
+      "lesson_id": "MAN-0565",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "student",
+          "file": "MAN-0565-S001-context-v0.1.wav",
+          "sha256": "d1654c91ef95f4a0a70f47f87fe4285022a4c660d06538e58ef5dc33d330b145",
+          "pcm_sha256": "b1f5e6ca83678f8d5b27a18337205d505e6a1e09de89d5aba389df768c2ea48a",
+          "input_sha256": "b84c7efe2a7fd9eca1729d5a6fc340e65b942ea04e3a76a7484f7a18317663f7",
+          "voice": "cedar",
+          "requested_accent_intent": "Natural conversational American English",
+          "duration_seconds": 8.15,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "tutor",
+          "file": "MAN-0565-S002-context-v0.1.wav",
+          "sha256": "0cb10cc53c658164ab991e009e40330be068eca231231f99e783bc575946761e",
+          "pcm_sha256": "c39ab6ac204a4eadcc4b712c064970b617f5809a696d09bdc91bd05ea3a6e51e",
+          "input_sha256": "49929ec20f2e76f272d2ade477d148cb32cf5e2a06a3d4d27a380b023449c6de",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 7.15,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "student",
+          "file": "MAN-0565-S003-context-v0.1.wav",
+          "sha256": "7a14f897680cdd1e021b58142a39733c9efb3dca13f80f7419a6446a1212e511",
+          "pcm_sha256": "bc69b621118fbd7b3a26737ff6857a67ecc8f9648517c2b175dab700695bc155",
+          "input_sha256": "04e72aed38a6f0f7b8c8e317f690d7d45656a1828d40ef3a92f76cee8435033e",
+          "voice": "cedar",
+          "requested_accent_intent": "Natural conversational American English",
+          "duration_seconds": 4.95,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "tutor",
+          "file": "MAN-0565-S004-context-v0.1.wav",
+          "sha256": "64636cc24961e1242f46ed196e494974aadf43f6859a09fbd81ee0557e7653f5",
+          "pcm_sha256": "2ae45717c26b997dad20207c40ffad00ed0d03176b08cf519e76d9a90127fb96",
+          "input_sha256": "d448490659e4ac46ad40d02d35eb1febd80cefe21a2c498b03410a0820ab7c45",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 9.35,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "student",
+          "file": "MAN-0565-S005-context-v0.1.wav",
+          "sha256": "3be6f026175f26fedbf1c6d282fd8f125f9315ff1641b91cfa0caa674ddd1a59",
+          "pcm_sha256": "63476b518b07dce66bdbebdcd42838e6d42fbc92bedd6d6613079c47997afa38",
+          "input_sha256": "0ee41eae6cb6acc8e961b878118eb2532489afe4aa7efd5183b537c6e2b56943",
+          "voice": "cedar",
+          "requested_accent_intent": "Natural conversational American English",
+          "duration_seconds": 4.65,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "tutor",
+          "file": "MAN-0565-S006-context-v0.1.wav",
+          "sha256": "1a589df4faa6d0149ec2f04bbf946dfb0e8edd8cd2d1d1892538e2cfd655eb99",
+          "pcm_sha256": "fe63e3715d94f9b4b6d60ebd4f095bb18fad869d71c68d41228da062fcaac6ee",
+          "input_sha256": "f4cc9adcc97e46e339029aa049453b2b7ce7851640ad1c3a35014e6705ca0b45",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 5.25,
+          "accent_certification_claimed": false
+        }
+      ],
+      "ordinary_qa": "PASS",
+      "final_practice_disposition": "PENDING",
+      "prepared_support_coverage": "FULL"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "chair",
+          "file": "MAN-0905-S001-context-v0.1.wav",
+          "sha256": "711f6fdd8410394af3eb7edd013283bd48da33f13fc88aaca4cf34dbef800bf1",
+          "pcm_sha256": "0d0e9c448ed1c672ca43daf5c691ac5d555c9fa151f881abf227b8b7e9f7862f",
+          "input_sha256": "48086fe0af979e873ff37d81e16048b03f943a11d5a9ef793c835fd7600e3e1f",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 10.65,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "assessment specialist",
+          "file": "MAN-0905-S002-context-v0.1.wav",
+          "sha256": "647848811476aaf9bde7306b5d24bc52863bd81d725141a12f3485153aa53cbd",
+          "pcm_sha256": "5a62193ff4f59aad11c66ef4fea16c4fd8a61b1ddc7156ed8871566062504bc5",
+          "input_sha256": "7fc31ca200833bc8f01be6e4e16ce3f6ada4e1d10e9bc8ca3b9997f6201e8875",
+          "voice": "marin",
+          "requested_accent_intent": "A light, natural Irish English accent, keeping every word clear",
+          "duration_seconds": 11.1,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "programme lead",
+          "file": "MAN-0905-S003-context-v0.1.wav",
+          "sha256": "208d8bb21ed07d74c49bed1e074e1f702145334086c6e697cf9ef0afb719b5e8",
+          "pcm_sha256": "061908a2b75b7f8caf723ff0b8054330ce3d54e9df97fe3a921335ddd3e9adda",
+          "input_sha256": "322a4223399639716d665d2743b65f95ef8ffea55210f7875d0e2c2c33c34c08",
+          "voice": "cedar",
+          "requested_accent_intent": "Natural conversational American English",
+          "duration_seconds": 9.4,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "assessment specialist",
+          "file": "MAN-0905-S004-context-v0.1.wav",
+          "sha256": "19ef13491818f7fb6c07938ca83434a844bc489a568b3440ed12f2c1ac850e37",
+          "pcm_sha256": "396639442ead200f8cf82b37cfabe9e56fb98149d15408a707c65b85a593eae1",
+          "input_sha256": "12d33b1fab34fef70d2333c9048faa72ff306514e94c4f29925b6dbb21110248",
+          "voice": "marin",
+          "requested_accent_intent": "A light, natural Irish English accent, keeping every word clear",
+          "duration_seconds": 11.4,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "chair",
+          "file": "MAN-0905-S005-context-v0.1.wav",
+          "sha256": "b490636daf965ff5fc8173cb9b412c9cc9faf5821d509c344301fd1a3314ce34",
+          "pcm_sha256": "e172869128fef48b7a7d083b9ec9f519d016c83698a04bb7d0d2cfb4b73634a2",
+          "input_sha256": "c0c5d9f4cd09ca998d33b560e20dbfc45e7168511a0e56796f22f18812274efc",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 3.45,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "programme lead",
+          "file": "MAN-0905-S006-context-v0.1.wav",
+          "sha256": "1832ff5bf81acaff683a6c137aa972b586560864b22e1e67d286f552ed27a983",
+          "pcm_sha256": "dbb3f08501f0125af61d90477f88176840010d6755667631cd530fee795c319f",
+          "input_sha256": "3a8be371058e36083a9e585c86913dbdf6b2e309aec5ff8ad77edfcc42b86a77",
+          "voice": "cedar",
+          "requested_accent_intent": "Natural conversational American English",
+          "duration_seconds": 8.4,
+          "accent_certification_claimed": false
+        },
+        {
+          "segment_id": "S007",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "chair",
+          "file": "MAN-0905-S007-context-v0.1.wav",
+          "sha256": "2921ed7e9321554a29fafcf1535054abfb81c5b2d5551382c5900cd1f6eab57a",
+          "pcm_sha256": "9bda27b62f218ad443b476e4689fb4031d337c52da10176c27dce3834b125a1e",
+          "input_sha256": "6577f46119319bd49c8e536b4ae0169530a90c97775611e6c51bda75ef7839a1",
+          "voice": "ash",
+          "requested_accent_intent": "Natural conversational British English",
+          "duration_seconds": 8.75,
+          "accent_certification_claimed": false
+        }
+      ],
+      "ordinary_qa": "PASS",
+      "final_practice_disposition": "PENDING",
+      "prepared_support_coverage": "FULL"
+    }
+  ],
+  "next_lane": "PRACTICE_2",
+  "next_action": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID",
+  "stop_dependency": "Operations cannot issue Practice semantic disposition or directly activate another conversation with available tools. No authorized substitute delegation.",
+  "after_practice_pass": "Controlled release/live verification per pair -> BatchClose at12/12 -> approved Autonomous Orchestration Readiness.",
+  "artifact_id": "batch-01-final-two-exact-realization-practice-handoff",
+  "version": "v0.1",
+  "private_handoff": {
+    "name": "MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+    "library_file_id": "libfile_834ba6b9ecc081918f3e9b20b10757d7",
+    "sha256": "1a38e68032f54b53c1e8e45609a7c029777a124c29092753d5e55e34b28cea75",
+    "bytes": 3831914
+  },
+  "public_scope": "Sanitized binding and ordinary QA summary only. Audio, full QA, draft catalog/support remain access controlled."
+}
