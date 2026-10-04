@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "SIX_OFFICIAL_COMPLETE_THREE_MORE_PRACTICE_READY_AWAIT_CONTROLLED_RELEASE_THREE_ISOLATED_EXCEPTIONS",
+  "preparation_status": "NINE_OFFICIAL_COMPLETE_MAN0844_REPRESENTATION_READY_TWO_ACCENT_GAPS",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,14 +110,9 @@
     }
   ],
   "next_action": {
-    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
     "responsible_lane": "OPERATIONS_4",
-    "pairs": [
-      "MAN-0765",
-      "MAN-0604",
-      "MAN-0986"
-    ],
-    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+    "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -145,7 +140,7 @@
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 9,
-    "blocker": "THREE_ISOLATED_AUDIO_EXCEPTIONS_MAN_0565_MAN_0905_MAN_0844"
+    "blocker": "MAN_0844_ACTUAL_OVERLAP_REALIZATION_PENDING; MAN_0565_AND_MAN_0905_ACCENT_EVIDENCE_CAPABILITY_GAPS"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -200,7 +195,10 @@
     "MAN-0365-OPENAI-FIXED-v0.2",
     "MAN-0044-OPENAI-FIXED-v0.2",
     "MAN-0238-OPENAI-FIXED-v0.2",
-    "MAN-0414-OPENAI-FIXED-v0.2"
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
   ],
   "fully_complete_lesson_ids": [
     "MAN-0065",
@@ -208,7 +206,10 @@
     "MAN-0365",
     "MAN-0044",
     "MAN-0238",
-    "MAN-0414"
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
   ],
   "feedback_admin_read_pending_lesson_ids": [],
   "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
@@ -301,5 +302,13 @@
       "MAN-0604",
       "MAN-0986"
     ]
+  },
+  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
+  "man_0844_overlap_practice_representation_result": {
+    "representation_status": "PRACTICE_REPRESENTATION_VALID",
+    "contract_compatibility": "NON_BREAKING",
+    "practice_ready": false,
+    "contract_valid": false,
+    "blocker": "ACTUAL_OVERLAP_REALIZATION_PENDING"
   }
 }
