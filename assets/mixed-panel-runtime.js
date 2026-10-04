@@ -36,6 +36,7 @@
   function render() {
     if(!panel){panel=document.createElement('section');panel.id='man-mixed-panel';panel.className='x-panel';document.getElementById('x-learn-slot').prepend(panel);}
     panel.hidden=false; panel.replaceChildren();panel.style.cssText='padding:24px;max-width:860px;margin:0 auto 20px;overflow-wrap:anywhere';
+    const safeScroll=document.createElement('style');safeScroll.textContent='#man-mixed-panel button,#man-mixed-panel input{scroll-margin-top:110px;scroll-margin-bottom:130px}';panel.append(safeScroll);
     text('h2',lesson.unitName,panel);
     text('p','Nghe cả cuộc thảo luận trước, rồi chọn cách hiểu ý chính. Khi nghe lại một lượt nói, bạn vẫn nghe được lời của người bên cạnh.',panel);
     text('p','Giọng đọc do AI tạo. Bạn có thể báo lỗi để Mặn sửa đúng phiên bản.',panel);
