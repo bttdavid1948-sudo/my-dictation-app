@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
+    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
+    "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -105,7 +105,8 @@
     "MAN-0414-OPENAI-FIXED-v0.2",
     "MAN-0765-OPENAI-FIXED-v0.2",
     "MAN-0604-OPENAI-FIXED-v0.1",
-    "MAN-0986-OPENAI-FIXED-v0.2"
+    "MAN-0986-OPENAI-FIXED-v0.2",
+    "MAN-0844-MIXED-v0.1"
   ],
   "practice_blocked_fixed_realization_ids": [],
   "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
@@ -201,11 +202,10 @@
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
   "authorized_remaining_audio_exception_lesson_ids": [
     "MAN-0565",
-    "MAN-0905",
-    "MAN-0844"
+    "MAN-0905"
   ],
   "independent_operations_next_action": {
-    "code": "ACCENT_GAPS_PLUS_MAN_0844_IMPLEMENTATION",
+    "code": "ACCENT_GAPS_PLUS_MAN_0844_CONTROLLED_RELEASE",
     "responsible_lane": "OPERATIONS_4",
     "lesson_ids": [
       "MAN-0565",
@@ -220,19 +220,20 @@
           "MAN-0905"
         ],
         "status": "PARKED_INTERNAL_ACCENT_EVIDENCE_CAPABILITY_GAP",
-        "requires": "Establish bounded internal accent/phonetic evidence capability before synthesis/validation; no speculative paid generation."
+        "requires": "Continue bounded internal accent/phonetic evidence work independently; no speculative paid generation and no rerun of completed gates."
       },
       {
         "lesson_ids": [
           "MAN-0844"
         ],
-        "status": "PRACTICE_REPRESENTATION_RESOLVED_IMPLEMENTATION_PENDING",
-        "evidence_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
-        "requires": "Implement approved continuous/mixed overlap-context realization and return exact realization evidence to Practice #2."
+        "status": "PRACTICE_READY_CONTRACT_VALID_CONTROLLED_RELEASE_PENDING",
+        "evidence_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
+        "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
       }
     ]
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
-  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json"
+  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
+  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
 }
