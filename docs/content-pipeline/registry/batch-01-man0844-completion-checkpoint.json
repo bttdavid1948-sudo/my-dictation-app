@@ -51,9 +51,9 @@
   "batch_close_complete": false,
   "autonomous_orchestration_readiness_transition_complete": false,
   "next_action": {
-    "code": "ESTABLISH_EXECUTABLE_BOUNDED_ACCENT_VERIFICATION_CAPABILITY",
+    "code": "TARGETED_SYNTHESIS_ORDINARY_AUDIO_QA_THEN_FINAL_PRACTICE",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Continue MAN-0565 and MAN-0905 independently under the scoped accent checkpoint. Keep MAN-0844 COMPLETE. Batch Close and orchestration readiness require all 12 COMPLETE."
+    "requires": "Apply Owner 2026-10-04 accent soft-quality clarification through the scoped remaining checkpoint. Continue each exact pair independently; preserve MAN-0844 COMPLETE. Batch Close and orchestration readiness require all 12 COMPLETE."
   },
   "audio_reuse": {
     "context_blobs_reused": 6,

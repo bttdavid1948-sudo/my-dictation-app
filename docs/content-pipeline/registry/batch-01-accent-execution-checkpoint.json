@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "owner_lane": "OPERATIONS_4",
-  "checked_at": "2026-10-04",
-  "status": "TWO_INDEPENDENT_VALIDATION_CAPABILITY_EXCEPTIONS",
+  "checked_at": "2026-10-04T22:16:27+07:00",
+  "status": "TARGETED_SYNTHESIS_ORDINARY_QA_PENDING_AUTHENTICATION",
   "source_main": "ba24ef5bbc03b7203a5a9805ad5c2d932904c5cb",
   "remaining_lesson_ids": [
     "MAN-0565",
@@ -26,9 +26,19 @@
     "production_ready": false,
     "generated_domain_calibrated": false,
     "specialist_pronunciation_verified": false,
-    "limitations": "Small studio corpus scope, uncalibrated probabilities, no generated-domain acceptance threshold or phoneme-aligned truth. These probes are not asset-bound lesson approval."
+    "limitations": "Small studio corpus scope, uncalibrated probabilities, no generated-domain acceptance threshold or phoneme-aligned truth. These probes are not asset-bound lesson approval.",
+    "learning_evidence_only": true,
+    "release_gate": false
   },
-  "exceptions": [
+  "next_action": {
+    "code": "TARGETED_SYNTHESIS_ORDINARY_AUDIO_QA_THEN_FINAL_PRACTICE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use approved existing producer. Independently synthesize exact canonical segments, perform ordinary high-quality learner-outcome QA, bind immutable WAVs to exact version/segment/speaker/hash, then hand each realization to Practice #2. Block only learner-impacting corruption/truncation/mismatch/intelligibility/pronunciation/binding errors or frozen contract conflict. Accept residual accent uncertainty. No classifier/acoustic certification infrastructure or completed-gate rerun."
+  },
+  "batch_close_complete": false,
+  "autonomous_orchestration_readiness_started": false,
+  "public_scope": "Aggregate execution metadata and bounded evidence summary only; no reference WAVs, private QA packets, receipts or credentials.",
+  "previous_accent_certification_blockers_superseded": [
     {
       "lesson_id": "MAN-0565",
       "blocking_code": "ACCENT_VARIATION_REALIZATION_NOT_VERIFIED",
@@ -40,12 +50,35 @@
       "required": "Validated internal accent and specialist pronunciation evidence with exact asset binding and bounded uncertainty."
     }
   ],
-  "next_action": {
-    "code": "ESTABLISH_EXECUTABLE_BOUNDED_ACCENT_VERIFICATION_CAPABILITY",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Obtain a reliable validation source/capability, validate bounded uncertainty and generated-domain applicability, then targeted synthesis and independent exact-pair Practice disposition. No speculative paid generation, human certification requirement, construct override or completed gate rerun."
+  "exceptions": [],
+  "owner_clarification": {
+    "at": "2026-10-04T22:16:27+07:00",
+    "accent": "SOFT_QUALITY_TARGET_NOT_CERTIFICATION_GATE",
+    "residual_accent_uncertainty": "ACCEPTED_NONBLOCKING",
+    "classifier_research": "STOP_NO_CONFIDENCE_THRESHOLD_UPGRADE",
+    "specialist_terms": "Avoid clearly wrong target-term pronunciation that affects learner understanding; no phonetic certification requirement.",
+    "frozen_constructs_and_contracts": "PRESERVED",
+    "after_release": "feedback system -> exception routing -> versioned replacement"
   },
-  "batch_close_complete": false,
-  "autonomous_orchestration_readiness_started": false,
-  "public_scope": "Aggregate execution metadata and bounded evidence summary only; no reference WAVs, private QA packets, receipts or credentials."
+  "current_execution_blocker": {
+    "code": "PRODUCTION_AUTHENTICATION_REQUIRED",
+    "scope": "Current execution session, not lesson QA or Owner scope permission",
+    "evidence": "No authenticated producer credential in execution environment; retained browser inventory has no production session. OpenAI Platform renders sign-in methods and saved account; account selection/authentication required."
+  },
+  "synthesis_preparation": {
+    "MAN-0565": {
+      "segments": 6,
+      "canonical_input_sha256_verified": true,
+      "status": "READY"
+    },
+    "MAN-0905": {
+      "segments": 7,
+      "canonical_input_sha256_verified": true,
+      "status": "READY"
+    },
+    "model": "gpt-4o-mini-tts",
+    "monthly_guardrail_usd": 5,
+    "auto_recharge": false,
+    "new_generation_requests": 0
+  }
 }
