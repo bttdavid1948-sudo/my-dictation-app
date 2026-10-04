@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "NINE_OFFICIAL_COMPLETE_MAN0844_REPRESENTATION_READY_TWO_ACCENT_GAPS",
+  "preparation_status": "NINE_OFFICIAL_COMPLETE_MAN0844_PRACTICE_READY_RELEASE_PENDING_TWO_ACCENT_GAPS",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,9 +110,9 @@
     }
   ],
   "next_action": {
-    "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
+    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
+    "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -139,8 +139,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 9,
-    "blocker": "MAN_0844_ACTUAL_OVERLAP_REALIZATION_PENDING; MAN_0565_AND_MAN_0905_ACCENT_EVIDENCE_CAPABILITY_GAPS"
+    "final_practice_ready": 10,
+    "blocker": "MAN_0565_AND_MAN_0905_ACCENT_EVIDENCE_CAPABILITY_GAPS; MAN_0844_CONTROLLED_RELEASE_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -307,8 +307,16 @@
   "man_0844_overlap_practice_representation_result": {
     "representation_status": "PRACTICE_REPRESENTATION_VALID",
     "contract_compatibility": "NON_BREAKING",
-    "practice_ready": false,
-    "contract_valid": false,
-    "blocker": "ACTUAL_OVERLAP_REALIZATION_PENDING"
+    "practice_ready": true,
+    "contract_valid": true,
+    "blocker": "NONE",
+    "final_realization_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
+  },
+  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
+  "man_0844_final_realization_practice_result": {
+    "realization_id": "MAN-0844-MIXED-v0.1",
+    "practice_ready": true,
+    "contract_valid": true,
+    "conflict": "NONE"
   }
 }
