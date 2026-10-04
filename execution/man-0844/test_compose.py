@@ -14,6 +14,10 @@ class MixTest(unittest.TestCase):
    self.assertEqual([s['segment_id'] for s in r['segments']],[s['segment_id'] for s in rows])
    for e in r['overlap_events']:self.assertGreater(e['simultaneous_above_threshold_seconds'],.1)
    self.assertEqual(r['sha256'],compose(m,root,root/'out')['sha256'])
+   for mapping in r['segments']:
+    self.assertLessEqual(mapping['context_start'],mapping['start'])
+    self.assertGreaterEqual(mapping['context_end'],mapping['end'])
+   with self.assertRaises(AssertionError):compose({'lessons':[{'segments':rows[:-1]}]},root,root/'out')
    rows[1]['sha256']='bad'
    with self.assertRaises(AssertionError):compose(m,root,root/'out')
 if __name__=='__main__':unittest.main()
