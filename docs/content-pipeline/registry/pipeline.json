@@ -5,21 +5,11 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_REMAINING_EXACT_PAIRS",
     "responsible_lane": "OPERATIONS_4",
-    "pairs": [
-      {
-        "lesson_id": "MAN-0565",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
-      },
-      {
-        "lesson_id": "MAN-0905",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
-      }
-    ],
-    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+    "lesson_ids": [
+      "MAN-0905"
+    ]
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",

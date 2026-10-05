@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "11_OF_12_COMPLETE",
+  "complete_lesson_count": 11,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986",
+    "MAN-0844",
+    "MAN-0565"
+  ],
+  "remaining_lesson_ids": [
+    "MAN-0905"
+  ],
+  "pairs": [
+    {
+      "lesson_id": "MAN-0565",
+      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+      "status": "COMPLETE",
+      "evidence_ref": "docs/content-pipeline/registry/man-0565-live-release.json"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+      "status": "LIVE_VERIFY_PENDING",
+      "evidence_ref": "docs/content-pipeline/registry/man-0905-live-release.json"
+    }
+  ],
+  "previous_ten_complete_preserved": true,
+  "next_action": {
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_REMAINING_EXACT_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "lesson_ids": [
+      "MAN-0905"
+    ]
+  }
+}
