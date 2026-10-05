@@ -67,9 +67,9 @@
   "batch_close_complete": true,
   "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-readiness.json",
   "next_action": {
-    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+    "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
   },
   "previous_next_action": {
     "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
@@ -84,5 +84,10 @@
     "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
   },
   "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
-  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json"
+  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json",
+  "previous_watcher_next_action": {
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+  }
 }

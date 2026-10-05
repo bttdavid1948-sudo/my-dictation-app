@@ -4,7 +4,7 @@
   "version": "v0.1",
   "owner_lane": "OPERATIONS_4",
   "state_scope": "CURRENT_AUTHORITATIVE",
-  "status": "FEASIBILITY_PROBE_PREPARED_NOT_VERIFIED",
+  "status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
   "source_main": "be281846c475c54b695c2cb97e79f9085f6c7213",
   "authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
   "scope": "OFFICIAL_MAN_1000_ONLY",
@@ -28,10 +28,28 @@
     "semantic_decisions_allowed": false,
     "provider_calls_allowed": false,
     "production_allowed": false,
-    "observed_run": false,
-    "trigger_registered": false,
+    "observed_run": true,
+    "trigger_registered": true,
     "source": "Connected event source + successful GitHub harmless main read + supported webhook schema discovery, 2026-10-05",
-    "success_boundary": "Registration, queued execution and actual successful canonical mutation are distinct. No full production autonomy claim from a read/write probe."
+    "success_boundary": "Registration, queued execution and actual successful canonical mutation are distinct. No full production autonomy claim from a read/write probe.",
+    "event_run_finished_at": "2026-10-05T06:20:06.843743+00:00",
+    "registration_and_execution_distinct": true,
+    "observed_results": {
+      "canonical_read": "PASS",
+      "branch_create": "PASS",
+      "receipt_file_write": "PASS_ON_BRANCH_ONLY",
+      "receipt_pr_create": "PASS_PR109",
+      "automatic_merge": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW",
+      "receipt_canonicalized": false,
+      "full_probe": "BLOCKED_NOT_PASS"
+    },
+    "receipt_pr": 109,
+    "receipt_pr_head": "adc2f39a11f6d273cf8aa23d3dd6e9080c0a6283",
+    "receipt_main_status": "ABSENT_AT_RECONCILIATION",
+    "merge_rejection_reason": "Automatic approval review did not recognize authorization for the exact merge into main.",
+    "worker_report_source": "Actual event automation assistant outcome2026-10-05T06:20:05Z retrieved through Personal Context; independently verified PR109 single-file diff/open state and main SHA.",
+    "event_paused": true,
+    "same_rejected_merge_retried": false
   },
   "lane_templates_ref": "operations/orchestration/watchers/trigger-templates.v0.1.json",
   "budget_preflight": {
@@ -42,8 +60,39 @@
     "funding_exhaustion_claimed": false
   },
   "next_action": {
-    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+    "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+  },
+  "checked_at": "2026-10-05T06:21:37Z",
+  "canonical_authority_pr": 108,
+  "canonical_authority_merge": "27e02a95a83ac1a166e7344cca2d2641d5f5c130",
+  "scheduled_probe": {
+    "registered": true,
+    "kind": "ONE_SHOT_FEASIBILITY_FALLBACK_NOT_POLLING",
+    "immediate_run_request": "ACCEPTED_ASYNC_ONLY",
+    "completed_execution_observed": false,
+    "paused": true,
+    "future_prompt": "STOP_NO_MERGE_RETRY_OR_PRODUCTION",
+    "event_manual_run_error": "Run now is available only for ordinary cloud-scheduled tasks.",
+    "no_completion_claim": true
+  },
+  "capability_gap": {
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
+    "layer": "AUTOMATION_RUNTIME_APPROVAL_AUTHORITY_PROPAGATION",
+    "technical_github_read_and_pr_write_available": true,
+    "event_activation_observed": true,
+    "canonical_merge_approved": false,
+    "not_established": [
+      "Owning-lane private contract/input access",
+      "Final canonical transition by unattended worker",
+      "Cross-lane semantic handoff execution",
+      "Batch02 throughput"
+    ],
+    "smallest_next_option": "Verify a supported way for the approval layer to recognize narrowly scoped standing authorization for watcher canonical PR merges, before one fresh controlled probe. Exact PR109 approval can finish that receipt but cannot alone prove future unattended transitions.",
+    "workaround_framework_created": false,
+    "bypass_forbidden": true,
+    "owner_payment_reapproval_needed": false,
+    "minimum_owner_intervention": "Only platform/standing-merge-authorization exception resolution; no lesson prompts, commands, audio review or per-action funding approvals."
   }
 }

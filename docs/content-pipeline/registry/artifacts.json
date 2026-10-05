@@ -1238,14 +1238,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "c52a0a771ac7262674cd84058db654a8c499095f9f1c6d0a9c335c23a6126c22",
-      "size_bytes": 15330,
+      "sha256": "797fdb6c7385a1f39b837a6b31338a4e6db90aa2a332b105830e35cd85800b10",
+      "size_bytes": 15841,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
         "responsible_lane": "OPERATIONS_4",
-        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
       }
     },
     {
@@ -1271,14 +1271,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "99200ffea432c73b28e9e08cfdf1482a4fd303cd34cd4273c1ec02c589a2580c",
-      "size_bytes": 8374,
+      "sha256": "009530c34a96c12ddfa75a96433d2a3f02aaf2f85b5da953197e01857dcea834",
+      "size_bytes": 9038,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
       "next_action": {
-        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
         "responsible_lane": "OPERATIONS_4",
-        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
       }
     },
     {
@@ -1305,9 +1305,9 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
         "responsible_lane": "OPERATIONS_4",
-        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
       },
       "sha256": "ec1ca8f477ffca2c5c8fb21905fa429a7d60e590e1140d6d7a428f8b477c5555",
       "size_bytes": 2812
@@ -1336,12 +1336,12 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
         "responsible_lane": "OPERATIONS_4",
-        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
       },
-      "sha256": "46ef883fdd08b203b1f484188d45c441a8c4731768463cfe9c2e340a657963d2",
-      "size_bytes": 2432
+      "sha256": "30bd77ac1d857049a403d0b5673554c56c70101e3e157541d86c2095326a637d",
+      "size_bytes": 5152
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
