@@ -36,7 +36,7 @@
     {
       "code": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
       "branch": "PAID_AUDIO_ONLY",
-      "reason": "Existing ephemeral producer credential absent. Billing overview sign-in wall; actual prepaid balance, unsettled usage and reservations unverified.",
+      "reason": "Signed-in Platform and funded prepaid balance now observed; existing production API credential absent, secure runtime key intake not exposed, unsettled/inflight net-credit reconciliation incomplete. No funding exhaustion claim.",
       "funding_exhaustion_claimed": false
     }
   ],
@@ -87,5 +87,26 @@
     "support_qa_ref": "docs/content-pipeline/registry/batch-02-support-qa.json",
     "support_ready_count": 12,
     "actual_audio_created": false
+  },
+  "current_recovery": {
+    "source_main": "e934ed68b25279462a8670ad7ae572eb70cad776",
+    "checked_at": "2026-10-05T16:44:35.495872+00:00",
+    "authentication": "PASS_OBSERVED_SIGNED_IN_PLATFORM",
+    "prepaid_balance_observed": true,
+    "auto_reload": "OFF_OBSERVED",
+    "net_available_credit_verified": false,
+    "unsettled_and_inflight_reconciliation": "UNVERIFIED_NOT_ASSUMED_ZERO",
+    "existing_producer_credential_present": false,
+    "runtime_secure_secret_intake_exposed": false,
+    "browser_tts": "FORM_ACCESS_OBSERVED_NO_GENERATION_OR_EXPORT_PROOF",
+    "browser_history": "EMPTY_IN_CURRENT_PROJECT_SESSION_NOT_PROOF_OF_ZERO_USAGE",
+    "paid_calls_this_attempt": 0,
+    "gates_rerun": 0,
+    "assets_regenerated": 0,
+    "support_rights_receipts": "REUSE_EXACT_CANONICAL_PASS_12_OF_12",
+    "terminal_state": "OWNER_ACTION_REQUIRED",
+    "exact_blocker": "SECURE_PRODUCER_PROVISIONING_AND_NET_CREDIT_RECONCILIATION",
+    "next_minimum_action": "Enable the suggested OpenAI Developers capability; inspect its actual secure API-key provisioning surface before any credential or paid action. Availability of secure provisioning is not yet proven. Never supply secrets in chat.",
+    "resume_point": "Exact 77-segment prepared manifest; prepaid preflight before queue/audio; actual final Practice then independent release/live/close"
   }
 }
