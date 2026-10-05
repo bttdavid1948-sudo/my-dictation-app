@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "lesson_id": "MAN-0565",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+  "status": "PASS_FOR_CONTROLLED_RELEASE",
+  "content_basis": "Original Mặn canonical Curriculum-reviewed discussion; no third-party excerpt or personal voice clone.",
+  "audio_basis": "Reuse exact immutable built-in OpenAI Ash/Cedar/Marin WAVs in Practice #2 PR102; no synthesis for release.",
+  "provenance_ref": "batch-01-final-two-exact-realization-practice-handoff@v0.1",
+  "provider_terms_ref": "https://openai.com/policies/services-agreement/",
+  "owner_publication_authorization": "Owner2026-10-05: controlled learner release/live verification using prepared catalog/support and exact assets.",
+  "disclosure": "Giọng đọc do AI tạo. Bạn có thể báo lỗi để Mặn sửa đúng phiên bản.",
+  "claim_limit": "Operational provenance review only; no exclusive copyright, human/accent/phonetic certification claim."
+}

@@ -13,5 +13,13 @@
   "disclosure": "Giọng đọc do AI tạo. Nếu nghe thấy lỗi, bạn có thể báo để Mặn sửa đúng phiên bản.",
   "reviewed_at": "2026-09-30",
   "reviewer_lane": "OPERATIONS_4",
-  "claim_limit": "Operational provenance/terms review, not a legal guarantee of unique or copyrightable AI output."
+  "claim_limit": "Operational provenance/terms review, not a legal guarantee of unique or copyrightable AI output.",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0065-rights.json",
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "checked_at": "2026-09-28T07:20:27.266444Z",
+  "review_scope": "INTERNAL_ORIGINAL_DRAFTS_ONLY",
+  "snapshot_validation": {
+    "snapshot_ref": "global-lesson-registry-snapshot@v0.1",
+    "sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836",
+    "selected_unproduced_count": 12,
+    "open_conflicts": 0,
+    "registry_rows": 1000,
+    "production_events_count": 0,
+    "selected_lesson_registry_records": 0,
+    "production_source": "Shared Artifact Registry on main and hash-verified reserved-identity snapshot",
+    "limitation": "Must recheck immediately before each actual production start; this snapshot cannot prove future state."
+  },
+  "source_rights": {
+    "policy": "Create original English calibration drafts only; no third-party text, recording or unverified licensed source.",
+    "preproduction_check": "PASS_SCOPE_RESTRICTION",
+    "actual_asset_rights_qa": "PENDING_PER_ASSET",
+    "publication_allowed": false
+  },
+  "authority": {
+    "basis": "Owner instruction to #4 to execute end-to-end within existing authority, 2026-09-28; Tech Operations permits non-destructive draft creation.",
+    "scope": "Internal reversible calibration drafting only; no production Firebase write, public lesson publication, paid API, or change to frozen contracts.",
+    "owner_action_required_now": false
+  },
+  "approval_boundary": "Any future public publication or use of unclear-rights material requires its own rights/authority review."
+}

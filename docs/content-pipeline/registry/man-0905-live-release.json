@@ -20,10 +20,6 @@
   "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
   "feedback_read_scope": "Exact write binding and backend ACK; shared read capability reused. No per-lesson admin-read gate.",
   "rollback": "Remove only this lesson from scoped assets/official-lessons-final-two.json through reviewed commit; retain immutable WAV/support. Isolated browser route verifies scoped withdrawal and no cached revival.",
-  "next_action": {
-    "code": "EXACT_PAIR_COMPLETE",
-    "responsible_lane": "NONE"
-  },
   "checked_at": "2026-10-05T05:23:56.748809+00:00",
   "release_pr": 103,
   "release_commit": "bf9997ec9560732ee3066ca805d4303c6d0c5b34",
@@ -88,5 +84,17 @@
     }
   },
   "catalog_sha256": "f10c4ca4f3e36d40f5fd991bc5d83cff6a80fab0de5d2ea0544eea4d8042f1de",
-  "support_sha256": "fcb2a078cca960511bd02a3e85ba9cd1d6872c13a08a75f4f2046a00fb1e01ba"
+  "support_sha256": "fcb2a078cca960511bd02a3e85ba9cd1d6872c13a08a75f4f2046a00fb1e01ba",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0905-live-release.json",
+  "historical_next_action": {
+    "code": "EXACT_PAIR_COMPLETE",
+    "responsible_lane": "NONE"
+  },
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

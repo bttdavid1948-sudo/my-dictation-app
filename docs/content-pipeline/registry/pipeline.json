@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "BATCH_01_CLOSE_AND_RECONCILE",
+    "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
     "responsible_lane": "OPERATIONS_4",
-    "lesson_ids": []
+    "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -219,5 +219,6 @@
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
   "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
-  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
+  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
 }

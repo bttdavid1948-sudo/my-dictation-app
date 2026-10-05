@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "status": "PRACTICE_GROUNDING_PASS_AUDIO_PENDING",
+  "evidence_ref": "batch-01-practice-postproduction-validation@v0.1",
+  "canonical_asset_ref": "batch-01-canonical-lesson-assets@v0.1",
+  "practice_spec_ref": "practice-production-spec@v0.1",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "results": {
+    "lesson_count": 12,
+    "target_anchor_count": 24,
+    "practice_grounding_pass_count": 12,
+    "practice_conflict_count": 0,
+    "final_practice_ready_count": 0
+  },
+  "boundary_notes": [
+    "Anchor grounding and Practice mapping are complete for all 24 anchors.",
+    "No available_audio_realization_refs exist in canonical assets; no realized speech/accent/prosody claim is inferred.",
+    "Final PRACTICE_READY remains false until audio realization evidence exists.",
+    "Rights, support locale and publication are separate gates."
+  ],
+  "lessons": [
+    {
+      "lesson_id": "MAN-0065",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "FINAL_REALIZATION_PRACTICE_VALIDATION_PENDING",
+      "candidate_realization_ref": "MAN-0065-OPENAI-FIXED-v0.2",
+      "internal_release_class": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE"
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "practice_grounding": "PASS",
+      "practice_conflict": "NONE",
+      "final_practice_ready": false,
+      "blocker": "AUDIO_REALIZATION_PENDING"
+    }
+  ],
+  "next_action": {
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate MAN-0065-OPENAI-FIXED-v0.2 independently against final internal release evidence and existing frozen Practice contract. Internal gate is CONTROLLED_INTERNAL_RELEASE_ELIGIBLE; human acoustic certification is not performed or required. Numbers/letter names have probabilistic ASR lexical support, while fine pronunciation/prosody/accent remain unverified. Decide realization-dependent target suitability explicitly; no Operations semantic override. After Practice PASS plus support/rights/contract checks, Operations performs controlled import, desktop/mobile smoke and feedback write/read verification; only after official-content verification archive/depublish legacy seed lessons with rollback. Other lessons remain independently parked."
+  }
+}

@@ -10,5 +10,13 @@
   "provider_terms_ref": "https://openai.com/policies/services-agreement/",
   "owner_publication_authorization": "Owner2026-10-05: controlled learner release/live verification using prepared catalog/support and exact assets.",
   "disclosure": "Giọng đọc do AI tạo. Bạn có thể báo lỗi để Mặn sửa đúng phiên bản.",
-  "claim_limit": "Operational provenance review only; no exclusive copyright, human/accent/phonetic certification claim."
+  "claim_limit": "Operational provenance review only; no exclusive copyright, human/accent/phonetic certification claim.",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0565-rights.json",
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

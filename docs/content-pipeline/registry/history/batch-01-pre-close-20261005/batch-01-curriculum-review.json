@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "source_draft_ref": "batch-01-original-draft-candidates@v0.1",
+  "curriculum_review_ref": "batch-01-curriculum-review@v0.1",
+  "review_status": "PASS_WITH_CURRICULUM_REVISIONS",
+  "source_draft_sha256": "7e617814e7020490e11e56c76ea09c89963348e01bbb4dc77e874787cc070e39",
+  "review_artifact_sha256": "3f714255e584c9e9634d9373b2ee84e748044e965f4e040ccee4fd441a70616a",
+  "totals": {
+    "lessons": 12,
+    "accepted_unchanged": 9,
+    "accepted_with_revision": 3,
+    "rejected": 0,
+    "target_anchors": 24,
+    "lexical_anchors": 0,
+    "canonical_lesson_asset_versions_created": 0
+  },
+  "revisions": [
+    {
+      "lesson_id": "MAN-0165",
+      "type": "NATURALNESS",
+      "result": "ACCEPTED_WITH_CURRICULUM_REVISION",
+      "note": "S001 planned-future phrasing clarified; learning purpose/progression unchanged."
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "type": "LEVEL_FIT",
+      "result": "ACCEPTED_WITH_CURRICULUM_REVISION",
+      "note": "Long A2 sentence split/simplified; misinformation/date-verification purpose unchanged."
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "type": "CURRICULUM_FIT",
+      "result": "ACCEPTED_WITH_CURRICULUM_REVISION",
+      "note": "Urban-environment draft drifted outside Biology & medicine; rewritten as medical research panel while preserving C1 mechanism/evidence purpose."
+    }
+  ],
+  "unchanged_lesson_ids": [
+    "MAN-0065",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0986"
+  ],
+  "invariants": [
+    "No lesson_id, Unique Purpose, CEFR progression or frozen concept was changed.",
+    "Target anchors follow frozen Contract v0.3 semantics.",
+    "Any speech-phenomenon anchor requiring acoustic realization remains subject to downstream Audio QA.",
+    "No lexical anchor was invented without a stable Lexical Registry ID.",
+    "No lesson_asset_version, publication authorization or final PRACTICE_READY was created."
+  ],
+  "next_action": {
+    "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
+    "responsible_lane": "OPERATIONS_4"
+  }
+}

@@ -276,15 +276,6 @@
   "active_workflows_added": 0,
   "passed_runtime_or_static_gates_rerun": false,
   "incremental_tts_api_cost_usd": 0,
-  "next_action": {
-    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
-    "responsible_lane": "NONE",
-    "blocking_code": "NONE",
-    "global_batch_blocker": false,
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
-    "owner_action_required": false
-  },
   "reconciliation_validation": {
     "json_parse": "PASS_ALL_REGISTRY_JSON",
     "registry_validator": "PREEXISTING_BASELINE_LIMITATION: Incomplete registry entry batch-01-final-realization-practice-two-phenomena@v0.1; same failure confirmed against unmodified source_main. Practice-owned GitHub evidence entry has no size/SHA metadata and uses PRACTICE_VALIDATED; not altered in this action.",
@@ -293,5 +284,22 @@
     "man0065_sensitive_cast_practice_restrictions_frozen_artifacts_unchanged": "PASS",
     "new_individual_admin_read_pass_claims": 0,
     "runtime_security_catalog_or_workflow_changes": 0
+  },
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-feedback-system-capability.json",
+  "historical_next_action": {
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
+    "global_batch_blocker": false,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
+  },
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
   }
 }

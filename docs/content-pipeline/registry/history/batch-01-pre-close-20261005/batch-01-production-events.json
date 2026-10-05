@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "events": [
+    {
+      "event_id": "B01-MAN-0065-START-v0.1",
+      "lesson_id": "MAN-0065",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0065",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0065-SUBMIT-v0.1",
+      "lesson_id": "MAN-0065",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0065",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0165-START-v0.1",
+      "lesson_id": "MAN-0165",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0165",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0165-SUBMIT-v0.1",
+      "lesson_id": "MAN-0165",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0165",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0365-START-v0.1",
+      "lesson_id": "MAN-0365",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0365",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0365-SUBMIT-v0.1",
+      "lesson_id": "MAN-0365",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0365",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0565-START-v0.1",
+      "lesson_id": "MAN-0565",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0565",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0565-SUBMIT-v0.1",
+      "lesson_id": "MAN-0565",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0565",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0765-START-v0.1",
+      "lesson_id": "MAN-0765",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0765",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0765-SUBMIT-v0.1",
+      "lesson_id": "MAN-0765",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0765",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0905-START-v0.1",
+      "lesson_id": "MAN-0905",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0905",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0905-SUBMIT-v0.1",
+      "lesson_id": "MAN-0905",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0905",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0044-START-v0.1",
+      "lesson_id": "MAN-0044",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0044",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0044-SUBMIT-v0.1",
+      "lesson_id": "MAN-0044",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0044",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0238-START-v0.1",
+      "lesson_id": "MAN-0238",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0238",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0238-SUBMIT-v0.1",
+      "lesson_id": "MAN-0238",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0238",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0414-START-v0.1",
+      "lesson_id": "MAN-0414",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0414",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0414-SUBMIT-v0.1",
+      "lesson_id": "MAN-0414",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0414",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0604-START-v0.1",
+      "lesson_id": "MAN-0604",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0604",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0604-SUBMIT-v0.1",
+      "lesson_id": "MAN-0604",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0604",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0844-START-v0.1",
+      "lesson_id": "MAN-0844",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0844",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0844-SUBMIT-v0.1",
+      "lesson_id": "MAN-0844",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0844",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    },
+    {
+      "event_id": "B01-MAN-0986-START-v0.1",
+      "lesson_id": "MAN-0986",
+      "type": "PRODUCTION_STARTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0986",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": null
+    },
+    {
+      "event_id": "B01-MAN-0986-SUBMIT-v0.1",
+      "lesson_id": "MAN-0986",
+      "type": "PRODUCTION_SUBMITTED",
+      "recorded_at": "2026-09-28T07:30:00Z",
+      "source_ref": "original://batch-01-original-draft-candidates@v0.1/MAN-0986",
+      "draft_version": "v0.1",
+      "artifact_ref": "batch-01-original-draft-candidates@v0.1",
+      "submission_stage": "CURRICULUM_CANDIDATE_REVIEW"
+    }
+  ]
+}

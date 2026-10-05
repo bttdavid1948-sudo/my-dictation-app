@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "artifact_ref": "batch-01-canonical-lesson-assets@v0.1",
+  "lesson_asset_version": "v0.1",
+  "source_review_ref": "batch-01-curriculum-review@v0.1",
+  "lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "lesson_count": 12,
+  "segment_count": 62,
+  "target_anchor_count": 24,
+  "span_count": 12,
+  "validation": {
+    "review_sha256": "3f714255e584c9e9634d9373b2ee84e748044e965f4e040ccee4fd441a70616a",
+    "asset_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+    "utf16_spans": "12/12 exact",
+    "segment_ids": "UNIQUE_PER_LESSON",
+    "anchor_ids": "UNIQUE_BATCH",
+    "curriculum_review_status": "9 ACCEPTED_AS_DRAFT; 3 ACCEPTED_WITH_CURRICULUM_REVISION"
+  },
+  "publication_allowed": false,
+  "practice_ready": false,
+  "contract_validation_status": "PENDING_POSTPRODUCTION",
+  "queue_enabled": false,
+  "next_action": {
+    "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
+  }
+}

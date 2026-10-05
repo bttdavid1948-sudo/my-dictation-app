@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "owner_lane": "OPERATIONS_4",
+  "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2",
+  "canonical_source_sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+  "gate_ref": "MAN-INTERNAL-AUDIO-RELEASE@v0.2",
+  "performance_profile_ref": "docs/content-pipeline/audio-performance-profile-v1.md",
+  "internal_release_evidence_sha256": "9395b0210411b3cd8414a84c6678d3c940be31f68239a5f56b617b1081e55fc2",
+  "source_main": "02fc97c41bea585f2b508859d0636f29c10e9feb",
+  "independent_progression": true,
+  "eligible_count": 5,
+  "parked_from_this_action": [],
+  "sensitive_cast_scope": "UNCHANGED_NOT_ATTEMPTED",
+  "man_0065_first_live_complete": true,
+  "metered_incremental_requests": 8,
+  "metered_incremental_cost_usd": 0.018273,
+  "known_cumulative_metered_cost_usd": 0.093048,
+  "cost_scope": "Actual returned API token usage at published rates; excludes earlier Playground usage/invoice reconciliation/storage/delivery. Offline ASR has no paid API calls.",
+  "secondary_asr_scope": "Five residual mismatches only; pinned unprompted tiny.en exact normalized lexical support. Primary disagreement preserved in private evidence; no fine pronunciation/prosody/accent certification.",
+  "lessons": [
+    {
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "status": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+      "next_lane": "PRACTICE_2",
+      "target_conditions": [
+        {
+          "anchor_id": "MAN-0165-A-SPCH-01",
+          "phenomenon_type": "simple reductions",
+          "segment_binding": "DETERMINISTIC_PASS",
+          "acoustic_condition": "UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION"
+        }
+      ],
+      "practice_ready": false,
+      "publication_allowed": false,
+      "contract_valid": false,
+      "profile_ref": "MAN-0165-FIXED-EN-US@v0.2",
+      "performance_profile_ref": "MAN-0165-AUDIO-PERFORMANCE@v1",
+      "segment_count": 4,
+      "segments": [
+        {
+          "segment_id": "S001",
+          "sha256": "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S002",
+          "sha256": "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S003",
+          "sha256": "1f9caaff7dc4d123f5ee46c3792ba7880e4aa7fb931e1662e50c04fd6f9f9881",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S004",
+          "sha256": "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        }
+      ],
+      "changes": [
+        {
+          "segment_id": "S001",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b"
+        },
+        {
+          "segment_id": "S002",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3"
+        },
+        {
+          "segment_id": "S003",
+          "action": "TRIM_TRAILING_SILENCE_ONLY",
+          "source_sha256": "332c537ca0d174015d5d0d45651a48204d9bc7291f9493c289535962c30f4438"
+        },
+        {
+          "segment_id": "S004",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a"
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "status": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+      "next_lane": "PRACTICE_2",
+      "target_conditions": [
+        {
+          "anchor_id": "MAN-0365-A-SPCH-01",
+          "phenomenon_type": "thought groups",
+          "segment_binding": "DETERMINISTIC_PASS",
+          "acoustic_condition": "UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION"
+        }
+      ],
+      "practice_ready": false,
+      "publication_allowed": false,
+      "contract_valid": false,
+      "profile_ref": "MAN-0365-FIXED-EN-US@v0.2",
+      "performance_profile_ref": "MAN-0365-AUDIO-PERFORMANCE@v1",
+      "segment_count": 5,
+      "segments": [
+        {
+          "segment_id": "S001",
+          "sha256": "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S002",
+          "sha256": "39bc6c6627c78d8380bde674212b7dd54a8255f6cd47e8144f4f06f78ba97342",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S003",
+          "sha256": "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S004",
+          "sha256": "155c05fba378f914ab97db7ce4c5e5675f9cbc2486816bb5a6d756bbea428e5a",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES"
+        },
+        {
+          "segment_id": "S005",
+          "sha256": "5d310dc5e6e377cb86171a440e2222112405d42781dbc985561fbad62d57fe52",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES"
+        }
+      ],
+      "changes": [
+        {
+          "segment_id": "S001",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252"
+        },
+        {
+          "segment_id": "S002",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "172c0c6825efdadf8d0996327ce41037dda39162f2ad22932c2ad4361576beb5"
+        },
+        {
+          "segment_id": "S003",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613"
+        },
+        {
+          "segment_id": "S004",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "b83ef440f2a840002e0f36819e57346bb45a6d338e50ea270f543a458a840a6b"
+        },
+        {
+          "segment_id": "S005",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "60221712709f762048052c4fd062e82a1c9a31741db655a5a4c23e500096c318"
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "status": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+      "next_lane": "PRACTICE_2",
+      "target_conditions": [
+        {
+          "anchor_id": "MAN-0044-A-SPCH-01",
+          "phenomenon_type": "basic contractions",
+          "segment_binding": "DETERMINISTIC_PASS",
+          "acoustic_condition": "UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION"
+        }
+      ],
+      "practice_ready": false,
+      "publication_allowed": false,
+      "contract_valid": false,
+      "profile_ref": "MAN-0044-FIXED-EN-US@v0.2",
+      "performance_profile_ref": "MAN-0044-AUDIO-PERFORMANCE@v1",
+      "segment_count": 4,
+      "segments": [
+        {
+          "segment_id": "S001",
+          "sha256": "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S002",
+          "sha256": "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S003",
+          "sha256": "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S004",
+          "sha256": "74a9164a55773200917878e38e8f2329737494997b1c0007b04f1ee4bcd05246",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        }
+      ],
+      "changes": [
+        {
+          "segment_id": "S001",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724"
+        },
+        {
+          "segment_id": "S002",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3"
+        },
+        {
+          "segment_id": "S003",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf"
+        },
+        {
+          "segment_id": "S004",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "3cbfd7c11293c318e0223e384fb75f4f01bdd437590e52d814e45142b5597967"
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+      "status": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+      "next_lane": "PRACTICE_2",
+      "target_conditions": [
+        {
+          "anchor_id": "MAN-0238-A-SPCH-01",
+          "phenomenon_type": "unstressed function words",
+          "segment_binding": "DETERMINISTIC_PASS",
+          "acoustic_condition": "UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION"
+        }
+      ],
+      "practice_ready": false,
+      "publication_allowed": false,
+      "contract_valid": false,
+      "profile_ref": "MAN-0238-FIXED-EN-US@v0.2",
+      "performance_profile_ref": "MAN-0238-AUDIO-PERFORMANCE@v1",
+      "segment_count": 5,
+      "segments": [
+        {
+          "segment_id": "S001",
+          "sha256": "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S002",
+          "sha256": "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S003",
+          "sha256": "d791126cef9f194ac795693b880159d52b67c1db4d3e6e91f8441903fcfabbcb",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S004",
+          "sha256": "5b6b760750b1f6086f254a57b5a438436d3242ef0265771e4391304da4d41506",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES"
+        },
+        {
+          "segment_id": "S005",
+          "sha256": "4c72fa7932dff22f21edd0270a8edb727150b667b6c112428379410c377265db",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        }
+      ],
+      "changes": [
+        {
+          "segment_id": "S001",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41"
+        },
+        {
+          "segment_id": "S002",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4"
+        },
+        {
+          "segment_id": "S003",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "d791126cef9f194ac795693b880159d52b67c1db4d3e6e91f8441903fcfabbcb"
+        },
+        {
+          "segment_id": "S004",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "2af25ed52a7bb530c4263c977130df1c19cf24c96975c4a2a110d028c1289b60"
+        },
+        {
+          "segment_id": "S005",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "4c72fa7932dff22f21edd0270a8edb727150b667b6c112428379410c377265db"
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+      "status": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+      "next_lane": "PRACTICE_2",
+      "target_conditions": [
+        {
+          "anchor_id": "MAN-0414-A-SPCH-01",
+          "phenomenon_type": "common reductions",
+          "segment_binding": "DETERMINISTIC_PASS",
+          "acoustic_condition": "UNVERIFIED_REQUIRES_PRACTICE_SCOPE_DECISION"
+        }
+      ],
+      "practice_ready": false,
+      "publication_allowed": false,
+      "contract_valid": false,
+      "profile_ref": "MAN-0414-FIXED-EN-US@v0.2",
+      "performance_profile_ref": "MAN-0414-AUDIO-PERFORMANCE@v1",
+      "segment_count": 4,
+      "segments": [
+        {
+          "segment_id": "S001",
+          "sha256": "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S002",
+          "sha256": "a2e866798350e44bd14fac88ebc64790ba4f195c30756c14cb854308fbb36b6f",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES"
+        },
+        {
+          "segment_id": "S003",
+          "sha256": "3b01e353dee6fbd8dd1a7f1ed6872ff51890fbe773e6455a1e47ee081f1fab99",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "NORMALIZED_ASR_MATCH_PROBABILISTIC"
+        },
+        {
+          "segment_id": "S004",
+          "sha256": "bac199ca6489828a787a0618d6bb97690dede2f6668e88b8221e441303a53831",
+          "status": "INTERNAL_PASS",
+          "fidelity_signal": "SECONDARY_UNPROMPTED_ASR_MATCH_PROBABILISTIC_PRIMARY_DISAGREES"
+        }
+      ],
+      "changes": [
+        {
+          "segment_id": "S001",
+          "action": "REUSED_BYTE_IDENTICAL",
+          "source_sha256": "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91"
+        },
+        {
+          "segment_id": "S002",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "02a949b157f73ae487dc23c90c5a2e411a448d2295619d7c34bdf02fdd14560e"
+        },
+        {
+          "segment_id": "S003",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "0887e7e6cd117845456fca0fba4e7deef2d3f9836d47568d206551fdfcf9c1c0"
+        },
+        {
+          "segment_id": "S004",
+          "action": "TARGETED_SYNTHESIS",
+          "source_sha256": "c33edbaa9aad5633e6e5b608c543ab0cef62eab9ef1c7d6bbc0b0e9fcb2c43dd"
+        }
+      ]
+    }
+  ],
+  "next_action": {
+    "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
+    "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+  },
+  "rollback": "Original v0.1 assets/evidence retained. No live content imported or changed."
+}

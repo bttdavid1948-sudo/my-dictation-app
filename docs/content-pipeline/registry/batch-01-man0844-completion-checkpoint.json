@@ -1,71 +1,30 @@
 {
   "schema_version": "1.0",
-  "owner_lane": "OPERATIONS_4",
-  "checked_at": "2026-10-04T14:35:43.316Z",
-  "status": "TEN_OF_TWELVE_COMPLETE_TWO_INDEPENDENT_EXCEPTIONS",
-  "complete_lesson_count": 10,
-  "selected_lesson_count": 12,
+  "batch_id": "BATCH_01",
+  "state_scope": "CURRENT_STATE_REDIRECT",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
+  "complete_lesson_count": 12,
   "fully_complete_lesson_ids": [
     "MAN-0065",
     "MAN-0165",
     "MAN-0365",
-    "MAN-0044",
-    "MAN-0238",
-    "MAN-0414",
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986",
-    "MAN-0844"
-  ],
-  "published_official_lesson_ids": [
-    "MAN-0065",
-    "MAN-0165",
-    "MAN-0365",
-    "MAN-0044",
-    "MAN-0238",
-    "MAN-0414",
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986",
-    "MAN-0844"
-  ],
-  "live_runtime_pass_lesson_ids": [
-    "MAN-0065",
-    "MAN-0165",
-    "MAN-0365",
-    "MAN-0044",
-    "MAN-0238",
-    "MAN-0414",
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986",
-    "MAN-0844"
-  ],
-  "remaining_lesson_ids": [
     "MAN-0565",
-    "MAN-0905"
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
   ],
-  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
-  "prior_nine_complete_checkpoint_ref": "docs/content-pipeline/registry/batch-01-three-new-exceptions-checkpoint.json",
-  "precedence": "Supersedes older MAN-0844 release-pending and batch six/nine counts. Retains the prior nine exact COMPLETE evidence; does not rerun their Practice/Contract gates.",
-  "batch_close_complete": false,
-  "autonomous_orchestration_readiness_transition_complete": false,
+  "remaining_lesson_ids": [],
+  "active_exceptions": [],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-man0844-completion-checkpoint.json",
   "next_action": {
-    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
-    "responsible_lane": "PRACTICE_2",
-    "lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
-    ],
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
-    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
-  },
-  "audio_reuse": {
-    "context_blobs_reused": 6,
-    "mixed_blob_uploaded": 1,
-    "audio_regenerations": 0,
-    "tts_api_requests": 0
-  },
-  "publication_scope": "Only the Owner-authorized MAN-0844 learner release and its scoped completion/count metadata. No private QA packets, acoustic reference assets, receipts, credentials, or full registry publication.",
-  "remaining_execution_checkpoint_ref": "docs/content-pipeline/registry/batch-01-accent-execution-checkpoint.json"
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

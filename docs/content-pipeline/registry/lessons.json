@@ -1,15 +1,16 @@
 {
   "schema_version": "0.1",
   "contract_ref": "content-pipeline-contract@v0.2",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
   "records": [
     {
       "lesson_id": "MAN-0065",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0065",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
-      "next_responsible_lane": "OPERATIONS_4",
+      "next_responsible_lane": "NONE",
       "practice_ready": true,
       "contract_valid": true,
       "support_bundle_refs": [
@@ -21,14 +22,24 @@
       "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
       "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
       "first_live_definition_of_done_complete": true,
-      "mobile_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json#mobile_evidence"
+      "mobile_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json#mobile_evidence",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0165",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0165",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
       "next_responsible_lane": "NONE",
       "practice_ready": true,
@@ -44,14 +55,21 @@
       "live_runtime_verified": true,
       "definition_of_done_complete": true,
       "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON"
+      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0365",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0365",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
       "next_responsible_lane": "NONE",
       "practice_ready": true,
@@ -67,14 +85,111 @@
       "live_runtime_verified": true,
       "definition_of_done_complete": true,
       "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON"
+      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "unique_purpose_id": "ULP-MAN-0565",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0565-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0565-OPENAI-FIXED-v0.1"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/man-0565-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "unique_purpose_id": "ULP-MAN-0765",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0765-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0765-OPENAI-FIXED-v0.2"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "unique_purpose_id": "ULP-MAN-0905",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0905-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0905-OPENAI-FIXED-v0.1"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/man-0905-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0044",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0044",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
       "next_responsible_lane": "NONE",
       "practice_ready": true,
@@ -90,14 +205,21 @@
       "live_runtime_verified": true,
       "definition_of_done_complete": true,
       "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON"
+      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0238",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0238",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
       "next_responsible_lane": "NONE",
       "practice_ready": true,
@@ -113,14 +235,21 @@
       "live_runtime_verified": true,
       "definition_of_done_complete": true,
       "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON"
+      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0414",
       "lesson_asset_version": "v0.1",
       "unique_purpose_id": "ULP-MAN-0414",
       "curriculum_state": "CURRICULUM_READY",
-      "calibration_status": "BATCH_01_CONTROLLED_RELEASE",
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
       "blocking_code": "NONE",
       "next_responsible_lane": "NONE",
       "practice_ready": true,
@@ -136,7 +265,104 @@
       "live_runtime_verified": true,
       "definition_of_done_complete": true,
       "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON"
+      "individual_feedback_admin_read": "NOT_PERFORMED_NOT_REQUIRED_PER_LESSON",
+      "batch_id": "BATCH_01",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "unique_purpose_id": "ULP-MAN-0604",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0604-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0604-OPENAI-FIXED-v0.1"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "unique_purpose_id": "ULP-MAN-0844",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0844-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0844-MIXED-v0.1"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "unique_purpose_id": "ULP-MAN-0986",
+      "unique_purpose_class": "OVERLAP_JUSTIFIED",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_01",
+      "curriculum_state": "CURRICULUM_READY",
+      "curriculum_ready": true,
+      "unique_purpose_pass": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_status": "PASS",
+      "practice_ready": true,
+      "contract_valid": true,
+      "calibration_status": "BATCH_01_COMPLETE_NOT_PROFICIENCY_CALIBRATED",
+      "blocking_code": "NONE",
+      "next_responsible_lane": "NONE",
+      "support_bundle_refs": [
+        "MAN-0986-SUPPORT-VI-VN@v0.1"
+      ],
+      "available_audio_realization_refs": [
+        "MAN-0986-OPENAI-FIXED-v0.2"
+      ],
+      "publication_state": "RELEASED_OFFICIAL_CONTROLLED_INTERNAL",
+      "live_runtime_verified": true,
+      "definition_of_done_complete": true,
+      "live_release_evidence_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "final_practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     }
   ]
 }

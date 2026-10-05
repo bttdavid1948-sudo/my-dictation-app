@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "12_OF_12_COMPLETE",
+  "complete_lesson_count": 12,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986",
+    "MAN-0844",
+    "MAN-0565",
+    "MAN-0905"
+  ],
+  "remaining_lesson_ids": [],
+  "pairs": [
+    {
+      "lesson_id": "MAN-0565",
+      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+      "status": "COMPLETE",
+      "evidence_ref": "docs/content-pipeline/registry/man-0565-live-release.json"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+      "status": "COMPLETE",
+      "evidence_ref": "docs/content-pipeline/registry/man-0905-live-release.json"
+    }
+  ],
+  "previous_ten_complete_preserved": true,
+  "next_action": {
+    "code": "BATCH_01_CLOSE_AND_RECONCILE",
+    "responsible_lane": "OPERATIONS_4",
+    "lesson_ids": []
+  }
+}

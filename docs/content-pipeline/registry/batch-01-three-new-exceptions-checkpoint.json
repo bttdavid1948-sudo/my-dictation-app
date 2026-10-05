@@ -1,35 +1,30 @@
 {
   "schema_version": "1.0",
-  "owner_lane": "OPERATIONS_4",
-  "scope": "MAN-0765 MAN-0604 MAN-0986 controlled release closeout",
-  "status": "THREE_NEW_PRACTICE_PASS_PAIRS_COMPLETE",
-  "checked_at": "2026-10-03T10:19:43.786Z",
-  "published_official_lesson_ids": [
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986"
-  ],
-  "live_runtime_pass_lesson_ids": [
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986"
-  ],
+  "batch_id": "BATCH_01",
+  "state_scope": "CURRENT_STATE_REDIRECT",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
+  "complete_lesson_count": 12,
   "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
     "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
     "MAN-0604",
+    "MAN-0844",
     "MAN-0986"
   ],
-  "previous_batch_checkpoint_commit": "0be9aef462b4f8c59315a6ff47eab4b599b48c1a",
-  "previous_batch_history_preserved": true,
-  "latest_release_evidence_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+  "remaining_lesson_ids": [],
+  "active_exceptions": [],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-three-new-exceptions-checkpoint.json",
   "next_action": {
-    "code": "THREE_PAIR_CONTROLLED_RELEASE_COMPLETE",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "No further release or verification work for these exact three pairs. Preserve existing Batch 01 history and other lanes' decisions."
-  },
-  "owner_action_required_now": false,
-  "incremental_tts_api_requests": 0,
-  "mobile_verification_scope": "Chromium Pixel 5 emulation; no physical-device claim",
-  "verification_run_id": 37115492518,
-  "verified_jobs": 6
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

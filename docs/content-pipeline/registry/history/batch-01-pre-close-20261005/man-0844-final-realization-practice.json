@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "man-0844-final-realization-practice",
+  "version": "v0.1",
+  "status": "PRACTICE_VALIDATED",
+  "owner_lane": "PRACTICE_2",
+  "lesson_id": "MAN-0844",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0844-MIXED-v0.1",
+  "action_code": "FINAL_REALIZATION_DEPENDENT_MAN_0844_PRACTICE_READY_CONTRACT_VALID",
+  "source_refs": [
+    "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
+    "docs/content-pipeline/registry/man-0844-overlap-execution-checkpoint.json",
+    "MAN-0844-Exact-Realization-Practice-Handoff-v0.1.zip",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3"
+  ],
+  "preserved_truth": {
+    "static_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "representation_gate": "PASS_PRESERVED_NOT_REOPENED",
+    "frozen_contract": "UNCHANGED",
+    "curriculum_semantics": "UNCHANGED",
+    "human_acoustic_certification": "NOT_REQUIRED_NOT_CLAIMED"
+  },
+  "realization_validation": {
+    "mixed_asset_sha256": "96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc",
+    "representation": "CONTINUOUS_MIXED_TIMELINE_WITH_STABLE_SEGMENT_ANCHORS",
+    "decode_integrity": "PCM_S16LE_MONO_24000_PASS",
+    "stable_segment_mapping": "PASS",
+    "context_window_overlap_retention": "PASS",
+    "source_text_identity": "PASS",
+    "overlap_events": [
+      {
+        "segments": [
+          "S002",
+          "S003"
+        ],
+        "simultaneous_after_gain_threshold_seconds": 0.27125
+      },
+      {
+        "segments": [
+          "S003",
+          "S004"
+        ],
+        "simultaneous_after_gain_threshold_seconds": 0.23983333333333334
+      },
+      {
+        "segments": [
+          "S004",
+          "S005"
+        ],
+        "simultaneous_after_gain_threshold_seconds": 0.2645
+      }
+    ],
+    "overlap_condition": "VERIFIED_PRESENT",
+    "lexical_uncertainty_review": {
+      "model": "vosk-model-small-en-us-0.15",
+      "reference_prompt_supplied": false,
+      "disagreements": [
+        {
+          "segment_id": "S002",
+          "canonical": "We cannot yet say the marker caused the recovery",
+          "asr": "we cannot yet say the marker cause the recovery",
+          "disposition": "NONBLOCKING_PROBABILISTIC_ASR_VARIANT",
+          "reason": "The realization has deterministic canonical text binding; the ASR tense-form disagreement does not alter the causal proposition relevant to the comprehension construct."
+        },
+        {
+          "segment_id": "S005",
+          "canonical": "Then use the marker in a small follow-up study",
+          "asr": "then we use the marker in a small follow up study",
+          "disposition": "NONBLOCKING_PROBABILISTIC_ASR_INSERTION",
+          "reason": "The ASR-added subject does not alter the recommendation to use the marker in a small follow-up study; exact wording is not the scored construct."
+        }
+      ],
+      "conclusion": "NONBLOCKING_FOR_CORE_COMPREHENSION_UNDER_OVERLAP_CONDITION"
+    }
+  },
+  "practice_decision": {
+    "PRACTICE_READY": true,
+    "scope": "MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 only",
+    "operator": "CORE_COMPREHENSION",
+    "construct": "DISCOURSE_STRUCTURE_AND_DETAIL",
+    "speech_condition": "OVERLAP_INTERRUPTION_CONDITION",
+    "scoring_boundary": [
+      "Score the learner's comprehension of the panel's distinction between association and mechanism, the competing risks, and the cautious follow-up recommendation.",
+      "Do not score explicit detection, naming or imitation of overlap.",
+      "Full-panel independent first pass is strongest evidence.",
+      "Context-preserving replay is assisted evidence and must be logged as support.",
+      "Clean isolated replay may be used for repair but must not count as overlap-condition evidence.",
+      "No standalone overlap mastery state is created."
+    ],
+    "practice_conflict": "NONE"
+  },
+  "contract_decision": {
+    "CONTRACT_VALID": true,
+    "scope": "Exact MAN-0844@v0.1 canonical asset bound to MAN-0844-MIXED-v0.1 only",
+    "basis": [
+      "Stable canonical lesson/version identity preserved",
+      "All six stable segment IDs/text remain intact",
+      "Versioned mixed realization deterministically maps to canonical segments",
+      "Actual overlap is verified in the required S002-S005 context",
+      "Replay/context behavior matches the non-breaking Practice representation approved in PR #92"
+    ],
+    "does_not_imply": [
+      "Learner publication/live verification complete",
+      "Rights/support checks complete",
+      "Human-certified pronunciation/prosody/speaker identity",
+      "Generalized overlap mastery"
+    ]
+  },
+  "routing_reconciliation": {
+    "stale_route_detected": true,
+    "stale_code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
+    "implementation_completed_ref": "docs/content-pipeline/registry/man-0844-overlap-execution-checkpoint.json",
+    "implementation_checkpoint_pr": 94,
+    "disposition": "SUPERSEDED_BY_FINAL_PRACTICE_PASS"
+  },
+  "next_action": {
+    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
+  },
+  "owner_decision_required": false
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "role": "CALIBRATION",
+  "status": "PRACTICE_PREPROD_READY",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "practice_spec_ref": "practice-production-spec@v0.1",
+  "registry_snapshot_ref": "global-lesson-registry-snapshot@v0.1",
+  "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
+  "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1",
+  "proposed_lesson_count": 12,
+  "lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
+  ],
+  "results": {
+    "practice_preprod_ready_count": 12,
+    "practice_conflict_count": 0,
+    "final_practice_ready_count": 0
+  },
+  "selected_lessons": [
+    {
+      "lesson_id": "MAN-0065",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0165",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0565",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0765",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0238",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0414",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0844",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "practice_preprod_ready": true,
+      "final_practice_ready": false,
+      "practice_conflict": "NONE",
+      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1"
+    }
+  ],
+  "boundaries": [
+    "Anchor_Intent is planning-only and does not substitute for produced target_anchors[]",
+    "No concrete lexical target was invented by Practice where Curriculum supplied a lexical-selection placeholder",
+    "Speech phenomena that function as acoustic conditions or transfer facets remain conditions/facets; no new operator or learner dimension was created",
+    "Final PRACTICE_READY remains false until produced target_anchors[] and required audio realization evidence exist"
+  ],
+  "production_queue_enabled": false,
+  "batch_open": false,
+  "next_action": {
+    "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+    "responsible_lane": "OPERATIONS_4"
+  }
+}

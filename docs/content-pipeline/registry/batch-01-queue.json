@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
   "role": "CALIBRATION",
-  "state": "PAUSED",
+  "state": "CLOSED",
   "enabled": false,
   "selection_ref": "batch-01-curriculum-selection@v0.1",
   "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
@@ -33,77 +33,91 @@
   "items": [
     {
       "lesson_id": "MAN-0065",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0065-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0165",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0165-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0365",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0365-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0565",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0565-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/man-0565-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0765",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0765-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0905",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0905-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/man-0905-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0044",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0044-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0238",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0238-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0414",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0414-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0604",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0604-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0844",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0844-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     },
     {
       "lesson_id": "MAN-0986",
-      "status": "PRODUCTION_SUBMITTED",
+      "status": "COMPLETE",
       "production_status_ref": "docs/content-pipeline/registry/batch-01-production-events.json#B01-MAN-0986-SUBMIT-v0.1",
-      "qa_status_ref": null
+      "qa_status_ref": "docs/content-pipeline/registry/batch-01-new-exceptions-live-release.json",
+      "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
     }
   ],
   "event_ledger_ref": "docs/content-pipeline/registry/batch-01-production-events.json",
-  "purpose": "INTERNAL_ORIGINAL_DRAFTS_ONLY"
+  "purpose": "INTERNAL_ORIGINAL_DRAFTS_ONLY",
+  "closed_at": "2026-10-05T05:28:42.332781+00:00",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
 }

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "assessed_at": "2026-09-30T23:14:37.087229+00:00",
+  "source_main": "20510d105a73a4f33a433939647e73a7548d42f8",
+  "status": "NOT_NEEDED_SUPERSEDED_BY_SYSTEM_CAPABILITY_REUSE",
+  "capability_ref": "operations/feedback-read/README.md",
+  "access_plan_ref": "operations/feedback-read/access-plan.json",
+  "workflow_template_ref": "operations/feedback-read/verify-feedback.yml.example",
+  "assessment": {
+    "existing_usable_google_credential_found": false,
+    "google_environment_credential_variable_found": false,
+    "adc_gcloud_configuration_found": false,
+    "firebase_tools_login_found": false,
+    "firebase_gcp_connector_exposed": false,
+    "existing_repo_workflows": "Three credential-free mobile smoke workflows; no repository WIF configuration evidenced.",
+    "remote_iam_inventory": "NOT_AUTHORIZED_NOT_INSPECTED; remote identities may exist but are not accessible to Work.",
+    "github_variable_mutation_connector": "NOT_EXPOSED; activation must establish a supported maintainer variable-setting path after approval.",
+    "google_sign_in_retried": false,
+    "secret_values_printed": false
+  },
+  "implementation": {
+    "method": "FIRESTORE_IAM_AUTHENTICATED_EXACT_DOCUMENT_GET",
+    "manifest_records": 10,
+    "manifest_pairs": 5,
+    "manifest_sha256": "8f66a1837eba7f8e83cf1d4da4dfc7532046651e92cc6209949235bd36ff1a99",
+    "manifest_storage": "Private local reconstruction of existing hash-registered runtime evidence; document IDs/runtime context not added to public repository.",
+    "code_target_limit": "Fixed project/database/owner_feedback; explicit IDs only; zero listing/writes; redirect rejection; short request timeout; partial progression.",
+    "evidence_redaction": "No raw feedback, message, UID/email/nickname, token or raw document ID in output; response/context/ID hashes and server timestamps retained.",
+    "unit_tests_passed": 4,
+    "unit_test_evidence": "Fixture tests only; no live read PASS inferred.",
+    "live_authenticated_reads_verified": 0,
+    "new_iam_grants_applied": 0,
+    "new_secrets_or_service_account_keys": 0,
+    "workflow_activated": false,
+    "direct_federated_token_acceptance": "UNVERIFIED_UNTIL_AUTHORIZED_LIVE_REQUEST"
+  },
+  "security_boundary": {
+    "permission": "datastore.entities.get",
+    "scope": "Database (default) known-document GET. IAM does not enforce the verifier collection/10-ID allowlist.",
+    "expiry": "2026-10-08T00:00:00Z",
+    "provider_constraints": "Numeric repository, owner and actor IDs; main ref; workflow_dispatch; exact workflow path.",
+    "requires_owner_security_authorization": false,
+    "rules_auth_privacy_changes": false,
+    "historical_plan_activation_requires_separate_authorization": true
+  },
+  "browser_dependency": {
+    "previous_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "current_action": "NO_INFRASTRUCTURE_REQUIRED_REUSE_MAN0065_SYSTEM_CAPABILITY",
+    "superseded": true,
+    "supersede_condition": "Resolved by evidence-based scope normalization; no new authenticated reads claimed. Historical browser failure remains unrepaired."
+  },
+  "existing_six_runtime_pass_and_man0065_complete_preserved": true,
+  "next_action": {
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
+    "global_batch_blocker": false,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
+  },
+  "rollback": "Revoke only new scoped binding or disable dedicated pool; remove verification workflow. No learner data or existing security bindings changed.",
+  "incremental_tts_api_cost_usd": 0,
+  "historical_preparation_status": "PREPARED_TESTED_OWNER_PERMISSION_REQUIRED",
+  "supersession_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "superseded_at": "2026-09-30T23:33:39.006535+00:00"
+}

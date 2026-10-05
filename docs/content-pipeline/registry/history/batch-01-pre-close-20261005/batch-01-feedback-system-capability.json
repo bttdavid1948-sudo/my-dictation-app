@@ -1,0 +1,297 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "assessed_at": "2026-09-30T23:33:39.006535+00:00",
+  "source_main": "2ba94f44755acac50378faa0a8050728aa50889d",
+  "status": "SYSTEM_CAPABILITY_PASS_REUSED_MAN_0065",
+  "authority": "Owner direction: reevaluate feedback gate scope and normalize within Operations authority when relevant implementation is unchanged. Detailed Operations QA lifecycle remains outside frozen content contracts.",
+  "decision": {
+    "authenticated_read_scope": "SYSTEM_CAPABILITY",
+    "per_release_scope": [
+      "BACKEND_WRITE_ACK",
+      "EXACT_VERSIONED_CONTEXT_BOUND_TO_RELEASED_ASSET"
+    ],
+    "per_lesson_independent_admin_read_required": false,
+    "reason": "Readability is a shared admin capability, not lesson content validation. Same project/collection, JSON report schema, guest/signed-in envelope, Firebase client configuration, write function, context function and Rules artifact across all five later releases. Later write ACK/context evidence checks their new bindings. No lesson-specific authorization/routing/read code exists.",
+    "not_a_read_equivalence_claim": "Write ACK proves server acceptance through the existing SDK path, not an independent authenticated read of any of the ten later documents."
+  },
+  "baseline": {
+    "ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+    "definition_of_done": "COMPLETE",
+    "desktop_authenticated_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_DOCUMENT",
+    "mobile_authenticated_read": "PASS_EXACT_NEW_REPORT",
+    "exact_read_binding_fields": [
+      "lessonId",
+      "lessonVersion",
+      "segmentId",
+      "realizationId",
+      "realizationVersion",
+      "profileRef",
+      "assetSha256",
+      "deliveryMode"
+    ],
+    "baseline_mobile_head": "ff002bf0b6b86f56aafc35f01eacdf05ec467b18",
+    "baseline_merged_main": "40d2f2de2767eba618a9ee1f9a56fe48a5922911"
+  },
+  "repository_continuity": {
+    "result": "BYTE_IDENTICAL_ALL_RELEVANT_FILES",
+    "snapshots": [
+      {
+        "commit": "ff002bf0b6b86f56aafc35f01eacdf05ec467b18",
+        "file_sha256": {
+          "index.html": "d36c0a49c324c93300ae6d857db3ba802edfcafa48df8ef8d661c5b620aa337a",
+          "assets/fixed-audio-runtime.js": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+          "firestore.rules.phase3.draft": "c017797b125f01820e41ce5d834008c14d4228d63d3ab02e3570fcb0bab4c924"
+        }
+      },
+      {
+        "commit": "40d2f2de2767eba618a9ee1f9a56fe48a5922911",
+        "file_sha256": {
+          "index.html": "d36c0a49c324c93300ae6d857db3ba802edfcafa48df8ef8d661c5b620aa337a",
+          "assets/fixed-audio-runtime.js": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+          "firestore.rules.phase3.draft": "c017797b125f01820e41ce5d834008c14d4228d63d3ab02e3570fcb0bab4c924"
+        }
+      },
+      {
+        "commit": "3497095e7c3c274668152f25b8e25c318703f308",
+        "file_sha256": {
+          "index.html": "d36c0a49c324c93300ae6d857db3ba802edfcafa48df8ef8d661c5b620aa337a",
+          "assets/fixed-audio-runtime.js": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+          "firestore.rules.phase3.draft": "c017797b125f01820e41ce5d834008c14d4228d63d3ab02e3570fcb0bab4c924"
+        }
+      },
+      {
+        "commit": "bc20cc4b66dc3f39c567384e4775fe9dc0d91b68",
+        "file_sha256": {
+          "index.html": "d36c0a49c324c93300ae6d857db3ba802edfcafa48df8ef8d661c5b620aa337a",
+          "assets/fixed-audio-runtime.js": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+          "firestore.rules.phase3.draft": "c017797b125f01820e41ce5d834008c14d4228d63d3ab02e3570fcb0bab4c924"
+        }
+      },
+      {
+        "commit": "2ba94f44755acac50378faa0a8050728aa50889d",
+        "file_sha256": {
+          "index.html": "d36c0a49c324c93300ae6d857db3ba802edfcafa48df8ef8d661c5b620aa337a",
+          "assets/fixed-audio-runtime.js": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+          "firestore.rules.phase3.draft": "c017797b125f01820e41ce5d834008c14d4228d63d3ab02e3570fcb0bab4c924"
+        }
+      }
+    ],
+    "intervening_feedback_implementation_commits": 0,
+    "coverage": "Entire index.html includes Firebase config, auth integration, collection target, serialization/envelope, awaited SDK add/ACK and report UI; fixed-audio-runtime includes exact context mapping; Rules draft includes client-create and denied client reads.",
+    "live_rules_or_iam_inventory": "NOT_REAUDITED. Repository continuity cannot prove absence of out-of-band console changes. Reuse prior verified production capability and later actual backend write evidence; no known relevant security change is recorded. A known change or regression invalidates reuse."
+  },
+  "frozen_contract_review": {
+    "artifacts": [
+      {
+        "name": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+        "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec",
+        "bytes_unchanged": true,
+        "feedback_or_firestore_requirements_found": 0
+      },
+      {
+        "name": "MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx",
+        "sha256": "0235f171e4d28d9fe3157b1e432930128e620be1736da3316bfbbd777fa01dcc",
+        "bytes_unchanged": true,
+        "feedback_or_firestore_requirements_found": 0
+      }
+    ],
+    "operations_ownership_locations": [
+      "v0.2 sheet2 A20:F21 production_status_ref/qa_status_ref: detailed production/QA lifecycle remains #4-owned",
+      "v0.2 sheet13 A7:F7 IQ-06: exact Operations lifecycle mapping deferred to #4 after freeze",
+      "v0.2 sheet14 A9:F9: contract is schema, not implementation; detailed production/QA remains #4-owned"
+    ],
+    "mandatory_per_lesson_admin_read_requirement_found": false,
+    "frozen_contract_modified": false
+  },
+  "per_release_evidence": {
+    "source_refs": [
+      "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "docs/content-pipeline/registry/batch-01-two-live-release.json"
+    ],
+    "private_manifest_sha256": "8f66a1837eba7f8e83cf1d4da4dfc7532046651e92cc6209949235bd36ff1a99",
+    "records": [
+      {
+        "lesson_id": "MAN-0165",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "desktop",
+        "segment_id": "S001",
+        "asset_sha256": "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+        "context_sha256": "6f1fd8d6e08d67d054dc426bb182d6a3b839df27769b7579fbfb1a3e26d599c6",
+        "document_id_sha256": "9cdf70d3d127ababbcc8ba7575569f920440e5e6136b969be126a7e23e59310a",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0365",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "desktop",
+        "segment_id": "S001",
+        "asset_sha256": "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+        "context_sha256": "b26349bad27bd8f2595f0cd871d557fc72c23f9454ac47f1e4d5dbf4686f3f71",
+        "document_id_sha256": "0f50c1b452bec4477f171df4343a6afff5ce6f64df2c47eaafd7e7ab06a4d6f7",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0044",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "desktop",
+        "segment_id": "S001",
+        "asset_sha256": "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+        "context_sha256": "42e37c2d303621abbbe2ae76fe2b7d0321a8607966b4e7703f094458d0f6ac4f",
+        "document_id_sha256": "ae2b6d9ae866f87fa57d35f43adfaaa8f37ed3c7f1defe7d8df3c7e7e0f461c1",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0165",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "mobile",
+        "segment_id": "S001",
+        "asset_sha256": "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+        "context_sha256": "509598d382d6416cb24b81b7ec439dd2b43ddf43e8077fb364fe4714215abf2f",
+        "document_id_sha256": "08692b634c32f8110e9bc7941cdd2e137b89505983e5a0a74e09c7921fb7c9e8",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0365",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "mobile",
+        "segment_id": "S001",
+        "asset_sha256": "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+        "context_sha256": "c290210d3e012b4a1068ba4e1b3e323435e2bbc76dea2cb062dc9e292863a539",
+        "document_id_sha256": "bf04f252503a36427c7d145cdb31e1daea240b3ab352ef45405f79c36bcd40e6",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0044",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "mobile",
+        "segment_id": "S001",
+        "asset_sha256": "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+        "context_sha256": "ac55d095a019ed2f4bc0993af284a1eccae53e601cb4170c1a37740b2d9f5f84",
+        "document_id_sha256": "f8023e7e39e88ac3b2a36d90b4f388843dfde72970e92e0633dd228e60e8bbb8",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0238",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "desktop",
+        "segment_id": "S002",
+        "asset_sha256": "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4",
+        "context_sha256": "1b9e4b3c398f8668d234b27a8e780b79f8953ba095155b8a2df9f25e2d2e3e2b",
+        "document_id_sha256": "1ca39c52699a29ff466c830a2172290b970305e0433f05d93316cf66d3f65de7",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0238",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0238-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "mobile",
+        "segment_id": "S001",
+        "asset_sha256": "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41",
+        "context_sha256": "3903546240a90d9c603b562cbd5864556fced2b345d88839ca84b284e18c14d2",
+        "document_id_sha256": "7010ab1e496ad01df04ae21eaa6c933c5597f5a6072a24aeec8cf3f1a51833f2",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0414",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "desktop",
+        "segment_id": "S001",
+        "asset_sha256": "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+        "context_sha256": "4e4bddd6aad96b32904d0538e7486af651d28debd5de2eff866186c325e4e64f",
+        "document_id_sha256": "00670b330feeac7016492d5881ca2e5f328980cc1c99b3067c01922b03796e10",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      },
+      {
+        "lesson_id": "MAN-0414",
+        "lesson_version": "v0.1",
+        "realization_id": "MAN-0414-OPENAI-FIXED-v0.2",
+        "realization_version": "v0.2",
+        "platform": "mobile",
+        "segment_id": "S001",
+        "asset_sha256": "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+        "context_sha256": "4bd75896b9470820d02f913a61f4744826acc8076257ece25a32765989b54679",
+        "document_id_sha256": "c774af5a2160cdca399fb3c0109be61f6ce25f7d9a0cc97e4501b4e0510cceea",
+        "retained_write_evidence": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "independent_admin_read": "NOT_PERFORMED",
+        "context_matches_current_immutable_catalog": true
+      }
+    ],
+    "retained_record_count": 10,
+    "new_independent_reads_verified": 0,
+    "independent_read_status": "NOT_PERFORMED_NOT_A_RELEASE_GATE",
+    "raw_documents_or_ids_published": false
+  },
+  "reuse_invalidation_triggers": [
+    "Feedback context/serialization/envelope/schema or write/ACK handling changes",
+    "Project/database/collection/storage route or document shape changes",
+    "Rules, IAM, Auth provider or admin security/read boundary changes or known out-of-band drift",
+    "Backend write rejection, incorrect context, missing records, read regression or production feedback-loss signal",
+    "A lesson introduces a different implementation or authorization path"
+  ],
+  "on_invalidation": "Reverify the affected shared capability through authorized access, then verify affected release writes/context. Do not automatically demand reads for unchanged unrelated lessons; do not widen security to pass a gate.",
+  "work_browser_dependency": {
+    "historical_blocker": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY_NOT_REPAIRED",
+    "google_sign_in_attempted": false
+  },
+  "wif_replacement_plan": "NOT_NEEDED_NOT_APPLIED",
+  "new_iam_grants": 0,
+  "new_credentials": 0,
+  "active_workflows_added": 0,
+  "passed_runtime_or_static_gates_rerun": false,
+  "incremental_tts_api_cost_usd": 0,
+  "next_action": {
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
+    "global_batch_blocker": false,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
+  },
+  "reconciliation_validation": {
+    "json_parse": "PASS_ALL_REGISTRY_JSON",
+    "registry_validator": "PREEXISTING_BASELINE_LIMITATION: Incomplete registry entry batch-01-final-realization-practice-two-phenomena@v0.1; same failure confirmed against unmodified source_main. Practice-owned GitHub evidence entry has no size/SHA metadata and uses PRACTICE_VALIDATED; not altered in this action.",
+    "cross_registry_six_complete": "PASS",
+    "existing_runtime_checks_pairs_rollback_timestamps_preserved": "PASS",
+    "man0065_sensitive_cast_practice_restrictions_frozen_artifacts_unchanged": "PASS",
+    "new_individual_admin_read_pass_claims": 0,
+    "runtime_security_catalog_or_workflow_changes": 0
+  }
+}

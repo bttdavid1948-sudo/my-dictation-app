@@ -1,10 +1,12 @@
 {
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
+  "state_scope": "CURRENT_AUTHORITATIVE",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
+  "preparation_status": "BATCH_01_COMPLETE_12_OF_12",
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
-  "role": "CALIBRATION",
-  "preparation_status": "TEN_OFFICIAL_COMPLETE_FINAL_TWO_PRACTICE_READY_RELEASE_PENDING",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -22,322 +24,51 @@
     "MAN-0986"
   ],
   "proposed_lesson_count": 12,
-  "registry_snapshot_ref": "global-lesson-registry-snapshot@v0.1",
-  "inputs": [
-    {
-      "code": "VERSIONED_GLOBAL_REGISTRY_SNAPSHOT",
-      "owner_lane": "CURRICULUM_3",
-      "status": "PASS",
-      "evidence_ref": "global-lesson-registry-snapshot@v0.1",
-      "requirement": "Versioned snapshot includes produced, specified and future RESERVED lesson identities and purposes; validate collisions against the full snapshot."
-    },
-    {
-      "code": "CALIBRATION_BATCH_SELECTION",
-      "owner_lane": "CURRICULUM_3",
-      "status": "PASS",
-      "evidence_ref": "batch-01-curriculum-selection@v0.1",
-      "requirement": "Propose count with evidence and existing lesson IDs only; represent A1–C2, NEW and justified spiral overlap, and vary construct, context, content, skill, phenomenon and progression. No fixed count is imposed."
-    },
-    {
-      "code": "CURRICULUM_AND_UNIQUE_PURPOSE",
-      "owner_lane": "CURRICULUM_3",
-      "status": "PASS",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-curriculum-inputs.json",
-      "requirement": "For each selected lesson, explicit UNIQUE_PURPOSE_PASS and CURRICULUM_READY; DUPLICATE or OPEN blocks entry, including conflicts with future RESERVED purposes."
-    },
-    {
-      "code": "PRACTICE_PREPRODUCTION",
-      "owner_lane": "PRACTICE_2",
-      "status": "PASS",
-      "evidence_ref": "batch-01-practice-preproduction-evidence@v0.1",
-      "requirement": "For each selected lesson, explicit PRACTICE_PREPROD_READY; Anchor_Intent is planning only and produced target_anchors[] await final Practice validation."
-    },
-    {
-      "code": "CONTRACT_PRECHECK",
-      "owner_lane": "OPERATIONS_4",
-      "status": "PASS",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
-      "requirement": "Validate stable lesson IDs, versioned references, CONTRACT_PRECHECK_VALID, source refs and four-gate PRODUCTION_READY for each selected lesson without inferring Curriculum or Practice semantics."
-    },
-    {
-      "code": "CALIBRATION_AND_QUEUE_SAFETY",
-      "owner_lane": "OPERATIONS_4",
-      "status": "PASS",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
-      "requirement": "Confirm prior systemic calibration blockers, no duplicate/reproduction without explicit rework version, production/QA status references and rollback path before opening queue; empirical PNG9 remains pending for mass production."
-    },
-    {
-      "code": "CURRICULUM_DRAFT_REVIEW",
-      "owner_lane": "CURRICULUM_3",
-      "status": "PASS",
-      "evidence_ref": "batch-01-curriculum-review@v0.1",
-      "requirement": "Review draft originality/naturalness/level/progression/Unique Purpose fit; accept/revise English segments and Curriculum-owned target anchors before canonical lesson_asset_version. Rejected rows would return to #4."
-    },
-    {
-      "code": "OPERATIONS_CANONICALIZATION",
-      "owner_lane": "OPERATIONS_4",
-      "status": "PASS",
-      "evidence_ref": "batch-01-canonical-lesson-assets@v0.1",
-      "requirement": "12 versioned canonical assets exactly reflect Curriculum-reviewed segments and target anchors; no final Practice, audio, rights, support locale or publication claim."
-    },
-    {
-      "code": "PRACTICE_POSTPRODUCTION_GROUNDING",
-      "owner_lane": "PRACTICE_2",
-      "status": "PASS",
-      "evidence_ref": "batch-01-practice-postproduction-validation@v0.1",
-      "requirement": "Validate 12 canonical lesson assets and 24 Curriculum-owned target anchors against Practice v0.1 and frozen v0.3; map each target without inventing Curriculum semantics and record per-lesson Practice grounding/conflicts."
-    },
-    {
-      "code": "AUDIO_REALIZATION",
-      "owner_lane": "OPERATIONS_4",
-      "status": "PARTIAL_PASS",
-      "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2",
-      "requirement": "Six exact fixed v0.2 realizations internally eligible, final Practice PASS and live release COMPLETE. Per-release feedback write ACK/exact context PASS plus unchanged MAN-0065 authenticated read system capability reused. Six sensitive/cast remain parked."
-    },
-    {
-      "code": "FINAL_REALIZATION_PRACTICE_MAN_0065",
-      "owner_lane": "PRACTICE_2",
-      "status": "PASS",
-      "evidence_ref": "docs/content-pipeline/registry/man-0065-final-realization-practice.json",
-      "requirement": "Preserve prior static grounding PASS and validate only realization-dependent Practice conditions for exact MAN-0065-OPENAI-FIXED-v0.2. Controlled internal release eligibility may support Practice when target semantics do not require human-certified fine pronunciation/prosody/accent."
-    },
-    {
-      "code": "FINAL_REALIZATION_PRACTICE_REWORKED_CANDIDATES",
-      "owner_lane": "PRACTICE_2",
-      "status": "PARTIAL_PASS",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
-      "requirement": "Historical three PASS and two blockers preserved in original evidence; MAN-0238/MAN-0414 blockers superseded by exact-pair Practice #2 PASS in batch-01-final-realization-practice-two-phenomena.json."
-    }
+  "complete_lesson_count": 12,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
   ],
-  "next_action": {
-    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
-    "responsible_lane": "OPERATIONS_4",
-    "pairs": [
-      {
-        "lesson_id": "MAN-0565",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
-      },
-      {
-        "lesson_id": "MAN-0905",
-        "lesson_asset_version": "v0.1",
-        "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
-      }
-    ],
-    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
-  },
-  "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
-  "selection_design": {
-    "type": "PAIRED_CALIBRATION_DESIGN",
-    "rationale": "One complete SF065 A1→C2 longitudinal spiral chain plus one contrasting lesson per CEFR level. Two lessons per level; covers NEW and OVERLAP_JUSTIFIED paths and varies construct/context/content/skill/phenomenon. Count 12 is a calibration proposal, not canonical Curriculum truth.",
-    "longitudinal_spiral_family_id": "SF065",
-    "per_level_count": 2
-  },
-  "opening_review_ref": "docs/content-pipeline/registry/batch-01-opening-review.json",
-  "draft_artifact_ref": "batch-01-original-draft-candidates@v0.1",
-  "curriculum_review_ref": "batch-01-curriculum-review@v0.1",
-  "curriculum_review_result": {
-    "status": "PASS_WITH_CURRICULUM_REVISIONS",
-    "accepted_unchanged": 9,
-    "accepted_with_revision": 3,
-    "rejected": 0,
-    "target_anchors": 24,
-    "canonical_lesson_asset_versions_created": 12
-  },
-  "canonical_asset_ref": "batch-01-canonical-lesson-assets@v0.1",
-  "canonical_lesson_asset_versions_created": 12,
-  "practice_postproduction_ref": "batch-01-practice-postproduction-validation@v0.1",
+  "live_runtime_verified_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0565-OPENAI-FIXED-v0.1",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0905-OPENAI-FIXED-v0.1",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0844-MIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
+  ],
+  "authorized_remaining_audio_exception_lesson_ids": [],
+  "pending_final_practice_exception_pairs": [],
+  "isolated_pending_branches": [],
   "practice_postproduction_result": {
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
     "final_practice_ready": 12,
-    "blocker": "FINAL_TWO_CONTROLLED_RELEASE_LIVE_VERIFICATION_PENDING"
+    "contract_valid": 12,
+    "blocker": "NONE"
   },
-  "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
-  "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
-  "runtime_qa_tool_ref": "docs/content-pipeline/browser-voice-certification.html",
-  "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
-  "audio_assessment_ref": "docs/content-pipeline/registry/batch-01-browser-voice-assessment.json",
-  "audio_exception_backlog_ref": "docs/content-pipeline/registry/batch-01-audio-exceptions.json",
-  "ordinary_lesson_independent_progression": true,
-  "ordinary_binding_ref": "docs/content-pipeline/registry/batch-01-ordinary-audio-bindings.json",
-  "ordinary_qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
-  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json",
-  "man_0065_first_live_complete": true,
-  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
-  "final_realization_practice_reworked_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
-  "final_realization_practice_reworked_result": {
-    "reviewed_pairs": 5,
-    "practice_ready_pass": 3,
-    "contract_valid_pass": 3,
-    "blocked": 2,
-    "pass_lesson_ids": [
-      "MAN-0165",
-      "MAN-0365",
-      "MAN-0044"
-    ],
-    "blocked_lesson_ids": [
-      "MAN-0238",
-      "MAN-0414"
-    ],
-    "man_0065_first_live_complete": true,
-    "sensitive_cast_parked_count": 6,
-    "historical_result_superseded_for_two_pairs_by": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
-  },
-  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
-  "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result",
-  "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
-  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
-  "final_realization_practice_two_phenomena_result": {
-    "reviewed_pairs": 2,
-    "practice_ready_pass": 2,
-    "contract_valid_pass": 2,
-    "blocked": 0,
-    "pass_lesson_ids": [
-      "MAN-0238",
-      "MAN-0414"
-    ]
-  },
-  "two_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
-  "remaining_work_checkpoint_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
-  "live_runtime_verified_realization_ids": [
-    "MAN-0065-OPENAI-FIXED-v0.2",
-    "MAN-0165-OPENAI-FIXED-v0.2",
-    "MAN-0365-OPENAI-FIXED-v0.2",
-    "MAN-0044-OPENAI-FIXED-v0.2",
-    "MAN-0238-OPENAI-FIXED-v0.2",
-    "MAN-0414-OPENAI-FIXED-v0.2",
-    "MAN-0765-OPENAI-FIXED-v0.2",
-    "MAN-0604-OPENAI-FIXED-v0.1",
-    "MAN-0986-OPENAI-FIXED-v0.2"
-  ],
-  "fully_complete_lesson_ids": [
-    "MAN-0065",
-    "MAN-0165",
-    "MAN-0365",
-    "MAN-0044",
-    "MAN-0238",
-    "MAN-0414",
-    "MAN-0765",
-    "MAN-0604",
-    "MAN-0986",
-    "MAN-0844"
-  ],
-  "feedback_admin_read_pending_lesson_ids": [],
-  "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-  "feedback_gui_dependency_replacement_status": "NOT_NEEDED_SYSTEM_CAPABILITY_REUSED",
-  "isolated_pending_branches": [],
-  "superseded_feedback_read_branches": [
-    {
-      "branch_id": "THREE_LIVE_FEEDBACK_ADMIN_READ",
-      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
-      "global_batch_blocker": false,
-      "lesson_ids": [
-        "MAN-0165",
-        "MAN-0365",
-        "MAN-0044"
-      ],
-      "blocking_code": "NONE",
-      "resume_action": "NONE",
-      "responsible_lane": "OPERATIONS_4",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
-      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
-      "existing_runtime_pass_preserved": true,
-      "not_attempted_this_action": true,
-      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-      "replacement_permission_pending": false,
-      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
-      "required_for_release": false,
-      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS"
-    },
-    {
-      "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
-      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
-      "global_batch_blocker": false,
-      "lesson_ids": [
-        "MAN-0238",
-        "MAN-0414"
-      ],
-      "blocking_code": "NONE",
-      "resume_action": "NONE",
-      "responsible_lane": "OPERATIONS_4",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
-      "retained_record_count": 4,
-      "verified_admin_reads": 0,
-      "existing_runtime_pass_preserved": true,
-      "not_attempted_this_action": true,
-      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS.",
-      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
-      "replacement_permission_pending": false,
-      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
-      "required_for_release": false,
-      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
-      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
-    }
-  ],
-  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
-  "retained_feedback_independent_read_status": {
-    "count": 10,
-    "verified": 0,
-    "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
-    "release_gate": false
-  },
-  "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-  "authorized_remaining_audio_exception_lesson_ids": [],
-  "independent_operations_next_action": {
-    "code": "RESUME_CONTROLLED_RELEASE_PER_EXACT_PRACTICE_PASS",
+  "batch_close_complete": true,
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-readiness.json",
+  "next_action": {
+    "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
     "responsible_lane": "OPERATIONS_4",
-    "lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
-    ],
-    "global_batch_blocker": false,
-    "requires": "Catalog/support drafts prepared privately. Release each exact pair after #2 disposition; no accent certification infrastructure."
-  },
-  "pending_final_practice_exception_pairs": [],
-  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
-  "final_realization_practice_three_exceptions_result": {
-    "reviewed_pairs": 3,
-    "practice_ready_pass": 3,
-    "contract_valid_pass": 3,
-    "blocked": 0,
-    "pass_lesson_ids": [
-      "MAN-0765",
-      "MAN-0604",
-      "MAN-0986"
-    ]
-  },
-  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
-  "man_0844_overlap_practice_representation_result": {
-    "representation_status": "PRACTICE_REPRESENTATION_VALID",
-    "contract_compatibility": "NON_BREAKING",
-    "practice_ready": true,
-    "contract_valid": true,
-    "blocker": "NONE",
-    "final_realization_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
-  },
-  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
-  "man_0844_final_realization_practice_result": {
-    "realization_id": "MAN-0844-MIXED-v0.1",
-    "practice_ready": true,
-    "contract_valid": true,
-    "conflict": "NONE"
-  },
-  "complete_lesson_count": 10,
-  "latest_completion_checkpoint_ref": "docs/content-pipeline/registry/batch-01-man0844-completion-checkpoint.json",
-  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
-  "final_two_practice_disposition_result": {
-    "reviewed_pairs": 2,
-    "practice_ready_pass": 2,
-    "contract_valid_pass": 2,
-    "failed": 0,
-    "pass_lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
-    ]
+    "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   }
 }
