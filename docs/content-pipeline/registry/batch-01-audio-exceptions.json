@@ -1,96 +1,30 @@
 {
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
-  "version": "v0.1",
-  "updated_at": "2026-09-28",
-  "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
-  "count": 5,
-  "items": [
-    {
-      "lesson_id": "MAN-0565",
-      "lesson_asset_version": "v0.1",
-      "status": "PARKED_AUDIO_EXCEPTION",
-      "phenomena": [
-        "accent variation"
-      ],
-      "required_qa_notes": [
-        "Actual speaker/accent metadata must be present in the audio realization. Accent variation is a transfer condition, not proven by script text."
-      ],
-      "route": "AUDIO_QA",
-      "trigger": "Specific realization meeting target condition and its QA evidence become available",
-      "blocks_other_lessons": false,
-      "paid_producer_required": false,
-      "realization_id": null,
-      "practice_ready": false
-    },
-    {
-      "lesson_id": "MAN-0905",
-      "lesson_asset_version": "v0.1",
-      "status": "PARKED_AUDIO_EXCEPTION",
-      "phenomena": [
-        "less familiar accent/specialist pronunciation"
-      ],
-      "required_qa_notes": [
-        "Actual accent/pronunciation realization must be verified downstream; script alone cannot satisfy this condition."
-      ],
-      "route": "AUDIO_QA",
-      "trigger": "Specific realization meeting target condition and its QA evidence become available",
-      "blocks_other_lessons": false,
-      "paid_producer_required": false,
-      "realization_id": null,
-      "practice_ready": false
-    },
-    {
-      "lesson_id": "MAN-0604",
-      "lesson_asset_version": "v0.1",
-      "status": "PARKED_AUDIO_EXCEPTION",
-      "phenomena": [
-        "prominence"
-      ],
-      "required_qa_notes": [
-        "Separate prominence scoring is allowed only if audio QA verifies a defensible contrast/meaning cue."
-      ],
-      "route": "AUDIO_QA",
-      "trigger": "Specific realization meeting target condition and its QA evidence become available",
-      "blocks_other_lessons": false,
-      "paid_producer_required": false,
-      "realization_id": null,
-      "practice_ready": false
-    },
-    {
-      "lesson_id": "MAN-0844",
-      "lesson_asset_version": "v0.1",
-      "status": "PARKED_AUDIO_EXCEPTION",
-      "phenomena": [
-        "overlap/interruption"
-      ],
-      "required_qa_notes": [
-        "Overlap/interruption is only an evidence condition if the produced audio actually realizes it; it is not a new learner mastery dimension."
-      ],
-      "route": "AUDIO_QA",
-      "trigger": "Specific realization meeting target condition and its QA evidence become available",
-      "blocks_other_lessons": false,
-      "paid_producer_required": false,
-      "realization_id": null,
-      "practice_ready": false
-    },
-    {
-      "lesson_id": "MAN-0986",
-      "lesson_asset_version": "v0.1",
-      "status": "PARKED_AUDIO_EXCEPTION",
-      "phenomena": [
-        "subtle prosody"
-      ],
-      "required_qa_notes": [
-        "Prosodic cue must be verified in the realized audio and the inference key must remain defensible."
-      ],
-      "route": "AUDIO_QA",
-      "trigger": "Specific realization meeting target condition and its QA evidence become available",
-      "blocks_other_lessons": false,
-      "paid_producer_required": false,
-      "realization_id": null,
-      "practice_ready": false
-    }
+  "state_scope": "CURRENT_STATE_REDIRECT",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
+  "complete_lesson_count": 12,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
   ],
-  "policy": "Park realization-sensitive cases independently. No global paid TTS dependency, no lower QA standard, no Batch 01-wide block."
+  "remaining_lesson_ids": [],
+  "active_exceptions": [],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-audio-exceptions.json",
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

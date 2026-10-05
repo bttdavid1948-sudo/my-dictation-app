@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "checked_at": "2026-10-02T12:30:25.635983+00:00",
+  "status": "SIX_OFFICIAL_COMPLETE_THREE_PRACTICE_PASS_RELEASE_PENDING_THREE_EXCEPTIONS",
+  "published_official_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "live_runtime_pass_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414"
+  ],
+  "pending_feedback_admin_read_lesson_ids": [],
+  "pending_exact_feedback_record_count": 0,
+  "verified_new_feedback_admin_reads": 0,
+  "parked_sensitive_cast_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905",
+    "MAN-0844"
+  ],
+  "independent_progression": true,
+  "global_batch_blocker": false,
+  "current_scope_independent_operations_work_remaining": true,
+  "next_action": {
+    "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      "MAN-0765",
+      "MAN-0604",
+      "MAN-0986"
+    ],
+    "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+  },
+  "preserved_evidence_refs": [
+    "docs/content-pipeline/registry/man-0065-live-release.json",
+    "docs/content-pipeline/registry/batch-01-three-live-release.json",
+    "docs/content-pipeline/registry/batch-01-two-live-release.json"
+  ],
+  "no_google_sign_in_retry_this_action": true,
+  "incremental_tts_api_requests": 12,
+  "incremental_tts_api_cost_usd": 0.031077,
+  "total_metered_tts_api_cost_usd": 0.1322208,
+  "metered_cost_boundary": "Returned API usage at published rates; unchanged previous exclusions including Playground/invoice and delivery.",
+  "rollback": "Per-lesson depublish via reviewed catalog status change; retain audio/support and original catalog/git parent. Archived legacy seeds remain preserved and learner-invisible.",
+  "owner_action_required_now": false,
+  "next_scope_boundary": "All six exceptions remain authorized. Three exact pairs passed final Practice; controlled release is next. Three accent/overlap gaps remain isolated.",
+  "latest_resume_attempt": {
+    "checked_at": "2026-09-30T22:45:40.213Z",
+    "source_main": "36e56c045ad1931466f04e3396b98ec38dfb2127",
+    "action": "VERIFY_EXACT_FEEDBACK_READ_RETAINED_FIVE_LIVE_PAIRS",
+    "result": "BLOCKED",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "execution_environment": "Fresh Work browser inventory showed one about:blank tab, no retained Firebase page.",
+    "recovery_actions": [
+      "Open canonical authorized Firebase Firestore console",
+      "One reload after Google sign-in redirect connection failure"
+    ],
+    "observed_error": "502 Bad Gateway / [Errno 111] Connection refused before an authentication form",
+    "authenticated_feedback_reads_verified": 0,
+    "expected_feedback_record_count": 10,
+    "authentication_form_available": false,
+    "credentials_requested": false,
+    "product_verification_rerun": false,
+    "existing_pass_evidence_preserved": true,
+    "owner_execution_required": false,
+    "available_capability_limitation": "Available tools expose browser navigation/reload and secure form authentication, but no connection-service restart or authenticated Firebase connector. No form rendered, so Owner credential action cannot resolve the observed connection failure."
+  },
+  "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+  "feedback_gui_dependency_replacement_status": "NOT_NEEDED_SYSTEM_CAPABILITY_REUSED",
+  "owner_action_scope": "NONE: WIF/IAM is not needed for this release workflow; no Owner testing or security provisioning requested.",
+  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "retained_feedback_independent_read_status": {
+    "count": 10,
+    "verified": 0,
+    "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
+    "release_gate": false
+  },
+  "retained_not_independently_read_feedback_record_count": 10,
+  "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+  "authorized_remaining_audio_exception_lesson_ids": [
+    "MAN-0565",
+    "MAN-0905",
+    "MAN-0844"
+  ],
+  "independent_operations_next_action": {
+    "code": "ISOLATED_ACCENT_EVIDENCE_AND_OVERLAP_BINDING_CAPABILITY_GAPS",
+    "responsible_lane": "OPERATIONS_4",
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905",
+      "MAN-0844"
+    ],
+    "global_batch_blocker": false,
+    "requires": "Current accessible internal capabilities cannot establish the required accent condition or overlap context binding. Retain independent precise exceptions; no renewed scope permission. Overlap learner-context semantics require Practice #2 representation review before implementation. No speculative paid generation or completed gate rerun."
+  },
+  "pending_final_practice_exception_pairs": [],
+  "current_scope_executable_work_remaining": "Controlled import/live release of three Practice PASS exact pairs, using existing immutable private WAVs and canonical/support assets. Three independent accent/overlap gaps remain isolated.",
+  "practice_pass_pending_live_release_pairs": [
+    {
+      "lesson_id": "MAN-0765",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0765-OPENAI-FIXED-v0.2",
+      "practice_ready": true,
+      "contract_valid": true,
+      "live_release_verified": false
+    },
+    {
+      "lesson_id": "MAN-0604",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0604-OPENAI-FIXED-v0.1",
+      "practice_ready": true,
+      "contract_valid": true,
+      "live_release_verified": false
+    },
+    {
+      "lesson_id": "MAN-0986",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0986-OPENAI-FIXED-v0.2",
+      "practice_ready": true,
+      "contract_valid": true,
+      "live_release_verified": false
+    }
+  ],
+  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+  "resume_environment_limitation": {
+    "checked_at": "2026-10-03T05:47:58.147Z",
+    "source_main": "c5a7921ea07b77ecab43ad97d376ad0e10c7714a",
+    "code": "PRIVATE_RELEASE_ARTIFACT_ACCESS_UNAVAILABLE",
+    "scope": "Current desktop execution session only; not a Practice or owner-permission blocker",
+    "facts": [
+      "Prior cloud workspace thread could not be read from this session",
+      "Current browser Library view is unauthenticated",
+      "No production WAVs for these three pairs exist on reviewed main"
+    ],
+    "required_input": "Restore access to the indexed private canonical/support assets and the two existing fixed-audio handoff ZIPs; verify registered hashes before reuse.",
+    "incremental_tts_api_requests": 0,
+    "incremental_tts_api_cost_usd": 0,
+    "live_publication_claimed": false
+  }
+}

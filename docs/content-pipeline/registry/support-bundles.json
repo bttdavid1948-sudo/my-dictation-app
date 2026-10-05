@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
   "records": [
     {
       "bundle_id": "MAN-0065-SUPPORT-VI-VN",
@@ -10,7 +11,9 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0065-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0065:S001-S004"
+      "alignment_ref": "MAN-0065:S001,S002,S003,S004",
+      "sha256": "8f45f3241b9ad4d46fcb3597532eea9942eae5327325fafa48f99fa3f4043605",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     },
     {
       "bundle_id": "MAN-0165-SUPPORT-VI-VN",
@@ -21,7 +24,9 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0165-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0165:S001,S002,S003,S004"
+      "alignment_ref": "MAN-0165:S001,S002,S003,S004",
+      "sha256": "7ff7e30918366f0c25821da5c5d6103f3a70e8373e31d95ab74d2219972e9239",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     },
     {
       "bundle_id": "MAN-0365-SUPPORT-VI-VN",
@@ -32,7 +37,48 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0365-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0365:S001,S002,S003,S004,S005"
+      "alignment_ref": "MAN-0365:S001,S002,S003,S004,S005",
+      "sha256": "c82a31b289358dc7d40e2b7db9a428d442ba53a5519e17d2aa3be725f8cd2ee8",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0565-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0565",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0565-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0565:S001,S002,S003,S004,S005,S006",
+      "sha256": "fa0e01338a1c9b9114b3e56a1bc5df2e32eb73ffb778b945dad0e3c8a24a91cc",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0765-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0765",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0765-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0765:S001,S002,S003,S004,S005,S006",
+      "sha256": "3a4e0a9599cd8c1ae153dbc2edce0b7a127192532343d2a973b9b471e51387e4",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0905-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0905",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0905-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0905:S001,S002,S003,S004,S005,S006,S007",
+      "sha256": "fcb2a078cca960511bd02a3e85ba9cd1d6872c13a08a75f4f2046a00fb1e01ba",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     },
     {
       "bundle_id": "MAN-0044-SUPPORT-VI-VN",
@@ -43,7 +89,9 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0044-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0044:S001,S002,S003,S004"
+      "alignment_ref": "MAN-0044:S001,S002,S003,S004",
+      "sha256": "903be5f2b948587a0d571da6b7beb571463a1feece2d34e0f67eeccb74c04589",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     },
     {
       "bundle_id": "MAN-0238-SUPPORT-VI-VN",
@@ -54,7 +102,9 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0238-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0238:S001,S002,S003,S004,S005"
+      "alignment_ref": "MAN-0238:S001,S002,S003,S004,S005",
+      "sha256": "e163aab5b5fdfbd083142cbe68c097623165157a7ad159acec030c7569d1f66d",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     },
     {
       "bundle_id": "MAN-0414-SUPPORT-VI-VN",
@@ -65,7 +115,48 @@
       "coverage": "FULL",
       "qa_status": "PASS",
       "content_ref": "assets/support/MAN-0414-vi-VN-v0.1.json",
-      "alignment_ref": "MAN-0414:S001,S002,S003,S004"
+      "alignment_ref": "MAN-0414:S001,S002,S003,S004",
+      "sha256": "08d47f643762e021e4a4b80f3cb05375083469eae649e441023050bab5587358",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0604-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0604",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0604-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0604:S001,S002,S003,S004",
+      "sha256": "8e21c01e74ad84cd5e8791b3f8d62653d8bb9a6c329898d7188c2025c7d856ad",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0844-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0844",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0844-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0844:S001,S002,S003,S004,S005,S006",
+      "sha256": "3fedb6485d925723b672b8f2ca8d2881b4942af8caf703b49d94680201e87ee3",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
+    },
+    {
+      "bundle_id": "MAN-0986-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0986",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0986-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0986:S001,S002,S003,S004,S005,S006,S007",
+      "sha256": "4ea45ea783f726b05c18761fdcf56d0570b278133cfb12f83f42d223d2d245a3",
+      "qa_basis": "Existing support reused; final-two prepared translations reviewed and exact segment alignment verified at release."
     }
   ]
 }

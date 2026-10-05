@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "reviewed_at": "2026-09-30",
+  "lesson_id": "MAN-0065",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
+  "status": "MAN_0065_FIRST_LIVE_COMPLETE",
+  "definition_of_done": "COMPLETE",
+  "checks": {
+    "practice_exact_pair": "PASS_REUSED_CANONICAL_PRACTICE_2",
+    "vi_VN_support": "PASS_FULL_4_SEGMENTS",
+    "rights": "PASS_OPERATIONAL_REVIEW",
+    "AI_audio_disclosure": "PASS",
+    "immutable_binding": "PASS_4_SEGMENT_URLS_AND_SHA256",
+    "persisted_audio_live": "PASS_ALL_4_HTTP_HASHES_AND_MEDIA_DECODE",
+    "silent_browser_voice_fallback": "NONE_OBSERVED_FIXED_AUDIO_ONLY",
+    "desktop_dictation_completion": "PASS_4_OF_4",
+    "feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+    "feedback_admin_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_DOCUMENT",
+    "mobile_live": "PASS_OWNER_APPROVED_PIXEL_5_CHROMIUM_EMULATION",
+    "legacy_seed_preview": "PASS_HASHES_AND_PROVENANCE",
+    "legacy_seed_archive": "PASS_LIVE_CATALOG_ONLY_MAN_0065",
+    "mobile_feedback_write_read": "PASS_EXACT_NEW_REPORT"
+  },
+  "desktop_evidence": {
+    "viewport": "1363x936",
+    "browser": "Chrome 151 cloud browser",
+    "segments": [
+      {
+        "segment_id": "S001",
+        "duration_seconds": 3.7
+      },
+      {
+        "segment_id": "S002",
+        "duration_seconds": 2.5
+      },
+      {
+        "segment_id": "S003",
+        "duration_seconds": 2.3
+      },
+      {
+        "segment_id": "S004",
+        "duration_seconds": 2.9
+      }
+    ],
+    "media_ready_state": 4,
+    "ended": true,
+    "media_error": null,
+    "completed_count": 4,
+    "correct_count": 4
+  },
+  "feedback_evidence": {
+    "collection": "owner_feedback",
+    "category": "Vấn đề khác",
+    "test_report_explicitly_labeled": true,
+    "context_fields": [
+      "lessonId",
+      "lessonVersion",
+      "segmentId",
+      "realizationId",
+      "realizationVersion",
+      "profileRef",
+      "assetSha256",
+      "deliveryMode",
+      "viewport",
+      "playbackRate",
+      "playbackState",
+      "currentTime"
+    ],
+    "write_acknowledged": true,
+    "admin_read_verified": true,
+    "private_record_id_retained_in_operations_evidence": true,
+    "read_binding_verified": [
+      "lessonId",
+      "lessonVersion",
+      "segmentId",
+      "realizationId",
+      "realizationVersion",
+      "profileRef",
+      "assetSha256",
+      "deliveryMode"
+    ]
+  },
+  "archive_evidence_ref": "docs/content-pipeline/registry/man-0065-seed-exit.json",
+  "live_catalog_sha256": "87edc59a4766f975f3a6cf0037e5f38608e1b5077391413308edbba89e59a0c5",
+  "published_lesson_ids": [
+    "MAN-0065"
+  ],
+  "archived_lesson_ids": [
+    "man-original-01",
+    "man-original-02",
+    "man-original-03",
+    "man-original-04"
+  ],
+  "release_prs": [
+    63,
+    64,
+    65,
+    68
+  ],
+  "rollback": {
+    "lesson_release": "Depublish MAN-0065 through reviewed catalog status change; retain versioned WAVs and metadata. Do not restore broad Firestore permissions.",
+    "seed_exit": "Revert PR 65 to restore original published seed statuses; all seed content is retained.",
+    "player_cache": "PR 64 pins runtime script to realization release; retain pin for current audio."
+  },
+  "limitations": [
+    "Internal ASR support is probabilistic; no human pronunciation/prosody/accent certification is claimed.",
+    "No other parked Batch 01 lessons imported or modified.",
+    "Device emulation, not physical Android hardware, native software keyboard, or iOS Safari certification.",
+    "Playback evidence is successful browser decode/play-to-end, not human acoustic certification."
+  ],
+  "next_action": {
+    "code": "MAN_0065_FIRST_LIVE_COMPLETE",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "MAN-0065 first-live DoD complete using existing desktop/Practice/support/rights/seed archive evidence and Owner-approved Pixel 5 Chromium mobile emulation. Exact fixed v0.2 playback, Dictation completion and audio feedback write/read PASS. No other Batch 01 lesson is released or unparked."
+  },
+  "mobile_evidence": {
+    "status": "PASS",
+    "scope": "OWNER_APPROVED_PIXEL_5_CHROMIUM_MOBILE_DEVICE_EMULATION",
+    "workflow_run_id": 36689890576,
+    "workflow_head_sha": "ff002bf0b6b86f56aafc35f01eacdf05ec467b18",
+    "artifact_id": 11085103290,
+    "artifact_sha256": "db2e86277a6e3e3bc4a02dffb97028106dd8ccdc3f1005c7692479d3791e1d4e",
+    "evidence_library_file_id": "libfile_57572e1449bc8191a1dd608a23506fee",
+    "browser_version": "153.0.8010.12",
+    "device": {
+      "viewport": "393x727",
+      "screen": "393x851",
+      "device_scale_factor": 2.75,
+      "is_mobile": true,
+      "has_touch": true,
+      "max_touch_points": 1,
+      "coarse_pointer": true,
+      "hover": false
+    },
+    "fixed_segments_played": 4,
+    "all_media_ended": true,
+    "all_media_errors": null,
+    "all_sha256_match": true,
+    "dictation_completed": "4/4",
+    "layout": "PASS_CORE_FLOW_TAP_HIT_TESTS_AND_SCREENSHOT_REVIEW_NO_BLOCKING_OVERLAP_OR_HORIZONTAL_OVERFLOW",
+    "feedback_write": "PASS",
+    "feedback_read": "PASS_AUTHENTICATED_FIREBASE_CONSOLE_EXACT_NEW_RECORD",
+    "runtime_errors": [],
+    "limitations": [
+      "Device emulation, not physical Android hardware, native software keyboard, or iOS Safari certification.",
+      "Playback evidence is successful browser decode/play-to-end, not human acoustic certification."
+    ],
+    "reviewed_at": "2026-09-30",
+    "owner_lane": "OPERATIONS_4"
+  }
+}

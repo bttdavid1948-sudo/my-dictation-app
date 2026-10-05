@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-01-final-two-practice-disposition",
+  "version": "v0.1",
+  "status": "PRACTICE_VALIDATED",
+  "owner_lane": "PRACTICE_2",
+  "action_code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+  "owner_product_direction": {
+    "accent_policy": "SOFT_QUALITY_TARGET_NOT_CERTIFICATION_GATE",
+    "high_quality_not_perfect_certainty": true,
+    "residual_accent_uncertainty_accepted": true,
+    "acoustic_classifier_required": false,
+    "human_accent_certification_required": false,
+    "phonetic_certification_required": false
+  },
+  "source_refs": [
+    "batch-01-final-two-exact-realization-practice-handoff@v0.1",
+    "MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3"
+  ],
+  "preserved_truth": {
+    "static_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "completed_gates": "PASS_PRESERVED_NOT_RERUN",
+    "frozen_contract": "UNCHANGED",
+    "curriculum_semantics": "UNCHANGED",
+    "ordinary_audio_qa": "PASS_PRESERVED"
+  },
+  "pair_results": [
+    {
+      "lesson_id": "MAN-0565",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
+      "comprehension_anchor_id": "MAN-0565-A-COMP-01",
+      "comprehension_construct": "INFERENCE",
+      "speech_anchor_id": "MAN-0565-A-SPCH-01",
+      "speech_construct": "TRANSFER_CONDITION",
+      "phenomenon_type": "accent variation",
+      "PRACTICE_READY": "PASS",
+      "CONTRACT_VALID": "PASS",
+      "learner_outcome_review": {
+        "intelligibility": "PASS",
+        "transcript_realization_match": "PASS",
+        "target_pronunciation_causing_misunderstanding": "NONE_FOUND_IN_ORDINARY_QA",
+        "evidence_semantics_valid": "PASS",
+        "exact_binding": "PASS",
+        "frozen_contract_conflict": "NONE"
+      },
+      "evidence_summary": [
+        "All 6 exact segments are hash-bound to MAN-0565@v0.1 and ordinary automated container/clipping/lexical QA PASS.",
+        "Normalized unprompted lexical recognition matches canonical content across all 6 segments.",
+        "Two stable speaker/voice streams carry declared American/British accent intents; residual perceptual accent uncertainty is accepted under Owner Product Direction.",
+        "Accent variation is treated only as a transfer/variation condition on the already-grounded INFERENCE task; no accent mastery or certification is claimed."
+      ],
+      "scoring_boundary": "Score the learner's inference/comprehension of why written scores are rejected and how the oral-assessment compromise preserves fairness. Accent/voice variation is contextual exposure only; do not score accent identification.",
+      "conflict": "NONE",
+      "next_route": "OPERATIONS_4_CONTROLLED_RELEASE_LIVE_VERIFICATION"
+    },
+    {
+      "lesson_id": "MAN-0905",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+      "comprehension_anchor_id": "MAN-0905-A-COMP-01",
+      "comprehension_construct": "INFERENCE_SUBTLE_IMPLICATION",
+      "speech_anchor_id": "MAN-0905-A-SPCH-01",
+      "speech_construct": "TRANSFER_CONDITION",
+      "phenomenon_type": "less familiar accent/specialist pronunciation",
+      "PRACTICE_READY": "PASS",
+      "CONTRACT_VALID": "PASS",
+      "learner_outcome_review": {
+        "intelligibility": "PASS",
+        "transcript_realization_match": "PASS_WITH_NONBLOCKING_ASR_VARIANT",
+        "target_pronunciation_causing_misunderstanding": "NONE_FOUND_IN_ORDINARY_QA",
+        "evidence_semantics_valid": "PASS",
+        "exact_binding": "PASS",
+        "frozen_contract_conflict": "NONE"
+      },
+      "evidence_summary": [
+        "All 7 exact segments are hash-bound to MAN-0905@v0.1 and ordinary automated container/clipping/lexical QA PASS.",
+        "Primary ASR differs only by an inserted article 'a' in S002; an unprompted second recognizer matches the canonical wording exactly, so there is no concrete learner-outcome mismatch.",
+        "Three versioned speaker/voice streams include British, American and light Irish accent intents. Residual accent/pronunciation uncertainty is accepted and is not converted into a certification gate.",
+        "Less-familiar accent/specialist pronunciation remains a transfer/variation condition supporting the already-grounded subtle-inference task, not a standalone pronunciation score."
+      ],
+      "scoring_boundary": "Score the learner's inference that the replacement should be framed as sufficient evidence with a documented limitation rather than fully equivalent. Do not score accent identification or specialist-pronunciation certification.",
+      "conflict": "NONE",
+      "next_route": "OPERATIONS_4_CONTROLLED_RELEASE_LIVE_VERIFICATION"
+    }
+  ],
+  "summary": {
+    "reviewed_pair_count": 2,
+    "practice_ready_pass_count": 2,
+    "contract_valid_pass_count": 2,
+    "fail_count": 0,
+    "total_practice_ready_after_action": 12,
+    "independent_progression": true,
+    "owner_decision_required": false
+  },
+  "explicit_nonclaims": [
+    "No human-certified accent, pronunciation, prosody or phonetic quality is claimed.",
+    "Requested accent intent and voice metadata are versioned realization metadata, not perceptual certification.",
+    "ASR remains probabilistic lexical support and is not used as accent certification.",
+    "PASS applies only to the exact versioned realizations listed here."
+  ],
+  "next_action": {
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      {
+        "lesson_id": "MAN-0565",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
+      },
+      {
+        "lesson_id": "MAN-0905",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
+      }
+    ],
+    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+  }
+}

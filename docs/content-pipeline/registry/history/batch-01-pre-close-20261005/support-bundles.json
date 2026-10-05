@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    {
+      "bundle_id": "MAN-0065-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0065",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0065-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0065:S001-S004"
+    },
+    {
+      "bundle_id": "MAN-0165-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0165",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0165-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0165:S001,S002,S003,S004"
+    },
+    {
+      "bundle_id": "MAN-0365-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0365",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0365-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0365:S001,S002,S003,S004,S005"
+    },
+    {
+      "bundle_id": "MAN-0044-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0044",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0044-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0044:S001,S002,S003,S004"
+    },
+    {
+      "bundle_id": "MAN-0238-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0238",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0238-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0238:S001,S002,S003,S004,S005"
+    },
+    {
+      "bundle_id": "MAN-0414-SUPPORT-VI-VN",
+      "bundle_version": "v0.1",
+      "lesson_id": "MAN-0414",
+      "canonical_lesson_asset_version": "v0.1",
+      "support_locale": "vi-VN",
+      "coverage": "FULL",
+      "qa_status": "PASS",
+      "content_ref": "assets/support/MAN-0414-vi-VN-v0.1.json",
+      "alignment_ref": "MAN-0414:S001,S002,S003,S004"
+    }
+  ]
+}

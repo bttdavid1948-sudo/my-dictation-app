@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "version": "v0.1",
+  "checked_at": "2026-09-29",
+  "source_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
+  "source_bundle_sha256": "fd2f061c92603fa460c13796acab2128d6383d8337096f49e5d5c603fcecbfd6",
+  "deterministic_checks": {
+    "status": "STATIC_CONTRACT_PASS",
+    "lesson_count": 7,
+    "segment_count": 32,
+    "target_segment_count": 13,
+    "checks": [
+      "canonical asset and runtime evidence hashes",
+      "exact lesson/version and candidate IDs",
+      "segment mapping and playback refs",
+      "speaker slots and certified voice URI membership",
+      "speech anchor/target span match",
+      "no premature realization or publication"
+    ]
+  },
+  "runtime_playback_smoke": "PASS_ON_FIVE_GENERIC_FIXTURES_ONLY",
+  "actual_lesson_playback_events": "PENDING",
+  "linguistic_acoustic_qa": "PENDING_QUALIFIED_REVIEW",
+  "owner_listener_as_acoustic_qa": false,
+  "approved_realization_count": 0,
+  "publication_allowed": false,
+  "calibrated_scoring_allowed": false
+}

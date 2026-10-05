@@ -1,41 +1,30 @@
 {
   "schema_version": "1.0",
-  "owner_lane": "OPERATIONS_4",
-  "status": "12_OF_12_COMPLETE",
+  "batch_id": "BATCH_01",
+  "state_scope": "CURRENT_STATE_REDIRECT",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
   "complete_lesson_count": 12,
   "fully_complete_lesson_ids": [
     "MAN-0065",
     "MAN-0165",
     "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
     "MAN-0044",
     "MAN-0238",
     "MAN-0414",
-    "MAN-0765",
     "MAN-0604",
-    "MAN-0986",
     "MAN-0844",
-    "MAN-0565",
-    "MAN-0905"
+    "MAN-0986"
   ],
   "remaining_lesson_ids": [],
-  "pairs": [
-    {
-      "lesson_id": "MAN-0565",
-      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
-      "status": "COMPLETE",
-      "evidence_ref": "docs/content-pipeline/registry/man-0565-live-release.json"
-    },
-    {
-      "lesson_id": "MAN-0905",
-      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
-      "status": "COMPLETE",
-      "evidence_ref": "docs/content-pipeline/registry/man-0905-live-release.json"
-    }
-  ],
-  "previous_ten_complete_preserved": true,
+  "active_exceptions": [],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-two-release-checkpoint.json",
   "next_action": {
-    "code": "BATCH_01_CLOSE_AND_RECONCILE",
-    "responsible_lane": "OPERATIONS_4",
-    "lesson_ids": []
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
   }
 }

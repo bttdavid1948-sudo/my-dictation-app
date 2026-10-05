@@ -206,9 +206,6 @@
       "prepared_support_coverage": "FULL"
     }
   ],
-  "next_lane": "PRACTICE_2",
-  "next_action": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID",
-  "stop_dependency": "Operations cannot issue Practice semantic disposition or directly activate another conversation with available tools. No authorized substitute delegation.",
   "after_practice_pass": "Controlled release/live verification per pair -> BatchClose at12/12 -> approved Autonomous Orchestration Readiness.",
   "artifact_id": "batch-01-final-two-exact-realization-practice-handoff",
   "version": "v0.1",
@@ -218,5 +215,16 @@
     "sha256": "1a38e68032f54b53c1e8e45609a7c029777a124c29092753d5e55e34b28cea75",
     "bytes": 3831914
   },
-  "public_scope": "Sanitized binding and ordinary QA summary only. Audio, full QA, draft catalog/support remain access controlled."
+  "public_scope": "Sanitized binding and ordinary QA summary only. Audio, full QA, draft catalog/support remain access controlled.",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-two-practice-handoff.json",
+  "historical_next_action": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID",
+  "historical_next_lane": "PRACTICE_2",
+  "historical_stop_dependency": "Operations cannot issue Practice semantic disposition or directly activate another conversation with available tools. No authorized substitute delegation.",
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

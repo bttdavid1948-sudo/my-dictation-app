@@ -1,104 +1,30 @@
 {
   "schema_version": "1.0",
   "batch_id": "BATCH_01",
-  "version": "v0.1",
-  "updated_at": "2026-09-29",
-  "source_refs": [
-    "batch-01-canonical-lesson-assets@v0.1",
-    "batch-01-browser-voice-runtime-candidates@v0.1",
-    "browser-voice-runtime-evidence@v0.1"
+  "state_scope": "CURRENT_STATE_REDIRECT",
+  "status": "BATCH_01_COMPLETE_12_OF_12",
+  "complete_lesson_count": 12,
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0565",
+    "MAN-0765",
+    "MAN-0905",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0604",
+    "MAN-0844",
+    "MAN-0986"
   ],
-  "qa_bundle_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
-  "qa_bundle_sha256": "fd2f061c92603fa460c13796acab2128d6383d8337096f49e5d5c603fcecbfd6",
-  "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
-  "lesson_count": 7,
-  "segment_count": 32,
-  "target_segment_count": 13,
-  "records": [
-    {
-      "lesson_id": "MAN-0065",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0065-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0065",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0165",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0165-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0165",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0365",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0365-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0365",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0765",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0765-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0765",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0044",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0044-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0044",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0238",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0238-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0238",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    },
-    {
-      "lesson_id": "MAN-0414",
-      "lesson_asset_version": "v0.1",
-      "audio_profile_ref": "MAN-0414-OUTPUT-AUDIO-PROFILE@v0.1",
-      "private_binding_ref": "batch-01-ordinary-browser-voice-qa-bundle@v0.1#MAN-0414",
-      "profile_status": "CANDIDATE_PENDING_LESSON_AUDIO_QA",
-      "qa_status": "PENDING_SUPPORTED_RUNTIME_LESSON_LISTENING",
-      "available_audio_realization_ref": null,
-      "practice_ready": false,
-      "publication_allowed": false
-    }
-  ],
-  "safety": {
-    "output_profiles_approved_count": 0,
-    "lesson_audio_qa_pass_count": 0,
-    "available_realizations_count": 0,
-    "publication_allowed": false,
-    "calibrated_scoring_allowed": false
-  },
-  "pass_rule": "Each exact lesson/version needs playback event evidence for all mapped segments and human acoustic verdict; only then approve its profile and register QA-PASS realization. Failures park per lesson; no global batch block."
+  "remaining_lesson_ids": [],
+  "active_exceptions": [],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-ordinary-audio-bindings.json",
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

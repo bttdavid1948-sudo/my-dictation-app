@@ -1,0 +1,1090 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-04",
+  "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
+  "current": {
+    "curriculum-practice-contract": "v0.3",
+    "curriculum-production-spec": "v0.1",
+    "practice-production-spec": "v0.1",
+    "content-pipeline-contract": "v0.2",
+    "global-readiness-compatibility-check": "v0.1",
+    "global-lesson-registry-snapshot": "v0.1",
+    "batch-01-curriculum-selection": "v0.1",
+    "batch-01-practice-preproduction-evidence": "v0.1",
+    "batch-01-original-draft-candidates": "v0.1",
+    "batch-01-curriculum-review": "v0.1",
+    "batch-01-canonical-lesson-assets": "v0.1",
+    "batch-01-practice-postproduction-validation": "v0.1",
+    "batch-01-browser-voice-runtime-candidates": "v0.1",
+    "browser-voice-runtime-evidence": "v0.1",
+    "batch-01-ordinary-browser-voice-qa-bundle": "v0.1",
+    "batch-01-ordinary-audio-qa-page": "v0.1",
+    "batch-01-internal-audio-release": "v0.2",
+    "batch-01-targeted-audio-practice-handoff": "v0.2",
+    "batch-01-final-realization-practice-validation-reworked": "v0.1",
+    "batch-01-three-live-runtime-evidence": "v0.1",
+    "batch-01-two-phenomena-practice-handoff": "v0.1",
+    "batch-01-final-realization-practice-two-phenomena": "v0.1",
+    "batch-01-two-new-live-runtime-evidence": "v0.1",
+    "batch-01-six-exceptions-man0765-practice-handoff": "v0.1",
+    "batch-01-independent-exceptions-practice-handoff": "v0.1",
+    "batch-01-final-realization-practice-three-independent-exceptions": "v0.1",
+    "man-0844-overlap-practice-representation": "v0.1",
+    "man-0844-final-realization-practice": "v0.1",
+    "batch-01-final-two-exact-realization-practice-handoff": "v0.1",
+    "batch-01-final-two-practice-disposition": "v0.1"
+  },
+  "artifacts": [
+    {
+      "id": "curriculum-practice-contract",
+      "name": "MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx",
+      "version": "v0.3",
+      "status": "FROZEN",
+      "owner_lane": "CURRICULUM_3+PRACTICE_2",
+      "source": [
+        "Owner-declared frozen Curriculum ↔ Practice Contract"
+      ],
+      "dependencies": [],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx"
+      },
+      "sha256": "0235f171e4d28d9fe3157b1e432930128e620be1736da3316bfbbd777fa01dcc",
+      "size_bytes": 70153,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "curriculum-production-spec",
+      "name": "MAN-Curriculum-Production-Specification-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 production specification"
+      ],
+      "dependencies": [
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Production-Specification-v0.1.xlsx"
+      },
+      "sha256": "cd9ec79c9ee67b5cf5aea3b9b88eccc301a4ff8d9f2c3e2626b7453339af5de7",
+      "size_bytes": 267886,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "practice-production-spec",
+      "name": "MAN-Practice-Production-Specification-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 production specification"
+      ],
+      "dependencies": [
+        "curriculum-practice-contract@v0.3",
+        "curriculum-production-spec@v0.1"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Practice-Production-Specification-v0.1.xlsx"
+      },
+      "sha256": "6f2517fcfb53156f2784ee80050ed98a5697d5f9cf632d11c2d3769ea4921d28",
+      "size_bytes": 86475,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "content-pipeline-contract",
+      "name": "MAN-Content-Production-Pipeline-Contract-Candidate-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 integration candidate"
+      ],
+      "dependencies": [
+        "curriculum-production-spec@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": "content-pipeline-contract@v0.2",
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Content-Production-Pipeline-Contract-Candidate-v0.1.xlsx"
+      },
+      "sha256": "1de045af41c556288619f3fc87fdac3a488d797ae1d0aee6745ba499349cf1c4",
+      "size_bytes": 28070,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "content-pipeline-contract",
+      "name": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+      "version": "v0.2",
+      "status": "FROZEN",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Curriculum #3 candidate v0.1",
+        "Practice #2 final compatibility review PASS",
+        "Curriculum #3 final freeze verification PASS"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.1",
+        "curriculum-production-spec@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": "content-pipeline-contract@v0.1",
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx"
+      },
+      "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec",
+      "size_bytes": 39776,
+      "validation_status": "HASH_VERIFIED",
+      "frozen_at": "2026-09-28",
+      "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json"
+    },
+    {
+      "id": "global-readiness-compatibility-check",
+      "name": "MAN-Global-Readiness-Compatibility-Check-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 narrow pre-Batch-01 global-readiness compatibility check",
+        "Product Bible + Tech Operations current content model",
+        "Curriculum v0.1 + Practice v0.1 + frozen Curriculum ↔ Practice v0.3 + frozen Pipeline Contract v0.2"
+      ],
+      "dependencies": [
+        "curriculum-production-spec@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3",
+        "content-pipeline-contract@v0.2"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Global-Readiness-Compatibility-Check-v0.1.xlsx"
+      },
+      "sha256": "4673b6996ff7bf3341ac7ff7bfb016f840e20b803688a40e787105d81276d2e7",
+      "size_bytes": 16940,
+      "validation_status": "HASH_VERIFIED",
+      "classification": "NON_BREAKING_EXTENSION_NEEDED",
+      "next_action": {
+        "code": "GLOBAL_READINESS_SUPPORT_LOCALE_EXTENSION",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Before Batch 01, formalize a non-breaking separation between canonical English lesson assets and learner-support locale bundles. Keep vi-VN full/default/required for Mặn V1; do not modify frozen Curriculum/Practice/Pipeline contracts or lesson identity."
+      }
+    },
+    {
+      "id": "global-lesson-registry-snapshot",
+      "name": "MAN-Global-Lesson-Registry-Snapshot-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 next action from Shared Artifact Registry",
+        "Exact HASH_VERIFIED curriculum-production-spec@v0.1",
+        "Full 1,000 reserved-identity projection; no lesson production"
+      ],
+      "dependencies": [
+        "curriculum-production-spec@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Global-Lesson-Registry-Snapshot-v0.1.xlsx"
+      },
+      "sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836",
+      "size_bytes": 185636,
+      "validation_status": "HASH_VERIFIED",
+      "logical_snapshot_sha256": "cd41247c25bb804df9b58ac099b70ab955d0518230a242c38836161781995849",
+      "row_count": 1000
+    },
+    {
+      "id": "batch-01-curriculum-selection",
+      "name": "MAN-Batch-01-Curriculum-Selection-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 Batch 01 calibration selection",
+        "Uses only existing lesson IDs from global-lesson-registry-snapshot@v0.1",
+        "Curriculum and Unique Purpose gates PASS for 12 selected lessons"
+      ],
+      "dependencies": [
+        "global-lesson-registry-snapshot@v0.1",
+        "curriculum-production-spec@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Curriculum-Selection-v0.1.xlsx"
+      },
+      "sha256": "90739f4f936509c1191c087eac66363743377e35df9e3f5772ae5c744fb08656",
+      "size_bytes": 13057,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "proposed_lesson_count": 12
+    },
+    {
+      "id": "batch-01-practice-preproduction-evidence",
+      "name": "MAN-Batch-01-Practice-Preproduction-Evidence-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 next action from Shared Artifact Registry",
+        "Exact HASH_VERIFIED practice-production-spec@v0.1",
+        "Exact HASH_VERIFIED batch-01-curriculum-selection@v0.1",
+        "Exact HASH_VERIFIED global-lesson-registry-snapshot@v0.1",
+        "12/12 selected lessons have explicit PRACTICE_PREPROD_READY planning evidence"
+      ],
+      "dependencies": [
+        "practice-production-spec@v0.1",
+        "batch-01-curriculum-selection@v0.1",
+        "global-lesson-registry-snapshot@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Practice-Preproduction-Evidence-v0.1.xlsx"
+      },
+      "sha256": "af6e8177bbcad806597abfc8acc56ce0ccb450825e8a07fdc44cda534f5ad026",
+      "size_bytes": 59566,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "practice_preprod_ready_count": 12,
+      "final_practice_ready_count": 0,
+      "next_action": {
+        "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Validate CONTRACT_PRECHECK_VALID, source/version references, queue safety and the four-gate PRODUCTION_READY composite. Keep Batch 01 closed and the production queue disabled until a separate valid queue-opening action."
+      }
+    },
+    {
+      "id": "batch-01-original-draft-candidates",
+      "name": "MAN-Batch-01-Original-Draft-Candidates-v0.1.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Original Operations #4 candidate scripts for 12 selected calibration lessons",
+        "Selected Curriculum and Practice preproduction evidence"
+      ],
+      "dependencies": [
+        "batch-01-curriculum-selection@v0.1",
+        "batch-01-practice-preproduction-evidence@v0.1",
+        "global-lesson-registry-snapshot@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Original-Draft-Candidates-v0.1.json"
+      },
+      "sha256": "7e617814e7020490e11e56c76ea09c89963348e01bbb4dc77e874787cc070e39",
+      "size_bytes": 22448,
+      "validation_status": "HASH_VERIFIED",
+      "classification": "INTERNAL_CANDIDATE_NOT_CANONICAL",
+      "publication_allowed": false,
+      "curriculum_review_ref": "batch-01-curriculum-review@v0.1",
+      "curriculum_review_result": "PASS_WITH_CURRICULUM_REVISIONS"
+    },
+    {
+      "id": "batch-01-curriculum-review",
+      "name": "MAN-Batch-01-Curriculum-Review-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 next action from Shared Artifact Registry",
+        "Exact HASH_VERIFIED batch-01-original-draft-candidates@v0.1",
+        "12/12 drafts reviewed for originality, naturalness, level/progression and Unique Purpose fit",
+        "9 accepted unchanged; 3 minimally revised; 0 rejected; 24 Curriculum-owned target anchors materialized"
+      ],
+      "dependencies": [
+        "batch-01-original-draft-candidates@v0.1",
+        "batch-01-curriculum-selection@v0.1",
+        "batch-01-practice-preproduction-evidence@v0.1",
+        "global-lesson-registry-snapshot@v0.1",
+        "curriculum-practice-contract@v0.3",
+        "content-pipeline-contract@v0.2"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Curriculum-Review-v0.1.xlsx"
+      },
+      "sha256": "3f714255e584c9e9634d9373b2ee84e748044e965f4e040ccee4fd441a70616a",
+      "size_bytes": 19018,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "accepted_unchanged_count": 9,
+      "revised_count": 3,
+      "rejected_count": 0,
+      "target_anchor_count": 24,
+      "lexical_anchor_count": 0,
+      "canonical_lesson_asset_versions_created": 0,
+      "publication_allowed": false,
+      "final_practice_ready": false,
+      "next_action": {
+        "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Read batch-01-curriculum-review@v0.1 from the Shared Artifact Registry and verify SHA-256. Create canonical lesson assets exactly from reviewed segments and Curriculum-owned target anchors; do not reinterpret Curriculum semantics. Preserve publication_allowed=false and final PRACTICE_READY=false until downstream gates pass."
+      }
+    },
+    {
+      "id": "batch-01-canonical-lesson-assets",
+      "name": "MAN-Batch-01-Canonical-Lesson-Assets-v0.1.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Exact reviewed English segments and Curriculum-owned anchors from batch-01-curriculum-review@v0.1",
+        "Original Operations candidate scripts verified against reviewed source"
+      ],
+      "dependencies": [
+        "batch-01-curriculum-review@v0.1",
+        "batch-01-original-draft-candidates@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Canonical-Lesson-Assets-v0.1.json"
+      },
+      "sha256": "64be843cc3fba92102145cb7675a3706998e851055ab01a897ba5bc11b226d8d",
+      "size_bytes": 47772,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "segment_count": 62,
+      "target_anchor_count": 24,
+      "publication_allowed": false,
+      "final_practice_ready": false,
+      "next_action": {
+        "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Download and hash-verify canonical assets. Ground each lesson's produced target_anchors[] against the actual English segments under frozen v0.3 and Practice spec. Report exact per-lesson PRACTICE_READY / conflicts; do not infer audio realization, rights, or final publication readiness."
+      }
+    },
+    {
+      "id": "batch-01-practice-postproduction-validation",
+      "name": "MAN-Batch-01-Practice-Postproduction-Validation-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 next action from Shared Artifact Registry",
+        "Exact HASH_VERIFIED batch-01-canonical-lesson-assets@v0.1",
+        "Exact HASH_VERIFIED practice-production-spec@v0.1",
+        "12/12 canonical lesson assets and 24/24 Curriculum-owned target anchors validated",
+        "12/12 Practice grounding PASS; 0 Practice conflicts; final PRACTICE_READY remains pending audio realization"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-preproduction-evidence@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3",
+        "content-pipeline-contract@v0.2"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Practice-Postproduction-Validation-v0.1.xlsx"
+      },
+      "sha256": "4bec5890faf8f70a16c3e94f4a31f8b182220fbdf07ac92f8aa40eedaa000bd6",
+      "size_bytes": 47117,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "lesson_count": 12,
+      "target_anchor_count": 24,
+      "practice_grounding_pass_count": 12,
+      "practice_conflict_count": 0,
+      "final_practice_ready_count": 0,
+      "blocker_class": "AUDIO_REALIZATION_PENDING",
+      "next_action": {
+        "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Provide or bind actual audio realization refs for the 12 canonical lesson assets and verify realization-dependent speech/transfer/prosody conditions. Do not reinterpret Curriculum or Practice mappings. After audio evidence is available, route back to Practice #2 only for the realization-dependent final PRACTICE_READY check."
+      }
+    },
+    {
+      "id": "batch-01-browser-voice-runtime-candidates",
+      "name": "MAN-Batch-01-Browser-Voice-Runtime-Candidates-v0.1.json",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Canonical Mặn V1 Web Speech baseline in Product Bible and Current State",
+        "Exact HASH_VERIFIED batch-01-canonical-lesson-assets@v0.1 and batch-01-practice-postproduction-validation@v0.1",
+        "Frozen Curriculum ↔ Practice Contract v0.3 RUNTIME_RENDERED / SEGMENT_ADDRESSABLE interface"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Browser-Voice-Runtime-Candidates-v0.1.json"
+      },
+      "sha256": "5cbbe7ef70876434b91e090376c462a7eafb3becf4123bb1c1bb932a1b353040",
+      "size_bytes": 21243,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_01",
+      "candidate_count": 12,
+      "segment_mapping_count": 62,
+      "exception_path_count": 5,
+      "approved_realization_count": 0,
+      "publication_allowed": false,
+      "next_action": {
+        "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
+        "responsible_lane": "AUDIO_QA",
+        "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
+      }
+    },
+    {
+      "id": "browser-voice-runtime-evidence",
+      "name": "MAN-Browser-Voice-Runtime-Evidence-v0.1.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Five representative fixtures listened and graded by QA-01 on supported Chrome 153 / Windows 10 22H2 runtime"
+      ],
+      "dependencies": [
+        "batch-01-browser-voice-runtime-candidates@v0.1"
+      ],
+      "created_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Browser-Voice-Runtime-Evidence-v0.1.json",
+        "library_file_id": "libfile_178a4182d94c8191bac81e7bf9f08962"
+      },
+      "sha256": "b9ee38d11fd978677731cf014f49b0cd1d6efea7634859f967d617dc7ac9ce12",
+      "size_bytes": 2477,
+      "validation_status": "HASH_VERIFIED",
+      "validator_result": "CAPABILITY_QA_PASS",
+      "scope": "LOW_STAKES_PRACTICE",
+      "runtime_profile_ref": "MAN-BV-CHROME153-WIN10-22H2-VOICES4@v0.1",
+      "lesson_audio_realizations_created": 0
+    },
+    {
+      "id": "batch-01-ordinary-browser-voice-qa-bundle",
+      "name": "MAN-Batch-01-Ordinary-Browser-Voice-QA-Bundle-v0.1.json",
+      "version": "v0.1",
+      "status": "CANDIDATE",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Exact HASH_VERIFIED canonical lesson assets and Browser Voice candidates",
+        "Certified runtime evidence browser-voice-runtime-evidence@v0.1"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-browser-voice-runtime-candidates@v0.1",
+        "browser-voice-runtime-evidence@v0.1"
+      ],
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Batch-01-Ordinary-Browser-Voice-QA-Bundle-v0.1.json",
+        "library_file_id": "libfile_930e583c13b481919f86ec8521c1634c"
+      },
+      "sha256": "fd2f061c92603fa460c13796acab2128d6383d8337096f49e5d5c603fcecbfd6",
+      "size_bytes": 25698,
+      "validation_status": "HASH_VERIFIED",
+      "lesson_count": 7,
+      "segment_count": 32,
+      "target_segment_count": 13,
+      "approved_realization_count": 0,
+      "created_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "supersedes": null,
+      "superseded_by": null
+    },
+    {
+      "id": "batch-01-ordinary-audio-qa-page",
+      "name": "MAN-Batch-01-Ordinary-Audio-QA-v0.1.html",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "AUDIO_QA",
+      "source": [
+        "Self-contained local-browser QA runner generated from hash-verified private bundle; no network upload"
+      ],
+      "dependencies": [
+        "batch-01-ordinary-browser-voice-qa-bundle@v0.1",
+        "browser-voice-runtime-evidence@v0.1"
+      ],
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Batch-01-Ordinary-Audio-QA-v0.1.html",
+        "library_file_id": "libfile_6b019e22c28081918edfce42270f8acc"
+      },
+      "sha256": "4d162c149033ec7877139dda0aac7da99e94aad471b7c1957aa27f6e2e512672",
+      "size_bytes": 26370,
+      "validation_status": "HASH_VERIFIED",
+      "lesson_count": 7,
+      "publication_allowed": false,
+      "created_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "supersedes": null,
+      "superseded_by": null
+    },
+    {
+      "id": "batch-01-internal-audio-release",
+      "name": "MAN-Batch01-Internal-Audio-Release-v0.2.zip",
+      "version": "v0.2",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch01-Internal-Audio-Release-v0.2.zip"
+      },
+      "sha256": "236e1b14c101078a7fbc3d8e651a58ac5741e86fefa59b3bc9c3dc3daae2fc9f",
+      "size_bytes": 5582201,
+      "validation_status": "HASH_VERIFIED",
+      "result": "ONE_INTERNAL_ELIGIBLE_FINAL_PRACTICE_PENDING",
+      "supersedes": null,
+      "superseded_by": null,
+      "source": [
+        "Owner internal audio QA direction 2026-09-30",
+        "Actual fixed WAV files plus canonical hash, automated decode/anomaly checks and unprompted offline ASR"
+      ]
+    },
+    {
+      "id": "batch-01-targeted-audio-practice-handoff",
+      "name": "MAN-Batch01-Targeted-Audio-Practice-Handoff-v0.2.zip",
+      "version": "v0.2",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner direction: five existing OpenAI candidates only",
+        "Evidence-led targeted rework and internal gate v0.2"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "batch-01-internal-audio-release@v0.2"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch01-Targeted-Audio-Practice-Handoff-v0.2.zip",
+        "library_file_id": "libfile_7fe9c9fa61088191bfe459e7c9ef50e2",
+        "version": 0
+      },
+      "sha256": "0018d9ece50126bb13eddaa8d0506c3d7bf3767c56ec0fe5623ce68e03a328df",
+      "size_bytes": 5181074,
+      "validation_status": "HASH_VERIFIED",
+      "next_action": {
+        "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
+        "evidence_ref": "batch-01-targeted-audio-practice-handoff@v0.2"
+      }
+    },
+    {
+      "id": "batch-01-final-realization-practice-validation-reworked",
+      "name": "batch-01-final-realization-practice-reworked.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 final realization validation for five exact reworked fixed OpenAI pairs",
+        "Exact HASH_VERIFIED batch-01-targeted-audio-practice-handoff@v0.2",
+        "Preserved prior static Curriculum/Practice grounding PASS"
+      ],
+      "dependencies": [
+        "batch-01-targeted-audio-practice-handoff@v0.2",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "reviewed_pair_count": 5,
+      "practice_ready_pass_count": 3,
+      "contract_valid_pass_count": 3,
+      "blocked_pair_count": 2,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
+      },
+      "sha256": "52f36fd0f73ddff910151740581cb05991238424b52c55dd347cdc2ac7f4d22c",
+      "size_bytes": 6871
+    },
+    {
+      "id": "batch-01-three-live-runtime-evidence",
+      "name": "MAN-Three-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Exact canonical Practice-PASS pairs",
+        "Actual live desktop and Owner-approved Pixel 5 Chromium mobile smoke"
+      ],
+      "dependencies": [
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "batch-01-targeted-audio-practice-handoff@v0.2"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Three-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+        "library_file_id": "libfile_e2f24d87493481919f7720f22fadb91e",
+        "version": 0
+      },
+      "sha256": "3139de7206b0d0079e16978d95a1587c6dcb17020908d5c3c2cb561750c6b2d9",
+      "size_bytes": 8185128,
+      "validation_status": "HASH_VERIFIED",
+      "remaining_gate": "NONE_SYSTEM_CAPABILITY_REUSED",
+      "previous_remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ",
+      "gate_scope_resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
+    },
+    {
+      "id": "batch-01-two-phenomena-practice-handoff",
+      "name": "MAN-Two-Phenomena-Practice-Handoff-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Unchanged exact fixed v0.2 nine assets",
+        "Offline PCM acoustic contrasts and unprompted allphone evidence"
+      ],
+      "dependencies": [
+        "batch-01-targeted-audio-practice-handoff@v0.2",
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Two-Phenomena-Practice-Handoff-v0.1.zip",
+        "library_file_id": "libfile_30a66f2344ec819192527b3fa18d7acd",
+        "version": 0
+      },
+      "sha256": "41e08b347f7d2b8ac0163994faac5ed21a488d4a7f276e9e9a26c96688bc39e5",
+      "size_bytes": 2724571,
+      "validation_status": "HASH_VERIFIED",
+      "next_action": {
+        "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+        "responsible_lane": "PRACTICE_2",
+        "pairs": [
+          "MAN-0238",
+          "MAN-0414"
+        ],
+        "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision.",
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
+      },
+      "practice_semantic_pass_claimed": false
+    },
+    {
+      "id": "batch-01-final-realization-practice-two-phenomena",
+      "name": "batch-01-final-realization-practice-two-phenomena.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 revalidation using exact acoustic/phonetic evidence",
+        "Static Curriculum/Practice grounding preserved PASS",
+        "Exact unchanged v0.2 realizations for MAN-0238 and MAN-0414"
+      ],
+      "dependencies": [
+        "batch-01-two-phenomena-practice-handoff@v0.1",
+        "batch-01-final-realization-practice-validation-reworked@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 2,
+      "practice_ready_pass_count": 2,
+      "contract_valid_pass_count": 2,
+      "blocked_pair_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          "MAN-0238",
+          "MAN-0414"
+        ],
+        "requires": "Reuse the established MAN-0065 controlled release path and existing support/rights/runtime/feedback machinery for the exact v0.1 + fixed v0.2 pairs. Keep phenomenon-sensitive scoring bound only to the verified target instances described here. Do not redesign pipeline or require human acoustic review."
+      }
+    },
+    {
+      "id": "batch-01-two-new-live-runtime-evidence",
+      "name": "MAN-Two-New-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Actual exact-pair live desktop playback/completion/feedback writes",
+        "Owner-approved Pixel 5 Chromium GitHub Actions smoke and screenshot review"
+      ],
+      "dependencies": [
+        "batch-01-final-realization-practice-two-phenomena@v0.1"
+      ],
+      "created_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MAN-Two-New-Practice-PASS-Live-Runtime-Evidence-v0.1.zip",
+        "library_file_id": "libfile_77da77527ee081919b068803965ddaec"
+      },
+      "sha256": "be025ddf4000268e5bbe023edec4ec642937c4d0e8fc052e8f68e92a62e4e6b5",
+      "size_bytes": 5988980,
+      "validation_status": "HASH_VERIFIED",
+      "remaining_gate": "NONE_SYSTEM_CAPABILITY_REUSED",
+      "previous_remaining_gate": "AUTHENTICATED_EXACT_FEEDBACK_READ",
+      "gate_scope_resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
+    },
+    {
+      "id": "batch-01-six-exceptions-man0765-practice-handoff",
+      "name": "MAN-Batch-01-Six-Exceptions-MAN-0765-Practice-Handoff-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Unchanged MAN-0765@v0.1 canonical text and target anchors",
+        "Exact persisted six-segment OpenAI realization v0.2",
+        "Actual returned usage, internal gate and unprompted ASR evidence"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1"
+      ],
+      "created_at": "2026-10-02",
+      "updated_at": "2026-10-02",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Six-Exceptions-MAN-0765-Practice-Handoff-v0.1.zip",
+        "version": 0,
+        "access": "PRIVATE_OWNING_LANES_ONLY"
+      },
+      "sha256": "d84fe7b078d04d01a16cc9bad91ace5194a2e3d5876710e9a74d4aafc6de6e7e",
+      "size_bytes": 1654898,
+      "validation_status": "HASH_VERIFIED",
+      "next_gate": "PRACTICE_2_EXACT_FINAL_REALIZATION"
+    },
+    {
+      "id": "batch-01-independent-exceptions-practice-handoff",
+      "name": "MAN-Batch-01-Independent-Exceptions-Practice-Handoff-v0.1.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Actual fixed MAN-0604 and MAN-0986 realizations",
+        "Internal technical/ASR gate and target acoustic measurements"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1"
+      ],
+      "created_at": "2026-10-02",
+      "updated_at": "2026-10-02",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-01-Independent-Exceptions-Practice-Handoff-v0.1.zip",
+        "access": "PRIVATE_OWNING_LANES_ONLY"
+      },
+      "sha256": "fb185c502e0861e3461fe05479601ca9a893af8bddcb8feee4c8bc916ee6a0b3",
+      "size_bytes": 4321889,
+      "validation_status": "HASH_VERIFIED",
+      "next_gate": "PRACTICE_2_EXACT_FINAL_REALIZATIONS"
+    },
+    {
+      "id": "batch-01-final-realization-practice-three-independent-exceptions",
+      "name": "batch-01-final-realization-practice-three-exceptions.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 exact final-realization validation for MAN-0765, MAN-0604 and MAN-0986",
+        "Private fixed-audio handoffs and actual acoustic/model evidence",
+        "Previously completed static Curriculum/Practice grounding preserved"
+      ],
+      "dependencies": [
+        "batch-01-six-exceptions-man0765-practice-handoff@v0.1",
+        "batch-01-independent-exceptions-practice-handoff@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-02",
+      "updated_at": "2026-10-02",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 3,
+      "practice_ready_pass_count": 3,
+      "contract_valid_pass_count": 3,
+      "blocked_pair_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          "MAN-0765",
+          "MAN-0604",
+          "MAN-0986"
+        ],
+        "requires": "Reuse the established controlled release path and existing support/rights/runtime/feedback machinery for the exact validated pairs. Preserve the per-pair scoring boundaries in this evidence. No redesign, no human acoustic review, and no dependency on MAN-0565/MAN-0905/MAN-0844."
+      }
+    },
+    {
+      "id": "man-0844-overlap-practice-representation",
+      "name": "man-0844-overlap-practice-representation.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 bounded representation review for MAN-0844 overlap/interruption",
+        "Canonical MAN-0844 v0.1 anchors and prior Practice grounding",
+        "Operations #4 isolated overlap context binding gap"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-04",
+      "updated_at": "2026-10-04",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json"
+      },
+      "validation_status": "PRACTICE_REPRESENTATION_VALID",
+      "next_action": {
+        "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
+      }
+    },
+    {
+      "id": "man-0844-final-realization-practice",
+      "name": "man-0844-final-realization-practice.json",
+      "version": "v0.1",
+      "status": "PRACTICE_VALIDATED",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 exact realization-dependent validation for MAN-0844-MIXED-v0.1",
+        "Private exact realization handoff retained in Library",
+        "PR #92 approved Practice representation and PR #94 Operations execution checkpoint"
+      ],
+      "dependencies": [
+        "man-0844-overlap-practice-representation@v0.1",
+        "man-0844-overlap-execution-checkpoint@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-04",
+      "updated_at": "2026-10-04",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "lesson_id": "MAN-0844",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0844-MIXED-v0.1",
+      "practice_ready": true,
+      "contract_valid": true,
+      "next_action": {
+        "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
+      }
+    },
+    {
+      "id": "batch-01-final-two-exact-realization-practice-handoff",
+      "name": "MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner 2026-10-04 soft-accent clarification",
+        "Canonical exact segments and approved existing audio producer"
+      ],
+      "dependencies": [
+        "batch-01-canonical-lesson-assets@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-04",
+      "updated_at": "2026-10-04",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library (access controlled)",
+        "path": "MẶN — VẬN HÀNH/MAN-0565-MAN-0905-Exact-Realization-Practice-Handoff-20261004.zip",
+        "library_file_id": "libfile_834ba6b9ecc081918f3e9b20b10757d7"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "sha256": "1a38e68032f54b53c1e8e45609a7c029777a124c29092753d5e55e34b28cea75",
+      "next_action": {
+        "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
+        "responsible_lane": "PRACTICE_2",
+        "lesson_ids": [
+          "MAN-0565",
+          "MAN-0905"
+        ],
+        "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
+        "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
+      },
+      "size_bytes": 3831914,
+      "audio_qa_status": "ORDINARY_AUTOMATED_AUDIO_QA_PASS_FINAL_PRACTICE_PENDING"
+    },
+    {
+      "id": "batch-01-final-two-practice-disposition",
+      "name": "batch-01-final-two-practice-disposition.json",
+      "version": "v0.1",
+      "status": "PRACTICE_VALIDATED",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 minimum sufficient semantic review under Owner soft-accent Product Direction",
+        "Canonical final-two exact realization handoff from PR #101",
+        "Private exact audio/QA/support evidence retained in Library"
+      ],
+      "dependencies": [
+        "batch-01-final-two-exact-realization-practice-handoff@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 2,
+      "practice_ready_pass_count": 2,
+      "contract_valid_pass_count": 2,
+      "fail_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          {
+            "lesson_id": "MAN-0565",
+            "lesson_asset_version": "v0.1",
+            "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
+          },
+          {
+            "lesson_id": "MAN-0905",
+            "lesson_asset_version": "v0.1",
+            "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
+          }
+        ],
+        "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+      }
+    }
+  ]
+}

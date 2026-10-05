@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-09-30",
+  "owner_lane": "PRACTICE_2",
+  "action": "FINAL_REALIZATION_PRACTICE_VALIDATION",
+  "lesson_id": "MAN-0065",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0065-OPENAI-FIXED-v0.2",
+  "source_refs": [
+    "curriculum-practice-contract@v0.3",
+    "practice-production-spec@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "batch-01-canonical-lesson-assets@v0.1",
+    "batch-01-internal-audio-release@v0.2"
+  ],
+  "preserved_static_grounding": {
+    "status": "PASS",
+    "comprehension_anchor": "MAN-0065-A-COMP-01",
+    "speech_anchor": "MAN-0065-A-SPCH-01",
+    "reopened": false
+  },
+  "realization_evidence": {
+    "internal_gate": "CONTROLLED_INTERNAL_RELEASE_ELIGIBLE",
+    "human_acoustic_certification": "NOT_PERFORMED_NOT_REQUIRED",
+    "deterministic_binding": "PASS",
+    "four_segment_asset_integrity": "PASS",
+    "segment_addressable": true,
+    "technical_anomalies": 0,
+    "lexical_asr_support": {
+      "S001": "B/be homophone-normalized + twelve recognized probabilistically",
+      "S002": "nine + Friday recognized probabilistically"
+    },
+    "explicit_nonclaims": [
+      "ASR is probabilistic and is not human-certified pronunciation evidence.",
+      "Fine pronunciation, perceived accent, prosody, reductions and stress are not certified.",
+      "Requested en-US accent is not treated as perceptually verified."
+    ]
+  },
+  "practice_target_decision": {
+    "comprehension_DETAIL": "PASS_PRESERVED",
+    "speech_FORM_RECOGNITION_numbers_letter_names": "PASS_FOR_CONTROLLED_AURAL_RECOGNITION",
+    "rationale": "The speech target requires ordinary aural form recognition of room identifier and time/day information. It does not require fine phonetic, accent, prosodic or contrastive-acoustic certification. Exact canonical/segment binding plus deterministic asset integrity and unprompted ASR lexical support are sufficient for controlled low-stakes Practice use under the current internal release policy."
+  },
+  "result": {
+    "PRACTICE_READY": true,
+    "CONTRACT_VALID": true,
+    "practice_conflict": "NONE",
+    "scope": "Exact MAN-0065@v0.1 + MAN-0065-OPENAI-FIXED-v0.2 only",
+    "publication_allowed": false
+  },
+  "evidence_semantics": {
+    "first_pass": "Independent, replay_count=0, NORMAL playback gives strongest item-level evidence.",
+    "replay": "Replay-assisted success is weaker evidence.",
+    "slow_playback": "Assisted evidence; not equivalent to normal-speed first pass.",
+    "mastery_limit": "One correct answer does not imply generalized mastery or TRANSFER_SUPPORTED."
+  },
+  "next_action": {
+    "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Controlled import; support/rights checks; desktop/mobile live verification; exact-realization audio-feedback write/read verification; AI-generated disclosure; rollback. No Owner action required."
+  },
+  "other_lessons": "PARKED_UNCHANGED"
+}

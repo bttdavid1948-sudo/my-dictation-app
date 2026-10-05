@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "man-0844-overlap-execution-checkpoint",
+  "version": "v0.1",
+  "status": "COMPLETE",
+  "owner_lane": "OPERATIONS_4",
+  "lesson_id": "MAN-0844",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0844-MIXED-v0.1",
+  "mixed_asset_sha256": "96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc",
+  "practice_ready": true,
+  "contract_valid": true,
+  "publication_allowed": true,
+  "blocker": "NONE",
+  "next_action": {
+    "code": "EXACT_PAIR_COMPLETE_CONTINUE_INDEPENDENT_MAN_0565_MAN_0905",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Retain the exact released MAN-0844 assets and PASS evidence. Continue the two remaining accent-sensitive branches independently; this intermediate completion is not a stop condition."
+  },
+  "owner_publication_authorization": "Owner explicitly authorized exact mixed WAV, six context WAVs, learner catalog/support/runtime metadata in bttdavid1948-sudo/my-dictation-app on 2026-10-04",
+  "complete": true,
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0844-live-release.json"
+}

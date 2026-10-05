@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "status": "THREE_LESSONS_LIVE_COMPLETE",
+  "source_main": "db89a2ea3945c41562395aabf1e3394904c83371",
+  "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+  "rights_ref": "docs/content-pipeline/registry/batch-01-three-rights.json",
+  "catalog_sha256": "5ce4d1351dbf1c759f557f92887acd42bfa70f6e94e3be4ca2e4c48c42d8a371",
+  "pairs": [
+    {
+      "lesson_id": "MAN-0165",
+      "version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "7ff7e30918366f0c25821da5c5d6103f3a70e8373e31d95ab74d2219972e9239",
+      "asset_bytes": 947216,
+      "source_asset_sha256": [
+        "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+        "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3",
+        "1f9caaff7dc4d123f5ee46c3792ba7880e4aa7fb931e1662e50c04fd6f9f9881",
+        "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 5,
+      "support_sha256": "c82a31b289358dc7d40e2b7db9a428d442ba53a5519e17d2aa3be725f8cd2ee8",
+      "asset_bytes": 1437820,
+      "source_asset_sha256": [
+        "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+        "39bc6c6627c78d8380bde674212b7dd54a8255f6cd47e8144f4f06f78ba97342",
+        "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613",
+        "155c05fba378f914ab97db7ce4c5e5675f9cbc2486816bb5a6d756bbea428e5a",
+        "5d310dc5e6e377cb86171a440e2222112405d42781dbc985561fbad62d57fe52"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "action": "ADD_PUBLISHED_OFFICIAL_EXACT_PAIR",
+      "segment_count": 4,
+      "support_sha256": "903be5f2b948587a0d571da6b7beb571463a1feece2d34e0f67eeccb74c04589",
+      "asset_bytes": 660176,
+      "source_asset_sha256": [
+        "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+        "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3",
+        "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf",
+        "74a9164a55773200917878e38e8f2329737494997b1c0007b04f1ee4bcd05246"
+      ]
+    }
+  ],
+  "man_0065_complete_preserved": true,
+  "rollback": "Per-lesson status change through reviewed PR; retain immutable audio/support files. Original catalog retained in private evidence and git parent. No seed deletion or Rules change.",
+  "checks": {
+    "support": "PASS_FULL_13_CANONICAL_SEGMENTS",
+    "rights": "PASS_OPERATIONAL_PROVENANCE_AND_PROVIDER_TERMS",
+    "import_binding": "PASS_CANONICAL_TEXT_SEGMENT_VERSION_AND_ASSET_HASHES",
+    "desktop_live": "PASS_3_LESSONS_13_SEGMENTS_AND_COMPLETION",
+    "mobile_live": "PASS_3_INDEPENDENT_PIXEL_5_JOBS_13_SEGMENTS_AND_COMPLETION",
+    "feedback_write_read": "PER_RELEASE_WRITE_CONTEXT_PASS_SYSTEM_AUTHENTICATED_READ_CAPABILITY_REUSED",
+    "feedback_system_capability": "PASS_REUSED_MAN_0065_UNCHANGED_IMPLEMENTATION"
+  },
+  "incremental_tts_api_cost_usd": 0,
+  "definition_of_done": "COMPLETE",
+  "verified_at": "2026-09-30T12:02:23.457628+00:00",
+  "release_prs": [
+    72,
+    73
+  ],
+  "results": [
+    {
+      "lesson_id": "MAN-0165",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0165-OPENAI-FIXED-v0.2",
+      "status": "COMPLETE",
+      "definition_of_done": "COMPLETE",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_4_OF_4",
+        "mobile_playback_completion": "PASS_4_OF_4",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "NOT_REQUIRED_PER_LESSON_NOT_PERFORMED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW",
+        "feedback_system_capability": "PASS_REUSED_MAN_0065_UNCHANGED_IMPLEMENTATION"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 4,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 4,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile IDs and contexts retained in private evidence; backend write ACK verified. Independent reads NOT_PERFORMED; unchanged authenticated read capability reused from MAN-0065.",
+      "prior_feedback_admin_read_state": "PENDING_AUTH_CONNECTION_BLOCKED",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
+    },
+    {
+      "lesson_id": "MAN-0365",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0365-OPENAI-FIXED-v0.2",
+      "status": "COMPLETE",
+      "definition_of_done": "COMPLETE",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_5_OF_5",
+        "mobile_playback_completion": "PASS_5_OF_5",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "NOT_REQUIRED_PER_LESSON_NOT_PERFORMED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW",
+        "feedback_system_capability": "PASS_REUSED_MAN_0065_UNCHANGED_IMPLEMENTATION"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 5,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 5,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile IDs and contexts retained in private evidence; backend write ACK verified. Independent reads NOT_PERFORMED; unchanged authenticated read capability reused from MAN-0065.",
+      "prior_feedback_admin_read_state": "PENDING_AUTH_CONNECTION_BLOCKED",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
+    },
+    {
+      "lesson_id": "MAN-0044",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0044-OPENAI-FIXED-v0.2",
+      "status": "COMPLETE",
+      "definition_of_done": "COMPLETE",
+      "practice_ready": true,
+      "contract_valid": true,
+      "checks": {
+        "support": "PASS_FULL_CANONICAL_SEGMENTS",
+        "rights": "PASS_OPERATIONAL_REVIEW",
+        "AI_disclosure": "PASS_VISIBLE_IN_LEARNER_FLOW",
+        "immutable_live_binding": "PASS_ALL_SEGMENT_HTTP_SHA256_AND_MEDIA_DATASET",
+        "desktop_playback_completion": "PASS_4_OF_4",
+        "mobile_playback_completion": "PASS_4_OF_4",
+        "silent_browser_voice_substitution": "NONE_OBSERVED; MOBILE_WEB_SPEECH_REQUESTS_0",
+        "desktop_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "mobile_feedback_write": "PASS_BACKEND_ACK_EXACT_CONTEXT",
+        "feedback_admin_read": "NOT_REQUIRED_PER_LESSON_NOT_PERFORMED",
+        "core_mobile_layout": "PASS_HIT_TESTS_NO_HORIZONTAL_OVERFLOW_AND_SCREENSHOT_REVIEW",
+        "feedback_system_capability": "PASS_REUSED_MAN_0065_UNCHANGED_IMPLEMENTATION"
+      },
+      "desktop": {
+        "browser": "Chrome 151 Work cloud browser",
+        "viewport": "1363x936",
+        "segments_verified": 4,
+        "application_errors": []
+      },
+      "mobile": {
+        "execution": "OWNER_APPROVED_PLAYWRIGHT_PIXEL_5_CHROMIUM_EMULATION_IN_GITHUB_ACTIONS",
+        "workflow_run_id": 36710839791,
+        "head_sha": "3497095e7c3c274668152f25b8e25c318703f308",
+        "segment_count": 4,
+        "all_media_ended": true,
+        "all_asset_hashes_match": true,
+        "web_speech_requests": 0,
+        "page_errors": [],
+        "physical_device_verified": false
+      },
+      "feedback_records": "Exact desktop/mobile IDs and contexts retained in private evidence; backend write ACK verified. Independent reads NOT_PERFORMED; unchanged authenticated read capability reused from MAN-0065.",
+      "prior_feedback_admin_read_state": "PENDING_AUTH_CONNECTION_BLOCKED",
+      "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json"
+    }
+  ],
+  "next_action": {
+    "code": "CURRENT_SCOPE_COMPLETE_SIX_OFFICIAL_LESSONS",
+    "responsible_lane": "NONE",
+    "blocking_code": "NONE",
+    "global_batch_blocker": false,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "requires": "No Operations execution remains in this authorized scope. Six sensitive/cast lessons remain parked; full Batch 01 is not COMPLETE. Do not initiate their work, new providers or UX backlog.",
+    "owner_action_required": false
+  },
+  "evidence_ref": "batch-01-three-live-runtime-evidence@v0.1",
+  "limitations": [
+    "Pixel 5 Chromium emulation, not physical Android/iOS/native keyboard certification",
+    "Playback/ASR evidence is not human acoustic certification",
+    "Ten later records have no independent admin-read evidence. System-level authenticated read capability reused from unchanged MAN-0065 path; no new Rules/IAM inventory. Historical Work connection blocker is not repaired and no longer gates these releases."
+  ],
+  "execution_capability_check": {
+    "date": "2026-09-30",
+    "target": "Google sign-in redirect from canonical Firebase Firestore owner_feedback console",
+    "observed": "HTTP 502 Bad Gateway; [Errno 111] Connection refused",
+    "recovery": "One reload; same error",
+    "classification": "CONNECTION_FAILURE_NOT_BOT_DETECTION",
+    "owner_action_available": false,
+    "existing_runtime_pass_preserved": true
+  },
+  "latest_recovery_result": {
+    "checked_at": "2026-09-30T21:35:14+07:00",
+    "completed_before": "2026-09-30T21:40:43+07:00",
+    "source_main": "da61d6349de02ab39b124c22520ac8a7aee6e236",
+    "action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+    "recovery_actions": [
+      "Read documented browser-troubleshooting and secure browserAuth capabilities",
+      "Open fresh tab in existing supported Work cloud browser at canonical Firebase feedback console",
+      "Reload once and inspect resulting accessibility state"
+    ],
+    "result": "BLOCKED",
+    "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+    "observed_error": "HTTP 502 Bad Gateway / [Errno 111] Connection refused on Google sign-in redirect",
+    "authentication_form_available": false,
+    "authenticated_feedback_reads_verified": 0,
+    "expected_feedback_record_count": 6,
+    "browser_connection_disconnected_reported": false,
+    "classification": "INFRASTRUCTURE_CONNECTION_FAILURE_NOT_PRODUCT_FAILURE_OR_BOT_DETECTION",
+    "available_recovery_limitation": "Documented capabilities expose tab navigation/reload and secure form authentication; no underlying connection-service restart or repair capability is exposed. A credential request cannot be grounded because no sign-in form rendered.",
+    "next_operations_action": "Restore functioning Work connection to Google sign-in, securely authenticate existing authorized Firebase account if required, read only six retained exact records, reconcile eligible pairs, then evaluate Batch 01 remaining-work checkpoint.",
+    "owner_execution_required": false,
+    "runtime_pass_preserved": true,
+    "man_0065_complete_preserved": true,
+    "completion_claimed": false
+  },
+  "gate_scope_reconciliation": {
+    "at": "2026-09-30T23:33:39.006535+00:00",
+    "ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+    "previous_status": "THREE_LESSONS_LIVE_RUNTIME_PASS_FEEDBACK_READ_AUTH_CONNECTION_BLOCKED",
+    "previous_definition_of_done": "PENDING_AUTHENTICATED_FEEDBACK_READ",
+    "previous_next_action": {
+      "code": "BLOCKED",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "requires": "Restore a functioning Work browser connection to Google sign-in, then authenticate the existing authorized Firebase account securely if required and read only the six retained smoke feedback records. The current Google sign-in route returns HTTP 502 / [Errno 111] Connection refused after one reload. No Owner test execution, CLI/code or secrets in chat required.",
+      "resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS",
+      "resume_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified."
+    },
+    "new_independent_reads_verified": 0,
+    "rationale": "Existing live runtime and exact-context write evidence + unchanged system capability verified by MAN-0065. Individual read states are not PASS."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "previewed_before_mutation": true,
+  "production_source": "assets/official-lessons.json",
+  "base_commit": "f3428f2dc0b44a733d8350df932b96b0bd34a2fe",
+  "provenance_commit": "300e445b2e070d8ced1dca472aa6c65d2bcb97fd",
+  "classification": "PRE_CANONICAL_TRANSITION_CATALOG_SEED",
+  "reason": "All four records exactly match the initial Phase 3 transition catalog and its shared original-draft editorial rights reference; none is a canonical Batch 01 lesson. Identified by unchanged record hashes and provenance, not titles. No Firestore community/user records are included.",
+  "records": [
+    {
+      "id": "man-original-01",
+      "prior_status": "published",
+      "record_sha256": "42fcd36b6ac639eec10a5e7ced105d0fc3bec106c282c9e8e82a2103c95e455a",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "item_count": 6
+    },
+    {
+      "id": "man-original-02",
+      "prior_status": "published",
+      "record_sha256": "cc94106d156d79352e8118086f280654c73d604193401a379509ff7ea45b301a",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "item_count": 6
+    },
+    {
+      "id": "man-original-03",
+      "prior_status": "published",
+      "record_sha256": "4385e70d57daf45e6f55f4d9d9eb9dc0bfe04ef28c935df16dbaf921e7d3d71a",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "item_count": 6
+    },
+    {
+      "id": "man-original-04",
+      "prior_status": "published",
+      "record_sha256": "47faf39735995d27eb317db3e4f561c18115d83ea8fc5069c1d1dc33a4bb4036",
+      "rightsEvidenceId": "man-original-draft-20260923-editorial-20260925",
+      "item_count": 6
+    }
+  ],
+  "rollback": "Restore published status by reverting this archive commit; content and IDs are retained in the same catalog.",
+  "official_preserved": "MAN-0065@v0.1 + MAN-0065-OPENAI-FIXED-v0.2"
+}

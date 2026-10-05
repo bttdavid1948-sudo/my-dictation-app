@@ -54,10 +54,18 @@
     "slow_playback": "Assisted evidence; not equivalent to normal-speed first pass.",
     "mastery_limit": "One correct answer does not imply generalized mastery or TRANSFER_SUPPORTED."
   },
-  "next_action": {
+  "other_lessons": "PARKED_UNCHANGED",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0065-final-realization-practice.json",
+  "historical_next_action": {
     "code": "CONTROLLED_IMPORT_AND_LIVE_VERIFY_MAN_0065_FIXED_V0_2",
     "responsible_lane": "OPERATIONS_4",
     "requires": "Controlled import; support/rights checks; desktop/mobile live verification; exact-realization audio-feedback write/read verification; AI-generated disclosure; rollback. No Owner action required."
   },
-  "other_lessons": "PARKED_UNCHANGED"
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

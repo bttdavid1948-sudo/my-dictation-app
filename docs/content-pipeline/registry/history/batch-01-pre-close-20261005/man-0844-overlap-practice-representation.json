@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "man-0844-overlap-practice-representation",
+  "version": "v0.1",
+  "status": "REVIEW_READY",
+  "owner_lane": "PRACTICE_2",
+  "lesson_id": "MAN-0844",
+  "lesson_asset_version": "v0.1",
+  "action_code": "PRACTICE_REPRESENTATION_REVIEW_OVERLAP_CONTEXT",
+  "source_refs": [
+    "batch-01-canonical-lesson-assets@v0.1",
+    "batch-01-practice-postproduction-validation@v0.1",
+    "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3"
+  ],
+  "preserved_truth": {
+    "static_grounding": "PASS_PRESERVED_NOT_REOPENED",
+    "comprehension_anchor": "MAN-0844-A-COMP-01",
+    "speech_anchor": "MAN-0844-A-SPCH-01",
+    "comprehension_construct": "DISCOURSE_STRUCTURE_AND_DETAIL",
+    "speech_construct": "OVERLAP_INTERRUPTION_CONDITION",
+    "practice_operator": "CORE_COMPREHENSION",
+    "overlap_is_evidence_condition": true,
+    "overlap_is_mastery_dimension": false,
+    "curriculum_semantics_changed": false,
+    "frozen_contract_changed": false
+  },
+  "decision": {
+    "representation_status": "PRACTICE_REPRESENTATION_VALID",
+    "contract_compatibility": "NON_BREAKING",
+    "representation_model": "CONTINUOUS_MIXED_TIMELINE_WITH_STABLE_SEGMENT_ANCHORS",
+    "rules": [
+      "Keep all six canonical segment_id values and canonical transcript text unchanged.",
+      "A realization may use one continuous or mixed panel timeline in which neighboring speaker audio overlaps across the S002-S005 region.",
+      "Stable segment mappings identify each segment's primary canonical utterance interval; overlap may extend across a segment boundary and does not require an isolated clean clip.",
+      "Overlap/interruption is recorded as realization/evidence-condition metadata for the affected S002-S005 context, not as a new learner-state dimension or standalone score.",
+      "The scored learner response remains CORE_COMPREHENSION / discourse-structure-and-detail evidence grounded in MAN-0844-A-COMP-01.",
+      "Do not score whether the learner can name, imitate or explicitly detect overlap unless a future separately authorized Practice target adds that construct.",
+      "For learner playback, full-panel playback is the canonical evidence condition. Segment-addressable replay may use bounded context windows/pre-roll/post-roll so the actual overlap remains audible; such replay is support-aware and weaker than first-pass full-context evidence.",
+      "If a segment replay strips away the overlap, observations from that replay must not be tagged as overlap-condition evidence.",
+      "No textual content from an overlapping neighboring speaker is added to the focus segment's canonical transcript or answer key; transcript identity remains Curriculum-owned."
+    ],
+    "minimum_realization_requirements": [
+      "At least one actual audible overlap/interruption event involving the S002-S005 panel region.",
+      "Versioned mixed-timeline asset or runtime adapter with deterministic mapping back to the stable canonical segment IDs.",
+      "Explicit affected-segment/context metadata identifying where overlap is present.",
+      "Technical integrity/decode checks and exact lesson/version binding.",
+      "Evidence that the overlap event is actually present in the produced realization; sequential isolated voices alone do not satisfy the condition."
+    ],
+    "scoring_and_evidence_boundary": {
+      "first_pass": "Full-context independent comprehension under the overlap condition is strongest evidence.",
+      "replay": "Context-preserving replay is assisted evidence and must be logged as such.",
+      "clean_replay": "A clean isolated replay may support repair but cannot count as overlap-condition evidence.",
+      "mastery": "Success does not create an 'overlap mastery' state; update the existing comprehension dimension only.",
+      "transfer": "Transfer requires novel input preserving the comprehension construct; overlap may be retained as a transfer facet/condition when relevant."
+    }
+  },
+  "current_gate": {
+    "PRACTICE_READY": false,
+    "CONTRACT_VALID": false,
+    "blocker_code": "ACTUAL_OVERLAP_REALIZATION_PENDING",
+    "reason": "Practice representation is now resolved, but no actual versioned MAN-0844 realization with verified overlap/context binding exists yet."
+  },
+  "next_action": {
+    "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
+  },
+  "owner_decision_required": false
+}

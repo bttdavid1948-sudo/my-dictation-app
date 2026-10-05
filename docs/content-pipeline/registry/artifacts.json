@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-04",
+  "updated_at": "2026-10-05",
   "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
   "current": {
     "curriculum-practice-contract": "v0.3",
@@ -32,7 +32,9 @@
     "man-0844-overlap-practice-representation": "v0.1",
     "man-0844-final-realization-practice": "v0.1",
     "batch-01-final-two-exact-realization-practice-handoff": "v0.1",
-    "batch-01-final-two-practice-disposition": "v0.1"
+    "batch-01-final-two-practice-disposition": "v0.1",
+    "man-0844-overlap-execution-checkpoint": "v0.1",
+    "batch-01-completion-checkpoint": "v0.1"
   },
   "artifacts": [
     {
@@ -193,6 +195,11 @@
       "validation_status": "HASH_VERIFIED",
       "classification": "NON_BREAKING_EXTENSION_NEEDED",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "GLOBAL_READINESS_SUPPORT_LOCALE_EXTENSION",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Before Batch 01, formalize a non-breaking separation between canonical English lesson assets and learner-support locale bundles. Keep vi-VN full/default/required for Mặn V1; do not modify frozen Curriculum/Practice/Pipeline contracts or lesson identity."
@@ -295,6 +302,11 @@
       "practice_preprod_ready_count": 12,
       "final_practice_ready_count": 0,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "VALIDATE_CONTRACT_PRECHECK_AND_QUEUE_SAFETY",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Validate CONTRACT_PRECHECK_VALID, source/version references, queue safety and the four-gate PRODUCTION_READY composite. Keep Batch 01 closed and the production queue disabled until a separate valid queue-opening action."
@@ -374,6 +386,11 @@
       "publication_allowed": false,
       "final_practice_ready": false,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "CANONICALIZE_CURRICULUM_REVIEWED_BATCH_01_DRAFTS",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Read batch-01-curriculum-review@v0.1 from the Shared Artifact Registry and verify SHA-256. Create canonical lesson assets exactly from reviewed segments and Curriculum-owned target anchors; do not reinterpret Curriculum semantics. Preserve publication_allowed=false and final PRACTICE_READY=false until downstream gates pass."
@@ -412,6 +429,11 @@
       "publication_allowed": false,
       "final_practice_ready": false,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
         "responsible_lane": "PRACTICE_2",
         "requires": "Download and hash-verify canonical assets. Ground each lesson's produced target_anchors[] against the actual English segments under frozen v0.3 and Practice spec. Report exact per-lesson PRACTICE_READY / conflicts; do not infer audio realization, rights, or final publication readiness."
@@ -456,6 +478,11 @@
       "final_practice_ready_count": 0,
       "blocker_class": "AUDIO_REALIZATION_PENDING",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "PROVIDE_BATCH_01_AUDIO_REALIZATION_EVIDENCE",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Provide or bind actual audio realization refs for the 12 canonical lesson assets and verify realization-dependent speech/transfer/prosody conditions. Do not reinterpret Curriculum or Practice mappings. After audio evidence is available, route back to Practice #2 only for the realization-dependent final PRACTICE_READY check."
@@ -495,6 +522,11 @@
       "approved_realization_count": 0,
       "publication_allowed": false,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "CERTIFY_BROWSER_VOICE_RUNTIME_AND_ROUTE_EXCEPTIONS",
         "responsible_lane": "AUDIO_QA",
         "requires": "Use batch-01-browser-voice-runtime-candidates@v0.1 as a structural plan (not approved realization). On a supported browser/OS/voice, establish versioned producer-neutral output profiles, actual runtime/voice/speaker provenance and acoustic QA per frozen v0.3. Register only QA-PASS realizations for exact lesson_id+lesson_asset_version, scoped to low-stakes practice; route five accent/prosody/prominence/overlap-sensitive lessons by exception if Browser Voice cannot satisfy required evidence. Then return only realization-dependent Practice checks to #2. Do not require paid TTS globally or assert calibrated scoring/publication."
@@ -644,6 +676,11 @@
       "size_bytes": 5181074,
       "validation_status": "HASH_VERIFIED",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "historical_next_action": {
         "code": "FINAL_REALIZATION_PRACTICE_VALIDATION_ELIGIBLE_REWORKED_CANDIDATES",
         "responsible_lane": "PRACTICE_2",
         "requires": "Validate each exact v0.1 lesson + fixed v0.2 realization independently: MAN-0165, MAN-0365, MAN-0044, MAN-0238, MAN-0414. Preserve static PASS; decide realization-dependent target conditions only. Internal lexical support is probabilistic, not acoustic certification. No publication until per-pair Practice/support/rights/runtime gates. MAN-0065 first-live COMPLETE remains unchanged.",
@@ -673,7 +710,7 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-realization-practice-reworked.json"
       },
       "validation_status": "HASH_VERIFIED",
       "reviewed_pair_count": 5,
@@ -681,13 +718,19 @@
       "contract_valid_pass_count": 3,
       "blocked_pair_count": 2,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "52f36fd0f73ddff910151740581cb05991238424b52c55dd347cdc2ac7f4d22c",
+      "size_bytes": 6871,
+      "semantic_validation_status": "HASH_VERIFIED",
+      "historical_next_action": {
         "code": "CONTROLLED_IMPORT_LIVE_RELEASE_PRACTICE_PASS_PAIRS",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Practice #2 PASS for exact pairs MAN-0165@v0.1 + MAN-0165-OPENAI-FIXED-v0.2, MAN-0365@v0.1 + MAN-0365-OPENAI-FIXED-v0.2, and MAN-0044@v0.1 + MAN-0044-OPENAI-FIXED-v0.2. Reuse the established MAN-0065 path for support/rights checks, exact controlled import, AI-audio disclosure, desktop/mobile live verification, exact-realization audio-feedback write/read verification and rollback. MAN-0238 and MAN-0414 remain independently parked for stronger automated realization evidence or rework. MAN-0065 remains COMPLETE; six sensitive/cast lessons remain parked.",
         "evidence_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json"
-      },
-      "sha256": "52f36fd0f73ddff910151740581cb05991238424b52c55dd347cdc2ac7f4d22c",
-      "size_bytes": 6871
+      }
     },
     {
       "id": "batch-01-three-live-runtime-evidence",
@@ -749,6 +792,12 @@
       "size_bytes": 2724571,
       "validation_status": "HASH_VERIFIED",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "practice_semantic_pass_claimed": false,
+      "historical_next_action": {
         "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
         "responsible_lane": "PRACTICE_2",
         "pairs": [
@@ -757,8 +806,7 @@
         ],
         "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision.",
         "evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json"
-      },
-      "practice_semantic_pass_claimed": false
+      }
     },
     {
       "id": "batch-01-final-realization-practice-two-phenomena",
@@ -783,14 +831,22 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-realization-practice-two-phenomena.json"
       },
-      "validation_status": "PRACTICE_VALIDATED",
+      "validation_status": "HASH_VERIFIED",
       "reviewed_pair_count": 2,
       "practice_ready_pass_count": 2,
       "contract_valid_pass_count": 2,
       "blocked_pair_count": 0,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "ee1f922ade507beb491ab80726e9fc8d0d4784ce1dfe393aa2ad6731e1cb1c6a",
+      "size_bytes": 5458,
+      "semantic_validation_status": "PRACTICE_VALIDATED",
+      "historical_next_action": {
         "code": "CONTROLLED_IMPORT_LIVE_RELEASE_TWO_NEW_PRACTICE_PASS_PAIRS",
         "responsible_lane": "OPERATIONS_4",
         "pairs": [
@@ -911,14 +967,22 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-realization-practice-three-exceptions.json"
       },
-      "validation_status": "PRACTICE_VALIDATED",
+      "validation_status": "HASH_VERIFIED",
       "reviewed_pair_count": 3,
       "practice_ready_pass_count": 3,
       "contract_valid_pass_count": 3,
       "blocked_pair_count": 0,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "e6565797e886f7dc598cf1de5e04dd738f6faca452969a5afb713d3b345197de",
+      "size_bytes": 7035,
+      "semantic_validation_status": "PRACTICE_VALIDATED",
+      "historical_next_action": {
         "code": "CONTROLLED_IMPORT_LIVE_RELEASE_THREE_NEW_PRACTICE_PASS_EXCEPTION_PAIRS",
         "responsible_lane": "OPERATIONS_4",
         "pairs": [
@@ -952,10 +1016,18 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0844-overlap-practice-representation.json"
       },
-      "validation_status": "PRACTICE_REPRESENTATION_VALID",
+      "validation_status": "HASH_VERIFIED",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "16a753d96b278256c9f47694462792bdcf59d664fb7989da773aaaaeb949725f",
+      "size_bytes": 4985,
+      "semantic_validation_status": "PRACTICE_REPRESENTATION_VALID",
+      "historical_next_action": {
         "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
@@ -965,7 +1037,7 @@
       "id": "man-0844-final-realization-practice",
       "name": "man-0844-final-realization-practice.json",
       "version": "v0.1",
-      "status": "PRACTICE_VALIDATED",
+      "status": "REVIEW_READY",
       "owner_lane": "PRACTICE_2",
       "source": [
         "Practice #2 exact realization-dependent validation for MAN-0844-MIXED-v0.1",
@@ -985,15 +1057,24 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0844-final-realization-practice.json"
       },
-      "validation_status": "PRACTICE_VALIDATED",
+      "validation_status": "HASH_VERIFIED",
       "lesson_id": "MAN-0844",
       "lesson_asset_version": "v0.1",
       "realization_id": "MAN-0844-MIXED-v0.1",
       "practice_ready": true,
       "contract_valid": true,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "7decf2b64d63cf044f9376e5ddfef2c9b74e2cd782b35ab68d4481955ac6731d",
+      "size_bytes": 5652,
+      "semantic_validation_status": "PRACTICE_VALIDATED",
+      "semantic_status": "PRACTICE_VALIDATED",
+      "historical_next_action": {
         "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0844_MIXED_V0_1",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
@@ -1026,6 +1107,13 @@
       "validation_status": "HASH_VERIFIED",
       "sha256": "1a38e68032f54b53c1e8e45609a7c029777a124c29092753d5e55e34b28cea75",
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "size_bytes": 3831914,
+      "audio_qa_status": "ORDINARY_AUTOMATED_AUDIO_QA_PASS_FINAL_PRACTICE_PENDING",
+      "historical_next_action": {
         "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
         "responsible_lane": "PRACTICE_2",
         "lesson_ids": [
@@ -1035,14 +1123,14 @@
         "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
         "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
       },
-      "size_bytes": 3831914,
-      "audio_qa_status": "ORDINARY_AUTOMATED_AUDIO_QA_PASS_FINAL_PRACTICE_PENDING"
+      "final_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+      "final_disposition_status": "PASS"
     },
     {
       "id": "batch-01-final-two-practice-disposition",
       "name": "batch-01-final-two-practice-disposition.json",
       "version": "v0.1",
-      "status": "PRACTICE_VALIDATED",
+      "status": "REVIEW_READY",
       "owner_lane": "PRACTICE_2",
       "source": [
         "Practice #2 minimum sufficient semantic review under Owner soft-accent Product Direction",
@@ -1061,14 +1149,23 @@
       "superseded_by": null,
       "location": {
         "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-final-two-practice-disposition.json"
       },
-      "validation_status": "PRACTICE_VALIDATED",
+      "validation_status": "HASH_VERIFIED",
       "reviewed_pair_count": 2,
       "practice_ready_pass_count": 2,
       "contract_valid_pass_count": 2,
       "fail_count": 0,
       "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "ccd4002c706ae9795ef94dd728541fc3cf5b07dc93a33b1f0fcbf0ed99e199fc",
+      "size_bytes": 6344,
+      "semantic_validation_status": "PRACTICE_VALIDATED",
+      "semantic_status": "PRACTICE_VALIDATED",
+      "historical_next_action": {
         "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
         "responsible_lane": "OPERATIONS_4",
         "pairs": [
@@ -1085,6 +1182,69 @@
         ],
         "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
       }
+    },
+    {
+      "id": "man-0844-overlap-execution-checkpoint",
+      "name": "man-0844-overlap-execution-checkpoint.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Batch01 actual release evidence; Owner2026-10-05 BatchClose authority"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0844-overlap-execution-checkpoint.json"
+      },
+      "sha256": "bc47b380403f69066d86291dab87199419055e769c9a5242660ce963cb1a8bb6",
+      "size_bytes": 1112,
+      "validation_status": "HASH_VERIFIED",
+      "semantic_validation_status": "HISTORICAL_EXACT_PAIR_COMPLETE",
+      "next_action": {
+        "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+        "responsible_lane": "NONE",
+        "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      }
+    },
+    {
+      "id": "batch-01-completion-checkpoint",
+      "name": "batch-01-completion-checkpoint.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Batch01 actual release evidence; Owner2026-10-05 BatchClose authority"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+      },
+      "sha256": "88b610ccdd50594175563a478a52d563d06798553cfb4560a73ea8aa0ec37222",
+      "size_bytes": 14052,
+      "validation_status": "HASH_VERIFIED",
+      "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
+      "next_action": {
+        "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
+      }
     }
-  ]
+  ],
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
 }

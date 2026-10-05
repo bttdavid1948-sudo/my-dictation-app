@@ -34,9 +34,17 @@
   "practice_ready": false,
   "contract_validation_status": "PENDING_POSTPRODUCTION",
   "queue_enabled": false,
-  "next_action": {
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-canonicalization.json",
+  "historical_next_action": {
     "code": "VALIDATE_BATCH_01_POSTPRODUCTION_PRACTICE",
     "responsible_lane": "PRACTICE_2",
     "requires": "Read batch-01-canonical-lesson-assets@v0.1 from Shared Artifact Registry, verify SHA-256, and validate 12 produced lessons/24 Curriculum-owned target anchors against Practice spec and frozen v0.3. Record per-lesson final Practice grounding or conflicts. Browser Voice/audio realization and publication remain separate gates; no public release."
+  },
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
   }
 }

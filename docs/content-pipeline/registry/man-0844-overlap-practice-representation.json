@@ -62,10 +62,18 @@
     "blocker_code": "ACTUAL_OVERLAP_REALIZATION_PENDING",
     "reason": "Practice representation is now resolved, but no actual versioned MAN-0844 realization with verified overlap/context binding exists yet."
   },
-  "next_action": {
+  "owner_decision_required": false,
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/man-0844-overlap-practice-representation.json",
+  "historical_next_action": {
     "code": "IMPLEMENT_AND_VALIDATE_MAN_0844_OVERLAP_CONTEXT_REALIZATION",
     "responsible_lane": "OPERATIONS_4",
     "requires": "Implement a versioned MAN-0844 realization using the approved continuous/mixed timeline representation. Preserve canonical segment IDs/text, provide deterministic segment/context mapping and actual overlap evidence for S002-S005, then route the exact realization back to Practice #2 only for final realization-dependent PRACTICE_READY/CONTRACT_VALID. Reuse existing support/rights/runtime machinery. Do not change frozen contracts."
   },
-  "owner_decision_required": false
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }

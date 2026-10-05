@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "BATCH_01",
+  "review_code": "REVIEW_BATCH_01_OPENING",
+  "review_result": "OPEN_INTERNAL_DRAFTS_ONLY",
+  "precheck_ref": "docs/content-pipeline/registry/batch-01-operations-precheck.json",
+  "preproduction_ready_count": 12,
+  "observed_repository_state": {
+    "app_root": [
+      "index.html",
+      "assets",
+      "tests",
+      "docs",
+      "firestore.rules.phase3.draft"
+    ],
+    "content_pipeline": "Registry metadata and validators only; no controlled batch worker/queue executor or durable per-lesson production/QA event store.",
+    "lesson_registry_rows": 0,
+    "batch_open": true,
+    "production_queue_enabled": true
+  },
+  "required_before_open": [
+    {
+      "code": "CONTROLLED_QUEUE",
+      "owner_lane": "OPERATIONS_4",
+      "status": "FOUNDATION_READY",
+      "acceptance": "A reviewed, bounded Batch 01 mechanism selects only the 12 IDs, checks gates and current snapshot again immediately before enqueue, blocks re-production without versioned rework, and can be disabled without deleting history."
+    },
+    {
+      "code": "DURABLE_STATUS_REFERENCES",
+      "owner_lane": "OPERATIONS_4",
+      "status": "FOUNDATION_READY",
+      "acceptance": "Each actual production and QA transition has a durable versioned reference and evidence; do not report postproduction Practice readiness until produced anchors and audio are validated."
+    },
+    {
+      "code": "FRESH_SNAPSHOT_AND_AUTHORITY",
+      "owner_lane": "OPERATIONS_4",
+      "status": "PASS_INTERNAL_DRAFT_SCOPE",
+      "acceptance": "Recheck reserved purposes/production state and copyright/rights, use existing approval policy before any significant content publication or production mutation."
+    }
+  ],
+  "next_action": {
+    "code": "DRAFT_BATCH_01_ORIGINAL_ASSETS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Produce original English calibration drafts only for the 12 queued IDs, preserving source/rights provenance and versioned production events. No public publication, Firebase write, paid audio, or postproduction Practice PASS without produced anchors and #2 QA."
+  },
+  "foundation_refs": [
+    "docs/content-pipeline/registry/batch-01-queue.json",
+    "docs/content-pipeline/registry/batch-01-production-events.json",
+    "docs/content-pipeline/batch-01-queue.mjs"
+  ],
+  "opening_evidence_ref": "docs/content-pipeline/registry/batch-01-opening-evidence.json"
+}

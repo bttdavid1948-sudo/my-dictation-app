@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "contract_ref": "content-pipeline-contract@v0.2",
+  "contract_status": "FROZEN",
+  "frozen_interface_ref": "curriculum-practice-contract@v0.3",
+  "production_queue_enabled": false,
+  "next_action": {
+    "code": "BATCH_01_CLOSE_AND_RECONCILE",
+    "responsible_lane": "OPERATIONS_4",
+    "lesson_ids": []
+  },
+  "preproduction_gates": [
+    "UNIQUE_PURPOSE_PASS",
+    "CURRICULUM_READY",
+    "PRACTICE_PREPROD_READY",
+    "CONTRACT_PRECHECK_VALID"
+  ],
+  "preproduction_result": "PRODUCTION_READY only after UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + CONTRACT_PRECHECK_VALID all PASS. Contract freeze alone does not enable the production queue.",
+  "postproduction_gates": [
+    "PRACTICE_READY",
+    "CONTRACT_VALID"
+  ],
+  "boundaries": [
+    "Anchor_Intent supports planning only; produced target_anchors[] required for final Practice readiness",
+    "Batch_ID never replaces lesson_id",
+    "DUPLICATE blocks production globally across reserved future purposes"
+  ],
+  "happy_path": [
+    "CURRICULUM_3",
+    "PRACTICE_2",
+    "READINESS_VALIDATION",
+    "PRODUCTION_QUEUE",
+    "OPERATIONS_4",
+    "QA",
+    "CALIBRATION",
+    "REGISTRY_UPDATE"
+  ],
+  "routes": [
+    {
+      "code": "RETURN_TO_CURRICULUM",
+      "responsible_lane": "CURRICULUM_3",
+      "blocking": true,
+      "trigger": "Missing/invalid Curriculum fields, unresolved purpose conflict, prerequisite/progression ambiguity"
+    },
+    {
+      "code": "PRACTICE_CONFLICT",
+      "responsible_lane": "PRACTICE_2",
+      "blocking": true,
+      "trigger": "Practice mapping/operator/response/support/evidence/ownership validation fails"
+    },
+    {
+      "code": "IMPLEMENTATION_ISSUE",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "depends_on_issue",
+      "trigger": "Tool/audio/runtime issue without Curriculum or Practice semantic defect"
+    },
+    {
+      "code": "OWNER_DECISION_REQUIRED",
+      "responsible_lane": "OWNER",
+      "blocking": true,
+      "trigger": "Genuine product/curriculum authority decision remains"
+    },
+    {
+      "code": "DUPLICATE",
+      "responsible_lane": "CURRICULUM_3",
+      "blocking": true,
+      "trigger": "unique_purpose_class = DUPLICATE; no Operations override"
+    },
+    {
+      "code": "WAIT_FOR_PRODUCTION_ASSET",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "expected",
+      "trigger": "Actual produced target_anchors[] needed after planning"
+    },
+    {
+      "code": "BROWSER_VOICE_QA_REQUIRED",
+      "responsible_lane": "AUDIO_QA",
+      "blocking": true,
+      "trigger": "A runtime-rendered candidate needs a versioned profile, actual browser/OS/voice provenance and realization-specific acoustic QA before its ID can become available to Practice."
+    },
+    {
+      "code": "AUDIO_EXCEPTION_BACKLOG",
+      "responsible_lane": "AUDIO_QA",
+      "blocking": "lesson_only",
+      "trigger": "A lesson requires accent/prosody/overlap/prominence evidence beyond reusable runtime baseline; park with versioned lesson-specific reason without blocking other lessons."
+    },
+    {
+      "code": "INTERNAL_FIXED_AUDIO_RELEASE_GATE",
+      "responsible_lane": "OPERATIONS_4",
+      "blocking": "lesson_only",
+      "trigger": "Owner removed outsourced acoustic certification. Deterministic binding/integrity/decode/technical checks plus unprompted internal ASR lexical support establish controlled internal eligibility, not human/acoustic QA-PASS. FAIL/UNCERTAIN/ANOMALOUS are parked; each eligible realization routes independently to final Practice."
+    }
+  ],
+  "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
+  "live_release_evidence_ref": "docs/content-pipeline/registry/man-0065-live-release.json",
+  "man_0065_first_live_complete": true,
+  "targeted_audio_rework_ref": "docs/content-pipeline/registry/batch-01-targeted-audio-rework.json",
+  "final_realization_practice_reworked_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-reworked.json",
+  "practice_ready_fixed_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2",
+    "MAN-0844-MIXED-v0.1",
+    "MAN-0565-OPENAI-FIXED-v0.1",
+    "MAN-0905-OPENAI-FIXED-v0.1"
+  ],
+  "practice_blocked_fixed_realization_ids": [],
+  "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+  "latest_feedback_read_recovery_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json#latest_recovery_result",
+  "two_phenomena_evidence_ref": "docs/content-pipeline/registry/batch-01-two-phenomena-evidence.json",
+  "final_realization_practice_two_phenomena_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-two-phenomena.json",
+  "two_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+  "remaining_work_checkpoint_ref": "docs/content-pipeline/registry/batch-01-remaining-work-checkpoint.json",
+  "live_runtime_verified_realization_ids": [
+    "MAN-0065-OPENAI-FIXED-v0.2",
+    "MAN-0165-OPENAI-FIXED-v0.2",
+    "MAN-0365-OPENAI-FIXED-v0.2",
+    "MAN-0044-OPENAI-FIXED-v0.2",
+    "MAN-0238-OPENAI-FIXED-v0.2",
+    "MAN-0414-OPENAI-FIXED-v0.2",
+    "MAN-0765-OPENAI-FIXED-v0.2",
+    "MAN-0604-OPENAI-FIXED-v0.1",
+    "MAN-0986-OPENAI-FIXED-v0.2"
+  ],
+  "fully_complete_lesson_ids": [
+    "MAN-0065",
+    "MAN-0165",
+    "MAN-0365",
+    "MAN-0044",
+    "MAN-0238",
+    "MAN-0414",
+    "MAN-0765",
+    "MAN-0604",
+    "MAN-0986"
+  ],
+  "feedback_admin_read_pending_lesson_ids": [],
+  "feedback_internal_read_access_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+  "feedback_gui_dependency_replacement_status": "NOT_NEEDED_SYSTEM_CAPABILITY_REUSED",
+  "isolated_pending_branches": [],
+  "superseded_feedback_read_branches": [
+    {
+      "branch_id": "THREE_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0165",
+        "MAN-0365",
+        "MAN-0044"
+      ],
+      "blocking_code": "NONE",
+      "resume_action": "NONE",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
+      "latest_recovery_result": "Fresh tab and one reload still returned 502 / Connection refused before any authentication form; 0 of 6 independent feedback reads verified.",
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true,
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": false,
+      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "required_for_release": false,
+      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_THREE_LIVE_PAIRS"
+    },
+    {
+      "branch_id": "TWO_NEW_LIVE_FEEDBACK_ADMIN_READ",
+      "status": "SUPERSEDED_AS_RELEASE_DEPENDENCY",
+      "global_batch_blocker": false,
+      "lesson_ids": [
+        "MAN-0238",
+        "MAN-0414"
+      ],
+      "blocking_code": "NONE",
+      "resume_action": "NONE",
+      "responsible_lane": "OPERATIONS_4",
+      "evidence_ref": "docs/content-pipeline/registry/batch-01-two-live-release.json",
+      "retained_record_count": 4,
+      "verified_admin_reads": 0,
+      "existing_runtime_pass_preserved": true,
+      "not_attempted_this_action": true,
+      "latest_recovery_result": "Existing Work connection blocker inherited; Google Sign-in not retried by Owner instruction. Backend write acknowledgments do not establish independent admin-read PASS.",
+      "replacement_verification_route_ref": "docs/content-pipeline/registry/batch-01-feedback-internal-read-access.json",
+      "replacement_permission_pending": false,
+      "historical_status": "PENDING_INFRASTRUCTURE_RECOVERY",
+      "required_for_release": false,
+      "resolution_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+      "historical_blocking_code": "FIREBASE_AUTH_BROWSER_CONNECTION_REFUSED",
+      "historical_resume_action": "VERIFY_EXACT_FEEDBACK_READ_TWO_NEW_LIVE_PAIRS"
+    }
+  ],
+  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "retained_feedback_independent_read_status": {
+    "count": 10,
+    "verified": 0,
+    "status": "NOT_PERFORMED_NONBLOCKING_OBSERVABILITY",
+    "release_gate": false
+  },
+  "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
+  "authorized_remaining_audio_exception_lesson_ids": [],
+  "independent_operations_next_action": {
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "lesson_ids": [
+      "MAN-0565",
+      "MAN-0905"
+    ],
+    "global_batch_blocker": false,
+    "independent_progression": true,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+  },
+  "pending_final_practice_exception_pairs": [],
+  "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
+  "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
+  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
+  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
+}

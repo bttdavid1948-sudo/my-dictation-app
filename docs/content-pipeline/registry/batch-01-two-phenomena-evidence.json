@@ -32,15 +32,6 @@
     "global_batch_blocker": false,
     "not_attempted_this_action": true
   },
-  "next_action": {
-    "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
-    "responsible_lane": "PRACTICE_2",
-    "pairs": [
-      "MAN-0238",
-      "MAN-0414"
-    ],
-    "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision."
-  },
   "evidence_ref": "batch-01-two-phenomena-practice-handoff@v0.1",
   "measurement_sha256": "80f0f5f53d3f61266cd23186c88b0d1f9ef08e687a78c73e35f6fb095a150998",
   "evidence_binding_validation": "PASS_EXACT_ASSET_AND_INTERVAL_SANITY_ONLY",
@@ -94,5 +85,22 @@
       "decision_requested": "Assess whether the observed short central-vowel article weak-form instances in both selected segments satisfy the frozen common-reductions construct. Do not generalize to all reductions; park if the construct requires a different specific instance."
     }
   ],
-  "rollback": "No audio/text/import/runtime mutation; existing versioned v0.2 realizations and all prior evidence retained. New evidence can be withdrawn independently."
+  "rollback": "No audio/text/import/runtime mutation; existing versioned v0.2 realizations and all prior evidence retained. New evidence can be withdrawn independently.",
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-two-phenomena-evidence.json",
+  "historical_next_action": {
+    "code": "FINAL_REALIZATION_PRACTICE_REVALIDATION_TWO_PHENOMENA",
+    "responsible_lane": "PRACTICE_2",
+    "pairs": [
+      "MAN-0238",
+      "MAN-0414"
+    ],
+    "requires": "Review exact v0.1 lessons plus unchanged v0.2 realizations independently using new acoustic/phonetic evidence and explicit uncertainty; existing Practice false values remain until #2 final decision."
+  },
+  "next_action": {
+    "code": "RESOLVED_IN_BATCH_01_COMPLETE",
+    "responsible_lane": "NONE",
+    "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
+  }
 }
