@@ -67,15 +67,8 @@
   "batch_close_complete": true,
   "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-readiness.json",
   "next_action": {
-    "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
-  },
-  "previous_next_action": {
     "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
     "responsible_lane": "OPERATIONS_4",
     "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
-  },
-  "orchestration_readiness_ref": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
-  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED"
+  }
 }
