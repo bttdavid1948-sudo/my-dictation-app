@@ -1437,7 +1437,7 @@
       },
       "sha256": "ae8294f3466de017882873fa6e3b0c1a9c371ceb99f45fa62792d7bb0c272ff6",
       "size_bytes": 22141,
-      "validation_status": "PRACTICE_VALIDATED",
+      "validation_status": "HASH_VERIFIED",
       "lesson_count": 12,
       "practice_preprod_ready_count": 12,
       "contract_precheck_valid_count": 12,
@@ -1446,7 +1446,8 @@
         "code": "PRODUCTION_READY_BATCH_02",
         "responsible_lane": "OPERATIONS_4",
         "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
-      }
+      },
+      "practice_validation_status": "PRACTICE_VALIDATED"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
