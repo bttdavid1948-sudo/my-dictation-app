@@ -5,14 +5,21 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
-    "responsible_lane": "PRACTICE_2",
-    "lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      {
+        "lesson_id": "MAN-0565",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
+      },
+      {
+        "lesson_id": "MAN-0905",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
+      }
     ],
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
-    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
+    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -111,7 +118,9 @@
     "MAN-0765-OPENAI-FIXED-v0.2",
     "MAN-0604-OPENAI-FIXED-v0.1",
     "MAN-0986-OPENAI-FIXED-v0.2",
-    "MAN-0844-MIXED-v0.1"
+    "MAN-0844-MIXED-v0.1",
+    "MAN-0565-OPENAI-FIXED-v0.1",
+    "MAN-0905-OPENAI-FIXED-v0.1"
   ],
   "practice_blocked_fixed_realization_ids": [],
   "three_lesson_live_release_ref": "docs/content-pipeline/registry/batch-01-three-live-release.json",
@@ -205,40 +214,22 @@
     "release_gate": false
   },
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-  "authorized_remaining_audio_exception_lesson_ids": [
-    "MAN-0565",
-    "MAN-0905"
-  ],
+  "authorized_remaining_audio_exception_lesson_ids": [],
   "independent_operations_next_action": {
-    "code": "ACCENT_GAPS_PLUS_MAN_0844_CONTROLLED_RELEASE",
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
     "responsible_lane": "OPERATIONS_4",
     "lesson_ids": [
       "MAN-0565",
-      "MAN-0905",
-      "MAN-0844"
+      "MAN-0905"
     ],
     "global_batch_blocker": false,
-    "branches": [
-      {
-        "lesson_ids": [
-          "MAN-0565",
-          "MAN-0905"
-        ],
-        "status": "PARKED_INTERNAL_ACCENT_EVIDENCE_CAPABILITY_GAP",
-        "requires": "Continue bounded internal accent/phonetic evidence work independently; no speculative paid generation and no rerun of completed gates."
-      },
-      {
-        "lesson_ids": [
-          "MAN-0844"
-        ],
-        "status": "PRACTICE_READY_CONTRACT_VALID_CONTROLLED_RELEASE_PENDING",
-        "evidence_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
-        "requires": "Release only exact MAN-0844@v0.1 + MAN-0844-MIXED-v0.1 using existing support/rights/runtime/feedback machinery. Preserve the approved mixed-timeline/context-preserving replay behavior and Practice scoring boundaries. Verify desktop/mobile learner playback, exact realization binding, completion/feedback behavior and rollback. Do not redesign representation or require human acoustic certification."
-      }
-    ]
+    "independent_progression": true,
+    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
-  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json"
+  "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
+  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
 }

@@ -31,7 +31,8 @@
     "batch-01-final-realization-practice-three-independent-exceptions": "v0.1",
     "man-0844-overlap-practice-representation": "v0.1",
     "man-0844-final-realization-practice": "v0.1",
-    "batch-01-final-two-exact-realization-practice-handoff": "v0.1"
+    "batch-01-final-two-exact-realization-practice-handoff": "v0.1",
+    "batch-01-final-two-practice-disposition": "v0.1"
   },
   "artifacts": [
     {
@@ -1036,6 +1037,54 @@
       },
       "size_bytes": 3831914,
       "audio_qa_status": "ORDINARY_AUTOMATED_AUDIO_QA_PASS_FINAL_PRACTICE_PENDING"
+    },
+    {
+      "id": "batch-01-final-two-practice-disposition",
+      "name": "batch-01-final-two-practice-disposition.json",
+      "version": "v0.1",
+      "status": "PRACTICE_VALIDATED",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 minimum sufficient semantic review under Owner soft-accent Product Direction",
+        "Canonical final-two exact realization handoff from PR #101",
+        "Private exact audio/QA/support evidence retained in Library"
+      ],
+      "dependencies": [
+        "batch-01-final-two-exact-realization-practice-handoff@v0.1",
+        "batch-01-practice-postproduction-validation@v0.1",
+        "practice-production-spec@v0.1",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json"
+      },
+      "validation_status": "PRACTICE_VALIDATED",
+      "reviewed_pair_count": 2,
+      "practice_ready_pass_count": 2,
+      "contract_valid_pass_count": 2,
+      "fail_count": 0,
+      "next_action": {
+        "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+        "responsible_lane": "OPERATIONS_4",
+        "pairs": [
+          {
+            "lesson_id": "MAN-0565",
+            "lesson_asset_version": "v0.1",
+            "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
+          },
+          {
+            "lesson_id": "MAN-0905",
+            "lesson_asset_version": "v0.1",
+            "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
+          }
+        ],
+        "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+      }
     }
   ]
 }
