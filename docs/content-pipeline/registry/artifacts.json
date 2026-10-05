@@ -39,7 +39,8 @@
     "official-1000-production-authority": "v0.1",
     "batch-02-watcher-pilot": "v0.1",
     "batch-02-curriculum-preproduction": "v0.1",
-    "practice-passive-lane-setup": "v0.1"
+    "practice-passive-lane-setup": "v0.1",
+    "batch-02-practice-preproduction": "v0.1"
   },
   "artifacts": [
     {
@@ -1240,14 +1241,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "41008ebadb186e85da59291f8e9d8cfa1154a2b8dbc29aae4d9968c9aa6b8853",
-      "size_bytes": 15866,
+      "sha256": "5ef0b4e27d887b12ba402c1ef671d383eec352895d692e8abf930b6ded3ed18c",
+      "size_bytes": 15934,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       }
     },
     {
@@ -1273,14 +1274,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "96f88327da89897ba770e5eef3c8a2515d78135fc4726d2c7e4904035fa321a1",
-      "size_bytes": 9115,
+      "sha256": "598d0a3675e9f7da1668c7a4e7f8c1e8bdc24c3dbb5b018f2745e9083314228a",
+      "size_bytes": 9183,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       }
     },
     {
@@ -1338,12 +1339,12 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       },
-      "sha256": "54973144437eb0b9b261f2f518c92430312b682eabc07e1f43e5c212678135d8",
-      "size_bytes": 7494,
+      "sha256": "7c4cc8e7a179dd0f01f824857594dd3b9321127ce23f653040070018899a090c",
+      "size_bytes": 7562,
       "semantic_validation_status": "WATCHER_SCOPED_CANONICAL_RECEIPT_PASS"
     },
     {
@@ -1408,6 +1409,45 @@
       "validation_status": "HASH_VERIFIED",
       "sha256": "2baae9c32cbc11969a4f8f89b309e4b5083b84112f43c6c7ada836cd9ee61170",
       "size_bytes": 1774
+    },
+    {
+      "id": "batch-02-practice-preproduction",
+      "name": "batch-02-practice-preproduction.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 semantic preproduction review of batch-02-curriculum-preproduction@v0.1",
+        "Frozen Practice Production Specification v0.1 and Curriculum↔Practice Contract v0.3",
+        "Owner standing Practice activation scope OFFICIAL_MAN_1000_ONLY"
+      ],
+      "dependencies": [
+        "batch-02-curriculum-preproduction@v0.1",
+        "practice-production-spec@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-practice-preproduction.json"
+      },
+      "sha256": "ae8294f3466de017882873fa6e3b0c1a9c371ceb99f45fa62792d7bb0c272ff6",
+      "size_bytes": 22141,
+      "validation_status": "HASH_VERIFIED",
+      "lesson_count": 12,
+      "practice_preprod_ready_count": 12,
+      "contract_precheck_valid_count": 12,
+      "production_ready_count": 12,
+      "next_action": {
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
+      },
+      "practice_validation_status": "PRACTICE_VALIDATED"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
