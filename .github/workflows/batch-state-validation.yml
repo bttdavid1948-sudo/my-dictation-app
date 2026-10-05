@@ -12,6 +12,10 @@ on:
       - docs/content-pipeline/registry/batch-01-readiness.json
       - docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json
       - docs/content-pipeline/validate-batch-state.mjs
+      - operations/skills/**
+      - docs/content-pipeline/registry/single-orchestrator-governance.json
+      - docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json
+      - docs/content-pipeline/registry/batch-02-original-rights-preparation.json
       - operations/orchestration/**
       - .github/workflows/batch-state-validation.yml
       - .github/workflows/official-man-scoped-receipt-merge.yml
@@ -33,6 +37,7 @@ jobs:
       - run: node docs/content-pipeline/validate.mjs next
       - run: node docs/content-pipeline/support-locale.mjs
       - run: node docs/content-pipeline/validate-batch-state.mjs
+      - run: node operations/skills/module-tests.mjs
       - run: node operations/orchestration/resolve.test.mjs
       - run: node operations/orchestration/watchers/pilot.test.mjs
       - run: node operations/orchestration/watchers/scoped-merge.test.mjs

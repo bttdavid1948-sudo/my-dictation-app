@@ -34,11 +34,6 @@
   },
   "blockers": [
     {
-      "code": "BLOCKED_OPERATIONS_SCOPED_MERGE_INSTALLATION",
-      "reason": "Automatic approval review rejected proposed privileged workflow plus validator/routing installation. Exact review patch is prepared; no bypass or mutation retry.",
-      "review_patch_library_file_id": "libfile_8f2f22ecfb00819192f909e2bbe3cc69"
-    },
-    {
       "code": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
       "branch": "PAID_AUDIO_ONLY",
       "reason": "Existing ephemeral producer credential absent. Billing overview sign-in wall; actual prepaid balance, unsettled usage and reservations unverified.",
@@ -69,5 +64,25 @@
     "initial_owner_ignition": 1,
     "manual_specialist_activations": 0,
     "mid_loop_owner_reactivation": 0
+  },
+  "consolidated_execution": {
+    "governance_ref": "single-orchestrator-governance@v0.1",
+    "source_main": "b0acc25f809a2fed6a11c092c1154578a006c140",
+    "modules_structural_validation": "PASS",
+    "real_post_checkpoint_operation": "ORIGINAL_CONTENT_RIGHTS_REVIEW_12_OF_12",
+    "operation_receipt": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json",
+    "routine_curriculum_reexecution": 0,
+    "routine_practice_preproduction_reexecution": 0,
+    "final_practice_grounding": "PENDING_ACTUAL_AUDIO_REALIZATION",
+    "curriculum_research_required": false,
+    "practice_research_required": false,
+    "direct_specialist_packets": 0,
+    "cross_room_event_dependency": false,
+    "actual_production_completed_lessons": 0,
+    "audio_access_budget": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
+    "authority_installation_blocker": "PRIOR_PRIVILEGED_EVENT_GATE_SUPERSEDED_BY_OWNER_CONSOLIDATED_ARCHITECTURE; NO_WORKFLOW_PERMISSION_CHANGE_PROPOSED",
+    "checked_at": "2026-10-05T15:36:06.813421Z",
+    "routine_non_audio_integration": "PASS_EXECUTED_ORIGINAL_RIGHTS_REVIEW",
+    "architecture_conversion_status": "IMPLEMENTED_AND_ROUTINE_NON_AUDIO_EXECUTED_PENDING_CANONICAL_MERGE"
   }
 }

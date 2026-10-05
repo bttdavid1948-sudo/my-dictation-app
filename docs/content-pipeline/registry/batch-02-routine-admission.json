@@ -1,0 +1,13 @@
+{
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "domain": "OPERATIONS_4",
+  "frozenRulesSufficient": true,
+  "precedentSufficient": true,
+  "evidence_refs": [
+    "single-orchestrator-governance@v0.1",
+    "official-1000-production-authority@v0.1",
+    "Batch01 original content/support pipeline",
+    "docs/content-pipeline/registry/batch-02-practice-preproduction.json"
+  ],
+  "operation": "BATCH02_ORIGINAL_RIGHTS_PREPARATION"
+}

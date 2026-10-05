@@ -107,5 +107,16 @@
   "frozen_contracts_unchanged": [
     "content-pipeline-contract@v0.2",
     "curriculum-practice-contract@v0.3"
-  ]
+  ],
+  "routine_execution_governance": {
+    "ref": "single-orchestrator-governance@v0.1",
+    "owner_decision_date": "2026-10-05",
+    "execution_context": "OPERATIONS_4",
+    "semantic_ownership_preserved": true,
+    "routine_curriculum_and_practice_execution": "MATCHING_GOVERNED_MODULE_INSIDE_OPERATIONS_CONTEXT",
+    "cross_room_worker_execution_prerequisite_superseded": true,
+    "operations_components_retirement_authorized": false,
+    "frozen_gates_unchanged": true,
+    "spending_authority_changed": false
+  }
 }
