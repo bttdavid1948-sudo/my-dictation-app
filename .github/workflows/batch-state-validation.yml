@@ -14,6 +14,7 @@ on:
       - docs/content-pipeline/validate-batch-state.mjs
       - operations/orchestration/**
       - .github/workflows/batch-state-validation.yml
+      - .github/workflows/official-man-scoped-receipt-merge.yml
 permissions:
   contents: read
 jobs:
@@ -30,3 +31,4 @@ jobs:
       - run: node docs/content-pipeline/validate-batch-state.mjs
       - run: node operations/orchestration/resolve.test.mjs
       - run: node operations/orchestration/watchers/pilot.test.mjs
+      - run: node operations/orchestration/watchers/scoped-merge.test.mjs
