@@ -1386,7 +1386,7 @@
       "id": "practice-passive-lane-setup",
       "name": "practice-passive-lane-setup.json",
       "version": "v0.1",
-      "status": "REPOSITORY_CONTROLS_READY",
+      "status": "REVIEW_READY",
       "owner_lane": "PRACTICE_2",
       "source": [
         "Owner one-time Practice passive activation authorization 2026-10-05",
@@ -1405,7 +1405,9 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/practice-passive-lane-setup.json"
       },
-      "validation_status": "SETUP_DEFINED_PENDING_ACTIVE_WORKER_REGISTRATION"
+      "validation_status": "HASH_VERIFIED",
+      "sha256": "8e27658d5e39561225d9f1a35017922f7dc7e8cdefac344e8c16e28aa3034113",
+      "size_bytes": 1510
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
