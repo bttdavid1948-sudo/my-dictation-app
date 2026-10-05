@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+    "code": "PRODUCTION_READY_BATCH_02",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -238,5 +238,14 @@
     "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "responsible_lane": "OPERATIONS_4",
     "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+  },
+  "batch02_practice_preproduction_ref": "docs/content-pipeline/registry/batch-02-practice-preproduction.json",
+  "batch02_preproduction_gate_result": {
+    "unique_purpose_pass": 12,
+    "curriculum_ready": 12,
+    "practice_preprod_ready": 12,
+    "contract_precheck_valid": 12,
+    "production_ready": 12,
+    "queue_opened": false
   }
 }
