@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-02-operations-preparation-checkpoint",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_lane": "OPERATIONS_4",
+  "batch_id": "BATCH_02",
+  "source_main": "b0acc25f809a2fed6a11c092c1154578a006c140",
+  "status": "NON_AUDIO_PREPARED_PRODUCTION_BLOCKED",
+  "preproduction_evidence_ref": "docs/content-pipeline/registry/batch-02-practice-preproduction.json",
+  "passed_product_gates_rerun": false,
+  "prepared": {
+    "lessons": 12,
+    "segments": 77,
+    "target_anchors": 24,
+    "utf16_spans_checked": 26,
+    "support_bundles_vi_VN": 12,
+    "artifact": {
+      "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+      "name": "MAN-Batch-02-Non-Audio-Prepared-v0.1.zip"
+    }
+  },
+  "production_queue_opened": false,
+  "paid_calls": 0,
+  "actual_audio_realizations": 0,
+  "final_practice_ready_claimed": false,
+  "produced_contract_valid_claimed": false,
+  "release_complete_count": 0,
+  "worker": {
+    "registration": "ENABLED_GITHUB_MERGE_EVENT",
+    "execution_observed": false,
+    "canonical_activation_receipt_observed": false,
+    "installation": "BLOCKED_AUTO_REVIEW"
+  },
+  "blockers": [
+    {
+      "code": "BLOCKED_OPERATIONS_SCOPED_MERGE_INSTALLATION",
+      "reason": "Automatic approval review rejected proposed privileged workflow plus validator/routing installation. Exact review patch is prepared; no bypass or mutation retry.",
+      "review_patch_library_file_id": "libfile_8f2f22ecfb00819192f909e2bbe3cc69"
+    },
+    {
+      "code": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
+      "branch": "PAID_AUDIO_ONLY",
+      "reason": "Existing ephemeral producer credential absent. Billing overview sign-in wall; actual prepaid balance, unsettled usage and reservations unverified.",
+      "funding_exhaustion_claimed": false
+    }
+  ],
+  "manual_curriculum_activations_this_attempt": 0,
+  "manual_practice_activations_this_attempt": 0,
+  "automatically_produced_lessons": 0,
+  "next_production_disposition_lane": "PRACTICE_2_AFTER_ACTUAL_REALIZATION",
+  "batch_close_claimed": false,
+  "batch03_opened": false
+}
