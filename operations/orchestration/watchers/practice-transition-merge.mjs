@@ -37,7 +37,7 @@ export function validate(s){
  assert.equal(candidateArtifacts.artifacts.length,mainArtifacts.artifacts.length+1);
  const reindexable=new Set(['batch-01-completion-checkpoint','batch-01-autonomous-orchestration-readiness','batch-02-watcher-pilot']);
  for(let i=0;i<mainArtifacts.artifacts.length;i++){const before=clone(mainArtifacts.artifacts[i]),after=clone(candidateArtifacts.artifacts[i]);same(after.id,before.id);same(after.version,before.version);if(reindexable.has(before.id)){for(const k of ['sha256','size_bytes','next_action']){delete before[k];delete after[k];}same(after,before);}else same(after,before);}
- const added=candidateArtifacts.artifacts.at(-1);same(added.owner_lane,'PRACTICE_2');same(added.validation_status,'PRACTICE_VALIDATED');assert.ok(added.id.startsWith('batch-02-practice-preproduction'));same(added.location.store,'GitHub registry evidence');
+ const added=candidateArtifacts.artifacts.at(-1);same(added.owner_lane,'PRACTICE_2');same(added.validation_status,'HASH_VERIFIED');same(added.practice_validation_status,'PRACTICE_VALIDATED');assert.ok(added.id.startsWith('batch-02-practice-preproduction'));same(added.location.store,'GitHub registry evidence');
  for(const [path,doc] of Object.entries(candidateDocs)){const base=clone(doc.__base),cand=clone(doc);delete base.next_action;delete cand.__base;delete cand.next_action;same(cand,base);same(doc.next_action,candidatePipeline.next_action);}
  return {decision:'PRACTICE_TRANSITION_ALLOWED',lesson_count:transition.lessons.length,next_action:candidatePipeline.next_action};
 }
