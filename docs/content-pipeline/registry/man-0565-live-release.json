@@ -4,8 +4,8 @@
   "lesson_id": "MAN-0565",
   "lesson_asset_version": "v0.1",
   "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
-  "status": "CONTROLLED_RELEASE_PREPARED_LIVE_VERIFY_PENDING",
-  "complete": false,
+  "status": "COMPLETE",
+  "complete": true,
   "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
   "practice_contract_pass_preserved": true,
   "practice_contract_gates_rerun": false,
@@ -21,7 +21,72 @@
   "feedback_read_scope": "Exact write binding and backend ACK; shared read capability reused. No per-lesson admin-read gate.",
   "rollback": "Remove only this lesson from scoped assets/official-lessons-final-two.json through reviewed commit; retain immutable WAV/support. Isolated browser route verifies scoped withdrawal and no cached revival.",
   "next_action": {
-    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_EXACT_PAIR",
-    "responsible_lane": "OPERATIONS_4"
-  }
+    "code": "EXACT_PAIR_COMPLETE",
+    "responsible_lane": "NONE"
+  },
+  "checked_at": "2026-10-05T05:22:39.761720+00:00",
+  "release_pr": 103,
+  "release_commit": "bf9997ec9560732ee3066ca805d4303c6d0c5b34",
+  "staging_run_id": 37266900792,
+  "verification_run_id": 37267252852,
+  "pages_deployment_run_id": 37267252444,
+  "desktop_live": "PASS",
+  "mobile_live": "PASS_PIXEL5_CHROMIUM_EMULATION",
+  "physical_device_verified": false,
+  "artifact_evidence": {
+    "desktop": {
+      "status": "PASS",
+      "evidence_sha256": "d388858fe67a10a5d7db7083cf53dd46047a54e0a108ba6d45e92d603f330829",
+      "all_segment_hashes_verified": true,
+      "natural_playback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+      "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+      "inference_correct_assisted": true,
+      "negative_inference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+      "dictation_completion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+      "feedback_context": {
+        "lessonId": "MAN-0565",
+        "lessonVersion": "v0.1",
+        "segmentId": "S001",
+        "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+        "assetSha256": "d1654c91ef95f4a0a70f47f87fe4285022a4c660d06538e58ef5dc33d330b145",
+        "deliveryMode": "PERSISTED_ASSET"
+      },
+      "feedback_backend_ack": true,
+      "feedback_document_id_sha256": "979aa8570a1c8feaba914d539d85e4024dbefbd4faca9612ff451a0e0c09372c",
+      "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+      "rollback_restore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_claim": false,
+      "finished_at": "2026-10-05T05:21:55.868Z"
+    },
+    "mobile": {
+      "status": "PASS",
+      "evidence_sha256": "920837787864b970fbb7122d71ae69e96129c5b5e8ccf0b38401061982a2c14f",
+      "all_segment_hashes_verified": true,
+      "natural_playback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+      "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+      "inference_correct_assisted": true,
+      "negative_inference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+      "dictation_completion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+      "feedback_context": {
+        "lessonId": "MAN-0565",
+        "lessonVersion": "v0.1",
+        "segmentId": "S001",
+        "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+        "assetSha256": "d1654c91ef95f4a0a70f47f87fe4285022a4c660d06538e58ef5dc33d330b145",
+        "deliveryMode": "PERSISTED_ASSET"
+      },
+      "feedback_backend_ack": true,
+      "feedback_document_id_sha256": "314aabd845234ee2077d8b5486970c5928cdde811576e340a12a40e2c6d53e2a",
+      "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+      "rollback_restore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+      "page_errors": 0,
+      "webspeech_requests": 0,
+      "physical_device_claim": false,
+      "finished_at": "2026-10-05T05:22:00.891Z"
+    }
+  },
+  "catalog_sha256": "f10c4ca4f3e36d40f5fd991bc5d83cff6a80fab0de5d2ea0544eea4d8042f1de",
+  "support_sha256": "fa0e01338a1c9b9114b3e56a1bc5df2e32eb73ffb778b945dad0e3c8a24a91cc"
 }
