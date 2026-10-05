@@ -4,7 +4,7 @@
   "version": "v0.1",
   "owner_lane": "OPERATIONS_4",
   "state_scope": "CURRENT_AUTHORITATIVE",
-  "status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
+  "status": "OPERATIONS_READINESS_COMPLETE_PASSIVE_ACTIVATION_PILOT_PENDING",
   "checked_at": "2026-10-05T05:38:22.411189+00:00",
   "source_main": "e0afaaae8771a749a03674d9fc0941483eae336d",
   "batch01_status": "BATCH_01_COMPLETE_12_OF_12",
@@ -142,8 +142,8 @@
     "implemented_reduction": "Current phase/pair action lookup, exact receipt reuse and consolidated indexed handoffs; Owner does not carry audio/workbooks or execute release commands.",
     "measured_autonomous_batch02_throughput": null,
     "full_unattended_cross_lane_execution_claimed": false,
-    "remaining_agency_gap": "Available tools cannot activate independent project rooms; existing #3/#2 authority remains required.",
-    "minimum_owner_action": "Activate Curriculum #3 once with the canonical Batch02 preproduction handoff; no technical command or audio review requested."
+    "remaining_agency_gap": "Previous cross-room activation gap now under supported passive event feasibility probe; actual lane-worker capability remains unverified.",
+    "minimum_owner_action": "NONE_PENDING_SUPPORTED_WATCHER_FEASIBILITY"
   },
   "production_preflight_not_run": [
     "No new paid provider call or budget charge",
@@ -152,8 +152,15 @@
     "No new gates or product verification for completed Batch01"
   ],
   "next_action": {
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+  },
+  "pre_watcher_next_action": {
     "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
     "responsible_lane": "CURRICULUM_3",
     "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
-  }
+  },
+  "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
+  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json"
 }

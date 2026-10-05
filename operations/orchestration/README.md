@@ -34,8 +34,12 @@ The Batch01 immutable-asset receipt index records existing upload references. Co
 | Isolated blocked lesson | Its owning lane | Continue all independent actionable lessons |
 | Residual subtle accent uncertainty | Feedback → exception → versioned replacement | Nonblocking release uncertainty |
 
-## Current boundary
+## Historical readiness boundary (superseded activation route)
 
 Operations readiness work and actual-trace replay are complete. The next lane is Curriculum #3 for Batch02 versioned preproduction inputs, followed by Practice #2. No Batch02 production/queue or paid request starts here. Work cannot activate another project conversation; that remains a cross-lane activation capability gap, explicitly recorded rather than hidden as full autonomy.
 
 Existing GitHub Actions/Pages release runners provide the execution surface. Reuse their bounded per-pair evidence path when concrete Batch02 inputs arrive; this readiness step does not add a scheduler, IAM, secrets service, provider framework or new infrastructure. Before the next real synthesis, check the existing secure credential/session and remaining approved spend through the execution path; readiness replay does not certify future provider availability.
+
+## Current Owner authorization 2026-10-05
+
+[Passive watcher pilot](watchers/README.md) supersedes the earlier Owner prompt-courier handoff. Standing prepaid audio permission covers official1000 production/valid targeted repair, with actual budget reconciliation and paid-branch-only OWNER_FUNDING_REQUIRED; no per-action reapproval. The bounded resolver and frozen lane decisions remain unchanged.

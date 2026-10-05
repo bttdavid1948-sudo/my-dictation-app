@@ -2,6 +2,8 @@ name: Batch state and bounded resolver validation
 on:
   pull_request:
     paths:
+      - docs/content-pipeline/registry/official-1000-production-authority.json
+      - docs/content-pipeline/registry/batch-02-watcher-pilot.json
       - docs/content-pipeline/registry/artifacts.json
       - docs/content-pipeline/registry/lessons.json
       - docs/content-pipeline/registry/support-bundles.json
@@ -27,3 +29,4 @@ jobs:
       - run: node docs/content-pipeline/support-locale.mjs
       - run: node docs/content-pipeline/validate-batch-state.mjs
       - run: node operations/orchestration/resolve.test.mjs
+      - run: node operations/orchestration/watchers/pilot.test.mjs
