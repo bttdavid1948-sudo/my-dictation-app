@@ -4,7 +4,7 @@
   "contract_ref": "content-pipeline-contract@v0.2",
   "contract_status": "FROZEN",
   "role": "CALIBRATION",
-  "preparation_status": "TEN_OFFICIAL_COMPLETE_FINAL_TWO_EXACT_REALIZATIONS_PENDING_PRACTICE",
+  "preparation_status": "TEN_OFFICIAL_COMPLETE_FINAL_TWO_PRACTICE_READY_RELEASE_PENDING",
   "production_queue_enabled": false,
   "batch_open": false,
   "lesson_ids": [
@@ -110,14 +110,21 @@
     }
   ],
   "next_action": {
-    "code": "FINAL_REALIZATION_DEPENDENT_PRACTICE_READY_CONTRACT_VALID_FINAL_TWO_PAIRS",
-    "responsible_lane": "PRACTICE_2",
-    "lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "responsible_lane": "OPERATIONS_4",
+    "pairs": [
+      {
+        "lesson_id": "MAN-0565",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0565-OPENAI-FIXED-v0.1"
+      },
+      {
+        "lesson_id": "MAN-0905",
+        "lesson_asset_version": "v0.1",
+        "realization_id": "MAN-0905-OPENAI-FIXED-v0.1"
+      }
     ],
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json",
-    "requires": "Review each exact bound realization independently under Owner soft-accent policy. Do not reopen static grounding or completed gates. Issue PRACTICE_READY/CONTRACT_VALID or concrete learner-outcome rework. Then route each PASS pair to OPERATIONS_4 controlled release/live verification."
+    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
   },
   "curriculum_selection_ref": "batch-01-curriculum-selection@v0.1",
   "selection_design": {
@@ -144,8 +151,8 @@
     "grounding_pass": 12,
     "target_anchors_mapped": 24,
     "practice_conflicts": 0,
-    "final_practice_ready": 10,
-    "blocker": "FINAL_TWO_EXACT_REALIZATION_PRACTICE_2_DISPOSITIONS_PENDING"
+    "final_practice_ready": 12,
+    "blocker": "FINAL_TWO_CONTROLLED_RELEASE_LIVE_VERIFICATION_PENDING"
   },
   "audio_readiness_ref": "docs/content-pipeline/registry/batch-01-audio-readiness.json",
   "browser_voice_candidate_ref": "batch-01-browser-voice-runtime-candidates@v0.1",
@@ -280,10 +287,7 @@
     "release_gate": false
   },
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
-  "authorized_remaining_audio_exception_lesson_ids": [
-    "MAN-0565",
-    "MAN-0905"
-  ],
+  "authorized_remaining_audio_exception_lesson_ids": [],
   "independent_operations_next_action": {
     "code": "RESUME_CONTROLLED_RELEASE_PER_EXACT_PRACTICE_PASS",
     "responsible_lane": "OPERATIONS_4",
@@ -294,22 +298,7 @@
     "global_batch_blocker": false,
     "requires": "Catalog/support drafts prepared privately. Release each exact pair after #2 disposition; no accent certification infrastructure."
   },
-  "pending_final_practice_exception_pairs": [
-    {
-      "lesson_id": "MAN-0565",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0565-OPENAI-FIXED-v0.1",
-      "status": "REVIEW_READY",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json"
-    },
-    {
-      "lesson_id": "MAN-0905",
-      "lesson_asset_version": "v0.1",
-      "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
-      "status": "REVIEW_READY",
-      "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-handoff.json"
-    }
-  ],
+  "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "final_realization_practice_three_exceptions_result": {
     "reviewed_pairs": 3,
@@ -339,5 +328,16 @@
     "conflict": "NONE"
   },
   "complete_lesson_count": 10,
-  "latest_completion_checkpoint_ref": "docs/content-pipeline/registry/batch-01-man0844-completion-checkpoint.json"
+  "latest_completion_checkpoint_ref": "docs/content-pipeline/registry/batch-01-man0844-completion-checkpoint.json",
+  "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+  "final_two_practice_disposition_result": {
+    "reviewed_pairs": 2,
+    "practice_ready_pass": 2,
+    "contract_valid_pass": 2,
+    "failed": 0,
+    "pass_lesson_ids": [
+      "MAN-0565",
+      "MAN-0905"
+    ]
+  }
 }
