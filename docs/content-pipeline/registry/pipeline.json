@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-    "responsible_lane": "PRACTICE_2",
-    "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+    "code": "PRODUCTION_READY_BATCH_02",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Consume batch-02-practice-preproduction@v0.1. All four preproduction gates PASS for 12 existing reserved identities. Prepare only Operations-owned production planning/execution under existing authorization and frozen contracts. Production queue remains CLOSED until its separate canonical opening condition; no Practice reinterpretation, no final PRACTICE_READY or produced CONTRACT_VALID claim."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
