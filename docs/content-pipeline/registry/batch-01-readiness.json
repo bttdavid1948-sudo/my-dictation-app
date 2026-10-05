@@ -77,7 +77,7 @@
     "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   },
   "orchestration_readiness_ref": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
-  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
+  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
   "pre_watcher_next_action": {
     "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
     "responsible_lane": "CURRICULUM_3",

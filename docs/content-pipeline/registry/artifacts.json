@@ -1238,8 +1238,8 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "797fdb6c7385a1f39b837a6b31338a4e6db90aa2a332b105830e35cd85800b10",
-      "size_bytes": 15841,
+      "sha256": "6076197634121ffdbe391c1c83789b82d43313b593e3e9fb378565a6580a090b",
+      "size_bytes": 15844,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
@@ -1274,7 +1274,7 @@
       "sha256": "009530c34a96c12ddfa75a96433d2a3f02aaf2f85b5da953197e01857dcea834",
       "size_bytes": 9038,
       "validation_status": "HASH_VERIFIED",
-      "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
+      "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
       "next_action": {
         "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
         "responsible_lane": "OPERATIONS_4",
@@ -1341,7 +1341,8 @@
         "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
       },
       "sha256": "30bd77ac1d857049a403d0b5673554c56c70101e3e157541d86c2095326a637d",
-      "size_bytes": 5152
+      "size_bytes": 5152,
+      "semantic_validation_status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
