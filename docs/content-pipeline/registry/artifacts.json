@@ -44,7 +44,8 @@
     "single-orchestrator-governance": "v0.1",
     "batch-02-operations-preparation-checkpoint": "v0.1",
     "batch-02-original-rights-preparation": "v0.1",
-    "batch-02-routine-admission": "v0.1"
+    "batch-02-routine-admission": "v0.1",
+    "batch-02-support-qa": "v0.1"
   },
   "artifacts": [
     {
@@ -1503,8 +1504,8 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json"
       },
-      "sha256": "911f0707349565ecc5e85c4d895d3bf11f02d077516cd465112d14e60ff720da",
-      "size_bytes": 3834,
+      "sha256": "da19e34fa9ee849e1b9787c450dfbbd2f9f4c371d4283f8de7775f497ff97f27",
+      "size_bytes": 3980,
       "validation_status": "HASH_VERIFIED"
     },
     {
@@ -1559,6 +1560,32 @@
       },
       "sha256": "1649dc73cdbd413d01f94a833bac12c62bd20a01bd768f9926e25f083644a36f",
       "size_bytes": 425,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "batch-02-support-qa",
+      "name": "batch-02-support-qa.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Exact preserved Batch02 original prepared content",
+        "Operations bilingual support QA with targeted vi-VN-only color clarification"
+      ],
+      "dependencies": [
+        "single-orchestrator-governance@v0.1",
+        "batch-02-original-rights-preparation@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-support-qa.json"
+      },
+      "sha256": "c0c3dd3562ed060ab45bcbc362df5a2cc9ed2645c42df41f702ff7f86f220f8d",
+      "size_bytes": 9198,
       "validation_status": "HASH_VERIFIED"
     }
   ],

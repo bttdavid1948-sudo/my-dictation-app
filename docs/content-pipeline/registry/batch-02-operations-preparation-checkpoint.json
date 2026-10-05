@@ -83,6 +83,9 @@
     "authority_installation_blocker": "PRIOR_PRIVILEGED_EVENT_GATE_SUPERSEDED_BY_OWNER_CONSOLIDATED_ARCHITECTURE; NO_WORKFLOW_PERMISSION_CHANGE_PROPOSED",
     "checked_at": "2026-10-05T15:36:06.813421Z",
     "routine_non_audio_integration": "PASS_EXECUTED_ORIGINAL_RIGHTS_REVIEW",
-    "architecture_conversion_status": "IMPLEMENTED_AND_ROUTINE_NON_AUDIO_EXECUTED_PENDING_CANONICAL_MERGE"
+    "architecture_conversion_status": "CANONICAL_MODULES_AND_REAL_ROUTINE_NON_AUDIO_INTEGRATION_VERIFIED",
+    "support_qa_ref": "docs/content-pipeline/registry/batch-02-support-qa.json",
+    "support_ready_count": 12,
+    "actual_audio_created": false
   }
 }

@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-02-support-qa",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_lane": "OPERATIONS_4",
+  "execution_context": "SINGLE_PRODUCTION_ORCHESTRATOR",
+  "procedure": "man-production-control",
+  "classification": "ROUTINE_EXECUTION",
+  "source_main": "a61c42a809da596be4df2b6d67c990f48c997da1",
+  "source_prepared_archive_sha256": "84ddcc48edeac91554d13c7e4f4ecb114c54c0db5157ee1ac1b186d25a42e9ea",
+  "status": "SUPPORT_QA_PASS_12_OF_12",
+  "review_basis": "Operations bilingual review of all 77 exact English/vi-VN segment pairs: meaning, detail/negation/condition fidelity, natural wording, full coverage, exact lesson/version references. Support is assistance, not Practice evidence or Curriculum target semantics.",
+  "targeted_repair": {
+    "lesson_id": "MAN-0001",
+    "segments": [
+      "S004",
+      "S005"
+    ],
+    "change": "Make blue explicit as xanh dương; Vietnamese bundle only",
+    "bundle_version": "v0.2",
+    "english_changed": false,
+    "lesson_asset_version_changed": false,
+    "unchanged_support_bundles_reused": 11
+  },
+  "lesson_results": [
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 4,
+      "sha256": "674cc14a273eee252f21625343833308b2493de8e3aa76376b880ec30ebba426",
+      "key": "MAN-0066@v0.1@unbound@SUPPORT_LINGUISTIC_QA@674cc14a273eee252f21625343833308b2493de8e3aa76376b880ec30ebba426",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0066-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 5,
+      "sha256": "027e74f15dab1949270808453fc23514fe625e745e14504dc199428aff8e735a",
+      "key": "MAN-0166@v0.1@unbound@SUPPORT_LINGUISTIC_QA@027e74f15dab1949270808453fc23514fe625e745e14504dc199428aff8e735a",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0166-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 5,
+      "sha256": "7f22b70a19edff5baa9ac627e67c753f046ec7d0f14a61993f553c91497e0969",
+      "key": "MAN-0366@v0.1@unbound@SUPPORT_LINGUISTIC_QA@7f22b70a19edff5baa9ac627e67c753f046ec7d0f14a61993f553c91497e0969",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0366-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 6,
+      "sha256": "60d2cc6456bb9e42605a2a370449df0edd1f69622e62cb074cdf46735936a77a",
+      "key": "MAN-0566@v0.1@unbound@SUPPORT_LINGUISTIC_QA@60d2cc6456bb9e42605a2a370449df0edd1f69622e62cb074cdf46735936a77a",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0566-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 7,
+      "sha256": "e268c3edf356b5fb2ffef39b40df989bbae8e39b6fe9404c94ec965369637bc9",
+      "key": "MAN-0766@v0.1@unbound@SUPPORT_LINGUISTIC_QA@e268c3edf356b5fb2ffef39b40df989bbae8e39b6fe9404c94ec965369637bc9",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0766-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 8,
+      "sha256": "bfe297d58dfbe319b04ffa3d870bcd8684c7063ba33d93b88ccd7907e2944f29",
+      "key": "MAN-0906@v0.1@unbound@SUPPORT_LINGUISTIC_QA@bfe297d58dfbe319b04ffa3d870bcd8684c7063ba33d93b88ccd7907e2944f29",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0906-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.2",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 5,
+      "sha256": "f4c81046afb671c84974be27174762836ae6abd8de7c4ad1aabf2b65faecf8a0",
+      "key": "MAN-0001@v0.1@unbound@SUPPORT_LINGUISTIC_QA@f4c81046afb671c84974be27174762836ae6abd8de7c4ad1aabf2b65faecf8a0",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_9fcf99c9d93481919bb209c0abbe2771"
+      }
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 6,
+      "sha256": "e65ebaa711c4b97cf3a617da88fe6e1b3f0b15f3909d2a19e1c6ea911554e830",
+      "key": "MAN-0201@v0.1@unbound@SUPPORT_LINGUISTIC_QA@e65ebaa711c4b97cf3a617da88fe6e1b3f0b15f3909d2a19e1c6ea911554e830",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0201-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 6,
+      "sha256": "202b1d83675f12b26410b6ba607e29e8193d8c7ddf824197d34204b2ae04c089",
+      "key": "MAN-0311@v0.1@unbound@SUPPORT_LINGUISTIC_QA@202b1d83675f12b26410b6ba607e29e8193d8c7ddf824197d34204b2ae04c089",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0311-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 8,
+      "sha256": "9880cc0ecdda8ceb661aa046d66b8856c814aa6f2e70a99739a680cf9a1166f1",
+      "key": "MAN-0521@v0.1@unbound@SUPPORT_LINGUISTIC_QA@9880cc0ecdda8ceb661aa046d66b8856c814aa6f2e70a99739a680cf9a1166f1",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0521-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 8,
+      "sha256": "25f71c950ee3b542160443a03688cd014524ce211859c346caf5579c47ee6d5b",
+      "key": "MAN-0733@v0.1@unbound@SUPPORT_LINGUISTIC_QA@25f71c950ee3b542160443a03688cd014524ce211859c346caf5579c47ee6d5b",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0733-vi-VN-v0.1.json"
+      }
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "bundle_version": "v0.1",
+      "support_locale": "vi-VN",
+      "support_ready": true,
+      "support_qa": "PASS",
+      "reviewed_segment_count": 9,
+      "sha256": "904193e4362f270359b905635bee7a62b54f1cdb306da63ebd7a0e0fe0f66ed5",
+      "key": "MAN-0921@v0.1@unbound@SUPPORT_LINGUISTIC_QA@904193e4362f270359b905635bee7a62b54f1cdb306da63ebd7a0e0fe0f66ed5",
+      "bundle_location": {
+        "store": "ChatGPT Library",
+        "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+        "archive_member": "support/MAN-0921-vi-VN-v0.1.json"
+      }
+    }
+  ],
+  "support_ready_count": 12,
+  "reviewed_segments": 77,
+  "curriculum_or_practice_semantics_changed": false,
+  "actual_audio_created": false,
+  "paid_calls": 0,
+  "PRACTICE_READY_claimed": false,
+  "CONTRACT_VALID_claimed": false,
+  "release_claimed": false,
+  "checked_at": "2026-10-05T15:45:54.362633Z"
+}
