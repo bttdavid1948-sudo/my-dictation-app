@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "artifact_id": "practice-passive-lane-setup",
   "version": "v0.1",
-  "status": "REPOSITORY_CONTROLS_READY",
+  "status": "PASS",
   "owner_lane": "PRACTICE_2",
   "scope": "OFFICIAL_MAN_1000_ONLY",
   "owner_authorization_date": "2026-10-05",
@@ -33,7 +33,11 @@
     "arbitrary scope"
   ],
   "repository_setup_pass": true,
-  "active_passive_worker_registration": "PENDING_PLATFORM_REGISTRATION",
+  "active_passive_worker_registration": "REGISTERED_ENABLED_CONDITION_WATCH",
   "repo_definition_is_not_active_watcher": true,
-  "next_step": "Register one standing Practice condition/event worker if supported; otherwise report exact platform gap. Batch02 current semantic transition may be executed directly by Practice #2."
+  "next_step": "Standing Practice worker checks canonical main and acts only when responsible_lane=PRACTICE_2; event-driven worker may replace the polling fallback if platform registration becomes exposed.",
+  "active_worker_mode": "HOURLY_POLLING_FALLBACK",
+  "event_driven_worker_registration": "NOT_EXPOSED_IN_CURRENT_PLATFORM_TOOL_SURFACE",
+  "standing_activation_available": true,
+  "batch_scope_persistence": "BATCH_03_PLUS_NO_OWNER_REACTIVATION_REQUIRED_FOR_BATCH_CHANGE"
 }
