@@ -47,7 +47,7 @@ export function validate(s){
  const added=candidateArtifacts.artifacts.at(-1);same(added.owner_lane,'CURRICULUM_3');same(added.validation_status,'HASH_VERIFIED');assert.ok(added.id.startsWith('batch-02-curriculum-preproduction'));same(added.location.store,'ChatGPT Library (access controlled)');
  // Current-route mirrors may only change next_action plus explicitly documented passive-activation status fields.
  for(const [path,doc] of Object.entries(candidateDocs)){
-   if(path.endsWith('batch-02-watcher-pilot.json')){same(doc.batch02_production_opened,false);same(doc.paid_audio_calls,0);same(doc.scope,'OFFICIAL_MAN_1000_ONLY');same(doc.next_action,candidatePipeline.next_action);}
+   if(path.endsWith('batch-02-watcher-pilot.json')){const base=clone(doc.__base),cand=clone(doc);delete base.next_action;delete cand.__base;delete cand.next_action;same(cand,base);same(doc.batch02_production_opened,false);same(doc.paid_audio_calls,0);same(doc.scope,'OFFICIAL_MAN_1000_ONLY');same(doc.next_action,candidatePipeline.next_action);}
    else {const base=clone(doc.__base);delete base.next_action;const cand=clone(doc);delete cand.__base;delete cand.next_action;same(cand,base);same(doc.next_action,candidatePipeline.next_action);}
  }
  return {decision:'CURRICULUM_TRANSITION_ALLOWED',lesson_count:transition.lessons.length,next_action:candidatePipeline.next_action};
