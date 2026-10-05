@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
+  "event_definition": {
+    "connector_type": "github",
+    "webhook_name": "pull_request",
+    "params": {
+      "repository": "bttdavid1948-sudo/my-dictation-app",
+      "pull_request_number": 108,
+      "only_on_merge": true
+    }
+  },
+  "schedule": null,
+  "timezone": "Asia/Bangkok",
+  "registered_at": "2026-10-05T06:15:14.842773+00:00",
+  "wake_merge_sha": "27e02a95a83ac1a166e7344cca2d2641d5f5c130",
+  "receipt_ref": "operations/orchestration/watchers/receipts/activation-probe-v0.1.json",
+  "read_write_probe_not_production_autonomy": true,
+  "duplicate_policy": "Matching canonical receipt → silent no-action",
+  "authoritative_instruction_ref": "activation-probe.v0.1.md",
+  "event_observation": {
+    "registration": "SUCCESS",
+    "merge_event_at": "2026-10-05T06:15:34Z",
+    "last_run_observed": "2026-10-05T06:20:06.843743+00:00",
+    "receipt_observed": "PR109_BRANCH_ONLY_NOT_CANONICAL",
+    "manual_run_attempt": "ERROR: Run now is available only for ordinary cloud-scheduled tasks.",
+    "paused_at": "2026-10-05T06:17:24.362742+00:00",
+    "reason": "Isolate one supported scheduled execution probe; event delivery not yet proven, do not call unsupported.",
+    "merge_result": "AUTOMATIC_APPROVAL_REJECTED",
+    "event_delivery": "OBSERVED_AFTER_INITIAL_NULL_STATUS",
+    "paused": true
+  },
+  "scheduled_fallback": {
+    "kind": "ONE_SHOT_CAPABILITY_PROBE_NOT_POLLING",
+    "default_timezone": "Asia/Bangkok",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261005T071726Z\nEND:VEVENT",
+    "registered_at": "2026-10-05T06:17:27.004647+00:00",
+    "immediate_run_request": "ACCEPTED_ASYNC_ONLY",
+    "execution_observed": false,
+    "duplicate_future_schedule": "Pause after observed run; never represent enqueue as execution.",
+    "paused": true,
+    "future_schedule_disabled": true,
+    "immediate_enqueue_not_success": true
+  },
+  "receipt_pr": 109,
+  "no_retry_same_rejected_merge": true
+}

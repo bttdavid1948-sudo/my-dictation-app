@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+    "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -210,9 +210,9 @@
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
   "authorized_remaining_audio_exception_lesson_ids": [],
   "independent_operations_next_action": {
-    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "responsible_lane": "OPERATIONS_4",
-    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+    "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
@@ -226,12 +226,17 @@
     "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   },
   "orchestration_readiness_ref": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
-  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
+  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
   "pre_watcher_next_action": {
     "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
     "responsible_lane": "CURRICULUM_3",
     "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
   },
   "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
-  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json"
+  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json",
+  "previous_watcher_next_action": {
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+  }
 }
