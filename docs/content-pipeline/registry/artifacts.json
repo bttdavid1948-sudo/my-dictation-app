@@ -37,7 +37,8 @@
     "batch-01-completion-checkpoint": "v0.1",
     "batch-01-autonomous-orchestration-readiness": "v0.1",
     "official-1000-production-authority": "v0.1",
-    "batch-02-watcher-pilot": "v0.1"
+    "batch-02-watcher-pilot": "v0.1",
+    "batch-02-curriculum-preproduction": "v0.1"
   },
   "artifacts": [
     {
@@ -1238,14 +1239,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "0f424b7f36fcebdfaba5de1acbe40febcbca5f74e718545a23a450ebfe1fc65d",
-      "size_bytes": 16035,
+      "sha256": "41008ebadb186e85da59291f8e9d8cfa1154a2b8dbc29aae4d9968c9aa6b8853",
+      "size_bytes": 15866,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
-        "responsible_lane": "CURRICULUM_3",
-        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
+        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
       }
     },
     {
@@ -1271,14 +1272,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "477710f939aaa68946880e3dbd48ecdf41a032c17592ef808d812510fab5a151",
-      "size_bytes": 9284,
+      "sha256": "96f88327da89897ba770e5eef3c8a2515d78135fc4726d2c7e4904035fa321a1",
+      "size_bytes": 9115,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
       "next_action": {
-        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
-        "responsible_lane": "CURRICULUM_3",
-        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
+        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
       }
     },
     {
@@ -1336,13 +1337,49 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
-        "responsible_lane": "CURRICULUM_3",
-        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
+        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
+        "responsible_lane": "PRACTICE_2",
+        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
       },
-      "sha256": "acf0bafebdafd3137bd55c66c642c8b513fa8c138a0e528d46befa7fd576305a",
-      "size_bytes": 7663,
+      "sha256": "54973144437eb0b9b261f2f518c92430312b682eabc07e1f43e5c212678135d8",
+      "size_bytes": 7494,
       "semantic_validation_status": "WATCHER_SCOPED_CANONICAL_RECEIPT_PASS"
+    },
+    {
+      "id": "batch-02-curriculum-preproduction",
+      "name": "MAN-Batch-02-Curriculum-Preproduction-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Curriculum #3 official1000 passive-activation pilot",
+        "global-lesson-registry-snapshot@v0.1 full 1,000 reserved purpose map",
+        "curriculum-production-spec@v0.1 machine-readable Curriculum readiness"
+      ],
+      "dependencies": [
+        "global-lesson-registry-snapshot@v0.1",
+        "curriculum-production-spec@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library (access controlled)",
+        "path": "/MẶN — VẬN HÀNH/MAN-Batch-02-Curriculum-Preproduction-v0.1.xlsx",
+        "library_file_id": "libfile_3a226d20a7c48191a9dd3150864e9ab8"
+      },
+      "sha256": "388530041f4167cb23a42e87781c9a4f52cab69005350b33b1eaea16394492c8",
+      "size_bytes": 12145,
+      "validation_status": "HASH_VERIFIED",
+      "batch_id": "BATCH_02",
+      "lesson_count": 12,
+      "unique_purpose_pass_count": 12,
+      "curriculum_ready_count": 12,
+      "duplicate_count": 0,
+      "open_conflict_count": 0
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
