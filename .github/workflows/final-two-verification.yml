@@ -1,0 +1,47 @@
+name: Final two Batch01 exact controlled release verification
+on:
+  pull_request:
+    paths:
+      - assets/final-two-practice-runtime.js
+      - assets/official-lessons-final-two.json
+      - final-two-verification/**
+      - .github/workflows/final-two-verification.yml
+  push:
+    branches: [main]
+    paths:
+      - assets/final-two-practice-runtime.js
+      - assets/official-lessons-final-two.json
+      - final-two-verification/**
+      - .github/workflows/final-two-verification.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [MAN-0565, MAN-0905]
+        mode: [desktop, mobile]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Exact pair runtime checks (prior gates preserved)
+        env:
+          MAN_LESSON_ID: ${{ matrix.lesson }}
+          MAN_EXECUTION_MODE: ${{ matrix.mode }}
+          MAN_VERIFY_TARGET: ${{ github.event_name == 'pull_request' && 'staging' || 'live' }}
+        run: node final-two-verification/verify.mjs
+      - name: Preserve minimum release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-two-${{ matrix.lesson }}-${{ matrix.mode }}-${{ github.event_name }}
+          path: final-two-verification/evidence/${{ matrix.lesson }}/${{ matrix.mode }}/
+          retention-days: 7

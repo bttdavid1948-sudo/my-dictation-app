@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "owner_lane": "OPERATIONS_4",
+  "lesson_id": "MAN-0905",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0905-OPENAI-FIXED-v0.1",
+  "status": "CONTROLLED_RELEASE_PREPARED_LIVE_VERIFY_PENDING",
+  "complete": false,
+  "practice_evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
+  "practice_contract_pass_preserved": true,
+  "practice_contract_gates_rerun": false,
+  "catalog_ref": "assets/official-lessons-final-two.json",
+  "support_ref": "assets/support/MAN-0905-vi-VN-v0.1.json",
+  "rights_ref": "docs/content-pipeline/registry/man-0905-rights.json",
+  "scoring_boundary": "INFERENCE_COMPREHENSION_ONLY_NO_ACCENT_IDENTIFICATION_NO_CALIBRATED_MASTERY",
+  "asset_reconciliation": {
+    "immutable_assets_reused": true,
+    "new_tts_requests": 0
+  },
+  "feedback_system_capability_ref": "docs/content-pipeline/registry/batch-01-feedback-system-capability.json",
+  "feedback_read_scope": "Exact write binding and backend ACK; shared read capability reused. No per-lesson admin-read gate.",
+  "rollback": "Remove only this lesson from scoped assets/official-lessons-final-two.json through reviewed commit; retain immutable WAV/support. Isolated browser route verifies scoped withdrawal and no cached revival.",
+  "next_action": {
+    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_EXACT_PAIR",
+    "responsible_lane": "OPERATIONS_4"
+  }
+}

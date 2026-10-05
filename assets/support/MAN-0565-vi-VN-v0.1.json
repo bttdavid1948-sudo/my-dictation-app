@@ -1,0 +1,34 @@
+{
+  "bundle_id": "MAN-0565-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0565",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Một số người bỏ lỡ phần đánh giá nói vì xe đưa đón của trường ngừng chạy mà không có báo trước. Chúng ta có thể đơn giản cộng điểm bài viết của họ thay vào đó không?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Cách đó tiện, nhưng sẽ đánh giá một kỹ năng khác. Tôi muốn mở thêm một khung giờ thi nói hơn."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Phòng trống gần nhất phải một tuần nữa mới có, mà một số sinh viên cần kết quả sớm hơn."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Vậy hãy dùng phòng seminar nhỏ hơn vào thứ Tư. Chúng ta có thể chia thành những nhóm ít người hơn, miễn là mỗi sinh viên có thời gian chuẩn bị như nhau."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy hình thức vẫn có thể so sánh được, dù lịch thay đổi."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đúng vậy. Tốc độ quan trọng, nhưng so sánh công bằng còn quan trọng hơn."
+    }
+  ]
+}

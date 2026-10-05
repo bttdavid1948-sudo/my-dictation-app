@@ -4,9 +4,7 @@ on:
     branches: [main]
     paths:
       - assets/official-lessons-batch01-exceptions.json
-      - index.html
       - new-exceptions-verification/verify-mobile.mjs
-      - .github/workflows/new-exceptions-mobile-verification.yml
   workflow_dispatch:
 permissions:
   contents: read
