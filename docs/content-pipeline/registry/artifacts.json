@@ -35,7 +35,9 @@
     "batch-01-final-two-practice-disposition": "v0.1",
     "man-0844-overlap-execution-checkpoint": "v0.1",
     "batch-01-completion-checkpoint": "v0.1",
-    "batch-01-autonomous-orchestration-readiness": "v0.1"
+    "batch-01-autonomous-orchestration-readiness": "v0.1",
+    "official-1000-production-authority": "v0.1",
+    "batch-02-watcher-pilot": "v0.1"
   },
   "artifacts": [
     {
@@ -1236,14 +1238,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "bc500898d6d432310a6fb90ea3400ed0445270ef66c6d80cbcc4adc925b1672b",
-      "size_bytes": 14719,
+      "sha256": "c52a0a771ac7262674cd84058db654a8c499095f9f1c6d0a9c335c23a6126c22",
+      "size_bytes": 15330,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
-        "responsible_lane": "CURRICULUM_3",
-        "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
+        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
       }
     },
     {
@@ -1269,15 +1271,77 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "3ef0b8d52762dda5598440227b018f69169a2e6801bc52fae965dbce84ba74ca",
-      "size_bytes": 7811,
+      "sha256": "99200ffea432c73b28e9e08cfdf1482a4fd303cd34cd4273c1ec02c589a2580c",
+      "size_bytes": 8374,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
       "next_action": {
-        "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
-        "responsible_lane": "CURRICULUM_3",
-        "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
+        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
       }
+    },
+    {
+      "id": "official-1000-production-authority",
+      "name": "official-1000-production-authority.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OWNER",
+      "source": [
+        "Owner2026-10-05 official1000 standing authorization"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-01-completion-checkpoint@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/official-1000-production-authority.json"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "next_action": {
+        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+      },
+      "sha256": "ec1ca8f477ffca2c5c8fb21905fa429a7d60e590e1140d6d7a428f8b477c5555",
+      "size_bytes": 2812
+    },
+    {
+      "id": "batch-02-watcher-pilot",
+      "name": "batch-02-watcher-pilot.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner2026-10-05 official1000 standing authorization"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-01-completion-checkpoint@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-watcher-pilot.json"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "next_action": {
+        "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+      },
+      "sha256": "46ef883fdd08b203b1f484188d45c441a8c4731768463cfe9c2e340a657963d2",
+      "size_bytes": 2432
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"

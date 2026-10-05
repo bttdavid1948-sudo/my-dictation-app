@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-02-watcher-pilot",
+  "version": "v0.1",
+  "owner_lane": "OPERATIONS_4",
+  "state_scope": "CURRENT_AUTHORITATIVE",
+  "status": "FEASIBILITY_PROBE_PREPARED_NOT_VERIFIED",
+  "source_main": "be281846c475c54b695c2cb97e79f9085f6c7213",
+  "authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "pilot_batch": "BATCH_02",
+  "batch02_production_opened": false,
+  "paid_audio_calls": 0,
+  "general_framework_created": false,
+  "native_skills_required": false,
+  "supported_event": {
+    "connector": "github",
+    "event": "pull_request",
+    "only_on_merge": true,
+    "repo": "bttdavid1948-sudo/my-dictation-app",
+    "unsupported": "Direct push/file change event is not in discovered schema; hourly watchdog only if demonstrated necessary."
+  },
+  "execution_probe": {
+    "id": "activation-probe-v0.1",
+    "mode": "READ_CANONICAL_AND_SCOPED_RECEIPT_PR_ONLY",
+    "receipt_ref": "operations/orchestration/watchers/receipts/activation-probe-v0.1.json",
+    "expected": "Automatic wake → fresh canonical read → exact action/scope lookup → scoped receipt PR/merge; no Owner prompt courier. Repeat wake must reuse receipt.",
+    "semantic_decisions_allowed": false,
+    "provider_calls_allowed": false,
+    "production_allowed": false,
+    "observed_run": false,
+    "trigger_registered": false,
+    "source": "Connected event source + successful GitHub harmless main read + supported webhook schema discovery, 2026-10-05",
+    "success_boundary": "Registration, queued execution and actual successful canonical mutation are distinct. No full production autonomy claim from a read/write probe."
+  },
+  "lane_templates_ref": "operations/orchestration/watchers/trigger-templates.v0.1.json",
+  "budget_preflight": {
+    "standing_authority": "GRANTED",
+    "balance_observed": false,
+    "current_balance": null,
+    "new_paid_action_attempted": false,
+    "funding_exhaustion_claimed": false
+  },
+  "next_action": {
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "official-1000-production-authority",
+  "version": "v0.1",
+  "state_scope": "CURRENT_AUTHORITATIVE",
+  "owner_lane": "OWNER",
+  "decision_date": "2026-10-05",
+  "source": "Owner standing authorization: passive lane activation + prepaid audio production for official Mặn 1000 lessons",
+  "scope": {
+    "product": "MAN",
+    "content": "OFFICIAL_ONLY",
+    "reserved_lesson_count": 1000,
+    "excluded": [
+      "Private/user lessons",
+      "Product B production",
+      "General orchestration framework",
+      "Non-audio spend",
+      "New provider/billing architecture"
+    ]
+  },
+  "passive_activation": {
+    "authorized": true,
+    "first_pilot": "BATCH_02",
+    "event_preferred": true,
+    "polling_role": "WATCHDOG_OR_FALLBACK_ONLY",
+    "canonical_registry_required": true,
+    "lane_authority_required": true,
+    "cross_lane_semantic_override": false,
+    "l5_owner_decisions_automated": false,
+    "passed_gates_rerun": false,
+    "no_action": "SILENT_END",
+    "independent_progression": true,
+    "idempotent_resumable": true,
+    "portable_versioned_templates": true,
+    "native_skill_dependency": false,
+    "production_precondition": "Observed watcher execution capability and explicit Curriculum/Practice inputs; successful trigger creation alone is insufficient."
+  },
+  "audio_spend": {
+    "standing_authorized": true,
+    "scope": "All paid audio production and legitimate targeted QA repair for official reserved 1000 lessons only",
+    "per_lesson_batch_segment_reapproval": false,
+    "reuse_pass_assets": true,
+    "targeted_repair_only": true,
+    "funding_source": "EXISTING_OWNER_FUNDED_PREPAID_AUDIO_CREDIT",
+    "auto_top_up": false,
+    "auto_increase_budget": false,
+    "new_billing_commitment": false,
+    "change_provider_or_billing_architecture": false,
+    "existing_hard_controls_preserved": true,
+    "next_paid_call_preflight": "Verified source, credential, actual prepaid balance minus unsettled usage and in-flight reservations, conservative action estimate and existing hard controls. Unknown balance is not evidence of exhaustion.",
+    "insufficient_funds_route": "OWNER_FUNDING_REQUIRED",
+    "stop_scope": "PAID_AUDIO_BRANCH_ONLY",
+    "non_audio_independent_work_continues": true,
+    "minimum_top_up": "max(0, conservative next-action estimate minus verified available prepaid balance), with estimate basis/currency/uncertainty; never fabricate a balance or amount.",
+    "actual_usage_accounting": "Record provider usage/cost where available; reserve estimated cost before call; reconcile in-flight/unknown charge after partial execution before retry; absence of usage is not zero cost."
+  },
+  "frozen_contracts_unchanged": [
+    "content-pipeline-contract@v0.2",
+    "curriculum-practice-contract@v0.3"
+  ]
+}

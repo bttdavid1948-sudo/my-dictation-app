@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -89,6 +89,12 @@
       "responsible_lane": "OPERATIONS_4",
       "blocking": "lesson_only",
       "trigger": "Owner removed outsourced acoustic certification. Deterministic binding/integrity/decode/technical checks plus unprompted internal ASR lexical support establish controlled internal eligibility, not human/acoustic QA-PASS. FAIL/UNCERTAIN/ANOMALOUS are parked; each eligible realization routes independently to final Practice."
+    },
+    {
+      "code": "OWNER_FUNDING_REQUIRED",
+      "responsible_lane": "OWNER",
+      "blocking": "paid_audio_branch_only",
+      "trigger": "Verified remaining Owner-funded prepaid audio is insufficient for next conservatively estimated paid action; standing scope permission remains granted; independent non-audio work continues."
     }
   ],
   "freeze_manifest_ref": "docs/content-pipeline/registry/freeze-manifests/content-pipeline-contract-v0.2.json",
@@ -204,16 +210,9 @@
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
   "authorized_remaining_audio_exception_lesson_ids": [],
   "independent_operations_next_action": {
-    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_FINAL_TWO_PRACTICE_PASS_PAIRS",
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
     "responsible_lane": "OPERATIONS_4",
-    "lesson_ids": [
-      "MAN-0565",
-      "MAN-0905"
-    ],
-    "global_batch_blocker": false,
-    "independent_progression": true,
-    "evidence_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
-    "requires": "Progress each exact PASS pair independently through the existing controlled learner release/live verification path using prepared catalog/support drafts and existing rights/runtime/feedback/rollback machinery. Preserve Practice scoring boundaries and Owner soft-accent policy. Do not add an accent-certification gate or rerun completed static gates."
+    "requires": "Canonicalize standing authority; observe supported merge-event watcher reading canonical and recording a scoped receipt. No Batch02 production until actual lane execution capability is proven. On capability failure report exact gap and smallest next option; no large workaround."
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
@@ -227,5 +226,12 @@
     "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   },
   "orchestration_readiness_ref": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
-  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED"
+  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED",
+  "pre_watcher_next_action": {
+    "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
+  },
+  "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
+  "watcher_pilot_ref": "docs/content-pipeline/registry/batch-02-watcher-pilot.json"
 }
