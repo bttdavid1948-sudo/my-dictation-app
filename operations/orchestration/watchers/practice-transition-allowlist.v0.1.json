@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "official-man1000-practice-transition-v0.1",
+  "authorization": "Owner 2026-10-05 standing authorization for Practice #2 passive activation on official reserved Mặn 1,000 lessons only.",
+  "repository": "bttdavid1948-sudo/my-dictation-app",
+  "repository_id": 1377742729,
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "lane": "PRACTICE_2",
+  "branch_prefix": "practice/passive-",
+  "allowed_source_responsible_lane": "PRACTICE_2",
+  "allowed_destination_lanes": [
+    "OPERATIONS_4",
+    "PRACTICE_2",
+    "CURRICULUM_3",
+    "OWNER"
+  ],
+  "happy_path_destination": "OPERATIONS_4",
+  "allowed_transition_file_pattern": "docs/content-pipeline/registry/batch-XX-practice-preproduction.json",
+  "immutable_pipeline_fields": [
+    "contract_ref",
+    "contract_status",
+    "frozen_interface_ref",
+    "production_queue_enabled",
+    "preproduction_gates",
+    "preproduction_result",
+    "postproduction_gates",
+    "boundaries"
+  ],
+  "allowed_changed_files": [
+    "docs/content-pipeline/registry/pipeline.json",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-01-readiness.json",
+    "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
+    "docs/content-pipeline/registry/batch-02-watcher-pilot.json",
+    "docs/content-pipeline/registry/artifacts.json",
+    "docs/content-pipeline/README.md",
+    "docs/content-pipeline/registry/batch-XX-practice-preproduction.json"
+  ],
+  "practice_semantic_allowlist": [
+    "Consume explicit Curriculum Anchor_Intent planning metadata without altering Curriculum semantics",
+    "Select Practice operator/response/support/exposure/evidence semantics from frozen Practice v0.1",
+    "Issue PRACTICE_PREPROD_READY",
+    "Issue specification-level CONTRACT_PRECHECK_VALID without claiming produced-asset CONTRACT_VALID",
+    "Record Practice semantic conflict and remain in PRACTICE_2",
+    "Route Curriculum defect/ambiguity to CURRICULUM_3",
+    "When UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + CONTRACT_PRECHECK_VALID all PASS, issue PRODUCTION_READY and route OPERATIONS_4",
+    "Route breaking frozen contract/Product Direction/L5 to OWNER_DECISION_REQUIRED"
+  ],
+  "forbidden": [
+    "Curriculum semantic mutation",
+    "Operations implementation or production execution",
+    "Audio generation or QA",
+    "Production queue enable/open",
+    "Final PRACTICE_READY before produced target_anchors[]",
+    "Produced-asset CONTRACT_VALID before production",
+    "Frozen contract mutation",
+    "Product Direction mutation",
+    "Private/user lesson work",
+    "Product B work",
+    "Arbitrary code/content mutation"
+  ],
+  "fail_closed": true,
+  "no_action": "SILENT_END",
+  "idempotent_resumable": true,
+  "production_enabled": false,
+  "audio_enabled": false,
+  "arbitrary_code_mutation_allowed": false
+}
