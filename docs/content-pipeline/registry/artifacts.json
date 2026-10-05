@@ -1311,8 +1311,8 @@
         "responsible_lane": "CURRICULUM_3",
         "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       },
-      "sha256": "b415ededaeb6d6869e9a9bb678ffcc070c554a8887908c4b4d842341f04a474c",
-      "size_bytes": 3628
+      "sha256": "2f64ea133614711427c2f2aaadda515bd4706e17e855bbe9b9b1f17901e6573f",
+      "size_bytes": 4655
     },
     {
       "id": "batch-02-watcher-pilot",
