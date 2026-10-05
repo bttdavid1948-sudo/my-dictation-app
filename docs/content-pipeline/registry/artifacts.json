@@ -38,7 +38,8 @@
     "batch-01-autonomous-orchestration-readiness": "v0.1",
     "official-1000-production-authority": "v0.1",
     "batch-02-watcher-pilot": "v0.1",
-    "batch-02-curriculum-preproduction": "v0.1"
+    "batch-02-curriculum-preproduction": "v0.1",
+    "practice-passive-lane-setup": "v0.1"
   },
   "artifacts": [
     {
@@ -1310,8 +1311,8 @@
         "responsible_lane": "CURRICULUM_3",
         "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       },
-      "sha256": "b415ededaeb6d6869e9a9bb678ffcc070c554a8887908c4b4d842341f04a474c",
-      "size_bytes": 3628
+      "sha256": "2f64ea133614711427c2f2aaadda515bd4706e17e855bbe9b9b1f17901e6573f",
+      "size_bytes": 4655
     },
     {
       "id": "batch-02-watcher-pilot",
@@ -1380,6 +1381,33 @@
       "curriculum_ready_count": 12,
       "duplicate_count": 0,
       "open_conflict_count": 0
+    },
+    {
+      "id": "practice-passive-lane-setup",
+      "name": "practice-passive-lane-setup.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Owner one-time Practice passive activation authorization 2026-10-05",
+        "Existing State Resolver and scoped merge infrastructure"
+      ],
+      "dependencies": [
+        "official-1000-production-authority@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/practice-passive-lane-setup.json"
+      },
+      "validation_status": "HASH_VERIFIED",
+      "sha256": "8e27658d5e39561225d9f1a35017922f7dc7e8cdefac344e8c16e28aa3034113",
+      "size_bytes": 1510
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"

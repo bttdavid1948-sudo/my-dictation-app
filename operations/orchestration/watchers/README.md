@@ -27,3 +27,10 @@ PR108 canonicalized the two standing decisions. Its event actually activated the
 ## Curriculum passive-activation lane v0.1
 
 Owner authorized a standing Curriculum #3 lane for `OFFICIAL_MAN_1000_ONLY`. The trusted merge surface is deliberately smaller than a content/code writer: candidate PRs may only carry the versioned Curriculum preproduction disposition plus the canonical routing/index mirrors listed in `curriculum-transition-allowlist.v0.1.json`. The gate fails closed on any Practice/Operations override, queue enablement, frozen-contract change, transcript/content/audio mutation, private/user lesson scope or arbitrary code mutation. Curriculum semantic work still comes from the versioned private Curriculum specification + full reserved-identity snapshot; the public repo stores only sanitized transition evidence. PASS routes to Practice #2; true breaking authority routes Owner. No action/already processed is silent and idempotent.
+
+
+## Practice passive-activation lane v0.1
+
+Owner authorized a standing Practice #2 lane for `OFFICIAL_MAN_1000_ONLY`. It reuses the same trusted-main, State Resolver and scoped merge pattern as Curriculum. Candidate Practice transitions are limited to versioned preproduction disposition evidence plus canonical routing/index mirrors. The gate fails closed on Curriculum semantic mutation, Operations/audio/production work, queue enablement, final PRACTICE_READY/produced CONTRACT_VALID claims, frozen-contract/Product Direction mutation, private/user scope or arbitrary code/content changes. PASS may issue `PRACTICE_PREPROD_READY` and specification-level `CONTRACT_PRECHECK_VALID`; only when all four preproduction gates are explicit PASS may it canonicalize `PRODUCTION_READY` and route `OPERATIONS_4`. Practice conflicts remain in Practice; Curriculum defects route Curriculum; breaking authority routes Owner.
+
+Repository gate installation is distinct from activation of a persistent semantic worker. Current tool surface does not expose registration of a new merge-event Work worker, so active watcher registration must be evidenced separately; repo configuration alone is never reported as a live watcher.

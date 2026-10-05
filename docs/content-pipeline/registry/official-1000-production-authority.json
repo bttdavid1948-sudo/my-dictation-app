@@ -56,6 +56,31 @@
       "activation_mode": "CANONICAL_STATE_WATCH_WITH_TRUSTED_SCOPED_MERGE_GATE",
       "production_queue_permission": false,
       "audio_permission": false
+    },
+    "practice_lane": {
+      "authorized": true,
+      "scope": "OFFICIAL_MAN_1000_ONLY",
+      "policy_ref": "operations/orchestration/watchers/practice-transition-allowlist.v0.1.json",
+      "semantic_work_owner": "PRACTICE_2",
+      "allowed_output": [
+        "PRACTICE_PREPROD_READY",
+        "CONTRACT_PRECHECK_VALID",
+        "PRODUCTION_READY when all four preproduction gates PASS",
+        "Practice conflict disposition",
+        "route Curriculum defects to CURRICULUM_3",
+        "route PASS to OPERATIONS_4"
+      ],
+      "forbidden_override": [
+        "CURRICULUM_3 semantics",
+        "OPERATIONS_4 implementation/audio/production"
+      ],
+      "breaking_route": "OWNER_DECISION_REQUIRED",
+      "no_action": "SILENT_END",
+      "idempotent_resumable": true,
+      "standing_watch": "REPOSITORY_GATE_READY_ACTIVE_WORKER_REGISTRATION_PENDING",
+      "activation_mode": "CANONICAL_STATE_WATCH_WITH_TRUSTED_SCOPED_MERGE_GATE",
+      "production_queue_permission": false,
+      "audio_permission": false
     }
   },
   "audio_spend": {

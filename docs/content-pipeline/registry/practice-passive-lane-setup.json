@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "practice-passive-lane-setup",
+  "version": "v0.1",
+  "status": "REPOSITORY_CONTROLS_READY",
+  "owner_lane": "PRACTICE_2",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_authorization_date": "2026-10-05",
+  "reuse": [
+    "operations/orchestration/resolve.mjs",
+    "existing batch-state validation",
+    "trusted scoped repository merge pattern"
+  ],
+  "installed": [
+    "operations/orchestration/watchers/practice-transition-allowlist.v0.1.json",
+    "operations/orchestration/watchers/practice-transition-merge.mjs",
+    "operations/orchestration/watchers/practice-transition.test.mjs",
+    ".github/workflows/official-man-practice-transition-merge.yml"
+  ],
+  "fail_closed_routes": {
+    "practice_conflict": "PRACTICE_2",
+    "curriculum_defect": "CURRICULUM_3",
+    "breaking_contract_product_l5": "OWNER_DECISION_REQUIRED",
+    "pass": "OPERATIONS_4",
+    "no_action": "SILENT_END"
+  },
+  "forbidden": [
+    "Curriculum semantic mutation",
+    "Operations/audio/production work",
+    "queue open",
+    "rerun PASS gates",
+    "final PRACTICE_READY before produced anchors",
+    "arbitrary scope"
+  ],
+  "repository_setup_pass": true,
+  "active_passive_worker_registration": "PENDING_PLATFORM_REGISTRATION",
+  "repo_definition_is_not_active_watcher": true,
+  "next_step": "Register one standing Practice condition/event worker if supported; otherwise report exact platform gap. Batch02 current semantic transition may be executed directly by Practice #2."
+}

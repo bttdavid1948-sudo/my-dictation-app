@@ -1,0 +1,29 @@
+name: Official MAN Practice scoped transition merge
+on:
+  workflow_run:
+    workflows: [Batch state and bounded resolver validation]
+    types: [completed]
+    branches:
+      - 'practice/passive-*'
+permissions: {}
+concurrency:
+  group: official-man-practice-transition-v0.1
+  cancel-in-progress: false
+jobs:
+  practice:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - run: node operations/orchestration/watchers/practice-transition-merge.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRUSTED_MAIN: ${{ github.sha }}
