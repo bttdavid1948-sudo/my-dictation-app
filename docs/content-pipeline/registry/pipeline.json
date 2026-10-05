@@ -5,11 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "CONTROLLED_RELEASE_LIVE_VERIFY_REMAINING_EXACT_PAIRS",
+    "code": "BATCH_01_CLOSE_AND_RECONCILE",
     "responsible_lane": "OPERATIONS_4",
-    "lesson_ids": [
-      "MAN-0905"
-    ]
+    "lesson_ids": []
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
