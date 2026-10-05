@@ -38,7 +38,8 @@
     "batch-01-autonomous-orchestration-readiness": "v0.1",
     "official-1000-production-authority": "v0.1",
     "batch-02-watcher-pilot": "v0.1",
-    "batch-02-curriculum-preproduction": "v0.1"
+    "batch-02-curriculum-preproduction": "v0.1",
+    "practice-passive-lane-setup": "v0.1"
   },
   "artifacts": [
     {
@@ -1380,6 +1381,31 @@
       "curriculum_ready_count": 12,
       "duplicate_count": 0,
       "open_conflict_count": 0
+    },
+    {
+      "id": "practice-passive-lane-setup",
+      "name": "practice-passive-lane-setup.json",
+      "version": "v0.1",
+      "status": "REPOSITORY_CONTROLS_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Owner one-time Practice passive activation authorization 2026-10-05",
+        "Existing State Resolver and scoped merge infrastructure"
+      ],
+      "dependencies": [
+        "official-1000-production-authority@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/practice-passive-lane-setup.json"
+      },
+      "validation_status": "SETUP_DEFINED_PENDING_ACTIVE_WORKER_REGISTRATION"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
