@@ -1238,14 +1238,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "6076197634121ffdbe391c1c83789b82d43313b593e3e9fb378565a6580a090b",
-      "size_bytes": 15844,
+      "sha256": "0f424b7f36fcebdfaba5de1acbe40febcbca5f74e718545a23a450ebfe1fc65d",
+      "size_bytes": 16035,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-        "responsible_lane": "OPERATIONS_4",
-        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
+        "responsible_lane": "CURRICULUM_3",
+        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       }
     },
     {
@@ -1271,14 +1271,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "009530c34a96c12ddfa75a96433d2a3f02aaf2f85b5da953197e01857dcea834",
-      "size_bytes": 9038,
+      "sha256": "477710f939aaa68946880e3dbd48ecdf41a032c17592ef808d812510fab5a151",
+      "size_bytes": 9284,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
       "next_action": {
-        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-        "responsible_lane": "OPERATIONS_4",
-        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
+        "responsible_lane": "CURRICULUM_3",
+        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       }
     },
     {
@@ -1305,9 +1305,9 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-        "responsible_lane": "OPERATIONS_4",
-        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
+        "responsible_lane": "CURRICULUM_3",
+        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       },
       "sha256": "ec1ca8f477ffca2c5c8fb21905fa429a7d60e590e1140d6d7a428f8b477c5555",
       "size_bytes": 2812
@@ -1336,13 +1336,13 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-        "responsible_lane": "OPERATIONS_4",
-        "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+        "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
+        "responsible_lane": "CURRICULUM_3",
+        "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       },
-      "sha256": "30bd77ac1d857049a403d0b5673554c56c70101e3e157541d86c2095326a637d",
-      "size_bytes": 5152,
-      "semantic_validation_status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION"
+      "sha256": "acf0bafebdafd3137bd55c66c642c8b513fa8c138a0e528d46befa7fd576305a",
+      "size_bytes": 7663,
+      "semantic_validation_status": "WATCHER_SCOPED_CANONICAL_RECEIPT_PASS"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"

@@ -4,8 +4,8 @@
   "version": "v0.1",
   "owner_lane": "OPERATIONS_4",
   "state_scope": "CURRENT_AUTHORITATIVE",
-  "status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-  "source_main": "be281846c475c54b695c2cb97e79f9085f6c7213",
+  "status": "WATCHER_SCOPED_CANONICAL_RECEIPT_PASS",
+  "source_main": "f6e9b3bf9c3c51c4802b2ebf91845db6cd63cf9b",
   "authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
   "scope": "OFFICIAL_MAN_1000_ONLY",
   "pilot_batch": "BATCH_02",
@@ -21,35 +21,39 @@
     "unsupported": "Direct push/file change event is not in discovered schema; hourly watchdog only if demonstrated necessary."
   },
   "execution_probe": {
-    "id": "activation-probe-v0.1",
-    "mode": "READ_CANONICAL_AND_SCOPED_RECEIPT_PR_ONLY",
-    "receipt_ref": "operations/orchestration/watchers/receipts/activation-probe-v0.1.json",
-    "expected": "Automatic wake → fresh canonical read → exact action/scope lookup → scoped receipt PR/merge; no Owner prompt courier. Repeat wake must reuse receipt.",
+    "id": "activation-probe-v0.2",
+    "mode": "EVENT_WORK_RECEIPT_PR_TRUSTED_REPOSITORY_GATE",
+    "receipt_ref": "operations/orchestration/watchers/receipts/activation-probe-v0.2.json",
+    "receipt_sha256": "6284aca5132941e548dcfca948bb85e020b24453108f2ad0a272cf17e04daf75",
+    "observed_run": true,
+    "trigger_registered": true,
+    "wake_pr": 111,
+    "wake_merge_sha": "877f2afbbb3d4f2fe87afba5d80d54fce6162570",
+    "receipt_pr": 112,
+    "receipt_pr_head": "66e471967914419079bc18dea73ae8c65315a52b",
+    "receipt_merge_sha": "f6e9b3bf9c3c51c4802b2ebf91845db6cd63cf9b",
+    "receipt_merged_at": "2026-10-05T06:55:14Z",
+    "ci_run": 37274836503,
+    "merge_gate_run": 37274856518,
+    "merge_gate_job": 111649536964,
+    "policy_ref": "operations/orchestration/watchers/scoped-merge-policy.v0.1.json",
+    "observed_results": {
+      "event_wake": "PASS_REAL_WORKER_BRANCH_AND_PR",
+      "canonical_read": "PASS_HASH_BOUND",
+      "branch_create": "PASS",
+      "receipt_file_write": "PASS",
+      "receipt_pr_create": "PASS_PR112",
+      "authorization_validation": "PASS_TRUSTED_MAIN_GATE",
+      "automatic_merge": "PASS_REPOSITORY_GITHUB_TOKEN",
+      "receipt_canonicalized": true,
+      "full_probe": "PASS_CANONICAL_RECEIPT_OBSERVED"
+    },
     "semantic_decisions_allowed": false,
     "provider_calls_allowed": false,
     "production_allowed": false,
-    "observed_run": true,
-    "trigger_registered": true,
-    "source": "Connected event source + successful GitHub harmless main read + supported webhook schema discovery, 2026-10-05",
-    "success_boundary": "Registration, queued execution and actual successful canonical mutation are distinct. No full production autonomy claim from a read/write probe.",
-    "event_run_finished_at": "2026-10-05T06:20:06.843743+00:00",
-    "registration_and_execution_distinct": true,
-    "observed_results": {
-      "canonical_read": "PASS",
-      "branch_create": "PASS",
-      "receipt_file_write": "PASS_ON_BRANCH_ONLY",
-      "receipt_pr_create": "PASS_PR109",
-      "automatic_merge": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW",
-      "receipt_canonicalized": false,
-      "full_probe": "BLOCKED_NOT_PASS"
-    },
-    "receipt_pr": 109,
-    "receipt_pr_head": "adc2f39a11f6d273cf8aa23d3dd6e9080c0a6283",
-    "receipt_main_status": "ABSENT_AT_RECONCILIATION",
-    "merge_rejection_reason": "Automatic approval review did not recognize authorization for the exact merge into main.",
-    "worker_report_source": "Actual event automation assistant outcome2026-10-05T06:20:05Z retrieved through Personal Context; independently verified PR109 single-file diff/open state and main SHA.",
-    "event_paused": true,
-    "same_rejected_merge_retried": false
+    "owner_prompt_or_approval_during_probe": false,
+    "root_or_manual_receipt_merge": false,
+    "success_boundary": "Observed harmless receipt transition only; Curriculum/Practice semantic transitions and private input access are not yet proved."
   },
   "lane_templates_ref": "operations/orchestration/watchers/trigger-templates.v0.1.json",
   "budget_preflight": {
@@ -60,11 +64,11 @@
     "funding_exhaustion_claimed": false
   },
   "next_action": {
-    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "STOP pilot expansion. Event worker created scoped receipt PR109 but automatic approval rejected its merge for unrecognized exact main-merge authorization. Resolve supported standing-authority propagation before another autonomous merge; do not bypass/retry that action or treat root/manual merging as watcher PASS. Batch02 production remains closed."
+    "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
+    "responsible_lane": "CURRICULUM_3",
+    "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
   },
-  "checked_at": "2026-10-05T06:21:37Z",
+  "checked_at": "2026-10-05T06:58:35.792809Z",
   "canonical_authority_pr": 108,
   "canonical_authority_merge": "27e02a95a83ac1a166e7344cca2d2641d5f5c130",
   "scheduled_probe": {
@@ -77,7 +81,40 @@
     "event_manual_run_error": "Run now is available only for ordinary cloud-scheduled tasks.",
     "no_completion_claim": true
   },
-  "capability_gap": {
+  "prior_execution_probes": [
+    {
+      "id": "activation-probe-v0.1",
+      "mode": "READ_CANONICAL_AND_SCOPED_RECEIPT_PR_ONLY",
+      "receipt_ref": "operations/orchestration/watchers/receipts/activation-probe-v0.1.json",
+      "expected": "Automatic wake → fresh canonical read → exact action/scope lookup → scoped receipt PR/merge; no Owner prompt courier. Repeat wake must reuse receipt.",
+      "semantic_decisions_allowed": false,
+      "provider_calls_allowed": false,
+      "production_allowed": false,
+      "observed_run": true,
+      "trigger_registered": true,
+      "source": "Connected event source + successful GitHub harmless main read + supported webhook schema discovery, 2026-10-05",
+      "success_boundary": "Registration, queued execution and actual successful canonical mutation are distinct. No full production autonomy claim from a read/write probe.",
+      "event_run_finished_at": "2026-10-05T06:20:06.843743+00:00",
+      "registration_and_execution_distinct": true,
+      "observed_results": {
+        "canonical_read": "PASS",
+        "branch_create": "PASS",
+        "receipt_file_write": "PASS_ON_BRANCH_ONLY",
+        "receipt_pr_create": "PASS_PR109",
+        "automatic_merge": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW",
+        "receipt_canonicalized": false,
+        "full_probe": "BLOCKED_NOT_PASS"
+      },
+      "receipt_pr": 109,
+      "receipt_pr_head": "adc2f39a11f6d273cf8aa23d3dd6e9080c0a6283",
+      "receipt_main_status": "ABSENT_AT_RECONCILIATION",
+      "merge_rejection_reason": "Automatic approval review did not recognize authorization for the exact merge into main.",
+      "worker_report_source": "Actual event automation assistant outcome2026-10-05T06:20:05Z retrieved through Personal Context; independently verified PR109 single-file diff/open state and main SHA.",
+      "event_paused": true,
+      "same_rejected_merge_retried": false
+    }
+  ],
+  "prior_capability_gap": {
     "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
     "layer": "AUTOMATION_RUNTIME_APPROVAL_AUTHORITY_PROPAGATION",
     "technical_github_read_and_pr_write_available": true,
@@ -94,5 +131,14 @@
     "bypass_forbidden": true,
     "owner_payment_reapproval_needed": false,
     "minimum_owner_intervention": "Only platform/standing-merge-authorization exception resolution; no lesson prompts, commands, audio review or per-action funding approvals."
+  },
+  "merge_capability": {
+    "status": "PASS_RECEIPT_ONLY",
+    "scope": "OFFICIAL_MAN_1000_ONLY",
+    "native_action_specific_persistent_approval_exposed": false,
+    "broad_plugin_permission_changed": false,
+    "repository_write_gate": "one approved actor/branch/file, trusted default-branch code, successful read-only CI, canonical hashes/parent/head freshness, exact schema and idempotency",
+    "semantic_transitions_enabled": false,
+    "remaining_boundary": "Preproduction semantic lane handoffs require existing private inputs and explicit owning-lane decisions, with narrowly validated transition paths; never enable arbitrary watcher code/content."
   }
 }
