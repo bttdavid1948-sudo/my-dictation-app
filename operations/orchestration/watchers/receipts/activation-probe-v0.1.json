@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "probe_id": "activation-probe-v0.1",
+  "status": "PASS_READ_CANONICAL_AND_SCOPED_RECEIPT_WRITE",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "source_main": "27e02a95a83ac1a166e7344cca2d2641d5f5c130",
+  "canonical_next_action": {
+    "code": "PASSIVE_LANE_ACTIVATION_FEASIBILITY",
+    "responsible_lane": "OPERATIONS_4"
+  },
+  "batch01_complete_count": 12,
+  "batch02_production_opened": false,
+  "paid_calls": 0,
+  "semantic_dispositions_performed": false,
+  "passed_gates_rerun": false,
+  "tool_capabilities_observed": [
+    "mcp__codex_apps__github_fetch_commit",
+    "mcp__codex_apps__github_fetch_file",
+    "mcp__codex_apps__github_search_branches",
+    "mcp__codex_apps__github_create_branch",
+    "mcp__codex_apps__github_create_file",
+    "mcp__codex_apps__github_create_pull_request",
+    "mcp__codex_apps__github_compare_commits",
+    "mcp__codex_apps__github_list_pr_changed_filenames",
+    "mcp__codex_apps__github_merge_pull_request"
+  ],
+  "checked_at": "2026-10-05T06:18:37Z"
+}
