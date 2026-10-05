@@ -16,6 +16,10 @@ The standing authorization removes per-action approval, not funding verification
 
 These plain JSON/instruction templates are versioned and portable without native Skills. Package into Skill/Plugin only after production evidence justifies it. Product B needs independent authority/funding; no generic framework is built here.
 
-## Observed result2026-10-05
+## Historical result before fresh v0.2 probe2026-10-05
 
 PR108 canonicalized the two standing decisions. Its event actually activated the worker, which read fresh canonical and independently created one receipt file/branch/PR109. Automatic approval rejected the exact merge, citing unrecognized merge authorization. The receipt is only on that branch and its PASS-labelled preparation is not accepted as canonical probe PASS. Both event and one-shot scheduled fallback probes are paused. The scheduled run request was accepted asynchronously; completion was not observed and is not claimed. STOP expansion at the approval-authority propagation gap. Do not retry/bypass the rejected merge, create a GitHub Actions auto-merge workaround, or call a root/manual merge proof of unattended activation. The smallest next evaluation is supported recognition of narrowly scoped standing watcher merge authority; a one-off exact PR109 approval would only close the receipt, not prove future production autonomy. No lane-template workers or Batch02 production have been activated.
+
+## Current scoped activation result2026-10-05
+
+**WATCHER_SCOPED_CANONICAL_RECEIPT_PASS** supersedes the earlier current blocker/stop instructions for this receipt-only route. Owner explicitly authorized the minimal repository gate after PR110. PR111 installed it; the real merge event activated Work, which created PR112. CI run37274836503 and trusted gate run37274856518 PASS; the gate merged112 at2026-10-05T06:55:14Z, receipt observable at f6e9b3b. PR109 is superseded historical failed evidence, never merged as proof. Current next action: **BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT → CURRICULUM_3**, then owning Practice disposition. Batch02 production remains closed; receipt-only gate cannot merge semantic/content/code transitions. Audio standing authority is unchanged; no audio spend. See registry/batch-02-watcher-pilot.json for indexed canonical evidence.

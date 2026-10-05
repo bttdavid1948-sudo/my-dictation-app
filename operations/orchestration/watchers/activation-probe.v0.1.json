@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "version": "v0.1",
   "scope": "OFFICIAL_MAN_1000_ONLY",
-  "status": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
+  "status": "SUPERSEDED_FAILED_PROBE_V0_1",
   "event_definition": {
     "connector_type": "github",
     "webhook_name": "pull_request",
@@ -45,5 +45,8 @@
     "immediate_enqueue_not_success": true
   },
   "receipt_pr": 109,
-  "no_retry_same_rejected_merge": true
+  "no_retry_same_rejected_merge": true,
+  "state_scope": "HISTORICAL_EVIDENCE",
+  "superseded_by": "operations/orchestration/watchers/receipts/activation-probe-v0.2.json",
+  "superseding_pr": 112
 }
