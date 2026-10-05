@@ -1504,8 +1504,8 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json"
       },
-      "sha256": "09632c1a9c9eba55ea8d185095f79180f820cd77925527ecb2db64a283cc295c",
-      "size_bytes": 5414,
+      "sha256": "53c37d35f04f81f2e4f63018cdeaff843a3c66624e2760ad4b51f44e1c21c557",
+      "size_bytes": 5975,
       "validation_status": "HASH_VERIFIED"
     },
     {
