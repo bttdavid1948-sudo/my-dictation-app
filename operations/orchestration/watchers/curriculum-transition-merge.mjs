@@ -36,9 +36,14 @@ export function validate(s){
  }
  assert.ok(transition.source_refs.includes('global-lesson-registry-snapshot@v0.1'));
  assert.ok(transition.source_refs.includes('curriculum-production-spec@v0.1'));
- // Existing artifact history is immutable; candidate may append exactly one Curriculum artifact record.
+ // Existing artifact history is immutable except exact reindex fields for authoritative registry evidence changed by this transition; candidate appends exactly one Curriculum artifact.
  assert.equal(candidateArtifacts.artifacts.length,mainArtifacts.artifacts.length+1);
- same(candidateArtifacts.artifacts.slice(0,mainArtifacts.artifacts.length),mainArtifacts.artifacts);
+ const reindexable=new Set(['batch-01-completion-checkpoint','batch-01-autonomous-orchestration-readiness','batch-02-watcher-pilot']);
+ for(let i=0;i<mainArtifacts.artifacts.length;i++){
+   const before=clone(mainArtifacts.artifacts[i]),after=clone(candidateArtifacts.artifacts[i]);same(after.id,before.id);same(after.version,before.version);
+   if(reindexable.has(before.id)){for(const k of ['sha256','size_bytes','next_action']){delete before[k];delete after[k];}same(after,before);}
+   else same(after,before);
+ }
  const added=candidateArtifacts.artifacts.at(-1);same(added.owner_lane,'CURRICULUM_3');same(added.validation_status,'HASH_VERIFIED');assert.ok(added.id.startsWith('batch-02-curriculum-preproduction'));same(added.location.store,'ChatGPT Library (access controlled)');
  // Current-route mirrors may only change next_action plus explicitly documented passive-activation status fields.
  for(const [path,doc] of Object.entries(candidateDocs)){
