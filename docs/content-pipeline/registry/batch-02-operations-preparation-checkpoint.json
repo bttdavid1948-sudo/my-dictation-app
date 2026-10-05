@@ -36,7 +36,7 @@
     {
       "code": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
       "branch": "PAID_AUDIO_ONLY",
-      "reason": "Signed-in Platform and funded prepaid balance now observed; existing production API credential absent, secure runtime key intake not exposed, unsettled/inflight net-credit reconciliation incomplete. No funding exhaustion claim.",
+      "reason": "Repository-held producer credential authenticated successfully in GitHub runner. Current net prepaid minus unsettled/inflight is unverified; Platform browser requires sign-in. No audio output or funding exhaustion claimed.",
       "funding_exhaustion_claimed": false
     }
   ],
@@ -89,14 +89,14 @@
     "actual_audio_created": false
   },
   "current_recovery": {
-    "source_main": "e934ed68b25279462a8670ad7ae572eb70cad776",
-    "checked_at": "2026-10-05T16:44:35.495872+00:00",
-    "authentication": "PASS_OBSERVED_SIGNED_IN_PLATFORM",
+    "source_main": "f08f2c71bbfb8109d5d5077269f22fc703a99629",
+    "checked_at": "2026-10-05T18:30:25.169973+00:00",
+    "authentication": "PASS_AUTHENTICATED_GITHUB_RUNNER_OPENAI_MODELS",
     "prepaid_balance_observed": true,
     "auto_reload": "OFF_OBSERVED",
     "net_available_credit_verified": false,
     "unsettled_and_inflight_reconciliation": "UNVERIFIED_NOT_ASSUMED_ZERO",
-    "existing_producer_credential_present": false,
+    "existing_producer_credential_present": true,
     "runtime_secure_secret_intake_exposed": false,
     "browser_tts": "FORM_ACCESS_OBSERVED_NO_GENERATION_OR_EXPORT_PROOF",
     "browser_history": "EMPTY_IN_CURRENT_PROJECT_SESSION_NOT_PROOF_OF_ZERO_USAGE",
@@ -105,8 +105,21 @@
     "assets_regenerated": 0,
     "support_rights_receipts": "REUSE_EXACT_CANONICAL_PASS_12_OF_12",
     "terminal_state": "OWNER_ACTION_REQUIRED",
-    "exact_blocker": "SECURE_PRODUCER_PROVISIONING_AND_NET_CREDIT_RECONCILIATION",
-    "next_minimum_action": "Enable the suggested OpenAI Developers capability; inspect its actual secure API-key provisioning surface before any credential or paid action. Availability of secure provisioning is not yet proven. Never supply secrets in chat.",
-    "resume_point": "Exact 77-segment prepared manifest; prepaid preflight before queue/audio; actual final Practice then independent release/live/close"
+    "exact_blocker": "CURRENT_NET_PREPAID_UNSETTLED_INFLIGHT_RECONCILIATION_PLATFORM_BROWSER_SIGN_IN_REQUIRED",
+    "next_minimum_action": "Complete secure Platform browser sign-in for read-only current billing/usage reconciliation. Do not change repository credential, provider, funding or auto-reload.",
+    "resume_point": "Exact 77-segment prepared manifest; prepaid preflight before queue/audio; actual final Practice then independent release/live/close",
+    "credential_location": "GITHUB_REPOSITORY_SECRET_OPENAI_API_KEY",
+    "secure_producer_access": "AUTHENTICATED_READ_PASS_AUDIO_OUTPUT_NOT_YET_VERIFIED",
+    "execution_receipt": {
+      "run_id": 37356435836,
+      "job_id": 111919900060,
+      "source_sha": "f08f2c71bbfb8109d5d5077269f22fc703a99629",
+      "authenticated": true,
+      "tts_model_listed": true,
+      "paid_calls": 0,
+      "audio_output_verified": false,
+      "status": "AUTHENTICATED_READ_PASS_AUDIO_BUDGET_RECONCILIATION_REQUIRED",
+      "workflow_ref": ".github/workflows/batch02-producer-preflight.yml"
+    }
   }
 }
