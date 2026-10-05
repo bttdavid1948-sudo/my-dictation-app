@@ -1,0 +1,38 @@
+{
+  "bundle_id": "MAN-0905-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0905",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Chúng ta đã mô tả bài đánh giá thay thế là tương đương. Từ đó có nghĩa là mức độ yêu cầu ngang nhau, hay chỉ là có thể thay thế cho nhau về mặt hành chính?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Nếu chỉ có nghĩa thứ hai, nhãn đó đang gánh nhiều hơn những gì bằng chứng cho phép. Bài viết lấy mẫu khả năng lập luận; cuộc phỏng vấn ban đầu lấy mẫu khả năng phản hồi ngay tại chỗ."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Đúng, nhưng ở giai đoạn này không thể tổ chức lại cuộc phỏng vấn cho mọi ứng viên. Chúng ta vẫn cần một quyết định không ưu ái những người tình cờ đã có mặt."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Vậy có lẽ chúng ta nên ngừng hứa hẹn sự tương đương và nêu một kết luận hẹp hơn: bài thay thế tạo ra bằng chứng đủ cho quyết định này, kèm theo một hạn chế được ghi rõ."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Nghe như vậy thì kém yên tâm hơn."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đúng, kém yên tâm hơn; nhưng cũng có cơ sở bảo vệ vững hơn. Tôi muốn thừa nhận khoảng trống hơn là che nó sau một tính từ gọn gàng."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Vậy bước tiếp theo là xác định bằng chứng nào là đủ, và thể hiện rõ hạn chế trong hồ sơ cuối cùng."
+    }
+  ]
+}

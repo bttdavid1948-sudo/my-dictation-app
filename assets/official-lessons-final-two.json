@@ -1,0 +1,329 @@
+{
+  "catalogVersion": 1,
+  "publisher": "man",
+  "lessons": [
+    {
+      "id": "MAN-0565",
+      "unitName": "MAN-0565 · Đánh giá bù công bằng",
+      "topic": "Học tập",
+      "level": "B2",
+      "track": "Giao tiếp",
+      "learningGoal": "Hiểu lập luận và suy ra quyết định trong thảo luận về đánh giá.",
+      "usefulLanguage": [
+        "fair comparison",
+        "same preparation time"
+      ],
+      "items": [
+        {
+          "en": "Several people missed the oral assessment because the campus shuttle stopped without warning. Could we simply add their written scores instead?",
+          "vi": "Một số người bỏ lỡ phần đánh giá nói vì xe đưa đón của trường ngừng chạy mà không có báo trước. Chúng ta có thể đơn giản cộng điểm bài viết của họ thay vào đó không?",
+          "segmentId": "S001",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S001-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "d1654c91ef95f4a0a70f47f87fe4285022a4c660d06538e58ef5dc33d330b145",
+            "durationSeconds": 8.15,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "That would be convenient, but it would measure a different skill. I would rather offer another oral slot.",
+          "vi": "Cách đó tiện, nhưng sẽ đánh giá một kỹ năng khác. Tôi muốn mở thêm một khung giờ thi nói hơn.",
+          "segmentId": "S002",
+          "speakerRole": "tutor",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S002-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "0cb10cc53c658164ab991e009e40330be068eca231231f99e783bc575946761e",
+            "durationSeconds": 7.15,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The next free room is a week away, and some students need their results sooner.",
+          "vi": "Phòng trống gần nhất phải một tuần nữa mới có, mà một số sinh viên cần kết quả sớm hơn.",
+          "segmentId": "S003",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S003-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "7a14f897680cdd1e021b58142a39733c9efb3dca13f80f7419a6446a1212e511",
+            "durationSeconds": 4.95,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Then let us use the smaller seminar room on Wednesday. We can run shorter groups, provided each student gets the same preparation time.",
+          "vi": "Vậy hãy dùng phòng seminar nhỏ hơn vào thứ Tư. Chúng ta có thể chia thành những nhóm ít người hơn, miễn là mỗi sinh viên có thời gian chuẩn bị như nhau.",
+          "segmentId": "S004",
+          "speakerRole": "tutor",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S004-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "64636cc24961e1242f46ed196e494974aadf43f6859a09fbd81ee0557e7653f5",
+            "durationSeconds": 9.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "So the format stays comparable, even though the timetable changes.",
+          "vi": "Vậy hình thức vẫn có thể so sánh được, dù lịch thay đổi.",
+          "segmentId": "S005",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S005-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "3be6f026175f26fedbf1c6d282fd8f125f9315ff1641b91cfa0caa674ddd1a59",
+            "durationSeconds": 4.65,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Exactly. Speed matters, but a fair comparison matters more.",
+          "vi": "Đúng vậy. Tốc độ quan trọng, nhưng so sánh công bằng còn quan trọng hơn.",
+          "segmentId": "S006",
+          "speakerRole": "tutor",
+          "audio": {
+            "url": "assets/audio/MAN-0565-S006-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0565",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0565-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0565-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "1a589df4faa6d0149ec2f04bbf946dfb0e8edd8cd2d1d1892538e2cfd655eb99",
+            "durationSeconds": 5.25,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0565-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0565-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0565-OPENAI-FIXED-v0.1",
+      "aiGeneratedAudio": true,
+      "practice": {
+        "operator": "INFERENCE",
+        "construct": "INFERENCE",
+        "speechCondition": "TRANSFER_VARIATION_CONDITION",
+        "anchorId": "MAN-0565-A-COMP-01",
+        "scoringBoundary": "INFERENCE_COMPREHENSION_ONLY_NO_ACCENT_IDENTIFICATION_NO_CALIBRATED_MASTERY",
+        "referenceAnswer": "Bài viết đánh giá kỹ năng khác nên không thay được bài nói. Thay phòng và lịch, giữ hình thức nói cùng thời gian chuẩn bị ngang nhau để so sánh công bằng.",
+        "choices": [
+          "Giữ bài nói và thời gian chuẩn bị ngang nhau, chỉ đổi phòng và lịch.",
+          "Dùng điểm bài viết thay bài nói để có kết quả nhanh hơn.",
+          "Rút ngắn thời gian chuẩn bị của những người cần kết quả sớm."
+        ],
+        "correctChoice": 0
+      }
+    },
+    {
+      "id": "MAN-0905",
+      "unitName": "MAN-0905 · Tương đương đến mức nào?",
+      "topic": "Học tập",
+      "level": "C2",
+      "track": "Giao tiếp",
+      "learningGoal": "Hiểu lập luận và suy ra quyết định trong thảo luận về đánh giá.",
+      "usefulLanguage": [
+        "equivalent",
+        "sufficient evidence",
+        "documented limitation"
+      ],
+      "items": [
+        {
+          "en": "We have described the replacement assessment as equivalent. Are we using that word to mean equally demanding, or merely administratively interchangeable?",
+          "vi": "Chúng ta đã mô tả bài đánh giá thay thế là tương đương. Từ đó có nghĩa là mức độ yêu cầu ngang nhau, hay chỉ là có thể thay thế cho nhau về mặt hành chính?",
+          "segmentId": "S001",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S001-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "711f6fdd8410394af3eb7edd013283bd48da33f13fc88aaca4cf34dbef800bf1",
+            "durationSeconds": 10.65,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "If it only means the latter, the label does rather more work than the evidence. The written task samples argument; the original interview sampled real-time response.",
+          "vi": "Nếu chỉ có nghĩa thứ hai, nhãn đó đang gánh nhiều hơn những gì bằng chứng cho phép. Bài viết lấy mẫu khả năng lập luận; cuộc phỏng vấn ban đầu lấy mẫu khả năng phản hồi ngay tại chỗ.",
+          "segmentId": "S002",
+          "speakerRole": "assessment specialist",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S002-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "647848811476aaf9bde7306b5d24bc52863bd81d725141a12f3485153aa53cbd",
+            "durationSeconds": 11.1,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "True, but the interview cannot be reconstructed for every candidate at this stage. We still need a decision that does not reward those who happened to attend.",
+          "vi": "Đúng, nhưng ở giai đoạn này không thể tổ chức lại cuộc phỏng vấn cho mọi ứng viên. Chúng ta vẫn cần một quyết định không ưu ái những người tình cờ đã có mặt.",
+          "segmentId": "S003",
+          "speakerRole": "programme lead",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S003-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "208d8bb21ed07d74c49bed1e074e1f702145334086c6e697cf9ef0afb719b5e8",
+            "durationSeconds": 9.4,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Then perhaps we should stop promising equivalence and state the narrower claim: the replacement yields sufficient evidence for this decision, subject to a documented limitation.",
+          "vi": "Vậy có lẽ chúng ta nên ngừng hứa hẹn sự tương đương và nêu một kết luận hẹp hơn: bài thay thế tạo ra bằng chứng đủ cho quyết định này, kèm theo một hạn chế được ghi rõ.",
+          "segmentId": "S004",
+          "speakerRole": "assessment specialist",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S004-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "19ef13491818f7fb6c07938ca83434a844bc489a568b3440ed12f2c1ac850e37",
+            "durationSeconds": 11.4,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "That sounds less reassuring.",
+          "vi": "Nghe như vậy thì kém yên tâm hơn.",
+          "segmentId": "S005",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S005-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "b490636daf965ff5fc8173cb9b412c9cc9faf5821d509c344301fd1a3314ce34",
+            "durationSeconds": 3.45,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Less reassuring, yes; more defensible, also yes. I would rather acknowledge the gap than hide it behind a tidy adjective.",
+          "vi": "Đúng, kém yên tâm hơn; nhưng cũng có cơ sở bảo vệ vững hơn. Tôi muốn thừa nhận khoảng trống hơn là che nó sau một tính từ gọn gàng.",
+          "segmentId": "S006",
+          "speakerRole": "programme lead",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S006-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "1832ff5bf81acaff683a6c137aa972b586560864b22e1e67d286f552ed27a983",
+            "durationSeconds": 8.4,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "So our next step is to define which evidence is sufficient, and to make the limitation visible in the final record.",
+          "vi": "Vậy bước tiếp theo là xác định bằng chứng nào là đủ, và thể hiện rõ hạn chế trong hồ sơ cuối cùng.",
+          "segmentId": "S007",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0905-S007-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0905",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0905-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0905-FIXED-MULTI-ACCENT@v0.1",
+            "sha256": "2921ed7e9321554a29fafcf1535054abfb81c5b2d5551382c5900cd1f6eab57a",
+            "durationSeconds": 8.75,
+            "voice": "ash"
+          }
+        }
+      ],
+      "publisher": "man",
+      "status": "published",
+      "version": "v0.1",
+      "sourceType": "original",
+      "copyrightStatus": "reviewed",
+      "rightsEvidenceId": "MAN-0905-RIGHTS-v0.1",
+      "supportBundleRef": "MAN-0905-SUPPORT-VI-VN@v0.1",
+      "audioRealizationRef": "MAN-0905-OPENAI-FIXED-v0.1",
+      "aiGeneratedAudio": true,
+      "practice": {
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE_SUBTLE_IMPLICATION",
+        "speechCondition": "TRANSFER_VARIATION_CONDITION",
+        "anchorId": "MAN-0905-A-COMP-01",
+        "scoringBoundary": "INFERENCE_COMPREHENSION_ONLY_NO_ACCENT_IDENTIFICATION_NO_CALIBRATED_MASTERY",
+        "referenceAnswer": "Bài thay thế cung cấp bằng chứng đủ cho quyết định này, nhưng không hoàn toàn tương đương với phỏng vấn. Cần xác định bằng chứng đủ và ghi rõ hạn chế.",
+        "choices": [
+          "Ghi nhận bằng chứng đủ cho quyết định và nêu rõ hạn chế, thay vì gọi là hoàn toàn tương đương.",
+          "Hai bài đánh giá hoàn toàn tương đương vì có thể thay thế về hành chính.",
+          "Không thể tổ chức lại phỏng vấn nên không thể đưa ra bất kỳ quyết định nào."
+        ],
+        "correctChoice": 0
+      }
+    }
+  ],
+  "rightsNote": "Original Mặn canonical lessons; Owner-authorized controlled release of exact Practice-approved fixed audio."
+}
