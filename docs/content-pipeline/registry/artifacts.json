@@ -1241,14 +1241,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
       },
-      "sha256": "41008ebadb186e85da59291f8e9d8cfa1154a2b8dbc29aae4d9968c9aa6b8853",
-      "size_bytes": 15866,
+      "sha256": "5ef0b4e27d887b12ba402c1ef671d383eec352895d692e8abf930b6ded3ed18c",
+      "size_bytes": 15934,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "BATCH_01_COMPLETE_12_OF_12",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       }
     },
     {
@@ -1274,14 +1274,14 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json"
       },
-      "sha256": "96f88327da89897ba770e5eef3c8a2515d78135fc4726d2c7e4904035fa321a1",
-      "size_bytes": 9115,
+      "sha256": "598d0a3675e9f7da1668c7a4e7f8c1e8bdc24c3dbb5b018f2745e9083314228a",
+      "size_bytes": 9183,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "OPERATIONS_READINESS_COMPLETE_WATCHER_APPROVAL_PROPAGATION_BLOCKED",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       }
     },
     {
@@ -1339,12 +1339,12 @@
       },
       "validation_status": "HASH_VERIFIED",
       "next_action": {
-        "code": "PRACTICE_PREPRODUCTION_BATCH_02",
-        "responsible_lane": "PRACTICE_2",
-        "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       },
-      "sha256": "54973144437eb0b9b261f2f518c92430312b682eabc07e1f43e5c212678135d8",
-      "size_bytes": 7494,
+      "sha256": "7c4cc8e7a179dd0f01f824857594dd3b9321127ce23f653040070018899a090c",
+      "size_bytes": 7562,
       "semantic_validation_status": "WATCHER_SCOPED_CANONICAL_RECEIPT_PASS"
     },
     {
