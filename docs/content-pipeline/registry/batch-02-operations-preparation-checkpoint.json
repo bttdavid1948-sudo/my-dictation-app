@@ -50,5 +50,24 @@
   "automatically_produced_lessons": 0,
   "next_production_disposition_lane": "PRACTICE_2_AFTER_ACTUAL_REALIZATION",
   "batch_close_claimed": false,
-  "batch03_opened": false
+  "batch03_opened": false,
+  "resume_experiment": {
+    "owner_approval_received": true,
+    "event_activation_result": "BLOCKED_NATIVE_PRE_EXECUTION_ROUTING_AND_PROOF_CAPABILITY",
+    "forward_proof": "NOT_DEMONSTRATED",
+    "return_proof": "NOT_DEMONSTRATED",
+    "operations_path_preserved": true,
+    "curriculum_polling": "PAUSED_VERIFIED",
+    "practice_polling": "PAUSED_VERIFIED",
+    "recurring_polling_remaining": 0,
+    "prepared_artifact_sha256": "84ddcc48edeac91554d13c7e4f4ecb114c54c0db5157ee1ac1b186d25a42e9ea",
+    "prepared_manifest_drift": false,
+    "assets_regenerated": 0,
+    "paid_calls": 0,
+    "secure_auth_outcome": "UNKNOWN_AFTER_TIMEOUT_AND_HANDLE_LOSS",
+    "detail_report_library_file_id": "libfile_9be12936a9408191b3e76dadfd374d34",
+    "initial_owner_ignition": 1,
+    "manual_specialist_activations": 0,
+    "mid_loop_owner_reactivation": 0
+  }
 }
