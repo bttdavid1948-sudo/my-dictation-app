@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "probe_id": "activation-probe-v0.2",
+  "status": "VALIDATED_HARMLESS_RECEIPT",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "responsible_lane": "OPERATIONS_4",
+  "repository": "bttdavid1948-sudo/my-dictation-app",
+  "source_main": "877f2afbbb3d4f2fe87afba5d80d54fce6162570",
+  "canonical_next_action": {
+    "code": "BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION",
+    "responsible_lane": "OPERATIONS_4"
+  },
+  "input_sha256": {
+    "docs/content-pipeline/registry/pipeline.json": "7babb1ffef7983066559fe2ddd12a2e717d3688743ef30cb696d257debc1f7c7",
+    "docs/content-pipeline/registry/official-1000-production-authority.json": "ec1ca8f477ffca2c5c8fb21905fa429a7d60e590e1140d6d7a428f8b477c5555",
+    "docs/content-pipeline/registry/batch-02-watcher-pilot.json": "30bd77ac1d857049a403d0b5673554c56c70101e3e157541d86c2095326a637d",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json": "6076197634121ffdbe391c1c83789b82d43313b593e3e9fb378565a6580a090b",
+    "operations/orchestration/resolve.mjs": "bd8e668fb56c75b25280bcdb661d483be456ad228643c24299a7111cc6efe383",
+    "operations/orchestration/watchers/scoped-merge-policy.v0.1.json": "91781e4e5bafb4630f33bd374a33d69b5cc7f1f8f2a83e2dd6c0a3ea96c566bd"
+  },
+  "batch01_complete_count": 12,
+  "batch02_production_opened": false,
+  "paid_calls": 0,
+  "semantic_dispositions_performed": false,
+  "passed_gates_rerun": false,
+  "policy_id": "official-man1000-receipt-merge-v0.1",
+  "wake_pr": 111,
+  "checked_at": "2026-10-05T06:53:20Z"
+}
