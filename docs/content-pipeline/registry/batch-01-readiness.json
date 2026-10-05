@@ -67,9 +67,9 @@
   "batch_close_complete": true,
   "historical_evidence_ref": "docs/content-pipeline/registry/history/batch-01-pre-close-20261005/batch-01-readiness.json",
   "next_action": {
-    "code": "BATCH_02_ORCHESTRATED_PREPRODUCTION_PILOT",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
+    "code": "PRACTICE_PREPRODUCTION_BATCH_02",
+    "responsible_lane": "PRACTICE_2",
+    "requires": "Consume batch-02-curriculum-preproduction@v0.1 and the frozen Curriculum↔Practice/Pipeline contracts. Produce explicit PRACTICE_PREPROD_READY dispositions for the 12 selected existing reserved identities without changing Curriculum semantics. Keep Batch02 production/queue closed; no audio or production mutation."
   },
   "previous_next_action": {
     "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
