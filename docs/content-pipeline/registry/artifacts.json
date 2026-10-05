@@ -1477,7 +1477,7 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/single-orchestrator-governance.json"
       },
-      "sha256": "9a1fb4e9a0c74fc203d7bc2a9fe9e47aaaea9b343d416b9721c38331fd62b27c",
+      "sha256": "2805b262bde419c18b03a7b037494e1d60495f488609f99353b72917cbc09337",
       "size_bytes": 3262,
       "validation_status": "HASH_VERIFIED"
     },
@@ -1504,8 +1504,8 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json"
       },
-      "sha256": "da19e34fa9ee849e1b9787c450dfbbd2f9f4c371d4283f8de7775f497ff97f27",
-      "size_bytes": 3980,
+      "sha256": "09632c1a9c9eba55ea8d185095f79180f820cd77925527ecb2db64a283cc295c",
+      "size_bytes": 5414,
       "validation_status": "HASH_VERIFIED"
     },
     {
