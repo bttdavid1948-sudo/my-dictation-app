@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "official-man1000-curriculum-transition-v0.1",
+  "authorization": "Owner 2026-10-05 standing authorization for Curriculum #3 passive activation on official reserved Mặn 1,000 lessons only.",
+  "repository": "bttdavid1948-sudo/my-dictation-app",
+  "repository_id": 1377742729,
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "lane": "CURRICULUM_3",
+  "branch_prefix": "curriculum/passive-",
+  "allowed_source_responsible_lane": "CURRICULUM_3",
+  "allowed_destination_lanes": [
+    "PRACTICE_2",
+    "CURRICULUM_3",
+    "OWNER"
+  ],
+  "happy_path_destination": "PRACTICE_2",
+  "allowed_transition_file_pattern": "docs/content-pipeline/registry/batch-XX-curriculum-preproduction.json",
+  "immutable_pipeline_fields": [
+    "contract_ref",
+    "contract_status",
+    "frozen_interface_ref",
+    "production_queue_enabled",
+    "preproduction_gates",
+    "preproduction_result",
+    "postproduction_gates",
+    "boundaries"
+  ],
+  "allowed_changed_files": [
+    "docs/content-pipeline/registry/pipeline.json",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-01-readiness.json",
+    "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
+    "docs/content-pipeline/registry/batch-02-watcher-pilot.json",
+    "docs/content-pipeline/registry/artifacts.json",
+    "docs/content-pipeline/README.md",
+    "docs/content-pipeline/registry/batch-XX-curriculum-preproduction.json"
+  ],
+  "curriculum_semantic_allowlist": [
+    "Select only existing official reserved identities from the versioned 1,000-map",
+    "Validate anti-duplicate/Unique Purpose/progression within Curriculum authority",
+    "Issue UNIQUE_PURPOSE_PASS and CURRICULUM_READY",
+    "Record Curriculum conflict or DUPLICATE without Operations override",
+    "Route PASS to PRACTICE_2",
+    "Route breaking frozen contract/Product Direction/L5 to OWNER_DECISION_REQUIRED"
+  ],
+  "forbidden": [
+    "Practice semantic decisions",
+    "Operations implementation decisions",
+    "Lesson script/transcript/content generation",
+    "Audio generation or QA",
+    "Production queue enable/open",
+    "Frozen contract mutation",
+    "Product Direction mutation",
+    "Private/user lesson work",
+    "Product B work",
+    "Arbitrary code/content mutation"
+  ],
+  "fail_closed": true,
+  "no_action": "SILENT_END",
+  "idempotent_resumable": true,
+  "production_enabled": false,
+  "audio_enabled": false,
+  "arbitrary_code_mutation_allowed": false
+}
