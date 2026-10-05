@@ -1,0 +1,29 @@
+name: Batch state and bounded resolver validation
+on:
+  pull_request:
+    paths:
+      - docs/content-pipeline/registry/artifacts.json
+      - docs/content-pipeline/registry/lessons.json
+      - docs/content-pipeline/registry/support-bundles.json
+      - docs/content-pipeline/registry/pipeline.json
+      - docs/content-pipeline/registry/batch-01-completion-checkpoint.json
+      - docs/content-pipeline/registry/batch-01-readiness.json
+      - docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json
+      - docs/content-pipeline/validate-batch-state.mjs
+      - operations/orchestration/**
+      - .github/workflows/batch-state-validation.yml
+permissions:
+  contents: read
+jobs:
+  state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node docs/content-pipeline/validate.mjs next
+      - run: node docs/content-pipeline/support-locale.mjs
+      - run: node docs/content-pipeline/validate-batch-state.mjs
+      - run: node operations/orchestration/resolve.test.mjs

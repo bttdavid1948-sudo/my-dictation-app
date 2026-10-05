@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "BATCH_02_PREPRODUCTION_INPUT_HANDOFF",
-    "responsible_lane": "CURRICULUM_3",
-    "requires": "Supply versioned selection of existing reserved identities and explicit fresh UNIQUE_PURPOSE_PASS/CURRICULUM_READY, then route to PRACTICE_2 for PRACTICE_PREPROD_READY/CONTRACT_PRECHECK. Use one indexed batch handoff and the bounded resolver. No Batch02 queue/production is opened by this readiness step."
+    "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
+    "responsible_lane": "OPERATIONS_4",
+    "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -220,12 +220,5 @@
   "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
   "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
   "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
-  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
-  "previous_next_action": {
-    "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Use Batch01 actual trace to prepare bounded Batch02 execution capability, State Resolver, resumability/idempotency and exception routes. No manual Batch02 start or general framework; preserve frozen gates and lane ownership."
-  },
-  "orchestration_readiness_ref": "docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json",
-  "orchestration_readiness_status": "OPERATIONS_READINESS_COMPLETE_CROSS_LANE_INPUT_HANDOFF_REQUIRED"
+  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
 }
