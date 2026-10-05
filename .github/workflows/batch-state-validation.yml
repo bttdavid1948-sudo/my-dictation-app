@@ -16,6 +16,8 @@ on:
       - .github/workflows/batch-state-validation.yml
       - .github/workflows/official-man-scoped-receipt-merge.yml
       - .github/workflows/official-man-curriculum-transition-merge.yml
+      - .github/workflows/official-man-practice-transition-merge.yml
+      - docs/content-pipeline/registry/batch-*-practice-preproduction.json
       - docs/content-pipeline/registry/batch-02-curriculum-preproduction.json
 permissions:
   contents: read
@@ -35,3 +37,4 @@ jobs:
       - run: node operations/orchestration/watchers/pilot.test.mjs
       - run: node operations/orchestration/watchers/scoped-merge.test.mjs
       - run: node operations/orchestration/watchers/curriculum-transition.test.mjs
+      - run: node operations/orchestration/watchers/practice-transition.test.mjs
