@@ -1,0 +1,9 @@
+# Receipt-only repository gate v0.1
+
+Owner explicitly authorized this bounded route on 2026-10-05 after PR110. Existing broad ChatGPT GitHub permissions are unchanged. The supported permission tools have no repository/path/action allowlist; no persistent narrow native approval is claimed.
+
+This policy is one-purpose: activation-probe-v0.2 only. It accepts one new JSON file on one exact same-repository branch by the approved actor, bound to fresh main and six canonical hashes. Official1000 authority, Operations lane, closed Batch01/Batch02, frozen references, CI success and direct parent are checked. Any added code/content, policy/contract/security/auth/billing changes, L5 or spending authority, extra receipt fields, fork, stale input, wrong lane, failed CI or existing receipt is rejected. Branch names alone never authorize a merge. Curriculum/Practice transitions remain disabled.
+
+The write-token job uses only default-branch code, a pinned checkout without persisted credentials, and GitHub APIs. It never runs candidate code or downloads candidate artifacts. Read-only CI precedes the gate. Exact-head merge preserves native repository protections; no bypass/admin flag, PAT, new App, secret or broad plugin permission is used. Audit is in the merge commit message and Actions log, with receipt observable on main. Duplicate runs reuse exact applied receipt. There is no durable cross-lane lock; immediate source/head re-read minimizes race and this harmless append-only receipt is the sole permitted transition. No full production autonomy claim.
+
+One fresh merge event must wake Work, create this receipt PR and allow this gate to merge it. Installation/root merge of the gate is not probe evidence. PR109 remains historical failed evidence until the fresh probe succeeds. If this one-purpose route fails, report exact capability and stop; do not expand the policy or retry through another merge surface.

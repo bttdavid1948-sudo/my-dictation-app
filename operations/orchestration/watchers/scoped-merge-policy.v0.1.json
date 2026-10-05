@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "official-man1000-receipt-merge-v0.1",
+  "authorization": "Owner 2026-10-05 explicitly authorizes smallest repository-scoped fail-closed merge gate and one fresh harmless activation probe; supersedes PR110 prohibition on evaluating this route, not semantic lane authority.",
+  "repository": "bttdavid1948-sudo/my-dictation-app",
+  "repository_id": 1377742729,
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "lane": "OPERATIONS_4",
+  "author": "bttdavid1948-sudo",
+  "branch": "ops/watcher-activation-probe-v0.2",
+  "probe_id": "activation-probe-v0.2",
+  "receipt_path": "operations/orchestration/watchers/receipts/activation-probe-v0.2.json",
+  "allowed_transition": "ABSENT_TO_VALIDATED_HARMLESS_RECEIPT_ONLY",
+  "ci_workflow": ".github/workflows/batch-state-validation.yml",
+  "inputs": [
+    "docs/content-pipeline/registry/pipeline.json",
+    "docs/content-pipeline/registry/official-1000-production-authority.json",
+    "docs/content-pipeline/registry/batch-02-watcher-pilot.json",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "operations/orchestration/resolve.mjs",
+    "operations/orchestration/watchers/scoped-merge-policy.v0.1.json"
+  ],
+  "production_enabled": false,
+  "semantic_transitions_enabled": false,
+  "spending_authority_changed": false,
+  "arbitrary_watcher_named_prs_allowed": false
+}
