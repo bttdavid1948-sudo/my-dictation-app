@@ -1,0 +1,33 @@
+name: Batch02 secure producer preflight
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/batch02-producer-preflight.yml
+      - operations/batch02-producer/preflight.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch02-producer
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Authenticated read; no paid audio without net-credit reconciliation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/preflight.py
+      - name: Preserve sanitized receipt only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch02-producer-preflight-${{ github.run_id }}
+          path: producer-evidence/preflight.json
+          retention-days: 7
