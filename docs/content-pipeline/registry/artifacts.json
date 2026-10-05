@@ -39,7 +39,8 @@
     "official-1000-production-authority": "v0.1",
     "batch-02-watcher-pilot": "v0.1",
     "batch-02-curriculum-preproduction": "v0.1",
-    "practice-passive-lane-setup": "v0.1"
+    "practice-passive-lane-setup": "v0.1",
+    "batch-02-practice-preproduction": "v0.1"
   },
   "artifacts": [
     {
@@ -1408,6 +1409,44 @@
       "validation_status": "HASH_VERIFIED",
       "sha256": "2baae9c32cbc11969a4f8f89b309e4b5083b84112f43c6c7ada836cd9ee61170",
       "size_bytes": 1774
+    },
+    {
+      "id": "batch-02-practice-preproduction",
+      "name": "batch-02-practice-preproduction.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "PRACTICE_2",
+      "source": [
+        "Practice #2 semantic preproduction review of batch-02-curriculum-preproduction@v0.1",
+        "Frozen Practice Production Specification v0.1 and Curriculum↔Practice Contract v0.3",
+        "Owner standing Practice activation scope OFFICIAL_MAN_1000_ONLY"
+      ],
+      "dependencies": [
+        "batch-02-curriculum-preproduction@v0.1",
+        "practice-production-spec@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-practice-preproduction.json"
+      },
+      "sha256": "ae8294f3466de017882873fa6e3b0c1a9c371ceb99f45fa62792d7bb0c272ff6",
+      "size_bytes": 22141,
+      "validation_status": "PRACTICE_VALIDATED",
+      "lesson_count": 12,
+      "practice_preprod_ready_count": 12,
+      "contract_precheck_valid_count": 12,
+      "production_ready_count": 12,
+      "next_action": {
+        "code": "PRODUCTION_READY_BATCH_02",
+        "responsible_lane": "OPERATIONS_4",
+        "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
+      }
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
