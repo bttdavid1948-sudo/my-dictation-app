@@ -40,7 +40,11 @@
     "batch-02-watcher-pilot": "v0.1",
     "batch-02-curriculum-preproduction": "v0.1",
     "practice-passive-lane-setup": "v0.1",
-    "batch-02-practice-preproduction": "v0.1"
+    "batch-02-practice-preproduction": "v0.1",
+    "single-orchestrator-governance": "v0.1",
+    "batch-02-operations-preparation-checkpoint": "v0.1",
+    "batch-02-original-rights-preparation": "v0.1",
+    "batch-02-routine-admission": "v0.1"
   },
   "artifacts": [
     {
@@ -1312,8 +1316,8 @@
         "responsible_lane": "CURRICULUM_3",
         "requires": "Controlled official1000 preproduction only: supply versioned existing reserved identities and UNIQUE_PURPOSE_PASS/CURRICULUM_READY; route to PRACTICE_2 for preproduction disposition. Use canonical resolver and owning-lane authority. Validate the minimal lane-specific transition allowlist before activating semantic watcher writes. Receipt-only gate proves activation/canonical merge, not semantic authority or production throughput. Batch02 production/queue stays closed."
       },
-      "sha256": "2f35e09a48efc2c67c289e5720ca47b6618aec1a3575bc5b15d879c7cf70b3b3",
-      "size_bytes": 4779
+      "sha256": "06683f02a8a313a9522cc882cc63eceee78eeb5fa0b6496410d00c06e9ef08e9",
+      "size_bytes": 5296
     },
     {
       "id": "batch-02-watcher-pilot",
@@ -1448,6 +1452,114 @@
         "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
       },
       "practice_validation_status": "PRACTICE_VALIDATED"
+    },
+    {
+      "id": "single-orchestrator-governance",
+      "name": "single-orchestrator-governance.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OWNER",
+      "source": [
+        "Owner approved Single Orchestrator + Modular Expert Procedures, 2026-10-05",
+        "Fresh canonical and preserved prepared artifact hash"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-02-practice-preproduction@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/single-orchestrator-governance.json"
+      },
+      "sha256": "9a1fb4e9a0c74fc203d7bc2a9fe9e47aaaea9b343d416b9721c38331fd62b27c",
+      "size_bytes": 3262,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "batch-02-operations-preparation-checkpoint",
+      "name": "batch-02-operations-preparation-checkpoint.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner approved Single Orchestrator + Modular Expert Procedures, 2026-10-05",
+        "Fresh canonical and preserved prepared artifact hash"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-02-practice-preproduction@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json"
+      },
+      "sha256": "911f0707349565ecc5e85c4d895d3bf11f02d077516cd465112d14e60ff720da",
+      "size_bytes": 3834,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "batch-02-original-rights-preparation",
+      "name": "batch-02-original-rights-preparation.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner approved Single Orchestrator + Modular Expert Procedures, 2026-10-05",
+        "Fresh canonical and preserved prepared artifact hash"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-02-practice-preproduction@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json"
+      },
+      "sha256": "f516baaefd1e9f087ad730b37dfa4042cce9a36f2d5514f6d9d646ebe2d10d49",
+      "size_bytes": 9673,
+      "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "batch-02-routine-admission",
+      "name": "batch-02-routine-admission.json",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "OPERATIONS_4",
+      "source": [
+        "Owner approved Single Orchestrator + Modular Expert Procedures, 2026-10-05",
+        "Fresh canonical and preserved prepared artifact hash"
+      ],
+      "dependencies": [
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-02-practice-preproduction@v0.1"
+      ],
+      "created_at": "2026-10-05",
+      "updated_at": "2026-10-05",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "GitHub registry evidence",
+        "path": "docs/content-pipeline/registry/batch-02-routine-admission.json"
+      },
+      "sha256": "1649dc73cdbd413d01f94a833bac12c62bd20a01bd768f9926e25f083644a36f",
+      "size_bytes": 425,
+      "validation_status": "HASH_VERIFIED"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"

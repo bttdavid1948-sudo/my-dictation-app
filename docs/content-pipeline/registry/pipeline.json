@@ -247,5 +247,8 @@
     "contract_precheck_valid": 12,
     "production_ready": 12,
     "queue_opened": false
-  }
+  },
+  "routine_execution_governance_ref": "docs/content-pipeline/registry/single-orchestrator-governance.json",
+  "batch02_operations_preparation_ref": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json",
+  "batch02_original_rights_ref": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json"
 }

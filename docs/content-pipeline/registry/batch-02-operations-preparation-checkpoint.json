@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-02-operations-preparation-checkpoint",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_lane": "OPERATIONS_4",
+  "batch_id": "BATCH_02",
+  "source_main": "b0acc25f809a2fed6a11c092c1154578a006c140",
+  "status": "NON_AUDIO_PREPARED_PRODUCTION_BLOCKED",
+  "preproduction_evidence_ref": "docs/content-pipeline/registry/batch-02-practice-preproduction.json",
+  "passed_product_gates_rerun": false,
+  "prepared": {
+    "lessons": 12,
+    "segments": 77,
+    "target_anchors": 24,
+    "utf16_spans_checked": 26,
+    "support_bundles_vi_VN": 12,
+    "artifact": {
+      "library_file_id": "libfile_173d7ffb6ce08191aa7194d2d65fb7f6",
+      "name": "MAN-Batch-02-Non-Audio-Prepared-v0.1.zip"
+    }
+  },
+  "production_queue_opened": false,
+  "paid_calls": 0,
+  "actual_audio_realizations": 0,
+  "final_practice_ready_claimed": false,
+  "produced_contract_valid_claimed": false,
+  "release_complete_count": 0,
+  "worker": {
+    "registration": "ENABLED_GITHUB_MERGE_EVENT",
+    "execution_observed": false,
+    "canonical_activation_receipt_observed": false,
+    "installation": "BLOCKED_AUTO_REVIEW"
+  },
+  "blockers": [
+    {
+      "code": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
+      "branch": "PAID_AUDIO_ONLY",
+      "reason": "Existing ephemeral producer credential absent. Billing overview sign-in wall; actual prepaid balance, unsettled usage and reservations unverified.",
+      "funding_exhaustion_claimed": false
+    }
+  ],
+  "manual_curriculum_activations_this_attempt": 0,
+  "manual_practice_activations_this_attempt": 0,
+  "automatically_produced_lessons": 0,
+  "next_production_disposition_lane": "PRACTICE_2_AFTER_ACTUAL_REALIZATION",
+  "batch_close_claimed": false,
+  "batch03_opened": false,
+  "resume_experiment": {
+    "owner_approval_received": true,
+    "event_activation_result": "BLOCKED_NATIVE_PRE_EXECUTION_ROUTING_AND_PROOF_CAPABILITY",
+    "forward_proof": "NOT_DEMONSTRATED",
+    "return_proof": "NOT_DEMONSTRATED",
+    "operations_path_preserved": true,
+    "curriculum_polling": "PAUSED_VERIFIED",
+    "practice_polling": "PAUSED_VERIFIED",
+    "recurring_polling_remaining": 0,
+    "prepared_artifact_sha256": "84ddcc48edeac91554d13c7e4f4ecb114c54c0db5157ee1ac1b186d25a42e9ea",
+    "prepared_manifest_drift": false,
+    "assets_regenerated": 0,
+    "paid_calls": 0,
+    "secure_auth_outcome": "UNKNOWN_AFTER_TIMEOUT_AND_HANDLE_LOSS",
+    "detail_report_library_file_id": "libfile_9be12936a9408191b3e76dadfd374d34",
+    "initial_owner_ignition": 1,
+    "manual_specialist_activations": 0,
+    "mid_loop_owner_reactivation": 0
+  },
+  "consolidated_execution": {
+    "governance_ref": "single-orchestrator-governance@v0.1",
+    "source_main": "b0acc25f809a2fed6a11c092c1154578a006c140",
+    "modules_structural_validation": "PASS",
+    "real_post_checkpoint_operation": "ORIGINAL_CONTENT_RIGHTS_REVIEW_12_OF_12",
+    "operation_receipt": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json",
+    "routine_curriculum_reexecution": 0,
+    "routine_practice_preproduction_reexecution": 0,
+    "final_practice_grounding": "PENDING_ACTUAL_AUDIO_REALIZATION",
+    "curriculum_research_required": false,
+    "practice_research_required": false,
+    "direct_specialist_packets": 0,
+    "cross_room_event_dependency": false,
+    "actual_production_completed_lessons": 0,
+    "audio_access_budget": "AUDIO_BUDGET_RECONCILIATION_REQUIRED",
+    "authority_installation_blocker": "PRIOR_PRIVILEGED_EVENT_GATE_SUPERSEDED_BY_OWNER_CONSOLIDATED_ARCHITECTURE; NO_WORKFLOW_PERMISSION_CHANGE_PROPOSED",
+    "checked_at": "2026-10-05T15:36:06.813421Z",
+    "routine_non_audio_integration": "PASS_EXECUTED_ORIGINAL_RIGHTS_REVIEW",
+    "architecture_conversion_status": "IMPLEMENTED_AND_ROUTINE_NON_AUDIO_EXECUTED_PENDING_CANONICAL_MERGE"
+  }
+}

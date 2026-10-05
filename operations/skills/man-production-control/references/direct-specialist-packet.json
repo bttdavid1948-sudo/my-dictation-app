@@ -1,0 +1,15 @@
+{
+  "SPECIALIST_ROUTE": "CURRICULUM_RESEARCH_REQUIRED or PRACTICE_RESEARCH_REQUIRED",
+  "TARGET_ROOM": "#3 or #2, matching SPECIALIST_ROUTE",
+  "BATCH_ID": "Required",
+  "LESSON_ID(S)": [],
+  "CURRENT_CANONICAL_STATE": "Exact main SHA, action, version/hash and affected operation key",
+  "EXACT_UNRESOLVED_QUESTION": "One bounded decision",
+  "RELEVANT_EVIDENCE": [],
+  "APPLICABLE_EXISTING_RULE": "Authoritative specification and rule ID",
+  "WHY_EXISTING_RULE_IS_INSUFFICIENT": "Concrete uncovered semantic condition; missing audio/access alone is not research",
+  "DECISION_REQUIRED_FROM_SPECIALIST": "Affected semantics only; no production commands",
+  "EXPECTED_RETURN_FORMAT": "Versioned disposition, owner lane, exact identities/hashes, rationale, reusable vs one-off, next operation; no frozen-contract change without Owner",
+  "UNAFFECTED_WORK_CONTINUING": [],
+  "RETURN_TARGET": "#4 MẶN PRODUCTION ORCHESTRATOR"
+}

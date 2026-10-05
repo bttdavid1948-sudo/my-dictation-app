@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "single-orchestrator-governance",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_lane": "OWNER",
+  "approved_at": "2026-10-05",
+  "approval_source_sha256": "13bf0f3bd3c01d121df9c72dcc3d8b2039964495bf46db377d263f4edc7e7c50",
+  "approval_source_library_file_id": "libfile_c0c3e5e1cda48191bd50681c70c5dae5",
+  "architecture": "SINGLE_PRODUCTION_ORCHESTRATOR_MODULAR_EXPERT_PROCEDURES",
+  "execution_context": "OPERATIONS_4",
+  "semantic_owners": [
+    "CURRICULUM_3",
+    "PRACTICE_2",
+    "OPERATIONS_4"
+  ],
+  "routine_cross_room_activation_required": false,
+  "supersedes": "Routine cross-room event-driven specialist activation and watcher-execution prerequisite; does not retire Operations activation/watch/recovery components or change semantic gates.",
+  "modules": {
+    "CURRICULUM_3": "operations/skills/man-curriculum-production/SKILL.md",
+    "PRACTICE_2": "operations/skills/man-practice-production/SKILL.md",
+    "OPERATIONS_4": "operations/skills/man-production-control/SKILL.md"
+  },
+  "authoritative_refs": [
+    "curriculum-production-spec@v0.1",
+    "practice-production-spec@v0.1",
+    "curriculum-practice-contract@v0.3",
+    "content-pipeline-contract@v0.2",
+    "docs/content-pipeline/registry/artifacts.json"
+  ],
+  "admission_classifier": "operations/skills/man-production-control/scripts/admit.mjs",
+  "admission_classes": {
+    "ROUTINE_EXECUTION": "Frozen rules/precedent sufficient; no novel construct or unresolved conflict. Matching module in #4.",
+    "CURRICULUM_RESEARCH_REQUIRED": "Uncovered Curriculum semantics. Direct #3 packet; isolate affected branch.",
+    "PRACTICE_RESEARCH_REQUIRED": "Uncovered Practice semantics. Direct #2 packet; isolate affected branch.",
+    "PRODUCT_INTEGRATION_CONFLICT": "Product/frozen-contract/cross-domain/security/rights conflict. Exact affected branch and genuine Owner decision."
+  },
+  "direct_packet_contract": "operations/skills/man-production-control/references/direct-specialist-packet.json",
+  "research_return_target": "#4 MẶN PRODUCTION ORCHESTRATOR",
+  "knowledge_promotion": "Validate specialist disposition; reusable decision -> owning-domain versioned rule/spec/skill/validator/precedent; one-off -> evidence only.",
+  "watchers": {
+    "curriculum": "PAUSED_OWNER_DIRECTIVE",
+    "practice": "PAUSED_OWNER_DIRECTIVE",
+    "operations": "PRESERVE_CURRENT_ACTIVATION_AND_RECOVERY",
+    "retirement_requires": "Whole-System Impact Review of ignition/return/fallback/recovery/evidence/authority/session continuity"
+  },
+  "frozen_contract_changes": false,
+  "semantic_gate_weakening": false,
+  "paid_audio_controls_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
+  "future_routine_reasoning": "LOWEST_SUFFICIENT_NORMALLY_LIGHT",
+  "checked_at": "2026-10-05T15:36:06.813421Z",
+  "module_sha256": {
+    "operations/skills/man-curriculum-production/SKILL.md": "54e001adefbf1f8bb75d775ca44013ee9eec5bd7c7843830dc9d00d2a758dc86",
+    "operations/skills/man-practice-production/SKILL.md": "89ed05915626dc67fcedb8625b95b2f0659d4d72bff0f946b9932dd7c05fcd80",
+    "operations/skills/man-production-control/SKILL.md": "59be6a3483c9116e302918f61f49b9f7b110abb733b7066e0e5412dbd1cd636d"
+  }
+}
