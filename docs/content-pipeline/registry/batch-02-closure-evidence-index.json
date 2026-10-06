@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-02-closure-evidence-index",
+  "batch_id": "BATCH_02",
+  "state_scope": "CURRENT_AUTHORITATIVE",
+  "terminal_state": "OBJECTIVE_COMPLETE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
+  "release_pr": 138,
+  "release_main": "f7f78f9ca1fa406e6614b9602c55daffd864bda0",
+  "staging_run_id": 37431658465,
+  "live_run_id": 37432785628,
+  "complete_lesson_count": 12,
+  "staging_pass_count": 24,
+  "live_pass_count": 24,
+  "next_action": {
+    "code": "NONE",
+    "responsible_lane": "NONE"
+  },
+  "artifacts": [
+    {
+      "path": "docs/content-pipeline/registry/batch-02-live-release.json",
+      "sha256": "883ce3c1803f29139df9fc1b0784ef8bdc030f803b3843e5ee5db52d14c88a14",
+      "size_bytes": 24008
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
+      "sha256": "9577f59f62b877aa8e61c672788a482496ee222e21315ba5b45dbeeecaed84d8",
+      "size_bytes": 20188
+    }
+  ]
+}
