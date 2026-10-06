@@ -1,6 +1,7 @@
 {
   "operation_key": "BATCH_02@prepared-77@PRODUCE_MISSING_76@v0.1",
-  "budget_verified_at": "2026-10-06T06:10:04.279865+00:00",
+  "budget_verified_at": "2026-10-06T06:12:47.145362+00:00",
   "budget_evidence_sha256": "0c6e46d2dccb38f7586346c1b5abfced5793ad3799d94259230c52555efdbe71",
-  "prepared_source_sha256": "3ca1257e0b8273b18385c8512aa4dc740d75fc01b33404c60f9e602d5253fb4b"
+  "prepared_source_sha256": "3ca1257e0b8273b18385c8512aa4dc740d75fc01b33404c60f9e602d5253fb4b",
+  "retry_basis": "PRIOR_ATTEMPT_PAID_CALLS_ZERO_ARTIFACT_CLIENT_METHOD_CHANGED"
 }

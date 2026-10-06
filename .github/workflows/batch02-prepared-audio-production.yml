@@ -19,10 +19,13 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+      - name: Retrieve exact previous preflight with the supported artifact client
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 37422086627 --repo bttdavid1948-sudo/my-dictation-app --name batch02-audio-preflight-37422086627 --dir prior-preflight
       - name: Reuse exact preflight and produce missing prepared segments
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ACTIONS_READ_TOKEN: ${{ github.token }}
         run: python3 operations/batch02-producer/produce.py
       - name: Preserve all partial outputs and sanitized reconciliation ledger
         if: always()
