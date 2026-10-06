@@ -6,6 +6,8 @@ description: Resume and advance official Mặn production through the canonical 
 
 Keep Operations semantic owner `OPERATIONS_4`; execute the other domains only through their governed modules.
 
+Before any continuation, run default `node operations/orchestration/resolve.mjs` on fresh canonical main. The current closure index and hash-bound checkpoint take precedence over historical registry/pilot/preparation next actions. On `NONE`, finish without reopening Batch01/02 or starting Batch03. Explicit historical replay or an evidence envelope does not grant execution authority.
+
 Read fresh canonical main, `pipeline.json`, `artifacts.json`, official-1000 authority, `single-orchestrator-governance.json`, active batch checkpoint and `operations/orchestration/resolve.mjs`. Preserve existing Operations activation/recovery components and paused Curriculum/Practice polling. These repository SOPs do not require UI installation or a cross-room event bus.
 
 1. Reconcile branches/PRs, source versions/hashes, existing assets and receipts before mutation. Use resolver operationKey/reconcileReceipt; silently reuse already-complete work. Record CURRENT source SHA; re-read before PR/merge and do not overwrite concurrent work.
