@@ -658,6 +658,11 @@ Danh sách từ/cụm từ của tôi:
                     const finalTwo = await finalResponse.json();
                     if(!Array.isArray(finalTwo.lessons)) throw new Error('INVALID_FINAL_TWO_CATALOG');
                     data = {...data, lessons:[...data.lessons, ...finalTwo.lessons]};
+                    const batch02Response = await fetch('assets/official-lessons-batch02.json', {cache:'no-cache'});
+                    if(!batch02Response.ok) throw new Error('BATCH02_CATALOG_UNAVAILABLE');
+                    const batch02 = await batch02Response.json();
+                    if(!Array.isArray(batch02.lessons)) throw new Error('INVALID_BATCH02_CATALOG');
+                    data = {...data, lessons:[...data.lessons, ...batch02.lessons]};
                     if(!Array.isArray(data.lessons)) throw new Error('INVALID_CATALOG');
                     const ids=new Set();
                     xCatalogLoadError=false;
@@ -2216,5 +2221,6 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')xCloseAudioR
 
 <script src="assets/mixed-panel-runtime.js?release=MAN-0844-v0.1"></script>
 <script src="assets/final-two-practice-runtime.js?release=Batch01-final-two-v0.1"></script>
+<script src="assets/batch02-practice-runtime.js?release=Batch02-v0.1"></script>
 </body>
 </html>

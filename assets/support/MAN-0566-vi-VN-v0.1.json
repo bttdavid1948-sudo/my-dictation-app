@@ -1,0 +1,34 @@
+{
+  "bundle_id": "MAN-0566-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0566",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Điểm trung bình của khoa tăng sau khi bài luận hằng tuần được thay bằng các bài trắc nghiệm ngắn trực tuyến. Thật dễ muốn gọi đó là tiến bộ trong học tập."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Một số giảng viên ủng hộ thay đổi này vì phản hồi ngay giúp sinh viên nhận ra lỗ hổng trước buổi học tiếp theo."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Những người khác lưu ý rằng đáp án trắc nghiệm quen mắt có thể trông rất thuyết phục dù sinh viên không giải thích được ý tưởng bên dưới."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Cả hai nhận xét đều có thể đúng. Trắc nghiệm có thể giúp chuẩn bị tốt hơn, đồng thời hình thức mới cũng khiến điểm cao dễ đạt hơn."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Chúng ta nên so sánh thêm một mẫu nhỏ các phần giải thích bên cạnh điểm trắc nghiệm, thay vì xem điểm trung bình tăng là kết luận cuối cùng."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Điều đó không phủ nhận phương pháp mới; nó chỉ giới hạn những gì các con số tự chúng có thể chứng minh."
+    }
+  ]
+}

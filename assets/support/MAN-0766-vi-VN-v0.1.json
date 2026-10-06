@@ -1,0 +1,38 @@
+{
+  "bundle_id": "MAN-0766-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0766",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Thang chấm bài viết mới khiến số điểm bị khiếu nại giảm. Điều đó đã đủ để quyết định giữ nó chưa?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Chưa hẳn. Ít khiếu nại hơn có thể vì tiêu chí rõ hơn, hoặc đơn giản là sinh viên không còn kỳ vọng phúc khảo sẽ thay đổi được gì."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Trong lớp của tôi, sinh viên giờ phân biệt được luận điểm với ví dụ hỗ trợ. Đó là lợi ích cụ thể, dù số liệu phúc khảo còn khó diễn giải."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Tôi đồng ý, nhưng muốn biết lợi ích đó có đến được với sinh viên chưa quen ngôn ngữ của thang chấm không. Tài liệu rõ hơn với người viết có kinh nghiệm vẫn có thể khó hiểu với những người khác."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy ta tạm giữ tiêu chí rồi xem các phần giải thích của cả hai nhóm, thay vì chỉ dùng số khiếu nại giảm làm thước đo?"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đúng, và nên công bố những ví dụ sinh viên thấy hữu ích. Nếu không, ta đang đánh giá câu chữ mà bỏ qua việc giảng dạy giúp họ sử dụng được nó."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Miễn là báo cáo rõ sự phân biệt ấy, bằng chứng có thể hỗ trợ một quyết định giới hạn mà không giả vờ rằng vấn đề công bằng rộng hơn đã được giải quyết."
+    }
+  ]
+}

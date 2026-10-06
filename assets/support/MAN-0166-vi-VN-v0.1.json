@@ -1,0 +1,30 @@
+{
+  "bundle_id": "MAN-0166-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0166",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Tôi làm bài kiểm tra lịch sử đầu tiên không tốt."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Tôi đã đọc ghi chép hai lần, nhưng không nhìn vào thì lại không giải thích được các mốc thời gian."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Thứ Ba, tôi cất ghi chép đi rồi nhờ chị kiểm tra kiến thức của mình."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Khi tôi trả lời sai, hai chị em cùng kiểm tra lại."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Bài kiểm tra tiếp theo không dễ, nhưng tôi nhớ được nhiều hơn vì đã luyện trả lời câu hỏi."
+    }
+  ]
+}
