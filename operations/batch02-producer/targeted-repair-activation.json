@@ -1,0 +1,6 @@
+{
+  "budget_verified_at": "2026-10-06T06:25:29.404722+00:00",
+  "budget_evidence_sha256": "dfc084c482543022bedc552f8e7299dfe7fa05a4077fe83f2be11b943bf8b4bf",
+  "operation_key": "MAN-0201@v0.1@S002@MISSING_FINAL_CLAUSE_TARGETED_REPAIR@77c77a51c122e081670ca62ea70139bd5b8cf4708f1fd41abe4efe3bafea14fc",
+  "reason": "Two independent unprompted offline ASR outputs both omit final question; repair only this segment. All other outputs retained."
+}
