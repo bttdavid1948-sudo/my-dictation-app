@@ -1,5 +1,9 @@
 name: Batch02 one-segment audio preflight
 on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch02-producer/audio-preflight-activation.json
   workflow_dispatch:
     inputs:
       budget_verified_at:

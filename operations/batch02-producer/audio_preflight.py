@@ -14,9 +14,11 @@ def main():
  authority=json.loads(pathlib.Path('docs/content-pipeline/registry/official-1000-production-authority.json').read_text())
  if authority['audio_spend']['standing_authorized'] is not True or authority['audio_spend']['per_lesson_batch_segment_reapproval'] is not False:return finish('STANDING_AUTHORITY_BLOCKED',2)
  try:
-  verified=datetime.datetime.fromisoformat(os.environ['BUDGET_VERIFIED_AT'].replace('Z','+00:00'))
+  activation=json.loads(pathlib.Path('operations/batch02-producer/audio-preflight-activation.json').read_text())
+  verified=datetime.datetime.fromisoformat((os.getenv('BUDGET_VERIFIED_AT') or activation['budget_verified_at']).replace('Z','+00:00'))
   age=(datetime.datetime.now(datetime.timezone.utc)-verified).total_seconds()
-  evidence=os.environ['BUDGET_EVIDENCE_SHA256']
+  evidence=os.getenv('BUDGET_EVIDENCE_SHA256') or activation['budget_evidence_sha256']
+  receipt['operation_key']=activation['operation_key']
   if not 0<=age<=900 or len(evidence)!=64 or any(c not in '0123456789abcdef' for c in evidence):raise ValueError()
  except Exception:return finish('FRESH_RECONCILIATION_REQUIRED',2)
  receipt['budget_evidence_sha256']=evidence
