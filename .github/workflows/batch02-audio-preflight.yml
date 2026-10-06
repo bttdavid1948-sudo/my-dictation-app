@@ -1,0 +1,39 @@
+name: Batch02 one-segment audio preflight
+on:
+  workflow_dispatch:
+    inputs:
+      budget_verified_at:
+        description: Fresh Production Control reconciliation timestamp UTC
+        required: true
+        type: string
+      budget_evidence_sha256:
+        description: Private reconciliation receipt hash; no billing data
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch02-producer
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Produce exactly one reserved source segment; no automatic retry
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          BUDGET_VERIFIED_AT: ${{ inputs.budget_verified_at }}
+          BUDGET_EVIDENCE_SHA256: ${{ inputs.budget_evidence_sha256 }}
+        run: python3 operations/batch02-producer/audio_preflight.py
+      - name: Preserve exact audio and sanitized receipt for reuse
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch02-audio-preflight-${{ github.run_id }}
+          path: producer-evidence/
+          retention-days: 7
