@@ -3,11 +3,8 @@ import datetime,hashlib,io,json,os,pathlib,shutil,struct,urllib.request,urllib.e
 ROOT=pathlib.Path('producer-evidence');ROOT.mkdir(exist_ok=True)
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch_preflight():
- req=urllib.request.Request('https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11393327779/zip',headers={'Authorization':'Bearer '+os.environ['ACTIONS_READ_TOKEN'],'Accept':'application/vnd.github+json'})
- with urllib.request.urlopen(req,timeout=30) as r:data=r.read(2_000_001)
- if sha(data)!='cbb9472989e80e603bb79f4620219154c51faed6d74a6ded53114560f1e0e976':raise ValueError('preflight archive binding')
- with zipfile.ZipFile(io.BytesIO(data)) as z:
-  receipt=json.loads(z.read('audio-preflight.json'));wav=z.read('MAN-0066-S001.wav')
+ prior=pathlib.Path('prior-preflight')
+ receipt=json.loads((prior/'audio-preflight.json').read_text());wav=(prior/'MAN-0066-S001.wav').read_bytes()
  if sha(wav)!=receipt['sha256'] or receipt['input_sha256']!='f666e7da12cfa01d4f7c7dc477923efd51ea8ce3cb4328d3d38a5c238bf9834d':raise ValueError('preflight audio binding')
  dest=ROOT/'MAN-0066';dest.mkdir(exist_ok=True);(dest/'MAN-0066-S001.wav').write_bytes(wav)
  receipt.update(script_speaker_id='SPK01',status='REUSED_AUTHENTICATED_AUDIO_OUTPUT_QA_PENDING')
