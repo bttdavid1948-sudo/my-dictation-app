@@ -1,0 +1,33 @@
+name: Batch02 exact prepared audio production
+on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch02-producer/production-activation.json
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: official-man-batch02-producer
+  cancel-in-progress: false
+jobs:
+  produce:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Reuse exact preflight and produce missing prepared segments
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ACTIONS_READ_TOKEN: ${{ github.token }}
+        run: python3 operations/batch02-producer/produce.py
+      - name: Preserve all partial outputs and sanitized reconciliation ledger
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch02-audio-production-${{ github.run_id }}
+          path: producer-evidence/
+          retention-days: 7

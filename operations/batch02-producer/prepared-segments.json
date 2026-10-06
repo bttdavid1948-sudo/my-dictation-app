@@ -1,0 +1,777 @@
+{
+  "batch_id": "BATCH_02",
+  "prepared_lesson_manifest_sha256": "bda1e6e7065ea29836929879c376313a27f1ccab5d0f85790d4f82c0d31e1094",
+  "segments": [
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "Your practice test has twenty questions.",
+      "text_sha256": "f666e7da12cfa01d4f7c7dc477923efd51ea8ce3cb4328d3d38a5c238bf9834d",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK01",
+      "text": "Check questions six and fifteen again.",
+      "text_sha256": "086b6b24034bab26926a0aed073a7ffdc7a1b37b4ba36306ffd60cb98a4c7a7d",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Write the correct letter in the small box.",
+      "text_sha256": "6aac45467624d8deeb9733247f23578c1b7a7faeeecd0cded9064d6541652391",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK01",
+      "text": "You have five minutes. Please work on your own.",
+      "text_sha256": "9030decc4df8815a1da56c1b74f77e5a75c05fd642a0a0f6d46aa01441a57d0a",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "I didn't do well in the first history quiz.",
+      "text_sha256": "c1611baa8b55ebfffb429c4ea25547d641fb663131207e7b25c39beb40f5b912",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK01",
+      "text": "I'd read my notes twice, but I couldn't explain the dates without looking.",
+      "text_sha256": "fa7ee52fe6796c2d15cc1447dcea78224691e101eedfca2be29a2dfda6ca4d49",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "On Tuesday, I put the notes away and asked my sister to test me.",
+      "text_sha256": "95965203969022f79663ef299eea1fb5b6db38410da034645e731517481e6312",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK01",
+      "text": "When I got an answer wrong, we checked it together.",
+      "text_sha256": "5fc57f806afdccaca38a6cccd89414eed7c8a16e9224724b10343645539567ed",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "The next quiz wasn't easy, but I remembered more because I'd practised answering questions.",
+      "text_sha256": "14ebd5976b8e7ccbd69616958753ab4cf2bf732bc677258dad15ee787a9ee6ff",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "A practice score tells you how many answers were right, but it doesn't tell you why the others were wrong.",
+      "text_sha256": "b2a4a1b6f757580a1cb43835a175746bb0c0c922337fc50e6e37e8f20f98893c",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK01",
+      "text": "After a reading test, put each mistake into one of three groups: an unknown word, a missed instruction, or an unsupported guess.",
+      "text_sha256": "c64a086b0859912d58aae4636a0c85791d5bf6c547e13a1a9ee9b90ece90ef67",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Imagine that you chose a true statement which didn't answer the question. More vocabulary practice wouldn't solve that problem.",
+      "text_sha256": "7cf3ac5f09bdae8ad262aa8d13d4f860c2e2130658d5f066263ec0ffa686eb32",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK01",
+      "text": "Instead, underline what the question asks and find the sentence that supports your answer.",
+      "text_sha256": "76713e2dbee5783db34339cfdad550127f30fc73cfa4abfab8d0298458fea8df",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "A short record of the reason for each mistake gives your next revision session a clear purpose.",
+      "text_sha256": "9ecb86d79c5613552bf5f92339546fb3f967fd0012b30c468e97a8eea4b97894",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "Our department's average score rose after we replaced the weekly essay with short online quizzes. It's tempting to call that an improvement in learning.",
+      "text_sha256": "b1e3acf8efffc4a1467b0ed4766b09dc87374641c0db37cdbff8551c5ef323eb",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK01",
+      "text": "Some tutors welcome the change because immediate feedback helps students notice gaps before the next class.",
+      "text_sha256": "bb4b5fe88868fd1c60e602447b7034afa76c2c262b58b2351b22746fbcd11e5a",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Others point out that a familiar multiple-choice answer can look convincing even when a student can't explain the underlying idea.",
+      "text_sha256": "2b60b472ab33e82e9cfcebd918834d5c831b495be4fc61659acbbf7d2bcfe9de",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK01",
+      "text": "Both observations may be right. The quizzes could improve preparation while the new format also makes higher marks easier to obtain.",
+      "text_sha256": "5c0049e56fd30a2c4756ed4d35ea2e96128ceca0dc63c1b450e5b017d5fd4314",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "We ought to compare a small sample of explanations as well as quiz scores, rather than treat the rising average as a verdict.",
+      "text_sha256": "5b55daa39162279aba52bb03798d4c8d2a0b2351d7db8089ada0e693eeee2215",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK01",
+      "text": "That wouldn't dismiss the new approach; it would put a limit on what the numbers alone can establish.",
+      "text_sha256": "e5ba512e1c8e2ca4f3806683db89ed1fbaaf9f397aca914ff56914096b7c0aa1",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "The new writing rubric produced fewer disputed marks. Does that settle the case for keeping it?",
+      "text_sha256": "3f45b0aa86acdb36779e843d6f4473a238a6c32e247e7f4584bae3ddd25e287d",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Not quite. Fewer disputes may mean the criteria are clearer, or simply that students have stopped expecting an appeal to change anything.",
+      "text_sha256": "058942fbbb578c55d72f8ce20aa91ef5c23738f48520d5d53431715fcfe68ad1",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK03",
+      "text": "In my classes, students can now identify the difference between a claim and its supporting example. That's a concrete benefit, even if the appeals figure is ambiguous.",
+      "text_sha256": "58b177e79882924f767992d0bbc9e1ded05062a7978078741e5866455ac96e22",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "I agree, but I'd want to know whether that benefit reaches students who are unfamiliar with the rubric's language. A clearer document for experienced writers may still be opaque to everyone else.",
+      "text_sha256": "d53e569f3c26b06e8f11ec87102d9910caf53b7a7ac44e71691d610e5352f58c",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "So we keep the criteria provisionally and examine explanations from both groups, rather than use fewer complaints as our only measure?",
+      "text_sha256": "efbb76b4691cee11a373e12c675d67d0ada75f592c3d90e10730d82ed0e88c5e",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK03",
+      "text": "Yes, and we should publish the examples students found useful. Otherwise we're evaluating the wording without the teaching that makes it usable.",
+      "text_sha256": "e8e20e4fe9acba72f993ba5eb6adeb390eadea6569d48e48ecb57c8a28933421",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK02",
+      "text": "Provided we report that distinction, the evidence can support a limited decision without pretending we've settled the wider fairness question.",
+      "text_sha256": "474af4442994300b67a1ba7a7934a28bbeef6c17744e6f854596cd1a4895fcfd",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "Every candidate in the pilot received the same final rating. The summary describes that as remarkably consistent. Should we be pleased?",
+      "text_sha256": "20c36a73c94329d996f4baf7f49de02cfbfde0d4572f840bd9889df5bfb30b25",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Remarkably consistent, certainly. If consistency were our only ambition, we could save ourselves the interviews and print the ratings in advance.",
+      "text_sha256": "6a946fd009c83d2fd47ef35c77db841aada20559fac71ad9e71959d4c1202fe1",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion. Deliver this turn with dry, restrained irony: the apparent praise is a skeptical criticism. Use a subtle ironic emphasis on remarkably consistent and save ourselves the interviews, without changing any words."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK03",
+      "text": "That's a fair warning, but identical ratings don't prove that the rubric is defective. The pilot group might genuinely have been unusually similar.",
+      "text_sha256": "0c836c0845ac81dc1e13a22321fe7bc5438b087c99cdda82b20a21e5b23c576f",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "They might. Yet the interview notes describe substantial differences in how candidates defended a claim under challenge. Those differences disappeared when we converted the notes into a single category.",
+      "text_sha256": "981ebd9d6d9319fe9fd5f6c446cf8bea31f8617d296f531bb2b6599a2dab7efa",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "Then the concern is less about agreement between examiners than about whether the reporting scale preserves what they actually observed?",
+      "text_sha256": "e1cfcf4d7ad0a46d459a93e48925de023c5991bb37ac5a648b9cf5b70fdfe99d",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK03",
+      "text": "Exactly. I'd inspect the boundary cases before adding more categories. A finer scale that merely multiplies labels could produce an appearance of precision without improving the decision.",
+      "text_sha256": "831c0adab80fe2a51f5065e17f2d4dab8d7a9a8a0e6c6644c3a25eb0640ab517",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK02",
+      "text": "And let's soften the congratulatory language. Agreement is useful evidence, but here it's the beginning of an investigation, not a reason to end one.",
+      "text_sha256": "3072eb7bf751965e9af194c0c308922c867d46652ad7692700f00d2af3f3b167",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK01",
+      "text": "We'll retain the notes, examine the borderline ratings, and describe the pilot's consistency as an unresolved finding rather than a success claim.",
+      "text_sha256": "b13121c0a2ad6ef7420c20bca214c76754f8f032e557de392e21924fe5b3163c",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "Hi, I'm Maya. Is this the photography club?",
+      "text_sha256": "63ce002d64f87be9168a5a3b8961a9eb85fb186c40c8981ab69f72570c89d539",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Yes, welcome. I'm Daniel. First, write your name on this card.",
+      "text_sha256": "c3ef41f3db33de2bc591f91477b05dba580859fc2b2465c437421d7579b33230",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Do you need my phone number too?",
+      "text_sha256": "de327298d2621d0c85a53f5168c74733e9adbce05af41170c1db591741f77d98",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "No, just your email address. Then put the card in the blue box.",
+      "text_sha256": "26945c49db81fd2664a8acb6363061c7ef81cda4e399b39d6c4a175c1c1d0a7d",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "Okay. My name, my email, and then the blue box.",
+      "text_sha256": "8efb02b243f8686db69cd200611a8881ceeaaf15d70fc88b4ebcde5c723c6eca",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "My calendar reminder appears on the screen, but I don't hear a sound.",
+      "text_sha256": "2435f9fa418a9e1373c879aaaaff898bea3c0bd5d5ae3924ba8918938102dda4",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Open the app settings and tap Notifications. Is Sound switched on?",
+      "text_sha256": "77c77a51c122e081670ca62ea70139bd5b8cf4708f1fd41abe4efe3bafea14fc",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Yes, it is. I turned the volume up, but it still didn't work.",
+      "text_sha256": "b83650f0590aad3d3b08f7abb023dd537b16141c8622306f0a41560bcef2b802",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "Check your phone's quiet mode. The app can't make a sound while that mode is on.",
+      "text_sha256": "81aa37744b9fdca627703226c55190829ada5200f3c26e4599b6308c13a5ed59",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "Oh, I switched it on during a meeting. I'll turn it off and try a reminder for two minutes from now.",
+      "text_sha256": "1912a9ec7a1c7ad5018a100545951a6e7721962485c79737562c0b32a3c263d2",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Good. Keep the sound setting on; you don't need to reinstall the app.",
+      "text_sha256": "1b4c58448788551894ca702b7507f2984c092667686d781a90f6bd1369ab1bf8",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "The hallway lamp works, but the corner by the stairs is still dark. Shall we buy a brighter bulb?",
+      "text_sha256": "053f9df4be7a0043d5ec1be4ab787e58c825d77dd5a1c33b794ae78aa654fe0c",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Before we do that, look at the tall bookcase. It blocks the light from reaching the stairs.",
+      "text_sha256": "e6505c3f545485cf7556978387d2642acf6352c7c06577e5de152c1f2b950a4b",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "You're right. We moved it there when we cleared the spare room, because it wouldn't fit beside the desk.",
+      "text_sha256": "832fab1d2e978248c91fc9a2e33971541d135b357b1c819424141246cbd00953",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "The shorter cabinet can go beside the desk. Then we can move the bookcase to the wall opposite the window.",
+      "text_sha256": "68cbe40ba87dcc8f45530f6ee06b547b6a064f66738e49a685320295e48092f2",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "Let's move the cabinet first, measure the space, and then move the bookcase. We shouldn't block the doorway instead.",
+      "text_sha256": "f65c7c9fd8f2959282d6f889a76191572604bceb236ee5fe9ca3d99d28cfd3a9",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Agreed. If the stairs are still dark after that, we'll consider another light.",
+      "text_sha256": "f502b0f44cd2287dabc56a213208f1f5e449591887a44e63769b59c9683b793c",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "You've changed the morning schedule twice this month. Are you dissatisfied with the team's punctuality?",
+      "text_sha256": "68f9cfe4e9847a99b66e4a964f764487c8daeb6ac484b66936810d0a1fe09d14",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Actually, people arrive on time. The difficulty is that three urgent tasks land on the same person before anyone else is free.",
+      "text_sha256": "4921c4974c7595b70ba046e8609159e1142ba1fcf68b124359fb969d4f892a39",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. A light, natural Irish English accent, keeping every word clear. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Would an earlier start spread the pressure out?",
+      "text_sha256": "a9de6451f80a8119f752dc3e657b028f9ffd41adbb854c6b106c94d208d6d898",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "For some staff, perhaps. For those bringing children to school, it would simply shift the pressure home. I'd rather move the routine stock check until after the first customer calls.",
+      "text_sha256": "1005fa82216adab9d5d2f1a7968d766ba0be7b4342bea039cf635aff025d5359",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. A light, natural Irish English accent, keeping every word clear. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "That sounds like a small change for a problem you've described as urgent.",
+      "text_sha256": "86c91d461e5d83893ebe2feae52aeb738f4b888434c7d0d66869d3b637a36379",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Small doesn't mean cosmetic. It gives us a buffer where the bottleneck actually is, without asking everyone to reorganise their lives.",
+      "text_sha256": "89b7ff46ab5530044df2e9ea4598b521f915eb4f1b38a07ff09549990b2c4038",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. A light, natural Irish English accent, keeping every word clear. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "So your priority is a workable sequence rather than a stricter clock.",
+      "text_sha256": "e7e6815b5d6dfa2699904e8ed8b19a8decd6a02c6fc9711f1567a72694109bf1",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK02",
+      "text": "Exactly. I'll review the call logs after a week. If the pressure remains, we'll adjust again rather than defend the timetable for its own sake.",
+      "text_sha256": "7564add3acedf8bdac317602b6b754e8d59eb0442890b9792186327d7fa6800f",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. A light, natural Irish English accent, keeping every word clear. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "A guest says, 'I was wondering whether the side dish could arrive before the main course goes cold.' How do you read that?",
+      "text_sha256": "e24eef69e1f38f847e9036193e241d7dbf47287fcfc9641d8deea544accd935a",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "The wording is tentative, but the timing makes it a complaint. I'd acknowledge the delay rather than answer as though they were asking about our usual serving order.",
+      "text_sha256": "fd343924abc6c5326c681bbedbd80991c44bbb7a24a0f07982a9440382d79c98",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Would you promise the side dish immediately?",
+      "text_sha256": "18e50528f093455dd2dae68e1f51e69bd80182b42a5337bd0344f6f5c6a8794d",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "Only if the kitchen can deliver. A brisk 'coming right up' sounds reassuring until the guest has to ask again. I'd check the timing and offer to keep the main course warm meanwhile.",
+      "text_sha256": "93fe80e08bf4866cf4cccbd6e8fd482c5bcc0a29397f5ef47a048e0174edc34a",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "And if the guest says, 'Don't put yourselves out on my account'?",
+      "text_sha256": "246119eee402e6461e7669411b85acc9a22280a502c8c248844e099072cdbd0c",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "I'd be careful. It may genuinely release us from the request, or it may signal that they've lost confidence in the offer. Their earlier complaint and tone matter more than the politeness formula alone.",
+      "text_sha256": "30ba7970d61cdcb6e9b0e011ea7ddb269763dd783eb150ffd7c8d4735632d709",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "So good service includes checking the implication without turning a minor delay into a formal dispute.",
+      "text_sha256": "7094b8f3d4c8501562afd2c9efdde2335294e45551a3e95db440277ffc65721f",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK02",
+      "text": "Yes. A specific, credible offer in ordinary language usually does more than an elaborate apology we can't follow through on.",
+      "text_sha256": "6763c19ac5d1578273c5ed78e92779dc23c28c8c0fcd3deb95891240bdd5fd7c",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "The warning covers the whole valley, but the most recent model puts the heaviest rain east of the bypass. Can we announce that the western route will remain open?",
+      "text_sha256": "e2bdac9d9bb7354ac80e0a6d59789ccfa98da7c0d8b3735fad2925c4cfc8f5b7",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "I'd resist that wording. The model locates the likeliest concentration; it doesn't draw a dependable boundary around every intense shower.",
+      "text_sha256": "3188cc5b983bc10ed5e96091aeaa57352a1d99f12feb59071e60ea6af688be84",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK03",
+      "text": "But leaving the route unspecified makes it difficult to position the buses. We need a working assumption, even if it isn't a guarantee.",
+      "text_sha256": "627ea99776bc3737d0d5161e15ce444cbd8232afd4181dd75ae0e05fa2039bf6",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "A working assumption, yes, but—",
+      "text_sha256": "c79902146d8a8b67d7b33905ec00d9895af3b6dcd14aa2dc49d8ea2c5692ece4",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK03",
+      "text": "—not a public promise. I take the distinction. Could we stage vehicles near the western depot while keeping the evacuation message route-neutral?",
+      "text_sha256": "f080ef9417d895b534c31e5b11b8b7289cc8631486be7a5c409f8b38ce1970a3",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "That separates a reversible logistical choice from a message people may treat as assurance. We'd still need a trigger for moving the vehicles if the next radar update shifts the risk.",
+      "text_sha256": "afac51e3cb4e54de80d27e15f494978bf898edba9f8b644b83d5159e551e9fbf",
+      "voice": "marin",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "Are we splitting hairs when crews are already preparing?",
+      "text_sha256": "34386e5cf40adb0acd8d3f0250f40f3453f63e306663e0d90a6ceb8ee6796343",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK03",
+      "text": "I'd call it keeping our options open. The buses can be repositioned; a reassuring announcement is harder to take back once families have acted on it.",
+      "text_sha256": "e06c20f8144d66ea34f954e6b70e902ae147ba0421b0f298cab1c39d5b3abb4e",
+      "voice": "cedar",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational American English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S009",
+      "script_speaker_id": "SPK01",
+      "text": "Then we stage provisionally, name the review trigger, and make no route-specific assurance. The forecast informs the plan without becoming a timetable for the storm.",
+      "text_sha256": "21d97030dfac1b417cba1c215232811221af37defad5c0144de55dd1a122d976",
+      "voice": "ash",
+      "instructions": "Read the supplied text exactly, without additions, omissions, paraphrases or expanded contractions. Natural conversational British English. Speak naturally at a measured conversational pace, with clear clause boundaries and audible word endings. Do not exaggerate accent, syllables or emotion."
+    }
+  ],
+  "publication_allowed": false
+}
