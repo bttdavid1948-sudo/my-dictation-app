@@ -1,0 +1,35 @@
+name: Batch02 exact immutable release audio import
+on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch02-producer/release-import-activation.json
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: official-man-batch02-release-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Download exact already-produced outputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 37422574442 --repo bttdavid1948-sudo/my-dictation-app --name batch02-audio-production-37422574442 --dir release-production
+          gh run download 37423741204 --repo bttdavid1948-sudo/my-dictation-app --name batch02-targeted-repair-37423741204 --dir release-repair
+      - name: Verify hashes and prepare only authorized release audio
+        run: python3 operations/batch02-producer/import_release_audio.py
+      - name: Push isolated review branch; never publish main directly
+        run: |
+          git switch -c ops/batch02-immutable-audio-import
+          git config user.name 'Mặn Production Control'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/audio/*-batch02-v0.1.wav assets/audio/MAN-0921-MIXED-v0.1.wav assets/audio/MAN-0921-*-mixed-context-v0.1.wav
+          git commit -m 'Import hash-verified Batch02 finite release WAVs; no synthesis'
+          git push origin HEAD:refs/heads/ops/batch02-immutable-audio-import
