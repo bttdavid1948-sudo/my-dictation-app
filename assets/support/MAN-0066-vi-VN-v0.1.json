@@ -1,0 +1,26 @@
+{
+  "bundle_id": "MAN-0066-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0066",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Bài kiểm tra thử có hai mươi câu hỏi."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Hãy kiểm tra lại câu sáu và câu mười lăm."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Viết chữ cái đúng vào ô nhỏ."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Bạn có năm phút. Hãy tự làm bài nhé."
+    }
+  ]
+}

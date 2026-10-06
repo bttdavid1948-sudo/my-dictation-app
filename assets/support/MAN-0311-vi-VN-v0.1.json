@@ -1,0 +1,34 @@
+{
+  "bundle_id": "MAN-0311-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0311",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Đèn hành lang vẫn hoạt động, nhưng góc gần cầu thang còn tối. Hay mua bóng sáng hơn?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Trước khi làm vậy, nhìn tủ sách cao kia xem. Nó chắn ánh sáng tới cầu thang."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Đúng rồi. Lúc dọn phòng phụ, ta chuyển nó ra đó vì không đặt vừa cạnh bàn."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Tủ thấp hơn có thể đặt cạnh bàn. Sau đó chuyển tủ sách tới bức tường đối diện cửa sổ."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Hãy chuyển tủ thấp trước, đo khoảng trống rồi chuyển tủ sách. Đừng để lại chắn cửa ra vào."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đồng ý. Nếu sau đó cầu thang vẫn tối, ta sẽ tính thêm đèn."
+    }
+  ]
+}

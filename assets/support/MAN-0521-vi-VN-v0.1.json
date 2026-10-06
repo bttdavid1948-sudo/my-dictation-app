@@ -1,0 +1,42 @@
+{
+  "bundle_id": "MAN-0521-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0521",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Bạn đã đổi lịch buổi sáng hai lần trong tháng. Bạn không hài lòng về việc đúng giờ của nhóm à?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Thật ra mọi người đến đúng giờ. Vấn đề là ba việc gấp cùng dồn vào một người trước khi những người khác rảnh."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Bắt đầu sớm hơn có giúp giãn áp lực không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Với một số người thì có thể. Nhưng với người đưa con đi học, nó chỉ chuyển áp lực về nhà. Tôi muốn dời việc kiểm tra hàng thường lệ tới sau các cuộc gọi đầu tiên của khách hơn."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Nghe như thay đổi nhỏ cho một vấn đề bạn vừa mô tả là cấp bách."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Nhỏ không có nghĩa chỉ sửa cho đẹp. Nó tạo khoảng đệm ngay tại điểm nghẽn, mà không bắt mọi người sắp xếp lại cuộc sống."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Vậy ưu tiên của bạn là trình tự khả thi thay vì siết giờ giấc."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Chính xác. Tôi sẽ xem nhật ký cuộc gọi sau một tuần. Nếu áp lực còn, ta điều chỉnh tiếp thay vì bảo vệ lịch chỉ vì đã đặt ra nó."
+    }
+  ]
+}

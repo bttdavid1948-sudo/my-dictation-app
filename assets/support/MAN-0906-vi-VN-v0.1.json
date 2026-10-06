@@ -1,0 +1,42 @@
+{
+  "bundle_id": "MAN-0906-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0906",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Mọi thí sinh trong đợt thử đều nhận cùng một mức đánh giá cuối. Bản tóm tắt gọi đó là nhất quán đáng kể. Chúng ta nên vui chứ?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Nhất quán đáng kể, đúng rồi. Nếu nhất quán là mục tiêu duy nhất, ta có thể khỏi phỏng vấn và in sẵn mức đánh giá từ đầu."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Đó là lời cảnh báo có lý, nhưng mức đánh giá giống nhau không chứng minh thang chấm có lỗi. Nhóm thử có thể thực sự tương đồng hơn bình thường."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Có thể. Nhưng ghi chép phỏng vấn mô tả khác biệt lớn trong cách thí sinh bảo vệ luận điểm khi bị chất vấn. Những khác biệt ấy biến mất khi ghi chép được quy về một nhóm đánh giá duy nhất."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy điều đáng lo chủ yếu không phải giám khảo có đồng ý với nhau không, mà là thang báo cáo có giữ được những gì họ thực sự quan sát không?"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Chính xác. Tôi sẽ xem các trường hợp gần ranh giới trước khi thêm nhóm. Một thang chi tiết hơn chỉ làm tăng số nhãn có thể tạo vẻ chính xác mà không cải thiện quyết định."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Và hãy giảm giọng tự chúc mừng. Sự đồng thuận là bằng chứng hữu ích, nhưng ở đây nó khởi đầu việc xem xét chứ không phải lý do kết thúc."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Chúng ta sẽ giữ ghi chép, xem các mức đánh giá sát ranh giới và mô tả sự nhất quán trong đợt thử là phát hiện chưa được lý giải thay vì tuyên bố thành công."
+    }
+  ]
+}

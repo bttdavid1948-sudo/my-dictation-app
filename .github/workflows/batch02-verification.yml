@@ -1,0 +1,50 @@
+name: Batch02 exact desktop mobile release verification
+on:
+  pull_request:
+    paths:
+      - assets/batch02-practice-runtime.js
+      - assets/official-lessons-batch02.json
+      - batch02-verification/**
+      - .github/workflows/batch02-verification.yml
+  push:
+    branches: [main]
+    paths:
+      - assets/batch02-practice-runtime.js
+      - assets/official-lessons-batch02.json
+      - batch02-verification/**
+      - .github/workflows/batch02-verification.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        lesson: [MAN-0066, MAN-0166, MAN-0366, MAN-0566, MAN-0766, MAN-0906, MAN-0001, MAN-0201, MAN-0311, MAN-0521, MAN-0733, MAN-0921]
+        mode: [desktop, mobile]
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Exact Batch02 pair only; previous gates preserved
+        env:
+          MAN_LESSON_ID: ${{ matrix.lesson }}
+          MAN_EXECUTION_MODE: ${{ matrix.mode }}
+          MAN_VERIFY_TARGET: ${{ github.event_name == 'pull_request' && 'staging' || 'live' }}
+        run: node batch02-verification/verify.mjs
+      - name: Preserve scoped release evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch02-${{ matrix.lesson }}-${{ matrix.mode }}-${{ github.event_name }}
+          path: batch02-verification/evidence/${{ matrix.lesson }}/${{ matrix.mode }}/
+          retention-days: 7

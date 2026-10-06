@@ -1,0 +1,2272 @@
+{
+  "catalogVersion": 1,
+  "publisher": "man",
+  "lessons": [
+    {
+      "id": "MAN-0066",
+      "unitName": "MAN-0066 · Check Your Answers",
+      "topic": "Giao tiếp và học tập",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Kiểm tra câu sáu và mười lăm, viết chữ cái vào ô nhỏ và tự làm trong năm phút.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "Your practice test has twenty questions.",
+          "vi": "Bài kiểm tra thử có hai mươi câu hỏi.",
+          "segmentId": "S001",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0066-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0066",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0066-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0066-BATCH02-FIXED@v0.1",
+            "sha256": "9e747c6ca7a4dd414668adeabe682496e71042d045088dedb8206be2df00836e",
+            "durationSeconds": 3.8,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Check questions six and fifteen again.",
+          "vi": "Hãy kiểm tra lại câu sáu và câu mười lăm.",
+          "segmentId": "S002",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0066-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0066",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0066-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0066-BATCH02-FIXED@v0.1",
+            "sha256": "cc4e995f11e4759181eef28b4bc9acece014be269dbed8e05354dbd0a86496d8",
+            "durationSeconds": 3.6,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Write the correct letter in the small box.",
+          "vi": "Viết chữ cái đúng vào ô nhỏ.",
+          "segmentId": "S003",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0066-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0066",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0066-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0066-BATCH02-FIXED@v0.1",
+            "sha256": "c73ed6883924b05e2293702b01c823314957b370b185a0ac8f55ca9c7bcf773f",
+            "durationSeconds": 3.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "You have five minutes. Please work on your own.",
+          "vi": "Bạn có năm phút. Hãy tự làm bài nhé.",
+          "segmentId": "S004",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0066-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0066",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0066-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0066-BATCH02-FIXED@v0.1",
+            "sha256": "569082d1c88b4d86eae7e52fc17f62f0a90fb4766a41cbb7cf355c56f99b75f9",
+            "durationSeconds": 3.6,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0066-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0066-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0066-A-COMP-01",
+          "MAN-0066-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "numbers/letter names"
+        ],
+        "question": "Thầy/cô yêu cầu bạn làm gì?",
+        "choices": [
+          "Kiểm tra câu 6 và 15, viết chữ cái đúng, rồi tự làm trong 5 phút.",
+          "Chỉ kiểm tra câu 20 và trao đổi đáp án với bạn.",
+          "Viết tất cả đáp án ra giấy lớn và chờ 15 phút."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Kiểm tra câu sáu và mười lăm, viết chữ cái vào ô nhỏ và tự làm trong năm phút.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0066-A-SPCH-01",
+            "operator": "AURAL_RECOGNITION",
+            "construct": "FORM_RECOGNITION",
+            "format": "SHORT_TEXT",
+            "dimension": "auditory_lexical_access",
+            "prompt": "Viết cụm nêu hai số câu hỏi cần kiểm tra.",
+            "answer": "six and fifteen",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 16,
+              "end_char": 31
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0066-A-SPCH-01",
+            "operator": "AURAL_RECOGNITION",
+            "construct": "FORM_RECOGNITION",
+            "format": "SHORT_TEXT",
+            "dimension": "auditory_lexical_access",
+            "prompt": "Viết cụm nêu khoảng thời gian được phép.",
+            "answer": "five minutes",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 9,
+              "end_char": 21
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0166",
+      "unitName": "MAN-0166 · A Different Way to Revise",
+      "topic": "Giao tiếp và học tập",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "Lần sau vẫn khó, nhưng việc tự nhớ câu trả lời rồi kiểm tra lỗi giúp người kể nhớ nhiều hơn.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "I didn't do well in the first history quiz.",
+          "vi": "Tôi làm bài kiểm tra lịch sử đầu tiên không tốt.",
+          "segmentId": "S001",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0166-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0166",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0166-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0166-BATCH02-FIXED@v0.1",
+            "sha256": "e78f1cf94f73df17664837ae96b7b586823d2a1636e34db81d07e92da5b189be",
+            "durationSeconds": 3.55,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "I'd read my notes twice, but I couldn't explain the dates without looking.",
+          "vi": "Tôi đã đọc ghi chép hai lần, nhưng không nhìn vào thì lại không giải thích được các mốc thời gian.",
+          "segmentId": "S002",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0166-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0166",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0166-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0166-BATCH02-FIXED@v0.1",
+            "sha256": "2624dbaf0948f95b875ecd41a7edfd725134dbcf968b45aa738f6e0eb8a0964e",
+            "durationSeconds": 6.05,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "On Tuesday, I put the notes away and asked my sister to test me.",
+          "vi": "Thứ Ba, tôi cất ghi chép đi rồi nhờ chị kiểm tra kiến thức của mình.",
+          "segmentId": "S003",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0166-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0166",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0166-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0166-BATCH02-FIXED@v0.1",
+            "sha256": "71fbf3184e552308fee07ae0a4e57d140df0953e636b5d14fd8b249f851975be",
+            "durationSeconds": 5.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "When I got an answer wrong, we checked it together.",
+          "vi": "Khi tôi trả lời sai, hai chị em cùng kiểm tra lại.",
+          "segmentId": "S004",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0166-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0166",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0166-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0166-BATCH02-FIXED@v0.1",
+            "sha256": "ace2410104ded8b10ca3fa443721abfa22dd51dd4517d974823a893d8a6d3859",
+            "durationSeconds": 3.95,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The next quiz wasn't easy, but I remembered more because I'd practised answering questions.",
+          "vi": "Bài kiểm tra tiếp theo không dễ, nhưng tôi nhớ được nhiều hơn vì đã luyện trả lời câu hỏi.",
+          "segmentId": "S005",
+          "speakerRole": "student",
+          "audio": {
+            "url": "assets/audio/MAN-0166-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0166",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0166-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0166-BATCH02-FIXED@v0.1",
+            "sha256": "fcd1237484663268ee06e6bdab391a9f821b13e1aefe0de73b2b7c70c1357e64",
+            "durationSeconds": 7.45,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0166-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0166-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0166-A-COMP-01",
+          "MAN-0166-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "common contractions"
+        ],
+        "question": "Điều gì giúp người kể nhớ tốt hơn?",
+        "choices": [
+          "Cất ghi chú, tự trả lời câu hỏi và kiểm tra lỗi cùng chị/em gái.",
+          "Đọc lại ghi chú nhiều lần mà không cần tự trả lời.",
+          "Bài kiểm tra sau dễ hơn nên không cần đổi cách ôn."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Lần sau vẫn khó, nhưng việc tự nhớ câu trả lời rồi kiểm tra lỗi giúp người kể nhớ nhiều hơn.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn sau I trong câu đầu.",
+            "answer": "didn't",
+            "span": {
+              "segment_id": "S001",
+              "start_char": 2,
+              "end_char": 8
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn trước explain trong lượt 2.",
+            "answer": "couldn't",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 31,
+              "end_char": 39
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-3",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn trước easy trong lượt cuối.",
+            "answer": "wasn't",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 14,
+              "end_char": 20
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0366",
+      "unitName": "MAN-0366 · Find the Reason for a Mistake",
+      "topic": "Giao tiếp và học tập",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Điểm cho biết có bao nhiêu câu đúng; nguyên nhân của từng lỗi mới giúp chọn việc ôn cần làm.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "A practice score tells you how many answers were right, but it doesn't tell you why the others were wrong.",
+          "vi": "Điểm thi thử cho biết bạn đúng bao nhiêu câu, nhưng không cho biết vì sao các câu còn lại sai.",
+          "segmentId": "S001",
+          "speakerRole": "lecturer",
+          "audio": {
+            "url": "assets/audio/MAN-0366-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0366",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0366-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0366-BATCH02-FIXED@v0.1",
+            "sha256": "0c826e3750f00383c6de4caa7be29b8c4e2508b9c782bf174ebc52889bdc4965",
+            "durationSeconds": 7.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "After a reading test, put each mistake into one of three groups: an unknown word, a missed instruction, or an unsupported guess.",
+          "vi": "Sau bài kiểm tra đọc, hãy xếp mỗi lỗi vào một trong ba nhóm: từ chưa biết, chỉ dẫn bị bỏ sót, hoặc đoán không có căn cứ.",
+          "segmentId": "S002",
+          "speakerRole": "lecturer",
+          "audio": {
+            "url": "assets/audio/MAN-0366-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0366",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0366-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0366-BATCH02-FIXED@v0.1",
+            "sha256": "7aa5abb04479138b383c10bfafc2ddaff2470e812ab563847d197479ed701a1d",
+            "durationSeconds": 9.55,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Imagine that you chose a true statement which didn't answer the question. More vocabulary practice wouldn't solve that problem.",
+          "vi": "Giả sử bạn chọn một phát biểu đúng nhưng không trả lời câu hỏi. Luyện thêm từ vựng sẽ không giải quyết được vấn đề đó.",
+          "segmentId": "S003",
+          "speakerRole": "lecturer",
+          "audio": {
+            "url": "assets/audio/MAN-0366-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0366",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0366-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0366-BATCH02-FIXED@v0.1",
+            "sha256": "7fc27de90a4b5b56ccfd55c25593137d86ca398f9b62a0de59f1f63e6474d202",
+            "durationSeconds": 9.85,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Instead, underline what the question asks and find the sentence that supports your answer.",
+          "vi": "Thay vào đó, hãy gạch dưới điều câu hỏi yêu cầu và tìm câu làm căn cứ cho đáp án.",
+          "segmentId": "S004",
+          "speakerRole": "lecturer",
+          "audio": {
+            "url": "assets/audio/MAN-0366-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0366",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0366-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0366-BATCH02-FIXED@v0.1",
+            "sha256": "3e9f3450bf29a92754378dd57d931e5e9f280d7cd5df9a7b060cafcac6371458",
+            "durationSeconds": 7.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "A short record of the reason for each mistake gives your next revision session a clear purpose.",
+          "vi": "Ghi ngắn gọn nguyên nhân của từng lỗi sẽ giúp buổi ôn tập tiếp theo có mục tiêu rõ ràng.",
+          "segmentId": "S005",
+          "speakerRole": "lecturer",
+          "audio": {
+            "url": "assets/audio/MAN-0366-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0366",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0366-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0366-BATCH02-FIXED@v0.1",
+            "sha256": "a360572e0bbbcf45ddfd841f45f839595ac158b7d18dbdeb903ade78fceab99b",
+            "durationSeconds": 6.65,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0366-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0366-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "MEANING_PARAPHRASE",
+        "construct": "PARAPHRASE",
+        "dimension": "contextual_lexical_access|literal_comprehension",
+        "anchorIds": [
+          "MAN-0366-A-COMP-01",
+          "MAN-0366-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "linking"
+        ],
+        "question": "Cách ôn nào phù hợp với lời khuyên?",
+        "choices": [
+          "Phân loại nguyên nhân từng lỗi rồi chọn cách ôn theo nguyên nhân ấy.",
+          "Mọi đáp án sai đều chứng tỏ cần học thêm từ mới.",
+          "Chỉ so sánh điểm tổng, không cần xem lại câu hỏi."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Điểm cho biết có bao nhiêu câu đúng; nguyên nhân của từng lỗi mới giúp chọn việc ôn cần làm.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0366-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "FORM_OR_MEANING_ACCESS",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm hành động tìm bằng chứng trong lượt 4.",
+            "answer": "find the sentence",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 46,
+              "end_char": 63
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0366-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "FORM_OR_MEANING_ACCESS",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm nêu điều cần ghi lại cho từng lỗi trong lượt cuối.",
+            "answer": "reason for each mistake",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 22,
+              "end_char": 45
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0566",
+      "unitName": "MAN-0566 · What Does the Higher Score Mean?",
+      "topic": "Giao tiếp và học tập",
+      "level": "B2",
+      "track": "Giao tiếp",
+      "learningGoal": "Quiz có thể giúp chuẩn bị nhưng cũng dễ đạt điểm hơn; cần so sánh lời giải thích trước khi kết luận về hiểu biết.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "Our department's average score rose after we replaced the weekly essay with short online quizzes. It's tempting to call that an improvement in learning.",
+          "vi": "Điểm trung bình của khoa tăng sau khi bài luận hằng tuần được thay bằng các bài trắc nghiệm ngắn trực tuyến. Thật dễ muốn gọi đó là tiến bộ trong học tập.",
+          "segmentId": "S001",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "2cbb19a32e55eaba879d9f9a40067807f2cebe665026624c65e646583faa8ef2",
+            "durationSeconds": 10.8,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Some tutors welcome the change because immediate feedback helps students notice gaps before the next class.",
+          "vi": "Một số giảng viên ủng hộ thay đổi này vì phản hồi ngay giúp sinh viên nhận ra lỗ hổng trước buổi học tiếp theo.",
+          "segmentId": "S002",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "b97c29d8ffc5609b531fbd146be0421214b743259d44b6c1d5dab90e6d23642c",
+            "durationSeconds": 7.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Others point out that a familiar multiple-choice answer can look convincing even when a student can't explain the underlying idea.",
+          "vi": "Những người khác lưu ý rằng đáp án trắc nghiệm quen mắt có thể trông rất thuyết phục dù sinh viên không giải thích được ý tưởng bên dưới.",
+          "segmentId": "S003",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "6774c967301d5e5b10726b62ae6ce956eb630051de687fbbf504e6e3fb8afcf5",
+            "durationSeconds": 8.35,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Both observations may be right. The quizzes could improve preparation while the new format also makes higher marks easier to obtain.",
+          "vi": "Cả hai nhận xét đều có thể đúng. Trắc nghiệm có thể giúp chuẩn bị tốt hơn, đồng thời hình thức mới cũng khiến điểm cao dễ đạt hơn.",
+          "segmentId": "S004",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "307d74f0ebd40e6e5106c6cc00e2858128e9db2c5c94527cff2cdfd424ba9d13",
+            "durationSeconds": 9.85,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "We ought to compare a small sample of explanations as well as quiz scores, rather than treat the rising average as a verdict.",
+          "vi": "Chúng ta nên so sánh thêm một mẫu nhỏ các phần giải thích bên cạnh điểm trắc nghiệm, thay vì xem điểm trung bình tăng là kết luận cuối cùng.",
+          "segmentId": "S005",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "dadcb8177a9a7020b154bb1cabb9f00e99b5479c5e7aaf700f20774e28c5640f",
+            "durationSeconds": 9.4,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "That wouldn't dismiss the new approach; it would put a limit on what the numbers alone can establish.",
+          "vi": "Điều đó không phủ nhận phương pháp mới; nó chỉ giới hạn những gì các con số tự chúng có thể chứng minh.",
+          "segmentId": "S006",
+          "speakerRole": "assessment adviser",
+          "audio": {
+            "url": "assets/audio/MAN-0566-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0566",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0566-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0566-BATCH02-FIXED@v0.1",
+            "sha256": "04bf5bd86b869159ccf2c6c4aea97edc984e54d675e971df6bf8d8ba1a227596",
+            "durationSeconds": 6.7,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0566-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0566-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "MEANING_PARAPHRASE",
+        "construct": "PARAPHRASE",
+        "dimension": "contextual_lexical_access|inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0566-A-COMP-01",
+          "MAN-0566-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "natural reductions"
+        ],
+        "question": "Điểm trung bình cao hơn cho phép kết luận gì?",
+        "choices": [
+          "Có thể cải thiện chuẩn bị và có tác động của dạng bài; cần xem thêm lời giải thích.",
+          "Đã chắc chắn chứng minh mọi sinh viên hiểu sâu hơn.",
+          "Quiz không có ích nên phải bỏ ngay."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Quiz có thể giúp chuẩn bị nhưng cũng dễ đạt điểm hơn; cần so sánh lời giải thích trước khi kết luận về hiểu biết.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0566-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 5 diễn đạt nên đối chiếu.",
+            "answer": "ought to compare",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 3,
+              "end_char": 19
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0566-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 6 diễn đạt không bác bỏ.",
+            "answer": "wouldn't dismiss",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 5,
+              "end_char": 21
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0766",
+      "unitName": "MAN-0766 · Who Benefits from the New Rubric?",
+      "topic": "Giao tiếp và học tập",
+      "level": "C1",
+      "track": "Giao tiếp",
+      "learningGoal": "Giữ tạm thời, kiểm tra lợi ích ở người chưa quen và xem cả việc dạy; ít khiếu nại chưa giải quyết câu hỏi công bằng.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "The new writing rubric produced fewer disputed marks. Does that settle the case for keeping it?",
+          "vi": "Thang chấm bài viết mới khiến số điểm bị khiếu nại giảm. Điều đó đã đủ để quyết định giữ nó chưa?",
+          "segmentId": "S001",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "514b9da72212a35b564d6cc159e5de8443a599beff8a234e85ea0fe1f9a14849",
+            "durationSeconds": 6.25,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Not quite. Fewer disputes may mean the criteria are clearer, or simply that students have stopped expecting an appeal to change anything.",
+          "vi": "Chưa hẳn. Ít khiếu nại hơn có thể vì tiêu chí rõ hơn, hoặc đơn giản là sinh viên không còn kỳ vọng phúc khảo sẽ thay đổi được gì.",
+          "segmentId": "S002",
+          "speakerRole": "researcher",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "569bcc87ed71d0c8133da92bfbe9b2f62310ad04bd59bc7478f795eff8f8d330",
+            "durationSeconds": 7.25,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "In my classes, students can now identify the difference between a claim and its supporting example. That's a concrete benefit, even if the appeals figure is ambiguous.",
+          "vi": "Trong lớp của tôi, sinh viên giờ phân biệt được luận điểm với ví dụ hỗ trợ. Đó là lợi ích cụ thể, dù số liệu phúc khảo còn khó diễn giải.",
+          "segmentId": "S003",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "951cb934de93189d59d3aadc785ac00fb8c74697fbe14e6834b91a7c4e3b0b0b",
+            "durationSeconds": 9.75,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "I agree, but I'd want to know whether that benefit reaches students who are unfamiliar with the rubric's language. A clearer document for experienced writers may still be opaque to everyone else.",
+          "vi": "Tôi đồng ý, nhưng muốn biết lợi ích đó có đến được với sinh viên chưa quen ngôn ngữ của thang chấm không. Tài liệu rõ hơn với người viết có kinh nghiệm vẫn có thể khó hiểu với những người khác.",
+          "segmentId": "S004",
+          "speakerRole": "researcher",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "1331ff9120645101e4729fdd702672ba95afc824e9c950d7ed3dd03544338fff",
+            "durationSeconds": 10.5,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "So we keep the criteria provisionally and examine explanations from both groups, rather than use fewer complaints as our only measure?",
+          "vi": "Vậy ta tạm giữ tiêu chí rồi xem các phần giải thích của cả hai nhóm, thay vì chỉ dùng số khiếu nại giảm làm thước đo?",
+          "segmentId": "S005",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "05751bffd2d5a7e0448889025da2789d6bc8aa12b8e08b2f281a3cdc3c9dc839",
+            "durationSeconds": 10.05,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes, and we should publish the examples students found useful. Otherwise we're evaluating the wording without the teaching that makes it usable.",
+          "vi": "Đúng, và nên công bố những ví dụ sinh viên thấy hữu ích. Nếu không, ta đang đánh giá câu chữ mà bỏ qua việc giảng dạy giúp họ sử dụng được nó.",
+          "segmentId": "S006",
+          "speakerRole": "teacher",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "52ce4c311e7776b40b17ea7a002e9a853e2d268c46c06afe97bcf1155ec032d6",
+            "durationSeconds": 8.85,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Provided we report that distinction, the evidence can support a limited decision without pretending we've settled the wider fairness question.",
+          "vi": "Miễn là báo cáo rõ sự phân biệt ấy, bằng chứng có thể hỗ trợ một quyết định giới hạn mà không giả vờ rằng vấn đề công bằng rộng hơn đã được giải quyết.",
+          "segmentId": "S007",
+          "speakerRole": "researcher",
+          "audio": {
+            "url": "assets/audio/MAN-0766-S007-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0766",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0766-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0766-BATCH02-FIXED@v0.1",
+            "sha256": "55f07522f12b3c1fe91b02130359ca8b32bb85e4d6c81b05f08b4dc34ae89060",
+            "durationSeconds": 7.65,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0766-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0766-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DISCOURSE_STRUCTURE_AND_DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0766-A-COMP-01",
+          "MAN-0766-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "fast connected speech"
+        ],
+        "question": "Nhóm thống nhất hướng xử lý nào?",
+        "choices": [
+          "Tạm giữ tiêu chí, xem giải thích của cả hai nhóm và công bố ví dụ hữu ích.",
+          "Ít khiếu nại đã chứng minh rubric công bằng với mọi người.",
+          "Chỉ cần sửa văn bản rubric, không cần xét cách dạy."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Giữ tạm thời, kiểm tra lợi ích ở người chưa quen và xem cả việc dạy; ít khiếu nại chưa giải quyết câu hỏi công bằng.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0766-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 4 nói muốn biết liệu một điều có đúng.",
+            "answer": "I'd want to know whether",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 13,
+              "end_char": 37
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0766-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm ở cuối lượt 6 nói điều khiến tiêu chí dùng được.",
+            "answer": "makes it usable",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 128,
+              "end_char": 143
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0906",
+      "unitName": "MAN-0906 · A Remarkably Consistent Result",
+      "topic": "Giao tiếp và học tập",
+      "level": "C2",
+      "track": "Giao tiếp",
+      "learningGoal": "Câu khen bề ngoài đặt cạnh ý in điểm trước phỏng vấn là lời cảnh báo; cần giữ ghi chú và xét các trường hợp ranh giới, không tuyên bố thành công.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "Every candidate in the pilot received the same final rating. The summary describes that as remarkably consistent. Should we be pleased?",
+          "vi": "Mọi thí sinh trong đợt thử đều nhận cùng một mức đánh giá cuối. Bản tóm tắt gọi đó là nhất quán đáng kể. Chúng ta nên vui chứ?",
+          "segmentId": "S001",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "738ad72d62b507685abc613ce5acafdd1f2ce32ffccca9ec5d62f1e6b8491041",
+            "durationSeconds": 10.0,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Remarkably consistent, certainly. If consistency were our only ambition, we could save ourselves the interviews and print the ratings in advance.",
+          "vi": "Nhất quán đáng kể, đúng rồi. Nếu nhất quán là mục tiêu duy nhất, ta có thể khỏi phỏng vấn và in sẵn mức đánh giá từ đầu.",
+          "segmentId": "S002",
+          "speakerRole": "examiner",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "ef7892d24ca6b2c50603b4d023e639d7dac7c5fdb887ba40dc1827c9e6d09775",
+            "durationSeconds": 8.75,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "That's a fair warning, but identical ratings don't prove that the rubric is defective. The pilot group might genuinely have been unusually similar.",
+          "vi": "Đó là lời cảnh báo có lý, nhưng mức đánh giá giống nhau không chứng minh thang chấm có lỗi. Nhóm thử có thể thực sự tương đồng hơn bình thường.",
+          "segmentId": "S003",
+          "speakerRole": "methodologist",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "34767f0c8da131badede9008019c313177f4269e2a352c6ded98a23c826dc16d",
+            "durationSeconds": 7.8,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "They might. Yet the interview notes describe substantial differences in how candidates defended a claim under challenge. Those differences disappeared when we converted the notes into a single category.",
+          "vi": "Có thể. Nhưng ghi chép phỏng vấn mô tả khác biệt lớn trong cách thí sinh bảo vệ luận điểm khi bị chất vấn. Những khác biệt ấy biến mất khi ghi chép được quy về một nhóm đánh giá duy nhất.",
+          "segmentId": "S004",
+          "speakerRole": "examiner",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "2498b17be16ae78d0de98574cd2f1e3894f4bfe8d2cd0849230ddfffae3040ca",
+            "durationSeconds": 13.1,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Then the concern is less about agreement between examiners than about whether the reporting scale preserves what they actually observed?",
+          "vi": "Vậy điều đáng lo chủ yếu không phải giám khảo có đồng ý với nhau không, mà là thang báo cáo có giữ được những gì họ thực sự quan sát không?",
+          "segmentId": "S005",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "86c1b89671820ddb7032e4a433e0b21d21baa38d177a66052bdde1c4822e6552",
+            "durationSeconds": 9.25,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Exactly. I'd inspect the boundary cases before adding more categories. A finer scale that merely multiplies labels could produce an appearance of precision without improving the decision.",
+          "vi": "Chính xác. Tôi sẽ xem các trường hợp gần ranh giới trước khi thêm nhóm. Một thang chi tiết hơn chỉ làm tăng số nhãn có thể tạo vẻ chính xác mà không cải thiện quyết định.",
+          "segmentId": "S006",
+          "speakerRole": "methodologist",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "f4cc39b0d8e58be75da2d6ca9e15a6be3ab1d3ca487876eed74b17c5c7fa3d04",
+            "durationSeconds": 10.15,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "And let's soften the congratulatory language. Agreement is useful evidence, but here it's the beginning of an investigation, not a reason to end one.",
+          "vi": "Và hãy giảm giọng tự chúc mừng. Sự đồng thuận là bằng chứng hữu ích, nhưng ở đây nó khởi đầu việc xem xét chứ không phải lý do kết thúc.",
+          "segmentId": "S007",
+          "speakerRole": "examiner",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S007-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "de200e0fe52946095bb3b61f63292a6d59e8fd4ea4bdea01b8360a47a495326a",
+            "durationSeconds": 10.55,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "We'll retain the notes, examine the borderline ratings, and describe the pilot's consistency as an unresolved finding rather than a success claim.",
+          "vi": "Chúng ta sẽ giữ ghi chép, xem các mức đánh giá sát ranh giới và mô tả sự nhất quán trong đợt thử là phát hiện chưa được lý giải thay vì tuyên bố thành công.",
+          "segmentId": "S008",
+          "speakerRole": "moderator",
+          "audio": {
+            "url": "assets/audio/MAN-0906-S008-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0906",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0906-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0906-BATCH02-FIXED@v0.1",
+            "sha256": "c83cc87611ac3740a5048bab87fdaaad7dd1fc3e9db6c924eb4c9cbef92406fe",
+            "durationSeconds": 11.55,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0906-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0906-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE_AMBIGUITY_IRONY",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0906-A-COMP-01",
+          "MAN-0906-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "subtle prosody"
+        ],
+        "question": "Câu Remarkably consistent, certainly. mang ý gì trong lập luận này?",
+        "choices": [
+          "Một lời cảnh báo có ý mỉa mai: cùng mức điểm có thể làm mất khác biệt cần xem xét.",
+          "Khen pilot đã thành công và không cần điều tra thêm.",
+          "Khẳng định chắc chắn mọi ứng viên thật sự giống hệt nhau."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Câu khen bề ngoài đặt cạnh ý in điểm trước phỏng vấn là lời cảnh báo; cần giữ ghi chú và xét các trường hợp ranh giới, không tuyên bố thành công.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0001",
+      "unitName": "MAN-0001 · Your First Day at the Club",
+      "topic": "Giao tiếp và học tập",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Daniel yêu cầu tên và email trên thẻ, rồi bỏ vào hộp xanh dương. Không cần số điện thoại.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "Hi, I'm Maya. Is this the photography club?",
+          "vi": "Chào bạn, mình là Maya. Đây có phải câu lạc bộ nhiếp ảnh không?",
+          "segmentId": "S001",
+          "speakerRole": "new member",
+          "audio": {
+            "url": "assets/audio/MAN-0001-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0001",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0001-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0001-BATCH02-FIXED@v0.1",
+            "sha256": "10a42c9e53fa36c1c94ce0a5043714641a0711652029d4ca4c6d1cc12aa82ab6",
+            "durationSeconds": 4.25,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes, welcome. I'm Daniel. First, write your name on this card.",
+          "vi": "Đúng rồi, chào mừng bạn. Mình là Daniel. Trước tiên, viết tên bạn lên thẻ này nhé.",
+          "segmentId": "S002",
+          "speakerRole": "club organiser",
+          "audio": {
+            "url": "assets/audio/MAN-0001-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0001",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0001-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0001-BATCH02-FIXED@v0.1",
+            "sha256": "68f61ac756af193c7023fddc9a55c72c266b9c70713d76f30b81a01a8c7ff5d4",
+            "durationSeconds": 5.05,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Do you need my phone number too?",
+          "vi": "Bạn có cần số điện thoại của mình nữa không?",
+          "segmentId": "S003",
+          "speakerRole": "new member",
+          "audio": {
+            "url": "assets/audio/MAN-0001-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0001",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0001-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0001-BATCH02-FIXED@v0.1",
+            "sha256": "459c7319bb03233226ca4d1538e0b8507c3e57189a02e47eefc5d2f1410bc8fd",
+            "durationSeconds": 3.15,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "No, just your email address. Then put the card in the blue box.",
+          "vi": "Không, chỉ cần địa chỉ email thôi. Sau đó bỏ thẻ vào hộp màu xanh dương.",
+          "segmentId": "S004",
+          "speakerRole": "club organiser",
+          "audio": {
+            "url": "assets/audio/MAN-0001-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0001",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0001-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0001-BATCH02-FIXED@v0.1",
+            "sha256": "b4e6a98579ad08d8a8a45ff5d071babbd6f7be3921231f9b9d3aa27c5098680f",
+            "durationSeconds": 4.35,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Okay. My name, my email, and then the blue box.",
+          "vi": "Được rồi. Tên, email của mình, rồi đến hộp màu xanh dương.",
+          "segmentId": "S005",
+          "speakerRole": "new member",
+          "audio": {
+            "url": "assets/audio/MAN-0001-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0001",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0001-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0001-BATCH02-FIXED@v0.1",
+            "sha256": "8bcf4f53f9462b774a7a5cec23098f74518acee867ec6be7631239b72eddddbc",
+            "durationSeconds": 4.85,
+            "voice": "ash"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0001-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0001-vi-VN-v0.2.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0001-A-COMP-01",
+          "MAN-0001-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "word stress"
+        ],
+        "question": "Maya cần điền gì và bỏ thẻ ở đâu?",
+        "choices": [
+          "Tên và email, rồi bỏ vào hộp xanh dương; không cần số điện thoại.",
+          "Tên và số điện thoại, rồi giữ thẻ mang về.",
+          "Chỉ email, rồi bỏ vào hộp màu đỏ."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Daniel yêu cầu tên và email trên thẻ, rồi bỏ vào hộp xanh dương. Không cần số điện thoại.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0201",
+      "unitName": "MAN-0201 · The Reminder Is Too Quiet",
+      "topic": "Giao tiếp và học tập",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "Quiet mode chặn tiếng dù app đã bật Sound; tắt chế độ ấy và thử lại, không cần cài lại app.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "My calendar reminder appears on the screen, but I don't hear a sound.",
+          "vi": "Lời nhắc lịch hiện trên màn hình, nhưng tôi không nghe tiếng báo.",
+          "segmentId": "S001",
+          "speakerRole": "app user",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "d8c5b253ffa39ee58ad90804ceb457091c2145bc6f97343a77c507636ff1d256",
+            "durationSeconds": 5.1,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Open the app settings and tap Notifications. Is Sound switched on?",
+          "vi": "Mở cài đặt ứng dụng rồi nhấn Thông báo. Mục Âm thanh có bật không?",
+          "segmentId": "S002",
+          "speakerRole": "support colleague",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "a72ffc8ee9b4b3f75b5f526154001b0153b46bf772f8cdfedd31d1f7df9c1034",
+            "durationSeconds": 4.65,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Yes, it is. I turned the volume up, but it still didn't work.",
+          "vi": "Có bật. Tôi đã tăng âm lượng, nhưng vẫn không được.",
+          "segmentId": "S003",
+          "speakerRole": "app user",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "718dba4c29e5133b811e6b85aa4d0447f9829ad46829cff2b360a9ff73097511",
+            "durationSeconds": 5.8,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Check your phone's quiet mode. The app can't make a sound while that mode is on.",
+          "vi": "Kiểm tra chế độ im lặng của điện thoại. Ứng dụng không phát tiếng khi chế độ đó bật.",
+          "segmentId": "S004",
+          "speakerRole": "support colleague",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "6b86ee965172b52da397f6542679101a3c59df566668ea992e675226c9e56d5d",
+            "durationSeconds": 4.8,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Oh, I switched it on during a meeting. I'll turn it off and try a reminder for two minutes from now.",
+          "vi": "À, tôi đã bật lúc họp. Tôi sẽ tắt rồi thử đặt lời nhắc sau hai phút nữa.",
+          "segmentId": "S005",
+          "speakerRole": "app user",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "3f8a6b8fda3d6d5ee2dfc7182c86729f065f69b05a27d4597d00664d8c68bf70",
+            "durationSeconds": 6.6,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Good. Keep the sound setting on; you don't need to reinstall the app.",
+          "vi": "Được đấy. Cứ để cài đặt âm thanh bật; bạn không cần cài lại ứng dụng.",
+          "segmentId": "S006",
+          "speakerRole": "support colleague",
+          "audio": {
+            "url": "assets/audio/MAN-0201-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0201",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0201-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0201-BATCH02-FIXED@v0.1",
+            "sha256": "165896bae877fb8ea1309ec63edd72db4ae15ae28209cee970af93bef7f7fa75",
+            "durationSeconds": 5.0,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0201-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0201-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0201-A-COMP-01",
+          "MAN-0201-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "unstressed function words"
+        ],
+        "question": "Cần thử cách nào để nghe tiếng nhắc lịch?",
+        "choices": [
+          "Tắt quiet mode, giữ Sound của app bật và thử lời nhắc sau 2 phút.",
+          "Cài lại app trước rồi tắt Sound.",
+          "Chỉ tăng âm lượng; quiet mode không ảnh hưởng."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Quiet mode chặn tiếng dù app đã bật Sound; tắt chế độ ấy và thử lại, không cần cài lại app.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0201-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm cuối lượt 4 nêu điều kiện app không phát tiếng.",
+            "answer": "while that mode is on",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 58,
+              "end_char": 79
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0311",
+      "unitName": "MAN-0311 · Why Is the Hallway Dark?",
+      "topic": "Giao tiếp và học tập",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Đèn vẫn hoạt động. Tủ sách chắn ánh sáng nên chuyển tủ thấp, đo không gian, rồi dời tủ sách mà không chắn cửa.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "The hallway lamp works, but the corner by the stairs is still dark. Shall we buy a brighter bulb?",
+          "vi": "Đèn hành lang vẫn hoạt động, nhưng góc gần cầu thang còn tối. Hay mua bóng sáng hơn?",
+          "segmentId": "S001",
+          "speakerRole": "tenant",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "2920c46cb1d010a749ca99b2b01d63c45e5c0973930fad266071f0f4903ccdb5",
+            "durationSeconds": 7.5,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Before we do that, look at the tall bookcase. It blocks the light from reaching the stairs.",
+          "vi": "Trước khi làm vậy, nhìn tủ sách cao kia xem. Nó chắn ánh sáng tới cầu thang.",
+          "segmentId": "S002",
+          "speakerRole": "housemate",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "1a4da1bdad4b72d9f47f7ecc744e9406b920049aafb54c3a774ad7372d769c8b",
+            "durationSeconds": 6.2,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "You're right. We moved it there when we cleared the spare room, because it wouldn't fit beside the desk.",
+          "vi": "Đúng rồi. Lúc dọn phòng phụ, ta chuyển nó ra đó vì không đặt vừa cạnh bàn.",
+          "segmentId": "S003",
+          "speakerRole": "tenant",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "1a210d94ca7649f46900cd2a548d1c4403047a0fba626a43462cefdc06b801d2",
+            "durationSeconds": 7.2,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The shorter cabinet can go beside the desk. Then we can move the bookcase to the wall opposite the window.",
+          "vi": "Tủ thấp hơn có thể đặt cạnh bàn. Sau đó chuyển tủ sách tới bức tường đối diện cửa sổ.",
+          "segmentId": "S004",
+          "speakerRole": "housemate",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "815ddbbc3d760f1f0eac418e620ad03e0dc1bddf8873a6f77563caa46065c944",
+            "durationSeconds": 6.3,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Let's move the cabinet first, measure the space, and then move the bookcase. We shouldn't block the doorway instead.",
+          "vi": "Hãy chuyển tủ thấp trước, đo khoảng trống rồi chuyển tủ sách. Đừng để lại chắn cửa ra vào.",
+          "segmentId": "S005",
+          "speakerRole": "tenant",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "fe767db642e38a0682f628fc22715048223e9edf3001385dabcc2ba96a9ca1aa",
+            "durationSeconds": 7.7,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Agreed. If the stairs are still dark after that, we'll consider another light.",
+          "vi": "Đồng ý. Nếu sau đó cầu thang vẫn tối, ta sẽ tính thêm đèn.",
+          "segmentId": "S006",
+          "speakerRole": "housemate",
+          "audio": {
+            "url": "assets/audio/MAN-0311-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0311",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0311-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0311-BATCH02-FIXED@v0.1",
+            "sha256": "f5a97aa4c195d84d10a208ca96efabb10f90f5defa0f9e8c4b3f9de8514824d5",
+            "durationSeconds": 4.65,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0311-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0311-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "EXPLICIT_RELATION_CAUSE_EFFECT",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0311-A-COMP-01",
+          "MAN-0311-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "sentence stress"
+        ],
+        "question": "Vì sao tối và nên xử lý theo thứ tự nào?",
+        "choices": [
+          "Tủ sách chắn ánh sáng; chuyển tủ thấp trước, đo chỗ rồi chuyển tủ sách.",
+          "Đèn hỏng nên mua bóng sáng hơn ngay.",
+          "Chuyển tủ sách chắn cửa ra vào rồi mới đo."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Đèn vẫn hoạt động. Tủ sách chắn ánh sáng nên chuyển tủ thấp, đo không gian, rồi dời tủ sách mà không chắn cửa.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0521",
+      "unitName": "MAN-0521 · A Routine with Breathing Room",
+      "topic": "Giao tiếp và học tập",
+      "level": "B2",
+      "track": "Giao tiếp",
+      "learningGoal": "Vấn đề là việc gấp dồn vào một người, không phải đi muộn. Dời stock check tạo khoảng đệm và sẽ tiếp tục điều chỉnh nếu cần.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "You've changed the morning schedule twice this month. Are you dissatisfied with the team's punctuality?",
+          "vi": "Bạn đã đổi lịch buổi sáng hai lần trong tháng. Bạn không hài lòng về việc đúng giờ của nhóm à?",
+          "segmentId": "S001",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "0534fbaf0ca059b3ef4c9141d6ec602611066f16c03ba7cc70a029a5522c20f9",
+            "durationSeconds": 7.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Actually, people arrive on time. The difficulty is that three urgent tasks land on the same person before anyone else is free.",
+          "vi": "Thật ra mọi người đến đúng giờ. Vấn đề là ba việc gấp cùng dồn vào một người trước khi những người khác rảnh.",
+          "segmentId": "S002",
+          "speakerRole": "shift coordinator",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "cf243dbd9206cde27738a552772bbf3c008fa4e679e92d9d02735e90e63ec744",
+            "durationSeconds": 8.2,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Would an earlier start spread the pressure out?",
+          "vi": "Bắt đầu sớm hơn có giúp giãn áp lực không?",
+          "segmentId": "S003",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "b99226960601f5e12337c4934dfc6156a05ee5f565550311fb5243d99b2315e4",
+            "durationSeconds": 3.25,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "For some staff, perhaps. For those bringing children to school, it would simply shift the pressure home. I'd rather move the routine stock check until after the first customer calls.",
+          "vi": "Với một số người thì có thể. Nhưng với người đưa con đi học, nó chỉ chuyển áp lực về nhà. Tôi muốn dời việc kiểm tra hàng thường lệ tới sau các cuộc gọi đầu tiên của khách hơn.",
+          "segmentId": "S004",
+          "speakerRole": "shift coordinator",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "f422ff6503f53f5d17bb8f27d21ce17183044cc94d7e5d634050af6135c71440",
+            "durationSeconds": 11.1,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "That sounds like a small change for a problem you've described as urgent.",
+          "vi": "Nghe như thay đổi nhỏ cho một vấn đề bạn vừa mô tả là cấp bách.",
+          "segmentId": "S005",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "5e8521c9d6169d5171cef79d730c79235e356ad07a4fba3ac828c1193d50089f",
+            "durationSeconds": 5.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Small doesn't mean cosmetic. It gives us a buffer where the bottleneck actually is, without asking everyone to reorganise their lives.",
+          "vi": "Nhỏ không có nghĩa chỉ sửa cho đẹp. Nó tạo khoảng đệm ngay tại điểm nghẽn, mà không bắt mọi người sắp xếp lại cuộc sống.",
+          "segmentId": "S006",
+          "speakerRole": "shift coordinator",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "b32fc8058bf402f7f680f62c90ef399d1fbf4da58c7335b4a747795d83454610",
+            "durationSeconds": 9.6,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "So your priority is a workable sequence rather than a stricter clock.",
+          "vi": "Vậy ưu tiên của bạn là trình tự khả thi thay vì siết giờ giấc.",
+          "segmentId": "S007",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S007-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "3083df9567b503b6f7e2af9057b7bb3fde2b05c661106831b9ff1d58ab9e4529",
+            "durationSeconds": 5.65,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Exactly. I'll review the call logs after a week. If the pressure remains, we'll adjust again rather than defend the timetable for its own sake.",
+          "vi": "Chính xác. Tôi sẽ xem nhật ký cuộc gọi sau một tuần. Nếu áp lực còn, ta điều chỉnh tiếp thay vì bảo vệ lịch chỉ vì đã đặt ra nó.",
+          "segmentId": "S008",
+          "speakerRole": "shift coordinator",
+          "audio": {
+            "url": "assets/audio/MAN-0521-S008-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0521",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0521-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0521-BATCH02-FIXED@v0.1",
+            "sha256": "f1d758bfb5cac0ffd84d65d0c7984c371126c664a717cc6b0636b3f5b9b06bd0",
+            "durationSeconds": 8.0,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0521-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0521-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0521-A-COMP-01",
+          "MAN-0521-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "accent variation"
+        ],
+        "question": "Người được phỏng vấn có lập trường nào?",
+        "choices": [
+          "Sửa trình tự tại điểm nghẽn, cân nhắc gia đình nhân viên và xem lại log sau một tuần.",
+          "Nhân viên thường đi muộn nên buộc mọi người đến sớm.",
+          "Bảo vệ lịch đã ban hành dù áp lực vẫn còn."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Vấn đề là việc gấp dồn vào một người, không phải đi muộn. Dời stock check tạo khoảng đệm và sẽ tiếp tục điều chỉnh nếu cần.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0733",
+      "unitName": "MAN-0733 · When a Polite Request Becomes a Complaint",
+      "topic": "Giao tiếp và học tập",
+      "level": "C1",
+      "track": "Giao tiếp",
+      "learningGoal": "Wording lịch sự không xóa ý phàn nàn do chậm trễ; cần kiểm tra khả năng thực hiện và đề nghị đáng tin, không suy diễn công thức lịch sự ngoài ngữ cảnh.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "A guest says, 'I was wondering whether the side dish could arrive before the main course goes cold.' How do you read that?",
+          "vi": "Khách nói: 'Tôi đang tự hỏi liệu món ăn kèm có thể tới trước khi món chính nguội không.' Bạn hiểu thế nào?",
+          "segmentId": "S001",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S001-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "766a58dfe861e9fab26870cf8929b2d945428843029bd6329609c37d53eeabf0",
+            "durationSeconds": 8.45,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "The wording is tentative, but the timing makes it a complaint. I'd acknowledge the delay rather than answer as though they were asking about our usual serving order.",
+          "vi": "Câu chữ dè dặt, nhưng thời điểm nói khiến nó thành lời phàn nàn. Tôi sẽ thừa nhận sự chậm trễ thay vì trả lời như thể khách hỏi thứ tự phục vụ thường lệ.",
+          "segmentId": "S002",
+          "speakerRole": "restaurant manager",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S002-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "8a2ac06cae59a4a795629769c879d5d61ba1f2554c1c9b87d18d38af1f3eb56c",
+            "durationSeconds": 9.55,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Would you promise the side dish immediately?",
+          "vi": "Bạn có hứa mang món ăn kèm ngay không?",
+          "segmentId": "S003",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S003-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "7d2501241c0129446883a3771efb85deefbc86411f55b530617a40efa30c9f37",
+            "durationSeconds": 3.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Only if the kitchen can deliver. A brisk 'coming right up' sounds reassuring until the guest has to ask again. I'd check the timing and offer to keep the main course warm meanwhile.",
+          "vi": "Chỉ khi bếp làm được. Câu 'có ngay đây' nhanh gọn nghe rất yên tâm cho đến khi khách phải hỏi lần nữa. Tôi sẽ kiểm tra thời gian và đề nghị giữ ấm món chính trong lúc chờ.",
+          "segmentId": "S004",
+          "speakerRole": "restaurant manager",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S004-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "96ec6b8e18f8cc79c3bab4da48c73fff2aff43a7ff0cd0e9d5c6ddab8d5e4438",
+            "durationSeconds": 11.8,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "And if the guest says, 'Don't put yourselves out on my account'?",
+          "vi": "Còn nếu khách nói: 'Đừng vì tôi mà phải phiền'?",
+          "segmentId": "S005",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S005-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "582d4fdf39f182429d76c2681b5c481e2f53f100d31c08fc7f64025a3fd2e0b8",
+            "durationSeconds": 4.65,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "I'd be careful. It may genuinely release us from the request, or it may signal that they've lost confidence in the offer. Their earlier complaint and tone matter more than the politeness formula alone.",
+          "vi": "Tôi sẽ thận trọng. Khách có thể thực sự thôi yêu cầu, hoặc đang cho thấy họ mất niềm tin vào đề nghị. Lời phàn nàn trước đó và giọng điệu quan trọng hơn riêng công thức lịch sự.",
+          "segmentId": "S006",
+          "speakerRole": "restaurant manager",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S006-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "76e085d6437a8eb904507134485ae73d37d79a0b59299c5abe67873854f9b353",
+            "durationSeconds": 11.95,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "So good service includes checking the implication without turning a minor delay into a formal dispute.",
+          "vi": "Vậy phục vụ tốt gồm việc kiểm tra hàm ý mà không biến chậm trễ nhỏ thành tranh chấp trang trọng.",
+          "segmentId": "S007",
+          "speakerRole": "interviewer",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S007-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "d4886102745bb9a1338484e5421376ee20b51d11e0f0e42fa1de31bc087de0e1",
+            "durationSeconds": 6.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes. A specific, credible offer in ordinary language usually does more than an elaborate apology we can't follow through on.",
+          "vi": "Đúng. Đề nghị cụ thể, đáng tin bằng lời bình thường thường hữu ích hơn một lời xin lỗi cầu kỳ mà ta không thực hiện được.",
+          "segmentId": "S008",
+          "speakerRole": "restaurant manager",
+          "audio": {
+            "url": "assets/audio/MAN-0733-S008-batch02-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0733",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0733-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0733-BATCH02-FIXED@v0.1",
+            "sha256": "6691acd7ede3fa3fe5012c88dfccf11a2bc9d90364119f19c506f402a5b4ec95",
+            "durationSeconds": 7.95,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0733-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0733-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0733-A-COMP-01",
+          "MAN-0733-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "reduced forms"
+        ],
+        "question": "Nên hiểu và đáp lại lời khách như thế nào?",
+        "choices": [
+          "Nhận ra lời phàn nàn kín đáo, kiểm tra thời gian và đưa đề nghị cụ thể có thể thực hiện.",
+          "Chỉ giải thích thứ tự phục vụ thông thường, bỏ qua việc món chính nguội.",
+          "Luôn hứa mang món ngay dù chưa hỏi bếp."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Wording lịch sự không xóa ý phàn nàn do chậm trễ; cần kiểm tra khả năng thực hiện và đề nghị đáng tin, không suy diễn công thức lịch sự ngoài ngữ cảnh.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 2 nói sẽ thừa nhận một vấn đề.",
+            "answer": "I'd acknowledge",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 63,
+              "end_char": 78
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm hứa món sắp tới trong lượt 4.",
+            "answer": "coming right up",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 42,
+              "end_char": 57
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-3",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm cuối lượt 8 nói không thể làm như đã hứa.",
+            "answer": "can't follow through",
+            "span": {
+              "segment_id": "S008",
+              "start_char": 100,
+              "end_char": 120
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0921",
+      "unitName": "MAN-0921 · A Warning Is Not a Timetable",
+      "topic": "Giao tiếp và học tập",
+      "level": "C2",
+      "track": "Giao tiếp",
+      "learningGoal": "Working assumption giúp bố trí xe nhưng không là public promise. Giữ thông báo trung lập về tuyến, kế hoạch có thể đổi và trigger xem lại.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "The warning covers the whole valley, but the most recent model puts the heaviest rain east of the bypass. Can we announce that the western route will remain open?",
+          "vi": "Cảnh báo bao trùm cả thung lũng, nhưng mô hình mới nhất đặt vùng mưa lớn nhất ở phía đông đường tránh. Có thể thông báo tuyến phía tây sẽ vẫn mở không?",
+          "segmentId": "S001",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S001-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "43a1ba9047dd62fdd2a15073cae56fb6c0d1208d1f689873bf970ce24d366f53",
+            "durationSeconds": 13.1,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "I'd resist that wording. The model locates the likeliest concentration; it doesn't draw a dependable boundary around every intense shower.",
+          "vi": "Tôi không tán thành cách nói đó. Mô hình xác định nơi mưa có khả năng tập trung nhất; nó không vẽ ranh giới đáng tin cho mọi trận mưa dữ dội.",
+          "segmentId": "S002",
+          "speakerRole": "forecaster",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S002-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "4cc1095c0fc85059da7069a5bb46b3133811f9c427b3ca25df44538f3039e20a",
+            "durationSeconds": 10.5,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "But leaving the route unspecified makes it difficult to position the buses. We need a working assumption, even if it isn't a guarantee.",
+          "vi": "Nhưng không nêu rõ tuyến khiến việc bố trí xe buýt khó khăn. Ta cần giả định để làm việc, dù đó không phải bảo đảm.",
+          "segmentId": "S003",
+          "speakerRole": "transport planner",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S003-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "804b1c95cf535d89cd3ba99063715c7b87df9ee3c4d1953e45cb2e9c366c053e",
+            "durationSeconds": 10.0,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "A working assumption, yes, but—",
+          "vi": "Giả định để làm việc, đúng, nhưng—",
+          "segmentId": "S004",
+          "speakerRole": "forecaster",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S004-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "27ba3c19927bd45a473fdfd25653df3959475318466687b9c394ca0067c5b80e",
+            "durationSeconds": 4.5,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "—not a public promise. I take the distinction. Could we stage vehicles near the western depot while keeping the evacuation message route-neutral?",
+          "vi": "—không phải lời hứa với công chúng. Tôi hiểu sự phân biệt. Có thể tập kết xe gần trạm phía tây mà thông điệp sơ tán không chỉ định tuyến không?",
+          "segmentId": "S005",
+          "speakerRole": "transport planner",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S005-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "411c9fef8a582796c43986832689ed31554c9c2e42a8c16fd2d067e0630eb0d1",
+            "durationSeconds": 10.2,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "That separates a reversible logistical choice from a message people may treat as assurance. We'd still need a trigger for moving the vehicles if the next radar update shifts the risk.",
+          "vi": "Như vậy tách lựa chọn hậu cần có thể thay đổi khỏi thông điệp người dân có thể coi là bảo đảm. Ta vẫn cần ngưỡng hành động để chuyển xe nếu cập nhật radar tiếp theo cho thấy rủi ro đổi hướng.",
+          "segmentId": "S006",
+          "speakerRole": "forecaster",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S006-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "dda06812053e566d3b6d0549b20161b55b0c37b3badb627aa43d67a47314334c",
+            "durationSeconds": 12.6,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "Are we splitting hairs when crews are already preparing?",
+          "vi": "Có phải ta đang chẻ sợi tóc làm tư trong khi các đội đã chuẩn bị không?",
+          "segmentId": "S007",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S007-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "358fb8e398ef8c7f46effce12b603c3fb04bc204e85bfc98f794abb9eecde8d1",
+            "durationSeconds": 6.35,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "I'd call it keeping our options open. The buses can be repositioned; a reassuring announcement is harder to take back once families have acted on it.",
+          "vi": "Tôi gọi đó là giữ các lựa chọn còn mở. Xe buýt có thể bố trí lại; thông báo trấn an khó rút lại hơn khi các gia đình đã hành động theo nó.",
+          "segmentId": "S008",
+          "speakerRole": "transport planner",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S008-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "a5265c7fc1f763ffd159c77e7dc23cb2c43e8dc8e31271fdc78b3bf0f902d1ef",
+            "durationSeconds": 11.7,
+            "voice": "MIXED_CONTEXT"
+          }
+        },
+        {
+          "en": "Then we stage provisionally, name the review trigger, and make no route-specific assurance. The forecast informs the plan without becoming a timetable for the storm.",
+          "vi": "Vậy ta tạm tập kết, nêu rõ ngưỡng xem xét lại và không bảo đảm cho một tuyến cụ thể. Dự báo giúp lập kế hoạch mà không biến thành thời gian biểu của cơn bão.",
+          "segmentId": "S009",
+          "speakerRole": "chair",
+          "audio": {
+            "url": "assets/audio/MAN-0921-S009-mixed-context-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0921",
+            "lessonVersion": "v0.1",
+            "segmentId": "S009",
+            "realizationId": "MAN-0921-MIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+            "sha256": "545e392e605070f80b9c6a1d672f9b3836d64f1705a3add79ec9da328b8b405e",
+            "durationSeconds": 14.95,
+            "voice": "MIXED_CONTEXT"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "audioRealizationRef": "MAN-0921-MIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0921-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0921-A-COMP-01",
+          "MAN-0921-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "overlap"
+        ],
+        "question": "Nhóm phân biệt kế hoạch và lời bảo đảm ra sao?",
+        "choices": [
+          "Bố trí xe tạm thời có thể đổi, nêu trigger xem lại và không hứa tuyến đường chắc chắn mở.",
+          "Dự báo đã bảo đảm tuyến phía tây luôn mở nên thông báo ngay.",
+          "Không thể bảo đảm thời tiết nên không được bố trí xe."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Working assumption giúp bố trí xe nhưng không là public promise. Giữ thông báo trung lập về tuyến, kế hoạch có thể đổi và trigger xem lại.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "fullPanelAudio": {
+        "url": "assets/audio/MAN-0921-MIXED-v0.1.wav",
+        "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+        "lessonId": "MAN-0921",
+        "lessonVersion": "v0.1",
+        "segmentId": "FULL_PANEL",
+        "realizationId": "MAN-0921-MIXED-v0.1",
+        "realizationVersion": "v0.1",
+        "profileRef": "MAN-0921-BATCH02-FIXED@v0.1",
+        "sha256": "798f99453efe4aa115e493d7f3f86a285520d269daa3477b84842046e8095942",
+        "durationSeconds": 79.18358333333333,
+        "voice": "MIXED"
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 2
+    }
+  ]
+}

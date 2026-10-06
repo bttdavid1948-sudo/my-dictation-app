@@ -1,0 +1,34 @@
+{
+  "bundle_id": "MAN-0201-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0201",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Lời nhắc lịch hiện trên màn hình, nhưng tôi không nghe tiếng báo."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Mở cài đặt ứng dụng rồi nhấn Thông báo. Mục Âm thanh có bật không?"
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Có bật. Tôi đã tăng âm lượng, nhưng vẫn không được."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Kiểm tra chế độ im lặng của điện thoại. Ứng dụng không phát tiếng khi chế độ đó bật."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "À, tôi đã bật lúc họp. Tôi sẽ tắt rồi thử đặt lời nhắc sau hai phút nữa."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Được đấy. Cứ để cài đặt âm thanh bật; bạn không cần cài lại ứng dụng."
+    }
+  ]
+}

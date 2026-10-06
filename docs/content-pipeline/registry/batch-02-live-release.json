@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "REVIEWED_RELEASE_PREPARED_LIVE_VERIFY_PENDING",
+  "complete": false,
+  "owner_lane": "OPERATIONS_4",
+  "batch_id": "BATCH_02",
+  "lesson_ids": [
+    "MAN-0066",
+    "MAN-0166",
+    "MAN-0366",
+    "MAN-0566",
+    "MAN-0766",
+    "MAN-0906",
+    "MAN-0001",
+    "MAN-0201",
+    "MAN-0311",
+    "MAN-0521",
+    "MAN-0733",
+    "MAN-0921"
+  ],
+  "catalog_ref": "assets/official-lessons-batch02.json",
+  "practice_ref": "docs/content-pipeline/registry/batch-02-final-practice.json",
+  "audio_qa_ref": "execution/batch02/audio-qa.json",
+  "preproduction_support_rights_pass_reused": true,
+  "production_run": 37422574442,
+  "targeted_repair_run": 37423741204,
+  "new_release_synthesis_calls": 0,
+  "feedback_capability_reused": "batch-01-feedback-system-capability@v0.1",
+  "rollback": "Withdraw only affected lesson from assets/official-lessons-batch02.json; retained immutable audio/support; scoped cached-resume suppression verified in desktop/mobile checks.",
+  "next_action": "EXACT_DESKTOP_MOBILE_LIVE_VERIFY_THEN_BATCH_CLOSE"
+}

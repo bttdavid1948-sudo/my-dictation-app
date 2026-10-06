@@ -1,0 +1,933 @@
+{
+  "schema_version": "1.0",
+  "version": "v0.1",
+  "owner_lane": "PRACTICE_2",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "status": "PASS",
+  "lessons": [
+    {
+      "lesson_id": "MAN-0066",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0066-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0066-A-COMP-01",
+        "MAN-0066-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0066-A-COMP-01",
+          "MAN-0066-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "numbers/letter names"
+        ],
+        "question": "Thầy/cô yêu cầu bạn làm gì?",
+        "choices": [
+          "Kiểm tra câu 6 và 15, viết chữ cái đúng, rồi tự làm trong 5 phút.",
+          "Chỉ kiểm tra câu 20 và trao đổi đáp án với bạn.",
+          "Viết tất cả đáp án ra giấy lớn và chờ 15 phút."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Kiểm tra câu sáu và mười lăm, viết chữ cái vào ô nhỏ và tự làm trong năm phút.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0066-A-SPCH-01",
+            "operator": "AURAL_RECOGNITION",
+            "construct": "FORM_RECOGNITION",
+            "format": "SHORT_TEXT",
+            "dimension": "auditory_lexical_access",
+            "prompt": "Viết cụm nêu hai số câu hỏi cần kiểm tra.",
+            "answer": "six and fifteen",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 16,
+              "end_char": 31
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0066-A-SPCH-01",
+            "operator": "AURAL_RECOGNITION",
+            "construct": "FORM_RECOGNITION",
+            "format": "SHORT_TEXT",
+            "dimension": "auditory_lexical_access",
+            "prompt": "Viết cụm nêu khoảng thời gian được phép.",
+            "answer": "five minutes",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 9,
+              "end_char": 21
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Unprompted base/small ASR preserve six/fifteen and five minutes. No phonetic certification needed.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0166",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0166-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0166-A-COMP-01",
+        "MAN-0166-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0166-A-COMP-01",
+          "MAN-0166-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "common contractions"
+        ],
+        "question": "Điều gì giúp người kể nhớ tốt hơn?",
+        "choices": [
+          "Cất ghi chú, tự trả lời câu hỏi và kiểm tra lỗi cùng chị/em gái.",
+          "Đọc lại ghi chú nhiều lần mà không cần tự trả lời.",
+          "Bài kiểm tra sau dễ hơn nên không cần đổi cách ôn."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Lần sau vẫn khó, nhưng việc tự nhớ câu trả lời rồi kiểm tra lỗi giúp người kể nhớ nhiều hơn.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn sau I trong câu đầu.",
+            "answer": "didn't",
+            "span": {
+              "segment_id": "S001",
+              "start_char": 2,
+              "end_char": 8
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn trước explain trong lượt 2.",
+            "answer": "couldn't",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 31,
+              "end_char": 39
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-3",
+            "anchorId": "MAN-0166-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết dạng rút gọn trước easy trong lượt cuối.",
+            "answer": "wasn't",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 14,
+              "end_char": 20
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Unprompted base ASR preserves all three scored contractions without supplied reference. Short-span diagnostic access only.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0366",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0366-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0366-A-COMP-01",
+        "MAN-0366-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "MEANING_PARAPHRASE",
+        "construct": "PARAPHRASE",
+        "dimension": "contextual_lexical_access|literal_comprehension",
+        "anchorIds": [
+          "MAN-0366-A-COMP-01",
+          "MAN-0366-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "linking"
+        ],
+        "question": "Cách ôn nào phù hợp với lời khuyên?",
+        "choices": [
+          "Phân loại nguyên nhân từng lỗi rồi chọn cách ôn theo nguyên nhân ấy.",
+          "Mọi đáp án sai đều chứng tỏ cần học thêm từ mới.",
+          "Chỉ so sánh điểm tổng, không cần xem lại câu hỏi."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Điểm cho biết có bao nhiêu câu đúng; nguyên nhân của từng lỗi mới giúp chọn việc ôn cần làm.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0366-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "FORM_OR_MEANING_ACCESS",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm hành động tìm bằng chứng trong lượt 4.",
+            "answer": "find the sentence",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 46,
+              "end_char": 63
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0366-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "FORM_OR_MEANING_ACCESS",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm nêu điều cần ghi lại cho từng lỗi trong lượt cuối.",
+            "answer": "reason for each mistake",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 22,
+              "end_char": 45
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Unprompted ASR preserves linked phrases; contiguous word windows and PCM speech across the local boundaries. Bounded connected-span decoding, no resyllabification certification.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0566",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0566-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0566-A-COMP-01",
+        "MAN-0566-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "MEANING_PARAPHRASE",
+        "construct": "PARAPHRASE",
+        "dimension": "contextual_lexical_access|inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0566-A-COMP-01",
+          "MAN-0566-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "natural reductions"
+        ],
+        "question": "Điểm trung bình cao hơn cho phép kết luận gì?",
+        "choices": [
+          "Có thể cải thiện chuẩn bị và có tác động của dạng bài; cần xem thêm lời giải thích.",
+          "Đã chắc chắn chứng minh mọi sinh viên hiểu sâu hơn.",
+          "Quiz không có ích nên phải bỏ ngay."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Quiz có thể giúp chuẩn bị nhưng cũng dễ đạt điểm hơn; cần so sánh lời giải thích trước khi kết luận về hiểu biết.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0566-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 5 diễn đạt nên đối chiếu.",
+            "answer": "ought to compare",
+            "span": {
+              "segment_id": "S005",
+              "start_char": 3,
+              "end_char": 19
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0566-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 6 diễn đạt không bác bỏ.",
+            "answer": "wouldn't dismiss",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 5,
+              "end_char": 21
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Small word windows: to 0.78–1.02s at -29.622 dBFS vs ought -20.04 and compare -23.855. Both unprompted allphone runs identify a short IH region 0.91–0.96s in this transition. Contracted wouldnt preserved independently. Probabilistic attribution, not phonetic certification.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0766",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0766-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0766-A-COMP-01",
+        "MAN-0766-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DISCOURSE_STRUCTURE_AND_DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0766-A-COMP-01",
+          "MAN-0766-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "fast connected speech"
+        ],
+        "question": "Nhóm thống nhất hướng xử lý nào?",
+        "choices": [
+          "Tạm giữ tiêu chí, xem giải thích của cả hai nhóm và công bố ví dụ hữu ích.",
+          "Ít khiếu nại đã chứng minh rubric công bằng với mọi người.",
+          "Chỉ cần sửa văn bản rubric, không cần xét cách dạy."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Giữ tạm thời, kiểm tra lợi ích ở người chưa quen và xem cả việc dạy; ít khiếu nại chưa giải quyết câu hỏi công bằng.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0766-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 4 nói muốn biết liệu một điều có đúng.",
+            "answer": "I'd want to know whether",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 13,
+              "end_char": 37
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0766-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm ở cuối lượt 6 nói điều khiến tiêu chí dùng được.",
+            "answer": "makes it usable",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 128,
+              "end_char": 143
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Local S004 I'd want to know whether occupies ~1 second for six words in unprompted alignment, inside exact normal-speed WAV. Short targets only; no whole-utterance phonetic scoring.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0906",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0906-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0906-A-COMP-01",
+        "MAN-0906-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE_AMBIGUITY_IRONY",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0906-A-COMP-01",
+          "MAN-0906-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "subtle prosody"
+        ],
+        "question": "Câu Remarkably consistent, certainly. mang ý gì trong lập luận này?",
+        "choices": [
+          "Một lời cảnh báo có ý mỉa mai: cùng mức điểm có thể làm mất khác biệt cần xem xét.",
+          "Khen pilot đã thành công và không cần điều tra thêm.",
+          "Khẳng định chắc chắn mọi ứng viên thật sự giống hệt nhau."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Câu khen bề ngoài đặt cạnh ý in điểm trước phỏng vấn là lời cảnh báo; cần giữ ghi chú và xét các trường hợp ranh giới, không tuyên bố thành công.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Small ASR and PCM: S002 consistent ends 1.62s, certainly begins 2.24s (0.62s pause); median F0 falls ~220→197→180 Hz across Remarkably/consistent/certainly. S007 not is -15.995dBFS vs investigation -21.35dBFS, after 0.74s pause. These are realized delivery cues, interpreted with the explicitly absurd print-ratings-in-advance proposition and investigative conclusion. Key is contextual irony/inference, not an acoustic irony classifier or prosody-production score.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0001",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0001-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0001-A-COMP-01",
+        "MAN-0001-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0001-A-COMP-01",
+          "MAN-0001-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "word stress"
+        ],
+        "question": "Maya cần điền gì và bỏ thẻ ở đâu?",
+        "choices": [
+          "Tên và email, rồi bỏ vào hộp xanh dương; không cần số điện thoại.",
+          "Tên và số điện thoại, rồi giữ thẻ mang về.",
+          "Chỉ email, rồi bỏ vào hộp màu đỏ."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Daniel yêu cầu tên và email trên thẻ, rồi bỏ vào hộp xanh dương. Không cần số điện thoại.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "photography and Daniel independently recognized in exact dialogue. No defensible contrast pair is claimed; word stress remains listening condition, no separate stress-sensitive score, as expressly allowed by preproduction rule.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "MAN0001 DETAIL anchor uses CORE_COMPREHENSION rather than planning-only ORDER_SEQUENCE; no Curriculum or contract mutation."
+    },
+    {
+      "lesson_id": "MAN-0201",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0201-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0201-A-COMP-01",
+        "MAN-0201-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "DETAIL",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0201-A-COMP-01",
+          "MAN-0201-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "unstressed function words"
+        ],
+        "question": "Cần thử cách nào để nghe tiếng nhắc lịch?",
+        "choices": [
+          "Tắt quiet mode, giữ Sound của app bật và thử lời nhắc sau 2 phút.",
+          "Cài lại app trước rồi tắt Sound.",
+          "Chỉ tăng âm lượng; quiet mode không ảnh hưởng."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Quiet mode chặn tiếng dù app đã bật Sound; tắt chế độ ấy và thử lại, không cần cài lại app.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0201-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm cuối lượt 4 nêu điều kiện app không phát tiếng.",
+            "answer": "while that mode is on",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 58,
+              "end_char": 79
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Only S004 verified weak-function target selected: is 0.14s/-20.439dBFS vs mode 0.20s/-16.552dBFS; two allphone methods have IH 3.88/3.90–3.95s. Retain counterexample that that is more prominent. No blanket schwa or weak-word claim. Repaired S002 final clause independently recognized.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0311",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0311-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0311-A-COMP-01",
+        "MAN-0311-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "EXPLICIT_RELATION_CAUSE_EFFECT",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0311-A-COMP-01",
+          "MAN-0311-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "sentence stress"
+        ],
+        "question": "Vì sao tối và nên xử lý theo thứ tự nào?",
+        "choices": [
+          "Tủ sách chắn ánh sáng; chuyển tủ thấp trước, đo chỗ rồi chuyển tủ sách.",
+          "Đèn hỏng nên mua bóng sáng hơn ngay.",
+          "Chuyển tủ sách chắn cửa ra vào rồi mới đo."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Đèn vẫn hoạt động. Tủ sách chắn ánh sáng nên chuyển tủ thấp, đo không gian, rồi dời tủ sách mà không chắn cửa.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Exact blocks the light / cabinet first clauses independently recognized. No minimal stress contrast claimed; sentence stress remains comprehension condition under preproduction rule.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0521",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0521-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0521-A-COMP-01",
+        "MAN-0521-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0521-A-COMP-01",
+          "MAN-0521-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "accent variation"
+        ],
+        "question": "Người được phỏng vấn có lập trường nào?",
+        "choices": [
+          "Sửa trình tự tại điểm nghẽn, cân nhắc gia đình nhân viên và xem lại log sau một tuần.",
+          "Nhân viên thường đi muộn nên buộc mọi người đến sớm.",
+          "Bảo vệ lịch đã ban hành dù áp lực vẫn còn."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Vấn đề là việc gấp dồn vào một người, không phải đi muộn. Dời stock check tạo khoảng đệm và sẽ tiếp tục điều chỉnh nếu cần.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Two distinct fixed speaker/voice streams with hash-bound metadata. Accent intent is documented, not certified. Variation is a condition of contextual stance inference; no unseen-transfer generalization or regional identification score.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0733",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0733-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0733-A-COMP-01",
+        "MAN-0733-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "INFERENCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0733-A-COMP-01",
+          "MAN-0733-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [
+          "reduced forms"
+        ],
+        "question": "Nên hiểu và đáp lại lời khách như thế nào?",
+        "choices": [
+          "Nhận ra lời phàn nàn kín đáo, kiểm tra thời gian và đưa đề nghị cụ thể có thể thực hiện.",
+          "Chỉ giải thích thứ tự phục vụ thông thường, bỏ qua việc món chính nguội.",
+          "Luôn hứa mang món ngay dù chưa hỏi bếp."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Wording lịch sự không xóa ý phàn nàn do chậm trễ; cần kiểm tra khả năng thực hiện và đề nghị đáng tin, không suy diễn công thức lịch sự ngoài ngữ cảnh.",
+        "speechTasks": [
+          {
+            "id": "speech-1",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm trong lượt 2 nói sẽ thừa nhận một vấn đề.",
+            "answer": "I'd acknowledge",
+            "span": {
+              "segment_id": "S002",
+              "start_char": 63,
+              "end_char": 78
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-2",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm hứa món sắp tới trong lượt 4.",
+            "answer": "coming right up",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 42,
+              "end_char": 57
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          },
+          {
+            "id": "speech-3",
+            "anchorId": "MAN-0733-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Viết cụm cuối lượt 8 nói không thể làm như đã hứa.",
+            "answer": "can't follow through",
+            "span": {
+              "segment_id": "S008",
+              "start_char": 100,
+              "end_char": 120
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "SHORT_SPAN_AUDITORY_ACCESS_CASE_PUNCTUATION_NUMBER_SPELLING_NORMALIZED_NO_ORTHOGRAPHY_SCORE"
+          }
+        ],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Unprompted recognition preserves I'd acknowledge and can't follow through, plus coming right up; measure short local spans. Connected/reduced-form access only; no all-words reduction certification.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    },
+    {
+      "lesson_id": "MAN-0921",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0921-MIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0921-A-COMP-01",
+        "MAN-0921-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0921-A-COMP-01",
+          "MAN-0921-A-SPCH-01"
+        ],
+        "conditionAnchors": true,
+        "conditions": [
+          "overlap"
+        ],
+        "question": "Nhóm phân biệt kế hoạch và lời bảo đảm ra sao?",
+        "choices": [
+          "Bố trí xe tạm thời có thể đổi, nêu trigger xem lại và không hứa tuyến đường chắc chắn mở.",
+          "Dự báo đã bảo đảm tuyến phía tây luôn mở nên thông báo ngay.",
+          "Không thể bảo đảm thời tiết nên không được bố trí xe."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Working assumption giúp bố trí xe nhưng không là public promise. Giữ thông báo trung lập về tuyến, kế hoạch có thể đổi và trigger xem lại.",
+        "speechTasks": [],
+        "scoringBoundary": "CONTEXTUAL_COMPREHENSION_AND_BOUNDED_SHORT_SPAN_ACCESS_NO_PHONETIC_PROSODY_ACCENT_OVERLAP_MASTERY_NO_CALIBRATED_GENERALIZATION"
+      },
+      "realization_cue_evidence": "Exact 280ms overlap placement yields 84.083ms simultaneous source speech above PCM600 (83.917ms after gain threshold270). Full mixed small ASR preserves yes but not a public promise and the subsequent logistical/assurance distinction. Full context and context-preserving replay; no overlap mastery score.",
+      "rules": [
+        "PVAL-001",
+        "PVAL-002",
+        "PVAL-003",
+        "PVAL-005",
+        "PVAL-006",
+        "PVAL-007",
+        "PVAL-008",
+        "PVAL-009",
+        "PVAL-010",
+        "PVAL-011",
+        "PVAL-013",
+        "PVAL-015",
+        "PRDY-003"
+      ],
+      "limits": "One supported instance only; no calibrated mastery, no unseen transfer or accent/phonetic certification. Required condition anchors share contextual comprehension path when no standalone operator is defensible.",
+      "specific_resolution": "Apply existing preproduction mapping to exact assets."
+    }
+  ],
+  "preproduction_gates_reused": true,
+  "frozen_contract_changed": false
+}

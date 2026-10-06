@@ -1,0 +1,46 @@
+{
+  "bundle_id": "MAN-0921-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0921",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Cảnh báo bao trùm cả thung lũng, nhưng mô hình mới nhất đặt vùng mưa lớn nhất ở phía đông đường tránh. Có thể thông báo tuyến phía tây sẽ vẫn mở không?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Tôi không tán thành cách nói đó. Mô hình xác định nơi mưa có khả năng tập trung nhất; nó không vẽ ranh giới đáng tin cho mọi trận mưa dữ dội."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Nhưng không nêu rõ tuyến khiến việc bố trí xe buýt khó khăn. Ta cần giả định để làm việc, dù đó không phải bảo đảm."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Giả định để làm việc, đúng, nhưng—"
+    },
+    {
+      "segment_id": "S005",
+      "translation": "—không phải lời hứa với công chúng. Tôi hiểu sự phân biệt. Có thể tập kết xe gần trạm phía tây mà thông điệp sơ tán không chỉ định tuyến không?"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Như vậy tách lựa chọn hậu cần có thể thay đổi khỏi thông điệp người dân có thể coi là bảo đảm. Ta vẫn cần ngưỡng hành động để chuyển xe nếu cập nhật radar tiếp theo cho thấy rủi ro đổi hướng."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Có phải ta đang chẻ sợi tóc làm tư trong khi các đội đã chuẩn bị không?"
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Tôi gọi đó là giữ các lựa chọn còn mở. Xe buýt có thể bố trí lại; thông báo trấn an khó rút lại hơn khi các gia đình đã hành động theo nó."
+    },
+    {
+      "segment_id": "S009",
+      "translation": "Vậy ta tạm tập kết, nêu rõ ngưỡng xem xét lại và không bảo đảm cho một tuyến cụ thể. Dự báo giúp lập kế hoạch mà không biến thành thời gian biểu của cơn bão."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "bundle_id": "MAN-0366-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0366",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Điểm thi thử cho biết bạn đúng bao nhiêu câu, nhưng không cho biết vì sao các câu còn lại sai."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Sau bài kiểm tra đọc, hãy xếp mỗi lỗi vào một trong ba nhóm: từ chưa biết, chỉ dẫn bị bỏ sót, hoặc đoán không có căn cứ."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Giả sử bạn chọn một phát biểu đúng nhưng không trả lời câu hỏi. Luyện thêm từ vựng sẽ không giải quyết được vấn đề đó."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Thay vào đó, hãy gạch dưới điều câu hỏi yêu cầu và tìm câu làm căn cứ cho đáp án."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Ghi ngắn gọn nguyên nhân của từng lỗi sẽ giúp buổi ôn tập tiếp theo có mục tiêu rõ ràng."
+    }
+  ]
+}

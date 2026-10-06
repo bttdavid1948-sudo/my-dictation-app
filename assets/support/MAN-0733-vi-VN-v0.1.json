@@ -1,0 +1,42 @@
+{
+  "bundle_id": "MAN-0733-SUPPORT-VI-VN",
+  "bundle_version": "v0.1",
+  "lesson_id": "MAN-0733",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Khách nói: 'Tôi đang tự hỏi liệu món ăn kèm có thể tới trước khi món chính nguội không.' Bạn hiểu thế nào?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Câu chữ dè dặt, nhưng thời điểm nói khiến nó thành lời phàn nàn. Tôi sẽ thừa nhận sự chậm trễ thay vì trả lời như thể khách hỏi thứ tự phục vụ thường lệ."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Bạn có hứa mang món ăn kèm ngay không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Chỉ khi bếp làm được. Câu 'có ngay đây' nhanh gọn nghe rất yên tâm cho đến khi khách phải hỏi lần nữa. Tôi sẽ kiểm tra thời gian và đề nghị giữ ấm món chính trong lúc chờ."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Còn nếu khách nói: 'Đừng vì tôi mà phải phiền'?"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Tôi sẽ thận trọng. Khách có thể thực sự thôi yêu cầu, hoặc đang cho thấy họ mất niềm tin vào đề nghị. Lời phàn nàn trước đó và giọng điệu quan trọng hơn riêng công thức lịch sự."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Vậy phục vụ tốt gồm việc kiểm tra hàm ý mà không biến chậm trễ nhỏ thành tranh chấp trang trọng."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Đúng. Đề nghị cụ thể, đáng tin bằng lời bình thường thường hữu ích hơn một lời xin lỗi cầu kỳ mà ta không thực hiện được."
+    }
+  ]
+}

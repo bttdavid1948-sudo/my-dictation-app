@@ -1,0 +1,30 @@
+{
+  "bundle_id": "MAN-0001-SUPPORT-VI-VN",
+  "bundle_version": "v0.2",
+  "lesson_id": "MAN-0001",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Chào bạn, mình là Maya. Đây có phải câu lạc bộ nhiếp ảnh không?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Đúng rồi, chào mừng bạn. Mình là Daniel. Trước tiên, viết tên bạn lên thẻ này nhé."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Bạn có cần số điện thoại của mình nữa không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Không, chỉ cần địa chỉ email thôi. Sau đó bỏ thẻ vào hộp màu xanh dương."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Được rồi. Tên, email của mình, rồi đến hộp màu xanh dương."
+    }
+  ]
+}
