@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {currentState} from '../../operations/orchestration/resolve.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'registry', name), 'utf8'));
@@ -87,7 +88,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       if (!route) throw Error(`Unknown route: ${args[1]}`);
       console.log(JSON.stringify(route,null,2));
     } else if (args[0] === 'next' || !args.length) {
-      console.log(JSON.stringify({contract_ref:pipeline.contract_ref,status:pipeline.contract_status,next_action:pipeline.next_action,lesson_count:lessons.records.length,artifacts:registry.artifacts.length,local_hashes_verified:i>=0},null,2));
+      const current=currentState();
+      console.log(JSON.stringify({contract_ref:pipeline.contract_ref,status:pipeline.contract_status,current_state_ref:current.currentStateRef,batch_id:current.batchId,terminal_state:current.terminalState,next_action:current.next_action,complete_lesson_count:current.completeLessonCount,remaining_lesson_count:current.remainingLessonCount,historical_lesson_registry_count:lessons.records.length,artifacts:registry.artifacts.length,local_hashes_verified:i>=0},null,2));
     } else throw Error('Usage: validate.mjs [next|current ID|route CODE] [--local-artifacts DIR]');
   } catch (error) { console.error(error.message); process.exitCode=1; }
 }

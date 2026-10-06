@@ -5,9 +5,9 @@
   "frozen_interface_ref": "curriculum-practice-contract@v0.3",
   "production_queue_enabled": false,
   "next_action": {
-    "code": "PRODUCTION_READY_BATCH_02",
-    "responsible_lane": "OPERATIONS_4",
-    "requires": "Batch 02 has explicit PASS for UNIQUE_PURPOSE_PASS + CURRICULUM_READY + PRACTICE_PREPROD_READY + specification-level CONTRACT_PRECHECK_VALID on all 12 identities. Consume the canonical preproduction evidence and continue only Operations-owned production planning/execution under existing queue, rights, audio-funding and release controls. Practice did not create audio or open the queue."
+    "code": "NONE",
+    "responsible_lane": "NONE",
+    "requires": "Batch02 OBJECTIVE_COMPLETE; no production continuation or Batch03 opened."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -210,16 +210,16 @@
   "six_audio_exceptions_ref": "docs/content-pipeline/registry/batch-01-six-audio-exceptions.json",
   "authorized_remaining_audio_exception_lesson_ids": [],
   "independent_operations_next_action": {
-    "code": "AWAIT_OWNING_LANE_PREPRODUCTION_INPUTS",
+    "code": "NONE",
     "responsible_lane": "NONE",
-    "requires": "No Batch02 production; receipt-only probe complete, semantic authority remains with owning lanes."
+    "requires": "Batch02 OBJECTIVE_COMPLETE; no production continuation or Batch03 opened."
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
   "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
   "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
-  "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+  "current_state_ref": "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
   "previous_next_action": {
     "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
     "responsible_lane": "OPERATIONS_4",
@@ -250,5 +250,7 @@
   },
   "routine_execution_governance_ref": "docs/content-pipeline/registry/single-orchestrator-governance.json",
   "batch02_operations_preparation_ref": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json",
-  "batch02_original_rights_ref": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json"
+  "batch02_original_rights_ref": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json",
+  "current_state_index_ref": "docs/content-pipeline/registry/batch-02-closure-evidence-index.json",
+  "current_state_precedence": "Resolve current_state_index_ref and its hash-bound completion checkpoint before historical registries/checkpoints or planning snapshots. Historical next actions are evidence only."
 }

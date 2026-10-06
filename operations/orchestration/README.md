@@ -1,8 +1,8 @@
 # Bounded Batch02 readiness from Batch01
 
-Batch01 is CLOSED at12/12. This directory is an Operations capability and handoff, not a general orchestrator, a new curriculum, or a Batch02 queue. Frozen Pipeline v0.2 and Curriculum ↔ Practice v0.3 remain authoritative.
+Default current state is Batch02 OBJECTIVE_COMPLETE, 12/12, CLOSED, next action NONE. Resolve the hash-bound closure index and pipeline current pointers before any continuation. No Batch01/02 production or Batch03 is routed.
 
-Run `node operations/orchestration/resolve.mjs` to replay current Batch01 completion evidence without external calls. Run `node operations/orchestration/resolve.test.mjs` for receipt/resume/routing tests. A future authorized worker can pass a JSON array of explicit evidence envelopes as the optional CLI argument. Envelope fields are a local adapter over existing gate outputs; they do not extend a frozen lesson contract or infer Curriculum/Practice semantics.
+Run `node operations/orchestration/resolve.mjs` for current canonical truth and `node operations/orchestration/resolve.test.mjs` for deterministic routing/receipt/precedence protection. `actualBatch01()` is an explicit historical trace API retained unchanged. A JSON-array CLI argument is an explicit evidence-envelope evaluation, not current-state discovery or permission to execute; workers must first resolve current state and exit on NONE. Historical records do not override current pointers.
 
 ## Happy path and handoff
 
@@ -40,6 +40,6 @@ Operations readiness work and actual-trace replay are complete. The next lane is
 
 Existing GitHub Actions/Pages release runners provide the execution surface. Reuse their bounded per-pair evidence path when concrete Batch02 inputs arrive; this readiness step does not add a scheduler, IAM, secrets service, provider framework or new infrastructure. Before the next real synthesis, check the existing secure credential/session and remaining approved spend through the execution path; readiness replay does not certify future provider availability.
 
-## Current Owner authorization 2026-10-05
+## Preserved Owner authorization 2026-10-05
 
 [Passive watcher pilot](watchers/README.md) supersedes the earlier Owner prompt-courier handoff. Standing prepaid audio permission covers official1000 production/valid targeted repair, with actual budget reconciliation and paid-branch-only OWNER_FUNDING_REQUIRED; no per-action reapproval. The bounded resolver and frozen lane decisions remain unchanged.

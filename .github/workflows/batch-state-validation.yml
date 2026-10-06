@@ -7,10 +7,13 @@ on:
       - docs/content-pipeline/registry/artifacts.json
       - docs/content-pipeline/registry/lessons.json
       - docs/content-pipeline/registry/support-bundles.json
+      - docs/content-pipeline/registry/batch-02-completion-checkpoint.json
+      - docs/content-pipeline/registry/batch-02-closure-evidence-index.json
       - docs/content-pipeline/registry/pipeline.json
       - docs/content-pipeline/registry/batch-01-completion-checkpoint.json
       - docs/content-pipeline/registry/batch-01-readiness.json
       - docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json
+      - docs/content-pipeline/validate.mjs
       - docs/content-pipeline/validate-batch-state.mjs
       - operations/skills/**
       - docs/content-pipeline/registry/single-orchestrator-governance.json

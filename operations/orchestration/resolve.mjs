@@ -37,4 +37,23 @@ export function actualBatch01(){
   return {lessonId:p.lesson_id,lessonVersion:p.lesson_asset_version,realizationId:p.realization_id,uniquePurposePass:l.unique_purpose_pass,curriculumReady:l.curriculum_ready,practicePreprodReady:l.practice_preprod_ready,contractPrecheck:l.contract_precheck_status,assetsBound:l.available_audio_realization_refs.includes(p.realization_id),assetManifestSha256:p.release_evidence_sha256,ordinaryAudioQa:true,finalPracticeReady:p.practice_ready,contractValid:p.contract_valid,supportReady:true,rightsReady:true,releaseAuthorized:true,releaseDeployed:l.publication_state==='RELEASED_OFFICIAL_CONTROLLED_INTERNAL',desktopLive:l.live_runtime_verified,mobileLive:l.definition_of_done_complete,feedbackWriteAck:l.definition_of_done_complete,rollbackVerified:l.definition_of_done_complete,productionAuthorized:true,evidenceRef:p.release_evidence_ref,acceptanceBasis:'Preserved canonical exact-pair completion; no gate rerun'};});
  return {...planIndependent(states),batchId:'BATCH_01',executionMode:'READ_ONLY_ACTUAL_TRACE_REPLAY',externalCalls:0,newProductionStarted:false};
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{const file=process.argv[2];const result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):actualBatch01();console.log(JSON.stringify(result,null,2));}catch(e){console.error(e.message);process.exitCode=1;}}
+// Current operational truth is explicit and hash-bound; Batch01 replay remains historical.
+export function resolveCanonicalState(pipeline,index,close,hashOf){
+ const fail=message=>{throw Error('CANONICAL_STATE_MISMATCH: '+message);};
+ const ref='docs/content-pipeline/registry/batch-02-completion-checkpoint.json';
+ if(pipeline.current_state_index_ref!=='docs/content-pipeline/registry/batch-02-closure-evidence-index.json'||pipeline.current_state_ref!==ref||index.current_state_ref!==ref)fail('current pointers');
+ for(const a of index.artifacts)if(hashOf(a.path)!==a.sha256)fail('evidence hash '+a.path);
+ if(!index.artifacts.some(a=>a.path===ref))fail('unbound close');
+ if(index.state_scope!=='CURRENT_AUTHORITATIVE'||index.terminal_state!=='OBJECTIVE_COMPLETE'||close.state_scope!=='CURRENT_AUTHORITATIVE'||close.batch_id!=='BATCH_02'||close.status!=='BATCH_02_COMPLETE_12_OF_12'||close.terminal_state!=='OBJECTIVE_COMPLETE'||!close.batch_close_complete)fail('closure status');
+ if(close.complete_lesson_count!==12||close.selected_lesson_count!==12||index.complete_lesson_count!==12||close.pairs.length!==12||new Set(close.pairs.map(p=>p.lesson_id)).size!==12||JSON.stringify([...close.pairs.map(p=>p.lesson_id)].sort())!==JSON.stringify([...close.fully_complete_lesson_ids].sort())||close.pairs.some(p=>p.status!=='COMPLETE'))fail('completion count');
+ if(close.queue_state!=='CLOSED'||pipeline.production_queue_enabled!==false||close.batch03_opened!==false)fail('queue boundary');
+ for(const key of ['remaining_lesson_ids','active_exceptions','pending_final_practice_pairs'])if(!Array.isArray(close[key])||close[key].length)fail(key);
+ for(const action of [pipeline.next_action,pipeline.independent_operations_next_action,index.next_action,close.next_action])if(action?.code!=='NONE'||action.responsible_lane!=='NONE')fail('next action');
+ return {batchId:close.batch_id,status:close.status,terminalState:close.terminal_state,currentStateRef:ref,next_action:close.next_action,queue:'CLOSED',completeLessonCount:12,remainingLessonCount:0,activeExceptionCount:0,actionable:[],handoffs:[],completed:close.pairs,executionMode:'READ_ONLY_CANONICAL_STATE',externalCalls:0,newProductionStarted:false};
+}
+export function currentState(){
+ const pipeline=read('docs/content-pipeline/registry/pipeline.json');
+ const index=read('docs/content-pipeline/registry/batch-02-closure-evidence-index.json');
+ return resolveCanonicalState(pipeline,index,read(index.current_state_ref),p=>createHash('sha256').update(fs.readFileSync(path.join(repo,p))).digest('hex'));
+}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{const file=process.argv[2];const result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):currentState();console.log(JSON.stringify(result,null,2));}catch(e){console.error(e.message);process.exitCode=1;}}
