@@ -123,7 +123,7 @@ export function installPracticeWrapper(host) {
   // Resume envelope retains wire fields for existing consumers. Core state is
   // separate from host policy; no synthesis, legacy state migration or new auth.
   const handlers={
-    xStartCatalog(id){const u=host.catalog().find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){stop();if(panel)panel.hidden=true;wire=null;return false;}if(current){open(current);return true;}stop();if(panel)panel.hidden=true;if(view)remove(view.key);wire=null;core=null;return old.xStartCatalog(id);},
+    xStartCatalog(id){const u=host.catalog().find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){stop();if(panel)panel.hidden=true;wire=null;return false;}if(current){open(current);return true;}stop();if(panel)panel.hidden=true;if(view)remove(view.key);wire=null;core=null;return captured.xStartCatalog(id);},
     xGo(v,options={}){stop();if(v!=='learn'){if(panel)panel.hidden=true;}return captured.xGo(v,options);},
     xRestoreStudy(){
       if(opening || wire && ['listening','complete'].includes(wire.phase) && panel && !panel.hidden)return true;
