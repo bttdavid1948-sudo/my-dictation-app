@@ -16,7 +16,7 @@ const server=http.createServer((req,res)=>{
  const file=path.resolve(root,'.'+(pathname==='/'?'/index.html':pathname));
  if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||fs.statSync(file).isDirectory()||file.endsWith('.wav')){res.writeHead(404);res.end();return;}
  let data=fs.readFileSync(file);
- if(file.endsWith('/index.html'))data=Buffer.from(data.toString().replace('<script src="assets/mixed-panel-runtime.js','<script>window.__practiceBaseStart=window.xStartCatalog;</script>\n<script src="assets/mixed-panel-runtime.js'));
+ if(file.endsWith('/index.html'))data=Buffer.from(data.toString().replace(/<script type="module" id="man-generic-practice-bootstrap"[^>]*>[\s\S]*?<\/script>/,'').replace('<script src="assets/mixed-panel-runtime.js','<script>window.__practiceBaseStart=window.xStartCatalog;</script>\n<script src="assets/mixed-panel-runtime.js'));
  res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.json')?'application/json':file.endsWith('.html')?'text/html':'application/octet-stream');res.end(data);
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));

@@ -7,11 +7,11 @@ const contractURL=url(read('assets/practice-runtime-contract.js'));
 const coreURL=url(read('assets/practice-runtime-core.js').replace("'./practice-runtime-contract.js'",JSON.stringify(contractURL)));
 const source=read('assets/practice-runtime-wrapper.js');
 const {installPracticeWrapper}=await import(url(source.replace("'./practice-runtime-contract.js'",JSON.stringify(contractURL)).replace("'./practice-runtime-core.js'",JSON.stringify(coreURL))));
-const {practiceHost}=await import(url(read('tests/fixtures/practice-wrapper-host.js')));
+const {practiceHost}=await import(url(read('assets/practice-runtime-host.js')));
 const {normalizePracticeLesson}=await import(contractURL);
 const clone=x=>structuredClone(x);
 assert.ok(!/MAN-\d{4}|Batch01|Batch02|batch01|IDS\s*=|PAIRS\s*=|\.schemaFamily\b|\.canonicalPractice\b/.test(source),'capability routing only');
-assert.ok(!read('index.html').includes('practice-runtime-wrapper.js'),'no default learner cutover');
+assert.ok(read('index.html').includes('man-generic-practice-bootstrap'),'default learner bootstrap present');
 const integrated=options=>{const h=harness({order:[],...options});h.wrapper=installPracticeWrapper(practiceHost(h.c));return h;};
 const state=h=>h.wrapper.evidence();
 function respond(h,s,u,{wrong=false,speechWrong=false,aliases=false}={}){
@@ -64,7 +64,7 @@ for(const u of lessons){
   assert.equal(await resumed.wrapper.restore(u.id),true);assert.deepEqual(state(resumed),state(h));assert.equal(resumed.audio.length,0,'restore never starts audio');assert.equal(resumed.c.localStorage.getItem(s.history),local,'restore no duplicate history');
   if(phase==='partial'){h.wrapper.dispose();h.audio[0].end();assert.equal(state(h).fullEnded,false,'disposed callback ignored');}
   if(phase==='draft'){resumed.click(s.prefix+'-play');resumed.finish();respond(resumed,s,u);assert.equal(state(resumed).correct,true);}
-  for(const patch of [{uid:'other'},{at:NOW-12*60*60*1000-1},{phase:'dictation'},{resumeIdentity:{lessonId:'stale'}},{coreState:{phase:'complete'}},{wire:{}}]){
+  for(const patch of [{lessonVersion:'stale'},{realizationId:'stale'},{uid:'other'},{at:NOW-12*60*60*1000-1},{phase:'dictation'},{resumeIdentity:{lessonId:'stale'}},{coreState:{phase:'complete'}},{wire:{}}]){
    const bad=integrated({session:{[s.key]:JSON.stringify({...JSON.parse(session),...patch})}});assert.equal(await bad.wrapper.restore(u.id),false);assert.equal(state(bad),null);
   }
   const changed=clone(u);changed.items[0].audio.sha256='a'.repeat(64);const stale=integrated({units:[changed],session:{[s.key]:session}});assert.equal(await stale.wrapper.restore(u.id),false);
@@ -88,5 +88,5 @@ for(const action of ['navigate','dispose']){
  if(action==='navigate')h.c.xGo('catalog');else h.wrapper.dispose();
  resolve(h.c.catalogUnitsCache);assert.equal(await restoring,false);assert.equal(state(h),null);
 }
-console.log(`Practice wrapper integration PASS: ${traces} differential traces; ${resumes} resume round trips + rejection cases; 15 Practice/9 ordinary; exact presentation/events/history/audio; offline, default legacy unchanged`);
+console.log(`Practice wrapper integration PASS: ${traces} differential traces; ${resumes} resume round trips + rejection cases; 15 Practice/9 ordinary; exact presentation/events/history/audio; offline, legacy semantics retained`);
 export {installPracticeWrapper,practiceHost};

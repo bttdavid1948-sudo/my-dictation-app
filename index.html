@@ -2219,8 +2219,13 @@ async function xSendAudioReport(){
 document.addEventListener('keydown',event=>{if(event.key==='Escape')xCloseAudioReport()});
 </script>
 
+<script>
+// Capture base IO before legacy wrappers. Retain the legacy stack for resume/rollback.
+window.ManPracticeReference=Object.fromEntries(['xStartCatalog','xGo','xRestoreStudy','xSpeakTranscriptItem','xSyncTranscriptView','xOpenAudioReport','playAudio'].map(k=>[k,window[k]]));
+</script>
 <script src="assets/mixed-panel-runtime.js?release=MAN-0844-v0.1"></script>
 <script src="assets/final-two-practice-runtime.js?release=Batch01-final-two-v0.1"></script>
 <script src="assets/batch02-practice-runtime.js?release=Batch02-v0.1"></script>
+<script type="module" id="man-generic-practice-bootstrap" src="assets/practice-runtime-bootstrap.js"></script>
 </body>
 </html>
