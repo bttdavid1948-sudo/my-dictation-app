@@ -139,7 +139,6 @@
       "audioRealizationRef": "MAN-0565-OPENAI-FIXED-v0.1",
       "aiGeneratedAudio": true,
       "practice": {
-        "question": "Kết luận nào phù hợp nhất với lập luận?",
         "operator": "INFERENCE",
         "construct": "INFERENCE",
         "speechCondition": "TRANSFER_VARIATION_CONDITION",
@@ -311,7 +310,6 @@
       "audioRealizationRef": "MAN-0905-OPENAI-FIXED-v0.1",
       "aiGeneratedAudio": true,
       "practice": {
-        "question": "Kết luận nào phù hợp nhất với lập luận?",
         "operator": "INFERENCE_STANCE",
         "construct": "INFERENCE_SUBTLE_IMPLICATION",
         "speechCondition": "TRANSFER_VARIATION_CONDITION",
