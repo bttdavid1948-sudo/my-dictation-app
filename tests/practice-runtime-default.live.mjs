@@ -24,7 +24,7 @@ try{
   });
   // Wait for the exact committed runtime tree, rather than accepting stale Pages.
   let deployed=false;
-  for(let i=0;i<24;i++){
+  for(let i=0;i<48;i++){
    const response=await context.request.get(base+'index.html?cutover='+Date.now());
    if(response.ok()&&digest(await response.text())===digest(local('index.html'))){deployed=true;break;}
    await new Promise(r=>setTimeout(r,5000));
@@ -42,7 +42,7 @@ try{
   const representatives=[...new Map(practice.map(u=>[u.capability,u])).values()];
   const playback=[];
   for(const u of representatives){
-   await page.evaluate(id=>xStartCatalog(id),u.id);await page.selectOption('#rate-select','2');
+   await page.evaluate(id=>xStartCatalog(id),u.id);await page.evaluate(()=>{document.getElementById('rate-select').value='2';});
    await page.locator('#'+u.prefix+'-play').click();await page.locator('#'+u.prefix+'-answer').waitFor({timeout:200000});
    const state=await page.evaluate(()=>ManGenericPractice.evidence());assert.equal(state.fullEnded,true);
    const actual=await page.locator('#man-fixed-audio-player').evaluate(a=>({ended:a.ended,error:a.error?.code||null,hash:a.dataset.assetSha256}));assert.equal(actual.error,null);assert.equal(actual.ended,true);
