@@ -118,7 +118,7 @@ export function installPracticeWrapper(host) {
     xRestoreStudy(){return old.xRestoreStudy();},
     xSpeakTranscriptItem(index){const item=host.items()?.[Number(index)],u=host.catalog().find(u=>u.id===item?.audio?.lessonId);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current?.playback.fullPanel)return old.xSpeakTranscriptItem(index);
       host.stopTranscript();host.transcript.begin();if(wire&&d.identity.lessonId===current.identity.lessonId&&current.playback.transcriptReplayAssisted){core.noteSupport('transcript');sync();event('TRANSCRIPT_FULL_PANEL_REPLAY',{evidence:'ASSISTED'});}
-      const t=host.transcript.token();audio.play({audio:current.playback.fullPanel},host.rate(),()=>{if(t!==host.transcript.token())return;if(current.playback.transcriptRepeatSupported&&host.transcript.repeat())handlers.xSpeakTranscriptItem(0);else host.transcript.end();},()=>{if(t===host.transcript.token())host.transcript.fail(current.playback.transcriptReplayAssisted);});},
+      const t=host.transcript.token(),lifecycle=generation;audio.play({audio:current.playback.fullPanel},host.rate(),()=>{if(disposed||lifecycle!==generation||t!==host.transcript.token())return;if(current.playback.transcriptRepeatSupported&&host.transcript.repeat())handlers.xSpeakTranscriptItem(0);else host.transcript.end();},()=>{if(!disposed&&lifecycle===generation&&t===host.transcript.token())host.transcript.fail(current.playback.transcriptReplayAssisted);});},
     xSyncTranscriptView(){old.xSyncTranscriptView();if(host.items()?.[0]?.audio?.lessonId===d?.identity.lessonId&&d?.playback.transcriptRepeatSupported)host.transcript.label();},
     xOpenAudioReport(item){if(!item&&d?.playback.transcriptReplayAssisted&&host.items()?.[0]?.audio?.lessonId===d.identity.lessonId&&host.transcript.visible())item={audio:d.playback.fullPanel};return old.xOpenAudioReport(item);},
     playAudio(){if(wire&&host.items()?.[host.currentIndex()]?.audio?.lessonId===d.identity.lessonId&&d.playback.dictationReplayAssisted){core.noteSupport('dictation');sync();event('DICTATION_CONTEXT_REPLAY',{segmentId:host.items()[host.currentIndex()].segmentId,evidence:'ASSISTED_DICTATION_NOT_COMPREHENSION_SCORE'});}return old.playAudio();}
@@ -129,7 +129,7 @@ export function installPracticeWrapper(host) {
     evidence:()=>wire?copy(wire):null,
     async restore(id){
       if(disposed)return false;
-      const u=(await host.loadCatalog()).find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current)return false;
+      const lifecycle=generation,all=await host.loadCatalog();if(disposed||lifecycle!==generation)return false;const u=all.find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current)return false;
       const v=presentation(current),saved=read(host.session,v.key,null);
       // Host retains the current uid/age/hash/phase policy. Legacy envelopes
       // without a core identity remain owned by the unchanged legacy wrappers.

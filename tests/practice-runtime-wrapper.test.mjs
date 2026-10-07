@@ -77,7 +77,16 @@ for(const u of lessons){
  const renamed=clone(u);renamed.id='UNSEEN';renamed.audioRealizationRef='UNSEEN-REALIZATION';for(const a of [...renamed.items.map(i=>i.audio),...(renamed.fullPanelAudio?[renamed.fullPanelAudio]:[])]){a.lessonId=renamed.id;a.realizationId=renamed.audioRealizationRef;}
  const unknown=integrated({units:[renamed]});assert.equal(unknown.c.xStartCatalog(renamed.id),true);unknown.click(s.prefix+'-play');unknown.finish();respond(unknown,s,renamed);assert.equal(state(unknown).correct,true,'shape-driven unseen identity');
  // Navigation and rollback preserve original function identities.
- const funcs=Object.fromEntries(['xStartCatalog','xGo','xRestoreStudy','xSpeakTranscriptItem'].map(k=>[k,saved.c[k]]));saved.wrapper.dispose();assert.equal(saved.c.xStartCatalog('ordinary'),'BASE_DICTATION');assert.equal(saved.c.xRestoreStudy(),'BASE_RESTORE');saved.wrapper.dispose();
+ saved.wrapper.dispose();assert.equal(saved.c.xStartCatalog('ordinary'),'BASE_DICTATION');assert.equal(saved.c.xRestoreStudy(),'BASE_RESTORE');saved.wrapper.dispose();
+}
+// In-flight catalog resolution cannot reopen after navigation/dispose.
+for(const action of ['navigate','dispose']){
+ const u=lessons.find(u=>u.practice),s=specs.find(s=>s.ids.includes(u.id)),initial=integrated();initial.c.xStartCatalog(u.id);
+ const session=initial.c.sessionStorage.getItem(s.key),h=integrated({session:{[s.key]:session}});let resolve;
+ h.c.loadCatalogUnits=()=>new Promise(r=>{resolve=r;});
+ const restoring=h.wrapper.restore(u.id);
+ if(action==='navigate')h.c.xGo('catalog');else h.wrapper.dispose();
+ resolve(h.c.catalogUnitsCache);assert.equal(await restoring,false);assert.equal(state(h),null);
 }
 console.log(`Practice wrapper integration PASS: ${traces} differential traces; ${resumes} resume round trips + rejection cases; 15 Practice/9 ordinary; exact presentation/events/history/audio; offline, default legacy unchanged`);
 export {installPracticeWrapper,practiceHost};
