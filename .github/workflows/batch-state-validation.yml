@@ -1,31 +1,7 @@
 name: Batch state and bounded resolver validation
 on:
   pull_request:
-    paths:
-      - docs/content-pipeline/registry/official-1000-production-authority.json
-      - docs/content-pipeline/registry/batch-02-watcher-pilot.json
-      - docs/content-pipeline/registry/artifacts.json
-      - docs/content-pipeline/registry/lessons.json
-      - docs/content-pipeline/registry/support-bundles.json
-      - docs/content-pipeline/registry/batch-02-completion-checkpoint.json
-      - docs/content-pipeline/registry/batch-02-closure-evidence-index.json
-      - docs/content-pipeline/registry/pipeline.json
-      - docs/content-pipeline/registry/batch-01-completion-checkpoint.json
-      - docs/content-pipeline/registry/batch-01-readiness.json
-      - docs/content-pipeline/registry/batch-01-autonomous-orchestration-readiness.json
-      - docs/content-pipeline/validate.mjs
-      - docs/content-pipeline/validate-batch-state.mjs
-      - operations/skills/**
-      - docs/content-pipeline/registry/single-orchestrator-governance.json
-      - docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json
-      - docs/content-pipeline/registry/batch-02-original-rights-preparation.json
-      - operations/orchestration/**
-      - .github/workflows/batch-state-validation.yml
-      - .github/workflows/official-man-scoped-receipt-merge.yml
-      - .github/workflows/official-man-curriculum-transition-merge.yml
-      - .github/workflows/official-man-practice-transition-merge.yml
-      - docs/content-pipeline/registry/batch-*-practice-preproduction.json
-      - docs/content-pipeline/registry/batch-02-curriculum-preproduction.json
+    branches: [main]
 permissions:
   contents: read
 jobs:
