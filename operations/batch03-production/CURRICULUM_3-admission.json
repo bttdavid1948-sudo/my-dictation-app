@@ -1,0 +1,8 @@
+{
+  "classification": "ROUTINE_EXECUTION",
+  "semantic_owner": "CURRICULUM_3",
+  "execution_context": "#4 MẶN PRODUCTION ORCHESTRATOR",
+  "target_room": null,
+  "reason": "Use the governed module; lowest sufficient reasoning; preserve PASS outcomes.",
+  "independent_work_continues": true
+}

@@ -12,29 +12,35 @@ def fetch_preflight():
  return receipt
 
 def main():
- ledger={'batch_id':'BATCH_02','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'reused_segments':0,'completed_segments':0,'entries':[],'qa_status':'PENDING','publication_allowed':False}
+ batch03=os.getenv('MAN_BATCH_ID')=='BATCH_03'
+ ledger={'batch_id':'BATCH_03' if batch03 else 'BATCH_02','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'reused_segments':0,'completed_segments':0,'entries':[],'qa_status':'PENDING','publication_allowed':False}
  def save():
   (ROOT/'production-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
  def finish(status,code):
   ledger['status']=status;save();print(json.dumps({k:ledger[k] for k in ['status','paid_requests_submitted','reused_segments','completed_segments']}));return code
  if os.getenv('GITHUB_REPOSITORY')!='bttdavid1948-sudo/my-dictation-app' or os.getenv('GITHUB_REF')!='refs/heads/main' or os.getenv('GITHUB_RUN_ATTEMPT')!='1':return finish('SCOPE_OR_RERUN_BLOCKED',2)
  try:
-  a=json.loads(pathlib.Path('operations/batch02-producer/production-activation.json').read_text())
+  a=json.loads(pathlib.Path('operations/batch03-production/production-activation.json' if batch03 else 'operations/batch02-producer/production-activation.json').read_text())
   age=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(a['budget_verified_at'])).total_seconds()
-  source=pathlib.Path('operations/batch02-producer/prepared-segments.json').read_bytes()
+  source=pathlib.Path('operations/batch03-production/prepared-segments.json' if batch03 else 'operations/batch02-producer/prepared-segments.json').read_bytes()
   if not 0<=age<=900 or sha(source)!=a['prepared_source_sha256']:raise ValueError()
-  d=json.loads(source);segments=d['segments'];assert len(segments)==77
-  assert len({(s['lesson_id'],s['segment_id']) for s in segments})==77
+  d=json.loads(source);segments=d['segments'];expected=20 if batch03 else 77
+  assert len(segments)==expected
+  assert len({(s['lesson_id'],s['segment_id']) for s in segments})==expected
+  if batch03:
+   assert d['batch_id']=='BATCH_03'
+   assert {s['lesson_id'] for s in segments}=={'MAN-0067','MAN-0167','MAN-0367'}
   for s in segments:assert sha(s['text'].encode())==s['text_sha256']
   authority=json.loads(pathlib.Path('docs/content-pipeline/registry/official-1000-production-authority.json').read_text());assert authority['audio_spend']['standing_authorized'] is True
   ledger['budget_evidence_sha256']=a['budget_evidence_sha256'];ledger['prepared_source_sha256']=sha(source)
-  old=fetch_preflight();ledger['reused_segments']=1;ledger['completed_segments']=1;ledger['entries'].append(old);save()
+  if not batch03:
+   old=fetch_preflight();ledger['reused_segments']=1;ledger['completed_segments']=1;ledger['entries'].append(old);save()
  except Exception as e:
   ledger['error_type']=type(e).__name__;return finish('PREFLIGHT_SOURCE_OR_REUSE_BLOCKED',2)
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
  for s in segments:
-  if (s['lesson_id'],s['segment_id'])==('MAN-0066','S001'):continue
+  if not batch03 and (s['lesson_id'],s['segment_id'])==('MAN-0066','S001'):continue
   dest=ROOT/s['lesson_id'];dest.mkdir(exist_ok=True);name=s['lesson_id']+'-'+s['segment_id'];out=dest/(name+'.wav')
   row={k:s[k] for k in ['lesson_id','lesson_asset_version','segment_id','script_speaker_id','voice']};row.update(model='gpt-4o-mini-tts',input_sha256=s['text_sha256'],instructions_sha256=sha(s['instructions'].encode()),qa_status='PENDING',publication_allowed=False)
   row['status']='SUBMISSION_PENDING_RECONCILIATION';ledger['entries'].append(row);ledger['paid_requests_submitted']+=1;save()
@@ -61,5 +67,5 @@ def main():
   except Exception as e:row.update(status='AUDIO_DECODE_OR_DURATION_FAILED',error_type=type(e).__name__)
   (dest/(name+'.metadata.json')).write_text(json.dumps(row,indent=2)+'\n');save()
   print(json.dumps({'lesson_id':s['lesson_id'],'segment_id':s['segment_id'],'status':row['status']}),flush=True)
- return finish('ALL_77_AUDIO_OUTPUTS_READY_FOR_QA' if ledger['completed_segments']==77 else 'PARTIAL_OUTPUT_INDEPENDENT_PROGRESS',0 if ledger['completed_segments']==77 else 4)
+ return finish(f'ALL_{expected}_AUDIO_OUTPUTS_READY_FOR_QA' if ledger['completed_segments']==expected else 'PARTIAL_OUTPUT_INDEPENDENT_PROGRESS',0 if ledger['completed_segments']==expected else 4)
 if __name__=='__main__':raise SystemExit(main())

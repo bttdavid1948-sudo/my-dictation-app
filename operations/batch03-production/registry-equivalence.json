@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "reserved_snapshot_rows": 1000,
+  "selected_reserved_rows_exact_field_equivalence": 3,
+  "registry_snapshot_sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836",
+  "current_complete_overlay": 24
+}

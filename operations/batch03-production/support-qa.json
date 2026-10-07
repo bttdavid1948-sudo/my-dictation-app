@@ -1,0 +1,26 @@
+{
+  "batch_id": "BATCH_03",
+  "status": "PASS",
+  "owner_lane": "OPERATIONS_4",
+  "lesson_results": [
+    {
+      "lesson_id": "MAN-0067",
+      "support_sha256": "b09b5ebe98a886e53cb7a65e31a3b752eb79a664cc0a6263e607a808dcf41ffa",
+      "coverage": "FULL",
+      "linguistic_review": "PASS"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "support_sha256": "737ab08701c5d3d916f83efbe0babf1fe161a6d791f2131b2e45c4d8d013470b",
+      "coverage": "FULL",
+      "linguistic_review": "PASS"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "support_sha256": "5f1190ae930f979070cd10cea980626120c54e55ad440ef37eccdd23d07ec1eb",
+      "coverage": "FULL",
+      "linguistic_review": "PASS"
+    }
+  ],
+  "changes_required": []
+}

@@ -1,0 +1,84 @@
+{
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "batch_id": "BATCH_03",
+  "owner_lane": "PRACTICE_2",
+  "execution_context": "OPERATIONS_4 governed module",
+  "status": "PASS",
+  "lessons": [
+    {
+      "lesson_id": "MAN-0067",
+      "level": "A1",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "practice_conflict": "NONE",
+      "mapping_refs": [
+        "MAP-CMP-03",
+        "MAP-SPH-02"
+      ],
+      "operator_precedent": "CORE_COMPREHENSION allowed alternate for SEQUENCE; existing task-row schema MAN-B02-PRACTICE@v0.1 retained as schema identifier, not Batch02 membership.",
+      "speech_target_verification": "Actual listened/measured cue required before final PASS; instructions/ASR alone insufficient.",
+      "response_support": "SELECT_ONE choice assistance; SHORT_TEXT hint assistance; user-controlled replays tracked; normal initial audio, INITIAL exposure; repeated attempts REPAIR_ONLY.",
+      "lexical_targets": "No scoreable LEXICAL anchor invented from placeholder. Reviewed corpus coverage is accounting, not a new scoreable pedagogic target.",
+      "repair_retention_transfer": "Reuse RRT-01..06 as applicable; no unseen transfer or calibrated retention claim.",
+      "evidence_policy": "Inherited TASK_ROWS records exact identity/anchor/operator/construct/response/support/exposure/replay/mode/realization/hash/result/strength/dimension/calibrated=false; final measured realization pending.",
+      "rule_refs": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "level": "A2",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "practice_conflict": "NONE",
+      "mapping_refs": [
+        "MAP-CMP-04",
+        "MAP-SPH-02"
+      ],
+      "operator_precedent": "CORE_COMPREHENSION allowed alternate for SEQUENCE; existing task-row schema MAN-B02-PRACTICE@v0.1 retained as schema identifier, not Batch02 membership.",
+      "speech_target_verification": "Actual listened/measured cue required before final PASS; instructions/ASR alone insufficient.",
+      "response_support": "SELECT_ONE choice assistance; SHORT_TEXT hint assistance; user-controlled replays tracked; normal initial audio, INITIAL exposure; repeated attempts REPAIR_ONLY.",
+      "lexical_targets": "No scoreable LEXICAL anchor invented from placeholder. Reviewed corpus coverage is accounting, not a new scoreable pedagogic target.",
+      "repair_retention_transfer": "Reuse RRT-01..06 as applicable; no unseen transfer or calibrated retention claim.",
+      "evidence_policy": "Inherited TASK_ROWS records exact identity/anchor/operator/construct/response/support/exposure/replay/mode/realization/hash/result/strength/dimension/calibrated=false; final measured realization pending.",
+      "rule_refs": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ]
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "level": "B1",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "practice_conflict": "NONE",
+      "mapping_refs": [
+        "MAP-CMP-03",
+        "MAP-SPH-02"
+      ],
+      "operator_precedent": "CORE_COMPREHENSION allowed alternate for SEQUENCE; existing task-row schema MAN-B02-PRACTICE@v0.1 retained as schema identifier, not Batch02 membership.",
+      "speech_target_verification": "Actual listened/measured cue required before final PASS; instructions/ASR alone insufficient.",
+      "response_support": "SELECT_ONE choice assistance; SHORT_TEXT hint assistance; user-controlled replays tracked; normal initial audio, INITIAL exposure; repeated attempts REPAIR_ONLY.",
+      "lexical_targets": "No scoreable LEXICAL anchor invented from placeholder. Reviewed corpus coverage is accounting, not a new scoreable pedagogic target.",
+      "repair_retention_transfer": "Reuse RRT-01..06 as applicable; no unseen transfer or calibrated retention claim.",
+      "evidence_policy": "Inherited TASK_ROWS records exact identity/anchor/operator/construct/response/support/exposure/replay/mode/realization/hash/result/strength/dimension/calibrated=false; final measured realization pending.",
+      "rule_refs": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ]
+    }
+  ],
+  "final_practice_ready": false,
+  "produced_contract_valid": false,
+  "rationale": "Three is the minimum chosen unit testing NEW plus two distinct spiral transitions, three input lengths/forms, sequence/purpose task diversity and connected-speech targets. All are new reserved IDs. No overlap mixing required; inherited repaired/mixed method precedent reused where applicable, not artificially forced."
+}

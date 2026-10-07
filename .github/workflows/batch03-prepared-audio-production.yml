@@ -1,0 +1,36 @@
+name: Batch03 inherited exact prepared audio production
+on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch03-production/production-activation.json
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch03-producer
+  cancel-in-progress: false
+jobs:
+  produce:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify existing secure producer access without a paid request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/preflight.py
+      - name: Produce exact Batch03 requests through the inherited producer
+        env:
+          MAN_BATCH_ID: BATCH_03
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/produce.py
+      - name: Preserve partial outputs and reconciliation ledger
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch03-audio-production-${{ github.run_id }}
+          path: producer-evidence/
+          retention-days: 7
