@@ -104,6 +104,9 @@ export function installPracticeWrapper(host) {
   }
   function open(current,saved=null){
     opening=true;
+    // An explicit fresh start supersedes earlier generic sessions. Never delete
+    // an unmarked legacy envelope; its original owner retains restoration.
+    if(!saved)for(const key of practiceSessionKeys){const prior=read(host.session,key,null);if(prior&&(Object.hasOwn(prior,'resumeIdentity')||Object.hasOwn(prior,'coreState')))remove(key);}
     for(const e of document.querySelectorAll?.('#man-mixed-panel,#man-inference-panel,#man-b02-panel')||[])e.hidden=true;
     stop();if(panel)panel.hidden=true;d=current;view=presentation(d);panel=document.getElementById(view.panel);
     const history=read(host.local,view.history,[]),attempt=Array.isArray(history)?Math.max(0,...history.filter(x=>x.lesson_id===d.identity.lessonId&&x.lesson_asset_version===d.identity.lessonVersion).map(x=>x.attempt_index||0))+1:1;

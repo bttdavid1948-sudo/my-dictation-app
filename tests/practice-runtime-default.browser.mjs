@@ -42,6 +42,11 @@ try{
   await ready();
   const inventory=await page.evaluate(()=>catalogUnitsCache.map(u=>({id:u.id,practice:!!u.practice,prefix:u.practice?.anchorIds?'man-b02':u.fullPanelAudio?'man-panel':'man-inference',choice:u.practice?.correctChoice,speech:u.practice?.speechTasks||[]})));
   assert.equal(inventory.filter(u=>u.practice).length,15);assert.equal(inventory.filter(u=>!u.practice).length,9);
+  const fresh=inventory.filter(u=>u.practice);
+  // Consecutive fresh starts across capabilities must resume the current lesson.
+  for(const u of fresh)await page.evaluate(id=>xStartCatalog(id),u.id);
+  await page.reload({waitUntil:'load'});await ready();
+  await page.waitForFunction(id=>ManGenericPractice.evidence()?.lessonId===id,fresh.at(-1).id);
   for(const u of inventory.filter(u=>u.practice)){
    await page.evaluate(id=>{__audio.length=0;xStartCatalog(id);},u.id);
    assert.equal(await page.locator('#'+u.prefix+'-answer').count(),0);
