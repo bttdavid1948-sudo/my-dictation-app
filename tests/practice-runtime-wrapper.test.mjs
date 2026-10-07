@@ -64,7 +64,7 @@ for(const u of lessons){
   assert.equal(await resumed.wrapper.restore(u.id),true);assert.deepEqual(state(resumed),state(h));assert.equal(resumed.audio.length,0,'restore never starts audio');assert.equal(resumed.c.localStorage.getItem(s.history),local,'restore no duplicate history');
   if(phase==='partial'){h.wrapper.dispose();h.audio[0].end();assert.equal(state(h).fullEnded,false,'disposed callback ignored');}
   if(phase==='draft'){resumed.click(s.prefix+'-play');resumed.finish();respond(resumed,s,u);assert.equal(state(resumed).correct,true);}
-  for(const patch of [{uid:'other'},{at:NOW-12*60*60*1000-1},{phase:'dictation'},{resumeIdentity:{lessonId:'stale'}},{coreState:{phase:'complete'}},{wire:{}}]){
+  for(const patch of [{lessonVersion:'stale'},{realizationId:'stale'},{uid:'other'},{at:NOW-12*60*60*1000-1},{phase:'dictation'},{resumeIdentity:{lessonId:'stale'}},{coreState:{phase:'complete'}},{wire:{}}]){
    const bad=integrated({session:{[s.key]:JSON.stringify({...JSON.parse(session),...patch})}});assert.equal(await bad.wrapper.restore(u.id),false);assert.equal(state(bad),null);
   }
   const changed=clone(u);changed.items[0].audio.sha256='a'.repeat(64);const stale=integrated({units:[changed],session:{[s.key]:session}});assert.equal(await stale.wrapper.restore(u.id),false);

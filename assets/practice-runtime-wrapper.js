@@ -33,6 +33,7 @@ export function installPracticeWrapper(host) {
   const captured = Object.fromEntries(['xStartCatalog','xGo','xRestoreStudy','xSpeakTranscriptItem','xSyncTranscriptView','xOpenAudioReport','playAudio'].map(k => [k,w[k]]));
   const old = host.reference || captured;
   let restoring = false, opening = false;
+  const ownedPanels=new Set();
   let d = null, view = null, core = null, wire = null, panel = null, generation = 0, disposed = false;
   const read = (storage,key,fallback) => { try { return JSON.parse(storage.getItem(key) || 'null') ?? fallback; } catch (_) { return fallback; } };
   const remove = key => { try { host.session.removeItem(key); } catch (_) {} };
@@ -79,7 +80,7 @@ export function installPracticeWrapper(host) {
     const history=read(host.local,view.history,[]);if(Array.isArray(history))write(host.local,view.history,history.concat(rows).slice(-view.limit));render();
   }
   function render(){
-    if(!panel){panel=document.createElement('section');panel.id=view.panel;panel.className='x-panel';document.getElementById('x-learn-slot').prepend(panel);}
+    if(!panel){panel=document.createElement('section');panel.id=view.panel;panel.className='x-panel';document.getElementById('x-learn-slot').prepend(panel);ownedPanels.add(panel);}
     panel.hidden=false;panel.replaceChildren();panel.style.cssText='padding:24px;max-width:860px;margin:0 auto 20px;overflow-wrap:anywhere';
     const css=document.createElement('style');css.textContent=`#${view.panel} button,#${view.panel} input{scroll-margin-top:110px;scroll-margin-bottom:130px}`;panel.append(css);
     text('h2',host.title(d.identity.lessonId),panel);text('p',view.intro,panel);text('p','Giọng đọc do AI tạo. Bạn có thể báo lỗi để Mặn sửa đúng phiên bản.',panel);
@@ -130,7 +131,7 @@ export function installPracticeWrapper(host) {
       if(!restoring){restoring=true;const lifecycle=generation;host.loadCatalog().then(async()=>{
         if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return;
         for(const saved of candidates)if(await api.restore(saved.lessonId))break;
-      }).finally(()=>{restoring=false;});}
+      }).catch(()=>{}).finally(()=>{restoring=false;});}
       return true;
     },
     xSpeakTranscriptItem(index){const item=host.items()?.[Number(index)],u=host.catalog().find(u=>u.id===item?.audio?.lessonId);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current?.playback.fullPanel)return old.xSpeakTranscriptItem(index);
@@ -145,7 +146,7 @@ export function installPracticeWrapper(host) {
   const api = {
     async restoreAvailable(){
       if(disposed||w.location.hash!=='#learn')return false;
-      const lifecycle=generation;await host.loadCatalog();
+      const lifecycle=generation;try{await host.loadCatalog();}catch(_){return false;}
       if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return false;
       const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
       for(const key of keys){const saved=read(host.session,key,null);if(saved&&(Object.hasOwn(saved,'resumeIdentity')||Object.hasOwn(saved,'coreState'))&&await api.restore(saved.lessonId))return true;}
@@ -158,8 +159,8 @@ export function installPracticeWrapper(host) {
       const v=presentation(current),saved=read(host.session,v.key,null);
       // Host retains the current uid/age/hash/phase policy. Legacy envelopes
       // without a core identity remain owned by the unchanged legacy wrappers.
-      if(!saved?.resumeIdentity||saved.phase!=='GENERIC_PRACTICE_V1'||saved.lessonId!==id||!Number.isFinite(saved.at)||!host.acceptResume({...saved,phase:saved.wire?.phase},v.kind!=='tasks'))return false;
-      try {const probe=createPracticeCore(current,{instanceId:saved.instanceId||'resume',attemptIndex:saved.attemptIndex||1});probe.restore(saved.resumeIdentity,saved.coreState);if(!Array.isArray(saved.wire?.events)||saved.wire.events.some(e=>typeof e?.kind!=='string'))throw new TypeError('resume events');if(canonicalPracticeJSON(saved.wire)!==canonicalPracticeJSON({...saved.wire,lessonId:current.identity.lessonId,lessonVersion:current.identity.lessonVersion,realizationId:current.identity.realizationId}))throw new TypeError('wire identity');
+      if(!saved?.resumeIdentity||saved.phase!=='GENERIC_PRACTICE_V1'||saved.lessonId!==id||saved.lessonVersion!==current.identity.lessonVersion||saved.realizationId!==current.identity.realizationId||!Number.isFinite(saved.at)||!host.acceptResume({...saved,phase:saved.wire?.phase},v.kind!=='tasks'))return false;
+      try {if(v.kind!=='context'&&canonicalPracticeJSON(saved.wire?.assetHashes)!==canonicalPracticeJSON(hashes(current)))throw new TypeError('resume wire assets');const probe=createPracticeCore(current,{instanceId:saved.instanceId||'resume',attemptIndex:saved.attemptIndex||1});probe.restore(saved.resumeIdentity,saved.coreState);if(!Array.isArray(saved.wire?.events)||saved.wire.events.some(e=>typeof e?.kind!=='string'))throw new TypeError('resume events');if(canonicalPracticeJSON(saved.wire)!==canonicalPracticeJSON({...saved.wire,lessonId:current.identity.lessonId,lessonVersion:current.identity.lessonVersion,realizationId:current.identity.realizationId}))throw new TypeError('wire identity');
         const snapshot=probe.snapshot(),projection=copy(saved.wire);
         for(const k of ['phase','fullPlays','fullEnded','assisted','answer','correct','responseAssisted'])if(Object.hasOwn(snapshot,k))projection[k]=snapshot[k];
         projection[v.counter]=snapshot.segmentReplays;
@@ -167,7 +168,7 @@ export function installPracticeWrapper(host) {
         if(canonicalPracticeJSON(projection)!==canonicalPracticeJSON(saved.wire))throw new TypeError('wire/core mismatch');
         open(current,saved);return true;}catch(_){remove(v.key);return false;}
     },
-    dispose(){if(disposed)return;disposed=true;stop();if(panel)panel.hidden=true;w.removeEventListener?.('popstate',pop);for(const [k,f]of Object.entries(handlers))if(w[k]===f)w[k]=captured[k];}
+    dispose(){if(disposed)return;disposed=true;stop();if(panel)panel.hidden=true;for(const e of ownedPanels)e.remove?.();w.removeEventListener?.('popstate',pop);for(const [k,f]of Object.entries(handlers))if(w[k]===f)w[k]=captured[k];}
   };
   return api;
 }
