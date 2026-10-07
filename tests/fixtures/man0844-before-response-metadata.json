@@ -189,14 +189,7 @@
         "speechCondition": "OVERLAP_INTERRUPTION_CONDITION",
         "anchorId": "MAN-0844-A-COMP-01",
         "referenceAnswer": "Nhóm phân biệt mối liên hệ quan sát được với cơ chế đã được chứng minh. Họ cân nhắc nguy cơ bỏ lỡ một tín hiệu hữu ích và nguy cơ khẳng định quá mức, rồi đề xuất một nghiên cứu theo dõi nhỏ thay vì đổi phác đồ cho tất cả mọi người.",
-        "scoringBoundary": "COMPREHENSION_ONLY_NO_OVERLAP_MASTERY_NO_CALIBRATION",
-        "question": "Cách hiểu nào phù hợp nhất với lập luận của nhóm?",
-        "choices": [
-          "Ghi nhận mối liên hệ, cân nhắc hai rủi ro và thử một nghiên cứu theo dõi nhỏ.",
-          "Đã chứng minh chỉ dấu gây ra sự hồi phục, nên đổi phác đồ cho tất cả bệnh nhân.",
-          "Chưa biết cơ chế, nên bỏ qua hoàn toàn chỉ dấu và không nghiên cứu thêm."
-        ],
-        "correctChoice": 0
+        "scoringBoundary": "COMPREHENSION_ONLY_NO_OVERLAP_MASTERY_NO_CALIBRATION"
       }
     }
   ]

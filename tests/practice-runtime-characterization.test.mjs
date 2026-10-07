@@ -50,6 +50,17 @@ function answer(h,s,u,{correct=true}={}){
  for(const [i,t] of (s===specs[2]?u.practice.speechTasks:[]).entries()){const el=h.find('man-b02-span-'+i);el.value=t.answer;el.fire('input');}
  form.fire('submit');
 }
+// Canonical response metadata must match the existing mixed-panel presentation/key.
+// Read only: the runtime remains unchanged and still uses its original constants.
+const mixedLesson=lessons.find(u=>u.id==='MAN-0844');
+const mixedSource=read(paths[0]);
+const mixedChoices=mixedSource.match(/const choices = (\[[\s\S]*?\]);/);
+const mixedQuestion=mixedSource.match(/text\('h3','([^']*)',form\)/);
+const mixedCorrect=mixedSource.match(/state\.correct=state\.answer===(\d+);/);
+assert.ok(mixedChoices&&mixedQuestion&&mixedCorrect,'existing mixed response constants remain addressable');
+assert.deepEqual(mixedLesson.practice.choices,Array.from(vm.runInNewContext(mixedChoices[1])));
+assert.equal(mixedLesson.practice.question,mixedQuestion[1]);
+assert.equal(mixedLesson.practice.correctChoice,Number(mixedCorrect[1]));
 // Every published lesson traverses the actual wrapper stack to exactly one handler.
 for(const u of lessons){
  const h=harness(),s=specFor(u.id);h.c.xStartCatalog(u.id);
@@ -60,6 +71,7 @@ for(const u of lessons){
  assert.equal(h.find(s.prefix+'-answer'),null,'answers gated until audio completes');
  h.click(s.prefix+'-play');h.finish();
  assert.equal(evidence(h,s).fullEnded,true);
+ if(s===specs[0]){const form=h.find(s.prefix+'-answer');assert.equal(form.all().find(e=>e.tag==='h3').textContent,u.practice.question);assert.deepEqual(form.all().filter(e=>e.tag==='span').map(e=>e.textContent),u.practice.choices);}
  const expected=u.fullPanelAudio?[u.fullPanelAudio.sha256]:u.items.map(i=>i.audio.sha256);
  assert.deepEqual(h.audio.map(a=>a.item.audio.sha256),expected);assert.ok(h.audio.every(a=>a.rate===1));
  answer(h,s,u);const result=evidence(h,s);assert.equal(result.correct,true);assert.equal(result.phase,'complete');assert.equal(result.responseAssisted,false);assert.ok(result.events.some(e=>e.kind===s.response));
