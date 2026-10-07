@@ -91,6 +91,15 @@ try{
    assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null,'legacy owner retained');
    assert.deepEqual(await page.evaluate(api=>window[api].evidence(),api),legacy);
    assert.equal(await page.locator('#'+u.prefix+'-result').isVisible(),true);legacyRestores++;
+   const beforeReplay=await page.evaluate(api=>window[api].evidence(),api);
+   await page.locator('#'+u.prefix+'-replay-'+(await page.evaluate(id=>catalogUnitsCache.find(u=>u.id===id).items[0].segmentId,u.id))).click();
+   assert.equal(await page.evaluate(api=>window[api].evidence().assisted,api),true,'legacy support owner');
+   const counter=u.prefix==='man-panel'?'contextReplays':'segmentReplays';
+   assert.equal((await page.evaluate(api=>window[api].evidence(),api))[counter],beforeReplay[counter]+1);
+   await page.locator('#'+u.prefix+'-dictation').click();
+   await page.evaluate(()=>xSpeakTranscriptItem(0));
+   assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null,'legacy dictation/transcript stays legacy');
+   if(u.prefix==='man-panel')assert.ok((await page.evaluate(api=>window[api].evidence(),api)).events.some(e=>e.kind==='TRANSCRIPT_FULL_PANEL_REPLAY'),'legacy transcript evidence retained');
    // A new explicit lesson start always enters generic stack, not migration.
    await page.evaluate(id=>{xGo('catalog');xStartCatalog(id);},u.id);
    assert.equal(await page.evaluate(()=>ManGenericPractice.evidence().phase),'listening');

@@ -138,12 +138,12 @@ export function installPracticeWrapper(host) {
       }).catch(()=>{}).finally(()=>{restoring=false;});}
       return true;
     },
-    xSpeakTranscriptItem(index){const item=host.items()?.[Number(index)],u=host.catalog().find(u=>u.id===item?.audio?.lessonId);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current?.playback.fullPanel)return old.xSpeakTranscriptItem(index);
+    xSpeakTranscriptItem(index){if(!wire)return captured.xSpeakTranscriptItem(index);const item=host.items()?.[Number(index)],u=host.catalog().find(u=>u.id===item?.audio?.lessonId);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current?.playback.fullPanel)return old.xSpeakTranscriptItem(index);
       host.stopTranscript();host.transcript.begin();if(wire&&d.identity.lessonId===current.identity.lessonId&&current.playback.transcriptReplayAssisted){core.noteSupport('transcript');sync();event('TRANSCRIPT_FULL_PANEL_REPLAY',{evidence:'ASSISTED'});}
       const t=host.transcript.token(),lifecycle=generation;audio.play({audio:current.playback.fullPanel},host.rate(),()=>{if(disposed||lifecycle!==generation||t!==host.transcript.token())return;if(current.playback.transcriptRepeatSupported&&host.transcript.repeat())handlers.xSpeakTranscriptItem(0);else host.transcript.end();},()=>{if(!disposed&&lifecycle===generation&&t===host.transcript.token())host.transcript.fail(current.playback.transcriptReplayAssisted);});},
-    xSyncTranscriptView(){old.xSyncTranscriptView();if(host.items()?.[0]?.audio?.lessonId===d?.identity.lessonId&&d?.playback.transcriptRepeatSupported)host.transcript.label();},
-    xOpenAudioReport(item){if(!item&&d?.playback.transcriptReplayAssisted&&host.items()?.[0]?.audio?.lessonId===d.identity.lessonId&&host.transcript.visible())item={audio:d.playback.fullPanel};return old.xOpenAudioReport(item);},
-    playAudio(){if(wire&&host.items()?.[host.currentIndex()]?.audio?.lessonId===d.identity.lessonId&&d.playback.dictationReplayAssisted){core.noteSupport('dictation');sync();event('DICTATION_CONTEXT_REPLAY',{segmentId:host.items()[host.currentIndex()].segmentId,evidence:'ASSISTED_DICTATION_NOT_COMPREHENSION_SCORE'});}return old.playAudio();}
+    xSyncTranscriptView(){if(!wire)return captured.xSyncTranscriptView();old.xSyncTranscriptView();if(host.items()?.[0]?.audio?.lessonId===d?.identity.lessonId&&d?.playback.transcriptRepeatSupported)host.transcript.label();},
+    xOpenAudioReport(item){if(!wire)return captured.xOpenAudioReport(item);if(!item&&d?.playback.transcriptReplayAssisted&&host.items()?.[0]?.audio?.lessonId===d.identity.lessonId&&host.transcript.visible())item={audio:d.playback.fullPanel};return old.xOpenAudioReport(item);},
+    playAudio(){if(!wire)return captured.playAudio();if(wire&&host.items()?.[host.currentIndex()]?.audio?.lessonId===d.identity.lessonId&&d.playback.dictationReplayAssisted){core.noteSupport('dictation');sync();event('DICTATION_CONTEXT_REPLAY',{segmentId:host.items()[host.currentIndex()].segmentId,evidence:'ASSISTED_DICTATION_NOT_COMPREHENSION_SCORE'});}return old.playAudio();}
   };
   for(const [k,f] of Object.entries(handlers))w[k]=f;
   const pop=()=>{if(!host.reference)stop();};w.addEventListener('popstate',pop);
