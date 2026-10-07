@@ -5,6 +5,7 @@ on:
     paths:
       - assets/practice-runtime-*.js
       - tests/practice-runtime-wrapper*
+      - tests/practice-runtime-default*
       - tests/fixtures/practice-wrapper-host.js
       - index.html
       - .github/workflows/practice-wrapper-integration.yml
@@ -26,8 +27,13 @@ jobs:
       - run: node tests/practice-runtime-wrapper.browser.mjs
         env:
           PRACTICE_BROWSER_OUTPUT: ${{ runner.temp }}/practice-wrapper-browser
+      - run: node tests/practice-runtime-default.browser.mjs
+        env:
+          PRACTICE_BROWSER_OUTPUT: ${{ runner.temp }}/practice-default-browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: isolated-practice-wrapper-browser
-          path: ${{ runner.temp }}/practice-wrapper-browser
+          path: |
+            ${{ runner.temp }}/practice-wrapper-browser
+            ${{ runner.temp }}/practice-default-browser

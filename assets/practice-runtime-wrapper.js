@@ -1,6 +1,6 @@
-/* Explicitly installed integration boundary. Not bootstrapped by index.html.
+/* Generic learner integration boundary.
  * Presentation/IO/legacy storage policy stay here; decisions use the descriptor/core.
- * Existing runtimes remain the default and the rollback/reference path.
+ * Legacy runtimes remain the resume owner and rollback/reference path.
  */
 import { normalizePracticeLesson, canonicalPracticeJSON } from './practice-runtime-contract.js';
 import { createPracticeCore } from './practice-runtime-core.js';
@@ -24,12 +24,15 @@ function presentation(d) {
     intro: 'Nghe cuộc thảo luận trước, rồi chọn kết luận phù hợp nhất. Bạn có thể nghe lại từng lượt khi cần.', play: '▶ Nghe cả cuộc thảo luận',
     ready: 'Đã nghe hết. Chọn kết luận của bạn bên dưới.', correct: 'Bạn đã chọn đúng kết luận của cuộc thảo luận.', incorrect: 'Kết luận còn chạy mất một chút. Cùng xem lại lập luận nhé.', boundary: 'Kết quả này ghi nhận lần luyện hiểu nội dung. Kết quả chính tả được ghi riêng.'
   };
+  return api;
 }
 
 export function installPracticeWrapper(host) {
   const w = host.window, document = host.document, audio = host.audio;
   const now = host.now, uid = host.uid;
-  const old = Object.fromEntries(['xStartCatalog','xGo','xRestoreStudy','xSpeakTranscriptItem','xSyncTranscriptView','xOpenAudioReport','playAudio'].map(k => [k,w[k]]));
+  const captured = Object.fromEntries(['xStartCatalog','xGo','xRestoreStudy','xSpeakTranscriptItem','xSyncTranscriptView','xOpenAudioReport','playAudio'].map(k => [k,w[k]]));
+  const old = host.reference || captured;
+  let restoring = false, opening = false;
   let d = null, view = null, core = null, wire = null, panel = null, generation = 0, disposed = false;
   const read = (storage,key,fallback) => { try { return JSON.parse(storage.getItem(key) || 'null') ?? fallback; } catch (_) { return fallback; } };
   const remove = key => { try { host.session.removeItem(key); } catch (_) {} };
@@ -42,7 +45,7 @@ export function installPracticeWrapper(host) {
     wire[view.counter]=s.segmentReplays;
     if(view.kind==='tasks'){wire.spanAnswers=s.spanAnswers;wire.evidence=s.evidence;}
   }
-  function save(){if(wire)write(host.session,view.key,{...wire,uid:uid(),at:now(),resumeIdentity:d.resumeIdentity,coreState:core.snapshot(),wire:copy(wire)});}
+  function save(){if(wire)write(host.session,view.key,{...wire,phase:'GENERIC_PRACTICE_V1',uid:uid(),at:now(),resumeIdentity:d.resumeIdentity,coreState:core.snapshot(),wire:copy(wire)});}
   function event(kind,detail={}){wire.events.push({kind,...detail});save();}
   function stop(){generation++;core?.stop();audio.stop();}
   function status(s){const e=panel?.querySelector('#'+view.prefix+'-status');if(e)e.textContent=s;}
@@ -98,6 +101,8 @@ export function installPracticeWrapper(host) {
     result.append(button('✍️ Luyện chính tả các lượt nói',view.prefix+'-dictation',()=>{stop();core.enterDictation();sync();save();panel.hidden=true;host.baseStart(d.identity.lessonId);}),button('📚 Chọn bài để học tiếp',view.prefix+'-next',()=>{stop();panel.hidden=true;old.xGo('catalog');}));
   }
   function open(current,saved=null){
+    opening=true;
+    for(const e of document.querySelectorAll?.('#man-mixed-panel,#man-inference-panel,#man-b02-panel')||[])e.hidden=true;
     stop();if(panel)panel.hidden=true;d=current;view=presentation(d);panel=document.getElementById(view.panel);
     const history=read(host.local,view.history,[]),attempt=Array.isArray(history)?Math.max(0,...history.filter(x=>x.lesson_id===d.identity.lessonId&&x.lesson_asset_version===d.identity.lessonVersion).map(x=>x.attempt_index||0))+1:1;
     const instanceId=d.identity.lessonId+':'+now();core=createPracticeCore(d,{instanceId:saved?.instanceId||instanceId,attemptIndex:saved?.attemptIndex||attempt});
@@ -108,14 +113,26 @@ export function installPracticeWrapper(host) {
       const before=canonicalPracticeJSON(wire);sync();if(before!==canonicalPracticeJSON(wire))throw new TypeError('resume wire/core mismatch');
     }
     host.stopTranscript();host.stopTimer();remove(host.studyKey);
-    document.getElementById('x-library-modal')?.classList.add('x-hidden');for(const id of ['dictation-app','summary-section','dictation-placeholder'])document.getElementById(id)?.classList.add('hidden');old.xGo('learn');render();save();
+    document.getElementById('x-library-modal')?.classList.add('x-hidden');for(const id of ['dictation-app','summary-section','dictation-placeholder'])document.getElementById(id)?.classList.add('hidden');old.xGo('learn');render();save();opening=false;
   }
   // Resume envelope retains wire fields for existing consumers. Core state is
   // separate from host policy; no synthesis, legacy state migration or new auth.
   const handlers={
     xStartCatalog(id){const u=host.catalog().find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){stop();if(panel)panel.hidden=true;wire=null;return false;}if(current){open(current);return true;}stop();if(panel)panel.hidden=true;if(view)remove(view.key);wire=null;core=null;return old.xStartCatalog(id);},
-    xGo(v,options={}){if(v!=='learn'){stop();if(panel)panel.hidden=true;}return old.xGo(v,options);},
-    xRestoreStudy(){return old.xRestoreStudy();},
+    xGo(v,options={}){stop();if(v!=='learn'){if(panel)panel.hidden=true;}return captured.xGo(v,options);},
+    xRestoreStudy(){
+      if(opening || wire && ['listening','complete'].includes(wire.phase) && panel && !panel.hidden)return true;
+      if(w.location.hash!=='#learn')return false;
+      // Legacy envelopes are delegated unchanged, never migrated or deleted here.
+      const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
+      const candidates=keys.map(key=>read(host.session,key,null)).filter(s=>s&&(Object.hasOwn(s,'resumeIdentity')||Object.hasOwn(s,'coreState')));
+      if(!candidates.length)return captured.xRestoreStudy();
+      if(!restoring){restoring=true;const lifecycle=generation;host.loadCatalog().then(async()=>{
+        if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return;
+        for(const saved of candidates)if(await api.restore(saved.lessonId))break;
+      }).finally(()=>{restoring=false;});}
+      return true;
+    },
     xSpeakTranscriptItem(index){const item=host.items()?.[Number(index)],u=host.catalog().find(u=>u.id===item?.audio?.lessonId);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current?.playback.fullPanel)return old.xSpeakTranscriptItem(index);
       host.stopTranscript();host.transcript.begin();if(wire&&d.identity.lessonId===current.identity.lessonId&&current.playback.transcriptReplayAssisted){core.noteSupport('transcript');sync();event('TRANSCRIPT_FULL_PANEL_REPLAY',{evidence:'ASSISTED'});}
       const t=host.transcript.token(),lifecycle=generation;audio.play({audio:current.playback.fullPanel},host.rate(),()=>{if(disposed||lifecycle!==generation||t!==host.transcript.token())return;if(current.playback.transcriptRepeatSupported&&host.transcript.repeat())handlers.xSpeakTranscriptItem(0);else host.transcript.end();},()=>{if(!disposed&&lifecycle===generation&&t===host.transcript.token())host.transcript.fail(current.playback.transcriptReplayAssisted);});},
@@ -124,16 +141,24 @@ export function installPracticeWrapper(host) {
     playAudio(){if(wire&&host.items()?.[host.currentIndex()]?.audio?.lessonId===d.identity.lessonId&&d.playback.dictationReplayAssisted){core.noteSupport('dictation');sync();event('DICTATION_CONTEXT_REPLAY',{segmentId:host.items()[host.currentIndex()].segmentId,evidence:'ASSISTED_DICTATION_NOT_COMPREHENSION_SCORE'});}return old.playAudio();}
   };
   for(const [k,f] of Object.entries(handlers))w[k]=f;
-  const pop=()=>stop();w.addEventListener('popstate',pop);
-  return {
+  const pop=()=>{if(!host.reference)stop();};w.addEventListener('popstate',pop);
+  const api = {
+    async restoreAvailable(){
+      if(disposed||w.location.hash!=='#learn')return false;
+      const lifecycle=generation;await host.loadCatalog();
+      if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return false;
+      const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
+      for(const key of keys){const saved=read(host.session,key,null);if(saved&&(Object.hasOwn(saved,'resumeIdentity')||Object.hasOwn(saved,'coreState'))&&await api.restore(saved.lessonId))return true;}
+      return false;
+    },
     evidence:()=>wire?copy(wire):null,
     async restore(id){
       if(disposed)return false;
-      const lifecycle=generation,all=await host.loadCatalog();if(disposed||lifecycle!==generation)return false;const u=all.find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current)return false;
+      const lifecycle=generation,all=await host.loadCatalog();if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return false;const u=all.find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current)return false;
       const v=presentation(current),saved=read(host.session,v.key,null);
       // Host retains the current uid/age/hash/phase policy. Legacy envelopes
       // without a core identity remain owned by the unchanged legacy wrappers.
-      if(!saved?.resumeIdentity||!host.acceptResume(saved,v.kind!=='tasks'))return false;
+      if(!saved?.resumeIdentity||saved.phase!=='GENERIC_PRACTICE_V1'||saved.lessonId!==id||!Number.isFinite(saved.at)||!host.acceptResume({...saved,phase:saved.wire?.phase},v.kind!=='tasks'))return false;
       try {const probe=createPracticeCore(current,{instanceId:saved.instanceId||'resume',attemptIndex:saved.attemptIndex||1});probe.restore(saved.resumeIdentity,saved.coreState);if(!Array.isArray(saved.wire?.events)||saved.wire.events.some(e=>typeof e?.kind!=='string'))throw new TypeError('resume events');if(canonicalPracticeJSON(saved.wire)!==canonicalPracticeJSON({...saved.wire,lessonId:current.identity.lessonId,lessonVersion:current.identity.lessonVersion,realizationId:current.identity.realizationId}))throw new TypeError('wire identity');
         const snapshot=probe.snapshot(),projection=copy(saved.wire);
         for(const k of ['phase','fullPlays','fullEnded','assisted','answer','correct','responseAssisted'])if(Object.hasOwn(snapshot,k))projection[k]=snapshot[k];
@@ -142,6 +167,7 @@ export function installPracticeWrapper(host) {
         if(canonicalPracticeJSON(projection)!==canonicalPracticeJSON(saved.wire))throw new TypeError('wire/core mismatch');
         open(current,saved);return true;}catch(_){remove(v.key);return false;}
     },
-    dispose(){if(disposed)return;disposed=true;stop();if(panel)panel.hidden=true;w.removeEventListener?.('popstate',pop);for(const [k,f]of Object.entries(handlers))if(w[k]===f)w[k]=old[k];}
+    dispose(){if(disposed)return;disposed=true;stop();if(panel)panel.hidden=true;w.removeEventListener?.('popstate',pop);for(const [k,f]of Object.entries(handlers))if(w[k]===f)w[k]=captured[k];}
   };
+  return api;
 }

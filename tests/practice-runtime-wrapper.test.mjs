@@ -7,11 +7,11 @@ const contractURL=url(read('assets/practice-runtime-contract.js'));
 const coreURL=url(read('assets/practice-runtime-core.js').replace("'./practice-runtime-contract.js'",JSON.stringify(contractURL)));
 const source=read('assets/practice-runtime-wrapper.js');
 const {installPracticeWrapper}=await import(url(source.replace("'./practice-runtime-contract.js'",JSON.stringify(contractURL)).replace("'./practice-runtime-core.js'",JSON.stringify(coreURL))));
-const {practiceHost}=await import(url(read('tests/fixtures/practice-wrapper-host.js')));
+const {practiceHost}=await import(url(read('assets/practice-runtime-host.js')));
 const {normalizePracticeLesson}=await import(contractURL);
 const clone=x=>structuredClone(x);
 assert.ok(!/MAN-\d{4}|Batch01|Batch02|batch01|IDS\s*=|PAIRS\s*=|\.schemaFamily\b|\.canonicalPractice\b/.test(source),'capability routing only');
-assert.ok(!read('index.html').includes('practice-runtime-wrapper.js'),'no default learner cutover');
+assert.ok(read('index.html').includes('man-generic-practice-bootstrap'),'default learner bootstrap present');
 const integrated=options=>{const h=harness({order:[],...options});h.wrapper=installPracticeWrapper(practiceHost(h.c));return h;};
 const state=h=>h.wrapper.evidence();
 function respond(h,s,u,{wrong=false,speechWrong=false,aliases=false}={}){
@@ -88,5 +88,5 @@ for(const action of ['navigate','dispose']){
  if(action==='navigate')h.c.xGo('catalog');else h.wrapper.dispose();
  resolve(h.c.catalogUnitsCache);assert.equal(await restoring,false);assert.equal(state(h),null);
 }
-console.log(`Practice wrapper integration PASS: ${traces} differential traces; ${resumes} resume round trips + rejection cases; 15 Practice/9 ordinary; exact presentation/events/history/audio; offline, default legacy unchanged`);
+console.log(`Practice wrapper integration PASS: ${traces} differential traces; ${resumes} resume round trips + rejection cases; 15 Practice/9 ordinary; exact presentation/events/history/audio; offline, legacy semantics retained`);
 export {installPracticeWrapper,practiceHost};

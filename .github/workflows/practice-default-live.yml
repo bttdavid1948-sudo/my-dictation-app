@@ -1,0 +1,30 @@
+name: Generic Practice default cutover live smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - assets/practice-runtime-*.js
+      - tests/practice-runtime-default.live.mjs
+      - .github/workflows/practice-default-live.yml
+permissions:
+  contents: read
+jobs:
+  default-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - run: node tests/practice-runtime-default.live.mjs
+        env:
+          PRACTICE_BROWSER_OUTPUT: ${{ runner.temp }}/practice-default-live
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: practice-default-live
+          path: ${{ runner.temp }}/practice-default-live
