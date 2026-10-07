@@ -1,0 +1,20 @@
+{
+  "operation_key": "BATCH_03@run37655070920@TARGETED_LEXICAL_CUE_REVIEW@v0.1",
+  "production_run_id": 37655070920,
+  "production_artifact_id": 11497039469,
+  "production_artifact_sha256": "888808658471c83bfcd01775bf0cecbbaaadb1ac2273eacf4b8525dac4767eb4",
+  "prepared_source_sha256": "5a3f3a40e7177c875b2bdb2fc17403c9a589bb916ce919b53824d21a422e027d",
+  "reason": "Five unresolved base recognizer differences plus contraction cue; inherited small.en secondary review, zero synthesis or PASS reruns.",
+  "provider_calls": 0,
+  "semantic_pass": false,
+  "publication_allowed": false,
+  "ordinary_qa_run": 37661434611,
+  "targets": [
+    "MAN-0067/S001",
+    "MAN-0167/S004",
+    "MAN-0367/S003",
+    "MAN-0367/S006",
+    "MAN-0367/S009",
+    "MAN-0367/S010"
+  ]
+}

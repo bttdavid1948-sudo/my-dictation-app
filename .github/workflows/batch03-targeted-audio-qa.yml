@@ -1,0 +1,36 @@
+name: Batch03 inherited targeted lexical review
+on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch03-production/targeted-qa-activation.json
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: official-man-batch03-targeted-qa
+  cancel-in-progress: false
+jobs:
+  qa:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Download only existing paid outputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 37655070920 --repo bttdavid1948-sudo/my-dictation-app --name batch03-audio-production-37655070920 --dir batch03-source
+      - name: Install inherited offline QA dependencies
+        run: python3 -m pip install faster-whisper==1.2.1 scipy
+      - name: Extract ordinary signal and unprompted lexical evidence
+        run: python3 operations/batch03-production/targeted_qa.py
+      - name: Preserve partial QA evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch03-targeted-qa-${{ github.run_id }}
+          path: batch03-targeted-qa/
+          retention-days: 7
