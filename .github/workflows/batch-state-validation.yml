@@ -23,3 +23,4 @@ jobs:
       - run: node operations/orchestration/watchers/curriculum-transition.test.mjs
       - run: node operations/orchestration/watchers/practice-transition.test.mjs
       - run: node tests/practice-runtime-contract.test.mjs
+      - run: node tests/practice-runtime-core.test.mjs
