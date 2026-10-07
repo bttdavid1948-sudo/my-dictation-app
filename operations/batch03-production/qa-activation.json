@@ -1,0 +1,11 @@
+{
+  "operation_key": "BATCH_03@run37655070920@ORDINARY_QA@v0.1",
+  "production_run_id": 37655070920,
+  "production_artifact_id": 11497039469,
+  "production_artifact_sha256": "888808658471c83bfcd01775bf0cecbbaaadb1ac2273eacf4b8525dac4767eb4",
+  "prepared_source_sha256": "5a3f3a40e7177c875b2bdb2fc17403c9a589bb916ce919b53824d21a422e027d",
+  "reason": "Workspace ASR model download was rejected by network proxy HTTP 403; reuse inherited offline QA in established GitHub execution path.",
+  "provider_calls": 0,
+  "semantic_pass": false,
+  "publication_allowed": false
+}
