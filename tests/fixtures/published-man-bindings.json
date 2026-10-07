@@ -1,0 +1,359 @@
+[
+  {
+    "id": "MAN-0065",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0065-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "8a4b37a1515e1b70f92cda02ccc201a57af9a1673ce3be33a6df32fc8c20331d",
+      "4a50efd791f190f57d8e89e687c69993ec93788c33c85a495b55df2c579143d9",
+      "1dd7e64228ecc66f5bd63d6e00b34dda1cdf7139e9672a66a576096a8d4a19f1",
+      "d262232ae7acbb0623d90f4af34def8c67aa92122bf0e158c28b969cfc1b73ba"
+    ]
+  },
+  {
+    "id": "MAN-0165",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0165-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "f25648e27f5e9aada0ab46550338837f16ebf307279ae9d3238ec8b2b894631b",
+      "803c56f4e7b56face53c4104a764fa8350b82ef505873bd696f4f1ea47500cb3",
+      "1f9caaff7dc4d123f5ee46c3792ba7880e4aa7fb931e1662e50c04fd6f9f9881",
+      "176a8a600a1dfdd2e612ea43b371737698411a69895695a5a48a33853e7b529a"
+    ]
+  },
+  {
+    "id": "MAN-0365",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0365-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "dc754d692408efb524c4b1349dcefb10f3c6067de124d863ffd24ea9460cf252",
+      "39bc6c6627c78d8380bde674212b7dd54a8255f6cd47e8144f4f06f78ba97342",
+      "64bf91b08d3eb00fc929ceb35c7b8259314d84de26a2e4053b760e54e6b90613",
+      "155c05fba378f914ab97db7ce4c5e5675f9cbc2486816bb5a6d756bbea428e5a",
+      "5d310dc5e6e377cb86171a440e2222112405d42781dbc985561fbad62d57fe52"
+    ]
+  },
+  {
+    "id": "MAN-0044",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0044-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "50005ff9fe986dbc34980fbe84d30056a5aae24586ce2678aa68b23fd864e724",
+      "b4a16a22db9c9c91795de3c2349477c6e47964f62d7118fe33cf45568b6c04d3",
+      "f8f3f4c17fe91c5fb15f1e38b4efaa2d3daf1fe45372cf6d8c19a7dabfc94fbf",
+      "74a9164a55773200917878e38e8f2329737494997b1c0007b04f1ee4bcd05246"
+    ]
+  },
+  {
+    "id": "MAN-0238",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0238-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "48e8f9365a0236377d819f2573f1bc3156fcdae2b84df3feeede650e8bb4be41",
+      "8d33f0eac8acd77c5c6747b5cda5f13874080f493ec44c73ee97a9e5408c7ee4",
+      "d791126cef9f194ac795693b880159d52b67c1db4d3e6e91f8441903fcfabbcb",
+      "5b6b760750b1f6086f254a57b5a438436d3242ef0265771e4391304da4d41506",
+      "4c72fa7932dff22f21edd0270a8edb727150b667b6c112428379410c377265db"
+    ]
+  },
+  {
+    "id": "MAN-0414",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0414-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "b1503056fc09c03a6f80cad73388b0a630d2c70f040b2a07a5a0ee182b600d91",
+      "a2e866798350e44bd14fac88ebc64790ba4f195c30756c14cb854308fbb36b6f",
+      "3b01e353dee6fbd8dd1a7f1ed6872ff51890fbe773e6455a1e47ee081f1fab99",
+      "bac199ca6489828a787a0618d6bb97690dede2f6668e88b8221e441303a53831"
+    ]
+  },
+  {
+    "id": "MAN-0765",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0765-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "d870487fda3aaec1651bc5adf61799e0d2dc65f4da5ee8fc056fa5bd63ed8b90",
+      "fffed9d2d727e962509fc57b044795552354a7ad64203a8c2e533762864c3572",
+      "23d6ca6e0c86e84df450729c6ab1e80772b32e5f2bacde6eb622b161d49e34ba",
+      "ecb47e5c7cf2c42746a5e9ed84d6f06ca2f669bff4121eb527da0dd3eb225b82",
+      "ec8c5b3a338586c9b309daee9b411ca75497fc2d863c95a7bdfc07fe0a8a4eb2",
+      "058c90ee2cdc496ab53bb340d7b3cdd79144195fbc4c970e942125b6d1606612"
+    ]
+  },
+  {
+    "id": "MAN-0604",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0604-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "bd1f0cf00ce24a6d6dcd35b5fb6c7c3947f0c7f78648972931045e8891b90ace",
+      "2a33518a00168f51a9b71d3b1309a9bd9faec7047dc84a4829f49c566acc6e2b",
+      "a21bacea73e7269ed2c56d739a8d78222cb16ea6f9852e890f51c2630d00a257",
+      "298b9154365ca02bc3080c75f343cdfe8a12c0abc96e0c6d88f31e61e0780582"
+    ]
+  },
+  {
+    "id": "MAN-0986",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0986-OPENAI-FIXED-v0.2",
+    "assetHashes": [
+      "dd56e91636b7314521c52540d4eebbcf70436361804460e998d7b60145cb001e",
+      "b9f68052efa343e896a6785e2b949069abdb453e2c7ee2de5431a3ed9b7f14ce",
+      "84366254df0d5479554f11ae8cb26387e45d20a5243feeefd2efe620fa9d7ce4",
+      "12897baa7b1db40f1173ced752471193d3ad824131b8156b36e99675c76f11fd",
+      "591072673294111dcd5800138eccd3a820c0b50ff3a96ce4f51eda494d0145fc",
+      "9c8b7911cb9daedaffaf4612d94a11fb464c6d341dafbb4f3fa0005413dd298a",
+      "aa52beea2343d61eaeb50e1af3e4601810fa2582d2513d0e5fd6f7f460cc1865"
+    ]
+  },
+  {
+    "id": "MAN-0844",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0844-MIXED-v0.1",
+    "assetHashes": [
+      "77e0e6fdd650bc6b397cfaa5fa68db4ea042485de979f066c387d9ffafd72c2c",
+      "8bede51e70a717dd6f99eb5002fcd507949ed5d4381c1454ddfe7f627f2f5a6a",
+      "bb42d6d55291273dbe4c36ae86462f99ae97808ef0c5bec7116b5d01fdc82a68",
+      "f4eb3309470da39a1a2b0d45f30e7b88641fb14033ffa8592c7c0f1e5eef5a93",
+      "0485a707ad7fdfee118d4d7d6e21a01f9b046ef48b8eba8e2016012bce6ad9a5",
+      "975dda3851c9a0cb41641e0b85a13c86ea7c3bd9f8546f4bbea8ac44320b5346",
+      "96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc"
+    ]
+  },
+  {
+    "id": "MAN-0565",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0565-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "d1654c91ef95f4a0a70f47f87fe4285022a4c660d06538e58ef5dc33d330b145",
+      "0cb10cc53c658164ab991e009e40330be068eca231231f99e783bc575946761e",
+      "7a14f897680cdd1e021b58142a39733c9efb3dca13f80f7419a6446a1212e511",
+      "64636cc24961e1242f46ed196e494974aadf43f6859a09fbd81ee0557e7653f5",
+      "3be6f026175f26fedbf1c6d282fd8f125f9315ff1641b91cfa0caa674ddd1a59",
+      "1a589df4faa6d0149ec2f04bbf946dfb0e8edd8cd2d1d1892538e2cfd655eb99"
+    ]
+  },
+  {
+    "id": "MAN-0905",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0905-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "711f6fdd8410394af3eb7edd013283bd48da33f13fc88aaca4cf34dbef800bf1",
+      "647848811476aaf9bde7306b5d24bc52863bd81d725141a12f3485153aa53cbd",
+      "208d8bb21ed07d74c49bed1e074e1f702145334086c6e697cf9ef0afb719b5e8",
+      "19ef13491818f7fb6c07938ca83434a844bc489a568b3440ed12f2c1ac850e37",
+      "b490636daf965ff5fc8173cb9b412c9cc9faf5821d509c344301fd1a3314ce34",
+      "1832ff5bf81acaff683a6c137aa972b586560864b22e1e67d286f552ed27a983",
+      "2921ed7e9321554a29fafcf1535054abfb81c5b2d5551382c5900cd1f6eab57a"
+    ]
+  },
+  {
+    "id": "MAN-0066",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0066-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "9e747c6ca7a4dd414668adeabe682496e71042d045088dedb8206be2df00836e",
+      "cc4e995f11e4759181eef28b4bc9acece014be269dbed8e05354dbd0a86496d8",
+      "c73ed6883924b05e2293702b01c823314957b370b185a0ac8f55ca9c7bcf773f",
+      "569082d1c88b4d86eae7e52fc17f62f0a90fb4766a41cbb7cf355c56f99b75f9"
+    ]
+  },
+  {
+    "id": "MAN-0166",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0166-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "e78f1cf94f73df17664837ae96b7b586823d2a1636e34db81d07e92da5b189be",
+      "2624dbaf0948f95b875ecd41a7edfd725134dbcf968b45aa738f6e0eb8a0964e",
+      "71fbf3184e552308fee07ae0a4e57d140df0953e636b5d14fd8b249f851975be",
+      "ace2410104ded8b10ca3fa443721abfa22dd51dd4517d974823a893d8a6d3859",
+      "fcd1237484663268ee06e6bdab391a9f821b13e1aefe0de73b2b7c70c1357e64"
+    ]
+  },
+  {
+    "id": "MAN-0366",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0366-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "0c826e3750f00383c6de4caa7be29b8c4e2508b9c782bf174ebc52889bdc4965",
+      "7aa5abb04479138b383c10bfafc2ddaff2470e812ab563847d197479ed701a1d",
+      "7fc27de90a4b5b56ccfd55c25593137d86ca398f9b62a0de59f1f63e6474d202",
+      "3e9f3450bf29a92754378dd57d931e5e9f280d7cd5df9a7b060cafcac6371458",
+      "a360572e0bbbcf45ddfd841f45f839595ac158b7d18dbdeb903ade78fceab99b"
+    ]
+  },
+  {
+    "id": "MAN-0566",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0566-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "2cbb19a32e55eaba879d9f9a40067807f2cebe665026624c65e646583faa8ef2",
+      "b97c29d8ffc5609b531fbd146be0421214b743259d44b6c1d5dab90e6d23642c",
+      "6774c967301d5e5b10726b62ae6ce956eb630051de687fbbf504e6e3fb8afcf5",
+      "307d74f0ebd40e6e5106c6cc00e2858128e9db2c5c94527cff2cdfd424ba9d13",
+      "dadcb8177a9a7020b154bb1cabb9f00e99b5479c5e7aaf700f20774e28c5640f",
+      "04bf5bd86b869159ccf2c6c4aea97edc984e54d675e971df6bf8d8ba1a227596"
+    ]
+  },
+  {
+    "id": "MAN-0766",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0766-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "514b9da72212a35b564d6cc159e5de8443a599beff8a234e85ea0fe1f9a14849",
+      "569bcc87ed71d0c8133da92bfbe9b2f62310ad04bd59bc7478f795eff8f8d330",
+      "951cb934de93189d59d3aadc785ac00fb8c74697fbe14e6834b91a7c4e3b0b0b",
+      "1331ff9120645101e4729fdd702672ba95afc824e9c950d7ed3dd03544338fff",
+      "05751bffd2d5a7e0448889025da2789d6bc8aa12b8e08b2f281a3cdc3c9dc839",
+      "52ce4c311e7776b40b17ea7a002e9a853e2d268c46c06afe97bcf1155ec032d6",
+      "55f07522f12b3c1fe91b02130359ca8b32bb85e4d6c81b05f08b4dc34ae89060"
+    ]
+  },
+  {
+    "id": "MAN-0906",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0906-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "738ad72d62b507685abc613ce5acafdd1f2ce32ffccca9ec5d62f1e6b8491041",
+      "ef7892d24ca6b2c50603b4d023e639d7dac7c5fdb887ba40dc1827c9e6d09775",
+      "34767f0c8da131badede9008019c313177f4269e2a352c6ded98a23c826dc16d",
+      "2498b17be16ae78d0de98574cd2f1e3894f4bfe8d2cd0849230ddfffae3040ca",
+      "86c1b89671820ddb7032e4a433e0b21d21baa38d177a66052bdde1c4822e6552",
+      "f4cc39b0d8e58be75da2d6ca9e15a6be3ab1d3ca487876eed74b17c5c7fa3d04",
+      "de200e0fe52946095bb3b61f63292a6d59e8fd4ea4bdea01b8360a47a495326a",
+      "c83cc87611ac3740a5048bab87fdaaad7dd1fc3e9db6c924eb4c9cbef92406fe"
+    ]
+  },
+  {
+    "id": "MAN-0001",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0001-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "10a42c9e53fa36c1c94ce0a5043714641a0711652029d4ca4c6d1cc12aa82ab6",
+      "68f61ac756af193c7023fddc9a55c72c266b9c70713d76f30b81a01a8c7ff5d4",
+      "459c7319bb03233226ca4d1538e0b8507c3e57189a02e47eefc5d2f1410bc8fd",
+      "b4e6a98579ad08d8a8a45ff5d071babbd6f7be3921231f9b9d3aa27c5098680f",
+      "8bcf4f53f9462b774a7a5cec23098f74518acee867ec6be7631239b72eddddbc"
+    ]
+  },
+  {
+    "id": "MAN-0201",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0201-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "d8c5b253ffa39ee58ad90804ceb457091c2145bc6f97343a77c507636ff1d256",
+      "a72ffc8ee9b4b3f75b5f526154001b0153b46bf772f8cdfedd31d1f7df9c1034",
+      "718dba4c29e5133b811e6b85aa4d0447f9829ad46829cff2b360a9ff73097511",
+      "6b86ee965172b52da397f6542679101a3c59df566668ea992e675226c9e56d5d",
+      "3f8a6b8fda3d6d5ee2dfc7182c86729f065f69b05a27d4597d00664d8c68bf70",
+      "165896bae877fb8ea1309ec63edd72db4ae15ae28209cee970af93bef7f7fa75"
+    ]
+  },
+  {
+    "id": "MAN-0311",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0311-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "2920c46cb1d010a749ca99b2b01d63c45e5c0973930fad266071f0f4903ccdb5",
+      "1a4da1bdad4b72d9f47f7ecc744e9406b920049aafb54c3a774ad7372d769c8b",
+      "1a210d94ca7649f46900cd2a548d1c4403047a0fba626a43462cefdc06b801d2",
+      "815ddbbc3d760f1f0eac418e620ad03e0dc1bddf8873a6f77563caa46065c944",
+      "fe767db642e38a0682f628fc22715048223e9edf3001385dabcc2ba96a9ca1aa",
+      "f5a97aa4c195d84d10a208ca96efabb10f90f5defa0f9e8c4b3f9de8514824d5"
+    ]
+  },
+  {
+    "id": "MAN-0521",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0521-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "0534fbaf0ca059b3ef4c9141d6ec602611066f16c03ba7cc70a029a5522c20f9",
+      "cf243dbd9206cde27738a552772bbf3c008fa4e679e92d9d02735e90e63ec744",
+      "b99226960601f5e12337c4934dfc6156a05ee5f565550311fb5243d99b2315e4",
+      "f422ff6503f53f5d17bb8f27d21ce17183044cc94d7e5d634050af6135c71440",
+      "5e8521c9d6169d5171cef79d730c79235e356ad07a4fba3ac828c1193d50089f",
+      "b32fc8058bf402f7f680f62c90ef399d1fbf4da58c7335b4a747795d83454610",
+      "3083df9567b503b6f7e2af9057b7bb3fde2b05c661106831b9ff1d58ab9e4529",
+      "f1d758bfb5cac0ffd84d65d0c7984c371126c664a717cc6b0636b3f5b9b06bd0"
+    ]
+  },
+  {
+    "id": "MAN-0733",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0733-OPENAI-FIXED-v0.1",
+    "assetHashes": [
+      "766a58dfe861e9fab26870cf8929b2d945428843029bd6329609c37d53eeabf0",
+      "8a2ac06cae59a4a795629769c879d5d61ba1f2554c1c9b87d18d38af1f3eb56c",
+      "7d2501241c0129446883a3771efb85deefbc86411f55b530617a40efa30c9f37",
+      "96ec6b8e18f8cc79c3bab4da48c73fff2aff43a7ff0cd0e9d5c6ddab8d5e4438",
+      "582d4fdf39f182429d76c2681b5c481e2f53f100d31c08fc7f64025a3fd2e0b8",
+      "76e085d6437a8eb904507134485ae73d37d79a0b59299c5abe67873854f9b353",
+      "d4886102745bb9a1338484e5421376ee20b51d11e0f0e42fa1de31bc087de0e1",
+      "6691acd7ede3fa3fe5012c88dfccf11a2bc9d90364119f19c506f402a5b4ec95"
+    ]
+  },
+  {
+    "id": "MAN-0921",
+    "version": "v0.1",
+    "status": "published",
+    "publisher": "man",
+    "audioRealizationRef": "MAN-0921-MIXED-v0.1",
+    "assetHashes": [
+      "43a1ba9047dd62fdd2a15073cae56fb6c0d1208d1f689873bf970ce24d366f53",
+      "4cc1095c0fc85059da7069a5bb46b3133811f9c427b3ca25df44538f3039e20a",
+      "804b1c95cf535d89cd3ba99063715c7b87df9ee3c4d1953e45cb2e9c366c053e",
+      "27ba3c19927bd45a473fdfd25653df3959475318466687b9c394ca0067c5b80e",
+      "411c9fef8a582796c43986832689ed31554c9c2e42a8c16fd2d067e0630eb0d1",
+      "dda06812053e566d3b6d0549b20161b55b0c37b3badb627aa43d67a47314334c",
+      "358fb8e398ef8c7f46effce12b603c3fb04bc204e85bfc98f794abb9eecde8d1",
+      "a5265c7fc1f763ffd159c77e7dc23cb2c43e8dc8e31271fdc78b3bf0f902d1ef",
+      "545e392e605070f80b9c6a1d672f9b3836d64f1705a3add79ec9da328b8b405e",
+      "798f99453efe4aa115e493d7f3f86a285520d269daa3477b84842046e8095942"
+    ]
+  }
+]
