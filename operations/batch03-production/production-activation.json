@@ -1,0 +1,12 @@
+{
+  "operation_key": "BATCH_03@prepared-20@PRODUCE_MISSING_20@v0.1",
+  "budget_verified_at": "2026-10-07T16:47:57.765146+00:00",
+  "budget_evidence_sha256": "e7947a73c83c0eb1ea407c9b8409f5cbc89fc35c4c7b1b01897b0e1f04511831",
+  "prepared_source_sha256": "5a3f3a40e7177c875b2bdb2fc17403c9a589bb916ce919b53824d21a422e027d",
+  "source_preproduction_main": "fdc9a2a206e42bd82aa34f539b51399205068f88",
+  "binding_main": "b31f065307f1fde601f92c3fb72502425063654d",
+  "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
+  "budget_decision": "RESERVE_THEN_TARGETED_AUDIO",
+  "paid_retry": false,
+  "release_authorized_by_this_receipt": false
+}
