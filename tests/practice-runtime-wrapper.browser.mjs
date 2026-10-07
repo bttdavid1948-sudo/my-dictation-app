@@ -32,7 +32,7 @@ try{
    Date.now=()=>NOW;window.__firebaseWrites=0;
    const snapshot={exists:false,data:()=>({}),docs:[],forEach(){}};
    const ref={doc(){return this;},collection(){return this;},orderBy(){return this;},limit(){return this;},where(){return this;},get:async()=>snapshot,onSnapshot(fn){fn(snapshot);return()=>{};},set(){window.__firebaseWrites++;throw Error('unexpected isolated write');},add(){window.__firebaseWrites++;throw Error('unexpected isolated write');}};
-   const auth={currentUser:null,onAuthStateChanged(fn){queueMicrotask(()=>fn(null));return()=>{};}};
+   const auth={currentUser:null,onAuthStateChanged(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>fn(null),{once:true});else setTimeout(()=>fn(null),0);return()=>{};}};
    const authFn=()=>auth;authFn.GoogleAuthProvider=class{};
    const firestore=()=>({collection:()=>ref,runTransaction(){window.__firebaseWrites++;throw Error('unexpected transaction');}});firestore.FieldValue={serverTimestamp:()=>null};
    window.firebase={initializeApp(){},auth:authFn,firestore};
