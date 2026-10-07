@@ -171,3 +171,5 @@ for(const order of [paths,...paths.map(p=>[p])]){const h=harness({order});assert
  const late=[];h.c.xStartCatalog=id=>late.push(id);h.c.xStartCatalog('late');assert.deepEqual(late,['late']);assert.deepEqual(h.calls.start,['ordinary-private'],'later assignment replaces wrapper; no automatic reattachment');
 }
 console.log('Practice characterization PASS: 24 routes, 15 Practice lessons, bindings, playback, evidence, resume, wrappers; offline/no paid APIs');
+// Test-only access for differential core extraction tests; assertions above stay intact.
+export { harness, specs, lessons, evidence, answer, NOW };
