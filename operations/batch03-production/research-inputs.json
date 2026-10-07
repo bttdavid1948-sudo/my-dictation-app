@@ -1,0 +1,49 @@
+{
+  "inputs": [
+    {
+      "ref": "curriculum-production-spec@v0.1",
+      "filename": "MAN-Curriculum-Production-Specification-v0.1.xlsx",
+      "sha256": "cd9ec79c9ee67b5cf5aea3b9b88eccc301a4ff8d9f2c3e2626b7453339af5de7"
+    },
+    {
+      "ref": "practice-production-spec@v0.1",
+      "filename": "MAN-Practice-Production-Specification-v0.1.xlsx",
+      "sha256": "6f2517fcfb53156f2784ee80050ed98a5697d5f9cf632d11c2d3769ea4921d28"
+    },
+    {
+      "ref": "curriculum-practice-contract@v0.3",
+      "filename": "MAN-Curriculum-Practice-Contract-FROZEN-v0.3.xlsx",
+      "sha256": "0235f171e4d28d9fe3157b1e432930128e620be1736da3316bfbbd777fa01dcc"
+    },
+    {
+      "ref": "content-pipeline-contract@v0.2",
+      "filename": "MAN-Content-Production-Pipeline-Contract-Freeze-Ready-v0.2.xlsx",
+      "sha256": "11205485538e113d5930ee4bb819f8a78902710ec4cdc995ae669db2843d8fec"
+    },
+    {
+      "ref": "global-lesson-registry-snapshot@v0.1",
+      "filename": "MAN-Global-Lesson-Registry-Snapshot-v0.1.xlsx",
+      "sha256": "d859709942aff59e71bc483c58a2097fb1539f132b3a6d5b400b31746db2e836"
+    },
+    {
+      "ref": "V3.4",
+      "filename": "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx",
+      "sha256": "6c97e0ad047baeb4a90548b4814218b4e00875119500727340a1148246361f61"
+    }
+  ],
+  "snapshot_sheets": [
+    "SNAPSHOT_MANIFEST",
+    "RESERVED_IDENTITIES_1000",
+    "VALIDATION_SUMMARY"
+  ],
+  "reserved_map_source": {
+    "ref": "curriculum-production-spec@v0.1",
+    "filename": "MAN-Curriculum-Production-Specification-v0.1.xlsx",
+    "sha256": "cd9ec79c9ee67b5cf5aea3b9b88eccc301a4ff8d9f2c3e2626b7453339af5de7"
+  },
+  "baseline_projection_count": 1000,
+  "current_production_overlay_refs": [
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-02-completion-checkpoint.json"
+  ]
+}

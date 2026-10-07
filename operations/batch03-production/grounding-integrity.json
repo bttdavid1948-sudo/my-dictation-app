@@ -1,0 +1,54 @@
+{
+  "structural_status": "PASS",
+  "rows": [
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0067-A-SPCH-01",
+          "segment_id": "S001",
+          "text": "can't"
+        }
+      ],
+      "ready_for_final_grounding": false,
+      "blocker": "ACTUAL_REALIZATION_MISSING",
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0167-A-SPCH-01",
+          "segment_id": "S004",
+          "text": "with a partner"
+        }
+      ],
+      "ready_for_final_grounding": false,
+      "blocker": "ACTUAL_REALIZATION_MISSING",
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0367-A-SPCH-01",
+          "segment_id": "S006",
+          "text": "have to make"
+        }
+      ],
+      "ready_for_final_grounding": false,
+      "blocker": "ACTUAL_REALIZATION_MISSING",
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false
+    }
+  ],
+  "final_status": "ACTUAL_REALIZATION_MISSING"
+}

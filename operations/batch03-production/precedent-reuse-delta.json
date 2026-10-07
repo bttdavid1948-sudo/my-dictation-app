@@ -1,0 +1,54 @@
+{
+  "objective": "BATCH03_PAID_AUDIO_PRECEDENT_REUSE_DELTA_V0_1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "owner_lane": "OPERATIONS_4",
+  "canonical_start": "fdc9a2a206e42bd82aa34f539b51399205068f88",
+  "recovered_checkpoint_sha256": "72677ef59d52a63101074944026fae01e8f70e463cd3e74cfb84bb09c3453ff9",
+  "selected_lesson_ids": [
+    "MAN-0067",
+    "MAN-0167",
+    "MAN-0367"
+  ],
+  "preproduction": "REUSE_UNCHANGED_PASS_3_OF_3",
+  "support_qa": "REUSE_EXACT_HASH_FULL_VI_VN_PASS_3_OF_3",
+  "rights": "REUSE_EXACT_PACKAGE_ORIGINAL_RIGHTS_READY_3_OF_3",
+  "batch02_production_run": 37422574442,
+  "batch02_repair_run": 37423741204,
+  "batch02_production_result": "SUCCESS_76_SUBMITTED_1_REUSED_77_OUTPUTS",
+  "batch02_final_state": "COMPLETE_12_OF_12",
+  "secure_path": "EXISTING_REPOSITORY_HELD_OPENAI_API_KEY_SAME_PROJECT_MODEL_VOICES",
+  "funding_preflight": "CURRENT_READ_ONLY_PLATFORM_EVIDENCE_HASH_BOUND_IN_ACTIVATION; numerical private evidence retained separately",
+  "bounded_change": "Existing produce.py receives only finite Batch03 selection: 20 requests for 3 specified reserved IDs, with no Batch02 preflight reuse. Same request/receipt/retry/security implementation. One main-only activation wrapper calls same code. Default Batch02 behavior equivalence proven.",
+  "regression_verification": {
+    "batch02_default_behavior_equivalence": {
+      "status": "PASS",
+      "submitted": 76,
+      "completed": 77
+    },
+    "exact_batch03_count": {
+      "status": "PASS",
+      "requests": 20
+    },
+    "expired": {
+      "status": "PASS",
+      "provider_calls": 0
+    },
+    "drift": {
+      "status": "PASS",
+      "provider_calls": 0
+    },
+    "rerun": {
+      "status": "PASS",
+      "provider_calls": 0
+    },
+    "unknown_transport_no_retry": {
+      "status": "PASS",
+      "provider_calls": 1,
+      "result": "TRANSPORT_BLOCKED"
+    }
+  },
+  "final_practice_ready": false,
+  "contract_valid": false,
+  "publication_allowed": false,
+  "new_key_or_billing_change": false
+}

@@ -1,0 +1,208 @@
+{
+  "batch_id": "BATCH_03",
+  "source_main": "fdc9a2a206e42bd82aa34f539b51399205068f88",
+  "segments": [
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "I can't remember this word.",
+      "text_sha256": "587d14041c269d69b8bfcd379700f1b8599777246c12b173e04b61915415d32a",
+      "voice": "ash",
+      "instructions": "Speak slowly and clearly in a natural short everyday exchange. Preserve the basic contraction as written. Do not exaggerate or spell it out."
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Write it on a card. Put a picture on the back.",
+      "text_sha256": "12b3588ea38b90c6a7bad3177b44ee165c52ae705d358a5686615b2a2855967e",
+      "voice": "marin",
+      "instructions": "Speak slowly and clearly in a natural short everyday exchange. Preserve the basic contraction as written. Do not exaggerate or spell it out."
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Do I look at the picture first?",
+      "text_sha256": "fdcf0962901041d08fdaaa56dc30297b3cdf5ff6d2c25161f8ecf5f00824e585",
+      "voice": "ash",
+      "instructions": "Speak slowly and clearly in a natural short everyday exchange. Preserve the basic contraction as written. Do not exaggerate or spell it out."
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "No. Read the word first. Then turn the card over.",
+      "text_sha256": "081a2ee4b0603bf7ed2e2abe22be0bef1cb198864fb0b8192ac78e13c0c51ec1",
+      "voice": "marin",
+      "instructions": "Speak slowly and clearly in a natural short everyday exchange. Preserve the basic contraction as written. Do not exaggerate or spell it out."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "Hi. I signed up for the speaking group on Thursday, but I work late that day.",
+      "text_sha256": "77280ea312e5d7648c3809ca04ceaad1acc454b5805d9ed27b7b2b457ff58b32",
+      "voice": "ash",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "We have a group on Saturday morning. Would that be better?",
+      "text_sha256": "92e1c70b1c7656b5e3c88568b1a7429f99a62ac775a7d90be6d1d644865a657b",
+      "voice": "marin",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Yes, but I get nervous when I speak in front of everyone.",
+      "text_sha256": "09fba9d31f8d331e397618ddfa2efcdacc02bd454c1a3bb73afdb667d01cce99",
+      "voice": "ash",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "You can practise with a partner first. Each pair has a few minutes before we all talk together.",
+      "text_sha256": "93bdbe5856fd9a99cc85f914894c80d754ede2fa6d16079f06bdd48a6c1eabbb",
+      "voice": "marin",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "That sounds easier. Can you move me to Saturday?",
+      "text_sha256": "d3484942cc5f8bc65e4e02b1ba599f692a63fa33de7067b83ba756ccab6be9df",
+      "voice": "ash",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Of course. I'll send you the new time and a short topic to prepare.",
+      "text_sha256": "6db085f7ee44655c67d8676b88e132fbfe1af1ea1347df3ea4a995d00fed4744",
+      "voice": "marin",
+      "instructions": "Speak clearly and naturally in an everyday course-service conversation. Use ordinary connected speech and unstressed function words; no exaggerated emphasis."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "I've spent three evenings reading these notes, and they look familiar now. But when I close the book, I can't explain the main ideas. The test is next week, so I'm starting to worry.",
+      "text_sha256": "d2041f80e4838d9e8af4b232f18793bc83aeafebd7c8046f7812679a2bab658d",
+      "voice": "ash",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "What happens when you try a question? Do you get stuck because you don't understand the idea, or because you can't remember the details? Those problems might need different approaches.",
+      "text_sha256": "f6b7ce8b2dcc620914c717a40e54eccae45d55254d9a455e76fb421d4b4f6b16",
+      "voice": "marin",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Mostly the details. I recognise the answer when I see it, but I can't come up with it on my own. Yesterday I highlighted another page, and it didn't really help.",
+      "text_sha256": "8011a4ad8718fe51c443213abbc5d6551216fe772c7834a5d4b7f5ddbac5ef9b",
+      "voice": "ash",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "Then let's try something before you read everything again. Put the notes away and write down what you remember about one topic. Leave a space when you get stuck instead of looking it up straight away.",
+      "text_sha256": "1b1afc289fbe7d16dd9f76a216d0378b77c0902c15871cb522880fdb9d464bdf",
+      "voice": "marin",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "So the first step is to find the gaps. After that, should I check the whole chapter, or just the parts I missed? I don't have much time after work.",
+      "text_sha256": "74d804369db1f267f7bb33f58f3c806f008de63419718f19d00692540a63077c",
+      "voice": "ash",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Just check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details. You don't have to make a card for every sentence.",
+      "text_sha256": "f2ec5455af6c82e61abe0e4410f2a3bf701c253883018277c8622907f4ec8621",
+      "voice": "marin",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "That sounds more useful than copying everything. But won't I remember the answers simply because I've just checked them? It might look as if the method works when it doesn't.",
+      "text_sha256": "d9618c124ec89bb5384aee92095456ad1f7cc6cf999be2ee321df7dd9aa03884",
+      "voice": "ash",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK02",
+      "text": "That's why the last step is tomorrow. Try the same questions without the notes, then add one question that asks you to use the idea in a different example. If you still miss a detail, review that part again.",
+      "text_sha256": "8893d9224a08d896694625c15211e8114a555ae8c78adb8496066c81985ca8af",
+      "voice": "marin",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S009",
+      "script_speaker_id": "SPK01",
+      "text": "Right. I'll start with the topic about how plants get water. First I'll write from memory, then check the gaps and make questions. Tomorrow I'll answer them again. Could you look at my new example after lunch?",
+      "text_sha256": "278e53b3a483e4af4922b91c942fc32c25f2d68456ec59736a7f3756a766293c",
+      "voice": "ash",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S010",
+      "script_speaker_id": "SPK02",
+      "text": "Sure. And if this takes longer than we expect, we'll use fewer questions. The aim is to see what you can recall, not to turn your whole evening into another copying session.",
+      "text_sha256": "4b88a9d2f45e37d2fd5658835e34446ae5cbf77053164c8cd6a0ffe10bbd4c12",
+      "voice": "marin",
+      "instructions": "Speak in a natural conversational style in an adult study-planning discussion. Use ordinary connected speech, common reductions and coherent thought groups. Do not rush or perform a caricature."
+    }
+  ],
+  "paid_calls": 0,
+  "qa_status": "NOT_STARTED"
+}

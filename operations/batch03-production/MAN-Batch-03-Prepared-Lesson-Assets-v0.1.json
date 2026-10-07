@@ -1,0 +1,291 @@
+{
+  "artifact_id": "batch-03-original-materialization-preparation",
+  "version": "v0.1",
+  "scope": "OFFICIAL_MAN_1000_ONLY",
+  "source_main": "fdc9a2a206e42bd82aa34f539b51399205068f88",
+  "status": "PREPARED_NOT_PRODUCTION_OR_RELEASE_READY",
+  "assets": [
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_03",
+      "level": "A1",
+      "title": "Try a Word Card",
+      "content_type": "Transaction",
+      "canonical_transcript": "I can't remember this word.\nWrite it on a card. Put a picture on the back.\nDo I look at the picture first?\nNo. Read the word first. Then turn the card over.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "I can't remember this word."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "Write it on a card. Put a picture on the back."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "Do I look at the picture first?"
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "No. Read the word first. Then turn the card over."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0067-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "SEQUENCE",
+          "segment_ids": [
+            "S002",
+            "S004"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004"
+          ],
+          "target_proposition_or_reference_answer": "Read the word first, then turn the card over to look at the picture.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0067-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S001"
+          ],
+          "phenomenon_type": "basic contractions",
+          "span_refs": [
+            {
+              "segment_id": "S001",
+              "start_char": 2,
+              "end_char": 7
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "source_draft_ref": "batch-03-original-materialization@v0.1",
+      "curriculum_review_ref": "batch-03-curriculum-preproduction@v0.1",
+      "curriculum_review_status": "PURPOSE_AND_NATURAL_CONTENT_REVIEW_PASS_AUDIO_PENDING",
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_03",
+      "level": "A2",
+      "title": "A Different Study Group",
+      "content_type": "Service exchange",
+      "canonical_transcript": "Hi. I signed up for the speaking group on Thursday, but I work late that day.\nWe have a group on Saturday morning. Would that be better?\nYes, but I get nervous when I speak in front of everyone.\nYou can practise with a partner first. Each pair has a few minutes before we all talk together.\nThat sounds easier. Can you move me to Saturday?\nOf course. I'll send you the new time and a short topic to prepare.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "Hi. I signed up for the speaking group on Thursday, but I work late that day."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "course_desk",
+          "text": "We have a group on Saturday morning. Would that be better?"
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "Yes, but I get nervous when I speak in front of everyone."
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "course_desk",
+          "text": "You can practise with a partner first. Each pair has a few minutes before we all talk together."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "That sounds easier. Can you move me to Saturday?"
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "course_desk",
+          "text": "Of course. I'll send you the new time and a short topic to prepare."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0167-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "PURPOSE",
+          "segment_ids": [
+            "S001",
+            "S003",
+            "S005"
+          ],
+          "evidence_segment_ids": [
+            "S001",
+            "S003",
+            "S005"
+          ],
+          "target_proposition_or_reference_answer": "The learner asks to move to Saturday and wants pair practice before speaking to the whole group.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0167-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S004"
+          ],
+          "phenomenon_type": "weak forms",
+          "span_refs": [
+            {
+              "segment_id": "S004",
+              "start_char": 17,
+              "end_char": 31
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "source_draft_ref": "batch-03-original-materialization@v0.1",
+      "curriculum_review_ref": "batch-03-curriculum-preproduction@v0.1",
+      "curriculum_review_status": "PURPOSE_AND_NATURAL_CONTENT_REVIEW_PASS_AUDIO_PENDING",
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_03",
+      "level": "B1",
+      "title": "When Rereading Stops Helping",
+      "content_type": "Problem-solving dialogue",
+      "canonical_transcript": "I've spent three evenings reading these notes, and they look familiar now. But when I close the book, I can't explain the main ideas. The test is next week, so I'm starting to worry.\nWhat happens when you try a question? Do you get stuck because you don't understand the idea, or because you can't remember the details? Those problems might need different approaches.\nMostly the details. I recognise the answer when I see it, but I can't come up with it on my own. Yesterday I highlighted another page, and it didn't really help.\nThen let's try something before you read everything again. Put the notes away and write down what you remember about one topic. Leave a space when you get stuck instead of looking it up straight away.\nSo the first step is to find the gaps. After that, should I check the whole chapter, or just the parts I missed? I don't have much time after work.\nJust check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details. You don't have to make a card for every sentence.\nThat sounds more useful than copying everything. But won't I remember the answers simply because I've just checked them? It might look as if the method works when it doesn't.\nThat's why the last step is tomorrow. Try the same questions without the notes, then add one question that asks you to use the idea in a different example. If you still miss a detail, review that part again.\nRight. I'll start with the topic about how plants get water. First I'll write from memory, then check the gaps and make questions. Tomorrow I'll answer them again. Could you look at my new example after lunch?\nSure. And if this takes longer than we expect, we'll use fewer questions. The aim is to see what you can recall, not to turn your whole evening into another copying session.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "I've spent three evenings reading these notes, and they look familiar now. But when I close the book, I can't explain the main ideas. The test is next week, so I'm starting to worry."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "What happens when you try a question? Do you get stuck because you don't understand the idea, or because you can't remember the details? Those problems might need different approaches."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "Mostly the details. I recognise the answer when I see it, but I can't come up with it on my own. Yesterday I highlighted another page, and it didn't really help."
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "Then let's try something before you read everything again. Put the notes away and write down what you remember about one topic. Leave a space when you get stuck instead of looking it up straight away."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "So the first step is to find the gaps. After that, should I check the whole chapter, or just the parts I missed? I don't have much time after work."
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "Just check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details. You don't have to make a card for every sentence."
+        },
+        {
+          "segment_id": "S007",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "That sounds more useful than copying everything. But won't I remember the answers simply because I've just checked them? It might look as if the method works when it doesn't."
+        },
+        {
+          "segment_id": "S008",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "That's why the last step is tomorrow. Try the same questions without the notes, then add one question that asks you to use the idea in a different example. If you still miss a detail, review that part again."
+        },
+        {
+          "segment_id": "S009",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "learner",
+          "text": "Right. I'll start with the topic about how plants get water. First I'll write from memory, then check the gaps and make questions. Tomorrow I'll answer them again. Could you look at my new example after lunch?"
+        },
+        {
+          "segment_id": "S010",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "peer",
+          "text": "Sure. And if this takes longer than we expect, we'll use fewer questions. The aim is to see what you can recall, not to turn your whole evening into another copying session."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0367-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "SEQUENCE",
+          "segment_ids": [
+            "S004",
+            "S006",
+            "S008",
+            "S009"
+          ],
+          "evidence_segment_ids": [
+            "S004",
+            "S006",
+            "S008",
+            "S009"
+          ],
+          "target_proposition_or_reference_answer": "Write from memory first; check the gaps and make questions; answer again tomorrow without notes and try a new example.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0367-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S006"
+          ],
+          "phenomenon_type": "common reductions",
+          "span_refs": [
+            {
+              "segment_id": "S006",
+              "start_char": 168,
+              "end_char": 180
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "source_draft_ref": "batch-03-original-materialization@v0.1",
+      "curriculum_review_ref": "batch-03-curriculum-preproduction@v0.1",
+      "curriculum_review_status": "PURPOSE_AND_NATURAL_CONTENT_REVIEW_PASS_AUDIO_PENDING",
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    }
+  ]
+}
