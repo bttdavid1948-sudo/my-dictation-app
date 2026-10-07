@@ -18,6 +18,14 @@ if(pipeline.next_action.code==='BLOCKED_AUTOMATION_MERGE_AUTHORITY_PROPAGATION')
 // Preserve the original release receipt: only the exact R1.2A response metadata
 // addition may differ from this historical catalog, never lesson/audio semantics.
 function historicalCatalog(c){
+ if(c.ref==='assets/official-lessons-final-two.json'&&hash(c.ref)!==c.sha256){
+  const snapshot='tests/fixtures/inference-before-question-metadata.json';assert.equal(hash(snapshot),c.sha256);
+  const original=read(snapshot),now=read(c.ref);
+  const runtime=fs.readFileSync(path.join(repo,'assets/final-two-practice-runtime.js'),'utf8');
+  const question=runtime.match(/text\('h3','([^']*)',form\)/);assert.ok(question);
+  for(const u of now.lessons){assert.equal(u.practice.question,question[1]);delete u.practice.question;}
+  assert.deepEqual(now,original,'Only exact existing inference question may augment historical catalog');return original;
+ }
  if(c.ref!=='assets/official-lessons-man0844.json'||hash(c.ref)===c.sha256){assert.equal(hash(c.ref),c.sha256);return read(c.ref);}
  const snapshot='tests/fixtures/man0844-before-response-metadata.json';
  assert.equal(hash(snapshot),c.sha256);
