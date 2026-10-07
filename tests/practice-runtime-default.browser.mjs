@@ -71,7 +71,10 @@ try{
   for(const u of inventory.filter(u=>u.practice)){
    const key=sessionKeys[u.prefix],api=legacyAPI[u.prefix];
    // Produce genuine pre-cutover envelopes with retained legacy functions.
-   await page.evaluate(id=>{ManGenericPractice.dispose();sessionStorage.clear();xStartCatalog(id);},u.id);
+   await page.evaluate(id=>{ManGenericPractice.dispose();sessionStorage.clear();__audio.length=0;xStartCatalog(id);},u.id);
+   await page.reload({waitUntil:'load'});await ready();
+   await page.waitForFunction(({api,id})=>window[api].evidence()?.lessonId===id,{api,id:u.id});
+   assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null,'legacy listening owner retained');legacyRestores++;
    await page.locator('#'+u.prefix+'-play').click();
    await page.evaluate(()=>{let i=0;while(i<__audio.length){if(i>30)throw Error('audio');__audio[i++].end();}});
    await page.locator('#'+u.prefix+'-answer input[type=radio]').nth(u.choice).check();
@@ -88,7 +91,7 @@ try{
    assert.equal(await page.evaluate(()=>ManGenericPractice.evidence().phase),'listening');
    const generic=await page.evaluate(key=>JSON.parse(sessionStorage.getItem(key)),key);
    assert.equal(generic.phase,'GENERIC_PRACTICE_V1');
-   for(const patch of [{uid:'other'},{at:NOW-12*60*60*1000-1},{wire:{...generic.wire,phase:'dictation'}},{resumeIdentity:{}},{coreState:{}},{lessonId:'unknown'}]){
+   for(const patch of [{phase:'listening',resumeIdentity:{}},{uid:'other'},{at:NOW-12*60*60*1000-1},{wire:{...generic.wire,phase:'dictation'}},{resumeIdentity:{}},{coreState:{}},{lessonId:'unknown'}]){
     await page.evaluate(({key,generic,patch})=>{sessionStorage.clear();sessionStorage.setItem(key,JSON.stringify({...generic,...patch}));},{key,generic,patch});
     await page.reload({waitUntil:'load'});await ready();await page.evaluate(()=>ManGenericPractice.restoreAvailable());
     assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null,'invalid generic fail closed');

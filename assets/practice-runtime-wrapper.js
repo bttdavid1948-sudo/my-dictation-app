@@ -8,24 +8,25 @@ const copy = value => JSON.parse(canonicalPracticeJSON(value));
 
 // Historical wire/presentation formats selected by represented capabilities,
 // never catalog identity or batch. These names preserve existing consumers.
-function presentation(d) {
-  if (d.evidence.model === 'TASK_ROWS') return {
+const presentationFormats = {
+  tasks: {
     kind: 'tasks', prefix: 'man-b02', panel: 'man-b02-panel', key: 'man_batch02_practice_v1', history: 'man_batch02_evidence_v1', limit: 100, counter: 'segmentReplays', response: 'PRACTICE_RESPONSE',
     intro: 'Nghe cả bài trước, rồi chọn cách hiểu và luyện cụm ngắn nếu có. Nghe lại khi cần nhé.', play: '▶ Nghe cả bài',
     ready: 'Đã nghe hết. Bạn có thể trả lời bên dưới.', correct: 'Bạn đã chọn đúng cách hiểu của bài.', incorrect: 'Cùng xem lại ý chính nhé.', boundary: 'Kết quả ghi nhận lần luyện có lựa chọn hoặc gợi ý này; không phải chứng nhận thành thạo. Điểm chính tả được ghi riêng.'
-  };
-  if (d.playback.fullStrategy === 'FULL_PANEL') return {
+  },
+  context: {
     kind: 'context', prefix: 'man-panel', panel: 'man-mixed-panel', key: 'man_mixed_panel_v1', history: 'man_comprehension_history_v1', limit: 60, counter: 'contextReplays', response: 'COMPREHENSION_RESPONSE',
     intro: 'Nghe cả cuộc thảo luận trước, rồi chọn cách hiểu ý chính. Khi nghe lại một lượt nói, bạn vẫn nghe được lời của người bên cạnh.', play: '▶ Nghe cả cuộc thảo luận',
     ready: 'Đã nghe hết cuộc thảo luận. Chọn cách hiểu của bạn bên dưới.', correct: 'Bạn đã chọn đúng ý chính của cuộc thảo luận.', incorrect: 'Ý chính còn chạy mất một chút. Cùng xem lại lập luận nhé.', boundary: 'Đây là phản hồi cho lần luyện hiểu nội dung này. Kết quả chính tả khi luyện thêm được ghi riêng.'
-  };
-  return {
+  },
+  sequence: {
     kind: 'sequence', prefix: 'man-inference', panel: 'man-inference-panel', key: 'man_final_two_practice_v1', history: 'man_comprehension_history_v1', limit: 60, counter: 'segmentReplays', response: 'INFERENCE_RESPONSE',
     intro: 'Nghe cuộc thảo luận trước, rồi chọn kết luận phù hợp nhất. Bạn có thể nghe lại từng lượt khi cần.', play: '▶ Nghe cả cuộc thảo luận',
     ready: 'Đã nghe hết. Chọn kết luận của bạn bên dưới.', correct: 'Bạn đã chọn đúng kết luận của cuộc thảo luận.', incorrect: 'Kết luận còn chạy mất một chút. Cùng xem lại lập luận nhé.', boundary: 'Kết quả này ghi nhận lần luyện hiểu nội dung. Kết quả chính tả được ghi riêng.'
-  };
-  return api;
-}
+  }
+};
+function presentation(d){return presentationFormats[d.evidence.model==='TASK_ROWS'?'tasks':d.playback.fullStrategy==='FULL_PANEL'?'context':'sequence'];}
+export const practiceSessionKeys=Object.freeze(Object.values(presentationFormats).map(v=>v.key));
 
 export function installPracticeWrapper(host) {
   const w = host.window, document = host.document, audio = host.audio;

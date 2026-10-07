@@ -1,5 +1,12 @@
 import { practiceHost } from './practice-runtime-host.js';
-import { installPracticeWrapper } from './practice-runtime-wrapper.js';
+import { installPracticeWrapper, practiceSessionKeys } from './practice-runtime-wrapper.js';
+// Fail closed before the unchanged legacy DOMContentLoaded listeners run.
+// Only malformed marked generic envelopes are removed; legacy data is untouched.
+for(const key of practiceSessionKeys){
+ try{const saved=JSON.parse(sessionStorage.getItem(key)||'null');
+  if(saved&&(Object.hasOwn(saved,'resumeIdentity')||Object.hasOwn(saved,'coreState'))&&saved.phase!=='GENERIC_PRACTICE_V1')sessionStorage.removeItem(key);
+ }catch(_){}
+}
 const ports={};
 for(const k of ["document","ManFixedAudio","sessionStorage","localStorage","Date","loadCatalogUnits","speechSynthesis","xStopTranscriptPlayback","stopStudyTimerAndSave","xSyncTranscriptView","location"])Object.defineProperty(ports,k,{get:()=>window[k]});
 Object.defineProperties(ports,{
