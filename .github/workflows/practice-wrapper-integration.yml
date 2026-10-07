@@ -1,0 +1,33 @@
+name: Isolated Practice wrapper browser integration
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - assets/practice-runtime-*.js
+      - tests/practice-runtime-wrapper*
+      - tests/fixtures/practice-wrapper-host.js
+      - index.html
+      - .github/workflows/practice-wrapper-integration.yml
+permissions:
+  contents: read
+jobs:
+  wrapper-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - run: node tests/practice-runtime-wrapper.browser.mjs
+        env:
+          PRACTICE_BROWSER_OUTPUT: ${{ runner.temp }}/practice-wrapper-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: isolated-practice-wrapper-browser
+          path: ${{ runner.temp }}/practice-wrapper-browser

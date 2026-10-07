@@ -18,15 +18,15 @@ export function createPracticeCore(descriptor, { instanceId, attemptIndex = 1 } 
   const assetHashes = d.playback.segments.map(s => s.audio.sha256).concat(d.playback.fullPanel ? [d.playback.fullPanel.sha256] : []);
   let state = { phase: 'listening', fullPlays: 0, fullEnded: false, assisted: false, segmentReplays: 0, answer: null, spanAnswers: d.speechTasks.map(() => ''), evidence: [] };
   let token = 0, pending = null, nonNormalPlayback = false;
-  const snapshot = () => copy(state);
+  const snapshot = () => copy({ ...state, nonNormalPlayback });
   const stop = () => { pending = null; return ++token; };
   const normalizeText = value => {
     const policy = d.evidence.shortTextNormalization;
     require(policy && typeof value === 'string', 'short text');
     return value.toLowerCase().replace(/[’]/g, policy.curlyApostrophe).replace(/[^a-z0-9' ]/g, ' ').trim().split(/\s+/).map(w => policy.numberWords[w] || w).join(' ');
   };
-  function evidenceRow(task, correct, response, at) {
-    const replay = state.segmentReplays + Math.max(0, state.fullPlays - 1), hint = task.format === 'SHORT_TEXT', repair = attemptIndex > 1;
+  function evidenceRow(task, correct, response, at, supportState = state, slowed = nonNormalPlayback) {
+    const replay = supportState.segmentReplays + Math.max(0, supportState.fullPlays - 1), hint = task.format === 'SHORT_TEXT', repair = attemptIndex > 1;
     return {
       practice_instance_id: instanceId + ':' + task.id,
       lesson_id: d.identity.lessonId, lesson_asset_version: d.identity.lessonVersion,
@@ -36,7 +36,7 @@ export function createPracticeCore(descriptor, { instanceId, attemptIndex = 1 } 
       support_state: hint ? d.evidence.speechSupport : replay > 0 ? d.evidence.replaySupport : d.evidence.initialChoiceSupport,
       support_states: [hint ? d.evidence.speechSupport : d.evidence.initialChoiceSupport, ...(replay > 0 ? [d.evidence.replaySupport] : [])],
       exposure_class: repair ? 'REPAIR' : 'INITIAL', replay_count: replay,
-      playback_mode: nonNormalPlayback ? d.evidence.slowedPlaybackMode : 'NORMAL',
+      playback_mode: slowed ? d.evidence.slowedPlaybackMode : 'NORMAL',
       audio_realization_ref: d.identity.realizationId, realization_id: d.identity.realizationId,
       realization_version: d.identity.realizationVersion, asset_hashes: copy(assetHashes),
       response, correct, response_result: correct ? 'CORRECT' : 'INCORRECT',
@@ -49,6 +49,41 @@ export function createPracticeCore(descriptor, { instanceId, attemptIndex = 1 } 
   }
   return {
     snapshot, stop,
+    setSpeechResponse(index, value) {
+      require(state.phase === 'listening' && Number.isInteger(index) && index >= 0 && index < d.speechTasks.length && typeof value === 'string', 'speech draft');
+      state.spanAnswers[index] = value;
+    },
+    restore(identity, saved) {
+      require(identity != null && canonicalPracticeJSON(identity) === canonicalPracticeJSON(d.resumeIdentity), 'stale resume identity');
+      require(saved && ['listening', 'complete'].includes(saved.phase), 'resume phase');
+      require(Number.isInteger(saved.fullPlays) && saved.fullPlays >= 0 && Number.isInteger(saved.segmentReplays) && saved.segmentReplays >= 0, 'resume replay counts');
+      for (const k of ['fullEnded', 'assisted', 'nonNormalPlayback']) require(typeof saved[k] === 'boolean', 'resume flags');
+      require(!saved.fullEnded || saved.fullPlays > 0, 'resume full end');
+      require(Array.isArray(saved.spanAnswers) && saved.spanAnswers.length === d.speechTasks.length && saved.spanAnswers.every(s => typeof s === 'string') && Array.isArray(saved.evidence), 'resume responses');
+      if (saved.phase === 'listening') require(saved.answer === null && saved.evidence.length === 0 && !Object.hasOwn(saved, 'correct') && !Object.hasOwn(saved, 'responseAssisted'), 'resume listening result');
+      else {
+        require(saved.fullEnded && Number.isInteger(saved.answer) && saved.answer >= 0 && saved.answer < d.comprehension.choices.length && saved.correct === (saved.answer === d.comprehension.correctChoice) && typeof saved.responseAssisted === 'boolean', 'resume complete result');
+        require(saved.evidence.length === (d.evidence.model === 'TASK_ROWS' ? d.speechTasks.length + 1 : 0), 'resume evidence');
+        // Recompute task evidence against canonical input and saved support state.
+        // Keep timestamps and later support replays; no auth/age/storage policy here.
+        if (d.evidence.model === 'TASK_ROWS') {
+          const c = d.comprehension;
+          const tasks = [{ id: c.id, anchorId: c.targetAnchorId, anchorIds: c.anchorRefs, operator: c.operator, construct: c.construct, format: c.format, dimension: c.dimension }, ...d.speechTasks];
+          saved.evidence.forEach((row,i) => {
+            const replay = row.replay_count;
+            require(Number.isFinite(row.at) && Number.isInteger(replay) && replay >= 0 && replay <= saved.segmentReplays + Math.max(0, saved.fullPlays - 1) && ['NORMAL', d.evidence.slowedPlaybackMode].includes(row.playback_mode) && (row.playback_mode === 'NORMAL' || saved.nonNormalPlayback), 'resume evidence support');
+            const response = i ? saved.spanAnswers[i-1] : saved.answer;
+            const correct = i ? normalizeText(response) === normalizeText(tasks[i].answer) : saved.correct;
+            const expected = evidenceRow(tasks[i],correct,response,row.at,{segmentReplays:replay,fullPlays:1},row.playback_mode !== 'NORMAL');
+            require(canonicalPracticeJSON(row) === canonicalPracticeJSON(expected), 'resume evidence identity');
+          });
+        }
+      }
+      const restored = copy(saved);
+      // Do not import arbitrary keys or an in-flight audio token from storage.
+      state = Object.fromEntries(['phase','fullPlays','fullEnded','assisted','segmentReplays','answer','spanAnswers','evidence', ...(saved.phase === 'complete' ? ['correct','responseAssisted'] : [])].map(k => [k, restored[k]]));
+      nonNormalPlayback = saved.nonNormalPlayback; stop();
+    },
     // Identity check only. No new age/auth/phase policy and no legacy restoration.
     matchesResumeIdentity: saved => saved != null && canonicalPracticeJSON(saved) === canonicalPracticeJSON(d.resumeIdentity),
     beginPlayback({ segmentIndex = null, rate = 1 } = {}) {
