@@ -1,0 +1,56 @@
+{
+  "rows": [
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0067-OPENAI-FIXED-v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0067-A-SPCH-01",
+          "segment_id": "S001",
+          "text": "can't"
+        }
+      ],
+      "ready_for_final_grounding": true,
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false,
+      "note": "Integrity is not a semantic disposition. Apply frozen mapping/evidence rules and actual verified cue evidence before final PASS."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0167-OPENAI-FIXED-v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0167-A-SPCH-01",
+          "segment_id": "S004",
+          "text": "with a partner"
+        }
+      ],
+      "ready_for_final_grounding": true,
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false,
+      "note": "Integrity is not a semantic disposition. Apply frozen mapping/evidence rules and actual verified cue evidence before final PASS."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+      "structural_errors": [],
+      "span_slices": [
+        {
+          "anchor_id": "MAN-0367-A-SPCH-01",
+          "segment_id": "S006",
+          "text": "have to make"
+        }
+      ],
+      "ready_for_final_grounding": true,
+      "PRACTICE_READY": false,
+      "CONTRACT_VALID": false,
+      "note": "Integrity is not a semantic disposition. Apply frozen mapping/evidence rules and actual verified cue evidence before final PASS."
+    }
+  ],
+  "semantic_gate_separate": true
+}

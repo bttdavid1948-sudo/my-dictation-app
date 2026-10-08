@@ -1,0 +1,37 @@
+name: Batch03 controlled learner release verification
+on:
+  pull_request:
+    paths: [assets/official-lessons-batch03.json, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
+  push:
+    branches: [main]
+    paths: [assets/official-lessons-batch03.json, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [MAN-0067, MAN-0167, MAN-0367]
+        mode: [desktop, mobile]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mobile-release-runner
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify only three Batch03 exact pairs through inherited learner procedure
+        env:
+          MAN_LESSON_ID: ${{ matrix.lesson }}
+          MAN_EXECUTION_MODE: ${{ matrix.mode }}
+          MAN_VERIFY_TARGET: ${{ github.event_name == 'push' && 'live' || 'staging' }}
+        run: node batch03-verification/verify.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: batch03-${{ github.event_name }}-${{ matrix.lesson }}-${{ matrix.mode }}
+          path: batch03-verification/evidence/
+          retention-days: 7

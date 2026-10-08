@@ -1,0 +1,78 @@
+{
+  "lesson_id": "MAN-0067",
+  "lesson_asset_version": "v0.1",
+  "batch_id": "BATCH_03",
+  "level": "A1",
+  "title": "Try a Word Card",
+  "content_type": "Transaction",
+  "canonical_transcript": "I can't remember this word.\nWrite it on a card. Put a picture on the back.\nDo I look at the picture first?\nNo. Read the word first. Then turn the card over.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "speaker_role": "learner",
+      "text": "I can't remember this word."
+    },
+    {
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "speaker_role": "peer",
+      "text": "Write it on a card. Put a picture on the back."
+    },
+    {
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "speaker_role": "learner",
+      "text": "Do I look at the picture first?"
+    },
+    {
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "speaker_role": "peer",
+      "text": "No. Read the word first. Then turn the card over."
+    }
+  ],
+  "target_anchors": [
+    {
+      "anchor_id": "MAN-0067-A-COMP-01",
+      "anchor_kind": "COMPREHENSION",
+      "construct_type": "SEQUENCE",
+      "segment_ids": [
+        "S002",
+        "S004"
+      ],
+      "evidence_segment_ids": [
+        "S002",
+        "S004"
+      ],
+      "target_proposition_or_reference_answer": "Read the word first, then turn the card over to look at the picture.",
+      "span_refs": []
+    },
+    {
+      "anchor_id": "MAN-0067-A-SPCH-01",
+      "anchor_kind": "SPEECH_PHENOMENON",
+      "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+      "segment_ids": [
+        "S001"
+      ],
+      "phenomenon_type": "basic contractions",
+      "span_refs": [
+        {
+          "segment_id": "S001",
+          "start_char": 2,
+          "end_char": 7
+        }
+      ]
+    }
+  ],
+  "available_audio_realization_refs": [
+    "MAN-0067-OPENAI-FIXED-v0.1"
+  ],
+  "source_draft_ref": "batch-03-original-materialization@v0.1",
+  "curriculum_review_ref": "batch-03-curriculum-preproduction@v0.1",
+  "curriculum_review_status": "PURPOSE_AND_NATURAL_CONTENT_REVIEW_PASS_AUDIO_PENDING",
+  "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+  "practice_ready": true,
+  "contract_validation_status": "PASS",
+  "publication_allowed": true
+}

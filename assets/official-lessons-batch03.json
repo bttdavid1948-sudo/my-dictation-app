@@ -1,0 +1,572 @@
+{
+  "catalogVersion": 1,
+  "publisher": "man",
+  "lessons": [
+    {
+      "id": "MAN-0067",
+      "unitName": "MAN-0067 · Try a Word Card",
+      "topic": "Giao tiếp và học tập",
+      "level": "A1",
+      "track": "Giao tiếp",
+      "learningGoal": "Read the word first, then turn the card over to look at the picture.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "I can't remember this word.",
+          "vi": "Mình không nhớ được từ này.",
+          "segmentId": "S001",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0067-S001-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0067",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0067-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0067-BATCH03-FIXED@v0.1",
+            "sha256": "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644",
+            "durationSeconds": 2.7,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Write it on a card. Put a picture on the back.",
+          "vi": "Viết từ đó lên một tấm thẻ. Vẽ một hình ở mặt sau.",
+          "segmentId": "S002",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0067-S002-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0067",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0067-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0067-BATCH03-FIXED@v0.1",
+            "sha256": "b856d5b71a868fdcaf0336b0eac2d7f922308e1c3d6dc96e8e405bbb4d89e980",
+            "durationSeconds": 3.75,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Do I look at the picture first?",
+          "vi": "Mình xem hình trước à?",
+          "segmentId": "S003",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0067-S003-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0067",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0067-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0067-BATCH03-FIXED@v0.1",
+            "sha256": "ae711235e23ecc675096b41e2d2a778cc076899bc6b36c61319d69c1672fe509",
+            "durationSeconds": 2.1,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "No. Read the word first. Then turn the card over.",
+          "vi": "Không. Đọc từ trước, rồi lật thẻ lại.",
+          "segmentId": "S004",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0067-S004-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0067",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0067-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0067-BATCH03-FIXED@v0.1",
+            "sha256": "e2d5b874275ec11f01b0866f82f777197ec593f8cb4b522ded6af73345001f59",
+            "durationSeconds": 4.45,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "sourceType": "original",
+      "rightsEvidenceId": "MAN-0067-BATCH03-ORIGINAL-RIGHTS-v0.1",
+      "audioRealizationRef": "MAN-0067-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0067-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "SEQUENCE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0067-A-COMP-01",
+          "MAN-0067-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Bạn nên làm gì trước khi xem hình?",
+        "choices": [
+          "Đọc từ trên mặt trước.",
+          "Xem hình ở mặt sau.",
+          "Viết một từ khác."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Read the word first, then turn the card over to look at the picture.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0067-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 1, điền từ còn thiếu: I ___ remember this word.",
+            "answer": "can't",
+            "span": {
+              "segment_id": "S001",
+              "start_char": 2,
+              "end_char": 7
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0167",
+      "unitName": "MAN-0167 · A Different Study Group",
+      "topic": "Giao tiếp và học tập",
+      "level": "A2",
+      "track": "Giao tiếp",
+      "learningGoal": "The learner asks to move to Saturday and wants pair practice before speaking to the whole group.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "Hi. I signed up for the speaking group on Thursday, but I work late that day.",
+          "vi": "Chào bạn. Mình đã đăng ký nhóm luyện nói vào thứ Năm, nhưng hôm đó mình làm việc đến muộn.",
+          "segmentId": "S001",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S001-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "c41b7e89cfb04db2c8df0766e235df43d166d5d7db3d67e57c212ec653664de8",
+            "durationSeconds": 6.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "We have a group on Saturday morning. Would that be better?",
+          "vi": "Bên mình có một nhóm vào sáng thứ Bảy. Giờ đó có thuận tiện hơn không?",
+          "segmentId": "S002",
+          "speakerRole": "course_desk",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S002-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "21aed37736563a5e141bb2cfeb415fd61ce8958fbd2bf66f801a83715dd93ca7",
+            "durationSeconds": 3.6,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Yes, but I get nervous when I speak in front of everyone.",
+          "vi": "Có, nhưng mình hay hồi hộp khi nói trước mọi người.",
+          "segmentId": "S003",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S003-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "9c7a672ca414e6956b9c7e5db071b61abd47ec8b90037f1e0066ff175d66a837",
+            "durationSeconds": 4.8,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "You can practise with a partner first. Each pair has a few minutes before we all talk together.",
+          "vi": "Bạn có thể luyện với một người bạn trước. Mỗi cặp có vài phút luyện riêng rồi cả nhóm mới nói cùng nhau.",
+          "segmentId": "S004",
+          "speakerRole": "course_desk",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S004-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628",
+            "durationSeconds": 5.1,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "That sounds easier. Can you move me to Saturday?",
+          "vi": "Nghe có vẻ dễ hơn. Bạn chuyển mình sang thứ Bảy được không?",
+          "segmentId": "S005",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S005-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "7243d3ad173ce8bd6546c0ff5cad6e0b29f226d593b00017d05a81c33ef64979",
+            "durationSeconds": 3.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Of course. I'll send you the new time and a short topic to prepare.",
+          "vi": "Được chứ. Mình sẽ gửi giờ mới và một chủ đề ngắn để bạn chuẩn bị.",
+          "segmentId": "S006",
+          "speakerRole": "course_desk",
+          "audio": {
+            "url": "assets/audio/MAN-0167-S006-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0167",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0167-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0167-BATCH03-FIXED@v0.1",
+            "sha256": "b527d961d1a74598a80d3cbc9534408d627d3604ab16e2c1eb7b3ecd8941f336",
+            "durationSeconds": 4.05,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "sourceType": "original",
+      "rightsEvidenceId": "MAN-0167-BATCH03-ORIGINAL-RIGHTS-v0.1",
+      "audioRealizationRef": "MAN-0167-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0167-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "PURPOSE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0167-A-COMP-01",
+          "MAN-0167-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Vì sao người học nhờ đổi nhóm và hỏi cách luyện?",
+        "choices": [
+          "Muốn bỏ hẳn luyện nói.",
+          "Muốn đổi sang giờ phù hợp và luyện theo cặp trước.",
+          "Muốn đứng lớp thay người hướng dẫn."
+        ],
+        "correctChoice": 1,
+        "referenceAnswer": "The learner asks to move to Saturday and wants pair practice before speaking to the whole group.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0167-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 4, điền cụm nghe được: You can practise ___ first.",
+            "answer": "with a partner",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 17,
+              "end_char": 31
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 1
+    },
+    {
+      "id": "MAN-0367",
+      "unitName": "MAN-0367 · When Rereading Stops Helping",
+      "topic": "Giao tiếp và học tập",
+      "level": "B1",
+      "track": "Giao tiếp",
+      "learningGoal": "Write from memory first; check the gaps and make questions; answer again tomorrow without notes and try a new example.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "I've spent three evenings reading these notes, and they look familiar now. But when I close the book, I can't explain the main ideas. The test is next week, so I'm starting to worry.",
+          "vi": "Mình đã dành ba tối đọc chỗ ghi chú này nên giờ thấy khá quen. Nhưng đóng sách lại thì mình không giải thích được các ý chính. Tuần sau kiểm tra rồi nên mình bắt đầu lo.",
+          "segmentId": "S001",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S001-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+            "durationSeconds": 13.9,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "What happens when you try a question? Do you get stuck because you don't understand the idea, or because you can't remember the details? Those problems might need different approaches.",
+          "vi": "Khi thử làm một câu hỏi thì bạn gặp khó ở đâu? Bạn chưa hiểu ý đó, hay không nhớ được chi tiết? Hai vấn đề ấy có thể cần cách xử lý khác nhau.",
+          "segmentId": "S002",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S002-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+            "durationSeconds": 10.85,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Mostly the details. I recognise the answer when I see it, but I can't come up with it on my own. Yesterday I highlighted another page, and it didn't really help.",
+          "vi": "Chủ yếu là chi tiết. Nhìn đáp án thì mình nhận ra, nhưng tự nghĩ ra thì không được. Hôm qua mình tô dấu thêm một trang mà cũng chẳng giúp được mấy.",
+          "segmentId": "S003",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S003-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+            "durationSeconds": 11.0,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Then let's try something before you read everything again. Put the notes away and write down what you remember about one topic. Leave a space when you get stuck instead of looking it up straight away.",
+          "vi": "Vậy thử cách này trước khi đọc lại tất cả nhé. Cất ghi chú đi và viết những gì bạn nhớ về một chủ đề. Chỗ nào bí thì để trống, đừng tra ngay.",
+          "segmentId": "S004",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S004-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+            "durationSeconds": 10.75,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "So the first step is to find the gaps. After that, should I check the whole chapter, or just the parts I missed? I don't have much time after work.",
+          "vi": "Vậy bước đầu là tìm ra những chỗ mình chưa nhớ. Sau đó mình kiểm tra cả chương hay chỉ những phần bị thiếu? Đi làm về mình không có nhiều thời gian.",
+          "segmentId": "S005",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S005-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+            "durationSeconds": 8.3,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Just check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details. You don't have to make a card for every sentence.",
+          "vi": "Trước mắt chỉ kiểm tra những phần đó thôi. So câu trả lời với ghi chú, sửa chỗ sai rồi viết hai hoặc ba câu hỏi về các chi tiết còn thiếu. Bạn không cần làm thẻ cho từng câu đâu.",
+          "segmentId": "S006",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S006-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+            "durationSeconds": 12.2,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "That sounds more useful than copying everything. But won't I remember the answers simply because I've just checked them? It might look as if the method works when it doesn't.",
+          "vi": "Nghe có ích hơn việc chép lại tất cả. Nhưng liệu mình có nhớ đáp án chỉ vì vừa xem lại không? Như vậy có thể tưởng là cách này hiệu quả trong khi thực ra không phải.",
+          "segmentId": "S007",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S007-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+            "durationSeconds": 12.4,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "That's why the last step is tomorrow. Try the same questions without the notes, then add one question that asks you to use the idea in a different example. If you still miss a detail, review that part again.",
+          "vi": "Vì thế bước cuối để đến ngày mai. Thử trả lời lại các câu hỏi mà không xem ghi chú, rồi thêm một câu yêu cầu áp dụng ý đó vào ví dụ khác. Nếu vẫn quên một chi tiết thì xem lại đúng phần ấy.",
+          "segmentId": "S008",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S008-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+            "durationSeconds": 13.1,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "Right. I'll start with the topic about how plants get water. First I'll write from memory, then check the gaps and make questions. Tomorrow I'll answer them again. Could you look at my new example after lunch?",
+          "vi": "Được. Mình sẽ bắt đầu với chủ đề cây lấy nước thế nào. Đầu tiên viết từ trí nhớ, rồi kiểm tra chỗ thiếu và làm câu hỏi. Ngày mai mình trả lời lại. Sau bữa trưa bạn xem giúp ví dụ mới của mình được không?",
+          "segmentId": "S009",
+          "speakerRole": "learner",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S009-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S009",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+            "durationSeconds": 13.4,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Sure. And if this takes longer than we expect, we'll use fewer questions. The aim is to see what you can recall, not to turn your whole evening into another copying session.",
+          "vi": "Được chứ. Nếu mất nhiều thời gian hơn dự tính thì mình sẽ dùng ít câu hỏi hơn. Mục tiêu là xem bạn nhớ được gì, chứ không biến cả buổi tối thành một buổi chép bài nữa.",
+          "segmentId": "S010",
+          "speakerRole": "peer",
+          "audio": {
+            "url": "assets/audio/MAN-0367-S010-batch03-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0367",
+            "lessonVersion": "v0.1",
+            "segmentId": "S010",
+            "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+            "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe",
+            "durationSeconds": 10.05,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "sourceType": "original",
+      "rightsEvidenceId": "MAN-0367-BATCH03-ORIGINAL-RIGHTS-v0.1",
+      "audioRealizationRef": "MAN-0367-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0367-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "SEQUENCE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0367-A-COMP-01",
+          "MAN-0367-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Kế hoạch học được chốt theo thứ tự nào?",
+        "choices": [
+          "Đọc lại cả chương → chép mọi câu → làm thẻ ngay.",
+          "Làm câu hỏi ngày mai → xem ghi chú → viết từ trí nhớ.",
+          "Viết từ trí nhớ → kiểm tra chỗ thiếu và làm câu hỏi → hôm sau trả lời lại."
+        ],
+        "correctChoice": 2,
+        "referenceAnswer": "Write from memory first; check the gaps and make questions; answer again tomorrow without notes and try a new example.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0367-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 6, điền cụm còn thiếu: You don't ___ a card for every sentence.",
+            "answer": "have to make",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 168,
+              "end_char": 180
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "durationHintMinutes": 2
+    }
+  ]
+}

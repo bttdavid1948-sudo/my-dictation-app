@@ -1,0 +1,27 @@
+{
+  "lesson_id": "MAN-0067",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Mình không nhớ được từ này."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Viết từ đó lên một tấm thẻ. Vẽ một hình ở mặt sau."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Mình xem hình trước à?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Không. Đọc từ trước, rồi lật thẻ lại."
+    }
+  ],
+  "support_qa": "PASS",
+  "review_basis": "Original English/vi-VN pair review: complete turns, pronoun/negation/time/sequence/cause preserved, natural Vietnamese; no new factual or efficacy claim."
+}

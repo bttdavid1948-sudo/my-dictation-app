@@ -1,0 +1,40 @@
+{
+  "lesson_id": "MAN-0067",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0067-OPENAI-FIXED-v0.1",
+  "audio_profile_id": "MAN-0067-BATCH03-FIXED",
+  "audio_profile_version": "v0.1",
+  "qa_version": "BATCH03-QA@v0.1",
+  "qa_status": "PASS",
+  "delivery_mode": "PERSISTED_ASSET",
+  "segment_mapping": [
+    {
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0067-S001-batch03-v0.1.wav",
+      "asset_sha256": "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644"
+    },
+    {
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0067-S002-batch03-v0.1.wav",
+      "asset_sha256": "b856d5b71a868fdcaf0336b0eac2d7f922308e1c3d6dc96e8e405bbb4d89e980"
+    },
+    {
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0067-S003-batch03-v0.1.wav",
+      "asset_sha256": "ae711235e23ecc675096b41e2d2a778cc076899bc6b36c61319d69c1672fe509"
+    },
+    {
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0067-S004-batch03-v0.1.wav",
+      "asset_sha256": "e2d5b874275ec11f01b0866f82f777197ec593f8cb4b522ded6af73345001f59"
+    }
+  ]
+}
