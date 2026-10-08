@@ -23,18 +23,20 @@ const panelCatalog=JSON.parse(fs.readFileSync(new URL('../assets/official-lesson
 const finalTwo=JSON.parse(fs.readFileSync(new URL('../assets/official-lessons-final-two.json',import.meta.url),'utf8'));
 const batch02=JSON.parse(fs.readFileSync(new URL('../assets/official-lessons-batch02.json',import.meta.url),'utf8'));
 const batch03=JSON.parse(fs.readFileSync(new URL('../assets/official-lessons-batch03.json',import.meta.url),'utf8'));
+const batch04=JSON.parse(fs.readFileSync(new URL('../assets/official-lessons-batch04.json',import.meta.url),'utf8'));
 const fixtures=new Map([
   ['assets/official-lessons.json',catalog],
   ['assets/official-lessons-batch01-exceptions.json',extension],
   ['assets/official-lessons-man0844.json',panelCatalog],
   ['assets/official-lessons-final-two.json',finalTwo],
   ['assets/official-lessons-batch02.json',batch02],
-  ['assets/official-lessons-batch03.json',batch03]
+  ['assets/official-lessons-batch03.json',batch03],
+  ['assets/official-lessons-batch04.json',batch04]
 ]);
 const allLessons=[...fixtures.values()].flatMap(data=>data.lessons);
 const published=allLessons.filter(unit=>unit.status==='published');
-assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044','MAN-0238','MAN-0414','MAN-0765','MAN-0604','MAN-0986','MAN-0844','MAN-0565','MAN-0905','MAN-0066','MAN-0166','MAN-0366','MAN-0566','MAN-0766','MAN-0906','MAN-0001','MAN-0201','MAN-0311','MAN-0521','MAN-0733','MAN-0921','MAN-0067','MAN-0167','MAN-0367']);
-assert.equal(published.length,27);
+assert.deepEqual(published.map(unit=>unit.id),['MAN-0065','MAN-0165','MAN-0365','MAN-0044','MAN-0238','MAN-0414','MAN-0765','MAN-0604','MAN-0986','MAN-0844','MAN-0565','MAN-0905','MAN-0066','MAN-0166','MAN-0366','MAN-0566','MAN-0766','MAN-0906','MAN-0001','MAN-0201','MAN-0311','MAN-0521','MAN-0733','MAN-0921','MAN-0067','MAN-0167','MAN-0367',...batch04.lessons.map(x=>x.id)]);
+assert.equal(published.length,27+batch04.lessons.length);
 assert.equal(batch02.lessons.length,12);
 assert.equal(allLessons.filter(unit=>unit.status==='archived').length,4);
 const ids=new Set();
@@ -78,11 +80,11 @@ vm.createContext(context);
 vm.runInContext(code+';globalThis.loadCatalogUnits=loadCatalogUnits;',context);
 const loaded=await context.loadCatalogUnits();
 assert.deepEqual(requested,[...fixtures.keys()]);
-assert.equal(loaded.length,27);
-assert.equal(new Set(loaded.map(x=>x.id)).size,27);
+assert.equal(loaded.length,27+batch04.lessons.length);
+assert.equal(new Set(loaded.map(x=>x.id)).size,27+batch04.lessons.length);
 assert.deepEqual(JSON.parse(JSON.stringify(loaded)),published);
 await context.loadCatalogUnits();
-assert.equal(requested.length,6,'cached load must not refetch catalogs');
+assert.equal(requested.length,7,'cached load must not refetch catalogs');
 assert.equal(views.length,1);
 assert.deepEqual([...loaded.map(x=>x.id)],published.map(x=>x.id));
 assert.ok(topicOptions.some(option=>option.value===published[0].topic));

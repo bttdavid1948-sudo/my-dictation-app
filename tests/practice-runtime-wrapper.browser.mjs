@@ -9,6 +9,7 @@ const root=path.resolve(new URL('..',import.meta.url).pathname);
 const require=createRequire(import.meta.url);
 let chromium;
 try {({chromium}=require(path.join(root,'mobile-release-runner/node_modules/playwright')));}catch(_){({chromium}=require(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'playwright')));}
+const batch04Count=JSON.parse(fs.readFileSync(path.join(root,'assets/official-lessons-batch04.json'),'utf8')).lessons.length;
 const NOW=1791349200000;
 const output=process.env.PRACTICE_BROWSER_OUTPUT||'/tmp/practice-wrapper-browser';fs.mkdirSync(output,{recursive:true});
 const server=http.createServer((req,res)=>{
@@ -47,7 +48,7 @@ try{
    window.__install=()=>{window.__wrapper=installPracticeWrapper(practiceHost(window,window.__practiceBaseStart));};window.__install();
   });
   const inventory=await page.evaluate(()=>catalogUnitsCache.map(u=>({id:u.id,practice:!!u.practice,prefix:u.practice?.anchorIds?'man-b02':u.fullPanelAudio?'man-panel':'man-inference',choice:u.practice?.correctChoice,speech:u.practice?.speechTasks||[]})));
-  assert.equal(inventory.filter(u=>u.practice).length,18);assert.equal(inventory.filter(u=>!u.practice).length,9);
+  assert.equal(inventory.filter(u=>u.practice).length,18+batch04Count);assert.equal(inventory.filter(u=>!u.practice).length,9);
   for(const u of inventory.filter(u=>u.practice)){
    await page.evaluate(id=>{__audio.length=0;xStartCatalog(id);},u.id);
    assert.equal(await page.locator('#'+u.prefix+'-answer').count(),0);
@@ -78,7 +79,8 @@ try{
   await page.locator('#'+u.prefix+'-play').click();await page.goBack();
   await page.evaluate(()=>__audio[0].end());assert.equal(await page.evaluate(()=>__wrapper.evidence().fullEnded),false);
   assert.equal(await page.evaluate(()=>__firebaseWrites),0);assert.deepEqual(errors,[],'learner console page errors');
-  results.push({viewport,practice:18,ordinary:9,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
+  results.push({viewport,practice:18+batch04Count,ordinary:9,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
  }
  fs.writeFileSync(path.join(output,'receipt.json'),JSON.stringify({status:'PASS',environment:'isolated actual index.html; no live/paid API/acoustic claim',results},null,2));console.log(JSON.stringify({status:'PASS',results}));
 }finally{await browser?.close();await new Promise(r=>server.close(r));}
+

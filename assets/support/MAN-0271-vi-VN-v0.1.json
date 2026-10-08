@@ -1,0 +1,34 @@
+{
+  "lesson_id": "MAN-0271",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Tôi mới đến đây. Làm thế nào để đăng ký thẻ thư viện?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Trước tiên, điền vào mẫu này. Sau đó, đưa chúng tôi xem tên và địa chỉ của bạn trên một thư chính thức."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Tôi có một lá thư, nhưng trên đó là địa chỉ cũ. Tôi phải quay lại hôm khác à?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Bạn có thể bắt đầu hôm nay. Chúng tôi sẽ kiểm tra tên của bạn trước, nhưng bạn cần mang thư có địa chỉ mới đến trước khi mượn sách."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy hôm nay tôi điền mẫu, rồi mang thư mới đến trước khi dùng thẻ phải không?"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đúng vậy. Sau khi chúng tôi kiểm tra địa chỉ mới, bạn có thể nhận thẻ tại quầy này."
+    }
+  ],
+  "support_qa": "PASS"
+}

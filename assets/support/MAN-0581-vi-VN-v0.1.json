@@ -1,0 +1,42 @@
+{
+  "lesson_id": "MAN-0581",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Trước đây bạn tham gia mọi cuộc thi ảnh của câu lạc bộ. Giờ bạn lại tổ chức những buổi đi bộ cuối tuần không chấm điểm gì cả. Bạn không còn muốn tiến bộ, hay có lý do khác cho sự thay đổi này?"
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Tôi vẫn muốn chụp ảnh tốt hơn. Tôi chỉ nhận ra mình cứ xem thể lệ cuộc thi trước cả khi quan sát cảnh vật. Buổi đi bộ nào cũng thành cuộc tìm kiếm thứ có thể làm giám khảo hài lòng, mà như vậy thì mất cả ý nghĩa của việc ra ngoài."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Nhưng có thành viên nói phải có hạn chót họ mới chịu rời ghế. Nếu các buổi đi bộ không có mục tiêu, liệu mọi người có chỉ trò chuyện một giờ rồi về với những tấm ảnh giống hệt mọi lần không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Lo như vậy cũng có lý. Chúng tôi vẫn giữ một thử thách nhỏ: để ý một chi tiết mà bình thường bạn sẽ đi qua, rồi giải thích vì sao bạn chọn nó. Điều bỏ đi là xếp hạng. Tôi thích nghe ai đó kể về một sai sót thú vị hơn là xin lỗi vì không thắng."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Bạn có mời cả người mới không? Một vài người nói với tôi rằng họ sợ làm cả nhóm chậm lại. Nghe thành viên có kinh nghiệm nói về thiết bị, họ có thể tưởng phải mua máy ảnh đắt tiền mới được tham gia."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Tất nhiên. Dùng điện thoại cũng được, và không ai bắt buộc phải chia sẻ ảnh. Ai muốn được giúp thì chúng tôi ghép đôi, nhưng đây không phải lớp học có bài tập về nhà. Trong tuần tôi đã phải chạy theo hạn chót của người khác đủ rồi."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Vậy bạn không phản đối hoàn toàn các cuộc thi. Bạn muốn câu lạc bộ có thêm một cách tham gia, nhất là cho người thích chụp ảnh nhưng không muốn thời gian rảnh biến thành một đợt đánh giá thành tích nữa?"
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Chính xác. Thi đua hợp với một số người, và họ có thể giữ nhóm đó. Tôi muốn nhóm này có chỗ cho sự tò mò. Nếu ai đó về nhà và nhìn ánh sáng khác đi, tôi sẽ coi đó là một buổi sáng đáng giá, dù tấm ảnh đẹp nhất chưa bao giờ rời khỏi điện thoại của họ."
+    }
+  ],
+  "support_qa": "PASS"
+}
