@@ -1,0 +1,35 @@
+name: Batch04 exact immutable release audio import
+on:
+  push:
+    branches: [main]
+    paths: [operations/batch04-production/release-import-activation.json]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: official-man-batch04-release-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 37771778107 --repo bttdavid1948-sudo/my-dictation-app --name batch04-audio-production-37771778107 --dir release-first
+          gh run download 37772501746 --repo bttdavid1948-sudo/my-dictation-app --name batch04-audio-production-37772501746 --dir release-second
+          gh run download 37772501926 --repo bttdavid1948-sudo/my-dictation-app --name batch04-targeted-repair-37772501926 --dir release-repair1
+          gh run download 37775480901 --repo bttdavid1948-sudo/my-dictation-app --name batch04-c1-repairs-37775480901 --dir release-c1
+          gh run download 37775958107 --repo bttdavid1948-sudo/my-dictation-app --name batch04-mixed-evidence-37775958107 --dir release-mixed
+      - run: python3 operations/batch04-production/import_release_audio.py
+      - name: Push isolated review branch only
+        run: |
+          git switch -c ops/batch04-immutable-audio-import
+          git config user.name 'Mặn Production Control'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --pathspec-from-file=producer-evidence/batch04-import-paths.txt
+          git commit -m 'Import finite hash verified Batch04 learner WAVs; no synthesis'
+          git push origin HEAD:refs/heads/ops/batch04-immutable-audio-import

@@ -1,0 +1,15 @@
+{
+  "operation_key": "BATCH_04@FIVE_ELIGIBLE_IMMUTABLE_IMPORT@v0.1",
+  "selected_lesson_ids": [
+    "MAN-0031",
+    "MAN-0271",
+    "MAN-0451",
+    "MAN-0581",
+    "MAN-0951"
+  ],
+  "source_manifest_sha256": "a76faf65ff3d4b8af143ccf655b55f61722016703dcf08d88deecf534c4dea7d",
+  "learner_wav_count": 37,
+  "paid_calls": 0,
+  "main_push_allowed": false,
+  "publication_authority": "Owner Batch04 controlled production; original content and QA-complete exact assets only."
+}
