@@ -3,7 +3,6 @@ import pathlib,json,hashlib,wave,array,importlib.util
 import numpy as np
 from scipy.signal import resample_poly
 from faster_whisper import WhisperModel
-from pocketsphinx import Decoder,get_model_path
 root=pathlib.Path('retained-final');ledger=json.loads((root/'producer-evidence/production-ledger.json').read_text());qa=json.loads((root/'batch04-qa/ordinary-qa.json').read_text());assert ledger['batch_id']=='BATCH_04' and ledger['completed_segments']==12 and ledger['selected_lesson_ids']==['MAN-0951']
 prepared=json.loads(pathlib.Path('operations/batch04-production/prepared-segments.json').read_text())['segments'];rows=[];metadata=[]
 for e in ledger['entries']:
