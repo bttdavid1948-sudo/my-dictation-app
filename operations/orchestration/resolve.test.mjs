@@ -11,11 +11,19 @@ const actual=actualBatch01();assert.equal(actual.completed.length,12);assert.equ
 const receipts=JSON.parse(fs.readFileSync(new URL('./batch01-asset-receipts.json',import.meta.url),'utf8')).receipts;assert.equal(receipts.length,63);for(const r of receipts){assert.equal(reconcileReceipt({lessonId:r.lesson_id,lessonVersion:r.lesson_asset_version,realizationId:r.realization_id},'UPLOAD',{inputSha256:r.inputSha256,sha256:r.outputSha256},r).action,'REUSE');}
 console.log('PASS:12 actual trace completions; exact receipt reuse and changed binding; partial resume; independent branch progression; Practice/Curriculum/Owner routes; retry escalation; accent uncertainty nonblocking. No product gate rerun.');
 
-const canonical=currentState();assert.equal(canonical.batchId,'BATCH_02');assert.equal(canonical.terminalState,'OBJECTIVE_COMPLETE');assert.equal(canonical.next_action.code,'NONE');assert.equal(canonical.completed.length,12);assert.deepEqual(canonical.actionable,[]);assert.deepEqual(canonical.handoffs,[]);assert.equal(canonical.newProductionStarted,false);
+const canonical=currentState();assert.equal(canonical.batchId,'BATCH_03');assert.equal(canonical.terminalState,'OBJECTIVE_COMPLETE');assert.equal(canonical.next_action.code,'NONE');assert.equal(canonical.completed.length,3);assert.deepEqual(canonical.actionable,[]);assert.deepEqual(canonical.handoffs,[]);assert.equal(canonical.newProductionStarted,false);
 const readState=name=>JSON.parse(fs.readFileSync(new URL('../../docs/content-pipeline/registry/'+name,import.meta.url),'utf8'));
-const cp=readState('pipeline.json'),ci=readState('batch-02-closure-evidence-index.json'),cc=readState('batch-02-completion-checkpoint.json');
+const oldPipeline=readState('pipeline.json');
+const cp={...oldPipeline,current_state_ref:'docs/content-pipeline/registry/batch-02-completion-checkpoint.json',current_state_index_ref:'docs/content-pipeline/registry/batch-02-closure-evidence-index.json'},ci=readState('batch-02-closure-evidence-index.json'),cc=readState('batch-02-completion-checkpoint.json');
 const hashes=p=>ci.artifacts.find(a=>a.path===p)?.sha256;
 for(const bad of [{...cp,current_state_ref:'docs/content-pipeline/registry/batch-01-completion-checkpoint.json'},{...cp,next_action:{code:'PRODUCTION_READY_BATCH_02',responsible_lane:'OPERATIONS_4'}},{...cp,independent_operations_next_action:{code:'AWAIT_OWNING_LANE_PREPRODUCTION_INPUTS',responsible_lane:'NONE'}}])assert.throws(()=>resolveCanonicalState(bad,ci,cc,hashes),/CANONICAL_STATE_MISMATCH/);
 for(const bad of [{...cc,remaining_lesson_ids:['MAN-0066']},{...cc,queue_state:'OPEN'},{...cc,batch03_opened:true},{...cc,pairs:cc.pairs.slice(1)}])assert.throws(()=>resolveCanonicalState(cp,ci,bad,hashes),/CANONICAL_STATE_MISMATCH/);
 assert.throws(()=>resolveCanonicalState(cp,ci,cc,()=> 'wrong-hash'),/CANONICAL_STATE_MISMATCH/);
-console.log('PASS: current Batch02 close/NONE; stale Batch01, preproduction, independent routing, incomplete queue and evidence drift fail closed; historical Batch01 replay remains addressable.');
+console.log('PASS: preserved Batch02 close/NONE; stale Batch01, preproduction, independent routing, incomplete queue and evidence drift fail closed; historical Batch01 replay remains addressable.');
+
+const ci3=readState('batch-03-closure-evidence-index.json'),cc3=readState('batch-03-completion-checkpoint.json'),hash3=p=>ci3.artifacts.find(a=>a.path===p)?.sha256;
+assert.equal(resolveCanonicalState(oldPipeline,ci3,cc3,hash3).completeLessonCount,3);
+for(const bad of [{...cc3,batch04_opened:true},{...cc3,r1_4_executed:true},{...cc3,remaining_lesson_ids:['MAN-0367']},{...cc3,pairs:cc3.pairs.map((p,i)=>i? p:{...p,mobile_live:'FAIL'})}])assert.throws(()=>resolveCanonicalState(oldPipeline,ci3,bad,hash3),/CANONICAL_STATE_MISMATCH/);
+assert.throws(()=>resolveCanonicalState(oldPipeline,{...ci3,live_pass_count:5},cc3,hash3),/CANONICAL_STATE_MISMATCH/);
+assert.throws(()=>resolveCanonicalState(oldPipeline,ci3,cc3,()=> 'wrong-hash'),/CANONICAL_STATE_MISMATCH/);
+console.log('PASS: current Batch03 close/NONE; all six live receipts and pair gates bound; incomplete/next-batch/R1.4/drift fail closed; historical Batch02 remains validated.');

@@ -1,0 +1,1457 @@
+{
+  "lesson_id": "MAN-0367",
+  "segment_id": "S006",
+  "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+  "procedure": "Inherited PCM-only allphone sensitivity extraction, new repaired input only",
+  "pocketsphinx_version": "5.0.4",
+  "hypotheses": [
+    {
+      "method": "ALLPHONE_UNIFORM",
+      "reference_text_supplied": false,
+      "phones": [
+        {
+          "phone": "SIL",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "phone": "JH",
+          "start": 0.04,
+          "end": 0.17
+        },
+        {
+          "phone": "EH",
+          "start": 0.17,
+          "end": 0.27
+        },
+        {
+          "phone": "S",
+          "start": 0.27,
+          "end": 0.41
+        },
+        {
+          "phone": "T",
+          "start": 0.41,
+          "end": 0.49
+        },
+        {
+          "phone": "JH",
+          "start": 0.49,
+          "end": 0.53
+        },
+        {
+          "phone": "D",
+          "start": 0.53,
+          "end": 0.57
+        },
+        {
+          "phone": "CH",
+          "start": 0.57,
+          "end": 0.74
+        },
+        {
+          "phone": "AE",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "phone": "K",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "phone": "DH",
+          "start": 0.96,
+          "end": 1.05
+        },
+        {
+          "phone": "OW",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "phone": "Z",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "phone": "P",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "phone": "R",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "phone": "IH",
+          "start": 1.49,
+          "end": 1.52
+        },
+        {
+          "phone": "K",
+          "start": 1.52,
+          "end": 1.57
+        },
+        {
+          "phone": "S",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "phone": "F",
+          "start": 1.65,
+          "end": 1.7
+        },
+        {
+          "phone": "R",
+          "start": 1.7,
+          "end": 1.77
+        },
+        {
+          "phone": "N",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "phone": "AW",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "phone": "OW",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "phone": "SIL",
+          "start": 2.11,
+          "end": 2.48
+        },
+        {
+          "phone": "K",
+          "start": 2.48,
+          "end": 2.57
+        },
+        {
+          "phone": "AH",
+          "start": 2.57,
+          "end": 2.6
+        },
+        {
+          "phone": "N",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "phone": "P",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "phone": "EH",
+          "start": 2.76,
+          "end": 2.82
+        },
+        {
+          "phone": "R",
+          "start": 2.82,
+          "end": 2.88
+        },
+        {
+          "phone": "IY",
+          "start": 2.88,
+          "end": 2.92
+        },
+        {
+          "phone": "EH",
+          "start": 2.92,
+          "end": 2.97
+        },
+        {
+          "phone": "R",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "phone": "AE",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "phone": "N",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "phone": "S",
+          "start": 3.19,
+          "end": 3.26
+        },
+        {
+          "phone": "ER",
+          "start": 3.26,
+          "end": 3.31
+        },
+        {
+          "phone": "W",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "phone": "IH",
+          "start": 3.37,
+          "end": 3.4
+        },
+        {
+          "phone": "TH",
+          "start": 3.4,
+          "end": 3.46
+        },
+        {
+          "phone": "AH",
+          "start": 3.46,
+          "end": 3.5
+        },
+        {
+          "phone": "N",
+          "start": 3.5,
+          "end": 3.57
+        },
+        {
+          "phone": "EH",
+          "start": 3.57,
+          "end": 3.6
+        },
+        {
+          "phone": "OW",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "phone": "T",
+          "start": 3.7,
+          "end": 3.76
+        },
+        {
+          "phone": "S",
+          "start": 3.76,
+          "end": 3.93
+        },
+        {
+          "phone": "+NSN+",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "phone": "SIL",
+          "start": 4.05,
+          "end": 4.22
+        },
+        {
+          "phone": "K",
+          "start": 4.22,
+          "end": 4.33
+        },
+        {
+          "phone": "R",
+          "start": 4.33,
+          "end": 4.39
+        },
+        {
+          "phone": "R",
+          "start": 4.39,
+          "end": 4.48
+        },
+        {
+          "phone": "AE",
+          "start": 4.48,
+          "end": 4.57
+        },
+        {
+          "phone": "T",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "phone": "T",
+          "start": 4.65,
+          "end": 4.7
+        },
+        {
+          "phone": "EH",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "phone": "N",
+          "start": 4.8,
+          "end": 4.85
+        },
+        {
+          "phone": "IY",
+          "start": 4.85,
+          "end": 4.92
+        },
+        {
+          "phone": "TH",
+          "start": 4.92,
+          "end": 4.98
+        },
+        {
+          "phone": "IH",
+          "start": 4.98,
+          "end": 5.02
+        },
+        {
+          "phone": "NG",
+          "start": 5.02,
+          "end": 5.07
+        },
+        {
+          "phone": "N",
+          "start": 5.07,
+          "end": 5.12
+        },
+        {
+          "phone": "EH",
+          "start": 5.12,
+          "end": 5.17
+        },
+        {
+          "phone": "T",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "phone": "R",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "phone": "AA",
+          "start": 5.35,
+          "end": 5.5
+        },
+        {
+          "phone": "L",
+          "start": 5.5,
+          "end": 5.56
+        },
+        {
+          "phone": "HH",
+          "start": 5.56,
+          "end": 5.61
+        },
+        {
+          "phone": "D",
+          "start": 5.61,
+          "end": 5.66
+        },
+        {
+          "phone": "+NSN+",
+          "start": 5.66,
+          "end": 5.86
+        },
+        {
+          "phone": "SIL",
+          "start": 5.86,
+          "end": 6.01
+        },
+        {
+          "phone": "AE",
+          "start": 6.01,
+          "end": 6.09
+        },
+        {
+          "phone": "N",
+          "start": 6.09,
+          "end": 6.18
+        },
+        {
+          "phone": "EY",
+          "start": 6.18,
+          "end": 6.29
+        },
+        {
+          "phone": "K",
+          "start": 6.29,
+          "end": 6.36
+        },
+        {
+          "phone": "T",
+          "start": 6.36,
+          "end": 6.5
+        },
+        {
+          "phone": "SH",
+          "start": 6.5,
+          "end": 6.59
+        },
+        {
+          "phone": "UW",
+          "start": 6.59,
+          "end": 6.75
+        },
+        {
+          "phone": "L",
+          "start": 6.75,
+          "end": 6.82
+        },
+        {
+          "phone": "AO",
+          "start": 6.82,
+          "end": 6.89
+        },
+        {
+          "phone": "R",
+          "start": 6.89,
+          "end": 6.93
+        },
+        {
+          "phone": "F",
+          "start": 6.93,
+          "end": 7.01
+        },
+        {
+          "phone": "SH",
+          "start": 7.01,
+          "end": 7.06
+        },
+        {
+          "phone": "IY",
+          "start": 7.06,
+          "end": 7.16
+        },
+        {
+          "phone": "K",
+          "start": 7.16,
+          "end": 7.25
+        },
+        {
+          "phone": "AH",
+          "start": 7.25,
+          "end": 7.34
+        },
+        {
+          "phone": "S",
+          "start": 7.34,
+          "end": 7.44
+        },
+        {
+          "phone": "JH",
+          "start": 7.44,
+          "end": 7.51
+        },
+        {
+          "phone": "EH",
+          "start": 7.51,
+          "end": 7.54
+        },
+        {
+          "phone": "N",
+          "start": 7.54,
+          "end": 7.61
+        },
+        {
+          "phone": "Z",
+          "start": 7.61,
+          "end": 7.68
+        },
+        {
+          "phone": "AH",
+          "start": 7.68,
+          "end": 7.71
+        },
+        {
+          "phone": "B",
+          "start": 7.71,
+          "end": 7.76
+        },
+        {
+          "phone": "AW",
+          "start": 7.76,
+          "end": 7.84
+        },
+        {
+          "phone": "P",
+          "start": 7.84,
+          "end": 7.88
+        },
+        {
+          "phone": "DH",
+          "start": 7.88,
+          "end": 7.91
+        },
+        {
+          "phone": "AH",
+          "start": 7.91,
+          "end": 7.94
+        },
+        {
+          "phone": "M",
+          "start": 7.94,
+          "end": 8.03
+        },
+        {
+          "phone": "IH",
+          "start": 8.03,
+          "end": 8.08
+        },
+        {
+          "phone": "S",
+          "start": 8.08,
+          "end": 8.17
+        },
+        {
+          "phone": "IH",
+          "start": 8.17,
+          "end": 8.21
+        },
+        {
+          "phone": "NG",
+          "start": 8.21,
+          "end": 8.29
+        },
+        {
+          "phone": "D",
+          "start": 8.29,
+          "end": 8.35
+        },
+        {
+          "phone": "IY",
+          "start": 8.35,
+          "end": 8.44
+        },
+        {
+          "phone": "T",
+          "start": 8.44,
+          "end": 8.49
+        },
+        {
+          "phone": "HH",
+          "start": 8.49,
+          "end": 8.54
+        },
+        {
+          "phone": "IH",
+          "start": 8.54,
+          "end": 8.59
+        },
+        {
+          "phone": "L",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "phone": "S",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "phone": "SIL",
+          "start": 8.87,
+          "end": 9.34
+        },
+        {
+          "phone": "Y",
+          "start": 9.34,
+          "end": 9.5
+        },
+        {
+          "phone": "UW",
+          "start": 9.5,
+          "end": 9.55
+        },
+        {
+          "phone": "D",
+          "start": 9.55,
+          "end": 9.72
+        },
+        {
+          "phone": "IH",
+          "start": 9.72,
+          "end": 9.76
+        },
+        {
+          "phone": "OW",
+          "start": 9.76,
+          "end": 9.87
+        },
+        {
+          "phone": "L",
+          "start": 9.87,
+          "end": 9.91
+        },
+        {
+          "phone": "V",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "phone": "HH",
+          "start": 9.97,
+          "end": 10.07
+        },
+        {
+          "phone": "AE",
+          "start": 10.07,
+          "end": 10.14
+        },
+        {
+          "phone": "F",
+          "start": 10.14,
+          "end": 10.2
+        },
+        {
+          "phone": "T",
+          "start": 10.2,
+          "end": 10.27
+        },
+        {
+          "phone": "IH",
+          "start": 10.27,
+          "end": 10.3
+        },
+        {
+          "phone": "N",
+          "start": 10.3,
+          "end": 10.35
+        },
+        {
+          "phone": "EY",
+          "start": 10.35,
+          "end": 10.44
+        },
+        {
+          "phone": "K",
+          "start": 10.44,
+          "end": 10.5
+        },
+        {
+          "phone": "IH",
+          "start": 10.5,
+          "end": 10.54
+        },
+        {
+          "phone": "K",
+          "start": 10.54,
+          "end": 10.69
+        },
+        {
+          "phone": "AA",
+          "start": 10.69,
+          "end": 10.79
+        },
+        {
+          "phone": "R",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "phone": "D",
+          "start": 10.91,
+          "end": 10.98
+        },
+        {
+          "phone": "SIL",
+          "start": 10.98,
+          "end": 11.09
+        },
+        {
+          "phone": "F",
+          "start": 11.09,
+          "end": 11.17
+        },
+        {
+          "phone": "ER",
+          "start": 11.17,
+          "end": 11.25
+        },
+        {
+          "phone": "T",
+          "start": 11.25,
+          "end": 11.3
+        },
+        {
+          "phone": "AE",
+          "start": 11.3,
+          "end": 11.38
+        },
+        {
+          "phone": "V",
+          "start": 11.38,
+          "end": 11.44
+        },
+        {
+          "phone": "R",
+          "start": 11.44,
+          "end": 11.5
+        },
+        {
+          "phone": "IY",
+          "start": 11.5,
+          "end": 11.55
+        },
+        {
+          "phone": "S",
+          "start": 11.55,
+          "end": 11.65
+        },
+        {
+          "phone": "EH",
+          "start": 11.65,
+          "end": 11.7
+        },
+        {
+          "phone": "N",
+          "start": 11.7,
+          "end": 11.75
+        },
+        {
+          "phone": "T",
+          "start": 11.75,
+          "end": 11.82
+        },
+        {
+          "phone": "AH",
+          "start": 11.82,
+          "end": 11.87
+        },
+        {
+          "phone": "N",
+          "start": 11.87,
+          "end": 11.9
+        },
+        {
+          "phone": "D",
+          "start": 11.9,
+          "end": 11.96
+        },
+        {
+          "phone": "S",
+          "start": 11.96,
+          "end": 12.13
+        },
+        {
+          "phone": "SIL",
+          "start": 12.13,
+          "end": 12.19
+        }
+      ]
+    },
+    {
+      "method": "ALLPHONE_PHONE_LM",
+      "reference_text_supplied": false,
+      "phones": [
+        {
+          "phone": "SIL",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "phone": "JH",
+          "start": 0.04,
+          "end": 0.17
+        },
+        {
+          "phone": "EH",
+          "start": 0.17,
+          "end": 0.27
+        },
+        {
+          "phone": "S",
+          "start": 0.27,
+          "end": 0.41
+        },
+        {
+          "phone": "T",
+          "start": 0.41,
+          "end": 0.56
+        },
+        {
+          "phone": "CH",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "phone": "AE",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "phone": "K",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "phone": "DH",
+          "start": 0.96,
+          "end": 1.05
+        },
+        {
+          "phone": "OW",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "phone": "Z",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "phone": "P",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "phone": "ER",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "phone": "K",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "phone": "S",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "phone": "F",
+          "start": 1.65,
+          "end": 1.7
+        },
+        {
+          "phone": "ER",
+          "start": 1.7,
+          "end": 1.77
+        },
+        {
+          "phone": "N",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "phone": "AW",
+          "start": 1.83,
+          "end": 2.11
+        },
+        {
+          "phone": "SIL",
+          "start": 2.11,
+          "end": 2.48
+        },
+        {
+          "phone": "K",
+          "start": 2.48,
+          "end": 2.57
+        },
+        {
+          "phone": "AH",
+          "start": 2.57,
+          "end": 2.6
+        },
+        {
+          "phone": "N",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "phone": "P",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "phone": "EH",
+          "start": 2.76,
+          "end": 2.82
+        },
+        {
+          "phone": "R",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "phone": "EH",
+          "start": 2.92,
+          "end": 2.97
+        },
+        {
+          "phone": "R",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "phone": "AE",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "phone": "N",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "phone": "S",
+          "start": 3.19,
+          "end": 3.26
+        },
+        {
+          "phone": "ER",
+          "start": 3.26,
+          "end": 3.31
+        },
+        {
+          "phone": "W",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "phone": "IH",
+          "start": 3.37,
+          "end": 3.4
+        },
+        {
+          "phone": "TH",
+          "start": 3.4,
+          "end": 3.46
+        },
+        {
+          "phone": "AH",
+          "start": 3.46,
+          "end": 3.5
+        },
+        {
+          "phone": "N",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "phone": "OW",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "phone": "T",
+          "start": 3.7,
+          "end": 3.76
+        },
+        {
+          "phone": "S",
+          "start": 3.76,
+          "end": 3.93
+        },
+        {
+          "phone": "+NSN+",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "phone": "SIL",
+          "start": 4.05,
+          "end": 4.22
+        },
+        {
+          "phone": "K",
+          "start": 4.22,
+          "end": 4.33
+        },
+        {
+          "phone": "R",
+          "start": 4.33,
+          "end": 4.48
+        },
+        {
+          "phone": "AE",
+          "start": 4.48,
+          "end": 4.57
+        },
+        {
+          "phone": "K",
+          "start": 4.57,
+          "end": 4.64
+        },
+        {
+          "phone": "T",
+          "start": 4.64,
+          "end": 4.7
+        },
+        {
+          "phone": "EH",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "phone": "N",
+          "start": 4.8,
+          "end": 4.85
+        },
+        {
+          "phone": "IY",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "phone": "B",
+          "start": 4.95,
+          "end": 4.98
+        },
+        {
+          "phone": "IH",
+          "start": 4.98,
+          "end": 5.02
+        },
+        {
+          "phone": "NG",
+          "start": 5.02,
+          "end": 5.07
+        },
+        {
+          "phone": "N",
+          "start": 5.07,
+          "end": 5.12
+        },
+        {
+          "phone": "EH",
+          "start": 5.12,
+          "end": 5.17
+        },
+        {
+          "phone": "T",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "phone": "R",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "phone": "AA",
+          "start": 5.35,
+          "end": 5.5
+        },
+        {
+          "phone": "L",
+          "start": 5.5,
+          "end": 5.57
+        },
+        {
+          "phone": "AH",
+          "start": 5.57,
+          "end": 5.6
+        },
+        {
+          "phone": "B",
+          "start": 5.6,
+          "end": 5.66
+        },
+        {
+          "phone": "+NSN+",
+          "start": 5.66,
+          "end": 5.86
+        },
+        {
+          "phone": "SIL",
+          "start": 5.86,
+          "end": 6.01
+        },
+        {
+          "phone": "AE",
+          "start": 6.01,
+          "end": 6.09
+        },
+        {
+          "phone": "N",
+          "start": 6.09,
+          "end": 6.18
+        },
+        {
+          "phone": "EY",
+          "start": 6.18,
+          "end": 6.29
+        },
+        {
+          "phone": "K",
+          "start": 6.29,
+          "end": 6.36
+        },
+        {
+          "phone": "T",
+          "start": 6.36,
+          "end": 6.5
+        },
+        {
+          "phone": "SH",
+          "start": 6.5,
+          "end": 6.59
+        },
+        {
+          "phone": "UW",
+          "start": 6.59,
+          "end": 6.75
+        },
+        {
+          "phone": "L",
+          "start": 6.75,
+          "end": 6.88
+        },
+        {
+          "phone": "UH",
+          "start": 6.88,
+          "end": 6.92
+        },
+        {
+          "phone": "F",
+          "start": 6.92,
+          "end": 7.05
+        },
+        {
+          "phone": "IY",
+          "start": 7.05,
+          "end": 7.16
+        },
+        {
+          "phone": "K",
+          "start": 7.16,
+          "end": 7.25
+        },
+        {
+          "phone": "AH",
+          "start": 7.25,
+          "end": 7.34
+        },
+        {
+          "phone": "S",
+          "start": 7.34,
+          "end": 7.44
+        },
+        {
+          "phone": "JH",
+          "start": 7.44,
+          "end": 7.53
+        },
+        {
+          "phone": "N",
+          "start": 7.53,
+          "end": 7.61
+        },
+        {
+          "phone": "Z",
+          "start": 7.61,
+          "end": 7.68
+        },
+        {
+          "phone": "AH",
+          "start": 7.68,
+          "end": 7.71
+        },
+        {
+          "phone": "B",
+          "start": 7.71,
+          "end": 7.76
+        },
+        {
+          "phone": "AW",
+          "start": 7.76,
+          "end": 7.84
+        },
+        {
+          "phone": "DH",
+          "start": 7.84,
+          "end": 7.91
+        },
+        {
+          "phone": "AH",
+          "start": 7.91,
+          "end": 7.94
+        },
+        {
+          "phone": "M",
+          "start": 7.94,
+          "end": 8.03
+        },
+        {
+          "phone": "IH",
+          "start": 8.03,
+          "end": 8.08
+        },
+        {
+          "phone": "S",
+          "start": 8.08,
+          "end": 8.17
+        },
+        {
+          "phone": "IY",
+          "start": 8.17,
+          "end": 8.22
+        },
+        {
+          "phone": "NG",
+          "start": 8.22,
+          "end": 8.29
+        },
+        {
+          "phone": "D",
+          "start": 8.29,
+          "end": 8.35
+        },
+        {
+          "phone": "IY",
+          "start": 8.35,
+          "end": 8.44
+        },
+        {
+          "phone": "T",
+          "start": 8.44,
+          "end": 8.51
+        },
+        {
+          "phone": "IH",
+          "start": 8.51,
+          "end": 8.59
+        },
+        {
+          "phone": "L",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "phone": "S",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "phone": "SIL",
+          "start": 8.87,
+          "end": 9.34
+        },
+        {
+          "phone": "Y",
+          "start": 9.34,
+          "end": 9.52
+        },
+        {
+          "phone": "UH",
+          "start": 9.52,
+          "end": 9.55
+        },
+        {
+          "phone": "D",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "phone": "OW",
+          "start": 9.75,
+          "end": 9.87
+        },
+        {
+          "phone": "L",
+          "start": 9.87,
+          "end": 9.91
+        },
+        {
+          "phone": "V",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "phone": "HH",
+          "start": 9.97,
+          "end": 10.07
+        },
+        {
+          "phone": "AE",
+          "start": 10.07,
+          "end": 10.14
+        },
+        {
+          "phone": "F",
+          "start": 10.14,
+          "end": 10.2
+        },
+        {
+          "phone": "T",
+          "start": 10.2,
+          "end": 10.27
+        },
+        {
+          "phone": "IH",
+          "start": 10.27,
+          "end": 10.3
+        },
+        {
+          "phone": "N",
+          "start": 10.3,
+          "end": 10.35
+        },
+        {
+          "phone": "EY",
+          "start": 10.35,
+          "end": 10.44
+        },
+        {
+          "phone": "G",
+          "start": 10.44,
+          "end": 10.5
+        },
+        {
+          "phone": "IH",
+          "start": 10.5,
+          "end": 10.54
+        },
+        {
+          "phone": "K",
+          "start": 10.54,
+          "end": 10.69
+        },
+        {
+          "phone": "AA",
+          "start": 10.69,
+          "end": 10.79
+        },
+        {
+          "phone": "R",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "phone": "D",
+          "start": 10.91,
+          "end": 10.98
+        },
+        {
+          "phone": "SIL",
+          "start": 10.98,
+          "end": 11.09
+        },
+        {
+          "phone": "F",
+          "start": 11.09,
+          "end": 11.17
+        },
+        {
+          "phone": "ER",
+          "start": 11.17,
+          "end": 11.27
+        },
+        {
+          "phone": "AE",
+          "start": 11.27,
+          "end": 11.38
+        },
+        {
+          "phone": "V",
+          "start": 11.38,
+          "end": 11.44
+        },
+        {
+          "phone": "R",
+          "start": 11.44,
+          "end": 11.5
+        },
+        {
+          "phone": "IY",
+          "start": 11.5,
+          "end": 11.55
+        },
+        {
+          "phone": "S",
+          "start": 11.55,
+          "end": 11.65
+        },
+        {
+          "phone": "EH",
+          "start": 11.65,
+          "end": 11.7
+        },
+        {
+          "phone": "N",
+          "start": 11.7,
+          "end": 11.75
+        },
+        {
+          "phone": "T",
+          "start": 11.75,
+          "end": 11.82
+        },
+        {
+          "phone": "AH",
+          "start": 11.82,
+          "end": 11.9
+        },
+        {
+          "phone": "D",
+          "start": 11.9,
+          "end": 11.96
+        },
+        {
+          "phone": "S",
+          "start": 11.96,
+          "end": 12.13
+        },
+        {
+          "phone": "SIL",
+          "start": 12.13,
+          "end": 12.19
+        }
+      ]
+    }
+  ],
+  "model_hashes": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "7d9096c5c3f7d2b18997784c19cb3371d111e12fd3703b1658cd6705fc1c389d"
+    },
+    {
+      "path": "en-us/cmudict-en-us.dict",
+      "sha256": "cb01cf8b6a47f5a97ed46b01e96ea8a924d07d1abfd770f787836013df8537da"
+    },
+    {
+      "path": "en-us/en-us/README",
+      "sha256": "8b88de980568509c646d0527b8414beef136964391903b40996d32f737bf752e"
+    },
+    {
+      "path": "en-us/en-us/feat.params",
+      "sha256": "c982c5f75e2a30c34d2c9ef1f6b129a5a00e67e3e927565076b58664cc2404c9"
+    },
+    {
+      "path": "en-us/en-us/mdef",
+      "sha256": "2360f9a86889c1cfee8bd618a0269387911e5fb2920a594f506b18b8c79683b0"
+    },
+    {
+      "path": "en-us/en-us/means",
+      "sha256": "832019e32cac12eb318964f96f469034acb12d0348eeddc3831831a100cb4dd4"
+    },
+    {
+      "path": "en-us/en-us/noisedict",
+      "sha256": "7295b07df2c204c4f87c6782b6be1a3859d7006d4e3864181c955d6dab105a33"
+    },
+    {
+      "path": "en-us/en-us/sendump",
+      "sha256": "8c9564c0d5bef69ca9d9bf1014abe162f071644cf02cf1fa8a483c3dc165a7a8"
+    },
+    {
+      "path": "en-us/en-us/transition_matrices",
+      "sha256": "c1f7f28ea43177be734be1f88bd7f1b9a853d0e660f8599c67c6eaeca8bb539a"
+    },
+    {
+      "path": "en-us/en-us/variances",
+      "sha256": "b00d696f85e96834fc10f8e5f06428d8c4db6bffdbe5845b6f69bf6efbc48fa5"
+    },
+    {
+      "path": "en-us/en-us-phone.lm.bin",
+      "sha256": "c57e0fa4191b096b1279cfe3a77927f52568fdecfc6624ddb5cec9527c763a54"
+    },
+    {
+      "path": "en-us/en-us.lm.bin",
+      "sha256": "db21d0642286677699e6dbc859d2e5395570222361999387ce60f6e1d01995d6"
+    }
+  ],
+  "semantic_pass": false
+}

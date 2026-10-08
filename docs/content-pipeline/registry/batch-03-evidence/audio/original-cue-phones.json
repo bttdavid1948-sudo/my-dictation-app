@@ -1,0 +1,2041 @@
+{
+  "procedure": "Existing measure-fixed-phenomena.py PCM-only allphone method; finite new input binding only",
+  "pocketsphinx_version": "5.0.4",
+  "resampling": "scipy resample_poly 2/3 from 24k to16k, round clip signed16bit",
+  "model_hashes": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "7d9096c5c3f7d2b18997784c19cb3371d111e12fd3703b1658cd6705fc1c389d"
+    },
+    {
+      "path": "en-us/cmudict-en-us.dict",
+      "sha256": "cb01cf8b6a47f5a97ed46b01e96ea8a924d07d1abfd770f787836013df8537da"
+    },
+    {
+      "path": "en-us/en-us/README",
+      "sha256": "8b88de980568509c646d0527b8414beef136964391903b40996d32f737bf752e"
+    },
+    {
+      "path": "en-us/en-us/feat.params",
+      "sha256": "c982c5f75e2a30c34d2c9ef1f6b129a5a00e67e3e927565076b58664cc2404c9"
+    },
+    {
+      "path": "en-us/en-us/mdef",
+      "sha256": "2360f9a86889c1cfee8bd618a0269387911e5fb2920a594f506b18b8c79683b0"
+    },
+    {
+      "path": "en-us/en-us/means",
+      "sha256": "832019e32cac12eb318964f96f469034acb12d0348eeddc3831831a100cb4dd4"
+    },
+    {
+      "path": "en-us/en-us/noisedict",
+      "sha256": "7295b07df2c204c4f87c6782b6be1a3859d7006d4e3864181c955d6dab105a33"
+    },
+    {
+      "path": "en-us/en-us/sendump",
+      "sha256": "8c9564c0d5bef69ca9d9bf1014abe162f071644cf02cf1fa8a483c3dc165a7a8"
+    },
+    {
+      "path": "en-us/en-us/transition_matrices",
+      "sha256": "c1f7f28ea43177be734be1f88bd7f1b9a853d0e660f8599c67c6eaeca8bb539a"
+    },
+    {
+      "path": "en-us/en-us/variances",
+      "sha256": "b00d696f85e96834fc10f8e5f06428d8c4db6bffdbe5845b6f69bf6efbc48fa5"
+    },
+    {
+      "path": "en-us/en-us-phone.lm.bin",
+      "sha256": "c57e0fa4191b096b1279cfe3a77927f52568fdecfc6624ddb5cec9527c763a54"
+    },
+    {
+      "path": "en-us/en-us.lm.bin",
+      "sha256": "db21d0642286677699e6dbc859d2e5395570222361999387ce60f6e1d01995d6"
+    }
+  ],
+  "segments": [
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S001",
+      "sha256": "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644",
+      "hypotheses": [
+        {
+          "method": "ALLPHONE_UNIFORM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.24
+            },
+            {
+              "phone": "AA",
+              "start": 0.24,
+              "end": 0.37
+            },
+            {
+              "phone": "AY",
+              "start": 0.37,
+              "end": 0.5
+            },
+            {
+              "phone": "EY",
+              "start": 0.5,
+              "end": 0.57
+            },
+            {
+              "phone": "K",
+              "start": 0.57,
+              "end": 0.64
+            },
+            {
+              "phone": "T",
+              "start": 0.64,
+              "end": 0.69
+            },
+            {
+              "phone": "HH",
+              "start": 0.69,
+              "end": 0.81
+            },
+            {
+              "phone": "AE",
+              "start": 0.81,
+              "end": 0.95
+            },
+            {
+              "phone": "CH",
+              "start": 0.95,
+              "end": 1.06
+            },
+            {
+              "phone": "R",
+              "start": 1.06,
+              "end": 1.15
+            },
+            {
+              "phone": "AH",
+              "start": 1.15,
+              "end": 1.18
+            },
+            {
+              "phone": "M",
+              "start": 1.18,
+              "end": 1.29
+            },
+            {
+              "phone": "EH",
+              "start": 1.29,
+              "end": 1.36
+            },
+            {
+              "phone": "M",
+              "start": 1.36,
+              "end": 1.44
+            },
+            {
+              "phone": "B",
+              "start": 1.44,
+              "end": 1.5
+            },
+            {
+              "phone": "ER",
+              "start": 1.5,
+              "end": 1.59
+            },
+            {
+              "phone": "IH",
+              "start": 1.59,
+              "end": 1.62
+            },
+            {
+              "phone": "DH",
+              "start": 1.62,
+              "end": 1.71
+            },
+            {
+              "phone": "IH",
+              "start": 1.71,
+              "end": 1.79
+            },
+            {
+              "phone": "S",
+              "start": 1.79,
+              "end": 1.92
+            },
+            {
+              "phone": "W",
+              "start": 1.92,
+              "end": 2.07
+            },
+            {
+              "phone": "ER",
+              "start": 2.07,
+              "end": 2.17
+            },
+            {
+              "phone": "L",
+              "start": 2.17,
+              "end": 2.23
+            },
+            {
+              "phone": "ER",
+              "start": 2.23,
+              "end": 2.31
+            },
+            {
+              "phone": "D",
+              "start": 2.31,
+              "end": 2.45
+            },
+            {
+              "phone": "D",
+              "start": 2.45,
+              "end": 2.49
+            },
+            {
+              "phone": "SIL",
+              "start": 2.49,
+              "end": 2.69
+            }
+          ]
+        },
+        {
+          "method": "ALLPHONE_PHONE_LM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.24
+            },
+            {
+              "phone": "AY",
+              "start": 0.24,
+              "end": 0.52
+            },
+            {
+              "phone": "IY",
+              "start": 0.52,
+              "end": 0.59
+            },
+            {
+              "phone": "T",
+              "start": 0.59,
+              "end": 0.69
+            },
+            {
+              "phone": "HH",
+              "start": 0.69,
+              "end": 0.81
+            },
+            {
+              "phone": "AE",
+              "start": 0.81,
+              "end": 0.95
+            },
+            {
+              "phone": "CH",
+              "start": 0.95,
+              "end": 1.06
+            },
+            {
+              "phone": "R",
+              "start": 1.06,
+              "end": 1.15
+            },
+            {
+              "phone": "UH",
+              "start": 1.15,
+              "end": 1.18
+            },
+            {
+              "phone": "M",
+              "start": 1.18,
+              "end": 1.29
+            },
+            {
+              "phone": "EH",
+              "start": 1.29,
+              "end": 1.36
+            },
+            {
+              "phone": "M",
+              "start": 1.36,
+              "end": 1.44
+            },
+            {
+              "phone": "G",
+              "start": 1.44,
+              "end": 1.5
+            },
+            {
+              "phone": "ER",
+              "start": 1.5,
+              "end": 1.62
+            },
+            {
+              "phone": "DH",
+              "start": 1.62,
+              "end": 1.71
+            },
+            {
+              "phone": "IH",
+              "start": 1.71,
+              "end": 1.79
+            },
+            {
+              "phone": "S",
+              "start": 1.79,
+              "end": 1.92
+            },
+            {
+              "phone": "W",
+              "start": 1.92,
+              "end": 2.07
+            },
+            {
+              "phone": "ER",
+              "start": 2.07,
+              "end": 2.31
+            },
+            {
+              "phone": "D",
+              "start": 2.31,
+              "end": 2.42
+            },
+            {
+              "phone": "SIL",
+              "start": 2.42,
+              "end": 2.69
+            }
+          ]
+        }
+      ],
+      "word_attribution": "PENDING_UNPROMPTED_WORD_BOUNDARIES",
+      "semantic_pass": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S004",
+      "sha256": "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628",
+      "hypotheses": [
+        {
+          "method": "ALLPHONE_UNIFORM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.03
+            },
+            {
+              "phone": "Y",
+              "start": 0.03,
+              "end": 0.08
+            },
+            {
+              "phone": "UW",
+              "start": 0.08,
+              "end": 0.12
+            },
+            {
+              "phone": "K",
+              "start": 0.12,
+              "end": 0.2
+            },
+            {
+              "phone": "IH",
+              "start": 0.2,
+              "end": 0.24
+            },
+            {
+              "phone": "N",
+              "start": 0.24,
+              "end": 0.31
+            },
+            {
+              "phone": "F",
+              "start": 0.31,
+              "end": 0.37
+            },
+            {
+              "phone": "R",
+              "start": 0.37,
+              "end": 0.41
+            },
+            {
+              "phone": "AE",
+              "start": 0.41,
+              "end": 0.51
+            },
+            {
+              "phone": "K",
+              "start": 0.51,
+              "end": 0.57
+            },
+            {
+              "phone": "G",
+              "start": 0.57,
+              "end": 0.64
+            },
+            {
+              "phone": "IH",
+              "start": 0.64,
+              "end": 0.7
+            },
+            {
+              "phone": "Z",
+              "start": 0.7,
+              "end": 0.8
+            },
+            {
+              "phone": "DH",
+              "start": 0.8,
+              "end": 0.83
+            },
+            {
+              "phone": "AH",
+              "start": 0.83,
+              "end": 0.86
+            },
+            {
+              "phone": "TH",
+              "start": 0.86,
+              "end": 0.91
+            },
+            {
+              "phone": "AH",
+              "start": 0.91,
+              "end": 0.94
+            },
+            {
+              "phone": "P",
+              "start": 0.94,
+              "end": 1.07
+            },
+            {
+              "phone": "ER",
+              "start": 1.07,
+              "end": 1.18
+            },
+            {
+              "phone": "G",
+              "start": 1.18,
+              "end": 1.23
+            },
+            {
+              "phone": "IH",
+              "start": 1.23,
+              "end": 1.26
+            },
+            {
+              "phone": "ER",
+              "start": 1.26,
+              "end": 1.31
+            },
+            {
+              "phone": "F",
+              "start": 1.31,
+              "end": 1.44
+            },
+            {
+              "phone": "ER",
+              "start": 1.44,
+              "end": 1.59
+            },
+            {
+              "phone": "S",
+              "start": 1.59,
+              "end": 1.71
+            },
+            {
+              "phone": "T",
+              "start": 1.71,
+              "end": 1.79
+            },
+            {
+              "phone": "+NSN+",
+              "start": 1.79,
+              "end": 1.91
+            },
+            {
+              "phone": "SIL",
+              "start": 1.91,
+              "end": 2.19
+            },
+            {
+              "phone": "IY",
+              "start": 2.19,
+              "end": 2.32
+            },
+            {
+              "phone": "CH",
+              "start": 2.32,
+              "end": 2.4
+            },
+            {
+              "phone": "K",
+              "start": 2.4,
+              "end": 2.49
+            },
+            {
+              "phone": "EH",
+              "start": 2.49,
+              "end": 2.59
+            },
+            {
+              "phone": "R",
+              "start": 2.59,
+              "end": 2.64
+            },
+            {
+              "phone": "HH",
+              "start": 2.64,
+              "end": 2.71
+            },
+            {
+              "phone": "EH",
+              "start": 2.71,
+              "end": 2.75
+            },
+            {
+              "phone": "Z",
+              "start": 2.75,
+              "end": 2.82
+            },
+            {
+              "phone": "AH",
+              "start": 2.82,
+              "end": 2.85
+            },
+            {
+              "phone": "F",
+              "start": 2.85,
+              "end": 2.94
+            },
+            {
+              "phone": "HH",
+              "start": 2.94,
+              "end": 3.0
+            },
+            {
+              "phone": "Y",
+              "start": 3.0,
+              "end": 3.06
+            },
+            {
+              "phone": "UW",
+              "start": 3.06,
+              "end": 3.09
+            },
+            {
+              "phone": "M",
+              "start": 3.09,
+              "end": 3.15
+            },
+            {
+              "phone": "EH",
+              "start": 3.15,
+              "end": 3.19
+            },
+            {
+              "phone": "N",
+              "start": 3.19,
+              "end": 3.24
+            },
+            {
+              "phone": "AE",
+              "start": 3.24,
+              "end": 3.32
+            },
+            {
+              "phone": "T",
+              "start": 3.32,
+              "end": 3.39
+            },
+            {
+              "phone": "S",
+              "start": 3.39,
+              "end": 3.55
+            },
+            {
+              "phone": "SIL",
+              "start": 3.55,
+              "end": 3.63
+            },
+            {
+              "phone": "B",
+              "start": 3.63,
+              "end": 3.68
+            },
+            {
+              "phone": "UH",
+              "start": 3.68,
+              "end": 3.72
+            },
+            {
+              "phone": "F",
+              "start": 3.72,
+              "end": 3.84
+            },
+            {
+              "phone": "OW",
+              "start": 3.84,
+              "end": 3.89
+            },
+            {
+              "phone": "W",
+              "start": 3.89,
+              "end": 3.94
+            },
+            {
+              "phone": "IY",
+              "start": 3.94,
+              "end": 4.02
+            },
+            {
+              "phone": "HH",
+              "start": 4.02,
+              "end": 4.06
+            },
+            {
+              "phone": "AO",
+              "start": 4.06,
+              "end": 4.23
+            },
+            {
+              "phone": "L",
+              "start": 4.23,
+              "end": 4.28
+            },
+            {
+              "phone": "T",
+              "start": 4.28,
+              "end": 4.34
+            },
+            {
+              "phone": "HH",
+              "start": 4.34,
+              "end": 4.38
+            },
+            {
+              "phone": "AA",
+              "start": 4.38,
+              "end": 4.45
+            },
+            {
+              "phone": "P",
+              "start": 4.45,
+              "end": 4.51
+            },
+            {
+              "phone": "T",
+              "start": 4.51,
+              "end": 4.58
+            },
+            {
+              "phone": "IY",
+              "start": 4.58,
+              "end": 4.62
+            },
+            {
+              "phone": "G",
+              "start": 4.62,
+              "end": 4.68
+            },
+            {
+              "phone": "EH",
+              "start": 4.68,
+              "end": 4.74
+            },
+            {
+              "phone": "V",
+              "start": 4.74,
+              "end": 4.78
+            },
+            {
+              "phone": "EH",
+              "start": 4.78,
+              "end": 4.85
+            },
+            {
+              "phone": "ER",
+              "start": 4.85,
+              "end": 4.98
+            },
+            {
+              "phone": "SIL",
+              "start": 4.98,
+              "end": 5.09
+            }
+          ]
+        },
+        {
+          "method": "ALLPHONE_PHONE_LM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.03
+            },
+            {
+              "phone": "IY",
+              "start": 0.03,
+              "end": 0.11
+            },
+            {
+              "phone": "K",
+              "start": 0.11,
+              "end": 0.2
+            },
+            {
+              "phone": "IH",
+              "start": 0.2,
+              "end": 0.24
+            },
+            {
+              "phone": "N",
+              "start": 0.24,
+              "end": 0.31
+            },
+            {
+              "phone": "P",
+              "start": 0.31,
+              "end": 0.38
+            },
+            {
+              "phone": "AE",
+              "start": 0.38,
+              "end": 0.51
+            },
+            {
+              "phone": "K",
+              "start": 0.51,
+              "end": 0.57
+            },
+            {
+              "phone": "T",
+              "start": 0.57,
+              "end": 0.62
+            },
+            {
+              "phone": "IH",
+              "start": 0.62,
+              "end": 0.7
+            },
+            {
+              "phone": "Z",
+              "start": 0.7,
+              "end": 0.81
+            },
+            {
+              "phone": "UH",
+              "start": 0.81,
+              "end": 0.86
+            },
+            {
+              "phone": "DH",
+              "start": 0.86,
+              "end": 0.91
+            },
+            {
+              "phone": "AH",
+              "start": 0.91,
+              "end": 0.94
+            },
+            {
+              "phone": "P",
+              "start": 0.94,
+              "end": 1.07
+            },
+            {
+              "phone": "ER",
+              "start": 1.07,
+              "end": 1.18
+            },
+            {
+              "phone": "G",
+              "start": 1.18,
+              "end": 1.24
+            },
+            {
+              "phone": "ER",
+              "start": 1.24,
+              "end": 1.31
+            },
+            {
+              "phone": "F",
+              "start": 1.31,
+              "end": 1.44
+            },
+            {
+              "phone": "ER",
+              "start": 1.44,
+              "end": 1.59
+            },
+            {
+              "phone": "S",
+              "start": 1.59,
+              "end": 1.71
+            },
+            {
+              "phone": "T",
+              "start": 1.71,
+              "end": 1.79
+            },
+            {
+              "phone": "+NSN+",
+              "start": 1.79,
+              "end": 1.91
+            },
+            {
+              "phone": "SIL",
+              "start": 1.91,
+              "end": 2.19
+            },
+            {
+              "phone": "IY",
+              "start": 2.19,
+              "end": 2.32
+            },
+            {
+              "phone": "CH",
+              "start": 2.32,
+              "end": 2.4
+            },
+            {
+              "phone": "P",
+              "start": 2.4,
+              "end": 2.49
+            },
+            {
+              "phone": "EH",
+              "start": 2.49,
+              "end": 2.59
+            },
+            {
+              "phone": "R",
+              "start": 2.59,
+              "end": 2.64
+            },
+            {
+              "phone": "HH",
+              "start": 2.64,
+              "end": 2.71
+            },
+            {
+              "phone": "EH",
+              "start": 2.71,
+              "end": 2.75
+            },
+            {
+              "phone": "Z",
+              "start": 2.75,
+              "end": 2.82
+            },
+            {
+              "phone": "AH",
+              "start": 2.82,
+              "end": 2.85
+            },
+            {
+              "phone": "F",
+              "start": 2.85,
+              "end": 2.96
+            },
+            {
+              "phone": "Y",
+              "start": 2.96,
+              "end": 3.06
+            },
+            {
+              "phone": "M",
+              "start": 3.06,
+              "end": 3.15
+            },
+            {
+              "phone": "EH",
+              "start": 3.15,
+              "end": 3.19
+            },
+            {
+              "phone": "N",
+              "start": 3.19,
+              "end": 3.24
+            },
+            {
+              "phone": "AE",
+              "start": 3.24,
+              "end": 3.32
+            },
+            {
+              "phone": "T",
+              "start": 3.32,
+              "end": 3.39
+            },
+            {
+              "phone": "S",
+              "start": 3.39,
+              "end": 3.55
+            },
+            {
+              "phone": "SIL",
+              "start": 3.55,
+              "end": 3.63
+            },
+            {
+              "phone": "B",
+              "start": 3.63,
+              "end": 3.68
+            },
+            {
+              "phone": "UH",
+              "start": 3.68,
+              "end": 3.72
+            },
+            {
+              "phone": "F",
+              "start": 3.72,
+              "end": 3.84
+            },
+            {
+              "phone": "OW",
+              "start": 3.84,
+              "end": 3.89
+            },
+            {
+              "phone": "W",
+              "start": 3.89,
+              "end": 3.94
+            },
+            {
+              "phone": "IY",
+              "start": 3.94,
+              "end": 4.02
+            },
+            {
+              "phone": "HH",
+              "start": 4.02,
+              "end": 4.06
+            },
+            {
+              "phone": "AO",
+              "start": 4.06,
+              "end": 4.23
+            },
+            {
+              "phone": "L",
+              "start": 4.23,
+              "end": 4.28
+            },
+            {
+              "phone": "T",
+              "start": 4.28,
+              "end": 4.37
+            },
+            {
+              "phone": "AA",
+              "start": 4.37,
+              "end": 4.45
+            },
+            {
+              "phone": "P",
+              "start": 4.45,
+              "end": 4.51
+            },
+            {
+              "phone": "T",
+              "start": 4.51,
+              "end": 4.58
+            },
+            {
+              "phone": "IH",
+              "start": 4.58,
+              "end": 4.62
+            },
+            {
+              "phone": "G",
+              "start": 4.62,
+              "end": 4.68
+            },
+            {
+              "phone": "EH",
+              "start": 4.68,
+              "end": 4.74
+            },
+            {
+              "phone": "V",
+              "start": 4.74,
+              "end": 4.78
+            },
+            {
+              "phone": "EH",
+              "start": 4.78,
+              "end": 4.85
+            },
+            {
+              "phone": "ER",
+              "start": 4.85,
+              "end": 4.98
+            },
+            {
+              "phone": "SIL",
+              "start": 4.98,
+              "end": 5.09
+            }
+          ]
+        }
+      ],
+      "word_attribution": "PENDING_UNPROMPTED_WORD_BOUNDARIES",
+      "semantic_pass": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S006",
+      "sha256": "a5b2f0788eca5d39b88a58fdd44bd7983d67a0406d9ddc1efc5f4cc38d4bf314",
+      "hypotheses": [
+        {
+          "method": "ALLPHONE_UNIFORM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.03
+            },
+            {
+              "phone": "JH",
+              "start": 0.03,
+              "end": 0.12
+            },
+            {
+              "phone": "AE",
+              "start": 0.12,
+              "end": 0.23
+            },
+            {
+              "phone": "S",
+              "start": 0.23,
+              "end": 0.33
+            },
+            {
+              "phone": "T",
+              "start": 0.33,
+              "end": 0.39
+            },
+            {
+              "phone": "CH",
+              "start": 0.39,
+              "end": 0.57
+            },
+            {
+              "phone": "AE",
+              "start": 0.57,
+              "end": 0.65
+            },
+            {
+              "phone": "K",
+              "start": 0.65,
+              "end": 0.74
+            },
+            {
+              "phone": "DH",
+              "start": 0.74,
+              "end": 0.79
+            },
+            {
+              "phone": "EH",
+              "start": 0.79,
+              "end": 0.83
+            },
+            {
+              "phone": "OW",
+              "start": 0.83,
+              "end": 0.89
+            },
+            {
+              "phone": "Z",
+              "start": 0.89,
+              "end": 0.97
+            },
+            {
+              "phone": "P",
+              "start": 0.97,
+              "end": 1.07
+            },
+            {
+              "phone": "ER",
+              "start": 1.07,
+              "end": 1.17
+            },
+            {
+              "phone": "TH",
+              "start": 1.17,
+              "end": 1.22
+            },
+            {
+              "phone": "S",
+              "start": 1.22,
+              "end": 1.28
+            },
+            {
+              "phone": "F",
+              "start": 1.28,
+              "end": 1.35
+            },
+            {
+              "phone": "R",
+              "start": 1.35,
+              "end": 1.42
+            },
+            {
+              "phone": "N",
+              "start": 1.42,
+              "end": 1.46
+            },
+            {
+              "phone": "AE",
+              "start": 1.46,
+              "end": 1.53
+            },
+            {
+              "phone": "AW",
+              "start": 1.53,
+              "end": 1.69
+            },
+            {
+              "phone": "SIL",
+              "start": 1.69,
+              "end": 2.22
+            },
+            {
+              "phone": "K",
+              "start": 2.22,
+              "end": 2.29
+            },
+            {
+              "phone": "AH",
+              "start": 2.29,
+              "end": 2.33
+            },
+            {
+              "phone": "M",
+              "start": 2.33,
+              "end": 2.36
+            },
+            {
+              "phone": "D",
+              "start": 2.36,
+              "end": 2.41
+            },
+            {
+              "phone": "HH",
+              "start": 2.41,
+              "end": 2.46
+            },
+            {
+              "phone": "EH",
+              "start": 2.46,
+              "end": 2.52
+            },
+            {
+              "phone": "R",
+              "start": 2.52,
+              "end": 2.59
+            },
+            {
+              "phone": "Y",
+              "start": 2.59,
+              "end": 2.66
+            },
+            {
+              "phone": "UH",
+              "start": 2.66,
+              "end": 2.69
+            },
+            {
+              "phone": "R",
+              "start": 2.69,
+              "end": 2.76
+            },
+            {
+              "phone": "AE",
+              "start": 2.76,
+              "end": 2.9
+            },
+            {
+              "phone": "N",
+              "start": 2.9,
+              "end": 2.93
+            },
+            {
+              "phone": "S",
+              "start": 2.93,
+              "end": 3.01
+            },
+            {
+              "phone": "ER",
+              "start": 3.01,
+              "end": 3.07
+            },
+            {
+              "phone": "W",
+              "start": 3.07,
+              "end": 3.12
+            },
+            {
+              "phone": "IH",
+              "start": 3.12,
+              "end": 3.15
+            },
+            {
+              "phone": "TH",
+              "start": 3.15,
+              "end": 3.23
+            },
+            {
+              "phone": "AH",
+              "start": 3.23,
+              "end": 3.26
+            },
+            {
+              "phone": "N",
+              "start": 3.26,
+              "end": 3.33
+            },
+            {
+              "phone": "EH",
+              "start": 3.33,
+              "end": 3.37
+            },
+            {
+              "phone": "OW",
+              "start": 3.37,
+              "end": 3.48
+            },
+            {
+              "phone": "T",
+              "start": 3.48,
+              "end": 3.54
+            },
+            {
+              "phone": "S",
+              "start": 3.54,
+              "end": 3.7
+            },
+            {
+              "phone": "D",
+              "start": 3.7,
+              "end": 3.74
+            },
+            {
+              "phone": "SIL",
+              "start": 3.74,
+              "end": 3.99
+            },
+            {
+              "phone": "K",
+              "start": 3.99,
+              "end": 4.09
+            },
+            {
+              "phone": "R",
+              "start": 4.09,
+              "end": 4.21
+            },
+            {
+              "phone": "AE",
+              "start": 4.21,
+              "end": 4.26
+            },
+            {
+              "phone": "K",
+              "start": 4.26,
+              "end": 4.34
+            },
+            {
+              "phone": "D",
+              "start": 4.34,
+              "end": 4.4
+            },
+            {
+              "phone": "AE",
+              "start": 4.4,
+              "end": 4.48
+            },
+            {
+              "phone": "N",
+              "start": 4.48,
+              "end": 4.52
+            },
+            {
+              "phone": "IY",
+              "start": 4.52,
+              "end": 4.61
+            },
+            {
+              "phone": "TH",
+              "start": 4.61,
+              "end": 4.66
+            },
+            {
+              "phone": "IY",
+              "start": 4.66,
+              "end": 4.69
+            },
+            {
+              "phone": "NG",
+              "start": 4.69,
+              "end": 4.78
+            },
+            {
+              "phone": "EH",
+              "start": 4.78,
+              "end": 4.85
+            },
+            {
+              "phone": "T",
+              "start": 4.85,
+              "end": 4.95
+            },
+            {
+              "phone": "R",
+              "start": 4.95,
+              "end": 5.02
+            },
+            {
+              "phone": "AA",
+              "start": 5.02,
+              "end": 5.19
+            },
+            {
+              "phone": "N",
+              "start": 5.19,
+              "end": 5.28
+            },
+            {
+              "phone": "P",
+              "start": 5.28,
+              "end": 5.33
+            },
+            {
+              "phone": "+NSN+",
+              "start": 5.33,
+              "end": 5.54
+            },
+            {
+              "phone": "SIL",
+              "start": 5.54,
+              "end": 5.69
+            },
+            {
+              "phone": "AE",
+              "start": 5.69,
+              "end": 5.75
+            },
+            {
+              "phone": "N",
+              "start": 5.75,
+              "end": 5.84
+            },
+            {
+              "phone": "EY",
+              "start": 5.84,
+              "end": 5.92
+            },
+            {
+              "phone": "K",
+              "start": 5.92,
+              "end": 5.99
+            },
+            {
+              "phone": "T",
+              "start": 5.99,
+              "end": 6.09
+            },
+            {
+              "phone": "SH",
+              "start": 6.09,
+              "end": 6.16
+            },
+            {
+              "phone": "Y",
+              "start": 6.16,
+              "end": 6.22
+            },
+            {
+              "phone": "UW",
+              "start": 6.22,
+              "end": 6.28
+            },
+            {
+              "phone": "OW",
+              "start": 6.28,
+              "end": 6.36
+            },
+            {
+              "phone": "L",
+              "start": 6.36,
+              "end": 6.41
+            },
+            {
+              "phone": "P",
+              "start": 6.41,
+              "end": 6.48
+            },
+            {
+              "phone": "AO",
+              "start": 6.48,
+              "end": 6.53
+            },
+            {
+              "phone": "AH",
+              "start": 6.53,
+              "end": 6.57
+            },
+            {
+              "phone": "F",
+              "start": 6.57,
+              "end": 6.69
+            },
+            {
+              "phone": "R",
+              "start": 6.69,
+              "end": 6.73
+            },
+            {
+              "phone": "IY",
+              "start": 6.73,
+              "end": 6.81
+            },
+            {
+              "phone": "K",
+              "start": 6.81,
+              "end": 6.89
+            },
+            {
+              "phone": "W",
+              "start": 6.89,
+              "end": 6.94
+            },
+            {
+              "phone": "EH",
+              "start": 6.94,
+              "end": 6.99
+            },
+            {
+              "phone": "S",
+              "start": 6.99,
+              "end": 7.1
+            },
+            {
+              "phone": "JH",
+              "start": 7.1,
+              "end": 7.18
+            },
+            {
+              "phone": "EH",
+              "start": 7.18,
+              "end": 7.22
+            },
+            {
+              "phone": "N",
+              "start": 7.22,
+              "end": 7.28
+            },
+            {
+              "phone": "Z",
+              "start": 7.28,
+              "end": 7.37
+            },
+            {
+              "phone": "AH",
+              "start": 7.37,
+              "end": 7.41
+            },
+            {
+              "phone": "B",
+              "start": 7.41,
+              "end": 7.46
+            },
+            {
+              "phone": "AW",
+              "start": 7.46,
+              "end": 7.55
+            },
+            {
+              "phone": "P",
+              "start": 7.55,
+              "end": 7.59
+            },
+            {
+              "phone": "DH",
+              "start": 7.59,
+              "end": 7.63
+            },
+            {
+              "phone": "AH",
+              "start": 7.63,
+              "end": 7.66
+            },
+            {
+              "phone": "M",
+              "start": 7.66,
+              "end": 7.73
+            },
+            {
+              "phone": "IH",
+              "start": 7.73,
+              "end": 7.78
+            },
+            {
+              "phone": "S",
+              "start": 7.78,
+              "end": 7.87
+            },
+            {
+              "phone": "IH",
+              "start": 7.87,
+              "end": 7.91
+            },
+            {
+              "phone": "NG",
+              "start": 7.91,
+              "end": 7.98
+            },
+            {
+              "phone": "D",
+              "start": 7.98,
+              "end": 8.02
+            },
+            {
+              "phone": "IY",
+              "start": 8.02,
+              "end": 8.12
+            },
+            {
+              "phone": "T",
+              "start": 8.12,
+              "end": 8.2
+            },
+            {
+              "phone": "EH",
+              "start": 8.2,
+              "end": 8.28
+            },
+            {
+              "phone": "AW",
+              "start": 8.28,
+              "end": 8.36
+            },
+            {
+              "phone": "L",
+              "start": 8.36,
+              "end": 8.4
+            },
+            {
+              "phone": "S",
+              "start": 8.4,
+              "end": 8.54
+            },
+            {
+              "phone": "SIL",
+              "start": 8.54,
+              "end": 8.89
+            }
+          ]
+        },
+        {
+          "method": "ALLPHONE_PHONE_LM",
+          "reference_text_supplied": false,
+          "phones": [
+            {
+              "phone": "SIL",
+              "start": 0.0,
+              "end": 0.03
+            },
+            {
+              "phone": "JH",
+              "start": 0.03,
+              "end": 0.12
+            },
+            {
+              "phone": "AE",
+              "start": 0.12,
+              "end": 0.23
+            },
+            {
+              "phone": "S",
+              "start": 0.23,
+              "end": 0.33
+            },
+            {
+              "phone": "T",
+              "start": 0.33,
+              "end": 0.39
+            },
+            {
+              "phone": "CH",
+              "start": 0.39,
+              "end": 0.57
+            },
+            {
+              "phone": "AE",
+              "start": 0.57,
+              "end": 0.65
+            },
+            {
+              "phone": "K",
+              "start": 0.65,
+              "end": 0.74
+            },
+            {
+              "phone": "DH",
+              "start": 0.74,
+              "end": 0.8
+            },
+            {
+              "phone": "OW",
+              "start": 0.8,
+              "end": 0.89
+            },
+            {
+              "phone": "Z",
+              "start": 0.89,
+              "end": 0.97
+            },
+            {
+              "phone": "P",
+              "start": 0.97,
+              "end": 1.07
+            },
+            {
+              "phone": "ER",
+              "start": 1.07,
+              "end": 1.18
+            },
+            {
+              "phone": "S",
+              "start": 1.18,
+              "end": 1.28
+            },
+            {
+              "phone": "F",
+              "start": 1.28,
+              "end": 1.35
+            },
+            {
+              "phone": "R",
+              "start": 1.35,
+              "end": 1.42
+            },
+            {
+              "phone": "N",
+              "start": 1.42,
+              "end": 1.46
+            },
+            {
+              "phone": "AE",
+              "start": 1.46,
+              "end": 1.53
+            },
+            {
+              "phone": "AW",
+              "start": 1.53,
+              "end": 1.69
+            },
+            {
+              "phone": "SIL",
+              "start": 1.69,
+              "end": 2.22
+            },
+            {
+              "phone": "K",
+              "start": 2.22,
+              "end": 2.29
+            },
+            {
+              "phone": "AH",
+              "start": 2.29,
+              "end": 2.33
+            },
+            {
+              "phone": "N",
+              "start": 2.33,
+              "end": 2.39
+            },
+            {
+              "phone": "K",
+              "start": 2.39,
+              "end": 2.45
+            },
+            {
+              "phone": "EH",
+              "start": 2.45,
+              "end": 2.52
+            },
+            {
+              "phone": "R",
+              "start": 2.52,
+              "end": 2.59
+            },
+            {
+              "phone": "IY",
+              "start": 2.59,
+              "end": 2.66
+            },
+            {
+              "phone": "R",
+              "start": 2.66,
+              "end": 2.76
+            },
+            {
+              "phone": "AE",
+              "start": 2.76,
+              "end": 2.9
+            },
+            {
+              "phone": "N",
+              "start": 2.9,
+              "end": 2.93
+            },
+            {
+              "phone": "S",
+              "start": 2.93,
+              "end": 3.01
+            },
+            {
+              "phone": "ER",
+              "start": 3.01,
+              "end": 3.07
+            },
+            {
+              "phone": "W",
+              "start": 3.07,
+              "end": 3.12
+            },
+            {
+              "phone": "IH",
+              "start": 3.12,
+              "end": 3.15
+            },
+            {
+              "phone": "TH",
+              "start": 3.15,
+              "end": 3.23
+            },
+            {
+              "phone": "AH",
+              "start": 3.23,
+              "end": 3.26
+            },
+            {
+              "phone": "N",
+              "start": 3.26,
+              "end": 3.35
+            },
+            {
+              "phone": "OW",
+              "start": 3.35,
+              "end": 3.48
+            },
+            {
+              "phone": "P",
+              "start": 3.48,
+              "end": 3.53
+            },
+            {
+              "phone": "S",
+              "start": 3.53,
+              "end": 3.72
+            },
+            {
+              "phone": "SIL",
+              "start": 3.72,
+              "end": 3.99
+            },
+            {
+              "phone": "K",
+              "start": 3.99,
+              "end": 4.09
+            },
+            {
+              "phone": "R",
+              "start": 4.09,
+              "end": 4.2
+            },
+            {
+              "phone": "EH",
+              "start": 4.2,
+              "end": 4.26
+            },
+            {
+              "phone": "K",
+              "start": 4.26,
+              "end": 4.34
+            },
+            {
+              "phone": "D",
+              "start": 4.34,
+              "end": 4.4
+            },
+            {
+              "phone": "AE",
+              "start": 4.4,
+              "end": 4.48
+            },
+            {
+              "phone": "N",
+              "start": 4.48,
+              "end": 4.52
+            },
+            {
+              "phone": "IY",
+              "start": 4.52,
+              "end": 4.61
+            },
+            {
+              "phone": "TH",
+              "start": 4.61,
+              "end": 4.66
+            },
+            {
+              "phone": "IH",
+              "start": 4.66,
+              "end": 4.69
+            },
+            {
+              "phone": "NG",
+              "start": 4.69,
+              "end": 4.78
+            },
+            {
+              "phone": "EH",
+              "start": 4.78,
+              "end": 4.85
+            },
+            {
+              "phone": "T",
+              "start": 4.85,
+              "end": 4.95
+            },
+            {
+              "phone": "R",
+              "start": 4.95,
+              "end": 5.02
+            },
+            {
+              "phone": "AA",
+              "start": 5.02,
+              "end": 5.19
+            },
+            {
+              "phone": "M",
+              "start": 5.19,
+              "end": 5.3
+            },
+            {
+              "phone": "+NSN+",
+              "start": 5.3,
+              "end": 5.67
+            },
+            {
+              "phone": "AE",
+              "start": 5.67,
+              "end": 5.75
+            },
+            {
+              "phone": "N",
+              "start": 5.75,
+              "end": 5.84
+            },
+            {
+              "phone": "EY",
+              "start": 5.84,
+              "end": 5.93
+            },
+            {
+              "phone": "T",
+              "start": 5.93,
+              "end": 6.0
+            },
+            {
+              "phone": "T",
+              "start": 6.0,
+              "end": 6.16
+            },
+            {
+              "phone": "UW",
+              "start": 6.16,
+              "end": 6.33
+            },
+            {
+              "phone": "L",
+              "start": 6.33,
+              "end": 6.41
+            },
+            {
+              "phone": "B",
+              "start": 6.41,
+              "end": 6.48
+            },
+            {
+              "phone": "AO",
+              "start": 6.48,
+              "end": 6.53
+            },
+            {
+              "phone": "ER",
+              "start": 6.53,
+              "end": 6.57
+            },
+            {
+              "phone": "F",
+              "start": 6.57,
+              "end": 6.69
+            },
+            {
+              "phone": "R",
+              "start": 6.69,
+              "end": 6.73
+            },
+            {
+              "phone": "IY",
+              "start": 6.73,
+              "end": 6.81
+            },
+            {
+              "phone": "K",
+              "start": 6.81,
+              "end": 6.9
+            },
+            {
+              "phone": "AH",
+              "start": 6.9,
+              "end": 6.99
+            },
+            {
+              "phone": "S",
+              "start": 6.99,
+              "end": 7.1
+            },
+            {
+              "phone": "JH",
+              "start": 7.1,
+              "end": 7.18
+            },
+            {
+              "phone": "AH",
+              "start": 7.18,
+              "end": 7.22
+            },
+            {
+              "phone": "N",
+              "start": 7.22,
+              "end": 7.28
+            },
+            {
+              "phone": "Z",
+              "start": 7.28,
+              "end": 7.37
+            },
+            {
+              "phone": "AH",
+              "start": 7.37,
+              "end": 7.41
+            },
+            {
+              "phone": "B",
+              "start": 7.41,
+              "end": 7.45
+            },
+            {
+              "phone": "+SPN+",
+              "start": 7.45,
+              "end": 7.55
+            },
+            {
+              "phone": "P",
+              "start": 7.55,
+              "end": 7.62
+            },
+            {
+              "phone": "AH",
+              "start": 7.62,
+              "end": 7.66
+            },
+            {
+              "phone": "M",
+              "start": 7.66,
+              "end": 7.73
+            },
+            {
+              "phone": "IH",
+              "start": 7.73,
+              "end": 7.78
+            },
+            {
+              "phone": "S",
+              "start": 7.78,
+              "end": 7.87
+            },
+            {
+              "phone": "IY",
+              "start": 7.87,
+              "end": 7.91
+            },
+            {
+              "phone": "NG",
+              "start": 7.91,
+              "end": 7.98
+            },
+            {
+              "phone": "D",
+              "start": 7.98,
+              "end": 8.02
+            },
+            {
+              "phone": "IY",
+              "start": 8.02,
+              "end": 8.12
+            },
+            {
+              "phone": "T",
+              "start": 8.12,
+              "end": 8.2
+            },
+            {
+              "phone": "EH",
+              "start": 8.2,
+              "end": 8.33
+            },
+            {
+              "phone": "L",
+              "start": 8.33,
+              "end": 8.4
+            },
+            {
+              "phone": "S",
+              "start": 8.4,
+              "end": 8.54
+            },
+            {
+              "phone": "SIL",
+              "start": 8.54,
+              "end": 8.89
+            }
+          ]
+        }
+      ],
+      "word_attribution": "PENDING_UNPROMPTED_WORD_BOUNDARIES",
+      "semantic_pass": false
+    }
+  ],
+  "limitations": [
+    "Probabilistic phones, not word attribution",
+    "No weak-stress/reduction semantic PASS",
+    "No perceptual or accent certification"
+  ],
+  "paid_calls": 0
+}

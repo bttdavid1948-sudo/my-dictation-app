@@ -1,0 +1,3372 @@
+{
+  "production_run": 37655070920,
+  "scope": "BATCH_03_ONLY",
+  "procedure_precedent": "Batch02 unprompted faster-whisper-base.en ordinary QA; targeted-audio/ordinary_qa.py extraction method",
+  "rows": [
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S001",
+      "sha256": "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644",
+      "input_sha256": "587d14041c269d69b8bfcd379700f1b8599777246c12b173e04b61915415d32a",
+      "instructions_sha256": "330d5f39d548bb773a92676e714578df04094ff4e52958548b6b0a2199037251",
+      "duration_seconds": 2.7,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.280670166015625,
+      "rms": 0.04802930057706434,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 111.1111111111111,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "I can't remember this word.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "I",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.8308218717575073
+        },
+        {
+          "word": "can't",
+          "start": 0.44,
+          "end": 1.0,
+          "probability": 0.9091641902923584
+        },
+        {
+          "word": "remember",
+          "start": 1.0,
+          "end": 1.36,
+          "probability": 0.9974168539047241
+        },
+        {
+          "word": "this",
+          "start": 1.36,
+          "end": 1.8,
+          "probability": 0.9965730905532837
+        },
+        {
+          "word": "word.",
+          "start": 1.8,
+          "end": 2.18,
+          "probability": 0.996653139591217
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S002",
+      "sha256": "b856d5b71a868fdcaf0336b0eac2d7f922308e1c3d6dc96e8e405bbb4d89e980",
+      "input_sha256": "12b3588ea38b90c6a7bad3177b44ee165c52ae705d358a5686615b2a2855967e",
+      "instructions_sha256": "330d5f39d548bb773a92676e714578df04094ff4e52958548b6b0a2199037251",
+      "duration_seconds": 3.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.464813232421875,
+      "rms": 0.06935587803543723,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 176.0,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Write it on a card. Put a picture on the back.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Write",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.630803108215332
+        },
+        {
+          "word": "it",
+          "start": 0.26,
+          "end": 0.42,
+          "probability": 0.9888765215873718
+        },
+        {
+          "word": "on",
+          "start": 0.42,
+          "end": 0.7,
+          "probability": 0.9937766790390015
+        },
+        {
+          "word": "a",
+          "start": 0.7,
+          "end": 0.8,
+          "probability": 0.9938104748725891
+        },
+        {
+          "word": "card.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.9919987320899963
+        },
+        {
+          "word": "Put",
+          "start": 1.74,
+          "end": 1.86,
+          "probability": 0.9916810393333435
+        },
+        {
+          "word": "a",
+          "start": 1.86,
+          "end": 1.96,
+          "probability": 0.9971082806587219
+        },
+        {
+          "word": "picture",
+          "start": 1.96,
+          "end": 2.34,
+          "probability": 0.9972867965698242
+        },
+        {
+          "word": "on",
+          "start": 2.34,
+          "end": 2.8,
+          "probability": 0.9944182634353638
+        },
+        {
+          "word": "the",
+          "start": 2.8,
+          "end": 2.94,
+          "probability": 0.99689781665802
+        },
+        {
+          "word": "back.",
+          "start": 2.94,
+          "end": 3.14,
+          "probability": 0.998371422290802
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S003",
+      "sha256": "ae711235e23ecc675096b41e2d2a778cc076899bc6b36c61319d69c1672fe509",
+      "input_sha256": "fdcf0962901041d08fdaaa56dc30297b3cdf5ff6d2c25161f8ecf5f00824e585",
+      "instructions_sha256": "330d5f39d548bb773a92676e714578df04094ff4e52958548b6b0a2199037251",
+      "duration_seconds": 2.1,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.375457763671875,
+      "rms": 0.05629742218650698,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 200.0,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Do I look at the picture first?",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Do",
+          "start": 0.0,
+          "end": 0.16,
+          "probability": 0.885344386100769
+        },
+        {
+          "word": "I",
+          "start": 0.16,
+          "end": 0.32,
+          "probability": 0.985164999961853
+        },
+        {
+          "word": "look",
+          "start": 0.32,
+          "end": 0.52,
+          "probability": 0.9944420456886292
+        },
+        {
+          "word": "at",
+          "start": 0.52,
+          "end": 0.64,
+          "probability": 0.9963991641998291
+        },
+        {
+          "word": "the",
+          "start": 0.64,
+          "end": 0.76,
+          "probability": 0.9864481687545776
+        },
+        {
+          "word": "picture",
+          "start": 0.76,
+          "end": 1.02,
+          "probability": 0.9753838181495667
+        },
+        {
+          "word": "first?",
+          "start": 1.02,
+          "end": 1.56,
+          "probability": 0.9882850646972656
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S004",
+      "sha256": "e2d5b874275ec11f01b0866f82f777197ec593f8cb4b522ded6af73345001f59",
+      "input_sha256": "081a2ee4b0603bf7ed2e2abe22be0bef1cb198864fb0b8192ac78e13c0c51ec1",
+      "instructions_sha256": "330d5f39d548bb773a92676e714578df04094ff4e52958548b6b0a2199037251",
+      "duration_seconds": 4.45,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.569000244140625,
+      "rms": 0.08980019063399834,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 134.83146067415728,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "No. Read the word first. Then turn the card over.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "No.",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.7480682134628296
+        },
+        {
+          "word": "Read",
+          "start": 1.26,
+          "end": 1.26,
+          "probability": 0.9805936217308044
+        },
+        {
+          "word": "the",
+          "start": 1.26,
+          "end": 1.4,
+          "probability": 0.996249258518219
+        },
+        {
+          "word": "word",
+          "start": 1.4,
+          "end": 1.62,
+          "probability": 0.9863762259483337
+        },
+        {
+          "word": "first.",
+          "start": 1.62,
+          "end": 2.0,
+          "probability": 0.9453128576278687
+        },
+        {
+          "word": "Then",
+          "start": 2.76,
+          "end": 2.98,
+          "probability": 0.9885590076446533
+        },
+        {
+          "word": "turn",
+          "start": 2.98,
+          "end": 3.28,
+          "probability": 0.9508705735206604
+        },
+        {
+          "word": "the",
+          "start": 3.28,
+          "end": 3.5,
+          "probability": 0.9950289130210876
+        },
+        {
+          "word": "card",
+          "start": 3.5,
+          "end": 3.72,
+          "probability": 0.9963921904563904
+        },
+        {
+          "word": "over.",
+          "start": 3.72,
+          "end": 4.12,
+          "probability": 0.9983410835266113
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S001",
+      "sha256": "c41b7e89cfb04db2c8df0766e235df43d166d5d7db3d67e57c212ec653664de8",
+      "input_sha256": "77280ea312e5d7648c3809ca04ceaad1acc454b5805d9ed27b7b2b457ff58b32",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 6.3,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.440887451171875,
+      "rms": 0.05799669098813493,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 152.38095238095238,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Hi. I signed up for the speaking group on Thursday, but I work late that day.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Hi.",
+          "start": 0.0,
+          "end": 0.66,
+          "probability": 0.7798919677734375
+        },
+        {
+          "word": "I",
+          "start": 1.48,
+          "end": 1.56,
+          "probability": 0.9941365718841553
+        },
+        {
+          "word": "signed",
+          "start": 1.56,
+          "end": 1.88,
+          "probability": 0.9966775178909302
+        },
+        {
+          "word": "up",
+          "start": 1.88,
+          "end": 2.06,
+          "probability": 0.9958720803260803
+        },
+        {
+          "word": "for",
+          "start": 2.06,
+          "end": 2.28,
+          "probability": 0.9949012994766235
+        },
+        {
+          "word": "the",
+          "start": 2.28,
+          "end": 2.38,
+          "probability": 0.9749667644500732
+        },
+        {
+          "word": "speaking",
+          "start": 2.38,
+          "end": 2.62,
+          "probability": 0.8073247075080872
+        },
+        {
+          "word": "group",
+          "start": 2.62,
+          "end": 3.08,
+          "probability": 0.9983199238777161
+        },
+        {
+          "word": "on",
+          "start": 3.08,
+          "end": 3.3,
+          "probability": 0.9963651895523071
+        },
+        {
+          "word": "Thursday,",
+          "start": 3.3,
+          "end": 3.56,
+          "probability": 0.9746530652046204
+        },
+        {
+          "word": "but",
+          "start": 4.3,
+          "end": 4.46,
+          "probability": 0.9966214895248413
+        },
+        {
+          "word": "I",
+          "start": 4.46,
+          "end": 4.62,
+          "probability": 0.9956424236297607
+        },
+        {
+          "word": "work",
+          "start": 4.62,
+          "end": 4.84,
+          "probability": 0.8349212408065796
+        },
+        {
+          "word": "late",
+          "start": 4.84,
+          "end": 5.1,
+          "probability": 0.9964982271194458
+        },
+        {
+          "word": "that",
+          "start": 5.1,
+          "end": 5.34,
+          "probability": 0.9974610805511475
+        },
+        {
+          "word": "day.",
+          "start": 5.34,
+          "end": 5.62,
+          "probability": 0.9980687499046326
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S002",
+      "sha256": "21aed37736563a5e141bb2cfeb415fd61ce8958fbd2bf66f801a83715dd93ca7",
+      "input_sha256": "92e1c70b1c7656b5e3c88568b1a7429f99a62ac775a7d90be6d1d644865a657b",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 3.6,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.493194580078125,
+      "rms": 0.08267906444519046,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 183.33333333333334,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "We have a group on Saturday morning. Would that be better?",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "We",
+          "start": 0.0,
+          "end": 0.12,
+          "probability": 0.8152602910995483
+        },
+        {
+          "word": "have",
+          "start": 0.12,
+          "end": 0.36,
+          "probability": 0.9938050508499146
+        },
+        {
+          "word": "a",
+          "start": 0.36,
+          "end": 0.54,
+          "probability": 0.9962942004203796
+        },
+        {
+          "word": "group",
+          "start": 0.54,
+          "end": 0.8,
+          "probability": 0.9937676191329956
+        },
+        {
+          "word": "on",
+          "start": 0.8,
+          "end": 1.06,
+          "probability": 0.9960811734199524
+        },
+        {
+          "word": "Saturday",
+          "start": 1.06,
+          "end": 1.38,
+          "probability": 0.9885332584381104
+        },
+        {
+          "word": "morning.",
+          "start": 1.38,
+          "end": 1.92,
+          "probability": 0.9866048693656921
+        },
+        {
+          "word": "Would",
+          "start": 2.34,
+          "end": 2.44,
+          "probability": 0.9892573952674866
+        },
+        {
+          "word": "that",
+          "start": 2.44,
+          "end": 2.62,
+          "probability": 0.9957914352416992
+        },
+        {
+          "word": "be",
+          "start": 2.62,
+          "end": 2.82,
+          "probability": 0.9910883903503418
+        },
+        {
+          "word": "better?",
+          "start": 2.82,
+          "end": 3.04,
+          "probability": 0.9989780187606812
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S003",
+      "sha256": "9c7a672ca414e6956b9c7e5db071b61abd47ec8b90037f1e0066ff175d66a837",
+      "input_sha256": "09fba9d31f8d331e397618ddfa2efcdacc02bd454c1a3bb73afdb667d01cce99",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 4.8,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.49359130859375,
+      "rms": 0.06944001246411828,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 150.0,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Yes, but I get nervous when I speak in front of everyone.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Yes,",
+          "start": 0.0,
+          "end": 0.26,
+          "probability": 0.7766163945198059
+        },
+        {
+          "word": "but",
+          "start": 0.78,
+          "end": 1.04,
+          "probability": 0.995689332485199
+        },
+        {
+          "word": "I",
+          "start": 1.04,
+          "end": 1.18,
+          "probability": 0.9911502599716187
+        },
+        {
+          "word": "get",
+          "start": 1.18,
+          "end": 1.42,
+          "probability": 0.9987258315086365
+        },
+        {
+          "word": "nervous",
+          "start": 1.42,
+          "end": 1.8,
+          "probability": 0.9972386360168457
+        },
+        {
+          "word": "when",
+          "start": 1.8,
+          "end": 2.14,
+          "probability": 0.9990215301513672
+        },
+        {
+          "word": "I",
+          "start": 2.14,
+          "end": 2.28,
+          "probability": 0.9973616003990173
+        },
+        {
+          "word": "speak",
+          "start": 2.28,
+          "end": 2.56,
+          "probability": 0.9986144304275513
+        },
+        {
+          "word": "in",
+          "start": 2.56,
+          "end": 2.78,
+          "probability": 0.998672366142273
+        },
+        {
+          "word": "front",
+          "start": 2.78,
+          "end": 2.98,
+          "probability": 0.9998291730880737
+        },
+        {
+          "word": "of",
+          "start": 2.98,
+          "end": 3.12,
+          "probability": 0.9996318817138672
+        },
+        {
+          "word": "everyone.",
+          "start": 3.12,
+          "end": 3.56,
+          "probability": 0.9952163696289062
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S004",
+      "sha256": "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628",
+      "input_sha256": "93bdbe5856fd9a99cc85f914894c80d754ede2fa6d16079f06bdd48a6c1eabbb",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 5.1,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.42425537109375,
+      "rms": 0.07079926897924568,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 211.76470588235296,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "You can practice with a partner first. Each pair has a few minutes before we all talk together. other.",
+      "lexical_differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "practise"
+          ],
+          "recognized": [
+            "practice"
+          ]
+        },
+        {
+          "operation": "insert",
+          "expected": [],
+          "recognized": [
+            "other"
+          ]
+        }
+      ],
+      "words": [
+        {
+          "word": "You",
+          "start": 0.0,
+          "end": 0.1,
+          "probability": 0.642122745513916
+        },
+        {
+          "word": "can",
+          "start": 0.1,
+          "end": 0.22,
+          "probability": 0.9989734888076782
+        },
+        {
+          "word": "practice",
+          "start": 0.22,
+          "end": 0.54,
+          "probability": 0.9933630228042603
+        },
+        {
+          "word": "with",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9985826015472412
+        },
+        {
+          "word": "a",
+          "start": 0.86,
+          "end": 0.92,
+          "probability": 0.9733982682228088
+        },
+        {
+          "word": "partner",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9947051405906677
+        },
+        {
+          "word": "first.",
+          "start": 1.16,
+          "end": 1.5,
+          "probability": 0.9962967038154602
+        },
+        {
+          "word": "Each",
+          "start": 2.2,
+          "end": 2.28,
+          "probability": 0.995888888835907
+        },
+        {
+          "word": "pair",
+          "start": 2.28,
+          "end": 2.54,
+          "probability": 0.9924734830856323
+        },
+        {
+          "word": "has",
+          "start": 2.54,
+          "end": 2.74,
+          "probability": 0.998479425907135
+        },
+        {
+          "word": "a",
+          "start": 2.74,
+          "end": 2.86,
+          "probability": 0.997282862663269
+        },
+        {
+          "word": "few",
+          "start": 2.86,
+          "end": 3.04,
+          "probability": 0.9996269941329956
+        },
+        {
+          "word": "minutes",
+          "start": 3.04,
+          "end": 3.28,
+          "probability": 0.999219536781311
+        },
+        {
+          "word": "before",
+          "start": 3.28,
+          "end": 3.72,
+          "probability": 0.9787470698356628
+        },
+        {
+          "word": "we",
+          "start": 3.72,
+          "end": 3.98,
+          "probability": 0.9980023503303528
+        },
+        {
+          "word": "all",
+          "start": 3.98,
+          "end": 4.18,
+          "probability": 0.9903907775878906
+        },
+        {
+          "word": "talk",
+          "start": 4.18,
+          "end": 4.4,
+          "probability": 0.9933545589447021
+        },
+        {
+          "word": "together.",
+          "start": 4.4,
+          "end": 4.74,
+          "probability": 0.9993552565574646
+        },
+        {
+          "word": "other.",
+          "start": 4.74,
+          "end": 4.84,
+          "probability": 0.07842759042978287
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": false,
+      "quality_decision": "REVIEW_REQUIRED",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S005",
+      "sha256": "7243d3ad173ce8bd6546c0ff5cad6e0b29f226d593b00017d05a81c33ef64979",
+      "input_sha256": "d3484942cc5f8bc65e4e02b1ba599f692a63fa33de7067b83ba756ccab6be9df",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 3.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.343505859375,
+      "rms": 0.06709667196457678,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 138.46153846153845,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "That sounds easier. Can you move me to Saturday?",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "That",
+          "start": 0.0,
+          "end": 0.66,
+          "probability": 0.5252184271812439
+        },
+        {
+          "word": "sounds",
+          "start": 0.66,
+          "end": 0.94,
+          "probability": 0.9684336185455322
+        },
+        {
+          "word": "easier.",
+          "start": 0.94,
+          "end": 1.38,
+          "probability": 0.9935929179191589
+        },
+        {
+          "word": "Can",
+          "start": 2.08,
+          "end": 2.2,
+          "probability": 0.9802464246749878
+        },
+        {
+          "word": "you",
+          "start": 2.2,
+          "end": 2.38,
+          "probability": 0.9943650960922241
+        },
+        {
+          "word": "move",
+          "start": 2.38,
+          "end": 2.58,
+          "probability": 0.9885849356651306
+        },
+        {
+          "word": "me",
+          "start": 2.58,
+          "end": 2.84,
+          "probability": 0.9965165853500366
+        },
+        {
+          "word": "to",
+          "start": 2.84,
+          "end": 3.06,
+          "probability": 0.9908245801925659
+        },
+        {
+          "word": "Saturday?",
+          "start": 3.06,
+          "end": 3.38,
+          "probability": 0.9195107221603394
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S006",
+      "sha256": "b527d961d1a74598a80d3cbc9534408d627d3604ab16e2c1eb7b3ecd8941f336",
+      "input_sha256": "6db085f7ee44655c67d8676b88e132fbfe1af1ea1347df3ea4a995d00fed4744",
+      "instructions_sha256": "695e3fa6dff8f67b2042c86ccf409df823e9bbe817af9b2cf6020a0937791bb6",
+      "duration_seconds": 4.05,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.59515380859375,
+      "rms": 0.0831854530188585,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 207.40740740740742,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Of course, I'll send you the new time and a short topic to prepare.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Of",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.8657084703445435
+        },
+        {
+          "word": "course,",
+          "start": 0.2,
+          "end": 0.42,
+          "probability": 0.9926531314849854
+        },
+        {
+          "word": "I'll",
+          "start": 1.08,
+          "end": 1.34,
+          "probability": 0.9792865514755249
+        },
+        {
+          "word": "send",
+          "start": 1.34,
+          "end": 1.52,
+          "probability": 0.9965084195137024
+        },
+        {
+          "word": "you",
+          "start": 1.52,
+          "end": 1.68,
+          "probability": 0.9969267249107361
+        },
+        {
+          "word": "the",
+          "start": 1.68,
+          "end": 1.82,
+          "probability": 0.9876936078071594
+        },
+        {
+          "word": "new",
+          "start": 1.82,
+          "end": 1.96,
+          "probability": 0.9863399267196655
+        },
+        {
+          "word": "time",
+          "start": 1.96,
+          "end": 2.3,
+          "probability": 0.9953578114509583
+        },
+        {
+          "word": "and",
+          "start": 2.3,
+          "end": 2.64,
+          "probability": 0.9808079600334167
+        },
+        {
+          "word": "a",
+          "start": 2.64,
+          "end": 2.74,
+          "probability": 0.985536515712738
+        },
+        {
+          "word": "short",
+          "start": 2.74,
+          "end": 2.94,
+          "probability": 0.998630702495575
+        },
+        {
+          "word": "topic",
+          "start": 2.94,
+          "end": 3.26,
+          "probability": 0.9979758858680725
+        },
+        {
+          "word": "to",
+          "start": 3.26,
+          "end": 3.46,
+          "probability": 0.9987576007843018
+        },
+        {
+          "word": "prepare.",
+          "start": 3.46,
+          "end": 3.64,
+          "probability": 0.9991621971130371
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S001",
+      "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+      "input_sha256": "d2041f80e4838d9e8af4b232f18793bc83aeafebd7c8046f7812679a2bab658d",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 13.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.50799560546875,
+      "rms": 0.060166070318254,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 146.76258992805754,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "I've spent three evenings reading these notes, and they look familiar now. But when I close the book, I can't explain the main ideas. The test is next week, so I'm starting to worry.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "I've",
+          "start": 0.0,
+          "end": 0.3,
+          "probability": 0.9485132694244385
+        },
+        {
+          "word": "spent",
+          "start": 0.3,
+          "end": 0.6,
+          "probability": 0.9884646534919739
+        },
+        {
+          "word": "three",
+          "start": 0.6,
+          "end": 1.22,
+          "probability": 0.8119173049926758
+        },
+        {
+          "word": "evenings",
+          "start": 1.22,
+          "end": 1.68,
+          "probability": 0.9779676198959351
+        },
+        {
+          "word": "reading",
+          "start": 1.68,
+          "end": 2.2,
+          "probability": 0.997006356716156
+        },
+        {
+          "word": "these",
+          "start": 2.2,
+          "end": 2.54,
+          "probability": 0.9876698851585388
+        },
+        {
+          "word": "notes,",
+          "start": 2.54,
+          "end": 2.86,
+          "probability": 0.9970269799232483
+        },
+        {
+          "word": "and",
+          "start": 3.58,
+          "end": 3.66,
+          "probability": 0.9938335418701172
+        },
+        {
+          "word": "they",
+          "start": 3.66,
+          "end": 3.76,
+          "probability": 0.9947541952133179
+        },
+        {
+          "word": "look",
+          "start": 3.76,
+          "end": 3.92,
+          "probability": 0.9970237612724304
+        },
+        {
+          "word": "familiar",
+          "start": 3.92,
+          "end": 4.24,
+          "probability": 0.9988693594932556
+        },
+        {
+          "word": "now.",
+          "start": 4.24,
+          "end": 4.7,
+          "probability": 0.9929492473602295
+        },
+        {
+          "word": "But",
+          "start": 5.56,
+          "end": 5.68,
+          "probability": 0.9932219982147217
+        },
+        {
+          "word": "when",
+          "start": 5.68,
+          "end": 5.8,
+          "probability": 0.9819363951683044
+        },
+        {
+          "word": "I",
+          "start": 5.8,
+          "end": 5.92,
+          "probability": 0.9973614811897278
+        },
+        {
+          "word": "close",
+          "start": 5.92,
+          "end": 6.18,
+          "probability": 0.9860562086105347
+        },
+        {
+          "word": "the",
+          "start": 6.18,
+          "end": 6.44,
+          "probability": 0.9960355162620544
+        },
+        {
+          "word": "book,",
+          "start": 6.44,
+          "end": 6.64,
+          "probability": 0.9990635514259338
+        },
+        {
+          "word": "I",
+          "start": 7.32,
+          "end": 7.44,
+          "probability": 0.9984967708587646
+        },
+        {
+          "word": "can't",
+          "start": 7.44,
+          "end": 7.82,
+          "probability": 0.9970760345458984
+        },
+        {
+          "word": "explain",
+          "start": 7.82,
+          "end": 8.18,
+          "probability": 0.9990744590759277
+        },
+        {
+          "word": "the",
+          "start": 8.18,
+          "end": 8.5,
+          "probability": 0.9975131750106812
+        },
+        {
+          "word": "main",
+          "start": 8.5,
+          "end": 8.64,
+          "probability": 0.994172990322113
+        },
+        {
+          "word": "ideas.",
+          "start": 8.64,
+          "end": 9.06,
+          "probability": 0.9991697072982788
+        },
+        {
+          "word": "The",
+          "start": 10.14,
+          "end": 10.26,
+          "probability": 0.989328920841217
+        },
+        {
+          "word": "test",
+          "start": 10.26,
+          "end": 10.46,
+          "probability": 0.9907053112983704
+        },
+        {
+          "word": "is",
+          "start": 10.46,
+          "end": 10.78,
+          "probability": 0.9978609681129456
+        },
+        {
+          "word": "next",
+          "start": 10.78,
+          "end": 10.94,
+          "probability": 0.9989081621170044
+        },
+        {
+          "word": "week,",
+          "start": 10.94,
+          "end": 11.3,
+          "probability": 0.9989771842956543
+        },
+        {
+          "word": "so",
+          "start": 11.74,
+          "end": 12.06,
+          "probability": 0.9975678324699402
+        },
+        {
+          "word": "I'm",
+          "start": 12.06,
+          "end": 12.28,
+          "probability": 0.9918087720870972
+        },
+        {
+          "word": "starting",
+          "start": 12.28,
+          "end": 12.58,
+          "probability": 0.9988769888877869
+        },
+        {
+          "word": "to",
+          "start": 12.58,
+          "end": 12.86,
+          "probability": 0.9989575147628784
+        },
+        {
+          "word": "worry.",
+          "start": 12.86,
+          "end": 13.1,
+          "probability": 0.9986892342567444
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S002",
+      "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+      "input_sha256": "f6b7ce8b2dcc620914c717a40e54eccae45d55254d9a455e76fb421d4b4f6b16",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 10.85,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.575927734375,
+      "rms": 0.08441598863479795,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 165.89861751152074,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "What happens when you try a question? Do you get stuck because you don't understand the idea or because you can't remember the details? Those problems might need different approaches.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "What",
+          "start": 0.0,
+          "end": 0.14,
+          "probability": 0.8172234296798706
+        },
+        {
+          "word": "happens",
+          "start": 0.14,
+          "end": 0.4,
+          "probability": 0.997367799282074
+        },
+        {
+          "word": "when",
+          "start": 0.4,
+          "end": 0.8,
+          "probability": 0.9962284564971924
+        },
+        {
+          "word": "you",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9987435936927795
+        },
+        {
+          "word": "try",
+          "start": 0.92,
+          "end": 1.12,
+          "probability": 0.991571307182312
+        },
+        {
+          "word": "a",
+          "start": 1.12,
+          "end": 1.28,
+          "probability": 0.9969114661216736
+        },
+        {
+          "word": "question?",
+          "start": 1.28,
+          "end": 1.66,
+          "probability": 0.9987898468971252
+        },
+        {
+          "word": "Do",
+          "start": 2.6,
+          "end": 2.7,
+          "probability": 0.9918316006660461
+        },
+        {
+          "word": "you",
+          "start": 2.7,
+          "end": 2.8,
+          "probability": 0.99854975938797
+        },
+        {
+          "word": "get",
+          "start": 2.8,
+          "end": 2.94,
+          "probability": 0.9987311959266663
+        },
+        {
+          "word": "stuck",
+          "start": 2.94,
+          "end": 3.2,
+          "probability": 0.9868767261505127
+        },
+        {
+          "word": "because",
+          "start": 3.2,
+          "end": 3.5,
+          "probability": 0.9950671195983887
+        },
+        {
+          "word": "you",
+          "start": 3.5,
+          "end": 3.68,
+          "probability": 0.9984279870986938
+        },
+        {
+          "word": "don't",
+          "start": 3.68,
+          "end": 3.88,
+          "probability": 0.9947375357151031
+        },
+        {
+          "word": "understand",
+          "start": 3.88,
+          "end": 4.2,
+          "probability": 0.9985098242759705
+        },
+        {
+          "word": "the",
+          "start": 4.2,
+          "end": 4.44,
+          "probability": 0.9989349246025085
+        },
+        {
+          "word": "idea",
+          "start": 4.44,
+          "end": 4.76,
+          "probability": 0.9945186972618103
+        },
+        {
+          "word": "or",
+          "start": 5.3,
+          "end": 5.56,
+          "probability": 0.3513299226760864
+        },
+        {
+          "word": "because",
+          "start": 5.56,
+          "end": 5.78,
+          "probability": 0.9963819980621338
+        },
+        {
+          "word": "you",
+          "start": 5.78,
+          "end": 5.92,
+          "probability": 0.9973090887069702
+        },
+        {
+          "word": "can't",
+          "start": 5.92,
+          "end": 6.2,
+          "probability": 0.9979871511459351
+        },
+        {
+          "word": "remember",
+          "start": 6.2,
+          "end": 6.42,
+          "probability": 0.9984375834465027
+        },
+        {
+          "word": "the",
+          "start": 6.42,
+          "end": 6.68,
+          "probability": 0.9970042109489441
+        },
+        {
+          "word": "details?",
+          "start": 6.68,
+          "end": 7.04,
+          "probability": 0.9990915060043335
+        },
+        {
+          "word": "Those",
+          "start": 8.2,
+          "end": 8.4,
+          "probability": 0.9926101565361023
+        },
+        {
+          "word": "problems",
+          "start": 8.4,
+          "end": 8.82,
+          "probability": 0.9967893362045288
+        },
+        {
+          "word": "might",
+          "start": 8.82,
+          "end": 9.44,
+          "probability": 0.9936702251434326
+        },
+        {
+          "word": "need",
+          "start": 9.44,
+          "end": 9.64,
+          "probability": 0.9986186027526855
+        },
+        {
+          "word": "different",
+          "start": 9.64,
+          "end": 9.9,
+          "probability": 0.9975482821464539
+        },
+        {
+          "word": "approaches.",
+          "start": 9.9,
+          "end": 10.3,
+          "probability": 0.9991324543952942
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S003",
+      "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+      "input_sha256": "8011a4ad8718fe51c443213abbc5d6551216fe772c7834a5d4b7f5ddbac5ef9b",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 11.0,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.493499755859375,
+      "rms": 0.06175638108718381,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 169.0909090909091,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Mostly the details. I recognize the answer when I see it, but I can't come up with it on my own. Yesterday I highlighted another page, and it didn't really help.",
+      "lexical_differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "recognise"
+          ],
+          "recognized": [
+            "recognize"
+          ]
+        }
+      ],
+      "words": [
+        {
+          "word": "Mostly",
+          "start": 0.0,
+          "end": 0.34,
+          "probability": 0.8101771473884583
+        },
+        {
+          "word": "the",
+          "start": 0.34,
+          "end": 0.66,
+          "probability": 0.9498100280761719
+        },
+        {
+          "word": "details.",
+          "start": 0.66,
+          "end": 0.96,
+          "probability": 0.9944222569465637
+        },
+        {
+          "word": "I",
+          "start": 1.94,
+          "end": 1.96,
+          "probability": 0.9966505169868469
+        },
+        {
+          "word": "recognize",
+          "start": 1.96,
+          "end": 2.24,
+          "probability": 0.8811042904853821
+        },
+        {
+          "word": "the",
+          "start": 2.24,
+          "end": 2.72,
+          "probability": 0.9976547956466675
+        },
+        {
+          "word": "answer",
+          "start": 2.72,
+          "end": 2.96,
+          "probability": 0.9982965588569641
+        },
+        {
+          "word": "when",
+          "start": 2.96,
+          "end": 3.24,
+          "probability": 0.9961085915565491
+        },
+        {
+          "word": "I",
+          "start": 3.24,
+          "end": 3.36,
+          "probability": 0.9897472858428955
+        },
+        {
+          "word": "see",
+          "start": 3.36,
+          "end": 3.56,
+          "probability": 0.9986957907676697
+        },
+        {
+          "word": "it,",
+          "start": 3.56,
+          "end": 3.76,
+          "probability": 0.9978868365287781
+        },
+        {
+          "word": "but",
+          "start": 4.2,
+          "end": 4.34,
+          "probability": 0.9957430958747864
+        },
+        {
+          "word": "I",
+          "start": 4.34,
+          "end": 4.44,
+          "probability": 0.9859842658042908
+        },
+        {
+          "word": "can't",
+          "start": 4.44,
+          "end": 4.82,
+          "probability": 0.9686077237129211
+        },
+        {
+          "word": "come",
+          "start": 4.82,
+          "end": 4.98,
+          "probability": 0.9980663657188416
+        },
+        {
+          "word": "up",
+          "start": 4.98,
+          "end": 5.14,
+          "probability": 0.996156632900238
+        },
+        {
+          "word": "with",
+          "start": 5.14,
+          "end": 5.3,
+          "probability": 0.9965234398841858
+        },
+        {
+          "word": "it",
+          "start": 5.3,
+          "end": 5.44,
+          "probability": 0.9948773980140686
+        },
+        {
+          "word": "on",
+          "start": 5.44,
+          "end": 5.56,
+          "probability": 0.9968706965446472
+        },
+        {
+          "word": "my",
+          "start": 5.56,
+          "end": 5.72,
+          "probability": 0.9974933862686157
+        },
+        {
+          "word": "own.",
+          "start": 5.72,
+          "end": 6.02,
+          "probability": 0.9991583824157715
+        },
+        {
+          "word": "Yesterday",
+          "start": 6.82,
+          "end": 7.12,
+          "probability": 0.989918053150177
+        },
+        {
+          "word": "I",
+          "start": 7.12,
+          "end": 7.68,
+          "probability": 0.6699946522712708
+        },
+        {
+          "word": "highlighted",
+          "start": 7.68,
+          "end": 8.1,
+          "probability": 0.9941210150718689
+        },
+        {
+          "word": "another",
+          "start": 8.1,
+          "end": 8.5,
+          "probability": 0.9854838252067566
+        },
+        {
+          "word": "page,",
+          "start": 8.5,
+          "end": 8.88,
+          "probability": 0.9966009855270386
+        },
+        {
+          "word": "and",
+          "start": 9.58,
+          "end": 9.64,
+          "probability": 0.9977276921272278
+        },
+        {
+          "word": "it",
+          "start": 9.64,
+          "end": 9.76,
+          "probability": 0.9959644079208374
+        },
+        {
+          "word": "didn't",
+          "start": 9.76,
+          "end": 10.06,
+          "probability": 0.9943554401397705
+        },
+        {
+          "word": "really",
+          "start": 10.06,
+          "end": 10.26,
+          "probability": 0.992352306842804
+        },
+        {
+          "word": "help.",
+          "start": 10.26,
+          "end": 10.56,
+          "probability": 0.9985937476158142
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": false,
+      "quality_decision": "REVIEW_REQUIRED",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S004",
+      "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+      "input_sha256": "1b1afc289fbe7d16dd9f76a216d0378b77c0902c15871cb522880fdb9d464bdf",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 10.75,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.54498291015625,
+      "rms": 0.08796628616663399,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 200.93023255813952,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Then, let's try something before you read everything again. Put the notes away and write down what you remember about one topic. Leave a space when you get stuck instead of looking it up straight away.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Then,",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.9242547154426575
+        },
+        {
+          "word": "let's",
+          "start": 0.46,
+          "end": 0.68,
+          "probability": 0.9745657742023468
+        },
+        {
+          "word": "try",
+          "start": 0.68,
+          "end": 0.88,
+          "probability": 0.9938967823982239
+        },
+        {
+          "word": "something",
+          "start": 0.88,
+          "end": 1.22,
+          "probability": 0.9980130195617676
+        },
+        {
+          "word": "before",
+          "start": 1.22,
+          "end": 1.58,
+          "probability": 0.9974080920219421
+        },
+        {
+          "word": "you",
+          "start": 1.58,
+          "end": 1.82,
+          "probability": 0.9971795082092285
+        },
+        {
+          "word": "read",
+          "start": 1.82,
+          "end": 1.98,
+          "probability": 0.9963751435279846
+        },
+        {
+          "word": "everything",
+          "start": 1.98,
+          "end": 2.36,
+          "probability": 0.9902738928794861
+        },
+        {
+          "word": "again.",
+          "start": 2.36,
+          "end": 2.68,
+          "probability": 0.9981478452682495
+        },
+        {
+          "word": "Put",
+          "start": 3.6,
+          "end": 3.62,
+          "probability": 0.9940471649169922
+        },
+        {
+          "word": "the",
+          "start": 3.62,
+          "end": 3.76,
+          "probability": 0.9917689561843872
+        },
+        {
+          "word": "notes",
+          "start": 3.76,
+          "end": 3.92,
+          "probability": 0.9961355924606323
+        },
+        {
+          "word": "away",
+          "start": 3.92,
+          "end": 4.2,
+          "probability": 0.9976296424865723
+        },
+        {
+          "word": "and",
+          "start": 4.2,
+          "end": 4.68,
+          "probability": 0.6639759540557861
+        },
+        {
+          "word": "write",
+          "start": 4.68,
+          "end": 4.86,
+          "probability": 0.9989676475524902
+        },
+        {
+          "word": "down",
+          "start": 4.86,
+          "end": 5.14,
+          "probability": 0.9921848177909851
+        },
+        {
+          "word": "what",
+          "start": 5.14,
+          "end": 5.32,
+          "probability": 0.997901439666748
+        },
+        {
+          "word": "you",
+          "start": 5.32,
+          "end": 5.46,
+          "probability": 0.9989489912986755
+        },
+        {
+          "word": "remember",
+          "start": 5.46,
+          "end": 5.66,
+          "probability": 0.9971203804016113
+        },
+        {
+          "word": "about",
+          "start": 5.66,
+          "end": 6.1,
+          "probability": 0.9985060691833496
+        },
+        {
+          "word": "one",
+          "start": 6.1,
+          "end": 6.32,
+          "probability": 0.9755508899688721
+        },
+        {
+          "word": "topic.",
+          "start": 6.32,
+          "end": 6.72,
+          "probability": 0.9997356534004211
+        },
+        {
+          "word": "Leave",
+          "start": 7.5,
+          "end": 7.68,
+          "probability": 0.9875455498695374
+        },
+        {
+          "word": "a",
+          "start": 7.68,
+          "end": 7.82,
+          "probability": 0.9944190382957458
+        },
+        {
+          "word": "space",
+          "start": 7.82,
+          "end": 8.06,
+          "probability": 0.9976226687431335
+        },
+        {
+          "word": "when",
+          "start": 8.06,
+          "end": 8.32,
+          "probability": 0.9925013780593872
+        },
+        {
+          "word": "you",
+          "start": 8.32,
+          "end": 8.44,
+          "probability": 0.9977626800537109
+        },
+        {
+          "word": "get",
+          "start": 8.44,
+          "end": 8.54,
+          "probability": 0.9987272620201111
+        },
+        {
+          "word": "stuck",
+          "start": 8.54,
+          "end": 8.84,
+          "probability": 0.9992164373397827
+        },
+        {
+          "word": "instead",
+          "start": 8.84,
+          "end": 9.2,
+          "probability": 0.7898761034011841
+        },
+        {
+          "word": "of",
+          "start": 9.2,
+          "end": 9.5,
+          "probability": 0.9981163740158081
+        },
+        {
+          "word": "looking",
+          "start": 9.5,
+          "end": 9.7,
+          "probability": 0.9968225955963135
+        },
+        {
+          "word": "it",
+          "start": 9.7,
+          "end": 9.88,
+          "probability": 0.9741739630699158
+        },
+        {
+          "word": "up",
+          "start": 9.88,
+          "end": 9.96,
+          "probability": 0.9955551028251648
+        },
+        {
+          "word": "straight",
+          "start": 9.96,
+          "end": 10.18,
+          "probability": 0.9959270358085632
+        },
+        {
+          "word": "away.",
+          "start": 10.18,
+          "end": 10.46,
+          "probability": 0.9270407557487488
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S005",
+      "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+      "input_sha256": "74d804369db1f267f7bb33f58f3c806f008de63419718f19d00692540a63077c",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 8.3,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.489044189453125,
+      "rms": 0.06380192353122906,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 216.86746987951804,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "So, the first step is to find the gaps. After that should I check the whole chapter or just the parts I missed. I don't have much time after work.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "So,",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.897034764289856
+        },
+        {
+          "word": "the",
+          "start": 0.62,
+          "end": 0.74,
+          "probability": 0.9942789077758789
+        },
+        {
+          "word": "first",
+          "start": 0.74,
+          "end": 1.0,
+          "probability": 0.9967302083969116
+        },
+        {
+          "word": "step",
+          "start": 1.0,
+          "end": 1.28,
+          "probability": 0.9991576671600342
+        },
+        {
+          "word": "is",
+          "start": 1.28,
+          "end": 1.44,
+          "probability": 0.9969006776809692
+        },
+        {
+          "word": "to",
+          "start": 1.44,
+          "end": 1.56,
+          "probability": 0.9971758127212524
+        },
+        {
+          "word": "find",
+          "start": 1.56,
+          "end": 1.8,
+          "probability": 0.9931929707527161
+        },
+        {
+          "word": "the",
+          "start": 1.8,
+          "end": 1.96,
+          "probability": 0.9889840483665466
+        },
+        {
+          "word": "gaps.",
+          "start": 1.96,
+          "end": 2.14,
+          "probability": 0.992893397808075
+        },
+        {
+          "word": "After",
+          "start": 2.76,
+          "end": 2.86,
+          "probability": 0.992421567440033
+        },
+        {
+          "word": "that",
+          "start": 2.86,
+          "end": 3.18,
+          "probability": 0.9984667897224426
+        },
+        {
+          "word": "should",
+          "start": 3.18,
+          "end": 3.34,
+          "probability": 0.5383407473564148
+        },
+        {
+          "word": "I",
+          "start": 3.34,
+          "end": 3.5,
+          "probability": 0.973666250705719
+        },
+        {
+          "word": "check",
+          "start": 3.5,
+          "end": 3.62,
+          "probability": 0.9874807000160217
+        },
+        {
+          "word": "the",
+          "start": 3.62,
+          "end": 3.8,
+          "probability": 0.9949632883071899
+        },
+        {
+          "word": "whole",
+          "start": 3.8,
+          "end": 3.96,
+          "probability": 0.9807901382446289
+        },
+        {
+          "word": "chapter",
+          "start": 3.96,
+          "end": 4.32,
+          "probability": 0.9856504797935486
+        },
+        {
+          "word": "or",
+          "start": 4.32,
+          "end": 4.94,
+          "probability": 0.6645331382751465
+        },
+        {
+          "word": "just",
+          "start": 4.94,
+          "end": 5.16,
+          "probability": 0.9899918437004089
+        },
+        {
+          "word": "the",
+          "start": 5.16,
+          "end": 5.38,
+          "probability": 0.9940747618675232
+        },
+        {
+          "word": "parts",
+          "start": 5.38,
+          "end": 5.56,
+          "probability": 0.9935802221298218
+        },
+        {
+          "word": "I",
+          "start": 5.56,
+          "end": 5.78,
+          "probability": 0.9928075075149536
+        },
+        {
+          "word": "missed.",
+          "start": 5.78,
+          "end": 5.92,
+          "probability": 0.9892091155052185
+        },
+        {
+          "word": "I",
+          "start": 6.66,
+          "end": 6.74,
+          "probability": 0.9928414821624756
+        },
+        {
+          "word": "don't",
+          "start": 6.74,
+          "end": 6.92,
+          "probability": 0.9847608506679535
+        },
+        {
+          "word": "have",
+          "start": 6.92,
+          "end": 7.04,
+          "probability": 0.9987754225730896
+        },
+        {
+          "word": "much",
+          "start": 7.04,
+          "end": 7.18,
+          "probability": 0.9872102737426758
+        },
+        {
+          "word": "time",
+          "start": 7.18,
+          "end": 7.48,
+          "probability": 0.9990137815475464
+        },
+        {
+          "word": "after",
+          "start": 7.48,
+          "end": 7.76,
+          "probability": 0.9935923218727112
+        },
+        {
+          "word": "work.",
+          "start": 7.76,
+          "end": 7.96,
+          "probability": 0.9972072243690491
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S006",
+      "sha256": "a5b2f0788eca5d39b88a58fdd44bd7983d67a0406d9ddc1efc5f4cc38d4bf314",
+      "input_sha256": "f2ec5455af6c82e61abe0e4410f2a3bf701c253883018277c8622907f4ec8621",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 8.9,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.6197509765625,
+      "rms": 0.0758671835974697,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 242.69662921348313,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Just check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details.",
+      "lexical_differences": [
+        {
+          "operation": "delete",
+          "expected": [
+            "you",
+            "don't",
+            "have",
+            "to",
+            "make",
+            "a",
+            "card",
+            "for",
+            "every",
+            "sentence"
+          ],
+          "recognized": []
+        }
+      ],
+      "words": [
+        {
+          "word": "Just",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.9330294132232666
+        },
+        {
+          "word": "check",
+          "start": 0.22,
+          "end": 0.56,
+          "probability": 0.9923418760299683
+        },
+        {
+          "word": "those",
+          "start": 0.56,
+          "end": 0.86,
+          "probability": 0.9805597066879272
+        },
+        {
+          "word": "parts",
+          "start": 0.86,
+          "end": 1.08,
+          "probability": 0.9835391044616699
+        },
+        {
+          "word": "for",
+          "start": 1.08,
+          "end": 1.38,
+          "probability": 0.9945005178451538
+        },
+        {
+          "word": "now.",
+          "start": 1.38,
+          "end": 1.6,
+          "probability": 0.9993444085121155
+        },
+        {
+          "word": "Compare",
+          "start": 2.38,
+          "end": 2.38,
+          "probability": 0.9896446466445923
+        },
+        {
+          "word": "your",
+          "start": 2.38,
+          "end": 2.68,
+          "probability": 0.9949376583099365
+        },
+        {
+          "word": "answer",
+          "start": 2.68,
+          "end": 2.94,
+          "probability": 0.9946553707122803
+        },
+        {
+          "word": "with",
+          "start": 2.94,
+          "end": 3.16,
+          "probability": 0.9953359961509705
+        },
+        {
+          "word": "the",
+          "start": 3.16,
+          "end": 3.24,
+          "probability": 0.9906766414642334
+        },
+        {
+          "word": "notes,",
+          "start": 3.24,
+          "end": 3.54,
+          "probability": 0.98863285779953
+        },
+        {
+          "word": "correct",
+          "start": 3.92,
+          "end": 4.18,
+          "probability": 0.9916247725486755
+        },
+        {
+          "word": "anything",
+          "start": 4.18,
+          "end": 4.54,
+          "probability": 0.9966832995414734
+        },
+        {
+          "word": "that's",
+          "start": 4.54,
+          "end": 4.92,
+          "probability": 0.9738050401210785
+        },
+        {
+          "word": "wrong,",
+          "start": 4.92,
+          "end": 5.12,
+          "probability": 0.9990590214729309
+        },
+        {
+          "word": "and",
+          "start": 5.68,
+          "end": 5.76,
+          "probability": 0.9953521490097046
+        },
+        {
+          "word": "make",
+          "start": 5.76,
+          "end": 5.9,
+          "probability": 0.997633695602417
+        },
+        {
+          "word": "two",
+          "start": 5.9,
+          "end": 6.18,
+          "probability": 0.8296762108802795
+        },
+        {
+          "word": "or",
+          "start": 6.18,
+          "end": 6.52,
+          "probability": 0.9855049252510071
+        },
+        {
+          "word": "three",
+          "start": 6.52,
+          "end": 6.76,
+          "probability": 0.9975582361221313
+        },
+        {
+          "word": "questions",
+          "start": 6.76,
+          "end": 7.14,
+          "probability": 0.9973913431167603
+        },
+        {
+          "word": "about",
+          "start": 7.14,
+          "end": 7.5,
+          "probability": 0.9978454113006592
+        },
+        {
+          "word": "the",
+          "start": 7.5,
+          "end": 7.64,
+          "probability": 0.9957823753356934
+        },
+        {
+          "word": "missing",
+          "start": 7.64,
+          "end": 7.84,
+          "probability": 0.998561441898346
+        },
+        {
+          "word": "details.",
+          "start": 7.84,
+          "end": 8.22,
+          "probability": 0.9974578022956848
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": false,
+      "quality_decision": "REVIEW_REQUIRED",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S007",
+      "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+      "input_sha256": "d9618c124ec89bb5384aee92095456ad1f7cc6cf999be2ee321df7dd9aa03884",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 12.4,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.456390380859375,
+      "rms": 0.0623491506241193,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 145.16129032258064,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "That sounds more useful than copying everything. But won't I remember the answers simply because I've just checked them? It might look as if the method works, when it doesn't.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "That",
+          "start": 0.0,
+          "end": 0.22,
+          "probability": 0.8014514446258545
+        },
+        {
+          "word": "sounds",
+          "start": 0.22,
+          "end": 0.62,
+          "probability": 0.9960020184516907
+        },
+        {
+          "word": "more",
+          "start": 0.62,
+          "end": 1.12,
+          "probability": 0.9957627654075623
+        },
+        {
+          "word": "useful",
+          "start": 1.12,
+          "end": 1.6,
+          "probability": 0.9960072636604309
+        },
+        {
+          "word": "than",
+          "start": 1.6,
+          "end": 2.3,
+          "probability": 0.8564413189888
+        },
+        {
+          "word": "copying",
+          "start": 2.3,
+          "end": 2.84,
+          "probability": 0.9971233010292053
+        },
+        {
+          "word": "everything.",
+          "start": 2.84,
+          "end": 3.38,
+          "probability": 0.9965439438819885
+        },
+        {
+          "word": "But",
+          "start": 4.48,
+          "end": 4.52,
+          "probability": 0.9819484353065491
+        },
+        {
+          "word": "won't",
+          "start": 4.52,
+          "end": 4.92,
+          "probability": 0.9910080134868622
+        },
+        {
+          "word": "I",
+          "start": 4.92,
+          "end": 5.04,
+          "probability": 0.9845595955848694
+        },
+        {
+          "word": "remember",
+          "start": 5.04,
+          "end": 5.36,
+          "probability": 0.9984009861946106
+        },
+        {
+          "word": "the",
+          "start": 5.36,
+          "end": 5.66,
+          "probability": 0.9989287257194519
+        },
+        {
+          "word": "answers",
+          "start": 5.66,
+          "end": 6.0,
+          "probability": 0.9763888716697693
+        },
+        {
+          "word": "simply",
+          "start": 6.0,
+          "end": 6.46,
+          "probability": 0.9972796440124512
+        },
+        {
+          "word": "because",
+          "start": 6.46,
+          "end": 6.88,
+          "probability": 0.9986473917961121
+        },
+        {
+          "word": "I've",
+          "start": 6.88,
+          "end": 7.16,
+          "probability": 0.9899125695228577
+        },
+        {
+          "word": "just",
+          "start": 7.16,
+          "end": 7.42,
+          "probability": 0.9980035424232483
+        },
+        {
+          "word": "checked",
+          "start": 7.42,
+          "end": 7.72,
+          "probability": 0.9892128705978394
+        },
+        {
+          "word": "them?",
+          "start": 7.72,
+          "end": 7.98,
+          "probability": 0.9982365369796753
+        },
+        {
+          "word": "It",
+          "start": 8.92,
+          "end": 9.02,
+          "probability": 0.9912942051887512
+        },
+        {
+          "word": "might",
+          "start": 9.02,
+          "end": 9.24,
+          "probability": 0.9974046349525452
+        },
+        {
+          "word": "look",
+          "start": 9.24,
+          "end": 9.56,
+          "probability": 0.9984098672866821
+        },
+        {
+          "word": "as",
+          "start": 9.56,
+          "end": 9.76,
+          "probability": 0.9974337220191956
+        },
+        {
+          "word": "if",
+          "start": 9.76,
+          "end": 9.9,
+          "probability": 0.9989888072013855
+        },
+        {
+          "word": "the",
+          "start": 9.9,
+          "end": 10.02,
+          "probability": 0.9964140057563782
+        },
+        {
+          "word": "method",
+          "start": 10.02,
+          "end": 10.24,
+          "probability": 0.9979546070098877
+        },
+        {
+          "word": "works,",
+          "start": 10.24,
+          "end": 10.64,
+          "probability": 0.9981836676597595
+        },
+        {
+          "word": "when",
+          "start": 11.28,
+          "end": 11.42,
+          "probability": 0.997648298740387
+        },
+        {
+          "word": "it",
+          "start": 11.42,
+          "end": 11.56,
+          "probability": 0.9992673993110657
+        },
+        {
+          "word": "doesn't.",
+          "start": 11.56,
+          "end": 12.06,
+          "probability": 0.9979242086410522
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S008",
+      "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+      "input_sha256": "8893d9224a08d896694625c15211e8114a555ae8c78adb8496066c81985ca8af",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 13.1,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.491302490234375,
+      "rms": 0.08109481623479105,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 178.6259541984733,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "That's why the last step is tomorrow. Try the same questions without the notes. Then add one question that asks you to use the idea in a different example. If you still miss a detail, review that part again.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "That's",
+          "start": 0.0,
+          "end": 0.7,
+          "probability": 0.910737156867981
+        },
+        {
+          "word": "why",
+          "start": 0.7,
+          "end": 0.86,
+          "probability": 0.9967358708381653
+        },
+        {
+          "word": "the",
+          "start": 0.86,
+          "end": 1.04,
+          "probability": 0.9668743014335632
+        },
+        {
+          "word": "last",
+          "start": 1.04,
+          "end": 1.28,
+          "probability": 0.9902945756912231
+        },
+        {
+          "word": "step",
+          "start": 1.28,
+          "end": 1.64,
+          "probability": 0.9978736639022827
+        },
+        {
+          "word": "is",
+          "start": 1.64,
+          "end": 1.86,
+          "probability": 0.9984073042869568
+        },
+        {
+          "word": "tomorrow.",
+          "start": 1.86,
+          "end": 2.1,
+          "probability": 0.9725818634033203
+        },
+        {
+          "word": "Try",
+          "start": 3.08,
+          "end": 3.08,
+          "probability": 0.9939954876899719
+        },
+        {
+          "word": "the",
+          "start": 3.08,
+          "end": 3.24,
+          "probability": 0.9974666833877563
+        },
+        {
+          "word": "same",
+          "start": 3.24,
+          "end": 3.46,
+          "probability": 0.9987505674362183
+        },
+        {
+          "word": "questions",
+          "start": 3.46,
+          "end": 3.8,
+          "probability": 0.9879339933395386
+        },
+        {
+          "word": "without",
+          "start": 3.8,
+          "end": 4.2,
+          "probability": 0.9924286007881165
+        },
+        {
+          "word": "the",
+          "start": 4.2,
+          "end": 4.44,
+          "probability": 0.9928783774375916
+        },
+        {
+          "word": "notes.",
+          "start": 4.44,
+          "end": 4.64,
+          "probability": 0.9953627586364746
+        },
+        {
+          "word": "Then",
+          "start": 5.44,
+          "end": 5.44,
+          "probability": 0.995359480381012
+        },
+        {
+          "word": "add",
+          "start": 5.44,
+          "end": 5.7,
+          "probability": 0.7928959131240845
+        },
+        {
+          "word": "one",
+          "start": 5.7,
+          "end": 5.94,
+          "probability": 0.9812836050987244
+        },
+        {
+          "word": "question",
+          "start": 5.94,
+          "end": 6.4,
+          "probability": 0.9970910549163818
+        },
+        {
+          "word": "that",
+          "start": 6.4,
+          "end": 6.9,
+          "probability": 0.9870275259017944
+        },
+        {
+          "word": "asks",
+          "start": 6.9,
+          "end": 7.14,
+          "probability": 0.9926718473434448
+        },
+        {
+          "word": "you",
+          "start": 7.14,
+          "end": 7.48,
+          "probability": 0.9971598386764526
+        },
+        {
+          "word": "to",
+          "start": 7.48,
+          "end": 7.64,
+          "probability": 0.99665367603302
+        },
+        {
+          "word": "use",
+          "start": 7.64,
+          "end": 7.86,
+          "probability": 0.9956144094467163
+        },
+        {
+          "word": "the",
+          "start": 7.86,
+          "end": 8.02,
+          "probability": 0.9966561794281006
+        },
+        {
+          "word": "idea",
+          "start": 8.02,
+          "end": 8.3,
+          "probability": 0.993983805179596
+        },
+        {
+          "word": "in",
+          "start": 8.3,
+          "end": 8.78,
+          "probability": 0.9883678555488586
+        },
+        {
+          "word": "a",
+          "start": 8.78,
+          "end": 8.88,
+          "probability": 0.995314359664917
+        },
+        {
+          "word": "different",
+          "start": 8.88,
+          "end": 9.06,
+          "probability": 0.9984209537506104
+        },
+        {
+          "word": "example.",
+          "start": 9.06,
+          "end": 9.54,
+          "probability": 0.9952436089515686
+        },
+        {
+          "word": "If",
+          "start": 10.26,
+          "end": 10.32,
+          "probability": 0.9930915832519531
+        },
+        {
+          "word": "you",
+          "start": 10.32,
+          "end": 10.46,
+          "probability": 0.9983677268028259
+        },
+        {
+          "word": "still",
+          "start": 10.46,
+          "end": 10.64,
+          "probability": 0.9923288226127625
+        },
+        {
+          "word": "miss",
+          "start": 10.64,
+          "end": 10.86,
+          "probability": 0.9349981546401978
+        },
+        {
+          "word": "a",
+          "start": 10.86,
+          "end": 11.02,
+          "probability": 0.9810056686401367
+        },
+        {
+          "word": "detail,",
+          "start": 11.02,
+          "end": 11.3,
+          "probability": 0.9503354430198669
+        },
+        {
+          "word": "review",
+          "start": 11.7,
+          "end": 11.84,
+          "probability": 0.9896260499954224
+        },
+        {
+          "word": "that",
+          "start": 11.84,
+          "end": 12.14,
+          "probability": 0.9936548471450806
+        },
+        {
+          "word": "part",
+          "start": 12.14,
+          "end": 12.32,
+          "probability": 0.9887182712554932
+        },
+        {
+          "word": "again.",
+          "start": 12.32,
+          "end": 12.54,
+          "probability": 0.9977515339851379
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S009",
+      "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+      "input_sha256": "278e53b3a483e4af4922b91c942fc32c25f2d68456ec59736a7f3756a766293c",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 13.4,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.4290771484375,
+      "rms": 0.0588170747618998,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 165.67164179104478,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Right. I'll start with the topic about how plants get water. First, I'll write from memory, then check the gaps, and make questions. Tomorrow, I'll answer them again. Could you look at my new example after lunch? Thank you for watching, and I'll see you in the next video.",
+      "lexical_differences": [
+        {
+          "operation": "insert",
+          "expected": [],
+          "recognized": [
+            "thank",
+            "you",
+            "for",
+            "watching",
+            "and",
+            "i'll",
+            "see",
+            "you",
+            "in",
+            "the",
+            "next",
+            "video"
+          ]
+        }
+      ],
+      "words": [
+        {
+          "word": "Right.",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.6199089884757996
+        },
+        {
+          "word": "I'll",
+          "start": 0.82,
+          "end": 0.92,
+          "probability": 0.9853197336196899
+        },
+        {
+          "word": "start",
+          "start": 0.92,
+          "end": 1.2,
+          "probability": 0.9946892261505127
+        },
+        {
+          "word": "with",
+          "start": 1.2,
+          "end": 1.46,
+          "probability": 0.9949039220809937
+        },
+        {
+          "word": "the",
+          "start": 1.46,
+          "end": 1.6,
+          "probability": 0.9787214398384094
+        },
+        {
+          "word": "topic",
+          "start": 1.6,
+          "end": 1.96,
+          "probability": 0.9986030459403992
+        },
+        {
+          "word": "about",
+          "start": 1.96,
+          "end": 2.28,
+          "probability": 0.9898285865783691
+        },
+        {
+          "word": "how",
+          "start": 2.28,
+          "end": 2.52,
+          "probability": 0.9628201127052307
+        },
+        {
+          "word": "plants",
+          "start": 2.52,
+          "end": 2.9,
+          "probability": 0.9867606163024902
+        },
+        {
+          "word": "get",
+          "start": 2.9,
+          "end": 3.2,
+          "probability": 0.9971985816955566
+        },
+        {
+          "word": "water.",
+          "start": 3.2,
+          "end": 3.48,
+          "probability": 0.9989898800849915
+        },
+        {
+          "word": "First,",
+          "start": 4.56,
+          "end": 4.56,
+          "probability": 0.9811935424804688
+        },
+        {
+          "word": "I'll",
+          "start": 4.68,
+          "end": 4.82,
+          "probability": 0.9940840899944305
+        },
+        {
+          "word": "write",
+          "start": 4.82,
+          "end": 5.0,
+          "probability": 0.9900628924369812
+        },
+        {
+          "word": "from",
+          "start": 5.0,
+          "end": 5.22,
+          "probability": 0.9678698182106018
+        },
+        {
+          "word": "memory,",
+          "start": 5.22,
+          "end": 5.44,
+          "probability": 0.977157711982727
+        },
+        {
+          "word": "then",
+          "start": 6.06,
+          "end": 6.22,
+          "probability": 0.998034656047821
+        },
+        {
+          "word": "check",
+          "start": 6.22,
+          "end": 6.44,
+          "probability": 0.9974219799041748
+        },
+        {
+          "word": "the",
+          "start": 6.44,
+          "end": 6.64,
+          "probability": 0.9964815378189087
+        },
+        {
+          "word": "gaps,",
+          "start": 6.64,
+          "end": 6.9,
+          "probability": 0.971690833568573
+        },
+        {
+          "word": "and",
+          "start": 7.28,
+          "end": 7.4,
+          "probability": 0.9958957433700562
+        },
+        {
+          "word": "make",
+          "start": 7.4,
+          "end": 7.54,
+          "probability": 0.9955735206604004
+        },
+        {
+          "word": "questions.",
+          "start": 7.54,
+          "end": 7.82,
+          "probability": 0.9966200590133667
+        },
+        {
+          "word": "Tomorrow,",
+          "start": 8.88,
+          "end": 9.08,
+          "probability": 0.9886103272438049
+        },
+        {
+          "word": "I'll",
+          "start": 9.52,
+          "end": 9.76,
+          "probability": 0.9962775409221649
+        },
+        {
+          "word": "answer",
+          "start": 9.76,
+          "end": 9.98,
+          "probability": 0.9990763664245605
+        },
+        {
+          "word": "them",
+          "start": 9.98,
+          "end": 10.18,
+          "probability": 0.9937226176261902
+        },
+        {
+          "word": "again.",
+          "start": 10.18,
+          "end": 10.4,
+          "probability": 0.9988442659378052
+        },
+        {
+          "word": "Could",
+          "start": 11.2,
+          "end": 11.26,
+          "probability": 0.9872663617134094
+        },
+        {
+          "word": "you",
+          "start": 11.26,
+          "end": 11.4,
+          "probability": 0.9967479705810547
+        },
+        {
+          "word": "look",
+          "start": 11.4,
+          "end": 11.56,
+          "probability": 0.9961299896240234
+        },
+        {
+          "word": "at",
+          "start": 11.56,
+          "end": 11.68,
+          "probability": 0.9977260231971741
+        },
+        {
+          "word": "my",
+          "start": 11.68,
+          "end": 11.8,
+          "probability": 0.9978094696998596
+        },
+        {
+          "word": "new",
+          "start": 11.8,
+          "end": 11.98,
+          "probability": 0.9918227791786194
+        },
+        {
+          "word": "example",
+          "start": 11.98,
+          "end": 12.32,
+          "probability": 0.9928454756736755
+        },
+        {
+          "word": "after",
+          "start": 12.32,
+          "end": 12.74,
+          "probability": 0.9930879473686218
+        },
+        {
+          "word": "lunch?",
+          "start": 12.74,
+          "end": 12.96,
+          "probability": 0.99383944272995
+        },
+        {
+          "word": "Thank",
+          "start": 12.96,
+          "end": 13.22,
+          "probability": 0.021032026037573814
+        },
+        {
+          "word": "you",
+          "start": 13.22,
+          "end": 13.22,
+          "probability": 0.9726646542549133
+        },
+        {
+          "word": "for",
+          "start": 13.22,
+          "end": 13.22,
+          "probability": 0.2818135619163513
+        },
+        {
+          "word": "watching,",
+          "start": 13.22,
+          "end": 13.22,
+          "probability": 0.6974177956581116
+        },
+        {
+          "word": "and",
+          "start": 13.32,
+          "end": 13.38,
+          "probability": 0.20777617394924164
+        },
+        {
+          "word": "I'll",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.4050314128398895
+        },
+        {
+          "word": "see",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.7113505005836487
+        },
+        {
+          "word": "you",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.935656726360321
+        },
+        {
+          "word": "in",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.27133163809776306
+        },
+        {
+          "word": "the",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.5953717827796936
+        },
+        {
+          "word": "next",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.9821184873580933
+        },
+        {
+          "word": "video.",
+          "start": 13.38,
+          "end": 13.38,
+          "probability": 0.6363866329193115
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": false,
+      "quality_decision": "REVIEW_REQUIRED",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S010",
+      "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe",
+      "input_sha256": "4b88a9d2f45e37d2fd5658835e34446ae5cbf77053164c8cd6a0ffe10bbd4c12",
+      "instructions_sha256": "a06a11d74deb8de6b5c7d7f7bc0d626f68214d84d4c4ed61fe13cf69ed13deff",
+      "duration_seconds": 10.05,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.50469970703125,
+      "rms": 0.08308835490630408,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 191.04477611940297,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Sure, and if this takes longer than we expect, we'll use fewer questions. The aim is to see what you can recall, not to turn your whole evening into another copying copying session.",
+      "lexical_differences": [
+        {
+          "operation": "insert",
+          "expected": [],
+          "recognized": [
+            "copying"
+          ]
+        }
+      ],
+      "words": [
+        {
+          "word": "Sure,",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.8787394762039185
+        },
+        {
+          "word": "and",
+          "start": 0.96,
+          "end": 1.14,
+          "probability": 0.9868505001068115
+        },
+        {
+          "word": "if",
+          "start": 1.14,
+          "end": 1.24,
+          "probability": 0.9936789870262146
+        },
+        {
+          "word": "this",
+          "start": 1.24,
+          "end": 1.38,
+          "probability": 0.9950717091560364
+        },
+        {
+          "word": "takes",
+          "start": 1.38,
+          "end": 1.58,
+          "probability": 0.9906169772148132
+        },
+        {
+          "word": "longer",
+          "start": 1.58,
+          "end": 1.86,
+          "probability": 0.9967441558837891
+        },
+        {
+          "word": "than",
+          "start": 1.86,
+          "end": 2.14,
+          "probability": 0.9832443594932556
+        },
+        {
+          "word": "we",
+          "start": 2.14,
+          "end": 2.26,
+          "probability": 0.9978931546211243
+        },
+        {
+          "word": "expect,",
+          "start": 2.26,
+          "end": 2.56,
+          "probability": 0.9917690753936768
+        },
+        {
+          "word": "we'll",
+          "start": 3.0,
+          "end": 3.26,
+          "probability": 0.972089558839798
+        },
+        {
+          "word": "use",
+          "start": 3.26,
+          "end": 3.46,
+          "probability": 0.9971518516540527
+        },
+        {
+          "word": "fewer",
+          "start": 3.46,
+          "end": 3.62,
+          "probability": 0.9981486797332764
+        },
+        {
+          "word": "questions.",
+          "start": 3.62,
+          "end": 4.08,
+          "probability": 0.9987465143203735
+        },
+        {
+          "word": "The",
+          "start": 4.96,
+          "end": 5.0,
+          "probability": 0.9818654656410217
+        },
+        {
+          "word": "aim",
+          "start": 5.0,
+          "end": 5.2,
+          "probability": 0.9997318387031555
+        },
+        {
+          "word": "is",
+          "start": 5.2,
+          "end": 5.4,
+          "probability": 0.9995470643043518
+        },
+        {
+          "word": "to",
+          "start": 5.4,
+          "end": 5.54,
+          "probability": 0.9966245889663696
+        },
+        {
+          "word": "see",
+          "start": 5.54,
+          "end": 5.72,
+          "probability": 0.9974562525749207
+        },
+        {
+          "word": "what",
+          "start": 5.72,
+          "end": 5.96,
+          "probability": 0.9988184571266174
+        },
+        {
+          "word": "you",
+          "start": 5.96,
+          "end": 6.1,
+          "probability": 0.9971926808357239
+        },
+        {
+          "word": "can",
+          "start": 6.1,
+          "end": 6.22,
+          "probability": 0.9972477555274963
+        },
+        {
+          "word": "recall,",
+          "start": 6.22,
+          "end": 6.44,
+          "probability": 0.9962640404701233
+        },
+        {
+          "word": "not",
+          "start": 7.04,
+          "end": 7.26,
+          "probability": 0.9924089908599854
+        },
+        {
+          "word": "to",
+          "start": 7.26,
+          "end": 7.46,
+          "probability": 0.9795274138450623
+        },
+        {
+          "word": "turn",
+          "start": 7.46,
+          "end": 7.64,
+          "probability": 0.998806357383728
+        },
+        {
+          "word": "your",
+          "start": 7.64,
+          "end": 7.78,
+          "probability": 0.9931597709655762
+        },
+        {
+          "word": "whole",
+          "start": 7.78,
+          "end": 7.96,
+          "probability": 0.9974752068519592
+        },
+        {
+          "word": "evening",
+          "start": 7.96,
+          "end": 8.32,
+          "probability": 0.997666597366333
+        },
+        {
+          "word": "into",
+          "start": 8.32,
+          "end": 8.68,
+          "probability": 0.9959565997123718
+        },
+        {
+          "word": "another",
+          "start": 8.68,
+          "end": 8.96,
+          "probability": 0.9953404664993286
+        },
+        {
+          "word": "copying",
+          "start": 8.96,
+          "end": 9.18,
+          "probability": 0.9882616400718689
+        },
+        {
+          "word": "copying",
+          "start": 9.18,
+          "end": 9.38,
+          "probability": 0.04555533081293106
+        },
+        {
+          "word": "session.",
+          "start": 9.38,
+          "end": 9.64,
+          "probability": 0.9914713501930237
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": false,
+      "quality_decision": "REVIEW_REQUIRED",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    }
+  ],
+  "semantic_pass_claimed": false,
+  "publication_allowed": false
+}

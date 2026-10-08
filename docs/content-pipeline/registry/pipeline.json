@@ -7,7 +7,7 @@
   "next_action": {
     "code": "NONE",
     "responsible_lane": "NONE",
-    "requires": "Batch02 OBJECTIVE_COMPLETE; no production continuation or Batch03 opened."
+    "requires": "Batch03 objective complete; no R1.4 or Batch04 authorized or opened."
   },
   "preproduction_gates": [
     "UNIQUE_PURPOSE_PASS",
@@ -212,14 +212,14 @@
   "independent_operations_next_action": {
     "code": "NONE",
     "responsible_lane": "NONE",
-    "requires": "Batch02 OBJECTIVE_COMPLETE; no production continuation or Batch03 opened."
+    "requires": "Batch03 objective complete; no R1.4 or Batch04 authorized or opened."
   },
   "pending_final_practice_exception_pairs": [],
   "final_realization_practice_three_exceptions_ref": "docs/content-pipeline/registry/batch-01-final-realization-practice-three-exceptions.json",
   "man_0844_overlap_practice_representation_ref": "docs/content-pipeline/registry/man-0844-overlap-practice-representation.json",
   "man_0844_final_realization_practice_ref": "docs/content-pipeline/registry/man-0844-final-realization-practice.json",
   "final_two_practice_disposition_ref": "docs/content-pipeline/registry/batch-01-final-two-practice-disposition.json",
-  "current_state_ref": "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
+  "current_state_ref": "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
   "previous_next_action": {
     "code": "AUTONOMOUS_ORCHESTRATION_READINESS",
     "responsible_lane": "OPERATIONS_4",
@@ -251,6 +251,9 @@
   "routine_execution_governance_ref": "docs/content-pipeline/registry/single-orchestrator-governance.json",
   "batch02_operations_preparation_ref": "docs/content-pipeline/registry/batch-02-operations-preparation-checkpoint.json",
   "batch02_original_rights_ref": "docs/content-pipeline/registry/batch-02-original-rights-preparation.json",
-  "current_state_index_ref": "docs/content-pipeline/registry/batch-02-closure-evidence-index.json",
-  "current_state_precedence": "Resolve current_state_index_ref and its hash-bound completion checkpoint before historical registries/checkpoints or planning snapshots. Historical next actions are evidence only."
+  "current_state_index_ref": "docs/content-pipeline/registry/batch-03-closure-evidence-index.json",
+  "current_state_precedence": "Resolve current_state_index_ref and its hash-bound completion checkpoint before historical registries/checkpoints or planning snapshots. Historical next actions are evidence only.",
+  "batch03_completion_ref": "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
+  "batch03_live_release_ref": "docs/content-pipeline/registry/batch-03-live-release.json",
+  "legacy_field_scope": "Earlier Batch01/02 arrays are historical evidence; resolve hash-bound current Batch03 index for operational counts and routing."
 }

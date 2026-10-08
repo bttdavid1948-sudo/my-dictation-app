@@ -1,0 +1,814 @@
+{
+  "lessonId": "MAN-0367",
+  "lessonVersion": "v0.1",
+  "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+  "target": "LIVE",
+  "mode": "desktop",
+  "physicalDeviceClaim": false,
+  "startedAt": "2026-10-08T05:45:07.461Z",
+  "assets": [
+    {
+      "segmentId": "S001",
+      "url": "assets/audio/MAN-0367-S001-batch03-v0.1.wav",
+      "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+      "bytes": 667244
+    },
+    {
+      "segmentId": "S002",
+      "url": "assets/audio/MAN-0367-S002-batch03-v0.1.wav",
+      "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+      "bytes": 520844
+    },
+    {
+      "segmentId": "S003",
+      "url": "assets/audio/MAN-0367-S003-batch03-v0.1.wav",
+      "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+      "bytes": 528044
+    },
+    {
+      "segmentId": "S004",
+      "url": "assets/audio/MAN-0367-S004-batch03-v0.1.wav",
+      "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+      "bytes": 516044
+    },
+    {
+      "segmentId": "S005",
+      "url": "assets/audio/MAN-0367-S005-batch03-v0.1.wav",
+      "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+      "bytes": 398444
+    },
+    {
+      "segmentId": "S006",
+      "url": "assets/audio/MAN-0367-S006-batch03-v0.1.wav",
+      "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+      "bytes": 585644
+    },
+    {
+      "segmentId": "S007",
+      "url": "assets/audio/MAN-0367-S007-batch03-v0.1.wav",
+      "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+      "bytes": 595244
+    },
+    {
+      "segmentId": "S008",
+      "url": "assets/audio/MAN-0367-S008-batch03-v0.1.wav",
+      "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+      "bytes": 628844
+    },
+    {
+      "segmentId": "S009",
+      "url": "assets/audio/MAN-0367-S009-batch03-v0.1.wav",
+      "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+      "bytes": 643244
+    },
+    {
+      "segmentId": "S010",
+      "url": "assets/audio/MAN-0367-S010-batch03-v0.1.wav",
+      "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe",
+      "bytes": 482444
+    }
+  ],
+  "layout": [
+    {
+      "label": "catalog nav",
+      "width": 87.265625,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "open library",
+      "width": 138.0625,
+      "height": 31,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "start exact pair",
+      "width": 315.328125,
+      "height": 41,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "full first pass",
+      "width": 125.46875,
+      "height": 33,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "assisted replay",
+      "width": 92.875,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "audio feedback",
+      "width": 143.890625,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "feedback backend write",
+      "width": 97.1300048828125,
+      "height": 36.08001708984375,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "close feedback",
+      "width": 36,
+      "height": 36,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "submit inference",
+      "width": 127.390625,
+      "height": 41,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "separate dictation",
+      "width": 236.34375,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "catalog nav",
+      "width": 87.265625,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "open library",
+      "width": 138.0625,
+      "height": 31,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "start exact pair",
+      "width": 315.328125,
+      "height": 41,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "full first pass",
+      "width": 125.46875,
+      "height": 33,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "incorrect inference",
+      "width": 127.390625,
+      "height": 41,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "label": "rollback nav",
+      "width": 87.265625,
+      "height": 32,
+      "unobstructed": true,
+      "documentWidth": 1440,
+      "viewportWidth": 1440
+    }
+  ],
+  "browser": "153.0.8010.12",
+  "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+  "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+  "firstPassEvents": [
+    {
+      "kind": "FULL_CONTEXT_PLAY",
+      "mixed": false,
+      "rate": 1
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S001",
+      "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S001"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S002",
+      "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S002"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S003",
+      "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S003"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S004",
+      "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S004"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S005",
+      "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S005"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S006",
+      "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S006"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S007",
+      "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S007"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S008",
+      "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S008"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S009",
+      "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S009"
+    },
+    {
+      "kind": "FIXED_ASSET_PLAY",
+      "rate": 1,
+      "segmentId": "S010",
+      "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+    },
+    {
+      "kind": "PLAYBACK_ENDED",
+      "segmentId": "S010"
+    },
+    {
+      "kind": "FULL_CONTEXT_ENDED"
+    }
+  ],
+  "lastPlayback": {
+    "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0367-S010-batch03-v0.1.wav",
+    "duration": 10.05,
+    "ended": true,
+    "error": null,
+    "dataset": {
+      "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+      "segmentId": "S010",
+      "assetSha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+    }
+  },
+  "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+  "feedbackContext": {
+    "lessonId": "MAN-0367",
+    "lessonVersion": "v0.1",
+    "segmentId": "S001",
+    "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+    "realizationVersion": "v0.1",
+    "profileRef": "MAN-0367-BATCH03-FIXED@v0.1",
+    "assetSha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+    "deliveryMode": "PERSISTED_ASSET",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "viewport": "1440x1000",
+    "playbackRate": 1,
+    "playbackState": "ended",
+    "currentTime": 13.9
+  },
+  "feedbackDocumentIdSha256": "5094e50c861b2159f9b86b9785d37b7559be6825f63725f2de03e4d4c4e89a15",
+  "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+  "inference": {
+    "answer": 2,
+    "assetHashes": [
+      "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+      "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+      "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+      "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+      "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+      "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+      "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+      "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+      "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+      "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+    ],
+    "assisted": true,
+    "attemptIndex": 1,
+    "correct": true,
+    "events": [
+      {
+        "kind": "FULL_CONTEXT_PLAY",
+        "mixed": false,
+        "rate": 1
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S001",
+        "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S001"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S002",
+        "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S002"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S003",
+        "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S003"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S004",
+        "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S004"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S005",
+        "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S005"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S006",
+        "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S006"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S007",
+        "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S007"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S008",
+        "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S008"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S009",
+        "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S009"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S010",
+        "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S010"
+      },
+      {
+        "kind": "FULL_CONTEXT_ENDED"
+      },
+      {
+        "contextPreserved": false,
+        "kind": "SEGMENT_REPLAY",
+        "rate": 1,
+        "segmentId": "S001"
+      },
+      {
+        "kind": "FIXED_ASSET_PLAY",
+        "rate": 1,
+        "segmentId": "S001",
+        "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686"
+      },
+      {
+        "kind": "PLAYBACK_ENDED",
+        "segmentId": "S001"
+      },
+      {
+        "correct": true,
+        "evidence": [
+          {
+            "anchor_refs": [
+              "MAN-0367-A-COMP-01"
+            ],
+            "asset_hashes": [
+              "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+              "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+              "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+              "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+              "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+              "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+              "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+              "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+              "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+              "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+            ],
+            "at": 1791438458226,
+            "attempt_index": 1,
+            "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+            "calibrated": false,
+            "conditions": [],
+            "construct_type": "SEQUENCE",
+            "correct": true,
+            "error_class": null,
+            "evidence_dimension": "literal_comprehension",
+            "evidence_strength": "WEAK",
+            "exposure_class": "INITIAL",
+            "lesson_asset_version": "v0.1",
+            "lesson_id": "MAN-0367",
+            "operator_id": "CORE_COMPREHENSION",
+            "orthography_score_claimed": false,
+            "playback_mode": "NORMAL",
+            "practice_instance_id": "MAN-0367:1791438321886:comprehension",
+            "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realization_version": "v0.1",
+            "replay_count": 1,
+            "response": 2,
+            "response_format": "SELECT_ONE",
+            "response_result": "CORRECT",
+            "support_state": "REPLAY_ASSISTED",
+            "support_states": [
+              "CHOICE_ASSISTED",
+              "REPLAY_ASSISTED"
+            ],
+            "target_anchor_id": "MAN-0367-A-COMP-01",
+            "transfer_mastery_claimed": false
+          },
+          {
+            "anchor_refs": [
+              "MAN-0367-A-SPCH-01"
+            ],
+            "asset_hashes": [
+              "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+              "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+              "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+              "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+              "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+              "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+              "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+              "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+              "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+              "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+            ],
+            "at": 1791438458226,
+            "attempt_index": 1,
+            "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+            "calibrated": false,
+            "conditions": [],
+            "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+            "correct": true,
+            "error_class": null,
+            "evidence_dimension": "segmentation_connected_speech",
+            "evidence_strength": "REPAIR_ONLY",
+            "exposure_class": "INITIAL",
+            "lesson_asset_version": "v0.1",
+            "lesson_id": "MAN-0367",
+            "operator_id": "TARGETED_DICTATION",
+            "orthography_score_claimed": false,
+            "playback_mode": "NORMAL",
+            "practice_instance_id": "MAN-0367:1791438321886:connected-span",
+            "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+            "realization_version": "v0.1",
+            "replay_count": 1,
+            "response": "have to make",
+            "response_format": "SHORT_TEXT",
+            "response_result": "CORRECT",
+            "support_state": "HINT_ASSISTED",
+            "support_states": [
+              "HINT_ASSISTED",
+              "REPLAY_ASSISTED"
+            ],
+            "target_anchor_id": "MAN-0367-A-SPCH-01",
+            "transfer_mastery_claimed": false
+          }
+        ],
+        "kind": "PRACTICE_RESPONSE"
+      }
+    ],
+    "evidence": [
+      {
+        "anchor_refs": [
+          "MAN-0367-A-COMP-01"
+        ],
+        "asset_hashes": [
+          "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+          "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+          "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+          "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+          "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+          "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+          "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+          "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+          "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+          "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+        ],
+        "at": 1791438458226,
+        "attempt_index": 1,
+        "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+        "calibrated": false,
+        "conditions": [],
+        "construct_type": "SEQUENCE",
+        "correct": true,
+        "error_class": null,
+        "evidence_dimension": "literal_comprehension",
+        "evidence_strength": "WEAK",
+        "exposure_class": "INITIAL",
+        "lesson_asset_version": "v0.1",
+        "lesson_id": "MAN-0367",
+        "operator_id": "CORE_COMPREHENSION",
+        "orthography_score_claimed": false,
+        "playback_mode": "NORMAL",
+        "practice_instance_id": "MAN-0367:1791438321886:comprehension",
+        "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+        "realization_version": "v0.1",
+        "replay_count": 1,
+        "response": 2,
+        "response_format": "SELECT_ONE",
+        "response_result": "CORRECT",
+        "support_state": "REPLAY_ASSISTED",
+        "support_states": [
+          "CHOICE_ASSISTED",
+          "REPLAY_ASSISTED"
+        ],
+        "target_anchor_id": "MAN-0367-A-COMP-01",
+        "transfer_mastery_claimed": false
+      },
+      {
+        "anchor_refs": [
+          "MAN-0367-A-SPCH-01"
+        ],
+        "asset_hashes": [
+          "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+          "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+          "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+          "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+          "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+          "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+          "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+          "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+          "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+          "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+        ],
+        "at": 1791438458226,
+        "attempt_index": 1,
+        "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+        "calibrated": false,
+        "conditions": [],
+        "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+        "correct": true,
+        "error_class": null,
+        "evidence_dimension": "segmentation_connected_speech",
+        "evidence_strength": "REPAIR_ONLY",
+        "exposure_class": "INITIAL",
+        "lesson_asset_version": "v0.1",
+        "lesson_id": "MAN-0367",
+        "operator_id": "TARGETED_DICTATION",
+        "orthography_score_claimed": false,
+        "playback_mode": "NORMAL",
+        "practice_instance_id": "MAN-0367:1791438321886:connected-span",
+        "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+        "realization_version": "v0.1",
+        "replay_count": 1,
+        "response": "have to make",
+        "response_format": "SHORT_TEXT",
+        "response_result": "CORRECT",
+        "support_state": "HINT_ASSISTED",
+        "support_states": [
+          "HINT_ASSISTED",
+          "REPLAY_ASSISTED"
+        ],
+        "target_anchor_id": "MAN-0367-A-SPCH-01",
+        "transfer_mastery_claimed": false
+      }
+    ],
+    "fullEnded": true,
+    "fullPlays": 1,
+    "instanceId": "MAN-0367:1791438321886",
+    "lessonId": "MAN-0367",
+    "lessonVersion": "v0.1",
+    "phase": "complete",
+    "realizationId": "MAN-0367-OPENAI-FIXED-v0.1",
+    "responseAssisted": true,
+    "segmentReplays": 1,
+    "spanAnswers": [
+      "have to make"
+    ]
+  },
+  "practiceRows": [
+    {
+      "anchor_refs": [
+        "MAN-0367-A-COMP-01"
+      ],
+      "asset_hashes": [
+        "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+        "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+        "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+        "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+        "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+        "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+        "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+        "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+        "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+        "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+      ],
+      "at": 1791438458226,
+      "attempt_index": 1,
+      "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+      "calibrated": false,
+      "conditions": [],
+      "construct_type": "SEQUENCE",
+      "correct": true,
+      "error_class": null,
+      "evidence_dimension": "literal_comprehension",
+      "evidence_strength": "WEAK",
+      "exposure_class": "INITIAL",
+      "lesson_asset_version": "v0.1",
+      "lesson_id": "MAN-0367",
+      "operator_id": "CORE_COMPREHENSION",
+      "orthography_score_claimed": false,
+      "playback_mode": "NORMAL",
+      "practice_instance_id": "MAN-0367:1791438321886:comprehension",
+      "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+      "realization_version": "v0.1",
+      "replay_count": 1,
+      "response": 2,
+      "response_format": "SELECT_ONE",
+      "response_result": "CORRECT",
+      "support_state": "REPLAY_ASSISTED",
+      "support_states": [
+        "CHOICE_ASSISTED",
+        "REPLAY_ASSISTED"
+      ],
+      "target_anchor_id": "MAN-0367-A-COMP-01",
+      "transfer_mastery_claimed": false
+    },
+    {
+      "anchor_refs": [
+        "MAN-0367-A-SPCH-01"
+      ],
+      "asset_hashes": [
+        "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+        "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+        "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+        "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+        "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+        "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+        "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+        "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+        "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+        "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+      ],
+      "at": 1791438458226,
+      "attempt_index": 1,
+      "audio_realization_ref": "MAN-0367-OPENAI-FIXED-v0.1",
+      "calibrated": false,
+      "conditions": [],
+      "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+      "correct": true,
+      "error_class": null,
+      "evidence_dimension": "segmentation_connected_speech",
+      "evidence_strength": "REPAIR_ONLY",
+      "exposure_class": "INITIAL",
+      "lesson_asset_version": "v0.1",
+      "lesson_id": "MAN-0367",
+      "operator_id": "TARGETED_DICTATION",
+      "orthography_score_claimed": false,
+      "playback_mode": "NORMAL",
+      "practice_instance_id": "MAN-0367:1791438321886:connected-span",
+      "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+      "realization_version": "v0.1",
+      "replay_count": 1,
+      "response": "have to make",
+      "response_format": "SHORT_TEXT",
+      "response_result": "CORRECT",
+      "support_state": "HINT_ASSISTED",
+      "support_states": [
+        "HINT_ASSISTED",
+        "REPLAY_ASSISTED"
+      ],
+      "target_anchor_id": "MAN-0367-A-SPCH-01",
+      "transfer_mastery_claimed": false
+    }
+  ],
+  "dictationCompletion": "10_OF_10_SEPARATE_FROM_INFERENCE",
+  "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+  "pageErrors": [],
+  "webSpeechRequests": 0,
+  "status": "PASS",
+  "finishedAt": "2026-10-08T05:50:06.281Z",
+  "source_status": "FAIL",
+  "source_evidence_sha256": "ab8522818a5ac8a702a690de9119aa30bff5b58ac3e52eb75390f45f8a74be3d",
+  "source_run_id": 37733903764,
+  "status_basis": "PRESERVED_CORE_OUTCOMES_PLUS_TARGETED_WITHDRAWAL_REVALIDATION",
+  "rollback_runtime_sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+  "rollback_seed_sha256": "bb5ef1eac12eab54d45129c15c13532fb14981d8ab36f4ec3c9a48e5a52da675",
+  "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+  "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+  "rollback_revalidation": {
+    "status": "PASS",
+    "gate_only": true,
+    "full_playback_rerun": false,
+    "feedback_writes": 0,
+    "synthesis_calls": 0,
+    "immediate_navigation_race": true,
+    "checked_at": "2026-10-08T05:57:21.875Z"
+  }
+}

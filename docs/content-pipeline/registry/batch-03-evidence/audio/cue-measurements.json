@@ -1,0 +1,382 @@
+{
+  "method": "Inherited measure-fixed-phenomena.py RMS/F0 conditional on unprompted phone hypotheses, 20ms sensitivity",
+  "boundary_status": "Probabilistic attribution, no acoustic certification",
+  "segments": [
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S001",
+      "windows": [
+        {
+          "label": "contracted vowel",
+          "start": 0.81,
+          "end": 0.95,
+          "metrics": {
+            "duration_seconds": 0.14,
+            "rms": 0.06719011237071058,
+            "rms_dbfs": -23.454,
+            "f0_median_hz": 104.35,
+            "f0_range_hz": [
+              103.45,
+              109.09
+            ],
+            "voiced_frames": 11,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.14,
+              "rms": 0.06768457846877834,
+              "rms_dbfs": -23.39,
+              "f0_median_hz": 104.35,
+              "f0_range_hz": [
+                103.45,
+                106.67
+              ],
+              "voiced_frames": 11,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.14,
+              "rms": 0.06222882894129846,
+              "rms_dbfs": -24.12,
+              "f0_median_hz": 105.73,
+              "f0_range_hz": [
+                103.45,
+                110.09
+              ],
+              "voiced_frames": 11,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.18,
+              "rms": 0.06333936253409787,
+              "rms_dbfs": -23.967,
+              "f0_median_hz": 105.73,
+              "f0_range_hz": [
+                103.45,
+                110.09
+              ],
+              "voiced_frames": 15,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.1,
+              "rms": 0.06792426897844138,
+              "rms_dbfs": -23.36,
+              "f0_median_hz": 104.35,
+              "f0_range_hz": [
+                103.45,
+                106.67
+              ],
+              "voiced_frames": 7,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S004",
+      "windows": [
+        {
+          "label": "article a",
+          "start": 0.91,
+          "end": 0.94,
+          "metrics": {
+            "duration_seconds": 0.03,
+            "rms": 0.07901423050793448,
+            "rms_dbfs": -22.046,
+            "f0_median_hz": null,
+            "f0_range_hz": null,
+            "voiced_frames": 0,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.03,
+              "rms": 0.046955728292209564,
+              "rms_dbfs": -26.566,
+              "f0_median_hz": null,
+              "f0_range_hz": null,
+              "voiced_frames": 0,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.03,
+              "rms": 0.03424561894874643,
+              "rms_dbfs": -29.308,
+              "f0_median_hz": null,
+              "f0_range_hz": null,
+              "voiced_frames": 0,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.07,
+              "rms": 0.05268916839598349,
+              "rms_dbfs": -25.566,
+              "f0_median_hz": 167.83,
+              "f0_range_hz": [
+                163.27,
+                167.83
+              ],
+              "voiced_frames": 3,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        },
+        {
+          "label": "partner nucleus",
+          "start": 1.07,
+          "end": 1.18,
+          "metrics": {
+            "duration_seconds": 0.11,
+            "rms": 0.08635054028193252,
+            "rms_dbfs": -21.275,
+            "f0_median_hz": 163.27,
+            "f0_range_hz": [
+              163.27,
+              165.52
+            ],
+            "voiced_frames": 6,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.11,
+              "rms": 0.08524169832152083,
+              "rms_dbfs": -21.387,
+              "f0_median_hz": 163.27,
+              "f0_range_hz": [
+                163.27,
+                165.52
+              ],
+              "voiced_frames": 6,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.11,
+              "rms": 0.08507356157128605,
+              "rms_dbfs": -21.404,
+              "f0_median_hz": 163.27,
+              "f0_range_hz": [
+                163.27,
+                163.27
+              ],
+              "voiced_frames": 4,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.15,
+              "rms": 0.07403963203870137,
+              "rms_dbfs": -22.611,
+              "f0_median_hz": 163.27,
+              "f0_range_hz": [
+                163.27,
+                165.52
+              ],
+              "voiced_frames": 6,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.07,
+              "rms": 0.10509331325498429,
+              "rms_dbfs": -19.568,
+              "f0_median_hz": 163.27,
+              "f0_range_hz": [
+                163.27,
+                163.27
+              ],
+              "voiced_frames": 4,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S006",
+      "windows": [
+        {
+          "label": "have nucleus",
+          "start": 10.07,
+          "end": 10.14,
+          "metrics": {
+            "duration_seconds": 0.07,
+            "rms": 0.13946780016067528,
+            "rms_dbfs": -17.111,
+            "f0_median_hz": 216.22,
+            "f0_range_hz": [
+              216.22,
+              216.22
+            ],
+            "voiced_frames": 4,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.07,
+              "rms": 0.12422153572545237,
+              "rms_dbfs": -18.116,
+              "f0_median_hz": 216.22,
+              "f0_range_hz": [
+                216.22,
+                218.18
+              ],
+              "voiced_frames": 3,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.07,
+              "rms": 0.12883367302824394,
+              "rms_dbfs": -17.799,
+              "f0_median_hz": 216.22,
+              "f0_range_hz": [
+                216.22,
+                218.18
+              ],
+              "voiced_frames": 4,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.11,
+              "rms": 0.11369327434036638,
+              "rms_dbfs": -18.885,
+              "f0_median_hz": 216.22,
+              "f0_range_hz": [
+                216.22,
+                218.18
+              ],
+              "voiced_frames": 7,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.03,
+              "rms": 0.16534405520509474,
+              "rms_dbfs": -15.632,
+              "f0_median_hz": null,
+              "f0_range_hz": null,
+              "voiced_frames": 0,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        },
+        {
+          "label": "reduced to nucleus",
+          "start": 10.27,
+          "end": 10.3,
+          "metrics": {
+            "duration_seconds": 0.03,
+            "rms": 0.10608300759840684,
+            "rms_dbfs": -19.487,
+            "f0_median_hz": null,
+            "f0_range_hz": null,
+            "voiced_frames": 0,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.03,
+              "rms": 0.030153653023440242,
+              "rms_dbfs": -30.413,
+              "f0_median_hz": null,
+              "f0_range_hz": null,
+              "voiced_frames": 0,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.03,
+              "rms": 0.12918564292396995,
+              "rms_dbfs": -17.776,
+              "f0_median_hz": null,
+              "f0_range_hz": null,
+              "voiced_frames": 0,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.07,
+              "rms": 0.09927006948719234,
+              "rms_dbfs": -20.064,
+              "f0_median_hz": 227.49,
+              "f0_range_hz": [
+                220.18,
+                250.0
+              ],
+              "voiced_frames": 4,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        },
+        {
+          "label": "make nucleus",
+          "start": 10.35,
+          "end": 10.44,
+          "metrics": {
+            "duration_seconds": 0.09,
+            "rms": 0.13170013697434996,
+            "rms_dbfs": -17.608,
+            "f0_median_hz": 192.77,
+            "f0_range_hz": [
+              190.48,
+              196.72
+            ],
+            "voiced_frames": 6,
+            "f0_autocorrelation_threshold": 0.6
+          },
+          "sensitivity_20ms": [
+            {
+              "duration_seconds": 0.09,
+              "rms": 0.1387637420443921,
+              "rms_dbfs": -17.154,
+              "f0_median_hz": 195.92,
+              "f0_range_hz": [
+                192.0,
+                200.0
+              ],
+              "voiced_frames": 6,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.09,
+              "rms": 0.11119979058221147,
+              "rms_dbfs": -19.078,
+              "f0_median_hz": 191.24,
+              "f0_range_hz": [
+                187.5,
+                193.55
+              ],
+              "voiced_frames": 6,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.13,
+              "rms": 0.12469768112386502,
+              "rms_dbfs": -18.083,
+              "f0_median_hz": 192.77,
+              "f0_range_hz": [
+                187.5,
+                200.0
+              ],
+              "voiced_frames": 10,
+              "f0_autocorrelation_threshold": 0.6
+            },
+            {
+              "duration_seconds": 0.05,
+              "rms": 0.12840815704270025,
+              "rms_dbfs": -17.828,
+              "f0_median_hz": 192.77,
+              "f0_range_hz": [
+                192.0,
+                193.55
+              ],
+              "voiced_frames": 2,
+              "f0_autocorrelation_threshold": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "paid_calls": 0
+}
