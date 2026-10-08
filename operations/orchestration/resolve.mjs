@@ -40,20 +40,29 @@ export function actualBatch01(){
 // Current operational truth is explicit and hash-bound; Batch01 replay remains historical.
 export function resolveCanonicalState(pipeline,index,close,hashOf){
  const fail=message=>{throw Error('CANONICAL_STATE_MISMATCH: '+message);};
- const ref='docs/content-pipeline/registry/batch-02-completion-checkpoint.json';
- if(pipeline.current_state_index_ref!=='docs/content-pipeline/registry/batch-02-closure-evidence-index.json'||pipeline.current_state_ref!==ref||index.current_state_ref!==ref)fail('current pointers');
+ const batch=close.batch_id,number=batch==='BATCH_02'?'02':batch==='BATCH_03'?'03':null;
+ if(!number)fail('unsupported batch');
+ const count=number==='02'?12:3,ref=`docs/content-pipeline/registry/batch-${number}-completion-checkpoint.json`;
+ if(pipeline.current_state_index_ref!==`docs/content-pipeline/registry/batch-${number}-closure-evidence-index.json`||pipeline.current_state_ref!==ref||index.current_state_ref!==ref)fail('current pointers');
  for(const a of index.artifacts)if(hashOf(a.path)!==a.sha256)fail('evidence hash '+a.path);
  if(!index.artifacts.some(a=>a.path===ref))fail('unbound close');
- if(index.state_scope!=='CURRENT_AUTHORITATIVE'||index.terminal_state!=='OBJECTIVE_COMPLETE'||close.state_scope!=='CURRENT_AUTHORITATIVE'||close.batch_id!=='BATCH_02'||close.status!=='BATCH_02_COMPLETE_12_OF_12'||close.terminal_state!=='OBJECTIVE_COMPLETE'||!close.batch_close_complete)fail('closure status');
- if(close.complete_lesson_count!==12||close.selected_lesson_count!==12||index.complete_lesson_count!==12||close.pairs.length!==12||new Set(close.pairs.map(p=>p.lesson_id)).size!==12||JSON.stringify([...close.pairs.map(p=>p.lesson_id)].sort())!==JSON.stringify([...close.fully_complete_lesson_ids].sort())||close.pairs.some(p=>p.status!=='COMPLETE'))fail('completion count');
- if(close.queue_state!=='CLOSED'||pipeline.production_queue_enabled!==false||close.batch03_opened!==false)fail('queue boundary');
+ if(index.state_scope!=='CURRENT_AUTHORITATIVE'||index.terminal_state!=='OBJECTIVE_COMPLETE'||close.state_scope!=='CURRENT_AUTHORITATIVE'||index.batch_id!==batch||close.status!==`${batch}_COMPLETE_${count}_OF_${count}`||close.terminal_state!=='OBJECTIVE_COMPLETE'||!close.batch_close_complete)fail('closure status');
+ if(close.complete_lesson_count!==count||close.selected_lesson_count!==count||index.complete_lesson_count!==count||close.pairs.length!==count||new Set(close.pairs.map(p=>p.lesson_id)).size!==count||JSON.stringify([...close.pairs.map(p=>p.lesson_id)].sort())!==JSON.stringify([...close.fully_complete_lesson_ids].sort())||close.pairs.some(p=>p.status!=='COMPLETE'))fail('completion count');
+ if(close.queue_state!=='CLOSED'||pipeline.production_queue_enabled!==false||(number==='02'?close.batch03_opened!==false:close.batch04_opened!==false||close.r1_4_executed!==false))fail('queue boundary');
+ if(number==='03'){
+  if(index.staging_pass_count!==6||index.live_pass_count!==6)fail('live count');
+  for(const pair of close.pairs){
+   for(const gate of ['practice_ready','contract_valid','desktop_live','mobile_live','feedback_write_ack','rollback_verified'])if(pair[gate]!=='PASS')fail('pair gate '+pair.lesson_id+' '+gate);
+   for(const prefix of ['practice_evidence','release_evidence','support'])if(hashOf(pair[prefix+'_ref'])!==pair[prefix+'_sha256'])fail('pair evidence '+pair.lesson_id+' '+prefix);
+  }
+ }
  for(const key of ['remaining_lesson_ids','active_exceptions','pending_final_practice_pairs'])if(!Array.isArray(close[key])||close[key].length)fail(key);
  for(const action of [pipeline.next_action,pipeline.independent_operations_next_action,index.next_action,close.next_action])if(action?.code!=='NONE'||action.responsible_lane!=='NONE')fail('next action');
- return {batchId:close.batch_id,status:close.status,terminalState:close.terminal_state,currentStateRef:ref,next_action:close.next_action,queue:'CLOSED',completeLessonCount:12,remainingLessonCount:0,activeExceptionCount:0,actionable:[],handoffs:[],completed:close.pairs,executionMode:'READ_ONLY_CANONICAL_STATE',externalCalls:0,newProductionStarted:false};
+ return {batchId:close.batch_id,status:close.status,terminalState:close.terminal_state,currentStateRef:ref,next_action:close.next_action,queue:'CLOSED',completeLessonCount:count,remainingLessonCount:0,activeExceptionCount:0,actionable:[],handoffs:[],completed:close.pairs,executionMode:'READ_ONLY_CANONICAL_STATE',externalCalls:0,newProductionStarted:false};
 }
 export function currentState(){
  const pipeline=read('docs/content-pipeline/registry/pipeline.json');
- const index=read('docs/content-pipeline/registry/batch-02-closure-evidence-index.json');
+ const index=read(pipeline.current_state_index_ref);
  return resolveCanonicalState(pipeline,index,read(index.current_state_ref),p=>createHash('sha256').update(fs.readFileSync(path.join(repo,p))).digest('hex'));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{const file=process.argv[2];const result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):currentState();console.log(JSON.stringify(result,null,2));}catch(e){console.error(e.message);process.exitCode=1;}}

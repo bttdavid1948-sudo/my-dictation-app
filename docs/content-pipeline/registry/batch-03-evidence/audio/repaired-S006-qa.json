@@ -1,0 +1,254 @@
+{
+  "production_run": "37731209552",
+  "scope": "BATCH_03_ONLY",
+  "procedure_precedent": "Batch02 unprompted faster-whisper-base.en ordinary QA; targeted-audio/ordinary_qa.py extraction method",
+  "rows": [
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S006",
+      "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+      "input_sha256": "f2ec5455af6c82e61abe0e4410f2a3bf701c253883018277c8622907f4ec8621",
+      "instructions_sha256": "76855f347ff70ec8880047058b2eee9dd45997dc64fe108ee142485f7bfb5fbc",
+      "duration_seconds": 12.2,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "peak": 0.555633544921875,
+      "rms": 0.07732946871774056,
+      "clipped_sample_fraction": 0.0,
+      "words_per_minute": 177.04918032786887,
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "asr_transcript": "Just check those parts for now. Compare your answer with the notes, correct anything that's wrong, and make two or three questions about the missing details. You don't have to make a card for every sentence.",
+      "lexical_differences": [],
+      "words": [
+        {
+          "word": "Just",
+          "start": 0.0,
+          "end": 0.36,
+          "probability": 0.9219615459442139
+        },
+        {
+          "word": "check",
+          "start": 0.36,
+          "end": 0.74,
+          "probability": 0.9921761155128479
+        },
+        {
+          "word": "those",
+          "start": 0.74,
+          "end": 1.08,
+          "probability": 0.972263514995575
+        },
+        {
+          "word": "parts",
+          "start": 1.08,
+          "end": 1.42,
+          "probability": 0.9802575707435608
+        },
+        {
+          "word": "for",
+          "start": 1.42,
+          "end": 1.72,
+          "probability": 0.9926531314849854
+        },
+        {
+          "word": "now.",
+          "start": 1.72,
+          "end": 1.94,
+          "probability": 0.998367965221405
+        },
+        {
+          "word": "Compare",
+          "start": 2.66,
+          "end": 2.66,
+          "probability": 0.9766497611999512
+        },
+        {
+          "word": "your",
+          "start": 2.66,
+          "end": 2.96,
+          "probability": 0.9943909049034119
+        },
+        {
+          "word": "answer",
+          "start": 2.96,
+          "end": 3.22,
+          "probability": 0.9965069890022278
+        },
+        {
+          "word": "with",
+          "start": 3.22,
+          "end": 3.4,
+          "probability": 0.9949659705162048
+        },
+        {
+          "word": "the",
+          "start": 3.4,
+          "end": 3.5,
+          "probability": 0.9843637347221375
+        },
+        {
+          "word": "notes,",
+          "start": 3.5,
+          "end": 3.74,
+          "probability": 0.9955255389213562
+        },
+        {
+          "word": "correct",
+          "start": 4.08,
+          "end": 4.48,
+          "probability": 0.991093099117279
+        },
+        {
+          "word": "anything",
+          "start": 4.48,
+          "end": 4.9,
+          "probability": 0.995364785194397
+        },
+        {
+          "word": "that's",
+          "start": 4.9,
+          "end": 5.24,
+          "probability": 0.9788093268871307
+        },
+        {
+          "word": "wrong,",
+          "start": 5.24,
+          "end": 5.42,
+          "probability": 0.9992719292640686
+        },
+        {
+          "word": "and",
+          "start": 5.88,
+          "end": 6.08,
+          "probability": 0.99753737449646
+        },
+        {
+          "word": "make",
+          "start": 6.08,
+          "end": 6.28,
+          "probability": 0.9968486428260803
+        },
+        {
+          "word": "two",
+          "start": 6.28,
+          "end": 6.62,
+          "probability": 0.8930896520614624
+        },
+        {
+          "word": "or",
+          "start": 6.62,
+          "end": 6.88,
+          "probability": 0.9895036220550537
+        },
+        {
+          "word": "three",
+          "start": 6.88,
+          "end": 7.1,
+          "probability": 0.9986410737037659
+        },
+        {
+          "word": "questions",
+          "start": 7.1,
+          "end": 7.48,
+          "probability": 0.9985742568969727
+        },
+        {
+          "word": "about",
+          "start": 7.48,
+          "end": 7.8,
+          "probability": 0.9981866478919983
+        },
+        {
+          "word": "the",
+          "start": 7.8,
+          "end": 7.92,
+          "probability": 0.9942585229873657
+        },
+        {
+          "word": "missing",
+          "start": 7.92,
+          "end": 8.14,
+          "probability": 0.9985051155090332
+        },
+        {
+          "word": "details.",
+          "start": 8.14,
+          "end": 8.5,
+          "probability": 0.9977523684501648
+        },
+        {
+          "word": "You",
+          "start": 9.24,
+          "end": 9.5,
+          "probability": 0.9954429864883423
+        },
+        {
+          "word": "don't",
+          "start": 9.5,
+          "end": 9.96,
+          "probability": 0.9819865822792053
+        },
+        {
+          "word": "have",
+          "start": 9.96,
+          "end": 10.12,
+          "probability": 0.9971791505813599
+        },
+        {
+          "word": "to",
+          "start": 10.12,
+          "end": 10.28,
+          "probability": 0.9981531500816345
+        },
+        {
+          "word": "make",
+          "start": 10.28,
+          "end": 10.44,
+          "probability": 0.9980301260948181
+        },
+        {
+          "word": "a",
+          "start": 10.44,
+          "end": 10.54,
+          "probability": 0.9987393021583557
+        },
+        {
+          "word": "card",
+          "start": 10.54,
+          "end": 10.82,
+          "probability": 0.996912956237793
+        },
+        {
+          "word": "for",
+          "start": 10.82,
+          "end": 11.18,
+          "probability": 0.9975957274436951
+        },
+        {
+          "word": "every",
+          "start": 11.18,
+          "end": 11.4,
+          "probability": 0.9980108141899109
+        },
+        {
+          "word": "sentence.",
+          "start": 11.4,
+          "end": 11.84,
+          "probability": 0.9990838766098022
+        }
+      ],
+      "automated_container_pass": true,
+      "asr_exact_normalized_match": true,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "normalization": "CASE_PUNCTUATION_UNICODE_APOSTROPHE_ONLY",
+      "canonical_answer_unchanged": true,
+      "phonetic_certification_claimed": false,
+      "accent_certification_claimed": false,
+      "semantic_pass_claimed": false
+    }
+  ],
+  "semantic_pass_claimed": false,
+  "publication_allowed": false
+}

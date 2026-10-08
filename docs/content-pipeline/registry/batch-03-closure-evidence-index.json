@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "batch-03-closure-evidence-index",
+  "batch_id": "BATCH_03",
+  "state_scope": "CURRENT_AUTHORITATIVE",
+  "terminal_state": "OBJECTIVE_COMPLETE",
+  "current_state_ref": "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
+  "release_main": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a",
+  "release_head": "b39ba93b6752e7bed6fe7633929a7da4079715b7",
+  "release_tree": "67e8ff0d4918faf81aaba49c10d82a63b9029b4b",
+  "staging_run_id": 37734580392,
+  "live_run_id": 37734929016,
+  "required_state_run_id": 37734580467,
+  "wrapper_browser_run_id": 37734580521,
+  "pages_deployment_run_id": 37734928352,
+  "staging_artifacts": [
+    {
+      "id": 11531346272,
+      "name": "batch03-pull_request-MAN-0167-desktop",
+      "size_in_bytes": 1255369,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531346272",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531346272/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:18Z",
+      "expires_at": "2026-10-15T05:53:17Z",
+      "updated_at": "2026-10-08T05:53:18Z",
+      "digest": "sha256:d4215bdee1b300ed3e828cc380d85d2f0c7c2f6bace8d1ff61567309eab20b1c",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    },
+    {
+      "id": 11531216682,
+      "name": "batch03-pull_request-MAN-0067-desktop",
+      "size_in_bytes": 1369795,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531216682",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531216682/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:04Z",
+      "expires_at": "2026-10-15T05:53:03Z",
+      "updated_at": "2026-10-08T05:53:04Z",
+      "digest": "sha256:662f59886725724265a86b0231f80d381bfa46dc5505d0143747d17324477c16",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    },
+    {
+      "id": 11531112191,
+      "name": "batch03-pull_request-MAN-0367-desktop",
+      "size_in_bytes": 1222774,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531112191",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531112191/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:03Z",
+      "expires_at": "2026-10-15T05:53:02Z",
+      "updated_at": "2026-10-08T05:53:03Z",
+      "digest": "sha256:1b796417efa51178eefda056b90e9dc86316260cd785492221dc111402458197",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    },
+    {
+      "id": 11531037641,
+      "name": "batch03-pull_request-MAN-0167-mobile",
+      "size_in_bytes": 3252563,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531037641",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531037641/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:13Z",
+      "expires_at": "2026-10-15T05:53:12Z",
+      "updated_at": "2026-10-08T05:53:13Z",
+      "digest": "sha256:10f3ba023b8be2c05545138e4a4baea26b4b7293e8c598f0db063142330aa80c",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    },
+    {
+      "id": 11530978795,
+      "name": "batch03-pull_request-MAN-0067-mobile",
+      "size_in_bytes": 3150704,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530978795",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530978795/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:04Z",
+      "expires_at": "2026-10-15T05:53:03Z",
+      "updated_at": "2026-10-08T05:53:04Z",
+      "digest": "sha256:e0390fa5d1b3ee5f5e34c64c5934732de9575de52ab1dfff1f97ea6549aef237",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    },
+    {
+      "id": 11530084858,
+      "name": "batch03-pull_request-MAN-0367-mobile",
+      "size_in_bytes": 3202970,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530084858",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530084858/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:53:08Z",
+      "expires_at": "2026-10-15T05:53:07Z",
+      "updated_at": "2026-10-08T05:53:08Z",
+      "digest": "sha256:d5cbfdad626b548fe59f9f1d9c5c106657d1c278475f7e1e22b0d2064c137e9d",
+      "workflow_run": {
+        "id": 37734580392,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-withdrawal-race",
+        "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7"
+      }
+    }
+  ],
+  "initial_release_main": "b63944f2263b16fec3a5679d960cdeefc9f99f4f",
+  "initial_release_head": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d",
+  "initial_release_tree": "888f088d9e120d73ede7d4722368fb3bbcbdd499",
+  "runtime_correction_pr": 156,
+  "core_staging_run_id": 37733419191,
+  "core_live_run_id": 37733903764,
+  "initial_generic_live_smoke_run_id": 37733903678,
+  "source_staging_artifacts": [
+    {
+      "id": 11530807434,
+      "name": "batch03-pull_request-MAN-0367-desktop",
+      "size_in_bytes": 854131,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530807434",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530807434/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:44:04Z",
+      "expires_at": "2026-10-15T05:44:03Z",
+      "updated_at": "2026-10-08T05:44:04Z",
+      "digest": "sha256:257bfe712a130ebd727ce1ea2da207d548c2c90228226cdb224e48b24371ba56",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    },
+    {
+      "id": 11530689125,
+      "name": "batch03-pull_request-MAN-0367-mobile",
+      "size_in_bytes": 1453418,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530689125",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530689125/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:44:05Z",
+      "expires_at": "2026-10-15T05:44:04Z",
+      "updated_at": "2026-10-08T05:44:05Z",
+      "digest": "sha256:6ccaf61a2d21e59a971465458665d12472083fc35de4e9b7d573026abcc4060b",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    },
+    {
+      "id": 11530688656,
+      "name": "batch03-pull_request-MAN-0167-mobile",
+      "size_in_bytes": 1322146,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530688656",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530688656/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:40:51Z",
+      "expires_at": "2026-10-15T05:40:50Z",
+      "updated_at": "2026-10-08T05:40:51Z",
+      "digest": "sha256:f47124c0136b5ba3d6e59effd77ceafa9776b09e46f18118551da84a50cf96da",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    },
+    {
+      "id": 11530688645,
+      "name": "batch03-pull_request-MAN-0167-desktop",
+      "size_in_bytes": 852409,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530688645",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530688645/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:40:46Z",
+      "expires_at": "2026-10-15T05:40:45Z",
+      "updated_at": "2026-10-08T05:40:46Z",
+      "digest": "sha256:f91c253667c5adb71a8ab622667eec2fb40e8f01db9eccc6ff7b665b1b3b940e",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    },
+    {
+      "id": 11530424391,
+      "name": "batch03-pull_request-MAN-0067-desktop",
+      "size_in_bytes": 825023,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530424391",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530424391/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:40:00Z",
+      "expires_at": "2026-10-15T05:39:59Z",
+      "updated_at": "2026-10-08T05:40:00Z",
+      "digest": "sha256:f36c2f79ee759d460059d3b144fe8118ef2b6cd6b049e0f0e5d34ac2675c2ace",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    },
+    {
+      "id": 11530379485,
+      "name": "batch03-pull_request-MAN-0067-mobile",
+      "size_in_bytes": 1243663,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530379485",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530379485/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:40:12Z",
+      "expires_at": "2026-10-15T05:40:11Z",
+      "updated_at": "2026-10-08T05:40:12Z",
+      "digest": "sha256:82059a9044f113c3fc8de2004d5c100622f44f2c88a63930cfa6938a6f7e1ca6",
+      "workflow_run": {
+        "id": 37733419191,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "ops/batch03-immutable-audio-import",
+        "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d"
+      }
+    }
+  ],
+  "source_live_artifacts": [
+    {
+      "id": 11531345802,
+      "name": "batch03-push-MAN-0367-mobile",
+      "size_in_bytes": 4998937,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531345802",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531345802/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:50:03Z",
+      "expires_at": "2026-10-15T05:50:02Z",
+      "updated_at": "2026-10-08T05:50:03Z",
+      "digest": "sha256:b768560cb8a0abf60f93e991fec742567dafc0aa7073448ece444de2aa87b477",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    },
+    {
+      "id": 11531255498,
+      "name": "batch03-push-MAN-0067-mobile",
+      "size_in_bytes": 4563677,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531255498",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531255498/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:46:11Z",
+      "expires_at": "2026-10-15T05:46:10Z",
+      "updated_at": "2026-10-08T05:46:11Z",
+      "digest": "sha256:b339dae4a6771339b74000bd1ac7f31241b8fa87dcae97163eabdcd4d862edbb",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    },
+    {
+      "id": 11531175834,
+      "name": "batch03-push-MAN-0167-desktop",
+      "size_in_bytes": 2263462,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531175834",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531175834/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:46:50Z",
+      "expires_at": "2026-10-15T05:46:49Z",
+      "updated_at": "2026-10-08T05:46:50Z",
+      "digest": "sha256:00a08a16f36e7284bde8b85a710ac6cf350b5f2949ab8dc4a4beed85352d2589",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    },
+    {
+      "id": 11530913352,
+      "name": "batch03-push-MAN-0167-mobile",
+      "size_in_bytes": 1923448,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530913352",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530913352/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:46:50Z",
+      "expires_at": "2026-10-15T05:46:49Z",
+      "updated_at": "2026-10-08T05:46:50Z",
+      "digest": "sha256:3976bebf7ae455fa8bd0544d3c952fb5aac1cd1abf27dd5f81387d01b72da4e1",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    },
+    {
+      "id": 11530818888,
+      "name": "batch03-push-MAN-0067-desktop",
+      "size_in_bytes": 1766382,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530818888",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530818888/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:46:10Z",
+      "expires_at": "2026-10-15T05:46:08Z",
+      "updated_at": "2026-10-08T05:46:10Z",
+      "digest": "sha256:dba7a1d56fdd280cf29ced69129ee86793a02796528bc6277734c2279887a280",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    },
+    {
+      "id": 11530314088,
+      "name": "batch03-push-MAN-0367-desktop",
+      "size_in_bytes": 1812372,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530314088",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530314088/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:50:08Z",
+      "expires_at": "2026-10-15T05:50:06Z",
+      "updated_at": "2026-10-08T05:50:08Z",
+      "digest": "sha256:4301c0a87b7ef3200e292343ebded8c1908e0c6549f6ba4ee8ba1bafcb83c87d",
+      "workflow_run": {
+        "id": 37733903764,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f"
+      }
+    }
+  ],
+  "live_artifacts": [
+    {
+      "id": 11531506447,
+      "name": "batch03-push-MAN-0367-desktop",
+      "size_in_bytes": 1350788,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531506447",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531506447/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:23Z",
+      "expires_at": "2026-10-15T05:57:22Z",
+      "updated_at": "2026-10-08T05:57:23Z",
+      "digest": "sha256:04c987b5b7ef7251b3b629a67bb7004819c22b73a21eb22a4e1a936764d84e7a",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    },
+    {
+      "id": 11531326938,
+      "name": "batch03-push-MAN-0167-mobile",
+      "size_in_bytes": 2883567,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531326938",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531326938/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:25Z",
+      "expires_at": "2026-10-15T05:57:24Z",
+      "updated_at": "2026-10-08T05:57:25Z",
+      "digest": "sha256:206eb28b478227ae944a9b36663178d0650508ea96cc808b2f18ea9b97312ab7",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    },
+    {
+      "id": 11531247270,
+      "name": "batch03-push-MAN-0367-mobile",
+      "size_in_bytes": 2879983,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531247270",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531247270/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:23Z",
+      "expires_at": "2026-10-15T05:57:22Z",
+      "updated_at": "2026-10-08T05:57:23Z",
+      "digest": "sha256:9164d92799f4acaf9c30890fe1f19ecb446d704cba39763ee39826f01aefa163",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    },
+    {
+      "id": 11531147630,
+      "name": "batch03-push-MAN-0067-desktop",
+      "size_in_bytes": 1360358,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531147630",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11531147630/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:22Z",
+      "expires_at": "2026-10-15T05:57:21Z",
+      "updated_at": "2026-10-08T05:57:22Z",
+      "digest": "sha256:608d63df0f4608b527e5adea8b561b993d4df88d5fe88c9291ee08866c8b29c7",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    },
+    {
+      "id": 11530999187,
+      "name": "batch03-push-MAN-0067-mobile",
+      "size_in_bytes": 2888316,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530999187",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530999187/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:22Z",
+      "expires_at": "2026-10-15T05:57:22Z",
+      "updated_at": "2026-10-08T05:57:22Z",
+      "digest": "sha256:af8237f70b90d7a24633401bd5cc39aee1dd8ffd997282b21de47a3e3bf38754",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    },
+    {
+      "id": 11530569342,
+      "name": "batch03-push-MAN-0167-desktop",
+      "size_in_bytes": 1359942,
+      "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530569342",
+      "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11530569342/zip",
+      "expired": false,
+      "created_at": "2026-10-08T05:57:23Z",
+      "expires_at": "2026-10-15T05:57:23Z",
+      "updated_at": "2026-10-08T05:57:23Z",
+      "digest": "sha256:a6ae9a045027df7bb337656f20db507a862c510ccc7128a50d13046da6bfc71f",
+      "workflow_run": {
+        "id": 37734929016,
+        "repository_id": 1377742729,
+        "head_repository_id": 1377742729,
+        "head_branch": "main",
+        "head_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a"
+      }
+    }
+  ],
+  "generic_live_smoke_run_id": 37734929089,
+  "complete_lesson_count": 3,
+  "staging_pass_count": 6,
+  "live_pass_count": 6,
+  "next_action": {
+    "code": "NONE",
+    "responsible_lane": "NONE",
+    "requires": "Batch03 objective complete; no R1.4 or Batch04 authorized or opened."
+  },
+  "artifacts": [
+    {
+      "path": "docs/content-pipeline/registry/batch-03-live-release.json",
+      "sha256": "f16091fedb98a7230448aaacc72e0c7758d09769b0f9a0d7488f4fa845d07676",
+      "size_bytes": 27421
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
+      "sha256": "48819bcef82ad6ceed312eca6fa3ff5901acb7d44da2c978e6c425b21805cadc",
+      "size_bytes": 27796
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-final-practice.json",
+      "sha256": "81d30f6ac4e3f4b81ad211a3569522d4427453b4c47f9ba862e1780d26325d64",
+      "size_bytes": 12143
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-audio-qa.json",
+      "sha256": "095121c6a6b20ae73bcc45c8d698f58303a20e0246dd9a9c6247b87d3e77d21f",
+      "size_bytes": 11955
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-grounding-integrity.json",
+      "sha256": "7019c5486a836d258cf37e298af86d496cbaf8c0ea83b526c17c8678c82aa2ee",
+      "size_bytes": 1779
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-coverage-accepted-overlay.json",
+      "sha256": "32a6ea6b7022bc343e5ef025f6603d659f781c638cf9c982c4f1c85ff1e90cda",
+      "size_bytes": 17491
+    },
+    {
+      "path": "assets/official-lessons-batch03.json",
+      "sha256": "4d0046d92ce84b5a3a141a33f8f72658a5427f1af7c973891c3ab4c930334045",
+      "size_bytes": 27449
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0067/desktop/evidence.json",
+      "sha256": "07f772ae152223910c2e4d2e97b5169b93703f93736db28a547b602425bb13f7",
+      "size_bytes": 19809
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0067/mobile/evidence.json",
+      "sha256": "ed884a81e626c5299dc20d53e3be13f8d7b69d252b96a36e35d0fa2d98d6099e",
+      "size_bytes": 19777
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0167/desktop/evidence.json",
+      "sha256": "e3d3c6e21ff25fd3a63a21c3cb714173170e0edda8affb509668c05988fd7e2f",
+      "size_bytes": 22378
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0167/mobile/evidence.json",
+      "sha256": "83a880fba23dc2c51280c0133537eb9600f679d9b0f0b3af43aa9c0760d9639c",
+      "size_bytes": 22334
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0367/desktop/evidence.json",
+      "sha256": "6ac1126d4282359cedf26946f9742599050a976b77555bc1ee366ace74aabf9f",
+      "size_bytes": 27409
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/staging/MAN-0367/mobile/evidence.json",
+      "sha256": "2ade932ceaf5ed551e466d43101c1dfdf8105c5c6b12eb876c89d9cf50ffe3cd",
+      "size_bytes": 27381
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0067/desktop/evidence.json",
+      "sha256": "971be1e5976cc234ab869862127751fa1265d12fc38996c6db267792e1a64e04",
+      "size_bytes": 19600
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0067/mobile/evidence.json",
+      "sha256": "c226149b7c433d41fa23b05a48e1a3ea8c8c127ee09a49d9c00d6d02c951e977",
+      "size_bytes": 19574
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0167/desktop/evidence.json",
+      "sha256": "4fef9649e2c517a1f41588387601f680c55b5cecd81d8f8b2e536268d28e6ad4",
+      "size_bytes": 22157
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0167/mobile/evidence.json",
+      "sha256": "7cfb07770fae6e53cdae89838e8d904e193ec0c37bd900649be6e19f8b219f48",
+      "size_bytes": 22748
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0367/desktop/evidence.json",
+      "sha256": "42c1c8ec581129d37001909ae4e3cc0ca4a515e1bed63b3b248f9b0c14c3cc09",
+      "size_bytes": 27204
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/live/MAN-0367/mobile/evidence.json",
+      "sha256": "34e4b8c13101187783084eb04db41362f2fa8ebf8ee1222e912520deffd9b624",
+      "size_bytes": 27178
+    },
+    {
+      "path": "assets/support/MAN-0067-vi-VN-v0.1.json",
+      "sha256": "b09b5ebe98a886e53cb7a65e31a3b752eb79a664cc0a6263e607a808dcf41ffa",
+      "size_bytes": 824
+    },
+    {
+      "path": "assets/support/MAN-0167-vi-VN-v0.1.json",
+      "sha256": "737ab08701c5d3d916f83efbe0babf1fe161a6d791f2131b2e45c4d8d013470b",
+      "size_bytes": 1362
+    },
+    {
+      "path": "assets/support/MAN-0367-vi-VN-v0.1.json",
+      "sha256": "5f1190ae930f979070cd10cea980626120c54e55ad440ef37eccdd23d07ec1eb",
+      "size_bytes": 3238
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/primary-ordinary-qa.json",
+      "sha256": "2a97093fdb961e9b6dae4a4215d01bea40c8bd7467bffcca08708edbbe1ec238",
+      "size_bytes": 89787
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/secondary-targeted-qa.json",
+      "sha256": "48ba304ba923c4b04b23659b7ee6070b6aadae9b2ad9d09415de0db34dfb02a3",
+      "size_bytes": 29370
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/repaired-S006-qa.json",
+      "sha256": "7f6906a074df768f9a08e364b452e96943cfbfc64c4a422d37c9138c34105340",
+      "size_bytes": 6659
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/repaired-cue-phones.json",
+      "sha256": "c27f3587367c40eb69efe8c4ef418706e24b2b94f0d2d3e4222704149094f9da",
+      "size_bytes": 27870
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/cue-measurements.json",
+      "sha256": "1a1cc2cb556c3d7d20342e9781cec0c25ff500411c69972be7c464dc443caa7f",
+      "size_bytes": 11089
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/audio/original-cue-phones.json",
+      "sha256": "65107a516c803d9ecad2427f1a75e18928ceeb83510c31d07d07625945882824",
+      "size_bytes": 46816
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0067/desktop/evidence.json",
+      "sha256": "6fa348fae24210f13b7abf508826e8f2808ac772c57d7bf18b96495b84a46fd6",
+      "size_bytes": 19227
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0067/mobile/evidence.json",
+      "sha256": "5082608c3fb7ef3af9982697a1efbf4548bfdd8cfc7bb8b0bedfb991920851f5",
+      "size_bytes": 19195
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0167/desktop/evidence.json",
+      "sha256": "bec82671d3b05fbd99b9d5ff087e1423fce691d01e006a9393f3c21ec6f941ba",
+      "size_bytes": 21796
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0167/mobile/evidence.json",
+      "sha256": "a2e1aa7149014dac6d8160a495870ad7ef6c2ab2ba12c519a97211739726ea42",
+      "size_bytes": 21752
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0367/desktop/evidence.json",
+      "sha256": "ded845d24e4195b694888cc65eb3fe717ad9066e4b5ff8d127aa073f2a4de6f5",
+      "size_bytes": 26827
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/staging/MAN-0367/mobile/evidence.json",
+      "sha256": "9e1a8e14ab3e93099e272f1920641817e774fcfcd7ba173f6c1d8ce68d30f876",
+      "size_bytes": 26799
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0067/desktop/evidence.json",
+      "sha256": "31c0841d8a3d9d467708f9e3b15592b238b6aa2ffdd43774bc9c6d778138add8",
+      "size_bytes": 31348
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0067/mobile/evidence.json",
+      "sha256": "97eeb980155d0d8b0dd1f77a5f939155b3ab95eb807cbb7c84633bc1f5895070",
+      "size_bytes": 31128
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0167/desktop/evidence.json",
+      "sha256": "4383e808efcfa8ae79c3bf65c4c54628a564952a0e0b503fb51df03267fec9f9",
+      "size_bytes": 33284
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0167/mobile/evidence.json",
+      "sha256": "7b6df6ee6482fea63bda675640e43c05772b2b6b46a84b57de9e30212021528c",
+      "size_bytes": 22069
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0367/desktop/evidence.json",
+      "sha256": "ab8522818a5ac8a702a690de9119aa30bff5b58ac3e52eb75390f45f8a74be3d",
+      "size_bytes": 37708
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-03-evidence/retained-core/live/MAN-0367/mobile/evidence.json",
+      "sha256": "a1b596501567a6b84dff1b948c67948d2859338171af49f2fea5543901eca27c",
+      "size_bytes": 37682
+    }
+  ]
+}
