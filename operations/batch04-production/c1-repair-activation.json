@@ -1,7 +1,7 @@
 {
-  "operation_key": "BATCH_04@MAN-0831-S001-S007@TARGETED_REPAIR@v0.1",
-  "budget_verified_at": "2026-10-08T12:08:42.443381+00:00",
-  "budget_evidence_sha256": "e0c7118dde0ab437236a3ed9d702606e97bd6d80bae9174456388ed16ebf41a6",
+  "operation_key": "BATCH_04@MAN-0831-S001-S007@VOICE_BINDING_REPAIR@v0.2",
+  "budget_verified_at": "2026-10-08T12:12:43.492908+00:00",
+  "budget_evidence_sha256": "d53ccaccf3d1ab1637d86384ee0720b66944a3151ca61369d83f120f34b6a2e0",
   "targets": [
     [
       "MAN-0831",
@@ -14,7 +14,7 @@
   ],
   "reserved_cost_upper_bound_usd": 0.35,
   "reservation_recorded": true,
-  "defect_evidence_run": 37773887915,
+  "defect_evidence_run": 37775062833,
   "paid_retry": false,
   "publication_allowed": false
 }

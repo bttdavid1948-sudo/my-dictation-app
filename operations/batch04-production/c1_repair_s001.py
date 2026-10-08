@@ -4,7 +4,7 @@ ROOT=pathlib.Path('producer-evidence/c1/S001');ROOT.mkdir(parents=True,exist_ok=
 TEXT="The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month."
 HASH='0104063b33ba1ef6df8faf6d62dfa3d8089f0e8c5fae25a017516eb0310002f4'
 def main():
- receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0831','segment_id':'S001','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'cedar','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
+ receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0831','segment_id':'S001','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'ash','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
  def finish(status,code):
   receipt['status']=status
   (ROOT/'targeted-repair.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -25,8 +25,8 @@ def main():
  if hashlib.sha256(TEXT.encode()).hexdigest()!=HASH:return finish('INPUT_BINDING_MISMATCH',2)
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
- instructions='Read every supplied sentence exactly and naturally without additions, omissions or substitutions. Preserve the word used exactly in the supplied sentence. Keep the past tense used clearly audible, not use. Read the entire final sentence. Natural English, no exaggeration.'
- payload={'model':'gpt-4o-mini-tts','voice':'cedar','input':TEXT,'instructions':instructions,'response_format':'wav'}
+ instructions='Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a familiar American English variety. Read every supplied sentence exactly and naturally without additions, omissions or substitutions. Preserve the word used exactly in the supplied sentence. Keep the past tense used clearly audible, not use. Read the entire final sentence. Natural English, no exaggeration.'
+ payload={'model':'gpt-4o-mini-tts','voice':'ash','input':TEXT,'instructions':instructions,'response_format':'wav'}
  receipt['instructions_sha256']=hashlib.sha256(instructions.encode()).hexdigest()
  request=urllib.request.Request('https://api.openai.com/v1/audio/speech',json.dumps(payload).encode(),{'Authorization':'Bearer '+key,'OpenAI-Project':'proj_Mrlw738r4i5cwNktghjdnYFk','Content-Type':'application/json'},method='POST')
  receipt['paid_requests_submitted']=1
