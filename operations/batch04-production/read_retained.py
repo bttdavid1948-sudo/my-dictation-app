@@ -4,7 +4,8 @@ import numpy as np
 from scipy.signal import resample_poly
 from pocketsphinx import Decoder,get_model_path
 root=pathlib.Path('retained');qa=json.loads((root/'batch04-qa/ordinary-qa.json').read_text());ledger=json.loads((root/'producer-evidence/production-ledger.json').read_text())
-assert ledger['completed_segments']==16 and ledger['batch_id']=='BATCH_04'
+assert ledger['completed_segments']==18 and ledger['batch_id']=='BATCH_04'
+assert set(ledger['selected_lesson_ids'])=={'MAN-0581','MAN-0831'}
 public=[]
 for row in ledger['entries']:
  p=root/'producer-evidence'/row['lesson_id']/row['file'];assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
@@ -14,7 +15,7 @@ print('RETAINED_QA_JSON='+json.dumps(qa,separators=(',',':')),flush=True)
 p=root/'batch04-qa/secondary-qa.json'
 if p.exists():print('RETAINED_SECONDARY_JSON='+p.read_text().strip(),flush=True)
 prepared=json.loads(pathlib.Path('operations/batch04-production/prepared-lessons.json').read_text())['assets'];measurements=[]
-for lid,sid in [('MAN-0031','S001'),('MAN-0271','S004'),('MAN-0451','S002'),('MAN-0451','S006')]:
+for lid,sid in [('MAN-0581','S008'),('MAN-0831','S004')]:
  row=next(x for x in public if (x['lesson_id'],x['segment_id'])==(lid,sid));p=root/'producer-evidence'/lid/row['file']
  with wave.open(str(p)) as w:sr=w.getframerate();x=np.frombuffer(w.readframes(w.getnframes()),'<i2').astype(float)/32768
  q=next(x for x in qa['rows'] if (x['lesson_id'],x['segment_id'])==(lid,sid));words=[]
@@ -27,3 +28,7 @@ for lid,sid in [('MAN-0031','S001'),('MAN-0271','S004'),('MAN-0451','S002'),('MA
   hyp.append({'reference_text_supplied':False,'method':'ALLPHONE_UNIFORM' if lm is None else 'ALLPHONE_PHONE_LM','phones':[{'phone':z.word,'start':z.start_frame/100,'end':(z.end_frame+1)/100} for z in dec.seg()]})
  measurements.append({'lesson_id':lid,'segment_id':sid,'sha256':row['sha256'],'words':words,'phoneme_hypotheses':hyp,'certification_claimed':False})
 print('BOUNDED_CUES_JSON='+json.dumps(measurements,separators=(',',':')),flush=True)
+
+repair=pathlib.Path('retained-repair');receipt=json.loads((repair/'producer-evidence/targeted-repair.json').read_text());p=repair/'producer-evidence'/receipt['file'];assert hashlib.sha256(p.read_bytes()).hexdigest()==receipt['sha256']
+print('RETAINED_REPAIR_JSON='+json.dumps({k:v for k,v in receipt.items() if k not in ['request_id','budget_evidence_sha256','cost_status']},separators=(',',':')),flush=True)
+print('RETAINED_REPAIR_QA_JSON='+json.dumps(json.loads((repair/'repair-qa/repair-qa.json').read_text()),separators=(',',':')),flush=True)
