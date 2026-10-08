@@ -1,14 +1,15 @@
 {
-  "operation_key": "BATCH_04@MAN-0831-S001@BOUNDARY_REPAIR@v0.3",
-  "budget_verified_at": "2026-10-08T12:27:10.625604+00:00",
-  "budget_evidence_sha256": "c37ec859bb48e3d47b8df9276113170f555cf005d978b3645a2c60eb46cd0d87",
+  "operation_key": "BATCH_04@MAN-0831-S001@PROVIDER_INPUT_BOUNDARY@v0.4",
+  "budget_verified_at": "2026-10-08T17:11:35.654521+00:00",
+  "budget_evidence_sha256": "1320c8d573c22a6a99a662be75bc5a5c924569da719ed71a59cd9109104d8b72",
   "target": [
     "MAN-0831",
     "S001"
   ],
   "reserved_cost_upper_bound_usd": 0.18,
   "reservation_recorded": true,
-  "defect_evidence_run": 37776528712,
+  "defect_evidence_run": 37777249179,
   "paid_retry": false,
-  "publication_allowed": false
+  "publication_allowed": false,
+  "public_operational_publication_owner_approved": true
 }

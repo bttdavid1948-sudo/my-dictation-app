@@ -1,14 +1,14 @@
 {
   "batch_id": "BATCH_04",
   "scope": "OFFICIAL_MAN_1000_ONLY",
-  "status": "BATCH_04_PREPRODUCTION_READY_AUDIO_PENDING",
+  "status": "BATCH_04_FIVE_COMPLETE_C1_TARGETED_REPAIR",
   "owner_execution_authorized": true,
   "authority_source": "Owner Batch04 controlled six-lesson production directive 2026-10-08",
   "r1_4_authorized": false,
   "queue_state": "OPEN",
-  "complete_lesson_count": 0,
+  "complete_lesson_count": 5,
   "next_action": {
-    "code": "BATCH04_FINITE_AUDIO_PREFLIGHT_PRODUCTION_QA",
+    "code": "BATCH04_C1_TARGETED_REPAIR_THEN_RELEASE",
     "responsible_lane": "OPERATIONS_4"
   },
   "artifacts": [
@@ -23,6 +23,18 @@
     {
       "path": "operations/batch04-production/prepared-segments.json",
       "sha256": "443764f8f0d65fff26a3e853ead35f96e321653ed95c8a1f496e1f0e3478d739"
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-04-audio-qa.json",
+      "sha256": "1c7a4c4660f47261b3d7395b0d68121eca7d2f197bb0a7c0701ed040dd6a7ef5"
+    },
+    {
+      "path": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "sha256": "e9b137e236a4467bed9e99bf7ef0ce5fe031e1bae0ffc41f3978fe0ded3f6fff"
+    },
+    {
+      "path": "assets/official-lessons-batch04.json",
+      "sha256": "602eaebbbb2810ce270f394b06b261a15c21aed90b0916c92bada81a07cf0f4e"
     }
   ],
   "states": [
@@ -34,19 +46,19 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true
     },
     {
       "lessonId": "MAN-0271",
@@ -56,19 +68,19 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true
     },
     {
       "lessonId": "MAN-0451",
@@ -78,19 +90,19 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true
     },
     {
       "lessonId": "MAN-0581",
@@ -100,19 +112,19 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true
     },
     {
       "lessonId": "MAN-0831",
@@ -144,19 +156,28 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true
     }
-  ]
+  ],
+  "live_evidence": {
+    "canonical_main": "366cae9482ebf1033de88711748ba42da2498865",
+    "staging_run": 37809856519,
+    "live_run": 37811220605,
+    "live_attempt": 2,
+    "desktop_mobile_pass_count": 10,
+    "rollback_scope": "browser request-routing catalog withdrawal/restore; not deployment revert",
+    "mobile_scope": "Chromium Pixel5 emulation"
+  }
 }

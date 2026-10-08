@@ -26,7 +26,10 @@ def main():
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
  instructions='Natural professional editorial discussion in familiar American English. Read every supplied sentence exactly, without additions, omissions or substitutions. In the last sentence, USED is past tense, pronounced yoozd with a clearly audible final d. Give a tiny natural boundary after used before the service so the d is not swallowed. Do not say use the service. Preserve during its first month. Moderate measured conversation, not a spelling lesson. Keep all four sentences and punctuation; do not read these instructions.'
- payload={'model':'gpt-4o-mini-tts','voice':'ash','input':TEXT,'instructions':instructions,'response_format':'wav','speed':0.92}
+ provider_text=TEXT.replace('actually used the service','actually used — the service')
+ receipt['provider_input_sha256']=hashlib.sha256(provider_text.encode()).hexdigest()
+ receipt['provider_input_adaptation']='PUNCTUATION_ONLY_BOUNDARY_AFTER_USED_CANONICAL_WORDS_UNCHANGED'
+ payload={'model':'gpt-4o-mini-tts','voice':'ash','input':provider_text,'instructions':instructions,'response_format':'wav','speed':0.92}
  receipt['instructions_sha256']=hashlib.sha256(instructions.encode()).hexdigest()
  request=urllib.request.Request('https://api.openai.com/v1/audio/speech',json.dumps(payload).encode(),{'Authorization':'Bearer '+key,'OpenAI-Project':'proj_Mrlw738r4i5cwNktghjdnYFk','Content-Type':'application/json'},method='POST')
  receipt['paid_requests_submitted']=1
