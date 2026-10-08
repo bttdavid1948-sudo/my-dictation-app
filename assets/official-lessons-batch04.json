@@ -965,6 +965,259 @@
         "durationSeconds": 185.03379166666667,
         "voice": "MIXED"
       }
+    },
+    {
+      "id": "MAN-0831",
+      "unitName": "MAN-0831 · What the Headline Leaves Out",
+      "topic": "Giao tiếp và học tập",
+      "level": "C1",
+      "track": "Giao tiếp",
+      "learningGoal": "Report promising scoped passenger evidence and limitations; do not assert city-wide transformation or dismiss the survey.",
+      "usefulLanguage": [],
+      "items": [
+        {
+          "en": "The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month.",
+          "vi": "Tiêu đề nháp nói dịch vụ xe buýt buổi tối mới của thành phố đã thay đổi hoàn toàn khả năng đi làm. Số hành khách có tín hiệu tốt, nhưng chúng ta có yên tâm đưa đó thành kết luận không? Khảo sát chỉ bao gồm người thực sự dùng dịch vụ trong tháng đầu tiên.",
+          "segmentId": "S001",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S001-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S001",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+            "durationSeconds": 19.07058333333333,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "On balance, I'd keep the positive finding, but narrow the claim. Among respondents, most reported an easier journey to late shifts. That tells us something useful about their experience; it doesn't tell us how many residents still can't reach a stop or afford the fare.",
+          "vi": "Xét tổng thể, tôi sẽ giữ kết quả tích cực nhưng thu hẹp nhận định. Trong số người trả lời, đa số nói việc đi làm ca muộn dễ hơn. Điều đó cho biết một điều hữu ích về trải nghiệm của họ; nó không cho biết còn bao nhiêu cư dân không đến được trạm hoặc không đủ tiền mua vé.",
+          "segmentId": "S002",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S002-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S002",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "1913395f761af3bd47af38679d3354b55b50c4a4620ab295f726e239c5efaf09",
+            "durationSeconds": 16.5,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "The transport office argues that rising passenger numbers speak for themselves. If we lead with limitations, they say we'll bury the news beneath qualifications. I take their point about clarity, although a confident headline can travel much further than the careful paragraph underneath it.",
+          "vi": "Cơ quan giao thông cho rằng số hành khách tăng đã tự nói lên tất cả. Họ nói nếu mở đầu bằng các hạn chế, chúng ta sẽ làm tin tức chìm trong những lời dè dặt. Tôi hiểu ý họ về sự rõ ràng, dù một tiêu đề chắc nịch có thể lan xa hơn nhiều so với đoạn văn thận trọng bên dưới.",
+          "segmentId": "S003",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S003-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S003",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "f80e9da1b90e732fdd919504ace860a0087ae5eac12c38d3951e277b7d7236c9",
+            "durationSeconds": 19.25,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "To be clear, I'm not proposing a headline that says nothing happened. More people are using the buses, and the interviews give us concrete examples of shorter journeys. Nevertheless, calling that a city-wide transformation turns a limited observation into a claim about everyone.",
+          "vi": "Nói rõ nhé, tôi không đề xuất tiêu đề cho rằng chẳng có gì xảy ra. Có thêm người dùng xe buýt, và các cuộc phỏng vấn cho ví dụ cụ thể về hành trình ngắn hơn. Tuy nhiên, gọi đó là sự thay đổi toàn thành phố biến một quan sát có phạm vi hạn chế thành nhận định về tất cả mọi người.",
+          "segmentId": "S004",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S004-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S004",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "4303293cb37000627077cb3426ca30a61fa898ce54bcbb7465b7a4183f399235",
+            "durationSeconds": 16.8,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "What about the interview with the cleaner who no longer needs two connections? It makes the benefit tangible. We could put her experience near the top, provided we don't imply she represents every shift worker. One vivid account is still one account.",
+          "vi": "Còn cuộc phỏng vấn người làm vệ sinh không còn phải đổi xe hai lần thì sao? Nó giúp lợi ích trở nên cụ thể. Ta có thể đưa trải nghiệm của cô ấy lên gần đầu, miễn là không ngụ ý cô ấy đại diện cho mọi người làm ca. Một lời kể sinh động vẫn chỉ là một lời kể.",
+          "segmentId": "S005",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S005-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S005",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "aef04235ff1fe359e92b87f32b631d56b83452f61fbe01daf602e462956fbeb9",
+            "durationSeconds": 14.65,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Agreed. There's also a comparison issue: the survey asks passengers about their previous journeys, rather than tracking the same group before and after the change. Their recollections may be accurate, but we shouldn't quietly describe this as an independent measurement of travel-time savings.",
+          "vi": "Đồng ý. Còn vấn đề so sánh nữa: khảo sát hỏi hành khách về hành trình trước đây, thay vì theo dõi cùng một nhóm trước và sau thay đổi. Họ có thể nhớ chính xác, nhưng ta không nên âm thầm mô tả đây là phép đo độc lập về thời gian đi lại được tiết kiệm.",
+          "segmentId": "S006",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S006-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S006",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "4b6f164d247ef6bf7ec45a025dc91b2021d6de337576989f5715ced5f01210b6",
+            "durationSeconds": 19,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "In that case, let's separate three things: the recorded increase in passengers, the benefits people report, and the unanswered question of who remains excluded. The first is an administrative count; the second is survey evidence; the third needs further reporting, not a confident guess.",
+          "vi": "Vậy hãy tách ba điều: số hành khách tăng được ghi nhận, lợi ích mọi người tự báo cáo, và câu hỏi chưa có lời giải về những người vẫn bị bỏ lại. Điều đầu là số liệu hành chính; điều thứ hai là bằng chứng khảo sát; điều thứ ba cần tìm hiểu thêm, chứ không phải đoán chắc.",
+          "segmentId": "S007",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S007-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S007",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "da2bd6a1a364eab13d7c1039678e388454f4f83b8f8d453299d716a1e3ddf6e5",
+            "durationSeconds": 17.6,
+            "voice": "marin"
+          }
+        },
+        {
+          "en": "We should also mention that the operator extended the timetable halfway through the survey period. Otherwise readers may assume everyone evaluated the same service. That's relevant context, rather than a reason to throw out the whole survey.",
+          "vi": "Ta cũng nên nói đơn vị vận hành đã kéo dài lịch chạy giữa kỳ khảo sát. Nếu không, độc giả có thể tưởng mọi người đánh giá cùng một dịch vụ. Đó là bối cảnh liên quan, chứ không phải lý do để loại bỏ toàn bộ khảo sát.",
+          "segmentId": "S008",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S008-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S008",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "554074fd34fb30b0fc1834c1ead03b22d1f2115c72e0a98c71275857acf2fb56",
+            "durationSeconds": 13.65,
+            "voice": "cedar"
+          }
+        },
+        {
+          "en": "Then the headline can say evening buses ease commutes for surveyed passengers. In the opening, we'll state the increase and the reported benefit, then explain the sample and timetable change. We'll ask the transport office about access beyond the current routes before making a broader claim.",
+          "vi": "Vậy tiêu đề có thể nói xe buýt buổi tối giúp việc đi làm dễ hơn với những hành khách được khảo sát. Phần mở đầu sẽ nêu mức tăng và lợi ích được báo cáo, rồi giải thích mẫu khảo sát và thay đổi lịch chạy. Ta sẽ hỏi cơ quan giao thông về khả năng tiếp cận ngoài các tuyến hiện tại trước khi nhận định rộng hơn.",
+          "segmentId": "S009",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S009-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S009",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "75d0e2fd9c9903c0f1ba5247c0d1b897de3c0d9b43f9d3370f70ad9bf565a9da",
+            "durationSeconds": 19.5,
+            "voice": "ash"
+          }
+        },
+        {
+          "en": "Yes. That keeps the development newsworthy without laundering uncertainty out of the story. I'd resist the temptation to turn either the office's enthusiasm or our reservations into the story's verdict. The evidence is promising; the scope of that promise is what we need to make explicit.",
+          "vi": "Ừ. Như vậy vẫn giữ được giá trị tin tức mà không gạt bỏ sự bất định khỏi câu chuyện. Tôi sẽ tránh biến sự hào hứng của cơ quan hoặc sự dè dặt của chúng ta thành phán quyết của bài báo. Bằng chứng có triển vọng; điều cần nói rõ là triển vọng đó có phạm vi đến đâu.",
+          "segmentId": "S010",
+          "speakerRole": "participant",
+          "audio": {
+            "url": "assets/audio/MAN-0831-S010-batch04-v0.1.wav",
+            "releaseClass": "CONTROLLED_INTERNAL_RELEASE",
+            "lessonId": "MAN-0831",
+            "lessonVersion": "v0.1",
+            "segmentId": "S010",
+            "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+            "realizationVersion": "v0.1",
+            "profileRef": "MAN-0831-BATCH04-FIXED@v0.1",
+            "sha256": "4d429b5b84e4daac192d26b4d3cbe9fa9a3ede5da42f47e9a69d2ba2ac12c503",
+            "durationSeconds": 18.25,
+            "voice": "marin"
+          }
+        }
+      ],
+      "status": "published",
+      "version": "v0.1",
+      "source": "MAN_OFFICIAL",
+      "sourceType": "original",
+      "rightsEvidenceId": "MAN-0831-BATCH04-ORIGINAL-RIGHTS-v0.1",
+      "audioRealizationRef": "MAN-0831-OPENAI-FIXED-v0.1",
+      "supportLocale": "vi-VN",
+      "supportRef": "assets/support/MAN-0831-vi-VN-v0.1.json",
+      "practice": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0831-A-COMP-01",
+          "MAN-0831-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Các biên tập viên thống nhất cách đưa tin nào?",
+        "choices": [
+          "Nêu lợi ích được ghi nhận trong phạm vi khảo sát và các hạn chế.",
+          "Khẳng định dịch vụ đã thay đổi toàn thành phố.",
+          "Bỏ toàn bộ kết quả khảo sát vì lịch chạy thay đổi."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Report promising scoped passenger evidence and limitations; do not assert city-wide transformation or dismiss the survey.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0831-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 4, điền từ nối còn thiếu: ___, calling that a city-wide transformation turns a limited observation into a claim about everyone.",
+            "answer": "Nevertheless",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 169,
+              "end_char": 181
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Choice-assisted contextual comprehension and hint-assisted short-span access only. Dictation separate; no calibrated retention, transfer, phonetic, prosody, accent or overlap mastery claim."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted contextual comprehension and hint-assisted short-span access only. Dictation separate; no calibrated retention, transfer, phonetic, prosody, accent or overlap mastery claim."
+      },
+      "publisher": "man",
+      "kind": "OFFICIAL_LESSON",
+      "aiGeneratedAudio": true,
+      "durationHintMinutes": 3
     }
   ]
 }
