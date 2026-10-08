@@ -540,9 +540,5 @@
     "MAN-0067",
     "MAN-0167",
     "MAN-0367"
-  ],
-  "current_accepted_baseline_ref": "docs/content-pipeline/registry/curriculum-accepted-coverage-baseline.json",
-  "current_accepted_baseline_artifact_ref": "curriculum-accepted-coverage-baseline@v0.1",
-  "gap_resolution_status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
-  "gap_resolution_note": "This file remains the historical bounded Batch03 subset overlay. Its null total fields and UNVERIFIED_EXISTING_ARTIFACT_GAP status are superseded for the completed 27-lesson accepted-corpus accounting by curriculum-accepted-coverage-baseline@v0.1; subset entries remain valid historical trace evidence."
+  ]
 }
