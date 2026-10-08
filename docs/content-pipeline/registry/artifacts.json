@@ -1616,20 +1616,21 @@
         "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Accepted-Coverage-Baseline-v0.1.xlsx",
         "library_file_id": "libfile_876bac875f808191b93a6ec3f1a2f2c3"
       },
-      "sha256": "9083bafdd3aaeb055cc827905e83db8b5172a1fb6c7afe56f73d8bd507786443",
-      "size_bytes": 76964,
+      "sha256": "0f215edc34bd00382d39b32685d758f0039b52ba462ee5475b3605776965804f",
+      "size_bytes": 386118,
       "validation_status": "HASH_VERIFIED",
       "semantic_validation_status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
       "accepted_lesson_count": 27,
-      "accepted_headword_count": 868,
+      "accepted_headword_count": 834,
       "accepted_phrase_count": 76,
-      "accepted_senses_phrases_lower_bound": 944,
+      "accepted_senses_phrases_lower_bound": 910,
       "evidence_ref": "docs/content-pipeline/registry/curriculum-accepted-coverage-baseline.json",
       "next_action": {
         "code": "NONE",
         "responsible_lane": "NONE",
-        "requires": "Coverage baseline reconciled. Batch04 is planning-only and remains unopened; no production/audio action is authorized."
-      }
+        "requires": "Accepted coverage baseline reconciled for completed 27 lessons. Batch04 remains planning-only/unopened; no production/audio action authorized."
+      },
+      "normalization_audit_status": "CORRECTED_NORMALIZED_LEMMA_IDENTITY"
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"

@@ -5,7 +5,7 @@
   "status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
   "owner_lane": "CURRICULUM_3",
   "scope": "Completed official Mặn lessons from Batch01–03 only; no Batch04 production.",
-  "checked_against_main": "efdd8000617d5142fb5815f59917460345c1cfcb",
+  "checked_against_main": "9214d688c1ee2baa0420553ce1d3ffcea34895b3",
   "authoritative_sources": [
     "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx#LEXICAL_SYSTEM",
     "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx#LEVEL_BLUEPRINT",
@@ -20,15 +20,16 @@
     "store": "ChatGPT Library (access controlled)",
     "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Accepted-Coverage-Baseline-v0.1.xlsx",
     "library_file_id": "libfile_876bac875f808191b93a6ec3f1a2f2c3",
-    "sha256": "9083bafdd3aaeb055cc827905e83db8b5172a1fb6c7afe56f73d8bd507786443",
-    "size_bytes": 76964
+    "sha256": "0f215edc34bd00382d39b32685d758f0039b52ba462ee5475b3605776965804f",
+    "size_bytes": 386118
   },
   "accepted_coverage": {
     "lesson_count": 27,
-    "normalized_headwords": 868,
+    "normalized_headwords": 834,
     "verified_reusable_phrases": 76,
-    "verified_senses_phrases_lower_bound": 944,
-    "sense_counting_note": "Exactly one minimum attested sense per accepted lemma+POS is credited unless an additional distinct sense is separately verified. Therefore 944 is a conservative lower bound, not an exhaustive polysemy inventory.",
+    "verified_senses_phrases_lower_bound": 910,
+    "headword_counting_note": "Unique headword count uses normalized lemma identity. POS is preserved as metadata but does not multiply the same lemma. The previous 868 lemma+POS-row statistic is superseded after bounded normalization audit.",
+    "sense_counting_note": "Exactly one minimum attested sense per accepted normalized lemma is credited unless an additional distinct sense is separately verified. Therefore 910 (=834 minimum attested senses + 76 verified reusable phrase units) is a conservative lower bound, not an exhaustive polysemy inventory.",
     "phrase_categories": {
       "collocation": 42,
       "phrasal_verb": 14,
@@ -85,40 +86,40 @@
     },
     "A2": {
       "accepted_lessons": 10,
-      "headwords": 223,
+      "headwords": 218,
       "phrases": 22,
-      "senses_phrases_lower_bound": 245
+      "senses_phrases_lower_bound": 240
     },
     "B1": {
       "accepted_lessons": 15,
-      "headwords": 419,
+      "headwords": 408,
       "phrases": 36,
-      "senses_phrases_lower_bound": 455
+      "senses_phrases_lower_bound": 444
     },
     "B2": {
       "accepted_lessons": 19,
-      "headwords": 556,
+      "headwords": 540,
       "phrases": 48,
-      "senses_phrases_lower_bound": 604
+      "senses_phrases_lower_bound": 588
     },
     "C1": {
       "accepted_lessons": 23,
-      "headwords": 703,
+      "headwords": 677,
       "phrases": 63,
-      "senses_phrases_lower_bound": 766
+      "senses_phrases_lower_bound": 740
     },
     "C2": {
       "accepted_lessons": 27,
-      "headwords": 868,
+      "headwords": 834,
       "phrases": 76,
-      "senses_phrases_lower_bound": 944
+      "senses_phrases_lower_bound": 910
     }
   },
   "previous_gap_resolution": {
     "prior_status": "UNVERIFIED_EXISTING_ARTIFACT_GAP",
     "resolved_status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
     "prior_ref": "docs/content-pipeline/registry/batch-03-coverage-accepted-overlay.json",
-    "note": "The prior bounded subset remains historical evidence; this baseline replaces its null total accounting for the completed 27 accepted lessons."
+    "note": "The prior bounded subset remains historical evidence. Full accepted-corpus reconciliation now supplies traceable totals for the completed 27 lessons; the earlier 868 lemma+POS-row draft statistic was corrected to 834 normalized lemma identities."
   },
   "coverage_state_separation": {
     "planned": "Does not count toward accepted baseline.",
@@ -143,5 +144,14 @@
   "batch04_status": "PLANNING_ONLY_NOT_OPENED",
   "production_queue_enabled": false,
   "paid_audio_authorized_or_created": false,
-  "recommended_next_step": "Keep this baseline as the accepted accounting input. If Batch04 preproduction is later authorized, run a fresh Unique Purpose + progression + coverage-gap review on the six proposed reserved identities before Practice. Until then keep Batch04 unopened and pipeline next_action NONE."
+  "recommended_next_step": "Keep this corrected baseline as the accepted accounting input. If Batch04 preproduction is later authorized, run a fresh Unique Purpose + progression + coverage-gap review on the six proposed reserved identities before Practice. Until then keep Batch04 unopened and pipeline next_action NONE.",
+  "normalization_audit": {
+    "previous_headword_statistic": 868,
+    "previous_statistic_definition": "distinct normalized lemma+POS rows",
+    "corrected_headword_count": 834,
+    "corrected_definition": "unique normalized lemma identity; POS retained as metadata",
+    "corrected_traceability_display": true,
+    "exact_lexical_label_corrections": 10,
+    "accepted_lesson_text_modified": false
+  }
 }
