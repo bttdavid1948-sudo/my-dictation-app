@@ -1,6 +1,8 @@
-# Bounded Batch02 readiness from Batch01
+# Production continuity and preserved Batch01–03 precedents
 
-Default current state is Batch02 OBJECTIVE_COMPLETE, 12/12, CLOSED, next action NONE. Resolve the hash-bound closure index and pipeline current pointers before any continuation. No Batch01/02 production or Batch03 is routed.
+At the post-Batch03 hardening watermark, Batch03 is OBJECTIVE_COMPLETE, 3/3, CLOSED, next action NONE. Always resolve fresh canonical closure pointers rather than treating this prose as live state. Batch01/02 closure and production knowledge are preserved. NONE closes production; a separately authorized bounded audit may proceed without opening a batch. Batch04 and R1.4 require explicit authority.
+
+Read [post-Batch03 continuity evidence and recovery paths](../evidence/post-batch03-hardening-v0.1.md) before diagnosing a repeated interruption, missing funding visibility, QA access failure or successor recovery. That record includes finite binding checks and lightweight measurement fields; it is not an execution queue or a replacement orchestrator.
 
 Run `node operations/orchestration/resolve.mjs` for current canonical truth and `node operations/orchestration/resolve.test.mjs` for deterministic routing/receipt/precedence protection. `actualBatch01()` is an explicit historical trace API retained unchanged. A JSON-array CLI argument is an explicit evidence-envelope evaluation, not current-state discovery or permission to execute; workers must first resolve current state and exit on NONE. Historical records do not override current pointers.
 
@@ -20,6 +22,12 @@ Identity for work is `lesson_id + lesson_asset_version + realization_id + stage 
 
 The Batch01 immutable-asset receipt index records existing upload references. Correct assets are never regenerated or reuploaded. Natural learner playback and gate outcomes are carried by their original release evidence, not re-certified by this resolver.
 
+## Recover solved blockers before escalation
+
+Treat unknown funding as an internal reconciliation state, not an automatic Owner blocker. Reuse the proven Batch02/03 read-only Platform Billing/Usage route, permitted safe session recovery, secure repository producer preflight and outstanding reservation accounting. Current funding/access evidence is still mandatory; historical credit or successful synthesis cannot authorize a new call. For repeated tool failures, reconcile actual remote state and change to a permitted proven method. Honor method-specific browser/authentication approval; the historical Batch03 fallback grant is scope-limited. Stop only at the exact evidenced current failed invariant after permitted recovery and independent progression, with a resume condition.
+
+Use the linked recovery/measurement record for finite producer/QA binding checks before expensive CI and for successor completion-channel pointers. Do not ask Owner to relay routine room status.
+
 ## Exception routes
 
 | Trigger | Responsible lane | Resume boundary |
@@ -34,7 +42,7 @@ The Batch01 immutable-asset receipt index records existing upload references. Co
 | Isolated blocked lesson | Its owning lane | Continue all independent actionable lessons |
 | Residual subtle accent uncertainty | Feedback → exception → versioned replacement | Nonblocking release uncertainty |
 
-## Historical readiness boundary (superseded activation route)
+## Historical Batch01 → Batch02 readiness boundary (superseded activation route)
 
 Operations readiness work and actual-trace replay are complete. The next lane is Curriculum #3 for Batch02 versioned preproduction inputs, followed by Practice #2. No Batch02 production/queue or paid request starts here. Work cannot activate another project conversation; that remains a cross-lane activation capability gap, explicitly recorded rather than hidden as full autonomy.
 

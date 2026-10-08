@@ -1,0 +1,257 @@
+{
+  "objective": "POST_BATCH03_OPERATIONS_HARDENING_V0_1",
+  "canonical_start": "b5de9899ba72426180881b83123d9d923407e504",
+  "prs": [
+    {
+      "number": 149,
+      "title": "Batch03: reuse recovered preproduction with the inherited audio producer",
+      "merged": true,
+      "head_sha": "9415354b2d67735e53f14c3f1d2bfd167380e5be",
+      "merge_commit_sha": "b31f065307f1fde601f92c3fb72502425063654d",
+      "commits": 1,
+      "changed_files": 15,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37654587590,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 49,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37654587590/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37654587590/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 150,
+      "title": "Batch03: activate 20 recovered audio requests under standing prepaid authority",
+      "merged": true,
+      "head_sha": "ed3774b2dac1dcc0e02a4e1758c50d13be1699ed",
+      "merge_commit_sha": "37c869bdbcfa84b455891ac474bd9a73b6a93943",
+      "commits": 1,
+      "changed_files": 1,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37654966707,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 50,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37654966707/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37654966707/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 151,
+      "title": "Bind Batch03 inherited ordinary audio QA to established GitHub execution",
+      "merged": true,
+      "head_sha": "7c82fcd5126f958e651cd6d7c8cd1d1e9d8ec2d7",
+      "merge_commit_sha": "4f19a70a644dfdae31256f33aa7a5c9dc61559cb",
+      "commits": 1,
+      "changed_files": 3,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37661306983,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 51,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37661306983/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37661306983/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 152,
+      "title": "Batch03: resolve five lexical QA flags using inherited targeted review",
+      "merged": true,
+      "head_sha": "49682eb5b4e7b69822a29e3b79b9de14067194fd",
+      "merge_commit_sha": "2f10227a6bf978cb60bb67ce1209d050f118a637",
+      "commits": 1,
+      "changed_files": 3,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37662048447,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 52,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37662048447/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37662048447/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 153,
+      "title": "Batch03: repair only verified S006 omission through inherited procedure",
+      "merged": true,
+      "head_sha": "f794dd6b35e7e7b15080dc9272ff9dc92c667ef2",
+      "merge_commit_sha": "c123825460261ee2568f902ada4b75e80994e92d",
+      "commits": 1,
+      "changed_files": 5,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37731148301,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 53,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37731148301/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37731148301/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 154,
+      "title": "Batch03: import 19 preserved WAVs and repaired S006 through proven path",
+      "merged": true,
+      "head_sha": "3447e4deaecce0ec49b2416a2657cac7db56fe1a",
+      "merge_commit_sha": "6a7ad22a32407eb1fd3e0e5faf040d4388a0c7f4",
+      "commits": 1,
+      "changed_files": 4,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37731585894,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 54,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37731585894/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37731585894/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 155,
+      "title": "Batch03 controlled release: three exact generic Practice pairs",
+      "merged": true,
+      "head_sha": "2c93c05bccbac1d62feeeddaf49403a3b3c6c00d",
+      "merge_commit_sha": "b63944f2263b16fec3a5679d960cdeefc9f99f4f",
+      "commits": 6,
+      "changed_files": 42,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37733419099,
+            "name": "Isolated Practice wrapper browser integration",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 15,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419099/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419099/logs",
+            "workflow_id": 377192214
+          },
+          {
+            "id": 37733419191,
+            "name": "Batch03 controlled learner release verification",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 5,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419191/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419191/logs",
+            "workflow_id": 378108274
+          },
+          {
+            "id": 37733419150,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 59,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419150/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37733419150/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    },
+    {
+      "number": 156,
+      "title": "Batch03: finish withdrawn resume cleanup during immediate navigation",
+      "merged": true,
+      "head_sha": "b39ba93b6752e7bed6fe7633929a7da4079715b7",
+      "merge_commit_sha": "ca2cb1d9fd13309f4e8af1112c97575e05d7255a",
+      "commits": 1,
+      "changed_files": 4,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37734580467,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 60,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580467/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580467/logs",
+            "workflow_id": 375103818
+          },
+          {
+            "id": 37734580392,
+            "name": "Batch03 controlled learner release verification",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 7,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580392/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580392/logs",
+            "workflow_id": 378108274
+          },
+          {
+            "id": 37734580521,
+            "name": "Isolated Practice wrapper browser integration",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 16,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580521/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37734580521/logs",
+            "workflow_id": 377192214
+          }
+        ]
+      }
+    },
+    {
+      "number": 157,
+      "title": "Close Batch03: three exact pairs, six live withdrawal PASS",
+      "merged": true,
+      "head_sha": "590dae6dad13449d0a95cf77caa950702f2caf3f",
+      "merge_commit_sha": "b5de9899ba72426180881b83123d9d923407e504",
+      "commits": 1,
+      "changed_files": 37,
+      "runs": {
+        "workflow_runs": [
+          {
+            "id": 37737182885,
+            "name": "Batch state and bounded resolver validation",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 61,
+            "jobs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37737182885/jobs",
+            "logs_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/runs/37737182885/logs",
+            "workflow_id": 375103818
+          }
+        ]
+      }
+    }
+  ],
+  "paid_calls_this_objective": 0,
+  "unchanged_production_gate_reruns": 0,
+  "batch04_opened": false,
+  "r1_4_executed": false
+}
