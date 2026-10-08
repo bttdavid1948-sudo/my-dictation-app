@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "practice-scale-readiness-review",
+  "version": "v0.1",
+  "status": "PASS_READY",
+  "owner_lane": "PRACTICE_2",
+  "review_scope": "PROPOSED_SIX_LESSON_BATCH_ONLY_NO_BATCH04_EXECUTION",
+  "checked_at": "2026-10-08",
+  "verdict": "READY",
+  "authority_boundary": {
+    "batch04_execution_authorized": false,
+    "practice_redesign_authorized": false,
+    "r1_4_authorized": false,
+    "frozen_scoring_change_authorized": false,
+    "legacy_retirement_authorized": false
+  },
+  "authoritative_refs": [
+    "curriculum-practice-contract@v0.3",
+    "content-pipeline-contract@v0.2",
+    "practice-production-spec@v0.1",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-02-final-practice.json",
+    "docs/content-pipeline/registry/batch-02-support-qa.json",
+    "docs/content-pipeline/registry/batch-03-final-practice.json",
+    "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-03-live-release.json",
+    "docs/content-pipeline/registry/batch-03-grounding-integrity.json",
+    "assets/practice-runtime-wrapper.js",
+    "tests/practice-runtime-wrapper.test.mjs",
+    "PR#156"
+  ],
+  "reused_precedents": {
+    "batch01": [
+      "Frozen Curriculum↔Practice boundary and postproduction target-anchor grounding",
+      "Exact realization binding and Practice-ready/Contract-valid final disposition",
+      "Support-aware evidence, separate dictation/comprehension semantics, condition-anchor handling",
+      "Mixed/context-preserving playback precedent and legacy ownership boundaries"
+    ],
+    "batch02": [
+      "12 lessons across A1-C2 and 4-9 segment lesson lengths completed without Practice redesign",
+      "Different comprehension constructs and connected-speech/condition patterns mapped through existing Practice schema",
+      "77 English/vi-VN support segment pairs QA PASS with one targeted Vietnamese-only repair and no Curriculum/Practice semantic change",
+      "Desktop/mobile live verification, feedback ACK and rollback PASS for all 12 exact pairs"
+    ],
+    "batch03": [
+      "Generic Practice runtime handled 4, 6 and 10 segment lessons with exact hash-bound audio, correct/incorrect responses, separate dictation, resume, feedback and rollback",
+      "Three final Practice exact pairs PASS under unchanged frozen contracts",
+      "Live evidence PASS on desktop and mobile emulation for all three exact pairs",
+      "Generic runtime remains shape-driven rather than lesson-ID-driven and preserves legacy ownership for legacy envelopes"
+    ]
+  },
+  "scale_dimensions": {
+    "cefr_and_length": {
+      "status": "REUSABLE",
+      "evidence": "Batch02 spans A1-C2 with 4-9 segments; Batch03 demonstrates 4, 6 and 10 segments through Generic Practice runtime.",
+      "acceptance": "No semantic issue from level or segment count alone. Lesson must fit an existing Practice operator/evidence model and pass normal grounding."
+    },
+    "interaction_structures": {
+      "status": "REUSABLE_WITH_EXISTING_PRESENTATION_FORMS",
+      "evidence": "Existing runtime supports task rows, sequence/full-context playback and context-preserving mixed/full-panel behavior; wrapper selects by represented capability, not batch/lesson identity.",
+      "acceptance": "Existing descriptor/presentation shapes only. A genuinely new interaction contract is a novelty trigger."
+    },
+    "natural_spoken_english": {
+      "status": "REUSABLE_GATE",
+      "evidence": "Batch01-03 exact realization QA uses ordinary automated lexical/container checks plus bounded realization-specific evidence where construct requires it; Product direction accepts residual accent uncertainty.",
+      "acceptance": "Intelligibility and exact semantic realization must be sufficient for the intended Practice construct; no certification perfection requirement."
+    },
+    "answer_feedback": {
+      "status": "REUSABLE",
+      "evidence": "Batch03 retained correct and incorrect learner outcomes, response/evidence rows, separate dictation and exact-context feedback ACKs; negative first-pass is not recorded as success.",
+      "acceptance": "Correct answer/reference answer must remain grounded to final anchors; support/replay must be reflected in evidence strength."
+    },
+    "audio_text_binding": {
+      "status": "REUSABLE",
+      "evidence": "Exact lesson/version/realization/segment/hash binding is enforced by descriptors, resume identity and live receipts; changed hashes and stale versions are rejected.",
+      "acceptance": "Every playable asset must bind deterministically to stable segment IDs and realization version; mixed context must preserve canonical mapping."
+    },
+    "vietnamese_support": {
+      "status": "REUSABLE",
+      "evidence": "Batch02 support QA reviewed 77 exact English/vi-VN segment pairs; targeted Vietnamese-only repair did not change English lesson or Practice semantics. Batch03 support hashes were exact-bound and live verified.",
+      "acceptance": "Full segment coverage, semantic fidelity, natural Vietnamese, exact lesson/version reference; support remains assistance rather than Practice evidence."
+    },
+    "review_progression": {
+      "status": "REUSABLE_WITH_EXISTING_SEMANTICS",
+      "evidence": "Support state, replay count, evidence strength, repair-only evidence and no-transfer-mastery claims are carried in Batch02/03 Practice rows. Resume round trips and rejection cases are covered by Generic Practice integration tests.",
+      "acceptance": "Repair/retention/transfer distinctions remain frozen. No single assisted success may be promoted to generalized mastery."
+    },
+    "desktop_mobile_continuity": {
+      "status": "REUSABLE_GATE",
+      "evidence": "Batch02 12/12 and Batch03 3/3 exact releases passed desktop and Chromium Pixel5 emulation; Batch03 resume and withdrawal revalidation covered both modes.",
+      "acceptance": "Continue exact-pair staging/live checks for materially changed runtime behavior. No physical iOS/Android claim is inferred from emulation."
+    },
+    "legacy_ownership": {
+      "status": "REUSABLE_AND_MUST_BE_PRESERVED",
+      "evidence": "Generic wrapper explicitly leaves legacy envelopes to legacy runtimes; tests verify generic restore does not consume/delete legacy-owned envelopes and navigation/rollback preserve original function identities.",
+      "acceptance": "No migration/retirement is implied. Any change to legacy ownership is a separate authorized compatibility decision."
+    }
+  },
+  "pr156_assessment": {
+    "classification": "BOUNDED_FIXED_RUNTIME_DEFECT",
+    "defect": "Withdrawal-only race: immediate catalog navigation could cancel restoration before stale generic resume-envelope cleanup after asynchronous catalog load.",
+    "semantic_scope": "Generic resume/withdrawal lifecycle cleanup only; no scoring, target grounding, support semantics, audio binding or legacy ownership semantics changed.",
+    "correction": "Cleanup of withdrawn generic envelopes occurs after successful catalog loading even when navigation cancels restoration; disposal and legacy ownership protections remain.",
+    "regression_evidence": [
+      "Unit regression reproduces delayed catalog load + immediate navigation and requires stale generic envelope deletion with no reopening.",
+      "Generic wrapper test suite retains differential presentation/events/history/audio coverage, resume round trips and rejection cases, unseen shape-driven identity behavior, stale hash/version rejection and legacy ownership checks.",
+      "PR #156 revalidated only the invalidated withdrawal gate while reusing retained read-only receipts for unaffected core learner outcomes.",
+      "Six staging and six live desktop/mobile withdrawal checks PASS after protected exact-head merge/deployment.",
+      "No synthesis, feedback writes or full playback rerun was needed for the corrected gate."
+    ],
+    "broader_lifecycle_problem_evidenced": false,
+    "rationale": "The failure was reproducible under a specific asynchronous withdrawal/navigation ordering, fixed at the cleanup boundary, and the targeted correction passed while unaffected core outcomes were preserved by hash-bound receipts. No evidence shows generalized state corruption, scoring drift, audio/text mismatch or legacy ownership break."
+  },
+  "fully_reusable_gates": [
+    "UNIQUE_PURPOSE_PASS",
+    "CURRICULUM_READY",
+    "PRACTICE_PREPROD_READY",
+    "specification-level CONTRACT_PRECHECK_VALID",
+    "produced target-anchor grounding",
+    "exact lesson/version/realization/segment/hash binding",
+    "construct-aware Practice mapping using existing operators",
+    "support/replay/exposure-aware evidence classification",
+    "correct/incorrect response semantics",
+    "short-span dictation with orthography separated from auditory evidence",
+    "Vietnamese support QA",
+    "realization-dependent cue validation only where the construct requires it",
+    "PRACTICE_READY",
+    "produced-asset CONTRACT_VALID",
+    "desktop/mobile exact-pair live verification",
+    "resume identity/hash/version checks",
+    "withdrawal cleanup and rollback",
+    "legacy resume ownership preservation",
+    "feedback ACK smoke verification under existing capability"
+  ],
+  "novelty_triggers_requiring_new_semantic_review": [
+    "A Practice construct/operator/response format not represented by Practice Production Specification v0.1",
+    "A new evidence dimension or learner-state claim beyond the existing model",
+    "A new support mode whose effect on evidence strength is not already defined",
+    "A new transfer/generalization claim, especially calibrated mastery or unseen-transfer certification",
+    "A new interaction structure that cannot normalize into existing task-row, sequence/full-context or context-preserving mixed/full-panel descriptors",
+    "A new mixed/overlap behavior that breaks stable segment/context mapping or existing evidence-condition semantics",
+    "A requirement to make transcript exposure, hinting or replay count as stronger evidence than frozen semantics permit",
+    "A proposal to migrate/retire legacy resume ownership or merge legacy and Generic state",
+    "A scoring requirement based on fine phonetic/prosodic/accent certification rather than bounded learner-outcome evidence",
+    "A learner-support locale behavior that changes Curriculum target meaning or Practice scoring rather than remaining support"
+  ],
+  "minimum_sufficient_acceptance_for_six_lesson_batch": [
+    "All six lesson identities pass Curriculum/Unique Purpose and existing preproduction gates; no duplicate/open conflict.",
+    "Each lesson's final produced target_anchors[] maps to existing Practice v0.1 behavior without invented Curriculum semantics.",
+    "Each Practice question/choice/reference answer is proposition-grounded and has exactly one defensible scoring key for its construct.",
+    "Any short-span task uses stable segment/span grounding and separates orthographic normalization from auditory evidence.",
+    "Audio is intelligible and exact-bound to lesson/version/realization/segment hashes; only construct-relevant realization cues require additional bounded evidence.",
+    "vi-VN support has complete segment coverage and semantic QA; support text does not become Curriculum truth or scoring evidence.",
+    "Support, replay, transcript exposure and playback rate are logged and evidence strength is downgraded according to frozen semantics.",
+    "Resume restores only exact compatible Generic envelopes; stale version/hash/identity/age/route envelopes fail closed.",
+    "Withdrawn Generic lessons clear their stale Generic resume envelope even under immediate navigation; no reopen after cancellation.",
+    "Legacy-owned envelopes remain untouched by Generic cleanup.",
+    "Desktop and mobile-emulation learner flows pass for materially changed or newly represented runtime paths; unchanged generic runtime gates may be reused rather than rerun globally.",
+    "Rollback/withdrawal remains per-lesson and does not revive stale state.",
+    "Final PRACTICE_READY and CONTRACT_VALID are exact-pair decisions; no generalized mastery or calibration claim is inferred."
+  ],
+  "known_risks_and_mitigations": [
+    {
+      "risk": "Future async navigation/state race",
+      "status": "BOUNDED_MITIGATION_AVAILABLE",
+      "mitigation": "Retain PR#156 regression and targeted withdrawal/live gate whenever resume/withdrawal lifecycle code changes. Do not rerun full playback when only this gate is invalidated."
+    },
+    {
+      "risk": "Physical-device differences not covered by Pixel5 emulation",
+      "status": "KNOWN_LIMIT_NOT_CURRENT_BLOCKER",
+      "mitigation": "Do not claim physical iOS/Android coverage. Escalate only if a learner-facing physical-device defect or browser-specific behavior is evidenced."
+    },
+    {
+      "risk": "Realization-specific connected speech/prosody/overlap quality",
+      "status": "ROUTINE_BOUNDED_REVIEW",
+      "mitigation": "Use minimum sufficient exact-realization evidence only when the Practice construct depends on the cue; do not reopen general audio research or require human certification."
+    },
+    {
+      "risk": "Legacy/Generic coexistence",
+      "status": "CURRENTLY_STABLE",
+      "mitigation": "Keep ownership split and rollback/reference path. Reopen only if evidence shows cross-owner corruption or an authorized retirement/migration objective."
+    }
+  ],
+  "compatibility_io_decoupling": {
+    "reopen_required": false,
+    "reason": "No current learner-facing evidence shows that Generic Practice's descriptor/core boundary or IO/legacy split is insufficient. Batch02/03 production and live evidence show shape-driven reuse across varied lessons; PR#156 was repaired inside the existing lifecycle boundary."
+  },
+  "r1_4": {
+    "justified": false,
+    "reason": "No unresolved semantic or learner-facing risk requires R1.4. Existing runtime plus bounded regression gates covers the demonstrated defect class."
+  },
+  "technical_surgery": {
+    "justified": false,
+    "reason": "No redesign or compatibility surgery is supported by current evidence. The minimum mitigation is to preserve existing regression/withdrawal checks and trigger new semantic review only on explicit novelty conditions."
+  },
+  "recommended_next_step": "If Owner later authorizes Batch04 execution, admit the proposed six lessons through the existing Curriculum→Practice preproduction gates, compare their characteristics against the novelty-trigger list above, and use the current Generic Practice production/runtime path unchanged for routine cases. Do not open Batch04 in this review."
+}
