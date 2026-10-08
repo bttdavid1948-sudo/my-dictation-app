@@ -73,7 +73,10 @@ try{
   let legacyRestores=0,rejections=0;
   const sessionKeys={'man-panel':'man_mixed_panel_v1','man-inference':'man_final_two_practice_v1','man-b02':'man_batch02_practice_v1'};
   const legacyAPI={'man-panel':'ManMixedPanel','man-inference':'ManFinalTwoPractice','man-b02':'ManBatch02Practice'};
-  for(const u of inventory.filter(u=>u.practice)){
+  // Retained legacy runtimes own only the original published bindings.
+  // New generic pairs are already exercised above, with no invented legacy migration.
+  const legacyIds=new Set(JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/published-man-bindings.json'),'utf8')).map(u=>u.id));
+  for(const u of inventory.filter(u=>u.practice&&legacyIds.has(u.id))){
    const key=sessionKeys[u.prefix],api=legacyAPI[u.prefix];
    // Produce genuine pre-cutover envelopes with retained legacy functions.
    await page.evaluate(id=>{ManGenericPractice.dispose();sessionStorage.clear();__audio.length=0;xStartCatalog(id);},u.id);
