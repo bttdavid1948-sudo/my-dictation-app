@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "curriculum-accepted-coverage-baseline",
+  "version": "v0.1",
+  "status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
+  "owner_lane": "CURRICULUM_3",
+  "scope": "Completed official Mặn lessons from Batch01–03 only; no Batch04 production.",
+  "checked_against_main": "efdd8000617d5142fb5815f59917460345c1cfcb",
+  "authoritative_sources": [
+    "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx#LEXICAL_SYSTEM",
+    "MAN-V3.4-Producer-Neutral-Deep-Audit-1000.xlsx#LEVEL_BLUEPRINT",
+    "MAN-Curriculum-Production-Specification-v0.1.xlsx",
+    "MAN-Global-Lesson-Registry-Snapshot-v0.1.xlsx",
+    "docs/content-pipeline/registry/batch-01-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-02-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
+    "docs/content-pipeline/registry/batch-03-coverage-accepted-overlay.json"
+  ],
+  "workbook": {
+    "store": "ChatGPT Library (access controlled)",
+    "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Accepted-Coverage-Baseline-v0.1.xlsx",
+    "library_file_id": "libfile_876bac875f808191b93a6ec3f1a2f2c3",
+    "sha256": "9083bafdd3aaeb055cc827905e83db8b5172a1fb6c7afe56f73d8bd507786443",
+    "size_bytes": 76964
+  },
+  "accepted_coverage": {
+    "lesson_count": 27,
+    "normalized_headwords": 868,
+    "verified_reusable_phrases": 76,
+    "verified_senses_phrases_lower_bound": 944,
+    "sense_counting_note": "Exactly one minimum attested sense per accepted lemma+POS is credited unless an additional distinct sense is separately verified. Therefore 944 is a conservative lower bound, not an exhaustive polysemy inventory.",
+    "phrase_categories": {
+      "collocation": 42,
+      "phrasal_verb": 14,
+      "chunk": 12,
+      "idiom": 4,
+      "expression": 3,
+      "discourse_chunk": 1
+    }
+  },
+  "authoritative_quantitative_commitments": {
+    "hard_floor": {
+      "headwords": 6970,
+      "senses_phrases": 15000
+    },
+    "design_target": {
+      "headwords": 7600,
+      "senses_phrases": 17400
+    },
+    "cumulative_planning_targets": {
+      "A1": {
+        "headwords": 650,
+        "senses_phrases": 900
+      },
+      "A2": {
+        "headwords": 1500,
+        "senses_phrases": 2200
+      },
+      "B1": {
+        "headwords": 2900,
+        "senses_phrases": 4800
+      },
+      "B2": {
+        "headwords": 4600,
+        "senses_phrases": 8500
+      },
+      "C1": {
+        "headwords": 6500,
+        "senses_phrases": 13800
+      },
+      "C2": {
+        "headwords": 7600,
+        "senses_phrases": 17400
+      }
+    },
+    "subcategory_numeric_targets": null,
+    "interpretation": "Hard floors and design/cumulative targets are corpus planning commitments, not mastery guarantees and not identical per-lesson or per-batch quotas."
+  },
+  "accepted_cumulative_by_level": {
+    "A1": {
+      "accepted_lessons": 5,
+      "headwords": 86,
+      "phrases": 7,
+      "senses_phrases_lower_bound": 93
+    },
+    "A2": {
+      "accepted_lessons": 10,
+      "headwords": 223,
+      "phrases": 22,
+      "senses_phrases_lower_bound": 245
+    },
+    "B1": {
+      "accepted_lessons": 15,
+      "headwords": 419,
+      "phrases": 36,
+      "senses_phrases_lower_bound": 455
+    },
+    "B2": {
+      "accepted_lessons": 19,
+      "headwords": 556,
+      "phrases": 48,
+      "senses_phrases_lower_bound": 604
+    },
+    "C1": {
+      "accepted_lessons": 23,
+      "headwords": 703,
+      "phrases": 63,
+      "senses_phrases_lower_bound": 766
+    },
+    "C2": {
+      "accepted_lessons": 27,
+      "headwords": 868,
+      "phrases": 76,
+      "senses_phrases_lower_bound": 944
+    }
+  },
+  "previous_gap_resolution": {
+    "prior_status": "UNVERIFIED_EXISTING_ARTIFACT_GAP",
+    "resolved_status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
+    "prior_ref": "docs/content-pipeline/registry/batch-03-coverage-accepted-overlay.json",
+    "note": "The prior bounded subset remains historical evidence; this baseline replaces its null total accounting for the completed 27 accepted lessons."
+  },
+  "coverage_state_separation": {
+    "planned": "Does not count toward accepted baseline.",
+    "draft": "Does not count toward accepted baseline.",
+    "accepted_production": "Counts only when canonical accepted production evidence is complete.",
+    "unverified_legacy": "Does not count unless reconciled."
+  },
+  "quality_invariants": [
+    "Natural English remains first-class.",
+    "Unique Purpose and CEFR progression remain first-class.",
+    "Repeated or weak/artificial/contextually inappropriate lexical material does not inflate coverage.",
+    "Accepted lessons are not modified merely to improve numeric counts."
+  ],
+  "batch04_planning_proposal": [
+    "MAN-0031",
+    "MAN-0271",
+    "MAN-0451",
+    "MAN-0581",
+    "MAN-0831",
+    "MAN-0951"
+  ],
+  "batch04_status": "PLANNING_ONLY_NOT_OPENED",
+  "production_queue_enabled": false,
+  "paid_audio_authorized_or_created": false,
+  "recommended_next_step": "Keep this baseline as the accepted accounting input. If Batch04 preproduction is later authorized, run a fresh Unique Purpose + progression + coverage-gap review on the six proposed reserved identities before Practice. Until then keep Batch04 unopened and pipeline next_action NONE."
+}
