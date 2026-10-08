@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import {resolveBatch04} from '../orchestration/resolve.mjs';
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const s=read('docs/content-pipeline/registry/batch-04-operations-checkpoint.json');
+const hashes=p=>createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const previous={batchId:'BATCH_03',status:'BATCH_03_COMPLETE_3_OF_3'};
+assert.equal(resolveBatch04(s,hashes,previous).remainingLessonCount,6);
+for(const bad of [{...s,owner_execution_authorized:false},{...s,r1_4_authorized:true},{...s,states:s.states.slice(1)},{...s,queue_state:'CLOSED'},{...s,complete_lesson_count:6},{...s,states:s.states.map((x,i)=>i?x:{...x,lessonId:'UNAUTHORIZED'})}])assert.throws(()=>resolveBatch04(bad,hashes,previous),/BATCH04_STATE_MISMATCH/);
+assert.throws(()=>resolveBatch04(s,()=> 'wrong',previous),/evidence hash/);
+const prepared=read('operations/batch04-production/prepared-segments.json').segments;
+assert.equal(prepared.length,46);
+assert.equal(new Set(prepared.map(x=>x.lesson_id+'@'+x.segment_id)).size,46);
+for(const x of prepared)assert.equal(createHash('sha256').update(x.text).digest('hex'),x.text_sha256);
+console.log('PASS: six-identity authority, evidence drift, incomplete close and queue boundary; 46 exact finite request hashes.');
