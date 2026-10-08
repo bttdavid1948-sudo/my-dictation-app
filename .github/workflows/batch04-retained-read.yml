@@ -17,8 +17,14 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
-          run-id: 37771778107
-          name: batch04-audio-production-37771778107
+          run-id: 37772501746
+          name: batch04-audio-production-37772501746
           path: retained
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 37772501926
+          name: batch04-targeted-repair-37772501926
+          path: retained-repair
       - run: python3 -m pip install numpy scipy pocketsphinx==5.1.1
       - run: python3 operations/batch04-production/read_retained.py
