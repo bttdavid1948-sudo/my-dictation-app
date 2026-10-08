@@ -1,0 +1,235 @@
+{
+  "batch_id": "BATCH_03",
+  "status": "PASS",
+  "lessons": [
+    {
+      "lesson_id": "MAN-0067",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0067-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0067-A-COMP-01",
+        "MAN-0067-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "SEQUENCE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0067-A-COMP-01",
+          "MAN-0067-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Bạn nên làm gì trước khi xem hình?",
+        "choices": [
+          "Đọc từ trên mặt trước.",
+          "Xem hình ở mặt sau.",
+          "Viết một từ khác."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Read the word first, then turn the card over to look at the picture.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0067-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 1, điền từ còn thiếu: I ___ remember this word.",
+            "answer": "can't",
+            "span": {
+              "segment_id": "S001",
+              "start_char": 2,
+              "end_char": 7
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "realization_cue_evidence": "Both unprompted recognizers decode can't. PCM-only allphone sensitivity outputs locate one AE nucleus at 0.81–0.95s in the bounded word, not an expanded cannot/can not sequence. Exact fixed output, 0.14s voiced nucleus with 20ms sensitivity retained. Supports the short contracted-form instance only; phoneme recognizer errors are not claimed as ground-truth phones.",
+      "rules": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ],
+      "mapping_refs": [
+        "MAP-CMP-03",
+        "MAP-SPH-02"
+      ],
+      "limits": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery.",
+      "exact_asset_hashes": [
+        "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644",
+        "b856d5b71a868fdcaf0336b0eac2d7f922308e1c3d6dc96e8e405bbb4d89e980",
+        "ae711235e23ecc675096b41e2d2a778cc076899bc6b36c61319d69c1672fe509",
+        "e2d5b874275ec11f01b0866f82f777197ec593f8cb4b522ded6af73345001f59"
+      ],
+      "support_sha256": "b09b5ebe98a886e53cb7a65e31a3b752eb79a664cc0a6263e607a808dcf41ffa",
+      "preprod_sha256": "2f90809baa507d912192a834799b0e84ca8a40392b77236dcb7759ccdd8222de",
+      "comprehension_review": "Grounded in retained explicit sequence/purpose propositions; choices distinguish stated actions and actual requested group change. Original English/anchors/level and scored dimensions unchanged."
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0167-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0167-A-COMP-01",
+        "MAN-0167-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "PURPOSE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0167-A-COMP-01",
+          "MAN-0167-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Vì sao người học nhờ đổi nhóm và hỏi cách luyện?",
+        "choices": [
+          "Muốn bỏ hẳn luyện nói.",
+          "Muốn đổi sang giờ phù hợp và luyện theo cặp trước.",
+          "Muốn đứng lớp thay người hướng dẫn."
+        ],
+        "correctChoice": 1,
+        "referenceAnswer": "The learner asks to move to Saturday and wants pair practice before speaking to the whole group.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0167-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 4, điền cụm nghe được: You can practise ___ first.",
+            "answer": "with a partner",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 17,
+              "end_char": 31
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "realization_cue_evidence": "Both recognizers preserve with a partner; practise/practice is written spelling only. Both PCM-only phone searches locate an AH nucleus at 0.91–0.94s between with and partner. Its 30ms central vowel versus 110ms partner nucleus supports the weak article in this exact phrase. RMS prominence varies with boundary; do not claim certified stress or general weak-form mastery.",
+      "rules": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ],
+      "mapping_refs": [
+        "MAP-CMP-04",
+        "MAP-SPH-02"
+      ],
+      "limits": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery.",
+      "exact_asset_hashes": [
+        "c41b7e89cfb04db2c8df0766e235df43d166d5d7db3d67e57c212ec653664de8",
+        "21aed37736563a5e141bb2cfeb415fd61ce8958fbd2bf66f801a83715dd93ca7",
+        "9c7a672ca414e6956b9c7e5db071b61abd47ec8b90037f1e0066ff175d66a837",
+        "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628",
+        "7243d3ad173ce8bd6546c0ff5cad6e0b29f226d593b00017d05a81c33ef64979",
+        "b527d961d1a74598a80d3cbc9534408d627d3604ab16e2c1eb7b3ecd8941f336"
+      ],
+      "support_sha256": "737ab08701c5d3d916f83efbe0babf1fe161a6d791f2131b2e45c4d8d013470b",
+      "preprod_sha256": "2f90809baa507d912192a834799b0e84ca8a40392b77236dcb7759ccdd8222de",
+      "comprehension_review": "Grounded in retained explicit sequence/purpose propositions; choices distinguish stated actions and actual requested group change. Original English/anchors/level and scored dimensions unchanged."
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0367-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0367-A-COMP-01",
+        "MAN-0367-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "CORE_COMPREHENSION",
+        "construct": "SEQUENCE",
+        "dimension": "literal_comprehension",
+        "anchorIds": [
+          "MAN-0367-A-COMP-01",
+          "MAN-0367-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Kế hoạch học được chốt theo thứ tự nào?",
+        "choices": [
+          "Đọc lại cả chương → chép mọi câu → làm thẻ ngay.",
+          "Làm câu hỏi ngày mai → xem ghi chú → viết từ trí nhớ.",
+          "Viết từ trí nhớ → kiểm tra chỗ thiếu và làm câu hỏi → hôm sau trả lời lại."
+        ],
+        "correctChoice": 2,
+        "referenceAnswer": "Write from memory first; check the gaps and make questions; answer again tomorrow without notes and try a new example.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0367-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 6, điền cụm còn thiếu: You don't ___ a card for every sentence.",
+            "answer": "have to make",
+            "span": {
+              "segment_id": "S006",
+              "start_char": 168,
+              "end_char": 180
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Short-span recognition with hint assistance; spelling is normalized separately. No phonetic, reduction, prosody, accent or transfer mastery certification."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery."
+      },
+      "realization_cue_evidence": "Repaired S006 matches the entire transcript, including You don't have to make a card for every sentence. PCM-only phone searches agree on F 10.14–10.20s followed directly by T 10.20–10.27s, short IH 10.27–10.30s, then make nucleus EY 10.35–10.44s. Supports the natural devoiced have-to sequence and compressed to in this exact short span; model attribution is probabilistic, not phonetic certification.",
+      "rules": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ],
+      "mapping_refs": [
+        "MAP-CMP-03",
+        "MAP-SPH-02"
+      ],
+      "limits": "Choice-assisted comprehension and hint-assisted short-span practice only. Dictation separate; no calibrated generalization, phonetic/prosody/accent mastery.",
+      "exact_asset_hashes": [
+        "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+        "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+        "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+        "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+        "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+        "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+        "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+        "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+        "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+        "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe"
+      ],
+      "support_sha256": "5f1190ae930f979070cd10cea980626120c54e55ad440ef37eccdd23d07ec1eb",
+      "preprod_sha256": "2f90809baa507d912192a834799b0e84ca8a40392b77236dcb7759ccdd8222de",
+      "comprehension_review": "Grounded in retained explicit sequence/purpose propositions; choices distinguish stated actions and actual requested group change. Original English/anchors/level and scored dimensions unchanged."
+    }
+  ],
+  "frozen_contract_changed": false,
+  "preproduction_gates_reused": true,
+  "cue_measurement_sha256": "1a1cc2cb556c3d7d20342e9781cec0c25ff500411c69972be7c464dc443caa7f",
+  "repaired_phone_evidence_sha256": "c27f3587367c40eb69efe8c4ef418706e24b2b94f0d2d3e4222704149094f9da",
+  "remaining_blockers": []
+}

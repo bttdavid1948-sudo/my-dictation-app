@@ -663,6 +663,11 @@ Danh sách từ/cụm từ của tôi:
                     const batch02 = await batch02Response.json();
                     if(!Array.isArray(batch02.lessons)) throw new Error('INVALID_BATCH02_CATALOG');
                     data = {...data, lessons:[...data.lessons, ...batch02.lessons]};
+                    const batch03Response = await fetch('assets/official-lessons-batch03.json', {cache:'no-cache'});
+                    if(!batch03Response.ok) throw new Error('BATCH03_CATALOG_UNAVAILABLE');
+                    const batch03 = await batch03Response.json();
+                    if(!Array.isArray(batch03.lessons)) throw new Error('INVALID_BATCH03_CATALOG');
+                    data = {...data, lessons:[...data.lessons, ...batch03.lessons]};
                     if(!Array.isArray(data.lessons)) throw new Error('INVALID_CATALOG');
                     const ids=new Set();
                     xCatalogLoadError=false;

@@ -41,7 +41,7 @@ try{
   const ready=async()=>{await page.waitForFunction(()=>!!window.ManGenericPractice);await page.evaluate(async()=>{await loadCatalogUnits();});};
   await ready();
   const inventory=await page.evaluate(()=>catalogUnitsCache.map(u=>({id:u.id,practice:!!u.practice,prefix:u.practice?.anchorIds?'man-b02':u.fullPanelAudio?'man-panel':'man-inference',choice:u.practice?.correctChoice,speech:u.practice?.speechTasks||[]})));
-  assert.equal(inventory.filter(u=>u.practice).length,15);assert.equal(inventory.filter(u=>!u.practice).length,9);
+  assert.equal(inventory.filter(u=>u.practice).length,18);assert.equal(inventory.filter(u=>!u.practice).length,9);
   const fresh=inventory.filter(u=>u.practice);
   // Consecutive fresh starts across capabilities must resume the current lesson.
   for(const u of fresh)await page.evaluate(id=>xStartCatalog(id),u.id);
@@ -73,7 +73,10 @@ try{
   let legacyRestores=0,rejections=0;
   const sessionKeys={'man-panel':'man_mixed_panel_v1','man-inference':'man_final_two_practice_v1','man-b02':'man_batch02_practice_v1'};
   const legacyAPI={'man-panel':'ManMixedPanel','man-inference':'ManFinalTwoPractice','man-b02':'ManBatch02Practice'};
-  for(const u of inventory.filter(u=>u.practice)){
+  // Retained legacy runtimes own only the original published bindings.
+  // New generic pairs are already exercised above, with no invented legacy migration.
+  const legacyIds=new Set(JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/published-man-bindings.json'),'utf8')).map(u=>u.id));
+  for(const u of inventory.filter(u=>u.practice&&legacyIds.has(u.id))){
    const key=sessionKeys[u.prefix],api=legacyAPI[u.prefix];
    // Produce genuine pre-cutover envelopes with retained legacy functions.
    await page.evaluate(id=>{ManGenericPractice.dispose();sessionStorage.clear();__audio.length=0;xStartCatalog(id);},u.id);
@@ -124,7 +127,7 @@ try{
   await page.locator('#'+u.prefix+'-play').click();await page.goBack();
   await page.evaluate(()=>__audio[0].end());assert.equal(await page.evaluate(()=>ManGenericPractice.evidence().fullEnded),false);
   assert.equal(await page.evaluate(()=>__firebaseWrites),0);assert.deepEqual(errors,[],'learner console page errors');
-  results.push({viewport,practice:15,ordinary:9,defaultBootstrap:true,legacyRestores,rejections,rollback:true,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
+  results.push({viewport,practice:18,ordinary:9,defaultBootstrap:true,legacyRestores,rejections,rollback:true,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
  }
  fs.writeFileSync(path.join(output,'receipt.json'),JSON.stringify({status:'PASS',environment:'isolated default index.html; no live/paid API/acoustic claim',results},null,2));console.log(JSON.stringify({status:'PASS',results}));
 }finally{await browser?.close();await new Promise(r=>server.close(r));}

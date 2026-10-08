@@ -1,0 +1,92 @@
+{
+  "lesson_id": "MAN-0167",
+  "lesson_asset_version": "v0.1",
+  "batch_id": "BATCH_03",
+  "level": "A2",
+  "title": "A Different Study Group",
+  "content_type": "Service exchange",
+  "canonical_transcript": "Hi. I signed up for the speaking group on Thursday, but I work late that day.\nWe have a group on Saturday morning. Would that be better?\nYes, but I get nervous when I speak in front of everyone.\nYou can practise with a partner first. Each pair has a few minutes before we all talk together.\nThat sounds easier. Can you move me to Saturday?\nOf course. I'll send you the new time and a short topic to prepare.",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "speaker_role": "learner",
+      "text": "Hi. I signed up for the speaking group on Thursday, but I work late that day."
+    },
+    {
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "speaker_role": "course_desk",
+      "text": "We have a group on Saturday morning. Would that be better?"
+    },
+    {
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "speaker_role": "learner",
+      "text": "Yes, but I get nervous when I speak in front of everyone."
+    },
+    {
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "speaker_role": "course_desk",
+      "text": "You can practise with a partner first. Each pair has a few minutes before we all talk together."
+    },
+    {
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "speaker_role": "learner",
+      "text": "That sounds easier. Can you move me to Saturday?"
+    },
+    {
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "speaker_role": "course_desk",
+      "text": "Of course. I'll send you the new time and a short topic to prepare."
+    }
+  ],
+  "target_anchors": [
+    {
+      "anchor_id": "MAN-0167-A-COMP-01",
+      "anchor_kind": "COMPREHENSION",
+      "construct_type": "PURPOSE",
+      "segment_ids": [
+        "S001",
+        "S003",
+        "S005"
+      ],
+      "evidence_segment_ids": [
+        "S001",
+        "S003",
+        "S005"
+      ],
+      "target_proposition_or_reference_answer": "The learner asks to move to Saturday and wants pair practice before speaking to the whole group.",
+      "span_refs": []
+    },
+    {
+      "anchor_id": "MAN-0167-A-SPCH-01",
+      "anchor_kind": "SPEECH_PHENOMENON",
+      "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+      "segment_ids": [
+        "S004"
+      ],
+      "phenomenon_type": "weak forms",
+      "span_refs": [
+        {
+          "segment_id": "S004",
+          "start_char": 17,
+          "end_char": 31
+        }
+      ]
+    }
+  ],
+  "available_audio_realization_refs": [
+    "MAN-0167-OPENAI-FIXED-v0.1"
+  ],
+  "source_draft_ref": "batch-03-original-materialization@v0.1",
+  "curriculum_review_ref": "batch-03-curriculum-preproduction@v0.1",
+  "curriculum_review_status": "PURPOSE_AND_NATURAL_CONTENT_REVIEW_PASS_AUDIO_PENDING",
+  "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+  "practice_ready": true,
+  "contract_validation_status": "PASS",
+  "publication_allowed": true
+}

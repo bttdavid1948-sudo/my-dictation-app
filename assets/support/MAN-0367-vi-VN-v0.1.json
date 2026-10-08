@@ -1,0 +1,51 @@
+{
+  "lesson_id": "MAN-0367",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Mình đã dành ba tối đọc chỗ ghi chú này nên giờ thấy khá quen. Nhưng đóng sách lại thì mình không giải thích được các ý chính. Tuần sau kiểm tra rồi nên mình bắt đầu lo."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Khi thử làm một câu hỏi thì bạn gặp khó ở đâu? Bạn chưa hiểu ý đó, hay không nhớ được chi tiết? Hai vấn đề ấy có thể cần cách xử lý khác nhau."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Chủ yếu là chi tiết. Nhìn đáp án thì mình nhận ra, nhưng tự nghĩ ra thì không được. Hôm qua mình tô dấu thêm một trang mà cũng chẳng giúp được mấy."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Vậy thử cách này trước khi đọc lại tất cả nhé. Cất ghi chú đi và viết những gì bạn nhớ về một chủ đề. Chỗ nào bí thì để trống, đừng tra ngay."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Vậy bước đầu là tìm ra những chỗ mình chưa nhớ. Sau đó mình kiểm tra cả chương hay chỉ những phần bị thiếu? Đi làm về mình không có nhiều thời gian."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Trước mắt chỉ kiểm tra những phần đó thôi. So câu trả lời với ghi chú, sửa chỗ sai rồi viết hai hoặc ba câu hỏi về các chi tiết còn thiếu. Bạn không cần làm thẻ cho từng câu đâu."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Nghe có ích hơn việc chép lại tất cả. Nhưng liệu mình có nhớ đáp án chỉ vì vừa xem lại không? Như vậy có thể tưởng là cách này hiệu quả trong khi thực ra không phải."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Vì thế bước cuối để đến ngày mai. Thử trả lời lại các câu hỏi mà không xem ghi chú, rồi thêm một câu yêu cầu áp dụng ý đó vào ví dụ khác. Nếu vẫn quên một chi tiết thì xem lại đúng phần ấy."
+    },
+    {
+      "segment_id": "S009",
+      "translation": "Được. Mình sẽ bắt đầu với chủ đề cây lấy nước thế nào. Đầu tiên viết từ trí nhớ, rồi kiểm tra chỗ thiếu và làm câu hỏi. Ngày mai mình trả lời lại. Sau bữa trưa bạn xem giúp ví dụ mới của mình được không?"
+    },
+    {
+      "segment_id": "S010",
+      "translation": "Được chứ. Nếu mất nhiều thời gian hơn dự tính thì mình sẽ dùng ít câu hỏi hơn. Mục tiêu là xem bạn nhớ được gì, chứ không biến cả buổi tối thành một buổi chép bài nữa."
+    }
+  ],
+  "support_qa": "PASS",
+  "review_basis": "Original English/vi-VN pair review: complete turns, pronoun/negation/time/sequence/cause preserved, natural Vietnamese; no new factual or efficacy claim."
+}

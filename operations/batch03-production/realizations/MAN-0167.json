@@ -1,0 +1,54 @@
+{
+  "lesson_id": "MAN-0167",
+  "lesson_asset_version": "v0.1",
+  "realization_id": "MAN-0167-OPENAI-FIXED-v0.1",
+  "audio_profile_id": "MAN-0167-BATCH03-FIXED",
+  "audio_profile_version": "v0.1",
+  "qa_version": "BATCH03-QA@v0.1",
+  "qa_status": "PASS",
+  "delivery_mode": "PERSISTED_ASSET",
+  "segment_mapping": [
+    {
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S001-batch03-v0.1.wav",
+      "asset_sha256": "c41b7e89cfb04db2c8df0766e235df43d166d5d7db3d67e57c212ec653664de8"
+    },
+    {
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S002-batch03-v0.1.wav",
+      "asset_sha256": "21aed37736563a5e141bb2cfeb415fd61ce8958fbd2bf66f801a83715dd93ca7"
+    },
+    {
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S003-batch03-v0.1.wav",
+      "asset_sha256": "9c7a672ca414e6956b9c7e5db071b61abd47ec8b90037f1e0066ff175d66a837"
+    },
+    {
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S004-batch03-v0.1.wav",
+      "asset_sha256": "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628"
+    },
+    {
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S005-batch03-v0.1.wav",
+      "asset_sha256": "7243d3ad173ce8bd6546c0ff5cad6e0b29f226d593b00017d05a81c33ef64979"
+    },
+    {
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "alignment_mode": "SEGMENT_ADDRESSABLE",
+      "segment_playback_ref": "assets/audio/MAN-0167-S006-batch03-v0.1.wav",
+      "asset_sha256": "b527d961d1a74598a80d3cbc9534408d627d3604ab16e2c1eb7b3ecd8941f336"
+    }
+  ]
+}
