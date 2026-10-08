@@ -1,0 +1,41 @@
+name: Batch03 inherited single verified segment repair
+on:
+  push:
+    branches: [main]
+    paths:
+      - operations/batch03-production/targeted-repair-activation.json
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch03-producer
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify existing producer access without paid request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/preflight.py
+      - name: Repair only MAN-0367 S006 with inherited controls
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch03-production/targeted_repair.py
+      - name: Install inherited QA dependencies
+        run: python3 -m pip install faster-whisper==1.2.1 scipy
+      - name: Verify only repaired output
+        run: python3 operations/batch03-production/repair_qa.py
+      - name: Preserve partial audio ledger and QA
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch03-targeted-repair-${{ github.run_id }}
+          path: |
+            producer-evidence/
+            repair-qa/
+          retention-days: 7
