@@ -1598,14 +1598,14 @@
       "source": [
         "Owner 2026-10-08 bounded curriculum accepted-coverage reconciliation authorization",
         "V3.4/LEXICAL_SYSTEM authoritative quantitative commitments",
-        "Completed Batch01–03 canonical production evidence"
+        "Completed Batch01–03 canonical production evidence",
+        "docs/content-pipeline/registry/batch-03-completion-checkpoint.json canonical completion evidence"
       ],
       "dependencies": [
         "curriculum-production-spec@v0.1",
         "global-lesson-registry-snapshot@v0.1",
         "content-pipeline-contract@v0.2",
-        "curriculum-practice-contract@v0.3",
-        "batch-03-completion-checkpoint@v0.1"
+        "curriculum-practice-contract@v0.3"
       ],
       "created_at": "2026-10-08",
       "updated_at": "2026-10-08",
