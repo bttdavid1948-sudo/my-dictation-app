@@ -1,14 +1,10 @@
 {
-  "operation_key": "BATCH_04@FIVE_ELIGIBLE_IMMUTABLE_IMPORT@v0.1",
+  "operation_key": "BATCH_04@MAN-0831@EXACT_RETAINED_TEN_WAV_IMPORT@v0.1",
   "selected_lesson_ids": [
-    "MAN-0031",
-    "MAN-0271",
-    "MAN-0451",
-    "MAN-0581",
-    "MAN-0951"
+    "MAN-0831"
   ],
-  "source_manifest_sha256": "a76faf65ff3d4b8af143ccf655b55f61722016703dcf08d88deecf534c4dea7d",
-  "learner_wav_count": 37,
+  "source_manifest_sha256": "6c70b07445ad86fea8005a33af3bcca8f078a0ddc391ac514d27ff165b9cc1c9",
+  "learner_wav_count": 10,
   "paid_calls": 0,
   "main_push_allowed": false,
   "publication_authority": "Owner Batch04 controlled production; original content and QA-complete exact assets only."
