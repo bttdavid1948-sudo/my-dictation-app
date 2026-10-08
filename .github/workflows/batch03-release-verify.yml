@@ -7,6 +7,7 @@ on:
     paths: [assets/official-lessons-batch03.json, assets/practice-runtime-wrapper.js, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
 permissions:
   contents: read
+  actions: read
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -23,12 +24,19 @@ jobs:
           node-version: '22'
       - run: npm ci --prefix mobile-release-runner
       - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
-      - name: Verify only three Batch03 exact pairs through inherited learner procedure
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event_name == 'push' && '37733903764' || '37733419191' }}
+          name: batch03-${{ github.event_name == 'push' && 'push' || 'pull_request' }}-${{ matrix.lesson }}-${{ matrix.mode }}
+          path: batch03-verification/source/
+      - name: Revalidate only invalidated scoped withdrawal gate
         env:
           MAN_LESSON_ID: ${{ matrix.lesson }}
           MAN_EXECUTION_MODE: ${{ matrix.mode }}
           MAN_VERIFY_TARGET: ${{ github.event_name == 'push' && 'live' || 'staging' }}
-        run: node batch03-verification/verify.mjs
+          MAN_SOURCE_RUN: ${{ github.event_name == 'push' && '37733903764' || '37733419191' }}
+        run: node batch03-verification/rollback-revalidate.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
