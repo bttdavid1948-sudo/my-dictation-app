@@ -71,8 +71,10 @@ for(const u of lessons){
   const otherRoute=integrated({session:{[s.key]:session},hash:'#catalog'});assert.equal(await otherRoute.wrapper.restore(u.id),false);resumes++;
  }
  const d=normalizePracticeLesson(u),saved=integrated();saved.c.xStartCatalog(u.id);saved.click(s.prefix+'-play');saved.finish();respond(saved,s,u);const envelope=JSON.parse(saved.c.sessionStorage.getItem(s.key));
+ const withdrawn=integrated({units:lessons.filter(x=>x.id!==u.id),session:{[s.key]:JSON.stringify(envelope)}});assert.equal(await withdrawn.wrapper.restoreAvailable(),false);assert.equal(withdrawn.c.sessionStorage.getItem(s.key),null,'withdrawn generic pair clears cached resume');assert.equal(withdrawn.audio.length,0);
  // Legacy envelopes stay owned by legacy; no invented migration policy.
  const legacy=clone(envelope);delete legacy.resumeIdentity;const lh=integrated({session:{[s.key]:JSON.stringify(legacy)}});assert.equal(await lh.wrapper.restore(u.id),false);assert.ok(lh.c.sessionStorage.getItem(s.key));
+ const withdrawnLegacy=integrated({units:lessons.filter(x=>x.id!==u.id),session:{[s.key]:JSON.stringify(legacy)}});await withdrawnLegacy.wrapper.restoreAvailable();assert.ok(withdrawnLegacy.c.sessionStorage.getItem(s.key),'legacy resume remains owned by legacy');
  const malformed=clone(u);malformed.items[0].audio.lessonVersion='stale';const bad=integrated({units:[malformed]});assert.equal(bad.c.xStartCatalog(u.id),false);assert.deepEqual(bad.calls.start,[],'malformed Practice cannot fall through to Dictation');
  const renamed=clone(u);renamed.id='UNSEEN';renamed.audioRealizationRef='UNSEEN-REALIZATION';for(const a of [...renamed.items.map(i=>i.audio),...(renamed.fullPanelAudio?[renamed.fullPanelAudio]:[])]){a.lessonId=renamed.id;a.realizationId=renamed.audioRealizationRef;}
  const unknown=integrated({units:[renamed]});assert.equal(unknown.c.xStartCatalog(renamed.id),true);unknown.click(s.prefix+'-play');unknown.finish();respond(unknown,s,renamed);assert.equal(state(unknown).correct,true,'shape-driven unseen identity');

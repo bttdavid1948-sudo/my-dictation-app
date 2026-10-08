@@ -152,6 +152,7 @@ export function installPracticeWrapper(host) {
       if(disposed||w.location.hash!=='#learn')return false;
       const lifecycle=generation;try{await host.loadCatalog();}catch(_){return false;}
       if(disposed||lifecycle!==generation||w.location.hash!=='#learn')return false;
+      for(const key of practiceSessionKeys){const saved=read(host.session,key,null);if(saved?.phase==='GENERIC_PRACTICE_V1'&&saved.resumeIdentity&&!host.catalog().some(u=>u.id===saved.lessonId))remove(key);}
       const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
       for(const key of keys){const saved=read(host.session,key,null);if(saved&&(Object.hasOwn(saved,'resumeIdentity')||Object.hasOwn(saved,'coreState'))&&await api.restore(saved.lessonId))return true;}
       return false;

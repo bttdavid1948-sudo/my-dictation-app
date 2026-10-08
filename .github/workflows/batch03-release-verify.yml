@@ -1,10 +1,10 @@
 name: Batch03 controlled learner release verification
 on:
   pull_request:
-    paths: [assets/official-lessons-batch03.json, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
+    paths: [assets/official-lessons-batch03.json, assets/practice-runtime-wrapper.js, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
   push:
     branches: [main]
-    paths: [assets/official-lessons-batch03.json, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
+    paths: [assets/official-lessons-batch03.json, assets/practice-runtime-wrapper.js, batch03-verification/**, .github/workflows/batch03-release-verify.yml]
 permissions:
   contents: read
 jobs:
