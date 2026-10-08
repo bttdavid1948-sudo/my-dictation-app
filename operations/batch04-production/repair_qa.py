@@ -7,7 +7,7 @@ import numpy as np
 from scipy.signal import resample_poly
 from faster_whisper import WhisperModel
 
-root=pathlib.Path('producer-evidence');out=pathlib.Path('repair-qa');out.mkdir(exist_ok=True)
+root=pathlib.Path(__import__('os').getenv('REPAIR_ROOT','producer-evidence'));out=pathlib.Path(__import__('os').getenv('REPAIR_QA_ROOT','repair-qa'));out.mkdir(exist_ok=True)
 prepared=json.loads(pathlib.Path('operations/batch04-production/prepared-segments.json').read_text())['segments']
 receipt=json.loads((root/'targeted-repair.json').read_text())
 assert receipt['status']=='AUTHENTICATED_AUDIO_OUTPUT_PASS_QA_PENDING'
