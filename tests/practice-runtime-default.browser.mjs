@@ -41,7 +41,7 @@ try{
   const ready=async()=>{await page.waitForFunction(()=>!!window.ManGenericPractice);await page.evaluate(async()=>{await loadCatalogUnits();});};
   await ready();
   const inventory=await page.evaluate(()=>catalogUnitsCache.map(u=>({id:u.id,practice:!!u.practice,prefix:u.practice?.anchorIds?'man-b02':u.fullPanelAudio?'man-panel':'man-inference',choice:u.practice?.correctChoice,speech:u.practice?.speechTasks||[]})));
-  assert.equal(inventory.filter(u=>u.practice).length,15);assert.equal(inventory.filter(u=>!u.practice).length,9);
+  assert.equal(inventory.filter(u=>u.practice).length,18);assert.equal(inventory.filter(u=>!u.practice).length,9);
   const fresh=inventory.filter(u=>u.practice);
   // Consecutive fresh starts across capabilities must resume the current lesson.
   for(const u of fresh)await page.evaluate(id=>xStartCatalog(id),u.id);
@@ -124,7 +124,7 @@ try{
   await page.locator('#'+u.prefix+'-play').click();await page.goBack();
   await page.evaluate(()=>__audio[0].end());assert.equal(await page.evaluate(()=>ManGenericPractice.evidence().fullEnded),false);
   assert.equal(await page.evaluate(()=>__firebaseWrites),0);assert.deepEqual(errors,[],'learner console page errors');
-  results.push({viewport,practice:15,ordinary:9,defaultBootstrap:true,legacyRestores,rejections,rollback:true,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
+  results.push({viewport,practice:18,ordinary:9,defaultBootstrap:true,legacyRestores,rejections,rollback:true,dom:true,audioCallbacks:'controlled double',resume:true,navigation:true,firebaseWrites:0,errors});await context.close();
  }
  fs.writeFileSync(path.join(output,'receipt.json'),JSON.stringify({status:'PASS',environment:'isolated default index.html; no live/paid API/acoustic claim',results},null,2));console.log(JSON.stringify({status:'PASS',results}));
 }finally{await browser?.close();await new Promise(r=>server.close(r));}
