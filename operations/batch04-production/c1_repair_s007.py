@@ -4,7 +4,7 @@ ROOT=pathlib.Path('producer-evidence/c1/S007');ROOT.mkdir(parents=True,exist_ok=
 TEXT="In that case, let's separate three things: the recorded increase in passengers, the benefits people report, and the unanswered question of who remains excluded. The first is an administrative count; the second is survey evidence; the third needs further reporting, not a confident guess."
 HASH='1bc55ab2b77ab075c96ad6134370da06db6179abe34c23af1fb8f645abe1b14c'
 def main():
- receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0831','segment_id':'S007','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'cedar','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
+ receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0831','segment_id':'S007','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'marin','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
  def finish(status,code):
   receipt['status']=status
   (ROOT/'targeted-repair.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -25,8 +25,8 @@ def main():
  if hashlib.sha256(TEXT.encode()).hexdigest()!=HASH:return finish('INPUT_BINDING_MISMATCH',2)
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
- instructions='Read every supplied sentence exactly and naturally without additions, omissions or substitutions. Preserve the word needs exactly in the supplied sentence. The third needs further reporting. Needs starts with n, not means or meets. Read the entire final sentence. Natural English, no exaggeration.'
- payload={'model':'gpt-4o-mini-tts','voice':'cedar','input':TEXT,'instructions':instructions,'response_format':'wav'}
+ instructions='Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety. Read every supplied sentence exactly and naturally without additions, omissions or substitutions. Preserve the word needs exactly in the supplied sentence. The third needs further reporting. Needs starts with n, not means or meets. Read the entire final sentence. Natural English, no exaggeration.'
+ payload={'model':'gpt-4o-mini-tts','voice':'marin','input':TEXT,'instructions':instructions,'response_format':'wav'}
  receipt['instructions_sha256']=hashlib.sha256(instructions.encode()).hexdigest()
  request=urllib.request.Request('https://api.openai.com/v1/audio/speech',json.dumps(payload).encode(),{'Authorization':'Bearer '+key,'OpenAI-Project':'proj_Mrlw738r4i5cwNktghjdnYFk','Content-Type':'application/json'},method='POST')
  receipt['paid_requests_submitted']=1
