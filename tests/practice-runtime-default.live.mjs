@@ -9,6 +9,7 @@ const root=path.resolve(new URL('..',import.meta.url).pathname);
 const base='https://bttdavid1948-sudo.github.io/my-dictation-app/';
 const out=process.env.PRACTICE_BROWSER_OUTPUT||'/tmp/practice-default-live';fs.mkdirSync(out,{recursive:true});
 const local=file=>fs.readFileSync(path.join(root,file),'utf8');
+const batch04Count=JSON.parse(local('assets/official-lessons-batch04.json')).lessons.length;
 const digest=s=>createHash('sha256').update(s).digest('hex');
 const receipt={status:'PENDING',target:base,productionWrites:0,paidCalls:0,acousticClaim:false,results:[]};
 const browser=await chromium.launch({headless:true});
@@ -36,7 +37,7 @@ try{
   await page.goto(base+'#home',{waitUntil:'load'});await page.waitForFunction(()=>!!window.ManGenericPractice);
   await page.evaluate(()=>loadCatalogUnits());
   const inventory=await page.evaluate(async()=>{const {normalizePracticeLesson}=await import('./assets/practice-runtime-contract.js');return catalogUnitsCache.map(u=>{const d=normalizePracticeLesson(u);return {id:u.id,practice:!!d,capability:d?d.evidence.model+':'+d.playback.fullStrategy:null,prefix:d?(d.evidence.model==='TASK_ROWS'?'man-b02':d.playback.fullStrategy==='FULL_PANEL'?'man-panel':'man-inference'):null,choice:u.practice?.correctChoice,speech:u.practice?.speechTasks||[]};});});
-  const practice=inventory.filter(u=>u.practice),ordinary=inventory.filter(u=>!u.practice);assert.equal(practice.length,18);assert.equal(ordinary.length,9);
+  const practice=inventory.filter(u=>u.practice),ordinary=inventory.filter(u=>!u.practice);assert.equal(practice.length,18+batch04Count);assert.equal(ordinary.length,9);
   for(const u of practice){await page.evaluate(id=>xStartCatalog(id),u.id);assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()?.lessonId),u.id);}
   for(const u of ordinary){await page.evaluate(id=>xStartCatalog(id),u.id);assert.equal(await page.locator('#dictation-app').isVisible(),true);assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null);}
   const representatives=[...new Map(practice.map(u=>[u.capability,u])).values()];
