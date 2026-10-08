@@ -1,0 +1,39 @@
+name: Batch04 single changed articulation C1 repair
+on:
+  push:
+    branches: [main]
+    paths: [operations/batch04-production/c1-single-activation.json]
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch04-producer
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 operations/batch02-producer/preflight.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - run: python3 operations/batch04-production/c1_final_s001.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - run: python3 -m pip install faster-whisper==1.2.1 scipy
+      - run: python3 operations/batch04-production/repair_qa.py
+        env:
+          REPAIR_ROOT: producer-evidence/c1/S001
+          REPAIR_QA_ROOT: repair-qa-S001
+      - run: python3 operations/batch04-production/read_current_s001.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: batch04-c1-single-repair-${{ github.run_id }}
+          path: |
+            producer-evidence/
+            repair-qa-S001/
+          retention-days: 7

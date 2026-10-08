@@ -1,0 +1,14 @@
+{
+  "operation_key": "BATCH_04@MAN-0831-S001@BOUNDARY_REPAIR@v0.3",
+  "budget_verified_at": "2026-10-08T12:27:10.625604+00:00",
+  "budget_evidence_sha256": "c37ec859bb48e3d47b8df9276113170f555cf005d978b3645a2c60eb46cd0d87",
+  "target": [
+    "MAN-0831",
+    "S001"
+  ],
+  "reserved_cost_upper_bound_usd": 0.18,
+  "reservation_recorded": true,
+  "defect_evidence_run": 37776528712,
+  "paid_retry": false,
+  "publication_allowed": false
+}
