@@ -45,8 +45,7 @@
     "batch-02-operations-preparation-checkpoint": "v0.1",
     "batch-02-original-rights-preparation": "v0.1",
     "batch-02-routine-admission": "v0.1",
-    "batch-02-support-qa": "v0.1",
-    "practice-scale-readiness-review": "v0.1"
+    "batch-02-support-qa": "v0.1"
   },
   "artifacts": [
     {
@@ -1588,42 +1587,6 @@
       "sha256": "c0c3dd3562ed060ab45bcbc362df5a2cc9ed2645c42df41f702ff7f86f220f8d",
       "size_bytes": 9198,
       "validation_status": "HASH_VERIFIED"
-    },
-    {
-      "id": "practice-scale-readiness-review",
-      "name": "practice-scale-readiness-review-v0.1.json",
-      "version": "v0.1",
-      "status": "PASS_READY",
-      "owner_lane": "PRACTICE_2",
-      "source": [
-        "Frozen Curriculum↔Practice Contract v0.3 and Pipeline Contract v0.2",
-        "Practice Production Specification v0.1",
-        "Batch01/02 production and final Practice evidence",
-        "Batch03 final Practice, live release, completion and PR #156 correction evidence",
-        "Generic Practice runtime and integration regression tests"
-      ],
-      "dependencies": [
-        "curriculum-practice-contract@v0.3",
-        "content-pipeline-contract@v0.2",
-        "practice-production-spec@v0.1",
-        "batch-02-completion-checkpoint@v0.1",
-        "batch-03-completion-checkpoint@v0.1"
-      ],
-      "created_at": "2026-10-08",
-      "updated_at": "2026-10-08",
-      "supersedes": null,
-      "superseded_by": null,
-      "location": {
-        "store": "GitHub registry evidence",
-        "path": "docs/content-pipeline/registry/practice-scale-readiness-review-v0.1.json"
-      },
-      "validation_status": "PRACTICE_SCALE_READINESS_READY",
-      "review_scope": "PROPOSED_SIX_LESSON_BATCH_ONLY_NO_BATCH04_EXECUTION",
-      "next_action": {
-        "code": "NONE",
-        "responsible_lane": "NONE",
-        "requires": "Review complete. No Batch04 execution authorized."
-      }
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
