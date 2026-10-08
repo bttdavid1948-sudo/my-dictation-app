@@ -22,7 +22,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python3 operations/batch02-producer/preflight.py
-      - name: Repair only MAN-0451 S006 with inherited controls
+      - name: Repair only MAN-0951 S012 with inherited controls
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python3 operations/batch04-production/targeted_repair.py
