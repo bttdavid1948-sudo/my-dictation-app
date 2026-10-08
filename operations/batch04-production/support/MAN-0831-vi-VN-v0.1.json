@@ -1,0 +1,50 @@
+{
+  "lesson_id": "MAN-0831",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Tiêu đề nháp nói dịch vụ xe buýt buổi tối mới của thành phố đã thay đổi hoàn toàn khả năng đi làm. Số hành khách có tín hiệu tốt, nhưng chúng ta có yên tâm đưa đó thành kết luận không? Khảo sát chỉ bao gồm người thực sự dùng dịch vụ trong tháng đầu tiên."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Xét tổng thể, tôi sẽ giữ kết quả tích cực nhưng thu hẹp nhận định. Trong số người trả lời, đa số nói việc đi làm ca muộn dễ hơn. Điều đó cho biết một điều hữu ích về trải nghiệm của họ; nó không cho biết còn bao nhiêu cư dân không đến được trạm hoặc không đủ tiền mua vé."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Cơ quan giao thông cho rằng số hành khách tăng đã tự nói lên tất cả. Họ nói nếu mở đầu bằng các hạn chế, chúng ta sẽ làm tin tức chìm trong những lời dè dặt. Tôi hiểu ý họ về sự rõ ràng, dù một tiêu đề chắc nịch có thể lan xa hơn nhiều so với đoạn văn thận trọng bên dưới."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Nói rõ nhé, tôi không đề xuất tiêu đề cho rằng chẳng có gì xảy ra. Có thêm người dùng xe buýt, và các cuộc phỏng vấn cho ví dụ cụ thể về hành trình ngắn hơn. Tuy nhiên, gọi đó là sự thay đổi toàn thành phố biến một quan sát có phạm vi hạn chế thành nhận định về tất cả mọi người."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Còn cuộc phỏng vấn người làm vệ sinh không còn phải đổi xe hai lần thì sao? Nó giúp lợi ích trở nên cụ thể. Ta có thể đưa trải nghiệm của cô ấy lên gần đầu, miễn là không ngụ ý cô ấy đại diện cho mọi người làm ca. Một lời kể sinh động vẫn chỉ là một lời kể."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Đồng ý. Còn vấn đề so sánh nữa: khảo sát hỏi hành khách về hành trình trước đây, thay vì theo dõi cùng một nhóm trước và sau thay đổi. Họ có thể nhớ chính xác, nhưng ta không nên âm thầm mô tả đây là phép đo độc lập về thời gian đi lại được tiết kiệm."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Vậy hãy tách ba điều: số hành khách tăng được ghi nhận, lợi ích mọi người tự báo cáo, và câu hỏi chưa có lời giải về những người vẫn bị bỏ lại. Điều đầu là số liệu hành chính; điều thứ hai là bằng chứng khảo sát; điều thứ ba cần tìm hiểu thêm, chứ không phải đoán chắc."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Ta cũng nên nói đơn vị vận hành đã kéo dài lịch chạy giữa kỳ khảo sát. Nếu không, độc giả có thể tưởng mọi người đánh giá cùng một dịch vụ. Đó là bối cảnh liên quan, chứ không phải lý do để loại bỏ toàn bộ khảo sát."
+    },
+    {
+      "segment_id": "S009",
+      "translation": "Vậy tiêu đề có thể nói xe buýt buổi tối giúp việc đi làm dễ hơn với những hành khách được khảo sát. Phần mở đầu sẽ nêu mức tăng và lợi ích được báo cáo, rồi giải thích mẫu khảo sát và thay đổi lịch chạy. Ta sẽ hỏi cơ quan giao thông về khả năng tiếp cận ngoài các tuyến hiện tại trước khi nhận định rộng hơn."
+    },
+    {
+      "segment_id": "S010",
+      "translation": "Ừ. Như vậy vẫn giữ được giá trị tin tức mà không gạt bỏ sự bất định khỏi câu chuyện. Tôi sẽ tránh biến sự hào hứng của cơ quan hoặc sự dè dặt của chúng ta thành phán quyết của bài báo. Bằng chứng có triển vọng; điều cần nói rõ là triển vọng đó có phạm vi đến đâu."
+    }
+  ],
+  "support_qa": "PASS"
+}

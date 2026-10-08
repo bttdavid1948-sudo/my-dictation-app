@@ -1,0 +1,466 @@
+{
+  "batch_id": "BATCH_04",
+  "source_main": "c70c170106113dc928635b78a82dc0cf9c41a849",
+  "segments": [
+    {
+      "lesson_id": "MAN-0031",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "I'd like soup and bread, please.",
+      "text_sha256": "7159d723cc835b1a8bde919a0c1f04cefc09622d2efaa59c4609042d46df08a5",
+      "voice": "ash",
+      "instructions": "Slow clear natural short exchange, basic contractions as written. Do not spell out words. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0031",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Sure. Choose your soup here. Then get your bread.",
+      "text_sha256": "504460415fcf183e6b855253073be5d5c0d9172abf97f5930a9f0e99b8759a45",
+      "voice": "marin",
+      "instructions": "Slow clear natural short exchange, basic contractions as written. Do not spell out words. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0031",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Can I get a drink first?",
+      "text_sha256": "cee1fecd7f0e6c5f8bfb6fc5724994af474a9d254dd77d8f65a726b68bb12507",
+      "voice": "ash",
+      "instructions": "Slow clear natural short exchange, basic contractions as written. Do not spell out words. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0031",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "No. Get your food first. Drinks are by the till.",
+      "text_sha256": "19152a78710325cd2d833449c789f0b9966b5340668b99c26907b7b6b7999c0c",
+      "voice": "marin",
+      "instructions": "Slow clear natural short exchange, basic contractions as written. Do not spell out words. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "I'm new here. How do I get a library card?",
+      "text_sha256": "0ff9beec33984dc478eedb044a6ce0a610a997a49b29902c8c93a90a2a9992d1",
+      "voice": "ash",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "First, fill in this form. Then show us your name and address on an official letter.",
+      "text_sha256": "e9369271205c05d38db23d5281feec7eec5cdf2b4c4cee119d211cbb4dcd6cea",
+      "voice": "marin",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "I've got a letter, but it has my old address. Do I need to come back?",
+      "text_sha256": "b830e181befe63fb71d32aab8dfbe98ac08aea833493e8d380ac8496f0180a00",
+      "voice": "ash",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "You can start today. We'll check your name now, but bring a letter with your new address before you borrow books.",
+      "text_sha256": "c490bcec87469449122b92dfbfee482a590a532bf5798235f2a287a1dcd69a6f",
+      "voice": "marin",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "So I fill in the form today, then bring the new letter before I use the card?",
+      "text_sha256": "66ec10df8c004f460ed3d6e29a85f31a5845c095de5c012fc3e4c141fa14168f",
+      "voice": "ash",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "That's right. After we check the new address, you can collect your card at this desk.",
+      "text_sha256": "817f422058a3101275e4e10579b81360bd7bc922b2a3a4eba59c06d059c62094",
+      "voice": "marin",
+      "instructions": "Clear natural connected speech, unstressed function words, complete every sentence. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "The packing team says our new delivery schedule isn't working. Orders arrive at the warehouse after the drivers have left, so customers wait an extra day. We need to explain the change before more people complain.",
+      "text_sha256": "ba6987a52f2a71c1561b6f5c4582e28860d210e533f930973588d672d39af8f9",
+      "voice": "ash",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "We changed the schedule to give the warehouse more time, not to reduce the number of deliveries. But the sales team still promises next-day delivery for orders placed late in the afternoon.",
+      "text_sha256": "2100ef9f2ed8e17b680a51657682f4457b2b86259e4b3793573d273131ed5e53",
+      "voice": "marin",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "Then should we move the drivers' departure time? That would solve the late-order problem, but the drivers might miss their afternoon collections. We'd be moving the delay to another part of the business.",
+      "text_sha256": "2bb2126e4eb716c4b15540987265f8a69ff72367edfc36d7653e8b5c839b8d6b",
+      "voice": "ash",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "Let's check which orders are affected first. If most are small orders from nearby customers, we could use the spare van for those. We shouldn't change every route before we know the size of the problem.",
+      "text_sha256": "bb3c0a9989c5fd3fe04916829fcaeb9b747e6cbe9e10058f6caf7eb2c38ed500",
+      "voice": "marin",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "I'll ask sales for last week's order times and compare them with the warehouse records. What should we tell customers while we're checking? I don't want them to expect something we can't deliver.",
+      "text_sha256": "37c27907f359611177ec70f7d0243bb769642039828cd4db348ea99fcc20562c",
+      "voice": "ash",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Tell them the current cut-off time clearly, and offer the next available delivery date. Once we have the figures, we'll test the spare-van option for a week. If it creates another delay, we'll review it before making the change permanent.",
+      "text_sha256": "b954c2b202442e448c1eca3f531902499e1ae4f05ff765d87bb9bfbbd6cae17f",
+      "voice": "marin",
+      "instructions": "Natural intelligible workplace exchange. Contrast not to reduce with more time; preserve sentence stress without exaggeration. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "You used to enter every photography competition at the club. Now you're organising weekend walks with no judging at all. Have you lost interest in improving, or is there something else behind the change?",
+      "text_sha256": "1f744f181fe04b742453e571386c297003825954384c813b5484f4de39327fcc",
+      "voice": "ash",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "I still care about making better pictures. I just noticed that I was checking competition rules before I even looked at a scene. Every walk turned into a search for something a judge might like, which rather defeated the point of going out.",
+      "text_sha256": "9c64a9b0a3b7294203402b5fc966c8350fafe190eaf08b92cecd90ebee22d2a1",
+      "voice": "marin",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "But some members say a deadline is what gets them off the sofa. If the walks have no target, won't people simply chat for an hour and come home with the same pictures they always take?",
+      "text_sha256": "130a650ab67197243cd8bc12a9be68412978ede55154894f3ecab57a3f537473",
+      "voice": "ash",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "That's a fair concern. We're keeping a small challenge: notice a detail you would normally walk past, then explain why you chose it. What we're dropping is the ranking. I'd rather hear someone describe a surprising mistake than apologise for not winning.",
+      "text_sha256": "d3b659ca6a0bde0d522a4027f94888e8e05b784c1d65dda6f61d636ef943deaf",
+      "voice": "marin",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK01",
+      "text": "Would you invite beginners as well? A few have told me they're nervous about slowing everyone down. They might hear experienced members talking about equipment and assume they need an expensive camera before they can join.",
+      "text_sha256": "c9eccfc9624ad34c3182b24083cc823ee3b82f098daa09bea0cc72eea788d46c",
+      "voice": "ash",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK02",
+      "text": "Absolutely. A phone is fine, and nobody has to share a picture. We'll pair people up if they want help, but it won't be a lesson with homework. I do enough meeting other people's deadlines during the week.",
+      "text_sha256": "4b67bfacf60f5c043481735aedc298ee785c45cd296dc9844d8afa8ce02e204e",
+      "voice": "marin",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "So you're not arguing against competitions altogether. You want the club to offer another way in, especially for people who enjoy taking pictures but don't want their free time to become another performance review?",
+      "text_sha256": "65c3558a2bac609cf1c9ccb02fbcf67241d744b38adc9c980ad7f77da65649ef",
+      "voice": "ash",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK02",
+      "text": "Exactly. Competition suits some people, and they can keep that group. I want this one to leave room for curiosity. If someone goes home noticing the light differently, I'll call that a worthwhile morning, even if the best photo never leaves their phone.",
+      "text_sha256": "1bd5bb85c696c817c95e2e9883ce671628c2fd0c0070b199f779c521b360bb59",
+      "voice": "marin",
+      "instructions": "Natural interview. Convey thoughtful enthusiasm for curiosity and mild frustration at competition pressure, without caricature. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month.",
+      "text_sha256": "0104063b33ba1ef6df8faf6d62dfa3d8089f0e8c5fae25a017516eb0310002f4",
+      "voice": "ash",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "On balance, I'd keep the positive finding, but narrow the claim. Among respondents, most reported an easier journey to late shifts. That tells us something useful about their experience; it doesn't tell us how many residents still can't reach a stop or afford the fare.",
+      "text_sha256": "e148a147c6f779d8cbc402014e1f756a2ffe07fb232b6558450789df4a785a63",
+      "voice": "marin",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK01",
+      "text": "The transport office argues that rising passenger numbers speak for themselves. If we lead with limitations, they say we'll bury the news beneath qualifications. I take their point about clarity, although a confident headline can travel much further than the careful paragraph underneath it.",
+      "text_sha256": "3f2a741e895286cfa0ce5540e3c8d57517fc6848830e0743247b1cb95be0121e",
+      "voice": "ash",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK02",
+      "text": "To be clear, I'm not proposing a headline that says nothing happened. More people are using the buses, and the interviews give us concrete examples of shorter journeys. Nevertheless, calling that a city-wide transformation turns a limited observation into a claim about everyone.",
+      "text_sha256": "3d1dba6688720889cb5e330cc2250f26e1da9c9783224359f32d615bced835ab",
+      "voice": "marin",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK03",
+      "text": "What about the interview with the cleaner who no longer needs two connections? It makes the benefit tangible. We could put her experience near the top, provided we don't imply she represents every shift worker. One vivid account is still one account.",
+      "text_sha256": "282810e918a9cd43e6fb0a6161b2eda81b6209a9236ad51fed30255c738dd276",
+      "voice": "cedar",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK01",
+      "text": "Agreed. There's also a comparison issue: the survey asks passengers about their previous journeys, rather than tracking the same group before and after the change. Their recollections may be accurate, but we shouldn't quietly describe this as an independent measurement of travel-time savings.",
+      "text_sha256": "07b2a45348b4e0bb956845499a23d90bb613ce0c0486bbc0c26941ef5d547d88",
+      "voice": "ash",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK02",
+      "text": "In that case, let's separate three things: the recorded increase in passengers, the benefits people report, and the unanswered question of who remains excluded. The first is an administrative count; the second is survey evidence; the third needs further reporting, not a confident guess.",
+      "text_sha256": "1bc55ab2b77ab075c96ad6134370da06db6179abe34c23af1fb8f645abe1b14c",
+      "voice": "marin",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK03",
+      "text": "We should also mention that the operator extended the timetable halfway through the survey period. Otherwise readers may assume everyone evaluated the same service. That's relevant context, rather than a reason to throw out the whole survey.",
+      "text_sha256": "611bf47978f2a90a81ed85b5516d947ae2eafbf59e40ddac2a8c92b3c2dbaa1e",
+      "voice": "cedar",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S009",
+      "script_speaker_id": "SPK01",
+      "text": "Then the headline can say evening buses ease commutes for surveyed passengers. In the opening, we'll state the increase and the reported benefit, then explain the sample and timetable change. We'll ask the transport office about access beyond the current routes before making a broader claim.",
+      "text_sha256": "4eff097f69ddb607877d2fcf04991319cbbb4f59d909bdefd5fef08120fc7b99",
+      "voice": "ash",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S010",
+      "script_speaker_id": "SPK02",
+      "text": "Yes. That keeps the development newsworthy without laundering uncertainty out of the story. I'd resist the temptation to turn either the office's enthusiasm or our reservations into the story's verdict. The evidence is promising; the scope of that promise is what we need to make explicit.",
+      "text_sha256": "19b31dfd22fa0ec9c122e8d4718a8b4397141a81a2d2e4bf1ef9eb77dee32bed",
+      "voice": "marin",
+      "instructions": "Natural professional editorial discussion; preserve discourse markers and carefully qualified stance. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S001",
+      "script_speaker_id": "SPK01",
+      "text": "For the demonstration, we pass cloudy water through a column of sand and compare the samples. The filtered sample looks clearer, which is visually satisfying. My concern is that the audience will hear 'clearer' and supply 'safe' before we've made the distinction.",
+      "text_sha256": "1e4412fb80f866442cdd2f53b16ebcc384dabc914702ba04cd46864840bdde74",
+      "voice": "ash",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S002",
+      "script_speaker_id": "SPK02",
+      "text": "Then we should make the distinction part of the experiment rather than attach a warning at the end. A filter can retain some suspended particles without removing every dissolved substance. Appearance is an observation about what we can see, not a comprehensive test of what's present.",
+      "text_sha256": "fa5416ce381d0e3e1c5737ed2b26aa15b090119eb3975c2a3916f1b58847207e",
+      "voice": "marin",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S003",
+      "script_speaker_id": "SPK03",
+      "text": "But if we overload a short demonstration with caveats, we'll lose the mechanism. Couldn't we say the sand traps impurities, show the two samples, and then move on? The point is to make filtration intelligible, not deliver a laboratory safety lecture.",
+      "text_sha256": "84ebfdeb8bb7c62806ffd38ca865c671f63bce149e21fe4decb51a421746e659",
+      "voice": "cedar",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S004",
+      "script_speaker_id": "SPK01",
+      "text": "'Impurities' is doing rather too much work there. It collapses different things into one reassuring category. We can explain the mechanism precisely: some particles get caught within the sand bed, while other material may pass through. That is still a simple explanation, just a less sweeping one.",
+      "text_sha256": "954dbd319641bdf05c2477dcd0b805b1ed1bc3c0823c82d0d6e28b5473c8d945",
+      "voice": "ash",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S005",
+      "script_speaker_id": "SPK02",
+      "text": "And clearer doesn't mean—",
+      "text_sha256": "54afd855ca1c963886123c7f674aedd67fce252f34bb66d87468210d3131d817",
+      "voice": "marin",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S006",
+      "script_speaker_id": "SPK03",
+      "text": "—sterile. Yes, I accept that distinction. But I'm asking whether the extra detail earns its place in the demonstration. We need a stopping point, or every explanation becomes a list of everything it doesn't establish.",
+      "text_sha256": "261bffbd3acc2c751a8859790cdd51af75e43fbd9c997b391355f10ad1704954",
+      "voice": "cedar",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S007",
+      "script_speaker_id": "SPK01",
+      "text": "Fair enough. The stopping point could be a prediction: would a dissolved substance necessarily disappear because the sample looks clearer? Let people answer, then use their reasoning to distinguish particle retention from a broader claim of purification. We don't need to enumerate every possible contaminant.",
+      "text_sha256": "d3cb532c9a997ddb68fb64f8495e78f3ef85826fd0116cbdb7927510c9e6dccb",
+      "voice": "ash",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S008",
+      "script_speaker_id": "SPK02",
+      "text": "I'd add one control. Keep a sample that hasn't passed through the column, and compare both under the same light. Otherwise settling or a change in lighting could do some of the persuasive work we're attributing to the filter.",
+      "text_sha256": "19b0fd1d16302ba823a871eeff7c5d4b1c4ed62cd0b06eefa1b91ee69c25b334",
+      "voice": "marin",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S009",
+      "script_speaker_id": "SPK03",
+      "text": "A control is useful, but it won't isolate every variable. Water poured through the column has also been handled differently. If someone challenges that, I don't want us to imply our classroom comparison has the force of a properly controlled study.",
+      "text_sha256": "5197535f3b98c4c0a7079a39c459bd2c5880c8a35564112ee177a4d078bc8b28",
+      "voice": "cedar",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S010",
+      "script_speaker_id": "SPK01",
+      "text": "Nor do I. We'd call it a demonstration of a plausible mechanism, with an untreated comparison, rather than definitive evidence of a treatment's effectiveness. The limitation belongs in the claim itself. It's more honest than making a grand claim and trying to retrieve it in the footnotes.",
+      "text_sha256": "a353def81a19039bd1b804936fff5905460190323f48250a136846da8578f2d5",
+      "voice": "ash",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a familiar American English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S011",
+      "script_speaker_id": "SPK02",
+      "text": "So the practical sequence is: keep the comparison sample, pass the other sample through sand, observe both under the same conditions, and discuss what clarity can and cannot support. Neither sample is for drinking. That boundary should be explicit before anyone handles the cups.",
+      "text_sha256": "6cc802064055402c91066d6d18ff4519b7e12919709976d5e03b474378d5ba0a",
+      "voice": "marin",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "segment_id": "S012",
+      "script_speaker_id": "SPK03",
+      "text": "That works for me. We preserve the visible result without making it carry a verdict it can't bear. I still want the explanation to be brisk, but brisk needn't mean indiscriminate. Let's rehearse the question so that the qualification feels like reasoning, rather than a legal notice.",
+      "text_sha256": "a4412ff351d056aa91595f2618091e5731efd69cdea71fdd7481bf7f0092de63",
+      "voice": "cedar",
+      "instructions": "Natural brisk critical discussion, dense but intelligible. Preserve all negations and qualifications. A dash at turn boundary signals interruption; never read punctuation aloud. Use a clear familiar British English variety."
+    }
+  ]
+}

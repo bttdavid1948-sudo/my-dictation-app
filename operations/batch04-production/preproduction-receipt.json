@@ -1,0 +1,79 @@
+{
+  "batch_id": "BATCH_04",
+  "source_main": "c70c170106113dc928635b78a82dc0cf9c41a849",
+  "authority": "Owner approved six-lesson controlled execution 2026-10-08; existing official-1000 spend authority, no new billing commitment.",
+  "stage": "PREPRODUCTION_READY_AUDIO_PENDING",
+  "lesson_results": [
+    {
+      "lesson_id": "MAN-0031",
+      "level": "A1",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": false
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "level": "A2",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": false
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "level": "B1",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": false
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "level": "B2",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": false
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "level": "C1",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": false
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "level": "C2",
+      "unique_purpose_pass": true,
+      "curriculum_ready": true,
+      "practice_preprod_ready": true,
+      "contract_precheck_valid": true,
+      "production_ready": true,
+      "mixed_context_required": true
+    }
+  ],
+  "private_evidence_sha256": {
+    "curriculum-preproduction.json": "1e19fcc20a49c8e5d3e814f4100576184cc3dac007ea57edbdbb76f88cd7b577",
+    "preproduction.json": "d3ec93ff19832ce587b47008bae092828bf315512cdcc435ba9f9706f0b357fe",
+    "research-inputs.json": "19b284c8ad8db5eea5104c6f93199add39018154b8eb3f6ec56bc7d2c7c1f927",
+    "original-rights.json": "5f6fccb0cdf3ac31c5a54dc31a167d174d0c49c7e9de1e330c870ab020656563",
+    "support-qa.json": "ffdb592e096eaac453b3f7d7312765bd5a90804e383c0b9dbc4200d3c8e75ec4"
+  },
+  "publication_allowed": false,
+  "final_practice_ready": false,
+  "produced_contract_valid": false,
+  "paid_calls": 0
+}

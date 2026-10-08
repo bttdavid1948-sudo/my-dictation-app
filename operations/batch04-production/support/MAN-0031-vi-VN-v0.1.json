@@ -1,0 +1,26 @@
+{
+  "lesson_id": "MAN-0031",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Cho tôi súp và bánh mì nhé."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Được. Chọn súp ở đây, rồi lấy bánh mì."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Tôi lấy đồ uống trước được không?"
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Không. Lấy đồ ăn trước. Đồ uống ở cạnh quầy thu ngân."
+    }
+  ],
+  "support_qa": "PASS"
+}
