@@ -1,0 +1,18 @@
+{
+  "objective": "BATCH03_TARGETED_AUDIO_REPAIR_TO_CLOSE_V0_1",
+  "observed_at": "2026-10-08T05:10:22.753445+00:00",
+  "organization": "Personal",
+  "prepaid_usd": 4.67,
+  "auto_reload": "OFF",
+  "organization_spend_limit_usd": 5,
+  "current_metered_spend_usd": 0.25,
+  "model": "gpt-4o-mini-tts",
+  "prior_hold_usd": 2.04624,
+  "batch03_hold_usd": 1.3632,
+  "net_credit_conservatively_available_usd": 1.26056,
+  "repair_reservation_usd": 0.12,
+  "estimate_basis": "40 words at 30 words/minute plus 10s => 90s at inherited $0.0012/s plus $0.012 instructions/text reserve. Existing two holds retained without presumed settlement.",
+  "current_run_reconcile": "Latest 15 runs read: no paid run after production 37655070920. Targeted QA runs submit no paid calls.",
+  "authority": "Standing Batch03 targeted repair; one verified defect S006; second defect not evidenced.",
+  "billing_changes": false
+}

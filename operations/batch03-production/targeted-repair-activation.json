@@ -1,0 +1,12 @@
+{
+  "operation_key": "BATCH_03@MAN-0367-S006@TARGETED_REPAIR@v0.1",
+  "budget_verified_at": "2026-10-08T05:10:22.753445+00:00",
+  "budget_evidence_sha256": "a869a9b441697829061159ecb761a084a9816a8c987e9f47411e44029f15ed3e",
+  "target": [
+    "MAN-0367",
+    "S006"
+  ],
+  "input_sha256": "f2ec5455af6c82e61abe0e4410f2a3bf701c253883018277c8622907f4ec8621",
+  "paid_retry": false,
+  "publication_allowed": false
+}
