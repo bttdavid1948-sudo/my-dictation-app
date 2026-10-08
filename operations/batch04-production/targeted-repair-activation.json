@@ -1,0 +1,16 @@
+{
+  "operation_key": "BATCH_04@MAN-0451-S006@TARGETED_REPAIR@v0.1",
+  "budget_verified_at": "2026-10-08T11:46:37.503348+00:00",
+  "budget_evidence_sha256": "2b75991b58568c829677ceb64e59be87d2209344c8940c2212b419ed856dab93",
+  "target": [
+    "MAN-0451",
+    "S006"
+  ],
+  "input_sha256": "b954c2b202442e448c1eca3f531902499e1ae4f05ff765d87bb9bfbbd6cae17f",
+  "reserved_cost_upper_bound_usd": 0.15,
+  "reservation_recorded": true,
+  "defect_evidence_run": 37771778107,
+  "defect": "Both unprompted recognizers: permanent replaced with current; hold final quality until repaired output QA.",
+  "paid_retry": false,
+  "publication_allowed": false
+}

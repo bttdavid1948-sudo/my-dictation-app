@@ -1,18 +1,17 @@
 {
-  "operation_key": "BATCH_04@prepared-46@PRODUCE_FIRST16@v0.1",
-  "budget_verified_at": "2026-10-08T11:40:27.720841+00:00",
-  "budget_evidence_sha256": "c5fd0dc3f310e59c3e1c3cef1a75a630feea68b1cdd9c2e6b6e5cac2861aea3d",
+  "operation_key": "BATCH_04@prepared-46@PRODUCE_NEXT18@v0.1",
+  "budget_verified_at": "2026-10-08T11:46:37.503348+00:00",
+  "budget_evidence_sha256": "2b75991b58568c829677ceb64e59be87d2209344c8940c2212b419ed856dab93",
   "prepared_source_sha256": "443764f8f0d65fff26a3e853ead35f96e321653ed95c8a1f496e1f0e3478d739",
-  "selected_requests_sha256": "d6f212f2cc600faaaf4d32131c76480a819f9a650604e77ed6c37f6128579974",
+  "selected_requests_sha256": "539b92551e69f67b873b93d7d0d10ba9e1eca951c72ffe9ce81685364c79e0a4",
   "lesson_ids": [
-    "MAN-0031",
-    "MAN-0271",
-    "MAN-0451"
+    "MAN-0581",
+    "MAN-0831"
   ],
   "budget_decision": "RESERVE_THEN_TARGETED_AUDIO",
   "reservation_recorded": true,
-  "reserved_cost_upper_bound_usd": 1.2024,
-  "binding_main": "44ee56b0a383f0e365f71381b64403a38d2cc39c",
+  "reserved_cost_upper_bound_usd": 2.2104,
+  "binding_main": "28905c5fc718ad36d5c0b14c9fb1badebc8d9900",
   "standing_authority_ref": "docs/content-pipeline/registry/official-1000-production-authority.json",
   "paid_retry": false,
   "release_authorized_by_this_receipt": false
