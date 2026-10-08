@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-05",
+  "updated_at": "2026-10-08",
   "store": "ChatGPT Library (access controlled); GitHub public repo holds index only",
   "current": {
     "curriculum-practice-contract": "v0.3",
@@ -45,7 +45,8 @@
     "batch-02-operations-preparation-checkpoint": "v0.1",
     "batch-02-original-rights-preparation": "v0.1",
     "batch-02-routine-admission": "v0.1",
-    "batch-02-support-qa": "v0.1"
+    "batch-02-support-qa": "v0.1",
+    "curriculum-accepted-coverage-baseline": "v0.1"
   },
   "artifacts": [
     {
@@ -1587,6 +1588,48 @@
       "sha256": "c0c3dd3562ed060ab45bcbc362df5a2cc9ed2645c42df41f702ff7f86f220f8d",
       "size_bytes": 9198,
       "validation_status": "HASH_VERIFIED"
+    },
+    {
+      "id": "curriculum-accepted-coverage-baseline",
+      "name": "MAN-Curriculum-Accepted-Coverage-Baseline-v0.1.xlsx",
+      "version": "v0.1",
+      "status": "REVIEW_READY",
+      "owner_lane": "CURRICULUM_3",
+      "source": [
+        "Owner 2026-10-08 bounded curriculum accepted-coverage reconciliation authorization",
+        "V3.4/LEXICAL_SYSTEM authoritative quantitative commitments",
+        "Completed Batch01–03 canonical production evidence"
+      ],
+      "dependencies": [
+        "curriculum-production-spec@v0.1",
+        "global-lesson-registry-snapshot@v0.1",
+        "content-pipeline-contract@v0.2",
+        "curriculum-practice-contract@v0.3",
+        "batch-03-completion-checkpoint@v0.1"
+      ],
+      "created_at": "2026-10-08",
+      "updated_at": "2026-10-08",
+      "supersedes": null,
+      "superseded_by": null,
+      "location": {
+        "store": "ChatGPT Library (access controlled)",
+        "path": "/MẶN — VẬN HÀNH/MAN-Curriculum-Accepted-Coverage-Baseline-v0.1.xlsx",
+        "library_file_id": "libfile_876bac875f808191b93a6ec3f1a2f2c3"
+      },
+      "sha256": "9083bafdd3aaeb055cc827905e83db8b5172a1fb6c7afe56f73d8bd507786443",
+      "size_bytes": 76964,
+      "validation_status": "HASH_VERIFIED",
+      "semantic_validation_status": "VERIFIED_ACCEPTED_COVERAGE_BASELINE_V0_1",
+      "accepted_lesson_count": 27,
+      "accepted_headword_count": 868,
+      "accepted_phrase_count": 76,
+      "accepted_senses_phrases_lower_bound": 944,
+      "evidence_ref": "docs/content-pipeline/registry/curriculum-accepted-coverage-baseline.json",
+      "next_action": {
+        "code": "NONE",
+        "responsible_lane": "NONE",
+        "requires": "Coverage baseline reconciled. Batch04 is planning-only and remains unopened; no production/audio action is authorized."
+      }
     }
   ],
   "current_state_ref": "docs/content-pipeline/registry/batch-01-completion-checkpoint.json"
