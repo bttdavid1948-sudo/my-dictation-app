@@ -2,9 +2,9 @@
   "representation": "Bounded lexical fields in Batch03 existing-registry overlay; no new coverage subsystem",
   "authoritative_targets_ref": "V3.4/LEXICAL_SYSTEM",
   "scope": "Explicitly reviewed subset of 11 normalized headwords/senses and 8 phrases; scans cover all 24 COMPLETE lesson transcripts plus 3 draft transcripts. This is a lower bound, not full-corpus accepted coverage.",
-  "baseline_total_accepted_headwords": null,
-  "baseline_total_accepted_senses_phrases": null,
-  "baseline_total_status": "UNVERIFIED_EXISTING_ARTIFACT_GAP",
+  "baseline_total_accepted_headwords": 834,
+  "baseline_total_accepted_senses_phrases": 910,
+  "baseline_total_status": "RESOLVED_BY_ACCEPTED_COVERAGE_BASELINE_V0_1",
   "hard_floor": {
     "headwords": 6970,
     "senses_phrases": 15000
@@ -534,11 +534,13 @@
     "No invented batch quota; no forced idiom or phrase stuffing.",
     "No empirical mastery or lexical anchor/scoring claim."
   ],
-  "remaining_accounting_action": "Complete normalized lemma/sense/phrase review across current accepted corpus in this same registry representation before a full quantitative scale verdict. Existing raw tokens cannot stand in for accepted sense counts.",
+  "remaining_accounting_action": "RESOLVED_FOR_COMPLETED_27_ACCEPTED_LESSONS; future accepted lessons must extend the same normalized accepted-coverage accounting without inventing per-batch quotas.",
   "accepted_lesson_count": 27,
   "batch03_complete_pairs": [
     "MAN-0067",
     "MAN-0167",
     "MAN-0367"
-  ]
+  ],
+  "baseline_total_ref": "docs/content-pipeline/registry/curriculum-accepted-coverage-baseline.json",
+  "baseline_total_note": "The original null totals recorded a genuine evidence gap. Full accepted-corpus reconciliation now verifies 834 normalized lemma identities + 76 reusable phrase units; 910 is a conservative senses+phrases lower bound. The bounded subset entries below remain historical evidence."
 }

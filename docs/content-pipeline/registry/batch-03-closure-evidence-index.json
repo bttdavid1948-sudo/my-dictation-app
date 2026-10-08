@@ -521,8 +521,8 @@
     },
     {
       "path": "docs/content-pipeline/registry/batch-03-coverage-accepted-overlay.json",
-      "sha256": "32a6ea6b7022bc343e5ef025f6603d659f781c638cf9c982c4f1c85ff1e90cda",
-      "size_bytes": 17491
+      "sha256": "a4986a8ddf19b6ead509f8a2b1ccdabf9676a0d596eba46b55e7fac481827a02",
+      "size_bytes": 17853
     },
     {
       "path": "assets/official-lessons-batch03.json",

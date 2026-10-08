@@ -255,5 +255,7 @@
   "current_state_precedence": "Resolve current_state_index_ref and its hash-bound completion checkpoint before historical registries/checkpoints or planning snapshots. Historical next actions are evidence only.",
   "batch03_completion_ref": "docs/content-pipeline/registry/batch-03-completion-checkpoint.json",
   "batch03_live_release_ref": "docs/content-pipeline/registry/batch-03-live-release.json",
-  "legacy_field_scope": "Earlier Batch01/02 arrays are historical evidence; resolve hash-bound current Batch03 index for operational counts and routing."
+  "legacy_field_scope": "Earlier Batch01/02 arrays are historical evidence; resolve hash-bound current Batch03 index for operational counts and routing.",
+  "practice_scale_readiness_review_ref": "docs/content-pipeline/registry/practice-scale-readiness-review-v0.1.json",
+  "practice_scale_readiness_status": "READY_NO_BATCH04_EXECUTION_AUTHORIZED"
 }
