@@ -13,34 +13,53 @@ def fetch_preflight():
 
 def main():
  batch03=os.getenv('MAN_BATCH_ID')=='BATCH_03'
- ledger={'batch_id':'BATCH_03' if batch03 else 'BATCH_02','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'reused_segments':0,'completed_segments':0,'entries':[],'qa_status':'PENDING','publication_allowed':False}
+ batch04=os.getenv('MAN_BATCH_ID')=='BATCH_04'
+ ledger={'batch_id':'BATCH_04' if batch04 else 'BATCH_03' if batch03 else 'BATCH_02','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'reused_segments':0,'completed_segments':0,'entries':[],'qa_status':'PENDING','publication_allowed':False}
  def save():
   (ROOT/'production-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
  def finish(status,code):
   ledger['status']=status;save();print(json.dumps({k:ledger[k] for k in ['status','paid_requests_submitted','reused_segments','completed_segments']}));return code
  if os.getenv('GITHUB_REPOSITORY')!='bttdavid1948-sudo/my-dictation-app' or os.getenv('GITHUB_REF')!='refs/heads/main' or os.getenv('GITHUB_RUN_ATTEMPT')!='1':return finish('SCOPE_OR_RERUN_BLOCKED',2)
  try:
-  a=json.loads(pathlib.Path('operations/batch03-production/production-activation.json' if batch03 else 'operations/batch02-producer/production-activation.json').read_text())
+  a=json.loads(pathlib.Path('operations/batch04-production/production-activation.json' if batch04 else 'operations/batch03-production/production-activation.json' if batch03 else 'operations/batch02-producer/production-activation.json').read_text())
   age=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(a['budget_verified_at'])).total_seconds()
-  source=pathlib.Path('operations/batch03-production/prepared-segments.json' if batch03 else 'operations/batch02-producer/prepared-segments.json').read_bytes()
+  source=pathlib.Path('operations/batch04-production/prepared-segments.json' if batch04 else 'operations/batch03-production/prepared-segments.json' if batch03 else 'operations/batch02-producer/prepared-segments.json').read_bytes()
   if not 0<=age<=900 or sha(source)!=a['prepared_source_sha256']:raise ValueError()
-  d=json.loads(source);segments=d['segments'];expected=20 if batch03 else 77
+  d=json.loads(source);segments=d['segments'];expected=46 if batch04 else 20 if batch03 else 77
   assert len(segments)==expected
   assert len({(s['lesson_id'],s['segment_id']) for s in segments})==expected
   if batch03:
    assert d['batch_id']=='BATCH_03'
    assert {s['lesson_id'] for s in segments}=={'MAN-0067','MAN-0167','MAN-0367'}
+  if batch04:
+   assert d['batch_id']=='BATCH_04'
+   assert {s['lesson_id'] for s in segments}=={'MAN-0031','MAN-0271','MAN-0451','MAN-0581','MAN-0831','MAN-0951'}
+   selected=a['lesson_ids'];assert selected and len(selected)==len(set(selected))
+   assert set(selected)<={s['lesson_id'] for s in segments}
+   segments=[s for s in segments if s['lesson_id'] in selected];expected=len(segments)
+   assert sha(json.dumps(segments,sort_keys=True,separators=(',',':')).encode())==a['selected_requests_sha256']
+   assert a['budget_decision']=='RESERVE_THEN_TARGETED_AUDIO' and a['reservation_recorded'] is True
+   checkpoint=json.loads(pathlib.Path('docs/content-pipeline/registry/batch-04-operations-checkpoint.json').read_text())
+   assert checkpoint['owner_execution_authorized'] is True and checkpoint['queue_state']=='OPEN'
+   readiness=json.loads(pathlib.Path('operations/batch04-production/preproduction-receipt.json').read_text())
+   assert readiness['stage']=='PREPRODUCTION_READY_AUDIO_PENDING'
+   for lid in selected:
+    r=next(x for x in readiness['lesson_results'] if x['lesson_id']==lid)
+    assert all(r[k] is True for k in ['unique_purpose_pass','curriculum_ready','practice_preprod_ready','contract_precheck_valid','production_ready'])
+    state=next(x for x in checkpoint['states'] if x['lessonId']==lid)
+    assert state['assetsBound'] is False and state['productionAuthorized'] is True
+   ledger['operation_key']=a['operation_key'];ledger['selected_lesson_ids']=selected
   for s in segments:assert sha(s['text'].encode())==s['text_sha256']
   authority=json.loads(pathlib.Path('docs/content-pipeline/registry/official-1000-production-authority.json').read_text());assert authority['audio_spend']['standing_authorized'] is True
   ledger['budget_evidence_sha256']=a['budget_evidence_sha256'];ledger['prepared_source_sha256']=sha(source)
-  if not batch03:
+  if not batch03 and not batch04:
    old=fetch_preflight();ledger['reused_segments']=1;ledger['completed_segments']=1;ledger['entries'].append(old);save()
  except Exception as e:
   ledger['error_type']=type(e).__name__;return finish('PREFLIGHT_SOURCE_OR_REUSE_BLOCKED',2)
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
  for s in segments:
-  if not batch03 and (s['lesson_id'],s['segment_id'])==('MAN-0066','S001'):continue
+  if not batch03 and not batch04 and (s['lesson_id'],s['segment_id'])==('MAN-0066','S001'):continue
   dest=ROOT/s['lesson_id'];dest.mkdir(exist_ok=True);name=s['lesson_id']+'-'+s['segment_id'];out=dest/(name+'.wav')
   row={k:s[k] for k in ['lesson_id','lesson_asset_version','segment_id','script_speaker_id','voice']};row.update(model='gpt-4o-mini-tts',input_sha256=s['text_sha256'],instructions_sha256=sha(s['instructions'].encode()),qa_status='PENDING',publication_allowed=False)
   row['status']='SUBMISSION_PENDING_RECONCILIATION';ledger['entries'].append(row);ledger['paid_requests_submitted']+=1;save()

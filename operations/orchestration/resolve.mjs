@@ -63,6 +63,22 @@ export function resolveCanonicalState(pipeline,index,close,hashOf){
 export function currentState(){
  const pipeline=read('docs/content-pipeline/registry/pipeline.json');
  const index=read(pipeline.current_state_index_ref);
- return resolveCanonicalState(pipeline,index,read(index.current_state_ref),p=>createHash('sha256').update(fs.readFileSync(path.join(repo,p))).digest('hex'));
+ const hash=p=>createHash('sha256').update(fs.readFileSync(path.join(repo,p))).digest('hex');
+ const previous=resolveCanonicalState(pipeline,index,read(index.current_state_ref),hash);
+ if(!pipeline.active_batch_checkpoint_ref)return previous;
+ return resolveBatch04(read(pipeline.active_batch_checkpoint_ref),hash,previous);
+}
+// Finite Owner-authorized Batch04 overlay; preserve prior closure and planner.
+export function resolveBatch04(s,hashOf,previous){
+ const fail=m=>{throw Error('BATCH04_STATE_MISMATCH: '+m);};
+ const ids=['MAN-0031','MAN-0271','MAN-0451','MAN-0581','MAN-0831','MAN-0951'];
+ if(s.batch_id!=='BATCH_04'||s.owner_execution_authorized!==true||s.scope!=='OFFICIAL_MAN_1000_ONLY'||s.r1_4_authorized!==false)fail('authority');
+ if(s.states.length!==6||JSON.stringify(s.states.map(x=>x.lessonId).sort())!==JSON.stringify(ids))fail('finite identities');
+ for(const a of s.artifacts)if(hashOf(a.path)!==a.sha256)fail('evidence hash '+a.path);
+ if(!s.artifacts.some(x=>x.path==='operations/batch04-production/preproduction-receipt.json'))fail('missing readiness binding');
+ const plan=planIndependent(s.states),count=plan.completed.length;
+ if(s.queue_state!==(count===6?'CLOSED':'OPEN')||s.complete_lesson_count!==count)fail('completion/queue');
+ if(count===6&&s.states.some(x=>!x.releaseEvidenceRef||hashOf(x.releaseEvidenceRef)!==x.releaseEvidenceSha256))fail('unbound live close');
+ return {...plan,batchId:'BATCH_04',status:count===6?'BATCH_04_COMPLETE_6_OF_6':s.status,terminalState:count===6?'OBJECTIVE_COMPLETE':'IN_PROGRESS',currentStateRef:'docs/content-pipeline/registry/batch-04-operations-checkpoint.json',next_action:count===6?{code:'NONE',responsible_lane:'NONE'}:s.next_action,queue:s.queue_state,completeLessonCount:count,remainingLessonCount:6-count,activeExceptionCount:plan.handoffs.length,previousClosure:{batchId:previous.batchId,status:previous.status},executionMode:'READ_ONLY_CANONICAL_STATE',externalCalls:0,newProductionStarted:false};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{const file=process.argv[2];const result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):currentState();console.log(JSON.stringify(result,null,2));}catch(e){console.error(e.message);process.exitCode=1;}}

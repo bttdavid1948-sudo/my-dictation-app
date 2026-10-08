@@ -257,5 +257,6 @@
   "batch03_live_release_ref": "docs/content-pipeline/registry/batch-03-live-release.json",
   "legacy_field_scope": "Earlier Batch01/02 arrays are historical evidence; resolve hash-bound current Batch03 index for operational counts and routing.",
   "practice_scale_readiness_review_ref": "docs/content-pipeline/registry/practice-scale-readiness-review-v0.1.json",
-  "practice_scale_readiness_status": "READY_NO_BATCH04_EXECUTION_AUTHORIZED"
+  "practice_scale_readiness_status": "READY_NO_BATCH04_EXECUTION_AUTHORIZED",
+  "active_batch_checkpoint_ref": "docs/content-pipeline/registry/batch-04-operations-checkpoint.json"
 }

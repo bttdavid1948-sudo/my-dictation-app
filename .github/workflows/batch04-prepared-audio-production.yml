@@ -1,0 +1,41 @@
+name: Batch04 inherited finite prepared audio production
+on:
+  push:
+    branches: [main]
+    paths: [operations/batch04-production/production-activation.json]
+permissions:
+  contents: read
+concurrency:
+  group: official-man-batch04-producer
+  cancel-in-progress: false
+jobs:
+  produce:
+    if: github.repository == 'bttdavid1948-sudo/my-dictation-app' && github.ref == 'refs/heads/main' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify existing secret by authenticated read only
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/preflight.py
+      - name: Produce only activated finite Batch04 subset; no retries
+        env:
+          MAN_BATCH_ID: BATCH_04
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 operations/batch02-producer/produce.py
+      - name: Install inherited offline recognizers
+        run: python3 -m pip install faster-whisper==1.2.1 scipy
+      - name: Extract actual audio QA; second recognizer only for flags
+        run: python3 operations/batch04-production/ordinary_qa.py
+      - name: Retain outputs and uncertainty ledger
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: batch04-audio-production-${{ github.run_id }}
+          path: |
+            producer-evidence/
+            batch04-qa/
+          retention-days: 7
