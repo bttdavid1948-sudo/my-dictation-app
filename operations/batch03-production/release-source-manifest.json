@@ -1,0 +1,150 @@
+{
+  "batch_id": "BATCH_03",
+  "production_run": 37655070920,
+  "repair_run": 37731209552,
+  "source_segments": [
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S001",
+      "origin": "production",
+      "sha256": "1544f2e9132b0d94651c4295849d5cfc203ac6c06de9170b7905a3c0d0a57644",
+      "destination": "assets/audio/MAN-0067-S001-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S002",
+      "origin": "production",
+      "sha256": "b856d5b71a868fdcaf0336b0eac2d7f922308e1c3d6dc96e8e405bbb4d89e980",
+      "destination": "assets/audio/MAN-0067-S002-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S003",
+      "origin": "production",
+      "sha256": "ae711235e23ecc675096b41e2d2a778cc076899bc6b36c61319d69c1672fe509",
+      "destination": "assets/audio/MAN-0067-S003-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0067",
+      "segment_id": "S004",
+      "origin": "production",
+      "sha256": "e2d5b874275ec11f01b0866f82f777197ec593f8cb4b522ded6af73345001f59",
+      "destination": "assets/audio/MAN-0067-S004-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S001",
+      "origin": "production",
+      "sha256": "c41b7e89cfb04db2c8df0766e235df43d166d5d7db3d67e57c212ec653664de8",
+      "destination": "assets/audio/MAN-0167-S001-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S002",
+      "origin": "production",
+      "sha256": "21aed37736563a5e141bb2cfeb415fd61ce8958fbd2bf66f801a83715dd93ca7",
+      "destination": "assets/audio/MAN-0167-S002-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S003",
+      "origin": "production",
+      "sha256": "9c7a672ca414e6956b9c7e5db071b61abd47ec8b90037f1e0066ff175d66a837",
+      "destination": "assets/audio/MAN-0167-S003-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S004",
+      "origin": "production",
+      "sha256": "dc863da9d6b6d7668ac89deee4a4bdeaebf6a537020f8efab2770efa4e535628",
+      "destination": "assets/audio/MAN-0167-S004-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S005",
+      "origin": "production",
+      "sha256": "7243d3ad173ce8bd6546c0ff5cad6e0b29f226d593b00017d05a81c33ef64979",
+      "destination": "assets/audio/MAN-0167-S005-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0167",
+      "segment_id": "S006",
+      "origin": "production",
+      "sha256": "b527d961d1a74598a80d3cbc9534408d627d3604ab16e2c1eb7b3ecd8941f336",
+      "destination": "assets/audio/MAN-0167-S006-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S001",
+      "origin": "production",
+      "sha256": "497b38042ae425629f6cd8ef0a21a7f90e5c5d44f0c0350efae02d1aab4e4686",
+      "destination": "assets/audio/MAN-0367-S001-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S002",
+      "origin": "production",
+      "sha256": "85f93447f5a9c81810b2ad301179a973851d03d6b5a57d5c07a5164533daf8f3",
+      "destination": "assets/audio/MAN-0367-S002-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S003",
+      "origin": "production",
+      "sha256": "1b9e8a3b247a3f4578444554bcc2933feba5feaf899292e62f8e6b890d204f72",
+      "destination": "assets/audio/MAN-0367-S003-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S004",
+      "origin": "production",
+      "sha256": "d12461e70da5ee6c9324495bbdcc2f6d1fb41a341b116a69cf76205a041cfe0d",
+      "destination": "assets/audio/MAN-0367-S004-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S005",
+      "origin": "production",
+      "sha256": "bbad3a1cd32d4fea54f310976db33e09325ef24e86ced93da7ac1cb004755278",
+      "destination": "assets/audio/MAN-0367-S005-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S006",
+      "origin": "repair",
+      "sha256": "bcc087072693084dac34b8b42d2ec5e2885f1256cd00c28d0cae19f27684d784",
+      "destination": "assets/audio/MAN-0367-S006-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S007",
+      "origin": "production",
+      "sha256": "377b14ce89512f47c0176973dc43d31f4b9f8d187385e8688f8f26792490ac63",
+      "destination": "assets/audio/MAN-0367-S007-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S008",
+      "origin": "production",
+      "sha256": "c277bd7765a9fe277c27cd831603479b92e9cffeedbe64cdb7e4ab6b058a9738",
+      "destination": "assets/audio/MAN-0367-S008-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S009",
+      "origin": "production",
+      "sha256": "0f8db2716a76b332cf6686a0d4a5735eba2bce1202deaf3e823fa0414d2e48b5",
+      "destination": "assets/audio/MAN-0367-S009-batch03-v0.1.wav"
+    },
+    {
+      "lesson_id": "MAN-0367",
+      "segment_id": "S010",
+      "origin": "production",
+      "sha256": "7fb38fa9a82521c0d295776463e28e082f6d9b849004e32e3e6f420d5bff7abe",
+      "destination": "assets/audio/MAN-0367-S010-batch03-v0.1.wav"
+    }
+  ],
+  "paid_calls": 0,
+  "publication_allowed": false,
+  "semantic_status": "PENDING_FINAL_GROUNDING"
+}

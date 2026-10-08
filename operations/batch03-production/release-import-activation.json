@@ -1,0 +1,13 @@
+{
+  "operation_key": "BATCH_03@EXACT20@IMMUTABLE_IMPORT@v0.1",
+  "production_run": 37655070920,
+  "repair_run": 37731209552,
+  "source_manifest_sha256": "5bab27e285dc9c2be7d02e2578ea5a5d524b2a235fd004dcfc0be40056bbf9ca",
+  "paid_requests": 0,
+  "publish_main_directly": false,
+  "lesson_ids": [
+    "MAN-0067",
+    "MAN-0167",
+    "MAN-0367"
+  ]
+}
