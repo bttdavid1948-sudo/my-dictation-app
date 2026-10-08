@@ -1,0 +1,24 @@
+name: Batch04 bounded unresolved C1 cue review
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/batch04-cue-review.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  mixed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 37772501746
+          name: batch04-audio-production-37772501746
+          path: retained-second
+      - run: python3 -m pip install numpy scipy pocketsphinx==5.1.1
+      - run: python3 operations/batch04-production/cue_review.py

@@ -1,10 +1,10 @@
 """One prepared segment, infrastructure secret only, no retry or release claim."""
 import datetime,hashlib,io,json,os,pathlib,struct,urllib.request,urllib.error,wave
 ROOT=pathlib.Path('producer-evidence');ROOT.mkdir(exist_ok=True)
-TEXT="Tell them the current cut-off time clearly, and offer the next available delivery date. Once we have the figures, we'll test the spare-van option for a week. If it creates another delay, we'll review it before making the change permanent."
-HASH='b954c2b202442e448c1eca3f531902499e1ae4f05ff765d87bb9bfbbd6cae17f'
+TEXT="That works for me. We preserve the visible result without making it carry a verdict it can't bear. I still want the explanation to be brisk, but brisk needn't mean indiscriminate. Let's rehearse the question so that the qualification feels like reasoning, rather than a legal notice."
+HASH='a4412ff351d056aa91595f2618091e5731efd69cdea71fdd7481bf7f0092de63'
 def main():
- receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0451','segment_id':'S006','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'marin','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
+ receipt={'batch_id':'BATCH_04','lesson_id':'MAN-0951','segment_id':'S012','lesson_asset_version':'v0.1','input_sha256':HASH,'model':'gpt-4o-mini-tts','voice':'cedar','source_sha':os.getenv('GITHUB_SHA'),'paid_requests_submitted':0,'qa_status':'PENDING','publication_allowed':False}
  def finish(status,code):
   receipt['status']=status
   (ROOT/'targeted-repair.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -25,8 +25,8 @@ def main():
  if hashlib.sha256(TEXT.encode()).hexdigest()!=HASH:return finish('INPUT_BINDING_MISMATCH',2)
  key=os.getenv('OPENAI_API_KEY')
  if not key:return finish('SECRET_UNAVAILABLE',2)
- instructions='Read the supplied text exactly, without additions, omissions or substitutions. Natural conversational English. Read all sentences to completion. The final word is permanent, meaning lasting; say permanent exactly, do not replace it with current. Keep ordinary connected speech.'
- payload={'model':'gpt-4o-mini-tts','voice':'marin','input':TEXT,'instructions':instructions,'response_format':'wav'}
+ instructions="Read all supplied sentences exactly, naturally, without omissions, additions or substitutions. Preserve the exact negative phrase: brisk needn't mean indiscriminate. Needn't means need not; keep the negation clearly audible. Do not say brisk means indiscriminate. Read the final sentence in full. Natural conversational English, no exaggeration."
+ payload={'model':'gpt-4o-mini-tts','voice':'cedar','input':TEXT,'instructions':instructions,'response_format':'wav'}
  receipt['instructions_sha256']=hashlib.sha256(instructions.encode()).hexdigest()
  request=urllib.request.Request('https://api.openai.com/v1/audio/speech',json.dumps(payload).encode(),{'Authorization':'Bearer '+key,'OpenAI-Project':'proj_Mrlw738r4i5cwNktghjdnYFk','Content-Type':'application/json'},method='POST')
  receipt['paid_requests_submitted']=1
@@ -42,13 +42,13 @@ def main():
   receipt['error_type']=type(error).__name__
   return finish('PRODUCER_TRANSPORT_UNKNOWN_RECONCILE_BEFORE_RETRY',3)
  # Preserve received bytes before validation, including failed/partial outputs.
- raw=ROOT/'MAN-0451-S006.provider.wav';raw.write_bytes(data)
+ raw=ROOT/'MAN-0951-S012.provider.wav';raw.write_bytes(data)
  if len(data)>5_000_000 or data[:4]!=b'RIFF' or data[8:12]!=b'WAVE':return finish('AUDIO_CONTAINER_FAILED',4)
  try:
   with wave.open(io.BytesIO(data),'rb') as w:
    params=w.getparams();pcm=w.readframes(w.getnframes())
   if params.nchannels!=1 or params.sampwidth!=2 or params.framerate!=24000 or not pcm:return finish('AUDIO_DECODE_FAILED',4)
-  final=ROOT/'MAN-0451-S006.wav'
+  final=ROOT/'MAN-0951-S012.wav'
   with wave.open(str(final),'wb') as w:
    w.setnchannels(1);w.setsampwidth(2);w.setframerate(24000);w.writeframes(pcm)
   duration=len(pcm)/48000
