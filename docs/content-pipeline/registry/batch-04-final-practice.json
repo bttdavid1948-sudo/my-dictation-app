@@ -327,12 +327,88 @@
       "support_sha256": "74c16c8a4f120e3dead06cd4661a4794e9104f8c7e35ab466844344e21a6130a",
       "preprod_sha256": "0e304b3fdb8ed2d8a99c42c742137a13c143045c40a748d3bc857ac6d53e1abb",
       "comprehension_review": "Existing reserved purpose, explicit propositions and scoped stance/attitude preserved. No level, Curriculum target, or scored dimension changed."
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "realization_id": "MAN-0831-OPENAI-FIXED-v0.1",
+      "semantic_owner": "PRACTICE_2",
+      "execution_context": "OPERATIONS_4_GOVERNED_MODULE",
+      "PRACTICE_READY": true,
+      "CONTRACT_VALID": true,
+      "anchor_ids": [
+        "MAN-0831-A-COMP-01",
+        "MAN-0831-A-SPCH-01"
+      ],
+      "grounding": {
+        "version": "MAN-B02-PRACTICE@v0.1",
+        "operator": "INFERENCE_STANCE",
+        "construct": "STANCE",
+        "dimension": "inferential_discourse_comprehension",
+        "anchorIds": [
+          "MAN-0831-A-COMP-01",
+          "MAN-0831-A-SPCH-01"
+        ],
+        "conditionAnchors": false,
+        "conditions": [],
+        "question": "Các biên tập viên thống nhất cách đưa tin nào?",
+        "choices": [
+          "Nêu lợi ích được ghi nhận trong phạm vi khảo sát và các hạn chế.",
+          "Khẳng định dịch vụ đã thay đổi toàn thành phố.",
+          "Bỏ toàn bộ kết quả khảo sát vì lịch chạy thay đổi."
+        ],
+        "correctChoice": 0,
+        "referenceAnswer": "Report promising scoped passenger evidence and limitations; do not assert city-wide transformation or dismiss the survey.",
+        "speechTasks": [
+          {
+            "id": "connected-span",
+            "anchorId": "MAN-0831-A-SPCH-01",
+            "operator": "TARGETED_DICTATION",
+            "construct": "SEGMENTATION_CONNECTED_SPEECH",
+            "format": "SHORT_TEXT",
+            "dimension": "segmentation_connected_speech",
+            "prompt": "Ở lượt 4, điền từ nối còn thiếu: ___, calling that a city-wide transformation turns a limited observation into a claim about everyone.",
+            "answer": "Nevertheless",
+            "span": {
+              "segment_id": "S004",
+              "start_char": 169,
+              "end_char": 181
+            },
+            "support": "HINT_ASSISTED",
+            "scoringBoundary": "Choice-assisted contextual comprehension and hint-assisted short-span access only. Dictation separate; no calibrated retention, transfer, phonetic, prosody, accent or overlap mastery claim."
+          }
+        ],
+        "scoringBoundary": "Choice-assisted contextual comprehension and hint-assisted short-span access only. Dictation separate; no calibrated retention, transfer, phonetic, prosody, accent or overlap mastery claim."
+      },
+      "realization_cue_evidence": "Exact S004 retains Nevertheless with word timing 10.08–10.60s and bounded PCM energy. Two word repairs preserve ash/marin speaker bindings; original failed word outputs and incorrect cedar repairs are excluded. Short-span discourse-marker access only.",
+      "rules": [
+        "PVAL-001..015",
+        "PRDY-01..05"
+      ],
+      "mapping_refs": [
+        "MAP-CMP-08",
+        "MAP-SPH-02"
+      ],
+      "limits": "Choice-assisted contextual comprehension and hint-assisted short-span access only. Dictation separate; no calibrated retention, transfer, phonetic, prosody, accent or overlap mastery claim.",
+      "exact_asset_hashes": [
+        "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+        "1913395f761af3bd47af38679d3354b55b50c4a4620ab295f726e239c5efaf09",
+        "f80e9da1b90e732fdd919504ace860a0087ae5eac12c38d3951e277b7d7236c9",
+        "4303293cb37000627077cb3426ca30a61fa898ce54bcbb7465b7a4183f399235",
+        "aef04235ff1fe359e92b87f32b631d56b83452f61fbe01daf602e462956fbeb9",
+        "4b6f164d247ef6bf7ec45a025dc91b2021d6de337576989f5715ced5f01210b6",
+        "da2bd6a1a364eab13d7c1039678e388454f4f83b8f8d453299d716a1e3ddf6e5",
+        "554074fd34fb30b0fc1834c1ead03b22d1f2115c72e0a98c71275857acf2fb56",
+        "75d0e2fd9c9903c0f1ba5247c0d1b897de3c0d9b43f9d3370f70ad9bf565a9da",
+        "4d429b5b84e4daac192d26b4d3cbe9fa9a3ede5da42f47e9a69d2ba2ac12c503"
+      ],
+      "support_sha256": "04e14175d8710d95638b84cff05c6aba2f6ac0c35b4efadede6acaa560368473",
+      "preprod_sha256": "0e304b3fdb8ed2d8a99c42c742137a13c143045c40a748d3bc857ac6d53e1abb",
+      "comprehension_review": "Existing reserved purpose, explicit propositions and scoped stance/attitude preserved. No level, Curriculum target, or scored dimension changed."
     }
   ],
   "frozen_contract_changed": false,
   "preproduction_gates_reused": true,
-  "remaining_blockers": [
-    "MAN-0831 repaired lexical QA pending"
-  ],
+  "remaining_blockers": [],
   "qa_evidence_ref": "docs/content-pipeline/registry/batch-04-audio-qa.json"
 }
