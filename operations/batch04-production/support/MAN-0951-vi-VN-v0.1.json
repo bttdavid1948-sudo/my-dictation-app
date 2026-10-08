@@ -1,0 +1,58 @@
+{
+  "lesson_id": "MAN-0951",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Trong phần minh họa, chúng ta cho nước đục đi qua một cột cát rồi so sánh các mẫu. Mẫu đã lọc trông trong hơn, khá thuyết phục về mặt thị giác. Tôi lo khán giả sẽ nghe 'trong hơn' rồi tự hiểu thành 'an toàn' trước khi ta phân biệt hai điều đó."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Vậy nên đưa sự phân biệt ấy vào thí nghiệm, thay vì gắn cảnh báo ở cuối. Bộ lọc có thể giữ lại một số hạt lơ lửng mà không loại bỏ mọi chất hòa tan. Vẻ ngoài cho ta biết điều có thể nhìn thấy, chứ không phải phép kiểm tra toàn diện về những gì có trong nước."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Nhưng nếu nhồi quá nhiều lưu ý vào một màn minh họa ngắn, ta sẽ làm mất phần giải thích cơ chế. Không thể nói cát giữ lại tạp chất, cho xem hai mẫu rồi chuyển tiếp sao? Mục đích là giúp người xem hiểu lọc nước, chứ không phải giảng về an toàn phòng thí nghiệm."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Từ 'tạp chất' đang gánh quá nhiều ý nghĩa ở đây. Nó gom những thứ khác nhau thành một nhóm nghe rất yên tâm. Ta có thể giải thích chính xác cơ chế: một số hạt bị giữ trong lớp cát, còn vật chất khác có thể đi qua. Đó vẫn là giải thích đơn giản, chỉ bớt bao quát quá mức."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Và trong hơn không có nghĩa là—"
+    },
+    {
+      "segment_id": "S006",
+      "translation": "—vô trùng. Ừ, tôi chấp nhận sự phân biệt đó. Nhưng tôi đang hỏi liệu chi tiết bổ sung ấy có thật sự cần cho phần minh họa không. Ta cần một điểm dừng, nếu không lời giải thích nào cũng thành danh sách tất cả những điều nó chưa chứng minh."
+    },
+    {
+      "segment_id": "S007",
+      "translation": "Cũng đúng. Điểm dừng có thể là một dự đoán: liệu một chất hòa tan có nhất thiết biến mất chỉ vì mẫu trông trong hơn không? Hãy để mọi người trả lời, rồi dùng lập luận của họ để phân biệt việc giữ lại hạt với nhận định rộng hơn về làm sạch nước. Ta không cần liệt kê mọi chất ô nhiễm có thể có."
+    },
+    {
+      "segment_id": "S008",
+      "translation": "Tôi muốn thêm một mẫu đối chứng. Giữ một mẫu chưa đi qua cột cát và so cả hai dưới cùng ánh sáng. Nếu không, sự lắng xuống hoặc thay đổi ánh sáng có thể tạo ra một phần hiệu ứng thuyết phục mà ta lại cho là do bộ lọc."
+    },
+    {
+      "segment_id": "S009",
+      "translation": "Mẫu đối chứng hữu ích, nhưng nó không tách riêng được mọi biến số. Nước được rót qua cột cũng đã được xử lý khác. Nếu ai đó chất vấn, tôi không muốn ta ngụ ý phép so sánh trong lớp có sức thuyết phục như một nghiên cứu được kiểm soát chặt chẽ."
+    },
+    {
+      "segment_id": "S010",
+      "translation": "Tôi cũng vậy. Ta sẽ gọi đây là phần minh họa một cơ chế hợp lý, có mẫu chưa xử lý để so sánh, chứ không phải bằng chứng dứt khoát về hiệu quả của một phương pháp xử lý. Hạn chế phải nằm ngay trong nhận định. Như vậy trung thực hơn là nhận định quá lớn rồi cố thu hồi nó bằng chú thích cuối trang."
+    },
+    {
+      "segment_id": "S011",
+      "translation": "Vậy trình tự thực hành là: giữ mẫu so sánh, cho mẫu còn lại đi qua cát, quan sát cả hai trong cùng điều kiện, rồi bàn về điều độ trong có thể và không thể chứng minh. Không mẫu nào được dùng để uống. Cần nói rõ giới hạn ấy trước khi bất cứ ai cầm các cốc."
+    },
+    {
+      "segment_id": "S012",
+      "translation": "Tôi đồng ý. Ta giữ được kết quả nhìn thấy mà không ép nó gánh một kết luận nó không đủ sức chứng minh. Tôi vẫn muốn giải thích nhanh gọn, nhưng nhanh gọn không có nghĩa là gom mọi thứ lại tùy tiện. Hãy tập câu hỏi để phần giới hạn giống một bước lập luận hơn là thông báo pháp lý."
+    }
+  ],
+  "support_qa": "PASS"
+}

@@ -1,0 +1,607 @@
+{
+  "batch_id": "BATCH_04",
+  "status": "DRAFT_NO_LEARNER_RELEASE",
+  "assets": [
+    {
+      "lesson_id": "MAN-0031",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "A1",
+      "title": "Soup First, Then a Drink",
+      "content_type": "Transaction",
+      "canonical_transcript": "I'd like soup and bread, please.\nSure. Choose your soup here. Then get your bread.\nCan I get a drink first?\nNo. Get your food first. Drinks are by the till.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "customer",
+          "text": "I'd like soup and bread, please."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Sure. Choose your soup here. Then get your bread."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "customer",
+          "text": "Can I get a drink first?"
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "No. Get your food first. Drinks are by the till."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0031-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "SEQUENCE",
+          "segment_ids": [
+            "S002",
+            "S004"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004"
+          ],
+          "target_proposition_or_reference_answer": "Choose soup, get bread, then get a drink by the till.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0031-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S001"
+          ],
+          "phenomenon_type": "basic contractions",
+          "span_refs": [
+            {
+              "segment_id": "S001",
+              "start_char": 0,
+              "end_char": 3
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0271",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "A2",
+      "title": "Collecting a Library Card",
+      "content_type": "Interview",
+      "canonical_transcript": "I'm new here. How do I get a library card?\nFirst, fill in this form. Then show us your name and address on an official letter.\nI've got a letter, but it has my old address. Do I need to come back?\nYou can start today. We'll check your name now, but bring a letter with your new address before you borrow books.\nSo I fill in the form today, then bring the new letter before I use the card?\nThat's right. After we check the new address, you can collect your card at this desk.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "I'm new here. How do I get a library card?"
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "First, fill in this form. Then show us your name and address on an official letter."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "I've got a letter, but it has my old address. Do I need to come back?"
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "You can start today. We'll check your name now, but bring a letter with your new address before you borrow books."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "So I fill in the form today, then bring the new letter before I use the card?"
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "That's right. After we check the new address, you can collect your card at this desk."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0271-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "SEQUENCE",
+          "segment_ids": [
+            "S002",
+            "S004",
+            "S006"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004",
+            "S006"
+          ],
+          "target_proposition_or_reference_answer": "Fill in the form and check the name now; bring new address evidence before borrowing; collect the card after the address check.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0271-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S004"
+          ],
+          "phenomenon_type": "unstressed function words",
+          "span_refs": [
+            {
+              "segment_id": "S004",
+              "start_char": 89,
+              "end_char": 106
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0451",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "B1",
+      "title": "Changing the Delivery Schedule",
+      "content_type": "Problem-solving dialogue",
+      "canonical_transcript": "The packing team says our new delivery schedule isn't working. Orders arrive at the warehouse after the drivers have left, so customers wait an extra day. We need to explain the change before more people complain.\nWe changed the schedule to give the warehouse more time, not to reduce the number of deliveries. But the sales team still promises next-day delivery for orders placed late in the afternoon.\nThen should we move the drivers' departure time? That would solve the late-order problem, but the drivers might miss their afternoon collections. We'd be moving the delay to another part of the business.\nLet's check which orders are affected first. If most are small orders from nearby customers, we could use the spare van for those. We shouldn't change every route before we know the size of the problem.\nI'll ask sales for last week's order times and compare them with the warehouse records. What should we tell customers while we're checking? I don't want them to expect something we can't deliver.\nTell them the current cut-off time clearly, and offer the next available delivery date. Once we have the figures, we'll test the spare-van option for a week. If it creates another delay, we'll review it before making the change permanent.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "The packing team says our new delivery schedule isn't working. Orders arrive at the warehouse after the drivers have left, so customers wait an extra day. We need to explain the change before more people complain."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "We changed the schedule to give the warehouse more time, not to reduce the number of deliveries. But the sales team still promises next-day delivery for orders placed late in the afternoon."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Then should we move the drivers' departure time? That would solve the late-order problem, but the drivers might miss their afternoon collections. We'd be moving the delay to another part of the business."
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Let's check which orders are affected first. If most are small orders from nearby customers, we could use the spare van for those. We shouldn't change every route before we know the size of the problem."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "I'll ask sales for last week's order times and compare them with the warehouse records. What should we tell customers while we're checking? I don't want them to expect something we can't deliver."
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Tell them the current cut-off time clearly, and offer the next available delivery date. Once we have the figures, we'll test the spare-van option for a week. If it creates another delay, we'll review it before making the change permanent."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0451-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "SEQUENCE",
+          "segment_ids": [
+            "S003",
+            "S004",
+            "S005",
+            "S006"
+          ],
+          "evidence_segment_ids": [
+            "S003",
+            "S004",
+            "S005",
+            "S006"
+          ],
+          "target_proposition_or_reference_answer": "Check affected orders before changing routes; explain the current cut-off; then trial the spare van and review before permanence.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0451-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "TRANSFER_CONDITION",
+          "segment_ids": [
+            "S002"
+          ],
+          "phenomenon_type": "sentence stress",
+          "span_refs": [
+            {
+              "segment_id": "S002",
+              "start_char": 57,
+              "end_char": 70
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0581",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "B2",
+      "title": "A Hobby Without Another Deadline",
+      "content_type": "Interview",
+      "canonical_transcript": "You used to enter every photography competition at the club. Now you're organising weekend walks with no judging at all. Have you lost interest in improving, or is there something else behind the change?\nI still care about making better pictures. I just noticed that I was checking competition rules before I even looked at a scene. Every walk turned into a search for something a judge might like, which rather defeated the point of going out.\nBut some members say a deadline is what gets them off the sofa. If the walks have no target, won't people simply chat for an hour and come home with the same pictures they always take?\nThat's a fair concern. We're keeping a small challenge: notice a detail you would normally walk past, then explain why you chose it. What we're dropping is the ranking. I'd rather hear someone describe a surprising mistake than apologise for not winning.\nWould you invite beginners as well? A few have told me they're nervous about slowing everyone down. They might hear experienced members talking about equipment and assume they need an expensive camera before they can join.\nAbsolutely. A phone is fine, and nobody has to share a picture. We'll pair people up if they want help, but it won't be a lesson with homework. I do enough meeting other people's deadlines during the week.\nSo you're not arguing against competitions altogether. You want the club to offer another way in, especially for people who enjoy taking pictures but don't want their free time to become another performance review?\nExactly. Competition suits some people, and they can keep that group. I want this one to leave room for curiosity. If someone goes home noticing the light differently, I'll call that a worthwhile morning, even if the best photo never leaves their phone.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "You used to enter every photography competition at the club. Now you're organising weekend walks with no judging at all. Have you lost interest in improving, or is there something else behind the change?"
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "I still care about making better pictures. I just noticed that I was checking competition rules before I even looked at a scene. Every walk turned into a search for something a judge might like, which rather defeated the point of going out."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "But some members say a deadline is what gets them off the sofa. If the walks have no target, won't people simply chat for an hour and come home with the same pictures they always take?"
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "That's a fair concern. We're keeping a small challenge: notice a detail you would normally walk past, then explain why you chose it. What we're dropping is the ranking. I'd rather hear someone describe a surprising mistake than apologise for not winning."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Would you invite beginners as well? A few have told me they're nervous about slowing everyone down. They might hear experienced members talking about equipment and assume they need an expensive camera before they can join."
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Absolutely. A phone is fine, and nobody has to share a picture. We'll pair people up if they want help, but it won't be a lesson with homework. I do enough meeting other people's deadlines during the week."
+        },
+        {
+          "segment_id": "S007",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "So you're not arguing against competitions altogether. You want the club to offer another way in, especially for people who enjoy taking pictures but don't want their free time to become another performance review?"
+        },
+        {
+          "segment_id": "S008",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Exactly. Competition suits some people, and they can keep that group. I want this one to leave room for curiosity. If someone goes home noticing the light differently, I'll call that a worthwhile morning, even if the best photo never leaves their phone."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0581-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "ATTITUDE",
+          "segment_ids": [
+            "S002",
+            "S004",
+            "S006",
+            "S008"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004",
+            "S006",
+            "S008"
+          ],
+          "target_proposition_or_reference_answer": "The organiser still values improvement and challenge but offers a curiosity-led, unranked alternative without rejecting competitions for others.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0581-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "TRANSFER_CONDITION",
+          "segment_ids": [
+            "S008"
+          ],
+          "phenomenon_type": "accent variation",
+          "span_refs": [
+            {
+              "segment_id": "S008",
+              "start_char": 89,
+              "end_char": 113
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0831",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "C1",
+      "title": "What the Headline Leaves Out",
+      "content_type": "Professional discussion",
+      "canonical_transcript": "The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month.\nOn balance, I'd keep the positive finding, but narrow the claim. Among respondents, most reported an easier journey to late shifts. That tells us something useful about their experience; it doesn't tell us how many residents still can't reach a stop or afford the fare.\nThe transport office argues that rising passenger numbers speak for themselves. If we lead with limitations, they say we'll bury the news beneath qualifications. I take their point about clarity, although a confident headline can travel much further than the careful paragraph underneath it.\nTo be clear, I'm not proposing a headline that says nothing happened. More people are using the buses, and the interviews give us concrete examples of shorter journeys. Nevertheless, calling that a city-wide transformation turns a limited observation into a claim about everyone.\nWhat about the interview with the cleaner who no longer needs two connections? It makes the benefit tangible. We could put her experience near the top, provided we don't imply she represents every shift worker. One vivid account is still one account.\nAgreed. There's also a comparison issue: the survey asks passengers about their previous journeys, rather than tracking the same group before and after the change. Their recollections may be accurate, but we shouldn't quietly describe this as an independent measurement of travel-time savings.\nIn that case, let's separate three things: the recorded increase in passengers, the benefits people report, and the unanswered question of who remains excluded. The first is an administrative count; the second is survey evidence; the third needs further reporting, not a confident guess.\nWe should also mention that the operator extended the timetable halfway through the survey period. Otherwise readers may assume everyone evaluated the same service. That's relevant context, rather than a reason to throw out the whole survey.\nThen the headline can say evening buses ease commutes for surveyed passengers. In the opening, we'll state the increase and the reported benefit, then explain the sample and timetable change. We'll ask the transport office about access beyond the current routes before making a broader claim.\nYes. That keeps the development newsworthy without laundering uncertainty out of the story. I'd resist the temptation to turn either the office's enthusiasm or our reservations into the story's verdict. The evidence is promising; the scope of that promise is what we need to make explicit.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "On balance, I'd keep the positive finding, but narrow the claim. Among respondents, most reported an easier journey to late shifts. That tells us something useful about their experience; it doesn't tell us how many residents still can't reach a stop or afford the fare."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "The transport office argues that rising passenger numbers speak for themselves. If we lead with limitations, they say we'll bury the news beneath qualifications. I take their point about clarity, although a confident headline can travel much further than the careful paragraph underneath it."
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "To be clear, I'm not proposing a headline that says nothing happened. More people are using the buses, and the interviews give us concrete examples of shorter journeys. Nevertheless, calling that a city-wide transformation turns a limited observation into a claim about everyone."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "What about the interview with the cleaner who no longer needs two connections? It makes the benefit tangible. We could put her experience near the top, provided we don't imply she represents every shift worker. One vivid account is still one account."
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Agreed. There's also a comparison issue: the survey asks passengers about their previous journeys, rather than tracking the same group before and after the change. Their recollections may be accurate, but we shouldn't quietly describe this as an independent measurement of travel-time savings."
+        },
+        {
+          "segment_id": "S007",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "In that case, let's separate three things: the recorded increase in passengers, the benefits people report, and the unanswered question of who remains excluded. The first is an administrative count; the second is survey evidence; the third needs further reporting, not a confident guess."
+        },
+        {
+          "segment_id": "S008",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "We should also mention that the operator extended the timetable halfway through the survey period. Otherwise readers may assume everyone evaluated the same service. That's relevant context, rather than a reason to throw out the whole survey."
+        },
+        {
+          "segment_id": "S009",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Then the headline can say evening buses ease commutes for surveyed passengers. In the opening, we'll state the increase and the reported benefit, then explain the sample and timetable change. We'll ask the transport office about access beyond the current routes before making a broader claim."
+        },
+        {
+          "segment_id": "S010",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Yes. That keeps the development newsworthy without laundering uncertainty out of the story. I'd resist the temptation to turn either the office's enthusiasm or our reservations into the story's verdict. The evidence is promising; the scope of that promise is what we need to make explicit."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0831-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "STANCE",
+          "segment_ids": [
+            "S002",
+            "S004",
+            "S006",
+            "S007",
+            "S009",
+            "S010"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004",
+            "S006",
+            "S007",
+            "S009",
+            "S010"
+          ],
+          "target_proposition_or_reference_answer": "Report promising scoped passenger evidence and limitations; do not assert city-wide transformation or dismiss the survey.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0831-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "SEGMENTATION_CONNECTED_SPEECH",
+          "segment_ids": [
+            "S004"
+          ],
+          "phenomenon_type": "discourse markers",
+          "span_refs": [
+            {
+              "segment_id": "S004",
+              "start_char": 169,
+              "end_char": 181
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    },
+    {
+      "lesson_id": "MAN-0951",
+      "lesson_asset_version": "v0.1",
+      "batch_id": "BATCH_04",
+      "level": "C2",
+      "title": "A Filter Is Not a Verdict",
+      "content_type": "Critical discussion",
+      "canonical_transcript": "For the demonstration, we pass cloudy water through a column of sand and compare the samples. The filtered sample looks clearer, which is visually satisfying. My concern is that the audience will hear 'clearer' and supply 'safe' before we've made the distinction.\nThen we should make the distinction part of the experiment rather than attach a warning at the end. A filter can retain some suspended particles without removing every dissolved substance. Appearance is an observation about what we can see, not a comprehensive test of what's present.\nBut if we overload a short demonstration with caveats, we'll lose the mechanism. Couldn't we say the sand traps impurities, show the two samples, and then move on? The point is to make filtration intelligible, not deliver a laboratory safety lecture.\n'Impurities' is doing rather too much work there. It collapses different things into one reassuring category. We can explain the mechanism precisely: some particles get caught within the sand bed, while other material may pass through. That is still a simple explanation, just a less sweeping one.\nAnd clearer doesn't mean—\n—sterile. Yes, I accept that distinction. But I'm asking whether the extra detail earns its place in the demonstration. We need a stopping point, or every explanation becomes a list of everything it doesn't establish.\nFair enough. The stopping point could be a prediction: would a dissolved substance necessarily disappear because the sample looks clearer? Let people answer, then use their reasoning to distinguish particle retention from a broader claim of purification. We don't need to enumerate every possible contaminant.\nI'd add one control. Keep a sample that hasn't passed through the column, and compare both under the same light. Otherwise settling or a change in lighting could do some of the persuasive work we're attributing to the filter.\nA control is useful, but it won't isolate every variable. Water poured through the column has also been handled differently. If someone challenges that, I don't want us to imply our classroom comparison has the force of a properly controlled study.\nNor do I. We'd call it a demonstration of a plausible mechanism, with an untreated comparison, rather than definitive evidence of a treatment's effectiveness. The limitation belongs in the claim itself. It's more honest than making a grand claim and trying to retrieve it in the footnotes.\nSo the practical sequence is: keep the comparison sample, pass the other sample through sand, observe both under the same conditions, and discuss what clarity can and cannot support. Neither sample is for drinking. That boundary should be explicit before anyone handles the cups.\nThat works for me. We preserve the visible result without making it carry a verdict it can't bear. I still want the explanation to be brisk, but brisk needn't mean indiscriminate. Let's rehearse the question so that the qualification feels like reasoning, rather than a legal notice.",
+      "segments": [
+        {
+          "segment_id": "S001",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "For the demonstration, we pass cloudy water through a column of sand and compare the samples. The filtered sample looks clearer, which is visually satisfying. My concern is that the audience will hear 'clearer' and supply 'safe' before we've made the distinction."
+        },
+        {
+          "segment_id": "S002",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "Then we should make the distinction part of the experiment rather than attach a warning at the end. A filter can retain some suspended particles without removing every dissolved substance. Appearance is an observation about what we can see, not a comprehensive test of what's present."
+        },
+        {
+          "segment_id": "S003",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "But if we overload a short demonstration with caveats, we'll lose the mechanism. Couldn't we say the sand traps impurities, show the two samples, and then move on? The point is to make filtration intelligible, not deliver a laboratory safety lecture."
+        },
+        {
+          "segment_id": "S004",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "'Impurities' is doing rather too much work there. It collapses different things into one reassuring category. We can explain the mechanism precisely: some particles get caught within the sand bed, while other material may pass through. That is still a simple explanation, just a less sweeping one."
+        },
+        {
+          "segment_id": "S005",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "And clearer doesn't mean—"
+        },
+        {
+          "segment_id": "S006",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "—sterile. Yes, I accept that distinction. But I'm asking whether the extra detail earns its place in the demonstration. We need a stopping point, or every explanation becomes a list of everything it doesn't establish."
+        },
+        {
+          "segment_id": "S007",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Fair enough. The stopping point could be a prediction: would a dissolved substance necessarily disappear because the sample looks clearer? Let people answer, then use their reasoning to distinguish particle retention from a broader claim of purification. We don't need to enumerate every possible contaminant."
+        },
+        {
+          "segment_id": "S008",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "I'd add one control. Keep a sample that hasn't passed through the column, and compare both under the same light. Otherwise settling or a change in lighting could do some of the persuasive work we're attributing to the filter."
+        },
+        {
+          "segment_id": "S009",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "A control is useful, but it won't isolate every variable. Water poured through the column has also been handled differently. If someone challenges that, I don't want us to imply our classroom comparison has the force of a properly controlled study."
+        },
+        {
+          "segment_id": "S010",
+          "script_speaker_id": "SPK01",
+          "speaker_role": "participant",
+          "text": "Nor do I. We'd call it a demonstration of a plausible mechanism, with an untreated comparison, rather than definitive evidence of a treatment's effectiveness. The limitation belongs in the claim itself. It's more honest than making a grand claim and trying to retrieve it in the footnotes."
+        },
+        {
+          "segment_id": "S011",
+          "script_speaker_id": "SPK02",
+          "speaker_role": "participant",
+          "text": "So the practical sequence is: keep the comparison sample, pass the other sample through sand, observe both under the same conditions, and discuss what clarity can and cannot support. Neither sample is for drinking. That boundary should be explicit before anyone handles the cups."
+        },
+        {
+          "segment_id": "S012",
+          "script_speaker_id": "SPK03",
+          "speaker_role": "participant",
+          "text": "That works for me. We preserve the visible result without making it carry a verdict it can't bear. I still want the explanation to be brisk, but brisk needn't mean indiscriminate. Let's rehearse the question so that the qualification feels like reasoning, rather than a legal notice."
+        }
+      ],
+      "target_anchors": [
+        {
+          "anchor_id": "MAN-0951-A-COMP-01",
+          "anchor_kind": "COMPREHENSION",
+          "construct_type": "STANCE",
+          "segment_ids": [
+            "S002",
+            "S004",
+            "S005",
+            "S006",
+            "S009",
+            "S010",
+            "S011",
+            "S012"
+          ],
+          "evidence_segment_ids": [
+            "S002",
+            "S004",
+            "S005",
+            "S006",
+            "S009",
+            "S010",
+            "S011",
+            "S012"
+          ],
+          "target_proposition_or_reference_answer": "Explain particle retention with a comparison and explicit limits; clearer appearance is neither sterility nor definitive treatment effectiveness.",
+          "span_refs": []
+        },
+        {
+          "anchor_id": "MAN-0951-A-SPCH-01",
+          "anchor_kind": "SPEECH_PHENOMENON",
+          "construct_type": "TRANSFER_CONDITION",
+          "segment_ids": [
+            "S005",
+            "S006"
+          ],
+          "phenomenon_type": "overlap",
+          "span_refs": [
+            {
+              "segment_id": "S005",
+              "start_char": 4,
+              "end_char": 24
+            }
+          ]
+        }
+      ],
+      "available_audio_realization_refs": [],
+      "rights_qa": "ORIGINAL_AUTHORED_NO_EXTERNAL_MEDIA",
+      "practice_ready": false,
+      "contract_validation_status": "PENDING_POSTPRODUCTION",
+      "publication_allowed": false
+    }
+  ]
+}

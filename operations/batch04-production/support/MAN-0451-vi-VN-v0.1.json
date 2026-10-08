@@ -1,0 +1,34 @@
+{
+  "lesson_id": "MAN-0451",
+  "canonical_lesson_asset_version": "v0.1",
+  "support_locale": "vi-VN",
+  "bundle_version": "v0.1",
+  "coverage": "FULL",
+  "segments": [
+    {
+      "segment_id": "S001",
+      "translation": "Đội đóng gói nói lịch giao hàng mới không hiệu quả. Đơn hàng đến kho sau khi tài xế đã đi, nên khách phải chờ thêm một ngày. Chúng ta cần giải thích thay đổi này trước khi có thêm người phàn nàn."
+    },
+    {
+      "segment_id": "S002",
+      "translation": "Chúng ta đổi lịch để kho có thêm thời gian, chứ không phải để giảm số chuyến giao hàng. Nhưng đội bán hàng vẫn hứa giao ngay ngày hôm sau với cả những đơn đặt vào cuối buổi chiều."
+    },
+    {
+      "segment_id": "S003",
+      "translation": "Vậy có nên lùi giờ tài xế xuất phát không? Làm vậy sẽ giải quyết được các đơn đến muộn, nhưng tài xế có thể lỡ lượt lấy hàng buổi chiều. Như thế chỉ chuyển sự chậm trễ sang một bộ phận khác của công ty."
+    },
+    {
+      "segment_id": "S004",
+      "translation": "Trước hết, hãy kiểm tra những đơn nào bị ảnh hưởng. Nếu phần lớn là đơn nhỏ của khách gần đây, chúng ta có thể dùng xe dự phòng để giao. Không nên đổi tất cả các tuyến khi chưa biết vấn đề lớn đến đâu."
+    },
+    {
+      "segment_id": "S005",
+      "translation": "Tôi sẽ xin đội bán hàng giờ đặt đơn của tuần trước và so với hồ sơ của kho. Trong lúc kiểm tra, chúng ta nên nói gì với khách? Tôi không muốn họ kỳ vọng điều mình không làm được."
+    },
+    {
+      "segment_id": "S006",
+      "translation": "Hãy nói rõ giờ chốt đơn hiện tại và đề xuất ngày giao sớm nhất có thể. Khi có số liệu, chúng ta sẽ thử phương án xe dự phòng trong một tuần. Nếu nó gây ra chậm trễ ở chỗ khác, chúng ta sẽ xem xét lại trước khi áp dụng lâu dài."
+    }
+  ],
+  "support_qa": "PASS"
+}
