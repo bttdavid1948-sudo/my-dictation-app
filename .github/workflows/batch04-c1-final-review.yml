@@ -1,0 +1,24 @@
+name: Batch04 bounded alternate C1 repaired cue review
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/batch04-c1-final-review.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 37775480901
+          name: batch04-c1-repairs-37775480901
+          path: retained-c1
+      - run: python3 -m pip install faster-whisper==1.2.1 scipy pocketsphinx==5.1.1
+      - run: python3 operations/batch04-production/review_c1.py
