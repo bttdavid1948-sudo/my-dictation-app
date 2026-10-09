@@ -1,5 +1,11 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';
 import {admit} from './man-production-control/scripts/admit.mjs';import {inspect} from './man-practice-production/scripts/grounding-integrity.mjs';
+import {testBootstrap} from '../orchestration/bootstrap.test.mjs';
+testBootstrap();
+import {testFeedbackBudget} from '../prelaunch/feedback-budget.test.mjs';
+testFeedbackBudget();
+import {testAuthErrors} from '../prelaunch/auth-errors.test.mjs';
+await testAuthErrors();
 const base={scope:'OFFICIAL_MAN_1000_ONLY',domain:'PRACTICE_2',frozenRulesSufficient:true,precedentSufficient:true,evidence_refs:['frozen-rule','canonical-precedent']};
 assert.equal(admit(base).classification,'ROUTINE_EXECUTION');
 for(const k of ['newCurriculumConstruct','unresolvedDuplicateProgression','curriculumRulesInsufficient'])assert.equal(admit({...base,[k]:true}).classification,'CURRICULUM_RESEARCH_REQUIRED');
