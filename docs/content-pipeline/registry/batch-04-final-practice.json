@@ -410,5 +410,1348 @@
   "frozen_contract_changed": false,
   "preproduction_gates_reused": true,
   "remaining_blockers": [],
-  "qa_evidence_ref": "docs/content-pipeline/registry/batch-04-audio-qa.json"
+  "qa_evidence_ref": "docs/content-pipeline/registry/batch-04-audio-qa.json",
+  "release_evidence": {
+    "status": "SIX_EXACT_PAIRS_DESKTOP_MOBILE_LIVE_PASS",
+    "receipt_count": 12,
+    "receipts": [
+      {
+        "lessonId": "MAN-0031",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0031-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:28.918Z",
+        "finishedAt": "2026-10-08T16:47:28.417Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0031-S001-batch04-v0.1.wav",
+            "sha256": "62d6b3b332b638319c42bfcc77b6fb8e65807aa162d647a22dd7885fdd341b15",
+            "bytes": 189644
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0031-S002-batch04-v0.1.wav",
+            "sha256": "2104eec560a407697b685e89d331682f28c16f62f566345a598a9962b9449305",
+            "bytes": 218444
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0031-S003-batch04-v0.1.wav",
+            "sha256": "30f13fd890126ad48c082c7ad86423595ad509fb15fa000041dc79e280d8539b",
+            "bytes": 110444
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0031-S004-batch04-v0.1.wav",
+            "sha256": "081e6049801df9dfad153affa7d2077d3bcd1f5f83ca733c14b5fa9478713289",
+            "bytes": 192044
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0031-vi-VN-v0.1.json",
+            "sha256": "bc4b7151706f185d6c1aadb864b27a23b9b63b4769a34aa7e2c21fcc4670a593",
+            "bytes": 669
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "f3f86fd888c9567bf9d21713620db77b3cd2b280face3321c85eda94b26fd83f",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "4_OF_4_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0031-A-COMP-01",
+          "MAN-0031-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "dfda80229b02ae645e8dc79787afa690f2666acb023994afb192cc471ae58f94",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11564224589,
+          "name": "batch04-push-MAN-0031-desktop",
+          "digest": "sha256:1a9ba6874867b8cab1ac0117a7bdf86f0e9f1adfbe3671d4d1869da9a61b3811"
+        }
+      },
+      {
+        "lessonId": "MAN-0031",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0031-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:50:48.715Z",
+        "finishedAt": "2026-10-08T16:51:51.566Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0031-S001-batch04-v0.1.wav",
+            "sha256": "62d6b3b332b638319c42bfcc77b6fb8e65807aa162d647a22dd7885fdd341b15",
+            "bytes": 189644
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0031-S002-batch04-v0.1.wav",
+            "sha256": "2104eec560a407697b685e89d331682f28c16f62f566345a598a9962b9449305",
+            "bytes": 218444
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0031-S003-batch04-v0.1.wav",
+            "sha256": "30f13fd890126ad48c082c7ad86423595ad509fb15fa000041dc79e280d8539b",
+            "bytes": 110444
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0031-S004-batch04-v0.1.wav",
+            "sha256": "081e6049801df9dfad153affa7d2077d3bcd1f5f83ca733c14b5fa9478713289",
+            "bytes": 192044
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0031-vi-VN-v0.1.json",
+            "sha256": "bc4b7151706f185d6c1aadb864b27a23b9b63b4769a34aa7e2c21fcc4670a593",
+            "bytes": 669
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "24f9357042d16aa3fc16dd1ae543e7118d1da29880f962af5936e6516cbda74f",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "4_OF_4_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0031-A-COMP-01",
+          "MAN-0031-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "e4752eb049cb4809e2f32d9a383b9f5b90854635d858cc5a86830f7953f21354",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565317549,
+          "name": "batch04-push-MAN-0031-mobile",
+          "digest": "sha256:7fd2294e9055b6c2067b7ad81321261795ec40dfd6d3337d1082d5e2dcb97f64"
+        }
+      },
+      {
+        "lessonId": "MAN-0271",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0271-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:55:48.481Z",
+        "finishedAt": "2026-10-08T16:57:22.076Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0271-S001-batch04-v0.1.wav",
+            "sha256": "cd0091390f4848fd662b63823e46e2971d2af7ee4887b106e1be3b1ebecf7760",
+            "bytes": 175244
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0271-S002-batch04-v0.1.wav",
+            "sha256": "2d0ceb131591b948b102cc6914b90466669c8a809b465df23530de1090095075",
+            "bytes": 232844
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0271-S003-batch04-v0.1.wav",
+            "sha256": "dccd315a82f64bee568525f1accd8d6f24157a5801e87c915545f6aa4f9f99b9",
+            "bytes": 244844
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0271-S004-batch04-v0.1.wav",
+            "sha256": "56103126fd4bb50447d749a2d55d5ebd40c0419dcf098e471c644e199f31a03d",
+            "bytes": 278444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0271-S005-batch04-v0.1.wav",
+            "sha256": "b4992a2eae5e26cc427f19aa59a498bb411d7d6b170b20e2b51d999e70d4cac1",
+            "bytes": 266444
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0271-S006-batch04-v0.1.wav",
+            "sha256": "559c9ca41e99740c3205bcffc6ab15202e1e21b8b8cd0984e0e4e06390a479d1",
+            "bytes": 249644
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0271-vi-VN-v0.1.json",
+            "sha256": "5395d632071073976cb8883507d14d0f3684b07e6a9c7fa26184305a6dd5808e",
+            "bytes": 1298
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "4cd1d3b994f7a5b79a3b7b38d1da9dd432e289ccba5b32f41953c9880ac0ef5f",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0271-A-COMP-01",
+          "MAN-0271-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "f27291a255adef38362d9813aad0e5e431d09a389ff96ded270eafe915b51a51",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565174566,
+          "name": "batch04-push-MAN-0271-desktop",
+          "digest": "sha256:f19a85000fbb763cbf21bfc0e184f43ad16def1c0e4e0772a4eb1d5d4125c100"
+        }
+      },
+      {
+        "lessonId": "MAN-0271",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0271-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:28.976Z",
+        "finishedAt": "2026-10-08T16:48:02.292Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0271-S001-batch04-v0.1.wav",
+            "sha256": "cd0091390f4848fd662b63823e46e2971d2af7ee4887b106e1be3b1ebecf7760",
+            "bytes": 175244
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0271-S002-batch04-v0.1.wav",
+            "sha256": "2d0ceb131591b948b102cc6914b90466669c8a809b465df23530de1090095075",
+            "bytes": 232844
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0271-S003-batch04-v0.1.wav",
+            "sha256": "dccd315a82f64bee568525f1accd8d6f24157a5801e87c915545f6aa4f9f99b9",
+            "bytes": 244844
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0271-S004-batch04-v0.1.wav",
+            "sha256": "56103126fd4bb50447d749a2d55d5ebd40c0419dcf098e471c644e199f31a03d",
+            "bytes": 278444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0271-S005-batch04-v0.1.wav",
+            "sha256": "b4992a2eae5e26cc427f19aa59a498bb411d7d6b170b20e2b51d999e70d4cac1",
+            "bytes": 266444
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0271-S006-batch04-v0.1.wav",
+            "sha256": "559c9ca41e99740c3205bcffc6ab15202e1e21b8b8cd0984e0e4e06390a479d1",
+            "bytes": 249644
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0271-vi-VN-v0.1.json",
+            "sha256": "5395d632071073976cb8883507d14d0f3684b07e6a9c7fa26184305a6dd5808e",
+            "bytes": 1298
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "170ff18d8ffe59ce0b3ae368ab0f672a9c164ceae9080ae4b52ab069cc26b6c5",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0271-A-COMP-01",
+          "MAN-0271-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "ce6f4ae9950558437d6565dbaf7a8077191be6ff9ade3d6cacbc6ec1439bcd3d",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11564224676,
+          "name": "batch04-push-MAN-0271-mobile",
+          "digest": "sha256:e06a27c44b679ff8798dd8b17920338ca6d6c93bbfaeb303d515eeebc628d645"
+        }
+      },
+      {
+        "lessonId": "MAN-0451",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0451-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:46.335Z",
+        "finishedAt": "2026-10-08T16:49:45.404Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0451-S001-batch04-v0.1.wav",
+            "sha256": "a573ac34068c76bfa6bcfe5c3501c918e32587142960ce6a7d7c16bff141029d",
+            "bytes": 703244
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0451-S002-batch04-v0.1.wav",
+            "sha256": "7904415ad9f0cd9a2295df44b7ffddea234645411d0e5a8d07f4fb6501fefde6",
+            "bytes": 537644
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0451-S003-batch04-v0.1.wav",
+            "sha256": "097498cbef93b7ec56346d781558fb4e1f46a5910f5cd899b92e13c009dc3012",
+            "bytes": 600044
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0451-S004-batch04-v0.1.wav",
+            "sha256": "fc7f3b46c8cae2f50005856288aea3642a88b53d1170c832c726931232b62d25",
+            "bytes": 559244
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0451-S005-batch04-v0.1.wav",
+            "sha256": "d60400eb5120476b772f56f915a0ea96aa3996c44371b28aef8e8a1c5a7f8f7b",
+            "bytes": 540044
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0451-S006-batch04-v0.1.wav",
+            "sha256": "c47de1e26288c9a350d2a6f4e858a39f452bc5f1d615d2ec1b7823f56668e79c",
+            "bytes": 698444
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0451-vi-VN-v0.1.json",
+            "sha256": "1ab8ed249e7c068344123da8d664228679d9009778ad60e5412c416a07c79afa",
+            "bytes": 2172
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "b0241ad1605dc1dabb173c4025e57c5cf1141bceb71863337845334bbb55e3ab",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0451-A-COMP-01",
+          "MAN-0451-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "e980ef862bb9a3c1d51bf02f31b4c62a79868715d73eab57ce4fcbc0808daae1",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565566319,
+          "name": "batch04-push-MAN-0451-desktop",
+          "digest": "sha256:6aa2dd9fa66b9c6d8ab8c19cccad152d52a8a66ad6c36fa032eb98e2bff99c89"
+        }
+      },
+      {
+        "lessonId": "MAN-0451",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0451-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:33.198Z",
+        "finishedAt": "2026-10-08T16:49:51.707Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0451-S001-batch04-v0.1.wav",
+            "sha256": "a573ac34068c76bfa6bcfe5c3501c918e32587142960ce6a7d7c16bff141029d",
+            "bytes": 703244
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0451-S002-batch04-v0.1.wav",
+            "sha256": "7904415ad9f0cd9a2295df44b7ffddea234645411d0e5a8d07f4fb6501fefde6",
+            "bytes": 537644
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0451-S003-batch04-v0.1.wav",
+            "sha256": "097498cbef93b7ec56346d781558fb4e1f46a5910f5cd899b92e13c009dc3012",
+            "bytes": 600044
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0451-S004-batch04-v0.1.wav",
+            "sha256": "fc7f3b46c8cae2f50005856288aea3642a88b53d1170c832c726931232b62d25",
+            "bytes": 559244
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0451-S005-batch04-v0.1.wav",
+            "sha256": "d60400eb5120476b772f56f915a0ea96aa3996c44371b28aef8e8a1c5a7f8f7b",
+            "bytes": 540044
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0451-S006-batch04-v0.1.wav",
+            "sha256": "c47de1e26288c9a350d2a6f4e858a39f452bc5f1d615d2ec1b7823f56668e79c",
+            "bytes": 698444
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0451-vi-VN-v0.1.json",
+            "sha256": "1ab8ed249e7c068344123da8d664228679d9009778ad60e5412c416a07c79afa",
+            "bytes": 2172
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "4bb3bfe8d1018453c4b6e81d2875328b5b703dfd8a24336bf2abdcb40e0bcff9",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "6_OF_6_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0451-A-COMP-01",
+          "MAN-0451-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "e595f9c3e2cea0767aa66db315dea7be437d58df0e13c80583be6e225b70ff93",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565521428,
+          "name": "batch04-push-MAN-0451-mobile",
+          "digest": "sha256:e92ba1141ce68236cee76c5377a298e48396a02a644cef809e0460230f4ebada"
+        }
+      },
+      {
+        "lessonId": "MAN-0581",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0581-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:28.671Z",
+        "finishedAt": "2026-10-08T16:50:54.761Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0581-S001-batch04-v0.1.wav",
+            "sha256": "0457fe6c5fbcb99c5c4c4e3723857423994e07f3144f300abf583fa4527a54a1",
+            "bytes": 636044
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0581-S002-batch04-v0.1.wav",
+            "sha256": "306325a0980e00e075b16f6bc5f0fb2b7c897b1b72e3f748d00e2f0d58eccf3c",
+            "bytes": 624044
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0581-S003-batch04-v0.1.wav",
+            "sha256": "102698bbebc7a1a050f62a3513a6f5960f10e244dbaa0065ab7d8639923afff3",
+            "bytes": 585644
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0581-S004-batch04-v0.1.wav",
+            "sha256": "165364e56dcb07896e58e5e2811ab4d832ad1c300ff2b2b76cc1fd020c182e4d",
+            "bytes": 681644
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0581-S005-batch04-v0.1.wav",
+            "sha256": "fd565ca8b1255d04f67ff1d783d0bc428264c4376183e6d2e13c99e614175e82",
+            "bytes": 684044
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0581-S006-batch04-v0.1.wav",
+            "sha256": "d4a4a32ad2cd756e512a52d831ef3c433a7354c257379d346856c869bad70eca",
+            "bytes": 583244
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0581-S007-batch04-v0.1.wav",
+            "sha256": "bae837e0a96603724fc5d34b75188184a746f7a1a099524bb698a7cdafe58055",
+            "bytes": 674444
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0581-S008-batch04-v0.1.wav",
+            "sha256": "e3390677c05322660598523eedfd3cf37e584681eba82350c81d5f36a59da36a",
+            "bytes": 712844
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0581-vi-VN-v0.1.json",
+            "sha256": "7c89761a62307443a5be774b0f5281bafacfce7f4cfee7149003b2c957b7f1b7",
+            "bytes": 3056
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "bd4b89ec21611df80bae6607943f9eb96b728562f2550a3e7c5a2db87a54e038",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "8_OF_8_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0581-A-COMP-01",
+          "MAN-0581-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "5988e8b7766a6e1d2809d7dabdd041c3630e935955c2f559671b338fb11774d8",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565367136,
+          "name": "batch04-push-MAN-0581-desktop",
+          "digest": "sha256:d6b68fd9bd39119e526f5892e5263c5ead8b7837d3b8b16b06db7d4867bf670a"
+        }
+      },
+      {
+        "lessonId": "MAN-0581",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0581-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:34.535Z",
+        "finishedAt": "2026-10-08T16:51:03.620Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0581-S001-batch04-v0.1.wav",
+            "sha256": "0457fe6c5fbcb99c5c4c4e3723857423994e07f3144f300abf583fa4527a54a1",
+            "bytes": 636044
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0581-S002-batch04-v0.1.wav",
+            "sha256": "306325a0980e00e075b16f6bc5f0fb2b7c897b1b72e3f748d00e2f0d58eccf3c",
+            "bytes": 624044
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0581-S003-batch04-v0.1.wav",
+            "sha256": "102698bbebc7a1a050f62a3513a6f5960f10e244dbaa0065ab7d8639923afff3",
+            "bytes": 585644
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0581-S004-batch04-v0.1.wav",
+            "sha256": "165364e56dcb07896e58e5e2811ab4d832ad1c300ff2b2b76cc1fd020c182e4d",
+            "bytes": 681644
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0581-S005-batch04-v0.1.wav",
+            "sha256": "fd565ca8b1255d04f67ff1d783d0bc428264c4376183e6d2e13c99e614175e82",
+            "bytes": 684044
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0581-S006-batch04-v0.1.wav",
+            "sha256": "d4a4a32ad2cd756e512a52d831ef3c433a7354c257379d346856c869bad70eca",
+            "bytes": 583244
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0581-S007-batch04-v0.1.wav",
+            "sha256": "bae837e0a96603724fc5d34b75188184a746f7a1a099524bb698a7cdafe58055",
+            "bytes": 674444
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0581-S008-batch04-v0.1.wav",
+            "sha256": "e3390677c05322660598523eedfd3cf37e584681eba82350c81d5f36a59da36a",
+            "bytes": 712844
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0581-vi-VN-v0.1.json",
+            "sha256": "7c89761a62307443a5be774b0f5281bafacfce7f4cfee7149003b2c957b7f1b7",
+            "bytes": 3056
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "c5ac64109d9b9e4514096750201ad7e538bc53b3b89c57b328b70b87a635d13f",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "8_OF_8_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0581-A-COMP-01",
+          "MAN-0581-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "a120e9bc7d5a88503cb9f02bfc91873570766149ecf5ae98d8b38069f8c1e7cc",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11564449606,
+          "name": "batch04-push-MAN-0581-mobile",
+          "digest": "sha256:53acd42ae178c386e5a4fe3feacbe5450774f25bbaf55fdc1c4c789a5c972084"
+        }
+      },
+      {
+        "lessonId": "MAN-0951",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0951-MIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:26.375Z",
+        "finishedAt": "2026-10-08T16:53:45.842Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0951-S001-mixed-context-v0.1.wav",
+            "sha256": "a70ecddaf70edbe45e4d628723e5ed133224085d1919ef19f900bf9e6585d2c1",
+            "bytes": 852044
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0951-S002-mixed-context-v0.1.wav",
+            "sha256": "8b2e3f994e5d34b3b396a3bf81ef137a9b3d84352e693103ef6e8eede0dfffb4",
+            "bytes": 916844
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0951-S003-mixed-context-v0.1.wav",
+            "sha256": "9542e54b393530f58f19a5e46cfb55f6c558346569307582ed30f6e3438b8b2f",
+            "bytes": 794444
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0951-S004-mixed-context-v0.1.wav",
+            "sha256": "454d6b4fc76607e673aa3e64bd8b9a866fc0db795a4055aa1aa949d0244c5426",
+            "bytes": 1058444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0951-S005-mixed-context-v0.1.wav",
+            "sha256": "86308e50bd77679d5500e972eeb31d5b3607f9a6ebfcc446be408a3d47fa3d21",
+            "bytes": 206444
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0951-S006-mixed-context-v0.1.wav",
+            "sha256": "e8c1392a2a6b6c840908f4ddd5a79230dc0aea1f50a1cd7ef0faec09ea1af705",
+            "bytes": 708044
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0951-S007-mixed-context-v0.1.wav",
+            "sha256": "5e4ac05b95c30bcc99f2987d4ae13d440018dfcd311644f4fd7c77fadd8cdb35",
+            "bytes": 1092044
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0951-S008-mixed-context-v0.1.wav",
+            "sha256": "32ed920f5667c44593aa91ff075c1e7a37f20fcb17d328c9b9ab49ffc6da9240",
+            "bytes": 700844
+          },
+          {
+            "segmentId": "S009",
+            "url": "assets/audio/MAN-0951-S009-mixed-context-v0.1.wav",
+            "sha256": "c4a6d0249580bc6595e73d2636629ed1e88c3679ca44e47b47894683542c22fe",
+            "bytes": 679244
+          },
+          {
+            "segmentId": "S010",
+            "url": "assets/audio/MAN-0951-S010-mixed-context-v0.1.wav",
+            "sha256": "7a6f196522644624e09617a90fde01222cc5089b725d6e96eb394abf0f35161f",
+            "bytes": 1094444
+          },
+          {
+            "segmentId": "S011",
+            "url": "assets/audio/MAN-0951-S011-mixed-context-v0.1.wav",
+            "sha256": "99bdc93ac5f6c1cbcbb66eb7440e2cf12fc86ccab6300167fee6be10904d2c08",
+            "bytes": 909644
+          },
+          {
+            "segmentId": "S012",
+            "url": "assets/audio/MAN-0951-S012-mixed-context-v0.1.wav",
+            "sha256": "5249463215eb9c918cac78d71865747534e333df5c8f7dbc221273e6dc712cb7",
+            "bytes": 859244
+          },
+          {
+            "segmentId": "FULL_PANEL",
+            "url": "assets/audio/MAN-0951-MIXED-v0.1.wav",
+            "sha256": "6db9001a3e2159cdd68d21ca056c2726f0b6bb9ce88e6396fc6c786f60e002ce",
+            "bytes": 8881666
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0951-vi-VN-v0.1.json",
+            "sha256": "74c16c8a4f120e3dead06cd4661a4794e9104f8c7e35ab466844344e21a6130a",
+            "bytes": 4836
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "597be3213d8da61b0471dc4e064f72c91b75c25f8a088df4fcb6f053ff360bf7",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "12_OF_12_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0951-A-COMP-01",
+          "MAN-0951-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "8d36493c90ef5ece6070d10d961c0d4f9eca72491613179df823550e0b794d99",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565631913,
+          "name": "batch04-push-MAN-0951-desktop",
+          "digest": "sha256:6faa3fd222f9909678328739a0d9031b36b14ce93452ed8e60e5136a7d916774"
+        }
+      },
+      {
+        "lessonId": "MAN-0951",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0951-MIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-08T16:45:30.332Z",
+        "finishedAt": "2026-10-08T16:53:46.584Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0951-S001-mixed-context-v0.1.wav",
+            "sha256": "a70ecddaf70edbe45e4d628723e5ed133224085d1919ef19f900bf9e6585d2c1",
+            "bytes": 852044
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0951-S002-mixed-context-v0.1.wav",
+            "sha256": "8b2e3f994e5d34b3b396a3bf81ef137a9b3d84352e693103ef6e8eede0dfffb4",
+            "bytes": 916844
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0951-S003-mixed-context-v0.1.wav",
+            "sha256": "9542e54b393530f58f19a5e46cfb55f6c558346569307582ed30f6e3438b8b2f",
+            "bytes": 794444
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0951-S004-mixed-context-v0.1.wav",
+            "sha256": "454d6b4fc76607e673aa3e64bd8b9a866fc0db795a4055aa1aa949d0244c5426",
+            "bytes": 1058444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0951-S005-mixed-context-v0.1.wav",
+            "sha256": "86308e50bd77679d5500e972eeb31d5b3607f9a6ebfcc446be408a3d47fa3d21",
+            "bytes": 206444
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0951-S006-mixed-context-v0.1.wav",
+            "sha256": "e8c1392a2a6b6c840908f4ddd5a79230dc0aea1f50a1cd7ef0faec09ea1af705",
+            "bytes": 708044
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0951-S007-mixed-context-v0.1.wav",
+            "sha256": "5e4ac05b95c30bcc99f2987d4ae13d440018dfcd311644f4fd7c77fadd8cdb35",
+            "bytes": 1092044
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0951-S008-mixed-context-v0.1.wav",
+            "sha256": "32ed920f5667c44593aa91ff075c1e7a37f20fcb17d328c9b9ab49ffc6da9240",
+            "bytes": 700844
+          },
+          {
+            "segmentId": "S009",
+            "url": "assets/audio/MAN-0951-S009-mixed-context-v0.1.wav",
+            "sha256": "c4a6d0249580bc6595e73d2636629ed1e88c3679ca44e47b47894683542c22fe",
+            "bytes": 679244
+          },
+          {
+            "segmentId": "S010",
+            "url": "assets/audio/MAN-0951-S010-mixed-context-v0.1.wav",
+            "sha256": "7a6f196522644624e09617a90fde01222cc5089b725d6e96eb394abf0f35161f",
+            "bytes": 1094444
+          },
+          {
+            "segmentId": "S011",
+            "url": "assets/audio/MAN-0951-S011-mixed-context-v0.1.wav",
+            "sha256": "99bdc93ac5f6c1cbcbb66eb7440e2cf12fc86ccab6300167fee6be10904d2c08",
+            "bytes": 909644
+          },
+          {
+            "segmentId": "S012",
+            "url": "assets/audio/MAN-0951-S012-mixed-context-v0.1.wav",
+            "sha256": "5249463215eb9c918cac78d71865747534e333df5c8f7dbc221273e6dc712cb7",
+            "bytes": 859244
+          },
+          {
+            "segmentId": "FULL_PANEL",
+            "url": "assets/audio/MAN-0951-MIXED-v0.1.wav",
+            "sha256": "6db9001a3e2159cdd68d21ca056c2726f0b6bb9ce88e6396fc6c786f60e002ce",
+            "bytes": 8881666
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0951-vi-VN-v0.1.json",
+            "sha256": "74c16c8a4f120e3dead06cd4661a4794e9104f8c7e35ab466844344e21a6130a",
+            "bytes": 4836
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "a6245f224edbdae07fdf68dfa3113fe71b45589f3710cd9a1cbfc13071c69429",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "12_OF_12_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0951-A-COMP-01",
+          "MAN-0951-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "60cd0121e1f1dc396c89bbc8bfd5285153b8d187bacdf2aaeb0dc6025f239324",
+        "runId": 37811220605,
+        "sourceHeadSha": "3b79c8372860338a4c9d6e42ca9a6cb0b29f1e57",
+        "sourceArtifact": {
+          "id": 11565522098,
+          "name": "batch04-push-MAN-0951-mobile",
+          "digest": "sha256:c8dd8bfe8bb2118debf63e1debbad674f7753db835bae44da13b9439bf566f39"
+        }
+      },
+      {
+        "lessonId": "MAN-0831",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "desktop",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-09T05:45:38.485Z",
+        "finishedAt": "2026-10-09T05:52:30.169Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0831-S001-batch04-v0.1.wav",
+            "sha256": "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+            "bytes": 915432
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0831-S002-batch04-v0.1.wav",
+            "sha256": "1913395f761af3bd47af38679d3354b55b50c4a4620ab295f726e239c5efaf09",
+            "bytes": 792044
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0831-S003-batch04-v0.1.wav",
+            "sha256": "f80e9da1b90e732fdd919504ace860a0087ae5eac12c38d3951e277b7d7236c9",
+            "bytes": 924044
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0831-S004-batch04-v0.1.wav",
+            "sha256": "4303293cb37000627077cb3426ca30a61fa898ce54bcbb7465b7a4183f399235",
+            "bytes": 806444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0831-S005-batch04-v0.1.wav",
+            "sha256": "aef04235ff1fe359e92b87f32b631d56b83452f61fbe01daf602e462956fbeb9",
+            "bytes": 703244
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0831-S006-batch04-v0.1.wav",
+            "sha256": "4b6f164d247ef6bf7ec45a025dc91b2021d6de337576989f5715ced5f01210b6",
+            "bytes": 912044
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0831-S007-batch04-v0.1.wav",
+            "sha256": "da2bd6a1a364eab13d7c1039678e388454f4f83b8f8d453299d716a1e3ddf6e5",
+            "bytes": 844844
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0831-S008-batch04-v0.1.wav",
+            "sha256": "554074fd34fb30b0fc1834c1ead03b22d1f2115c72e0a98c71275857acf2fb56",
+            "bytes": 655244
+          },
+          {
+            "segmentId": "S009",
+            "url": "assets/audio/MAN-0831-S009-batch04-v0.1.wav",
+            "sha256": "75d0e2fd9c9903c0f1ba5247c0d1b897de3c0d9b43f9d3370f70ad9bf565a9da",
+            "bytes": 936044
+          },
+          {
+            "segmentId": "S010",
+            "url": "assets/audio/MAN-0831-S010-batch04-v0.1.wav",
+            "sha256": "4d429b5b84e4daac192d26b4d3cbe9fa9a3ede5da42f47e9a69d2ba2ac12c503",
+            "bytes": 876044
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0831-vi-VN-v0.1.json",
+            "sha256": "04e14175d8710d95638b84cff05c6aba2f6ac0c35b4efadede6acaa560368473",
+            "bytes": 4429
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "752491a23b2ef34e97f04fe9df7c7261c2fea9de7173e262b2fb485d9716f930",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "10_OF_10_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0831-A-COMP-01",
+          "MAN-0831-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "da8326c9637fb999f3ea9beb052a142eeddbd02b1ed9e53ab8928c5b39a1809d",
+        "runId": 37890022897,
+        "sourceHeadSha": "d7cc7f73bfd78d54bec1520e8269284d31cf9f88",
+        "sourceArtifact": {
+          "id": 11598207747,
+          "name": "batch04-push-MAN-0831-desktop",
+          "digest": "sha256:0a05ea431712259a13f8755dec92612f18b008962fe70b37daeaf4e396fd585d"
+        }
+      },
+      {
+        "lessonId": "MAN-0831",
+        "lessonVersion": "v0.1",
+        "realizationId": "MAN-0831-OPENAI-FIXED-v0.1",
+        "target": "LIVE",
+        "mode": "mobile",
+        "physicalDeviceClaim": false,
+        "startedAt": "2026-10-09T05:44:57.618Z",
+        "finishedAt": "2026-10-09T05:52:11.265Z",
+        "status": "PASS",
+        "assets": [
+          {
+            "segmentId": "S001",
+            "url": "assets/audio/MAN-0831-S001-batch04-v0.1.wav",
+            "sha256": "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+            "bytes": 915432
+          },
+          {
+            "segmentId": "S002",
+            "url": "assets/audio/MAN-0831-S002-batch04-v0.1.wav",
+            "sha256": "1913395f761af3bd47af38679d3354b55b50c4a4620ab295f726e239c5efaf09",
+            "bytes": 792044
+          },
+          {
+            "segmentId": "S003",
+            "url": "assets/audio/MAN-0831-S003-batch04-v0.1.wav",
+            "sha256": "f80e9da1b90e732fdd919504ace860a0087ae5eac12c38d3951e277b7d7236c9",
+            "bytes": 924044
+          },
+          {
+            "segmentId": "S004",
+            "url": "assets/audio/MAN-0831-S004-batch04-v0.1.wav",
+            "sha256": "4303293cb37000627077cb3426ca30a61fa898ce54bcbb7465b7a4183f399235",
+            "bytes": 806444
+          },
+          {
+            "segmentId": "S005",
+            "url": "assets/audio/MAN-0831-S005-batch04-v0.1.wav",
+            "sha256": "aef04235ff1fe359e92b87f32b631d56b83452f61fbe01daf602e462956fbeb9",
+            "bytes": 703244
+          },
+          {
+            "segmentId": "S006",
+            "url": "assets/audio/MAN-0831-S006-batch04-v0.1.wav",
+            "sha256": "4b6f164d247ef6bf7ec45a025dc91b2021d6de337576989f5715ced5f01210b6",
+            "bytes": 912044
+          },
+          {
+            "segmentId": "S007",
+            "url": "assets/audio/MAN-0831-S007-batch04-v0.1.wav",
+            "sha256": "da2bd6a1a364eab13d7c1039678e388454f4f83b8f8d453299d716a1e3ddf6e5",
+            "bytes": 844844
+          },
+          {
+            "segmentId": "S008",
+            "url": "assets/audio/MAN-0831-S008-batch04-v0.1.wav",
+            "sha256": "554074fd34fb30b0fc1834c1ead03b22d1f2115c72e0a98c71275857acf2fb56",
+            "bytes": 655244
+          },
+          {
+            "segmentId": "S009",
+            "url": "assets/audio/MAN-0831-S009-batch04-v0.1.wav",
+            "sha256": "75d0e2fd9c9903c0f1ba5247c0d1b897de3c0d9b43f9d3370f70ad9bf565a9da",
+            "bytes": 936044
+          },
+          {
+            "segmentId": "S010",
+            "url": "assets/audio/MAN-0831-S010-batch04-v0.1.wav",
+            "sha256": "4d429b5b84e4daac192d26b4d3cbe9fa9a3ede5da42f47e9a69d2ba2ac12c503",
+            "bytes": 876044
+          }
+        ],
+        "runtimeBindings": [
+          {
+            "path": "index.html",
+            "sha256": "2da1b7a9904cf3e8b0840ea3b8cbb25db40330e9245a4031dfe6b9bfe79b239e",
+            "bytes": 212936
+          },
+          {
+            "path": "assets/practice-runtime-wrapper.js",
+            "sha256": "6f5140d43180e3a9545b9ed826165bcc97d6807acfc98d41c2642768c4afcb0d",
+            "bytes": 22161
+          },
+          {
+            "path": "assets/practice-runtime-core.js",
+            "sha256": "ee48fa25f3b2d5b81bb99cc3cd544cc01a45637bab4db2afc1c7f6ae30ce7b49",
+            "bytes": 10980
+          },
+          {
+            "path": "assets/fixed-audio-runtime.js",
+            "sha256": "05a77c187856bf671e501541982a94a4e98dcc8018ca1a5e04758d37dfa8c4c0",
+            "bytes": 3622
+          },
+          {
+            "path": "assets/support/MAN-0831-vi-VN-v0.1.json",
+            "sha256": "04e14175d8710d95638b84cff05c6aba2f6ac0c35b4efadede6acaa560368473",
+            "bytes": 4429
+          }
+        ],
+        "support": "FULL_EXACT_SEGMENT_ALIGNMENT",
+        "naturalFullPlayback": "ALL_SEGMENTS_ENDED_EXACT_HASH_BOUND",
+        "resume": "PASS_EXACT_REALIZATION_AND_HASHES_RETAINED",
+        "feedbackDocumentIdSha256": "2d7ddc30c966a67e9e9b72e110acedfe7fe52207ce904e88213869176855aacc",
+        "feedbackWrite": "ACKNOWLEDGED_BY_BACKEND",
+        "dictationCompletion": "10_OF_10_SEPARATE_FROM_INFERENCE",
+        "negativeInference": "INCORRECT_FIRST_PASS_NOT_SUCCESS",
+        "pageErrors": [],
+        "webSpeechRequests": 0,
+        "rollback": "SCOPED_WITHDRAWAL_NO_CACHED_REVIVAL_PRIOR_LESSONS_RETAINED",
+        "rollbackRestore": "EXACT_PAIR_AVAILABLE_AFTER_CATALOG_RESTORE",
+        "practiceAnchors": [
+          "MAN-0831-A-COMP-01",
+          "MAN-0831-A-SPCH-01"
+        ],
+        "positiveInferenceCorrect": true,
+        "sourceReceiptSha256": "f699cec8182fe8a1994752dc57e119d97fa92afb8d86d469c13b85e92ae9eaba",
+        "runId": 37890022897,
+        "sourceHeadSha": "d7cc7f73bfd78d54bec1520e8269284d31cf9f88",
+        "sourceArtifact": {
+          "id": 11597409184,
+          "name": "batch04-push-MAN-0831-mobile",
+          "digest": "sha256:7e5f8b635a13b1db4b9030eff5cd77bab467bc8409c03ab144a37ac20cc261a9"
+        }
+      }
+    ],
+    "rollback_scope": "Browser-scoped catalog withdrawal and exact-pair restore; no production deployment revert claimed",
+    "mobile_scope": "Chromium Pixel 5 emulation; no physical handset claim",
+    "retained_sibling_receipts_reused": 10,
+    "new_c1_receipts": 2,
+    "sibling_learner_objects_unchanged": true
+  }
 }
