@@ -1,14 +1,14 @@
 {
   "batch_id": "BATCH_04",
   "scope": "OFFICIAL_MAN_1000_ONLY",
-  "status": "BATCH_04_FIVE_COMPLETE_C1_TARGETED_REPAIR",
+  "status": "BATCH_04_FIVE_COMPLETE_C1_RELEASE_READY",
   "owner_execution_authorized": true,
   "authority_source": "Owner Batch04 controlled six-lesson production directive 2026-10-08",
   "r1_4_authorized": false,
   "queue_state": "OPEN",
   "complete_lesson_count": 5,
   "next_action": {
-    "code": "BATCH04_C1_TARGETED_REPAIR_THEN_RELEASE",
+    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0831",
     "responsible_lane": "OPERATIONS_4"
   },
   "artifacts": [
@@ -26,15 +26,15 @@
     },
     {
       "path": "docs/content-pipeline/registry/batch-04-audio-qa.json",
-      "sha256": "1c7a4c4660f47261b3d7395b0d68121eca7d2f197bb0a7c0701ed040dd6a7ef5"
+      "sha256": "3cba673f806a6693f73961aaedf7cfc3806ceff6707edc02123360e25a48c054"
     },
     {
       "path": "docs/content-pipeline/registry/batch-04-final-practice.json",
-      "sha256": "e9b137e236a4467bed9e99bf7ef0ce5fe031e1bae0ffc41f3978fe0ded3f6fff"
+      "sha256": "a316799ad030abd859b584c93655aa3fabc8259a097173e5be56fb1d54e6b297"
     },
     {
       "path": "assets/official-lessons-batch04.json",
-      "sha256": "602eaebbbb2810ce270f394b06b261a15c21aed90b0916c92bada81a07cf0f4e"
+      "sha256": "7005a72e4a38ca7adb04c0059662ab06f766413ed2b46280a55ea4ca963bfd25"
     }
   ],
   "states": [
@@ -134,10 +134,10 @@
       "curriculumReady": true,
       "practicePreprodReady": true,
       "contractPrecheck": "PASS",
-      "assetsBound": false,
-      "ordinaryAudioQa": false,
-      "finalPracticeReady": false,
-      "contractValid": false,
+      "assetsBound": true,
+      "ordinaryAudioQa": true,
+      "finalPracticeReady": true,
+      "contractValid": true,
       "supportReady": true,
       "rightsReady": true,
       "productionAuthorized": true,
@@ -179,5 +179,14 @@
     "desktop_mobile_pass_count": 10,
     "rollback_scope": "browser request-routing catalog withdrawal/restore; not deployment revert",
     "mobile_scope": "Chromium Pixel5 emulation"
+  },
+  "c1_import_evidence": {
+    "pr": 177,
+    "merge_sha": "7da63a303255047357bc95a2e98b0f4ce835cc98",
+    "import_run": 37816341794,
+    "review_branch_sha": "7f11c703528c54c0dbe51503f1bfb339c39ee22a",
+    "wav_count": 10,
+    "paid_calls": 0,
+    "precedent_import_run": 37777249174
   }
 }

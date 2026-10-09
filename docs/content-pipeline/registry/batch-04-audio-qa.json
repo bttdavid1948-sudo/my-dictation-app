@@ -1,6 +1,6 @@
 {
   "batch_id": "BATCH_04",
-  "status": "PASS_FOR_FIVE_ELIGIBLE_PAIRS_C1_ISOLATED",
+  "status": "PASS_FOR_SIX_EXACT_PAIRS",
   "scope": "Actual ordinary PCM/lexical QA and bounded cue review; no accent/phonetic/mastery certification",
   "production_runs": [
     37771778107,
@@ -9,7 +9,8 @@
   ],
   "repair_runs": [
     37772501926,
-    37773887805
+    37773887805,
+    37814837144
   ],
   "mixed_run": 37775958107,
   "source_rows": [
@@ -830,8 +831,35 @@
     "composer_sha256": "d374f53ff3838262d6534af83d125eb4a72a4a7a823d84472bec823fde6d0bd8",
     "perceptual_review_basis": "Independent unprompted mixed ASR retains interrupted S005 clearer doesn't mean and S006 sterile; actual source and mixed simultaneous energy measured 138ms; full stance/negative/comparison boundaries preserved. No human hearing or overlap mastery certification."
   },
-  "remaining_blockers": [
-    "MAN-0831/S001 past-tense repair pending"
-  ],
-  "excluded_raw_output_count": 6
+  "remaining_blockers": [],
+  "excluded_raw_output_count": 6,
+  "c1_final": {
+    "lesson_id": "MAN-0831",
+    "exact_asset_hashes": [
+      "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+      "1913395f761af3bd47af38679d3354b55b50c4a4620ab295f726e239c5efaf09",
+      "f80e9da1b90e732fdd919504ace860a0087ae5eac12c38d3951e277b7d7236c9",
+      "4303293cb37000627077cb3426ca30a61fa898ce54bcbb7465b7a4183f399235",
+      "aef04235ff1fe359e92b87f32b631d56b83452f61fbe01daf602e462956fbeb9",
+      "4b6f164d247ef6bf7ec45a025dc91b2021d6de337576989f5715ced5f01210b6",
+      "da2bd6a1a364eab13d7c1039678e388454f4f83b8f8d453299d716a1e3ddf6e5",
+      "554074fd34fb30b0fc1834c1ead03b22d1f2115c72e0a98c71275857acf2fb56",
+      "75d0e2fd9c9903c0f1ba5247c0d1b897de3c0d9b43f9d3370f70ad9bf565a9da",
+      "4d429b5b84e4daac192d26b4d3cbe9fa9a3ede5da42f47e9a69d2ba2ac12c503"
+    ],
+    "S001": {
+      "sha256": "1f8261cec2c315861f94570637311bff95e13f5514fc7c01ccb59d1920018a2c",
+      "duration_seconds": 19.07058333333333,
+      "quality_decision": "ORDINARY_AUTOMATED_QA_PASS",
+      "asr_transcript": "The draft headline says the city's new evening bus service has transformed access to work. The passenger figures are encouraging, but are we comfortable presenting that as the conclusion? The survey covers only people who actually used the service during its first month.",
+      "asr_model": "faster-whisper-base.en",
+      "reference_prompt_supplied": false,
+      "clipped_sample_fraction": 0
+    },
+    "S007": "Voice-corrected exact retained WAV independently adjudicated by medium.en; preserved evidence.",
+    "S004": "Nevertheless measured span 10.08–10.60s; bounded PCM energy.",
+    "import_run": 37816341794,
+    "asset_validation": "10 SHA256 and PCM mono16/24000 checked on runner and workspace",
+    "certification_claimed": false
+  }
 }
