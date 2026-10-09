@@ -50,8 +50,8 @@
   "future_routine_reasoning": "LOWEST_SUFFICIENT_NORMALLY_LIGHT",
   "checked_at": "2026-10-05T15:36:06.813421Z",
   "module_sha256": {
-    "operations/skills/man-curriculum-production/SKILL.md": "54e001adefbf1f8bb75d775ca44013ee9eec5bd7c7843830dc9d00d2a758dc86",
-    "operations/skills/man-practice-production/SKILL.md": "89ed05915626dc67fcedb8625b95b2f0659d4d72bff0f946b9932dd7c05fcd80",
-    "operations/skills/man-production-control/SKILL.md": "5524898ad8c7ddbb29176e94681d1dd940e6ba44abeaa3594891f0e89c4778bf"
+    "operations/skills/man-curriculum-production/SKILL.md": "1e0d9b3225caf4b47e8ceeac6dbff161c7abb4010d41361a37635884f06cc07e",
+    "operations/skills/man-practice-production/SKILL.md": "daea29474d87a5ba786e8d31e6a229b0712bece44d1e45d647b8c0e969361bef",
+    "operations/skills/man-production-control/SKILL.md": "46994396c23ffd36d0ccb1250cf5277925f37ce110fdfcf3929055bf1e8722d0"
   }
 }

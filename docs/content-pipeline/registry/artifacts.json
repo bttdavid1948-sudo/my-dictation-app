@@ -1478,7 +1478,7 @@
         "store": "GitHub registry evidence",
         "path": "docs/content-pipeline/registry/single-orchestrator-governance.json"
       },
-      "sha256": "2805b262bde419c18b03a7b037494e1d60495f488609f99353b72917cbc09337",
+      "sha256": "43be57b8d72bf4c3878879b8436c7ec4d048b37bc28dbfe49e7bf57eb7275c1a",
       "size_bytes": 3262,
       "validation_status": "HASH_VERIFIED"
     },
