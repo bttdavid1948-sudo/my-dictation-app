@@ -6,6 +6,8 @@ description: Apply existing Mặn Curriculum production rules to routine officia
 
 Work from the repository root. Read `docs/content-pipeline/registry/single-orchestrator-governance.json`, the current Shared Artifact Registry and the hash-verified `curriculum-production-spec@v0.1`; resolve its Library location from `artifacts.json`. Use the frozen Curriculum↔Practice v0.3 and Pipeline v0.2 contracts. Keep semantic owner `CURRICULUM_3` even when #4 executes this procedure.
 
+Use the precedent-first recovery and authority boundary in `../man-production-control/SKILL.md`. Before declaring uncovered semantics, compare the applicable existing rule/receipt with the current object and record the material invariant delta. Reuse when equivalent; adapt only the evidenced delta within this domain's authority. Preserve prior PASS and route genuine unresolved semantics through the existing direct packet.
+
 1. Run the admission classifier in `../man-production-control/scripts/admit.mjs` before semantic reasoning. Operate only inside OFFICIAL_MAN_1000_ONLY.
 2. Reconcile current lesson/spec version, reserved purpose and existing Curriculum dispositions. Reuse exact PASS evidence; Batch02 Curriculum execution is ZERO while its 12 canonical PASS records remain valid.
 3. For genuinely new routine work, consume the existing 1,000-map including produced, specified and future RESERVED identities. Apply VALIDATION_RULES VAL-001..020, UNIQUE_PURPOSE_RULES, DUPLICATE_OVERLAP_RULES and lifecycle/batching rules. Check IDs, purpose reservations, references/prerequisite cycles, progression delta and required handoff fields deterministically where possible.
