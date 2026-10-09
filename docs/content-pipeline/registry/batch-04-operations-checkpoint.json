@@ -1,15 +1,15 @@
 {
   "batch_id": "BATCH_04",
   "scope": "OFFICIAL_MAN_1000_ONLY",
-  "status": "BATCH_04_FIVE_COMPLETE_C1_RELEASE_READY",
+  "status": "BATCH_04_COMPLETE_6_OF_6",
   "owner_execution_authorized": true,
   "authority_source": "Owner Batch04 controlled six-lesson production directive 2026-10-08",
   "r1_4_authorized": false,
-  "queue_state": "OPEN",
-  "complete_lesson_count": 5,
+  "queue_state": "CLOSED",
+  "complete_lesson_count": 6,
   "next_action": {
-    "code": "CONTROLLED_LEARNER_RELEASE_LIVE_VERIFY_MAN_0831",
-    "responsible_lane": "OPERATIONS_4"
+    "code": "NONE",
+    "responsible_lane": "NONE"
   },
   "artifacts": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "path": "docs/content-pipeline/registry/batch-04-final-practice.json",
-      "sha256": "a316799ad030abd859b584c93655aa3fabc8259a097173e5be56fb1d54e6b297"
+      "sha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf"
     },
     {
       "path": "assets/official-lessons-batch04.json",
@@ -58,7 +58,10 @@
       "desktopLive": true,
       "mobileLive": true,
       "feedbackWriteAck": true,
-      "rollbackVerified": true
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0031@v0.1@MAN-0031-OPENAI-FIXED-v0.1"
     },
     {
       "lessonId": "MAN-0271",
@@ -80,7 +83,10 @@
       "desktopLive": true,
       "mobileLive": true,
       "feedbackWriteAck": true,
-      "rollbackVerified": true
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0271@v0.1@MAN-0271-OPENAI-FIXED-v0.1"
     },
     {
       "lessonId": "MAN-0451",
@@ -102,7 +108,10 @@
       "desktopLive": true,
       "mobileLive": true,
       "feedbackWriteAck": true,
-      "rollbackVerified": true
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0451@v0.1@MAN-0451-OPENAI-FIXED-v0.1"
     },
     {
       "lessonId": "MAN-0581",
@@ -124,7 +133,10 @@
       "desktopLive": true,
       "mobileLive": true,
       "feedbackWriteAck": true,
-      "rollbackVerified": true
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0581@v0.1@MAN-0581-OPENAI-FIXED-v0.1"
     },
     {
       "lessonId": "MAN-0831",
@@ -142,11 +154,14 @@
       "rightsReady": true,
       "productionAuthorized": true,
       "releaseAuthorized": true,
-      "releaseDeployed": false,
-      "desktopLive": false,
-      "mobileLive": false,
-      "feedbackWriteAck": false,
-      "rollbackVerified": false
+      "releaseDeployed": true,
+      "desktopLive": true,
+      "mobileLive": true,
+      "feedbackWriteAck": true,
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0831@v0.1@MAN-0831-OPENAI-FIXED-v0.1"
     },
     {
       "lessonId": "MAN-0951",
@@ -168,7 +183,10 @@
       "desktopLive": true,
       "mobileLive": true,
       "feedbackWriteAck": true,
-      "rollbackVerified": true
+      "rollbackVerified": true,
+      "releaseEvidenceRef": "docs/content-pipeline/registry/batch-04-final-practice.json",
+      "releaseEvidenceSha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf",
+      "releaseEvidencePairKey": "MAN-0951@v0.1@MAN-0951-MIXED-v0.1"
     }
   ],
   "live_evidence": {
@@ -178,7 +196,8 @@
     "live_attempt": 2,
     "desktop_mobile_pass_count": 10,
     "rollback_scope": "browser request-routing catalog withdrawal/restore; not deployment revert",
-    "mobile_scope": "Chromium Pixel5 emulation"
+    "mobile_scope": "Chromium Pixel5 emulation",
+    "total_desktop_mobile_pass_count": 12
   },
   "c1_import_evidence": {
     "pr": 177,
@@ -188,5 +207,22 @@
     "wav_count": 10,
     "paid_calls": 0,
     "precedent_import_run": 37777249174
-  }
+  },
+  "batch_close_complete": true,
+  "terminal_state": "OBJECTIVE_COMPLETE",
+  "remaining_lesson_ids": [],
+  "active_exceptions": [],
+  "batch05_opened": false,
+  "r1_4_executed": false,
+  "c1_live_evidence": {
+    "release_pr": 178,
+    "release_main_sha": "d7cc7f73bfd78d54bec1520e8269284d31cf9f88",
+    "live_run": 37890022897,
+    "desktop_mobile_pass_count": 2,
+    "feedback_ack_pass_count": 2,
+    "scoped_rollback_restore_pass_count": 2,
+    "receipt_ref": "docs/content-pipeline/registry/batch-04-final-practice.json",
+    "receipt_sha256": "d4f960e90bfc321badce12c358abd6185c1112b0f7657df626e0bcf840e26eaf"
+  },
+  "close_scope": "Batch04 only; Batch05/R1.4 remain unopened. Actual ordinary automated QA, assisted Practice and browser-scoped live outcomes; no human acoustic, accent or mastery certification."
 }
