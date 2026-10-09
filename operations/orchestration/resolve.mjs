@@ -1,4 +1,5 @@
 import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';import {fileURLToPath} from 'node:url';
+import {buildReadPack,admitReadPack} from './bootstrap.mjs';
 const pass=v=>v===true||v==='PASS';
 export function operationKey(pair,stage,assetSha256='none'){return [pair.lessonId,pair.lessonVersion,pair.realizationId||'unbound',stage,assetSha256].join('@');}
 export function reconcileReceipt(pair,stage,asset,receipt){
@@ -81,4 +82,12 @@ export function resolveBatch04(s,hashOf,previous){
  if(count===6&&s.states.some(x=>!x.releaseEvidenceRef||hashOf(x.releaseEvidenceRef)!==x.releaseEvidenceSha256))fail('unbound live close');
  return {...plan,batchId:'BATCH_04',status:count===6?'BATCH_04_COMPLETE_6_OF_6':s.status,terminalState:count===6?'OBJECTIVE_COMPLETE':'IN_PROGRESS',currentStateRef:'docs/content-pipeline/registry/batch-04-operations-checkpoint.json',next_action:count===6?{code:'NONE',responsible_lane:'NONE'}:s.next_action,queue:s.queue_state,completeLessonCount:count,remainingLessonCount:6-count,activeExceptionCount:plan.handoffs.length,previousClosure:{batchId:previous.batchId,status:previous.status},executionMode:'READ_ONLY_CANONICAL_STATE',externalCalls:0,newProductionStarted:false};
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{const file=process.argv[2];const result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):currentState();console.log(JSON.stringify(result,null,2));}catch(e){console.error(e.message);process.exitCode=1;}}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){try{
+ const file=process.argv[2];let result;
+ if(file==='--preflight'||file==='--admit-scope'){
+  const envelope=JSON.parse(fs.readFileSync(process.argv[3],'utf8'));
+  const pack=buildReadPack(envelope,{root:repo,state:currentState()});
+  result=file==='--preflight'?pack:admitReadPack(pack,JSON.parse(fs.readFileSync(process.argv[4],'utf8')));
+ }else result=file?planIndependent(JSON.parse(fs.readFileSync(file,'utf8'))):currentState();
+ console.log(JSON.stringify(result,null,2));
+}catch(e){console.error(e.message);process.exitCode=1;}}

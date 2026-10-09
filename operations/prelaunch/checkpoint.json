@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "objective": "PREFLIGHT_BOOTSTRAP_AND_BOUNDED_PRELAUNCH_GAP_CLOSURE",
+  "source_main": "48ca89aef4a876a34801214ed3ff5de63e688b5a",
+  "completion_channel": "Protected repository checkpoint plus private MAN-Preflight-Prelaunch-Gap-Closure-20261009 report/evidence",
+  "production_batch_state": "BATCH_04_COMPLETE_6_OF_6_CLOSED",
+  "production_next_action": "NONE",
+  "launch_authorized": false,
+  "paid_calls": 0,
+  "audit_rerun": false,
+  "readiness": {
+    "current_internal_pilot": "CONDITIONAL",
+    "broad_real_user_launch": "NOT_READY"
+  },
+  "checkpoints": {
+    "A_bootstrap": {
+      "status": "DONE",
+      "implementation": "Existing resolver --preflight / --admit-scope; existing owning Skills",
+      "validation": "28 fail-closed fixture cases PASS; fresh successor without predecessor transcript read 16 mandatory sources, admitted scope, independently recovered CLOSED/NONE and produced durable handoff. Real source-drift acknowledgement rejected before final read/admission PASS.",
+      "nonclaim": "Does not prevent arbitrary direct script invocation, prove comprehension, grant production authority or certify full execution-role succession.",
+      "evidence_hashes": {
+        "admission-attempt-01.json": "79aa66705cbbc2d01838385bae4b0fd6b4cfb0dd13e15f525f341a412970cd4f",
+        "handoff.md": "c0bf1ef95c919bb411d6367e58a2db3236eae393172da55fc1a98a50c336a153",
+        "admission.json": "f65912e69548b510814956dd947e67b1b524c0dd16f2da7bd44f8fa20ecc5bff"
+      },
+      "evidence_scope": "LOCAL_CANDIDATE_BOOTSTRAP_PATH_ONLY; protected installation still required"
+    },
+    "B_preparation": {
+      "status": "DONE",
+      "controls": [
+        "Feedback abuse/cost containment diff and transactional budget proposal",
+        "Learner storage inventory, privacy/retention/deletion and backup-exclusion procedure",
+        "Backup freshness/isolated-restore acceptance and rollback",
+        "Monitoring thresholds/routing acceptance/incident runbook",
+        "Billing continuity and Google-only Auth acceptance"
+      ],
+      "runtime_delta": "Safe Google error mapping, success + 8 failure scenarios local PASS; no Auth provider settings changed",
+      "proposals_not_deployed": true
+    },
+    "C_cloud_acceptance": {
+      "status": "BLOCKED",
+      "reason": "Current Firebase Console redirects to Google signed-out account chooser; latest backup, billing and alert configuration cannot be freshly read. Historical evidence retained at original watermark.",
+      "resume": "Secure sign-in to the named existing project for read-only verification; no permission expansion."
+    },
+    "D_production_controls_and_launch": {
+      "status": "BLOCKED",
+      "reason": "Separate authority/decision missing for App Check/Rules/IAM/function/provider/billing/data changes, adopted privacy/support targets and actual alert delivery.",
+      "launch_decision_separate": true
+    }
+  },
+  "gate_reuse": {
+    "batch04_live_receipts": 12,
+    "audio_qa_practice_contract": "REUSED_UNCHANGED",
+    "learner_gates_rerun": 0,
+    "backup_restore": "REUSE_HISTORICAL_BASIC_PASS_NOT_LATEST_BACKUP_PROOF"
+  },
+  "source_baseline": {
+    "creator_os": "v0.3.8 CURRENT-USE, observed revision 3",
+    "semantic_ledger": "v0.3.8 observed revision 4",
+    "operations_playbook": "v0.1 observed content hash; no numeric revision invented",
+    "content_sha256": {
+      "creator_os": "c66ff5dfc862c097b4f71b92c505e59b15beea6d210987d3738c889209c59f69",
+      "semantic_ledger": "3604520363218ef68200398ef9d3cb769b9f44a7b19322aa38a3dd443cbf654a",
+      "operations_playbook": "68c515b2a709dd96eb7e4a56b3aa4fa9fcbfb18c3638867f91e0b72d10fcaf69"
+    }
+  },
+  "repository_acceptance": "Protected PR, required state exact head, no protection bypass; final main/readback recorded in private completion evidence after merge",
+  "recommended_next_step": "Secure read-only cloud verification; then Owner adjudicates the concrete feedback/privacy/monitoring/billing/Auth proposals before any production change or launch."
+}

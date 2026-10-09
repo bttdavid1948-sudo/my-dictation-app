@@ -1676,7 +1676,16 @@ async function xModalEmailSignUp(){const email=document.getElementById('x-signup
 window.xEmailSignUp=function(){xOpenAuthModal(document.getElementById('x-email')?.value.trim()||'')}
 window.xEmailLogin=async function(){const email=document.getElementById('x-email')?.value.trim(),pass=document.getElementById('x-pass')?.value||'';if(!email)return xToast('Email này hình như chưa đúng rồi nè 👀');if(!pass)return xToast('Nhập mật khẩu nữa nha 😌');try{await auth.signInWithEmailAndPassword(email,pass);xToast('🏘️ Về xóm rồi nè!');xRefreshIdentity()}catch(e){xToast(xFriendlyMessage(e.message))}}
 window.xResetPassword=async function(){const email=document.getElementById('x-email')?.value.trim();if(!email)return xToast('Nhập email trước nha ^^');try{await auth.sendPasswordResetEmail(email);xToast('📮 Đã gửi email đặt lại mật khẩu.')}catch(e){xToast(xFriendlyMessage(e.message))}}
-window.loginWithGoogle=async function(){try{const provider=new firebase.auth.GoogleAuthProvider();provider.setCustomParameters({prompt:'select_account'});await auth.signInWithPopup(provider);xCloseAuthModal();xToast('🏘️ Google nhận ra hàng xóm rồi!');xRefreshIdentity()}catch(e){xToast(xFriendlyMessage(e.message))}}
+function xGoogleAuthFailureMessage(error){
+ const code=String(error?.code||'');
+ if(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request')return 'Bạn đã đóng đăng nhập. Khi nào muốn lưu bài, thử lại nha 😌';
+ if(code==='auth/popup-blocked')return 'Trình duyệt đang chặn cửa sổ Google. Cho phép popup rồi thử lại nha.';
+ if(code==='auth/network-request-failed')return 'Kết nối đang gián đoạn. Kiểm tra mạng rồi thử đăng nhập lại nha.';
+ if(code==='auth/too-many-requests')return 'Có nhiều lần thử quá. Đợi một lát rồi đăng nhập lại nha.';
+ if(code==='auth/account-exists-with-different-credential')return 'Tài khoản này cần được hỗ trợ để đăng nhập. Nhắn Chủ Xóm giúp bạn nha.';
+ return 'Chưa đăng nhập Google được. Thử lại sau hoặc nhắn Chủ Xóm nha.';
+}
+window.loginWithGoogle=async function(){try{const provider=new firebase.auth.GoogleAuthProvider();provider.setCustomParameters({prompt:'select_account'});await auth.signInWithPopup(provider);xCloseAuthModal();xToast('🏘️ Google nhận ra hàng xóm rồi!');xRefreshIdentity()}catch(e){xToast(xGoogleAuthFailureMessage(e))}}
 function xRefreshIdentity(){const u=auth.currentUser||window.currentUser;const mini=document.getElementById('x-auth-mini'),g=document.getElementById('x-home-greeting');if(u){const name=u.displayName||(u.email?u.email.split('@')[0]:'Hàng xóm');if(mini)mini.textContent='🐱 '+name;if(g)g.textContent=`Xin chào, ${name}! 👋`}else{if(mini)mini.textContent='👤 Người lạ ơi!';if(g)g.textContent='Người lạ ơi! 👋'}xRenderMe?.();xRenderProgress?.()}
 // Clean, mobile-friendly guest account panel.
 const xRenderMe03=window.xRenderMe;window.xRenderMe=function(){const el=document.getElementById('x-me-dashboard');const u=window.currentUser;if(!el)return;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Người lạ ơi!</h3></div></div><div class="x-login-grid"><button class="x-google-wide" onclick="loginWithGoogle()">G&nbsp; Tiếp tục bằng Google</button><p style="margin:4px 0 0"><b>Học trước đi, tính chuyện đăng ký sau cũng được 😌</b></p><p style="margin:0"><b>Đăng ký miễn phí đừng lo, chủ yếu là tình củm ^^</b></p><div class="x-note">💾 Bài khách chỉ ở trang này. Đăng nhập Google để lưu bài riêng vào tài khoản.</div></div></div>`;return}xRenderMe03();}

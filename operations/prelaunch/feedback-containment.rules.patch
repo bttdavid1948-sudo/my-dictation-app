@@ -1,0 +1,7 @@
+--- a/firestore.rules.phase3.draft
++++ b/firestore.rules.phase3.draft
+@@ -48,3 +48,3 @@
+       allow get, list, update, delete: if false;
+-      allow create: if request.resource.data.keys().hasOnly([
++      allow create: if false && request.resource.data.keys().hasOnly([
+           'kind','message','page','uid','email','nickname','userAgent',

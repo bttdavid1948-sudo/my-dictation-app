@@ -4,6 +4,8 @@ description: Apply existing Mặn Curriculum production rules to routine officia
 ---
 # Routine Curriculum procedure
 
+Require the Operations scope bootstrap in `../man-production-control/SKILL.md` before this module is invoked, with `CURRICULUM_3` included among the owning Skills to read. A nonproduction scope receipt never grants Curriculum production or semantic authority.
+
 Work from the repository root. Read `docs/content-pipeline/registry/single-orchestrator-governance.json`, the current Shared Artifact Registry and the hash-verified `curriculum-production-spec@v0.1`; resolve its Library location from `artifacts.json`. Use the frozen Curriculum↔Practice v0.3 and Pipeline v0.2 contracts. Keep semantic owner `CURRICULUM_3` even when #4 executes this procedure.
 
 Use the precedent-first recovery and authority boundary in `../man-production-control/SKILL.md`. Before declaring uncovered semantics, compare the applicable existing rule/receipt with the current object and record the material invariant delta. Reuse when equivalent; adapt only the evidenced delta within this domain's authority. Preserve prior PASS and route genuine unresolved semantics through the existing direct packet.

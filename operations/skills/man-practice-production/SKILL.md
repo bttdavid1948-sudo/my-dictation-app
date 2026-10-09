@@ -4,6 +4,8 @@ description: Execute routine Mặn Practice planning and final produced-realizat
 ---
 # Routine Practice procedure
 
+Require the Operations scope bootstrap in `../man-production-control/SKILL.md` before this module is invoked, with `PRACTICE_2` included among the owning Skills to read. A nonproduction scope receipt never grants Practice production or semantic authority.
+
 Read canonical `single-orchestrator-governance.json`, hash-verified `practice-production-spec@v0.1`, Curriculum↔Practice Contract v0.3 and Pipeline Contract v0.2 via the Shared Artifact Registry. Keep semantic owner PRACTICE_2; execution context is #4, not an Operations semantic override.
 
 Use the precedent-first recovery and authority boundary in `../man-production-control/SKILL.md`. Before declaring uncovered semantics, compare the applicable existing rule/receipt with the current object and record the material invariant delta. Reuse when equivalent; adapt only the evidenced delta within this domain's authority. Preserve prior PASS and route genuine unresolved semantics through the existing direct packet.
