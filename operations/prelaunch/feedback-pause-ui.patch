@@ -1,0 +1,19 @@
+--- a/index.html
++++ b/index.html
+@@ -1802,7 +1802,7 @@
+ function xOpenOwnerChat(){document.getElementById('x-owner-modal')?.classList.remove('hidden');const page=document.querySelector('.x-view.active .x-pagehead h2')?.textContent?.trim()||document.querySelector('.x-view.active')?.id?.replace('view-','')||'Trang hiện tại';const p=document.getElementById('x-owner-page');if(p)p.textContent='📍 '+page;setTimeout(()=>document.getElementById('x-owner-message')?.focus(),100)}
+ function xCloseOwnerChat(){document.getElementById('x-owner-modal')?.classList.add('hidden')}
+ function xPickFeedbackKind(btn){xFeedbackKind=btn.dataset.kind;document.querySelectorAll('.x-owner-types button').forEach(b=>b.classList.toggle('selected',b===btn))}
+-async function xSendOwnerFeedback(){const el=document.getElementById('x-owner-message'),message=(el?.value||'').trim();if(message.length<3)return xToast('😼 Nói Chủ Xóm nghe thêm xíu nữa đi.');const u=auth.currentUser||window.currentUser;const payload={kind:xFeedbackKind,message,page:document.querySelector('.x-view.active')?.id||'',uid:u?.uid||null,email:u?.email||null,nickname:u?xIdentityName():'Người lạ',userAgent:navigator.userAgent,createdAt:firebase.firestore.FieldValue.serverTimestamp(),status:'new'};try{await db.collection('owner_feedback').add(payload);el.value='';xCloseOwnerChat();xToast('💌 Mèo Mặn đã ôm thư chạy đi méc Chủ Xóm rồi!')}catch(e){xToast('⚠️ Chưa gửi được. Có vẻ cổng nhà Chủ Xóm đang kẹt.');console.error(e)}}
++async function xSendOwnerFeedback(){return xToast('Kênh góp ý đang tạm nghỉ. Nội dung chưa được gửi và vẫn còn trong ô này; hãy sao chép trước khi đóng hoặc tải lại trang.');const el=document.getElementById('x-owner-message'),message=(el?.value||'').trim();if(message.length<3)return xToast('😼 Nói Chủ Xóm nghe thêm xíu nữa đi.');const u=auth.currentUser||window.currentUser;const payload={kind:xFeedbackKind,message,page:document.querySelector('.x-view.active')?.id||'',uid:u?.uid||null,email:u?.email||null,nickname:u?xIdentityName():'Người lạ',userAgent:navigator.userAgent,createdAt:firebase.firestore.FieldValue.serverTimestamp(),status:'new'};try{await db.collection('owner_feedback').add(payload);el.value='';xCloseOwnerChat();xToast('💌 Mèo Mặn đã ôm thư chạy đi méc Chủ Xóm rồi!')}catch(e){xToast('⚠️ Chưa gửi được. Có vẻ cổng nhà Chủ Xóm đang kẹt.');console.error(e)}}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')xCloseOwnerChat()});
+ </script>
+ 
+@@ -2226,6 +2226,7 @@
+ }
+ function xCloseAudioReport(){document.getElementById('x-audio-report-modal').classList.add('hidden');xAudioReportFocus?.focus()}
+ async function xSendAudioReport(){
++ const pauseStatus=document.getElementById('x-audio-report-status');delete pauseStatus.dataset.reportId;pauseStatus.textContent='Kênh báo lỗi đang tạm nghỉ. Nội dung chưa được gửi; hãy sao chép ghi chú trước khi đóng hoặc tải lại trang.';return;
+  const button=document.getElementById('x-audio-report-send');if(button.disabled)return;
+  const message=ManFixedAudio.reportMessage(document.getElementById('x-audio-report-category').value,xAudioReportContext,document.getElementById('x-audio-report-note').value);
+  if(!message)return;button.disabled=true;
