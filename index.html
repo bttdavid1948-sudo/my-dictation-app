@@ -589,13 +589,13 @@ Danh sách từ/cụm từ của tôi:
             if (!currentUser || seconds < 10) return;
             const timerUser=currentUser, timerUid=timerUser.uid;
             const minutesEarned = Math.round(seconds / 60) || 1;
-            userProfileData.totalMinutes = (userProfileData.totalMinutes || 0) + minutesEarned;
+            // Confirmed profile totals change only after the transaction ACK.
             const now=new Date(), pad=n=>String(n).padStart(2,'0');
             const dayKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
             const monthKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
             const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); const weekKey=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
             const ref=db.collection('users_profile').doc(timerUid);
-            db.runTransaction(async tx=>{if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const snap=await tx.get(ref);if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||timerUser.displayName||timerUser.email,avatar:timerUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>{if(currentUser?.uid===timerUid)xLoadLeaderboard('daily')}).catch(()=>{if(currentUser?.uid===timerUid)xToast('Chưa xác nhận lưu thời gian học.');});
+            db.runTransaction(async tx=>{if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const snap=await tx.get(ref);if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const old=snap.exists?snap.data():{};const acknowledgedMinutes=(old.totalMinutes||0)+minutesEarned;tx.set(ref,{nickname:userProfileData.nickname||timerUser.displayName||timerUser.email,avatar:timerUser.photoURL||'',totalMinutes:acknowledgedMinutes,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});return acknowledgedMinutes}).then(total=>{if(currentUser?.uid===timerUid){if(Number.isFinite(total))userProfileData.totalMinutes=Math.max(Number(userProfileData.totalMinutes)||0,total);xLoadLeaderboard('daily')}}).catch(()=>{if(currentUser?.uid===timerUid)xToast('Chưa xác nhận lưu thời gian học.');});
         }
 
         function loginWithGoogle() {

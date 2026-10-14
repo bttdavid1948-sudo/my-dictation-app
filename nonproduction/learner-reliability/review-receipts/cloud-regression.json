@@ -1,0 +1,21 @@
+{
+  "status": "UNIT PASS",
+  "checks": [
+    "Guest cannot read or begin cloud progress",
+    "Stable identity required; no legacy-name inference",
+    "Fresh session and meaningful writes; visits/process do not write",
+    "Reload/second device loads latest cursor and processed outcomes",
+    "Concurrent replay starts: one expected revision wins, other conflicts",
+    "Same session concurrent checkpoints cannot overwrite stale revision",
+    "New replay supersedes old device, never max/cumulative cursor",
+    "Completion immutable append survives replay; no completion for partial",
+    "Offline keeps UID-bound pending; explicit recovery only on same revision",
+    "Offline stale pending is preserved, not auto-uploaded after takeover",
+    "Account switch before read response never paints A into B",
+    "Account switch during transaction cancels staged write",
+    "Wrong UID/version snapshot cannot resume; explicit restart with revision",
+    "A pending remains invisible to B; legacy local storage untouched",
+    "Production/remote emulator targets fail closed"
+  ],
+  "scope": "Memory transaction/storage double only; NOT backend/emulator/browser verification"
+}

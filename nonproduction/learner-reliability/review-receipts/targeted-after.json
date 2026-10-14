@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "UNIT extracted actual candidate functions; controlled transport/ACK/storage; no live browser/backend claim",
+  "passed": 11,
+  "checks": [
+    "minutes remain unconfirmed until transaction ACK, then use committed total",
+    "permission failure does not falsely credit or automatically retry",
+    "ACK loss remains unconfirmed even after actual transaction callback writes",
+    "late A ACK cannot modify B profile",
+    "repeated timer stop makes one request and retries callback without UI mutation",
+    "older ACK cannot decrease a newer acknowledged total",
+    "reload conflict with no active session still offers functional remote choice",
+    "A/B switch during remote read cannot contaminate B cache or clear B active",
+    "changed lesson intent invalidates old conflict choice before starting read",
+    "remote choice read failure stays unconfirmed with a retry choice",
+    "absent durable storage reports memory-only pending"
+  ],
+  "failures": []
+}
