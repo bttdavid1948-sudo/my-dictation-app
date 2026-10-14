@@ -1,7 +1,7 @@
 name: Isolated learner acceptance
 on:
   push:
-    branches: ['nonproduction/learner-reliability-e']
+    branches: ['nonproduction/learner-reliability-e-qa']
 permissions:
   contents: read
 concurrency:
@@ -29,14 +29,14 @@ jobs:
       - name: Install isolated Chromium
         working-directory: nonproduction/learner-reliability
         run: node node_modules/playwright/cli.js install --with-deps chromium
-      - name: Integrated cloud host browser acceptance
-        id: host
+      - name: Final popup navigation desktop mobile acceptance
+        id: browser
         continue-on-error: true
-        working-directory: nonproduction/learner-reliability
-        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node cloud-host.browser.mjs ../..'
-        env:
-          CI: 'true'
-          FIREBASE_CLI_DISABLE_USAGE: 'true'
+        run: node nonproduction/learner-reliability/learner-browser-check.mjs .
+      - name: Final native immutable WAV playback
+        id: audio
+        continue-on-error: true
+        run: node nonproduction/learner-reliability/real-audio.browser.mjs .
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -47,4 +47,4 @@ jobs:
             nonproduction/learner-reliability/firestore-debug.log
       - name: Require both actual acceptance branches
         if: always()
-        run: test '${{ steps.host.outcome }}' = success
+        run: test '${{ steps.browser.outcome }}' = success && test '${{ steps.audio.outcome }}' = success
