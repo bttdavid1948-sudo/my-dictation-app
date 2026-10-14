@@ -29,11 +29,11 @@ jobs:
       - name: Install isolated Chromium
         working-directory: nonproduction/learner-reliability
         run: node node_modules/playwright/cli.js install --with-deps chromium
-      - name: Integrated cloud host browser acceptance
+      - name: Actual private conflict and offline browser acceptance
         id: host
         continue-on-error: true
         working-directory: nonproduction/learner-reliability
-        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node cloud-host.browser.mjs ../..'
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node private-faults.browser.mjs ../..'
         env:
           CI: 'true'
           FIREBASE_CLI_DISABLE_USAGE: 'true'
