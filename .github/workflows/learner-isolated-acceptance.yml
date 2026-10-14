@@ -22,23 +22,18 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: Resolve pinned isolated dependencies and lock
+      - name: Install locked isolated dependencies
         working-directory: nonproduction/learner-reliability
         run: |
-          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
           npm ci --ignore-scripts --no-audit --no-fund
       - name: Install isolated Chromium
         working-directory: nonproduction/learner-reliability
         run: node node_modules/playwright/cli.js install --with-deps chromium
-      - name: Actual desktop and mobile DOM acceptance
-        id: browser
-        continue-on-error: true
-        run: node nonproduction/learner-reliability/learner-browser-check.mjs .
-      - name: Actual Rules and compat SDK emulator acceptance
-        id: emulator
+      - name: Integrated cloud host browser acceptance
+        id: host
         continue-on-error: true
         working-directory: nonproduction/learner-reliability
-        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-acceptance --config firebase.emulator.json 'node firestore.progress.emulator.test.cjs && node cloud-progress.sdk-emulator.test.cjs'
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node cloud-host.browser.mjs ../..'
         env:
           CI: 'true'
           FIREBASE_CLI_DISABLE_USAGE: 'true'
@@ -52,4 +47,4 @@ jobs:
             nonproduction/learner-reliability/firestore-debug.log
       - name: Require both actual acceptance branches
         if: always()
-        run: test '${{ steps.browser.outcome }}' = success && test '${{ steps.emulator.outcome }}' = success
+        run: test '${{ steps.host.outcome }}' = success
