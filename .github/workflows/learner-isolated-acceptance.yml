@@ -1,0 +1,50 @@
+name: Isolated learner acceptance
+on:
+  push:
+    branches: ['nonproduction/learner-reliability-e']
+permissions:
+  contents: read
+concurrency:
+  group: learner-isolated-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  isolated-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install locked isolated dependencies
+        working-directory: nonproduction/learner-reliability
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install isolated Chromium
+        working-directory: nonproduction/learner-reliability
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Integrated cloud host browser acceptance
+        id: host
+        continue-on-error: true
+        working-directory: nonproduction/learner-reliability
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node cloud-host.browser.mjs ../..'
+        env:
+          CI: 'true'
+          FIREBASE_CLI_DISABLE_USAGE: 'true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learner-isolated-evidence
+          path: |
+            nonproduction/learner-reliability/*receipt.json
+            nonproduction/learner-reliability/package-lock.json
+            nonproduction/learner-reliability/firestore-debug.log
+      - name: Require both actual acceptance branches
+        if: always()
+        run: test '${{ steps.host.outcome }}' = success

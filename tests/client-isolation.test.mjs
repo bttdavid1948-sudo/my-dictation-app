@@ -16,7 +16,7 @@ const doc={getElementById:id=>{
   if(!elements.has(id))elements.set(id,{classList:{add(){},remove(){}},textContent:''});
   return elements.get(id);
 }};
-const trial={unitsData,items:[],document:doc,xGo(){},xSetStudyContext(){},startStudyTimer(){started++},loadQuestion(){}};
+const trial={xFlushLearnerProgress(){},xCancelStudyAdvance(){},xLearnerProgress:{active:null},unitsData,items:[],document:doc,xGo(){},xSetStudyContext(){},startStudyTimer(){started++},loadQuestion(){}};
 vm.createContext(trial);
 vm.runInContext(section('function xQuickTrial(){','function xEmailSignUp(){')+';xQuickTrial()',trial);
 assert.deepEqual(Object.keys(unitsData),['Bài riêng của An']);
@@ -32,7 +32,8 @@ const storage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v)};
 const local={currentUser:null,localStorage:storage,XNOT:{favorites:[],review:[],history:[]}};
 vm.createContext(local);
 vm.runInContext(section('function xLocalKey(kind){','const XHERO='),local);
-local.xLoadLocal();assert.equal(local.XNOT.history[0].total,1);
+local.xLoadLocal();assert.equal(local.XNOT.history.length,0);
+local.XNOT.history.push({total:9});local.xSaveLocal();assert.equal(JSON.parse(values.get('xnot_history'))[0].total,1,'guest must not overwrite legacy history');
 local.currentUser={uid:'an'};local.xLoadLocal();assert.equal(local.XNOT.history[0].total,2);
 local.XNOT.history.push({total:4});local.xSaveLocal();
 local.currentUser={uid:'binh'};local.xLoadLocal();assert.equal(local.XNOT.history[0].total,3);

@@ -19,7 +19,7 @@ const stored = new Map();
 let calls = 0;
 const context = vm.createContext({
   Promise,
-  JSON,
+  JSON, TextEncoder,
   currentUser: {uid: 'learner'},
   document: {getElementById: () => ({textContent: ''})},
   unitsData: {Private: [{en: 'This is a private test.', vi: 'Đây là bài kiểm tra riêng.'}]},
@@ -38,8 +38,11 @@ await vm.runInContext('xPrivateSaveQueue', context);
 assert.equal(calls, 1);
 assert.equal(JSON.parse(stored.get('man_private_draft_v1_learner')).Private[0].en,
   'This is a private test.');
+vm.runInContext('xQueuePrivateSave();xQueuePrivateSave();xQueuePrivateSave()',context);
+await vm.runInContext('xPrivateSaveQueue',context);
+assert.equal(calls,2,'same-turn edits coalesce into one pending save');
 const saveStart = html.indexOf('async function saveToCloud()');
-const saveEnd = html.indexOf('async function loadFromCloud()', saveStart);
+const saveEnd = html.indexOf('async function loadFromCloud(', saveStart);
 let serverUnits = null;
 const ref = {
   get: async () => ({exists: true, data: () => ({units: serverUnits})})
