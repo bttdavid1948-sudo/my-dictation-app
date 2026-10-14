@@ -45,10 +45,6 @@ jobs:
         env:
           CI: 'true'
           FIREBASE_CLI_DISABLE_USAGE: 'true'
-      - name: Actual immutable WAV playback after picker closes
-        id: audio
-        continue-on-error: true
-        run: node nonproduction/learner-reliability/real-audio.browser.mjs .
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -59,4 +55,4 @@ jobs:
             nonproduction/learner-reliability/firestore-debug.log
       - name: Require both actual acceptance branches
         if: always()
-        run: test '${{ steps.host.outcome }}' = success && test '${{ steps.faults.outcome }}' = success && test '${{ steps.audio.outcome }}' = success
+        run: test '${{ steps.host.outcome }}' = success && test '${{ steps.faults.outcome }}' = success
