@@ -17,4 +17,7 @@ const make=()=>{const h=ctx.harness({order:[]});h.wrapper=installPracticeWrapper
 {
  const h=make();h.c.xStartCatalog(u.id);h.c.sessionStorage.setItem('base-study',JSON.stringify({uid:'other',at:NOW+1,phase:'active',items:u.items}));await h.wrapper.restoreAvailable();assert.equal(h.calls.restore,0);checks.push('Wrong-UID newer checkpoint cannot supersede existing Practice owner');
 }
+{
+ const h=make();h.c.xStartCatalog(u.id);h.c.sessionStorage.setItem('base-study',JSON.stringify({uid:'test-user',at:NOW,phase:'active',items:u.items}));h.c.xGo('catalog');h.c.location.hash='#learn';await h.wrapper.restoreAvailable();assert.equal(h.calls.restore,0);assert.equal(h.wrapper.evidence().lessonId,u.id);checks.push('Timestamp tie cannot let old Dictation replace the current valid Practice session');
+}
 console.log(JSON.stringify({status:'PASS',suite:'learner-practice-resume',checks}));

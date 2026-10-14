@@ -43,7 +43,8 @@ export function installPracticeWrapper(host) {
     const study=read(host.session,host.studyKey,null);
     if(!study||study.uid!==uid()||!Number.isFinite(study.at)||!Array.isArray(study.items)||!['active','resolved','revealed','summary'].includes(study.phase))return false;
     const latest=Math.max(-Infinity,...practiceSessionKeys.map(key=>read(host.session,key,null)).filter(s=>s?.uid===uid()&&Number.isFinite(s.at)).map(s=>s.at));
-    return study.at>=latest;
+    // Equal millisecond timestamps do not prove Dictation is newer than Practice.
+    return study.at>latest;
   }
   const hashes = descriptor => descriptor.playback.segments.map(s=>s.audio.sha256).concat(descriptor.playback.fullPanel ? [descriptor.playback.fullPanel.sha256] : []);
   const descriptor = u => normalizePracticeLesson(u); // sole canonical input boundary
