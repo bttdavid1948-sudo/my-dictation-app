@@ -3,8 +3,10 @@
 <head>
 <script src="assets/fixed-audio-runtime.js?release=MAN-0065-v0.2"></script>
     <meta charset="UTF-8">
+    <script src="assets/learner-progress.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mặn — Xóm Này Out Trình</title>
+    <!-- Nonproduction reliability candidate; production publication requires separate Owner approval. -->
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
@@ -157,7 +159,7 @@ body{padding-left:0!important}.x-sidebar{display:none!important}.x-topbar{height
 <section id="x-notifications" class="x-view"><div class="x-pagehead"><h2>🔔 Thông báo</h2><p>Có gì mới trong xóm, Mèo Xóm réo ở đây.</p></div><div class="x-panel"><div class="x-library-head"><div><h3>Tin mới trong xóm</h3><small>Cập nhật sản phẩm, học tập, thành tích và tương tác.</small></div><button class="x-mini-btn" onclick="xMarkAllRead()">✓ Đánh dấu đã đọc</button></div><div id="x-notif-list" class="x-notif-list"></div></div></section><section id="x-about" class="x-view"><div class="x-pagehead"><h2>🏘️ Chuyện cái xóm này</h2><p>About us nghe hơi công ty. Xóm mình kể chuyện thôi. ^^</p></div><div class="x-about-hero"><div><div style="font-weight:900;color:#9a6230">XÓM NÀY OUT TRÌNH TỪ ĐÂU CHUI RA?</div><h2 style="font-size:36px;line-height:1.05">Vào học trước.<br>Có bài riêng thì học riêng; cần bài sẵn có Mặn lo.</h2><p>Ban đầu chỉ là một chỗ luyện nghe tiếng Anh. Rồi tụi mình nghĩ: Mặn chuẩn bị bài có kiểm tra nguồn để mọi người chọn và học ngay.</p><button class="x-primary" onclick="xGo('mine')">🔥 Chọn bài để chiến</button></div><div class="x-about-art" title="Ảnh/illustration chính thức sẽ thay sau">🐱🏘️</div></div><div class="x-about-grid"><div class="x-panel"><h3>👋 Ai dựng cái xóm này?</h3><p>Chỗ này để dành cho câu chuyện của chủ xóm. Ảnh đẹp, tiểu sử ngầu và vài lời thiệt tình sẽ bổ sung sau.</p></div><div class="x-panel"><h3>💸 Xóm sống bằng gì?</h3><p>Hiện tại chủ yếu sống bằng tình cảm ^^. Sau này có thể có quảng cáo/affiliate phù hợp để trả chi phí và nâng cấp bài học. Quảng cáo thì được. Phá buổi học thì không.</p></div><div class="x-panel"><h3>📜 Luật bất thành văn</h3><p>Bài riêng là của bạn. Kho bài học do Mặn chuẩn bị và chịu trách nhiệm. Tiến bộ là so với chính mình.</p></div></div></section>
 <section id="x-prompts" class="x-view x-prompt-page"><div class="x-pagehead"><h2>🎁 Kho Prompt</h2><p>Đồ nghề cho hàng xóm muốn biến nguyên liệu thành bài học.</p></div><div id="x-prompt-slot"></div></section>
 </main>
-<div id="x-library-modal" class="x-lib-modal x-hidden"><div class="x-lib-dialog"><div class="x-library-head"><div><h2 id="x-lib-title">Thư viện</h2><small id="x-lib-sub">12 bài mỗi trang</small></div><button class="x-lb-close" onclick="xCloseLibrary()">✕</button></div><div id="x-lib-filters" class="x-lib-filters"></div><div id="x-lib-grid" class="x-lib-grid"></div><div id="x-lib-pages" class="x-pagination"></div></div></div>
+<div id="x-library-modal" class="x-lib-modal x-hidden" role="dialog" aria-modal="true" aria-labelledby="x-lib-title"><div class="x-lib-dialog"><div class="x-library-head"><div><h2 id="x-lib-title">Thư viện</h2><small id="x-lib-sub">12 bài mỗi trang</small></div><button class="x-lb-close" onclick="xCloseLibrary()">✕</button></div><div id="x-lib-filters" class="x-lib-filters"></div><div id="x-lib-grid" class="x-lib-grid"></div><div id="x-lib-pages" class="x-pagination"></div></div></div>
 <div id="x-private-manager" class="x-lib-modal x-hidden" role="dialog" aria-modal="true" aria-labelledby="x-private-title"><div class="x-lib-dialog" style="max-width:660px"><div class="x-library-head"><h2 id="x-private-title">Sửa bài riêng</h2><button class="x-lb-close" type="button" onclick="xClosePrivateManager()" aria-label="Đóng">✕</button></div><p id="x-private-hint">Mỗi dòng tiếng Anh ứng với một dòng tiếng Việt.</p><label for="x-private-name">Tên bài</label><input id="x-private-name" class="form-input" maxlength="120"><label for="x-private-en">Câu tiếng Anh (mỗi dòng một câu)</label><textarea id="x-private-en" class="form-input" rows="6"></textarea><label for="x-private-vi">Bản dịch tiếng Việt (cùng số dòng)</label><textarea id="x-private-vi" class="form-input" rows="6"></textarea><p id="x-private-error" role="alert"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="x-private-save" class="x-primary" type="button" onclick="xSavePrivateEdit()">Lưu thay đổi</button><button id="x-private-delete" class="btn btn-danger" type="button" onclick="xAskPrivateDelete()">Xóa bài</button><button id="x-private-confirm" class="btn btn-danger hidden" type="button" onclick="xConfirmPrivateDelete()">Xác nhận xóa vĩnh viễn</button><button class="btn btn-note" type="button" onclick="xClosePrivateManager()">Hủy</button></div></div></div>
 <div id="x-auth-modal" class="x-lib-modal x-hidden"><div class="x-auth-dialog"><div class="x-library-head"><div><h2>👤 Tạo tài khoản</h2><small>Lưu bài riêng vào tài khoản; tiến bộ vẫn ở trình duyệt này.</small></div><button class="x-lb-close" onclick="xCloseAuthModal()">✕</button></div><p>Đăng ký hoặc đăng nhập bằng Google để giữ bài riêng của bạn.</p><button class="x-google-wide" onclick="loginWithGoogle()">G&nbsp; Tiếp tục bằng Google</button><div id="x-auth-message" class="x-form-message"></div></div></div>
 <button class="x-bell x-mobile-bell" onclick="xGo('notifications')" title="Thông báo" aria-label="Thông báo" style="display:none;position:fixed;right:18px;top:178px;z-index:1190">🔔<span class="x-bell-badge">3</span></button><nav class="x-mobile-nav" aria-label="Điều hướng chính"><button onclick="xGo('home')" aria-label="Trang chủ"><span aria-hidden="true">🏠</span><small>Trang chủ</small></button><button onclick="xGo('learn')" aria-label="Học"><span aria-hidden="true">🎧</span><small>Học</small></button><button onclick="xGo('mine')" aria-label="Bài của tôi"><span aria-hidden="true">📥</span><small>Bài của tôi</small></button><button onclick="xGo('catalog')" aria-label="Kho bài học"><span aria-hidden="true">🏘️</span><small>Kho</small></button><button onclick="xGo('me')" aria-label="Tôi"><span aria-hidden="true">👤</span><small>Tôi</small></button></nav>
@@ -521,6 +523,57 @@ Danh sách từ/cụm từ của tôi:
 
         let userProfileData = { nickname: '', motto: '', totalMinutes: 0 };
 
+        const xLearnerProgress=new ManLearnerProgress.Store((()=>{try{return localStorage}catch{return null}})());
+        let xStudyRunToken=0,xAdvanceTimer=null,xLibraryReturn=null,xLibrarySelectReplace=false;
+        let xGuestUnitsMemory=null,xLearnerStartPrepared=false,xLibraryClosePending=null,xLibraryIntent=0;
+        function xCancelStudyAdvance(){clearTimeout(xAdvanceTimer);xAdvanceTimer=null;xStudyRunToken++;}
+        function xRecordLearnerOutcome(outcome){
+            xLearnerProgress.process(currentIndex,outcome);
+            if(!xLearnerProgress.active)return;
+            const r=xLearnerProgress.active?.r;
+            if(r){correctCount=Object.values(r.outcomes).filter(v=>v==='correct').length;
+                failedItemsList=items.filter((_,i)=>['giveup','skip'].includes(r.outcomes[i]));}
+        }
+        function xStampPrivateLesson(name,before=null){
+            if(unitsData[name]?.length)unitsData[name]=ManLearnerProgress.reviseItems(unitsData[name],before);
+        }
+        function xFlushLearnerProgress(){
+            const changed=xLearnerProgress.dirty;
+            if(!xLearnerProgress.flush()&&currentUser)xToast('Tiến độ trên thiết bị chưa lưu được hoặc đã đổi ở tab khác. Đừng tải lại trước khi kiểm tra.');
+            if(changed){xRenderCarousel('mine');xRenderCarousel('catalog');if(!document.getElementById('x-library-modal').classList.contains('x-hidden'))xRenderLibrary();}
+        }
+        function xBeginLearnerLesson(u,resume=false){
+            xFlushLearnerProgress();xCancelStudyAdvance();
+            if(xLearnerProgress.error&&xLearnerProgress.dirty){xLearnerProgress.active=null;return null;}
+            const id=ManLearnerProgress.identity(u);
+            try{return xLearnerProgress.begin(id,resume)}catch{xLearnerProgress.active=null;xLearnerProgress.ready=false;xLearnerProgress.error='UNAVAILABLE';return null;}
+        }
+        function xResumeGenericDictation(id,record){
+            window.ManGenericPractice.startDictation(id);
+            xResumeLearnerLesson(record);
+        }
+        function xResumeLearnerLesson(r){
+            if(!r)return;currentIndex=r.cursor;correctCount=Object.values(r.outcomes).filter(v=>v==='correct').length;
+            failedItemsList=items.filter((_,i)=>['giveup','skip'].includes(r.outcomes[i]));
+            if(currentIndex)loadQuestion(currentIndex);
+        }
+        function xStartLessonChoice(mine,id,resume=false){
+            if(xLibraryClosePending){const intent=++xLibraryIntent;xLibraryClosePending.then(()=>{if(intent===xLibraryIntent)xStartLessonChoice(mine,id,resume)});return;}
+            const u=mine?xMineLessons().find(u=>u.unitName===id):xCatalogLessons().find(u=>u.id===id);
+            if(!u?.items?.length||(!mine&&(u.publisher!=='man'||u.status!=='published')))return xToast('Bài này không còn sẵn sàng. Chọn bài khác nha.');
+            if(mine&&currentUser&&xCloudLoadedForUid!==currentUser.uid)return xToast('Đợi tải đúng bài từ tài khoản trước khi học nha.');
+            const prior=xLearnerProgress.view(ManLearnerProgress.identity(u));
+            const useDictation=!!u.practice&&(resume||prior?.status==='complete');
+            if(u.practice&&!useDictation){xFlushLearnerProgress();xCancelStudyAdvance();}
+            const record=!u.practice||useDictation?xBeginLearnerLesson(u,resume):null;
+            if(resume&&!record)return xToast('Chưa xác minh được điểm tiếp tục trên thiết bị. Mở lại sau khi xử lý thay đổi ở tab khác.');
+            if(!document.getElementById('x-library-modal').classList.contains('x-hidden'))xCloseLibrary({forStudy:true});
+            xLearnerStartPrepared=true;
+            try{if(mine)xStartMine(id);else if(useDictation&&record&&window.ManGenericPractice?.startDictation)xResumeGenericDictation(id,record);else xStartCatalog(id);}finally{xLearnerStartPrepared=false;}
+            // Generic Practice owns its resume/evidence. Never force Dictation progress onto it.
+            if(!u.practice)xResumeLearnerLesson(record);else if(!useDictation)xLearnerProgress.active=null;
+            xFlushLearnerProgress();
+        }
         let studyTimer = null;
         let sessionSeconds = 0;
 
@@ -532,15 +585,17 @@ Danh sách từ/cụm từ của tôi:
 
         function stopStudyTimerAndSave() {
             if (studyTimer) clearInterval(studyTimer);
-            if (!currentUser || sessionSeconds < 10) return;
-            const minutesEarned = Math.round(sessionSeconds / 60) || 1;
+            const seconds=sessionSeconds;sessionSeconds=0;
+            if (!currentUser || seconds < 10) return;
+            const timerUser=currentUser, timerUid=timerUser.uid;
+            const minutesEarned = Math.round(seconds / 60) || 1;
             userProfileData.totalMinutes = (userProfileData.totalMinutes || 0) + minutesEarned;
             const now=new Date(), pad=n=>String(n).padStart(2,'0');
             const dayKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
             const monthKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
             const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); const weekKey=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-            const ref=db.collection('users_profile').doc(currentUser.uid);
-            db.runTransaction(async tx=>{const snap=await tx.get(ref), old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||currentUser.displayName||currentUser.email,avatar:currentUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>xLoadLeaderboard('daily'));
+            const ref=db.collection('users_profile').doc(timerUid);
+            db.runTransaction(async tx=>{if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const snap=await tx.get(ref);if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||timerUser.displayName||timerUser.email,avatar:timerUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>{if(currentUser?.uid===timerUid)xLoadLeaderboard('daily')}).catch(()=>{if(currentUser?.uid===timerUid)xToast('Chưa xác nhận lưu thời gian học.');});
         }
 
         function loginWithGoogle() {
@@ -554,21 +609,36 @@ Danh sách từ/cụm từ của tôi:
         let xAuthReady = false;
         auth.onAuthStateChanged(user => {
             const nextUid=user?.uid||null;
-            if (xPreviousAuthUid && xPreviousAuthUid !== nextUid) {
+            if (xPreviousAuthUid !== nextUid) {
+                if(!xPreviousAuthUid&&Object.keys(unitsData).length)xGuestUnitsMemory=unitsData;
+                xFlushLearnerProgress();xCancelStudyAdvance();xStopTranscriptPlayback();ManFixedAudio.stop();window.speechSynthesis?.cancel();
+                if(studyTimer)clearInterval(studyTimer);sessionSeconds=0;
+                document.getElementById('dictation-app')?.classList.add('hidden');
+                document.getElementById('summary-section')?.classList.add('hidden');
+                document.getElementById('dictation-placeholder')?.classList.remove('hidden');
+                document.getElementById('full-transcript-list')?.replaceChildren();
+                document.getElementById('user-input').value='';
+                document.getElementById('x-private-manager')?.classList.add('x-hidden');
+                for(const id of ['x-private-name','x-private-en','x-private-vi'])document.getElementById(id).value='';
+                xPrivateManagedName=null;xPrivateManagedOriginal=null;
+                document.getElementById('x-library-modal')?.classList.add('x-hidden');
                 unitsData={};
                 xCloudLoadedForUid=null;
                 xCloudUnitsSnapshot=null;
                 xPrivateCloudRevision++;
+                xPrivateSaveQueue=Promise.resolve();xPrivateSaveScheduled=null;
+                xPrivateManagerGeneration++;xPrivateManagerBusy=false;
                 userProfileData={nickname:'',motto:'',totalMinutes:0};
                 items=[];
-                try{sessionStorage.removeItem('man_study_v1')}catch(e){}
+                // Keep unmatched legacy session/data; never assign it to the next UID.
                 updateUnitDropdown();renderUnitSelector();renderCurrentUnitPreview();
                 xRenderCarousel('mine');
             }
             xPreviousAuthUid=nextUid;
             currentUser = user;
+            if(xLearnerProgress.uid!==nextUid||!xLearnerProgress.ready)xLearnerProgress.selectUid(nextUid);
             xAuthReady=true;
-            xLoadLocal();xRenderProgress();
+            xLoadLocal();xRenderProgress();xRenderCarousel('mine');xRenderCarousel('catalog');
             if(location.hash==='#learn')xRestoreStudy();
             const authContainer = document.getElementById('auth-container');
             const saveBtn = document.getElementById('save-cloud-btn');
@@ -737,14 +807,16 @@ Danh sách từ/cụm từ của tôi:
 
         function loadUserProfile() {
             if (!currentUser) return;
-            db.collection('users_profile').doc(currentUser.uid).get().then(doc => {
+            const uid=currentUser.uid,revision=xPrivateCloudRevision;
+            db.collection('users_profile').doc(uid).get().then(doc => {
+                if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)return;
                 if (doc.exists) {
                     userProfileData = doc.data();
                     if (userProfileData.nickname) {
                         document.getElementById('header-name').innerText = userProfileData.nickname;
                     }
                 }
-            });
+            }).catch(()=>{if(currentUser?.uid===uid)xToast('Chưa tải được hồ sơ tài khoản.');});
         }
 
         function switchTab(tabId, btn) {
@@ -769,6 +841,7 @@ Danh sách từ/cụm từ của tôi:
             if (!unitsData[unitName]) unitsData[unitName] = [];
 
             unitsData[unitName].push({ en, vi });
+            xStampPrivateLesson(unitName);
             document.getElementById('input-en').value = '';
             document.getElementById('input-vi').value = '';
             
@@ -805,7 +878,7 @@ Danh sách từ/cụm từ của tôi:
             updateUnitDropdown();
             renderUnitSelector();
             renderCurrentUnitPreview();
-            if (count) xQueuePrivateSave();
+            if (count) {xStampPrivateLesson(unitName);xQueuePrivateSave();}
             alert(`⚡ Đã tự động phân tách và ghép cặp thành công ${count} câu vào ${unitName}!`);
         }
 
@@ -848,6 +921,7 @@ Danh sách từ/cụm từ của tôi:
                     const unitName = getActiveUnitName();
                     if (!unitsData[unitName]) unitsData[unitName] = [];
                     unitsData[unitName].push(...newItems);
+                    xStampPrivateLesson(unitName);
                     updateUnitDropdown();
                     renderUnitSelector();
                     renderCurrentUnitPreview();
@@ -913,7 +987,9 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function deleteSentence(unitName, idx) {
+            const previous=JSON.parse(JSON.stringify(unitsData[unitName]));
             unitsData[unitName].splice(idx, 1);
+            xStampPrivateLesson(unitName,previous);
             renderCurrentUnitPreview();
             renderUnitSelector();
             xQueuePrivateSave();
@@ -945,6 +1021,7 @@ Danh sách từ/cụm từ của tôi:
         let xCloudUnitsSnapshot = null;
         let xPrivateCloudRevision = 0;
         let xPrivateSaveQueue = Promise.resolve();
+        let xPrivateSaveScheduled=null;
         function xPrivateDraftKey(uid) { return 'man_private_draft_v1_' + uid; }
         function xPrivateSaveStatus(message) {
             const el = document.getElementById('private-save-status');
@@ -961,7 +1038,10 @@ Danh sách từ/cụm từ của tôi:
             try { sessionStorage.setItem(xPrivateDraftKey(uid), JSON.stringify(unitsData)); }
             catch (e) { xPrivateSaveStatus('⚠️ Không giữ được bản nháp trên thiết bị. Đừng tải lại trước khi thấy Đã lưu.'); }
             xPrivateSaveStatus('⏳ Đang lưu bài riêng vào tài khoản…');
+            if(xPrivateSaveScheduled===uid)return;
+            xPrivateSaveScheduled=uid;
             xPrivateSaveQueue = xPrivateSaveQueue.catch(() => {}).then(() => {
+                if(xPrivateSaveScheduled===uid)xPrivateSaveScheduled=null;
                 if (currentUser?.uid === uid) return saveToCloud();
             });
         }
@@ -986,15 +1066,23 @@ Danh sách từ/cụm từ của tôi:
             const uid=currentUser.uid;
             try {
                 if(xCloudLoadedForUid!==uid){await loadFromCloud();if(xCloudLoadedForUid!==uid)return}
-                const ref=db.collection('user_vocab').doc(uid), next=JSON.stringify(unitsData);
+                if(currentUser?.uid!==uid)return;
+                const revision=xPrivateCloudRevision;
+                const ref=db.collection('user_vocab').doc(uid), next=JSON.stringify(unitsData), expected=xCloudUnitsSnapshot;
+                if(new TextEncoder().encode(next).length>850000)throw Error('DATA_TOO_LARGE');
+                if(next===expected){const check=await ref.get({source:'server'});if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)return;if(!check.exists||check.data().units!==next)throw Error('SAVE_NOT_VERIFIED');if(sessionStorage.getItem(xPrivateDraftKey(uid))===next)sessionStorage.removeItem(xPrivateDraftKey(uid));xPrivateSaveStatus('✅ Đã đối chiếu server; không cần ghi lại nội dung không đổi.');return;}
                 await db.runTransaction(async tx=>{
+                    if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)throw Error('ACCOUNT_CHANGED');
                     const snapshot=await tx.get(ref);
+                    if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)throw Error('ACCOUNT_CHANGED');
                     const existing=snapshot.exists?(snapshot.data().units??null):null;
-                    if(existing!==xCloudUnitsSnapshot)throw new Error('CLOUD_CHANGED');
+                    if(existing!==expected)throw new Error('CLOUD_CHANGED');
                     tx.set(ref,{units:next,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
                 });
                 const verified = await ref.get({source:'server'});
                 if (!verified.exists || verified.data().units !== next) throw new Error('SAVE_NOT_VERIFIED');
+                if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)return;
+                xPrivateCloudRevision++;
                 xCloudUnitsSnapshot=next;
                 try {
                     if (sessionStorage.getItem(xPrivateDraftKey(uid)) === next)
@@ -1004,11 +1092,14 @@ Danh sách từ/cụm từ của tôi:
                 xPrivateSaveStatus('✅ Đã lưu vào tài khoản và kiểm tra lại trên server.');
                 xToast('💾 Đã lưu bài riêng vào tài khoản của bạn.');
             } catch(error) {
+                if(currentUser?.uid!==uid)return;
                 console.error('Could not save personal lessons',error);
                 if(error.message==='CLOUD_CHANGED'){
-                    await loadFromCloud();
+                    await loadFromCloud({autoSaveDraft:false});
+                    if(currentUser?.uid!==uid)return;
                     xPrivateSaveStatus('⚠️ Có thay đổi từ phiên khác. Bài nháp còn trong phiên này; hãy xem lại và lưu lần nữa.');
                     xToast('Có bài mới từ phiên khác. Đã giữ cả hai bản; xem lại rồi lưu lần nữa nha.');
+                } else if(error.message==='DATA_TOO_LARGE'){xPrivateSaveStatus('Bài riêng quá lớn để lưu an toàn. Bản nháp vẫn được giữ; hãy giảm nội dung.');
                 } else {
                     xPrivateSaveStatus('⚠️ Chưa xác nhận lưu trên server. Bài nháp còn trong phiên này; bấm Lưu toàn bộ để thử lại.');
                     xToast('Bài vẫn trên thiết bị này; chưa lưu được vào tài khoản. Thử lại nha.');
@@ -1016,7 +1107,7 @@ Danh sách từ/cụm từ của tôi:
             }
         }
 
-        async function loadFromCloud() {
+        async function loadFromCloud(options={}) {
             if (!currentUser) return;
             const uid = currentUser.uid;
             const revision = xPrivateCloudRevision;
@@ -1025,7 +1116,7 @@ Danh sách từ/cụm từ của tôi:
                 return;
             }
             try {
-                const draft = sessionStorage.getItem(xPrivateDraftKey(uid));
+                let draft = sessionStorage.getItem(xPrivateDraftKey(uid));
                 if (draft) {
                     const parsed = JSON.parse(draft);
                     if (parsed && !Array.isArray(parsed) && typeof parsed === 'object' &&
@@ -1034,6 +1125,7 @@ Danh sách từ/cụm từ của tôi:
                 }
                 const doc = await db.collection('user_vocab').doc(uid).get({source:'server'});
                 if (currentUser?.uid !== uid || revision !== xPrivateCloudRevision) return;
+                draft=sessionStorage.getItem(xPrivateDraftKey(uid));
                 const raw = doc.exists ? doc.data().units : null;
                 const remote = raw ? JSON.parse(raw) : {};
                 if (!remote || Array.isArray(remote) || typeof remote !== 'object' ||
@@ -1046,17 +1138,20 @@ Danh sách từ/cụm từ của tôi:
                 unitsData = merged;
                 xCloudLoadedForUid = uid;
                 xCloudUnitsSnapshot = raw;
+                if(location.hash==='#learn'&&document.getElementById('dictation-app')?.classList.contains('hidden'))xRestoreStudy();
                 updateUnitDropdown();
                 renderUnitSelector();
                 renderCurrentUnitPreview();
                 xRenderCarousel('mine');
                 if (Object.keys(remote).length && !draft) xPrivateSaveStatus('📂 Đã tải bài riêng từ tài khoản.');
                 else if (draft) xPrivateSaveStatus('📂 Đã khôi phục bản nháp trên thiết bị; đang đối chiếu tài khoản.');
-                if (draft && currentUser?.uid === uid && JSON.stringify(merged) !== raw)
+                if(draft)sessionStorage.setItem(xPrivateDraftKey(uid),JSON.stringify(merged));
+                if (draft && !conflicts && options.autoSaveDraft!==false && currentUser?.uid === uid && JSON.stringify(merged) !== raw)
                     xQueuePrivateSave();
                 if (conflicts) xToast('Có bài cùng tên nhưng khác nội dung. Mình giữ hai bản để bạn xem lại nha.');
                 else if (Object.keys(remote).length) xToast('📂 Bài trên tài khoản đã có trong Bài của tôi.');
             } catch (e) {
+                if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)return;
                 console.error(e);
                 xPrivateSaveStatus('⚠️ Chưa tải được bài từ tài khoản. Bài nháp trong phiên vẫn được giữ.');
                 xToast('Chưa tải được bài trên tài khoản; bài trên máy vẫn nguyên nha.');
@@ -1077,14 +1172,14 @@ Danh sách từ/cụm từ của tôi:
             };
             for (const [name, lesson] of Object.entries(sampleUnits)) {
                 if (!Object.prototype.hasOwnProperty.call(unitsData, name)) {
-                    unitsData[name] = lesson;
+                    unitsData[name] = ManLearnerProgress.reviseItems(lesson);
                 } else if (JSON.stringify(unitsData[name]) !== JSON.stringify(lesson)) {
                     let copy = name + ' (bài mẫu)', number = 2;
                     while (Object.prototype.hasOwnProperty.call(unitsData, copy) &&
                            JSON.stringify(unitsData[copy]) !== JSON.stringify(lesson)) {
                         copy = name + ' (bài mẫu ' + number++ + ')';
                     }
-                    unitsData[copy] = lesson;
+                    unitsData[copy] = ManLearnerProgress.reviseItems(lesson);
                 }
             }
             updateUnitDropdown();
@@ -1136,6 +1231,7 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function startApp() {
+            xFlushLearnerProgress();xLearnerProgress.active=null;xCancelStudyAdvance();
             items = [];
 
             const checkboxes = document.querySelectorAll('#unit-selector input[type="checkbox"]:checked');
@@ -1212,6 +1308,8 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function loadQuestion(index) {
+            if(!Number.isInteger(index)||!items[index])return;
+            xCancelStudyAdvance();xLearnerProgress.visit(index);
             isQuestionResolved = false;
             currentMistakeStage = 0; xWasError = false;
             document.getElementById('progress-tag').innerText = `Câu ${index + 1}/${items.length}`;
@@ -1228,7 +1326,8 @@ Danh sách từ/cụm từ của tôi:
             statusMsg.innerText = 'Có mùi cao thủ rồi.';
 
             renderPronunciationWords();
-            playAudio();
+            const token=xStudyRunToken,question=items[index],uid=currentUser?.uid||null;
+            requestAnimationFrame(()=>requestAnimationFrame(()=>{if(token===xStudyRunToken&&items[index]===question&&currentIndex===index&&(currentUser?.uid||null)===uid&&document.getElementById('x-learn')?.classList.contains('active')&&document.getElementById('x-library-modal').classList.contains('x-hidden'))playAudio();}));
             inputEl.focus();
             xSaveStudyState('active');
         }
@@ -1308,7 +1407,9 @@ Danh sách từ/cụm từ của tôi:
                 if (!isQuestionResolved) {
                     correctCount++;
                     isQuestionResolved = true;
-                    setTimeout(() => { if (currentIndex < items.length - 1) nextQuestion(); else { stopStudyTimerAndSave(); showSummary(); } }, 2600);
+                    xRecordLearnerOutcome('correct');xSaveStudyState('resolved');
+                    const token=xStudyRunToken,index=currentIndex,uid=currentUser?.uid||null;
+                    xAdvanceTimer=setTimeout(() => { if(token!==xStudyRunToken||index!==currentIndex||(currentUser?.uid||null)!==uid||!document.getElementById('x-learn')?.classList.contains('active')||!document.getElementById('x-library-modal').classList.contains('x-hidden'))return;if (currentIndex < items.length - 1) nextQuestion(); else { stopStudyTimerAndSave(); showSummary(); } }, 2600);
                 }
             } else {
                 inputEl.className = 'user-textarea';
@@ -1360,6 +1461,7 @@ Danh sách từ/cụm từ của tôi:
             statusMsg.className = 'status-message active error-text';
             const nb = document.getElementById('x-next-manual');
             if (nb) nb.classList.remove('hidden');
+            xRecordLearnerOutcome('giveup');
             xSaveStudyState('revealed');
         }
 
@@ -1380,6 +1482,7 @@ Danh sách từ/cụm từ của tôi:
                 if (!isQuestionResolved) {
                     correctCount++;
                     isQuestionResolved = true;
+                    xRecordLearnerOutcome('correct');xSaveStudyState('resolved');
                 }
             } else {
                 inputEl.className = 'user-textarea has-error';
@@ -1396,6 +1499,9 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function nextQuestion() {
+            xCancelStudyAdvance();
+            if(!items[currentIndex])return;
+            if(!isQuestionResolved)xRecordLearnerOutcome('skip');
             document.getElementById('show-full').checked = false;
 
             if (!isQuestionResolved) {
@@ -1415,6 +1521,7 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function showSummary() {
+            xCancelStudyAdvance();xFlushLearnerProgress();
             document.getElementById('dictation-app').classList.add('hidden');
             document.getElementById('summary-section').classList.remove('hidden');
             document.getElementById('x-summary-lessons')?.classList.add('hidden');
@@ -1509,6 +1616,7 @@ Danh sách từ/cụm từ của tôi:
         }
 
         function xEndStudyFromSummary() {
+            xFlushLearnerProgress();xLearnerProgress.active=null;xCancelStudyAdvance();
             xStopTranscriptPlayback();
             stopStudyTimerAndSave();
             try { sessionStorage.removeItem('man_study_v1'); } catch (e) {}
@@ -1540,7 +1648,7 @@ function xSetStudyContext(name, count){
  const context=document.getElementById('study-context');
  if(context) context.textContent=`${name} · ${count} câu`;
 }
-function xQuickTrial(){
+function xQuickTrial(){xFlushLearnerProgress();xLearnerProgress.active=null;xCancelStudyAdvance();
  try{
    items=[
      {en:'Where is Jane?',vi:'Jane ở đâu vậy?'},
@@ -1573,6 +1681,9 @@ function xResetPassword(){
 const X_VIEWS=new Set(['home','learn','mine','catalog','progress','me','notifications','about','prompts']);
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
+ if(xLibraryClosePending&&options.historyMode!=='pop'){const intent=++xLibraryIntent;xLibraryClosePending.then(()=>{if(intent===xLibraryIntent)xGo(view,options)});return;}
+ if(view!=='learn'){xFlushLearnerProgress();xCancelStudyAdvance();}
+ if(view==='learn'&&xLibrarySelectReplace){options={...options,historyMode:'replace'};xLibrarySelectReplace=false;}
  const previousScroll=window.scrollY;
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');
  if(heading) heading.textContent=view==='catalog'?'📚 Chọn bài học của Mặn':'📥 Bài của tôi — tạo hoặc chọn bài';
@@ -1615,8 +1726,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script id="xnot-final-functional-js">
 const XNOT={favorites:[],review:[],history:[],replays:0,sessionStart:null};
 function xLocalKey(kind){return `xnot_${kind}`+(currentUser?.uid?`_uid_${currentUser.uid}`:'')}
-function xLoadLocal(){for(const kind of ['favorites','review','history']){try{const data=JSON.parse(localStorage.getItem(xLocalKey(kind))||'[]');XNOT[kind]=Array.isArray(data)?data:[]}catch(e){XNOT[kind]=[]}}}
-function xSaveLocal(){for(const kind of ['favorites','review','history'])localStorage.setItem(xLocalKey(kind),JSON.stringify(XNOT[kind]))}
+function xLoadLocal(){if(!currentUser){for(const k of ['favorites','review','history'])XNOT[k]=[];return}for(const kind of ['favorites','review','history']){try{const data=JSON.parse(localStorage.getItem(xLocalKey(kind))||'[]');XNOT[kind]=Array.isArray(data)?data:[]}catch(e){XNOT[kind]=[]}}}
+function xSaveLocal(){if(!currentUser)return;for(const kind of ['favorites','review','history'])localStorage.setItem(xLocalKey(kind),JSON.stringify(XNOT[kind]))}
 
 const XHERO=[
  {bg:'linear-gradient(125deg,#ffe59d,#ffc99e)',tag:'🏘️ XÓM NÀY OUT TRÌNH',title:'Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng “em” thì còn có thể baby à!',desc:'Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.',btn:'🎧 Thử 5 câu ngay →',act:"xQuickTrial()"},
@@ -1628,13 +1739,13 @@ function xToast(msg){const d=document.createElement('div');d.className='x-toast'
 function xEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function xGlobalSearch(){const q=document.getElementById('x-global-search').value.trim();xGo('catalog');loadCatalogUnits().then(()=>{const e=document.getElementById('catalog-search');if(e){e.value=q;filterCatalogUnits()}})}
 function xFavoriteUnit(id){const u=(catalogUnitsCache||[]).find(x=>x.id===id);if(!u)return;const i=XNOT.favorites.findIndex(x=>x.id===id);if(i>=0){XNOT.favorites.splice(i,1);xToast('Đã bỏ khỏi Để dành')}else{XNOT.favorites.push({id:u.id,unitName:u.unitName,level:u.level,topic:u.topic,items:u.items||[]});xToast('❤️ Đã để dành bài này')}xSaveLocal();xRenderProgress();}
-function xStartCatalog(id){const u=(catalogUnitsCache||[]).find(x=>x.id===id);if(!u||u.publisher!=='man'||u.status!=='published'||!u.items?.length)return;items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài chính thức',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);}
+function xStartCatalog(id){const u=(catalogUnitsCache||[]).find(x=>x.id===id);if(!u||u.publisher!=='man'||u.status!=='published'||!u.items?.length)return;if(!xLearnerStartPrepared)xBeginLearnerLesson(u);items=[...u.items];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(u.unitName||'Bài chính thức',items.length);XNOT.sessionStart=Date.now();XNOT.replays=0;document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');xGo('learn');startStudyTimer();loadQuestion(0);}
 function xRenderCatalogModern(list){const el=document.getElementById('catalog-units-list');if(!el)return;if(!list?.length){el.innerHTML='<div class="x-empty">🐱 Chưa có bài học phù hợp bộ lọc lúc này. <button class="x-primary" onclick="xQuickTrial()">🎧 Thử 5 câu trước nha</button></div>';return}el.style.maxHeight='none';el.style.overflow='visible';el.className='x-cardgrid';el.innerHTML=list.map(u=>`<article class="x-lesson"><div style="font-size:28px">${u.track==='IELTS'?'🎓':u.track==='TOEIC'?'📝':'🎧'}</div><h3 style="margin:8px 0">${xEsc(u.unitName)}</h3><div class="x-meta"><span class="x-pill level">${xEsc(u.level||'A1-A2')}</span><span class="x-pill">${xEsc(u.topic||'Đời sống')}</span><span class="x-pill track">${xEsc(u.track||'Giao tiếp')}</span></div><p style="font-size:13px;color:#707786">📚 ${(u.items||[]).length} câu · Mặn biên soạn</p><div style="display:flex;gap:8px"><button class="x-mini-btn x-study" data-catalog-action="study" data-unit-id="${xEsc(u.id)}">🔥 Chiến bài này</button><button class="x-mini-btn x-save" data-catalog-action="favorite" data-unit-id="${xEsc(u.id)}">❤️ Để dành</button></div></article>`).join('');}
 
 document.getElementById('catalog-units-list')?.addEventListener('click',e=>{const b=e.target.closest('[data-catalog-action]');if(!b)return;if(b.dataset.catalogAction==='study')xStartCatalog(b.dataset.unitId);else xFavoriteUnit(b.dataset.unitId)});
 function xInjectCatalogFilters(){const sec=document.getElementById('section-catalog');if(!sec||document.getElementById('x-level-filters'))return;const row=document.createElement('div');row.id='x-level-filters';row.innerHTML=`<div class="x-note"><b>📚 Bài chính thức của Mặn.</b> Level chỉ là bộ lọc, không phải cửa kiểm tra.</div><div class="x-chiprow"><button class="x-chip active" data-lv="">Tất cả</button><button class="x-chip" data-lv="A1">A1</button><button class="x-chip" data-lv="A2">A2</button><button class="x-chip" data-lv="B1">B1</button><button class="x-chip" data-lv="B2">B2</button><button class="x-chip" data-lv="C1">C1</button><button class="x-chip" data-lv="C2">C2</button><button class="x-chip" data-track="TOEIC">TOEIC</button><button class="x-chip" data-track="IELTS">IELTS</button></div>`;sec.insertBefore(row,sec.firstChild);row.querySelectorAll('.x-chip').forEach(b=>b.onclick=()=>{row.querySelectorAll('.x-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');let list=[...(catalogUnitsCache||[])];const lv=b.dataset.lv,tr=b.dataset.track;if(lv)list=list.filter(x=>String(x.level||'').includes(lv));if(tr)list=list.filter(x=>x.track===tr||String(x.topic||'').includes(tr));xRenderCatalogModern(list)})}
 function xRenderProgress(){const el=document.getElementById('x-progress-dashboard');if(!el)return;const h=XNOT.history,r=XNOT.review,f=XNOT.favorites;const sentences=h.reduce((a,x)=>a+(x.total||0),0);const last=h[h.length-1];const first=h[0];let story='Mỗi câu bắt được đều tính. Chậm cũng được, miễn còn quay lại.';if(first&&last&&h.length>1)story=`🥹 Ngày ấy & Bây giờ: lần đầu ${first.accuracy||0}%, gần nhất ${last.accuracy||0}%. Người gì đâu vừa đẹp lại còn tiến bộ.`;el.innerHTML=`<div class="x-cardgrid"><div class="x-kpi"><strong>${h.length}</strong>phiên đã chiến</div><div class="x-kpi"><strong>${sentences}</strong>câu đã gặp</div><div class="x-kpi"><strong>${r.length}</strong>cơ hội gỡ gạc</div></div><div class="x-panel" style="margin-top:16px"><h3>🥹 Ngày ấy & Bây giờ</h3><p>${story}</p></div><div class="x-two" style="margin-top:16px"><div class="x-panel"><h3>🔁 Cơ hội gỡ gạc</h3>${r.length?r.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.en)}</b><br><small>${xEsc(x.vi||'')}</small></div>`).join(''):'<p>Chưa có món nợ nào. Tai và não đang hòa thuận. 😌</p>'}${r.length?'<br><button class="x-primary" onclick="xRetrySaved()">🔥 Gỡ gạc ngay</button>':''}</div><div class="x-panel"><h3>❤️ Để dành</h3>${f.length?f.slice(0,6).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee"><b>${xEsc(x.unitName)}</b> · ${xEsc(x.level||'')}</div>`).join(''):'<p>Chưa để dành bài nào. Thử xem Kho bài học của Mặn nha.</p>'}</div></div>`}
-function xRetrySaved(){if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
+function xRetrySaved(){xFlushLearnerProgress();xLearnerProgress.active=null;xCancelStudyAdvance();if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Session capture + review list
 const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xShowNextLessons();xSaveStudyState('summary');xRenderProgress();};
@@ -1695,17 +1806,32 @@ const xRenderProgress03=window.xRenderProgress;window.xRenderProgress=function()
 const xSaveCloud03=window.saveToCloud;window.saveToCloud=function(){if(!auth.currentUser&&!currentUser){xToast('🔐 Đăng nhập để lưu bài vở, lần sau còn gọi lại được nha.');setTimeout(()=>xGo('me'),650);return}return xSaveCloud03()}
 // Lesson carousels and 12-card library.
 let xCarouselIndex={mine:0,catalog:0},xLibMode='mine',xLibPage=1;
-function xMineLessons(){return Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:'mine-'+i,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}))}
+function xMineLessons(){if(currentUser&&xCloudLoadedForUid!==currentUser.uid)return [];const rows=Object.keys(window.unitsData||unitsData||{}).map((name,i)=>({id:ManLearnerProgress.privateIdentity((window.unitsData||unitsData)[name])?.id||null,unitName:name,items:(window.unitsData||unitsData)[name]||[],level:'',topic:'Bài cá nhân',track:'',mine:true}));for(const u of rows)u.identityAmbiguous=!!u.id&&rows.filter(v=>v.id===u.id).length!==1;return rows}
 function xCatalogLessons(){return (window.catalogUnitsCache||catalogUnitsCache||[]).map(x=>({...x,mine:false}))}
-function xLessonCard(u){const n=u.items?.length||0;return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu · ${u.mine?'Bài riêng của bạn':'Bài chính thức của Mặn'}</p><button class="x-primary" data-lesson-action="study" data-lesson-mine="${u.mine?'true':'false'}" data-unit-id="${xEsc(u.mine?u.unitName:u.id)}">🔥 Chiến bài này</button>${u.mine?` <button class="btn btn-note" type="button" data-lesson-action="manage" data-unit-id="${xEsc(u.unitName)}">✏️ Sửa / Xóa</button>`:''}</article>`}
-document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="study"]');if(!b)return;if(b.dataset.lessonMine==='true')xStartMine(b.dataset.unitId);else xStartCatalog(b.dataset.unitId)});
+function xLessonCard(u){
+ const n=u.items?.length||0,id=ManLearnerProgress.identity(u),signed=!!currentUser&&xLearnerProgress.uid===currentUser.uid&&xLearnerProgress.ready;
+ const p=signed?xLearnerProgress.view(id):null;
+ const progress=p?`<p class="x-progress-kind">Tiến độ luyện chính tả</p><p>${p.status==='complete'?'✅ Hoàn thành':p.status==='active'?'Đang học':p.status==='changed'?'Nội dung đã đổi — bắt đầu phiên mới':'Chưa học'} · ${p.processed}/${n} câu đã xử lý</p><progress max="${n}" value="${p.processed}" aria-label="Số câu đã xử lý"></progress><small>Trên thiết bị này${p.unsaved?' · chưa xác nhận lưu':''}</small>`:signed&&!id?'<small>Chưa có mã bài ổn định; chưa lưu tiến độ cho bài cũ.</small>':currentUser?'<small>Chưa tải được tiến độ đúng tài khoản.</small>':'';
+ const action=p?.status==='active'?'Học tiếp':p?.status==='complete'?'Học lại':'Chiến bài này';
+ return `<article class="x-lesson-card"><div class="x-meta"><span class="x-pill ${u.level?'level':''}">${xEsc(u.level||u.topic||'Bài học')}</span>${u.track?`<span class="x-pill track">${xEsc(u.track)}</span>`:''}</div><h4>${xEsc(u.unitName||'Bài chưa đặt tên')}</h4><p>${n} câu · ${u.mine?'Bài riêng của bạn':'Bài chính thức của Mặn'}</p>${progress}<button class="x-primary" data-lesson-action="study" data-resume="${p?.status==='active'}" data-lesson-mine="${u.mine?'true':'false'}" data-unit-id="${xEsc(u.mine?u.unitName:u.id)}">🔥 ${action}</button>${u.mine?` <button class="btn btn-note" type="button" data-lesson-action="manage" data-unit-id="${xEsc(u.unitName)}">✏️ Sửa / Xóa</button>`:''}</article>`;
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="study"]');if(!b)return;xStartLessonChoice(b.dataset.lessonMine==='true',b.dataset.unitId,b.dataset.resume==='true')});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-action="manage"]');if(b)xOpenPrivateManager(b.dataset.unitId)});
 function xRenderCarousel(mode){const el=document.getElementById(mode==='mine'?'x-mine-carousel':'x-catalog-carousel');if(!el)return;const lessons=mode==='mine'?xMineLessons():xCatalogLessons();const arr=mode==='mine'?lessons.slice(-6).reverse():lessons.slice(0,6);if(!arr.length){el.innerHTML=mode==='mine'?'<div class="x-empty">Bài riêng của bạn sẽ nằm ở đây. Có thể tạo bài hoặc học thử trước nha.</div>':'<div class="x-empty">Kho đang tải bài của Mặn. Bạn có thể <button class="x-primary" onclick="xQuickTrial()">🎧 thử 5 câu ngay</button>.</div>';return}el.innerHTML=`<button class="x-carousel-arrow prev" onclick="xCarouselMove('${mode}',-1)">‹</button><div class="x-carousel" id="x-carousel-${mode}">${arr.map(xLessonCard).join('')}</div><button class="x-carousel-arrow next" onclick="xCarouselMove('${mode}',1)">›</button>`}
 function xCarouselMove(mode,dir){const lessons=mode==='mine'?xMineLessons():xCatalogLessons();const arr=mode==='mine'?lessons.slice(-6):lessons.slice(0,6),el=document.getElementById('x-carousel-'+mode);if(!el||!arr.length)return;xCarouselIndex[mode]=(xCarouselIndex[mode]+dir+arr.length)%arr.length;const card=el.querySelector('.x-lesson-card');if(!card)return;const step=card.getBoundingClientRect().width+14;el.scrollTo({left:step*xCarouselIndex[mode],behavior:'smooth'})}
-function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
+function xStartMine(name){const list=(window.unitsData||unitsData||{})[name]||[];if(!list.length)return xToast('Bài này chưa có câu nào để chiến.');if(!xLearnerStartPrepared)xBeginLearnerLesson(xMineLessons().find(u=>u.unitName===name));items=[...list];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=false;xSetStudyContext(name,items.length);xGo('learn');document.getElementById('dictation-placeholder')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xScrollToInput(){xGo('mine');setTimeout(()=>document.getElementById('setup-section')?.scrollIntoView({behavior:'smooth'}),80)}
-function xOpenLibrary(mode,options={}){if(xLibMode!==mode){const filters=document.getElementById('x-lib-filters');if(filters){filters.replaceChildren();delete filters.dataset.ready}}xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'📚 Khám phá Kho bài học';xRenderLibrary();if(mode==='catalog')loadCatalogUnits()}
-function xCloseLibrary(options={}){if(!options.fromHistory&&history.state?.xModal==='library'){history.back();return}document.getElementById('x-library-modal')?.classList.add('x-hidden');if(!options.fromHistory&&location.hash.endsWith('/library'))history.replaceState({xView:xLibMode},'',location.pathname+location.search+'#'+xLibMode)}
+function xOpenLibrary(mode,options={}){if(xLibraryClosePending){const intent=++xLibraryIntent;xLibraryClosePending.then(()=>{if(intent===xLibraryIntent)xOpenLibrary(mode,options)});return;}xCancelStudyAdvance();if(isQuestionResolved)document.getElementById('x-next-manual')?.classList.remove('hidden');if(document.getElementById('x-library-modal').classList.contains('x-hidden'))xLibraryReturn={view:document.querySelector('.x-view.active')?.id?.replace('x-','')||mode,focus:document.activeElement};if(xLibMode!==mode){const filters=document.getElementById('x-lib-filters');if(filters){filters.replaceChildren();delete filters.dataset.ready}}xLibMode=mode;xLibPage=1;if(options.historyMode!=='pop'){history.replaceState({...history.state,scrollY:window.scrollY},'',location.href);history.pushState({xView:mode,xModal:'library',scrollY:window.scrollY},'',location.pathname+location.search+'#'+mode+'/library')}document.getElementById('x-library-modal')?.classList.remove('x-hidden');document.getElementById('x-lib-title').textContent=mode==='mine'?'📚 Toàn bộ bài của tôi':'📚 Khám phá Kho bài học';xRenderLibrary();if(mode==='catalog')loadCatalogUnits()}
+function xCloseLibrary(options={}){
+ const modal=document.getElementById('x-library-modal'),open=!modal.classList.contains('x-hidden');modal.classList.add('x-hidden');
+ if(!options.fromHistory&&open){
+  if(!options.forStudy&&history.state?.xModal==='library'){
+   if(!xLibraryClosePending){xLibraryClosePending=new Promise(resolve=>window.addEventListener('popstate',()=>{xLibraryClosePending=null;resolve()},{once:true}));history.back();}
+  }else{const view=xLibraryReturn?.view||xLibMode;history.replaceState({xView:view,scrollY:window.scrollY},'',location.pathname+location.search+'#'+view);}
+ }
+ if(options.forStudy)xLibrarySelectReplace=true;else if(open)xLibraryReturn?.focus?.focus();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('x-library-modal').classList.contains('x-hidden')){e.preventDefault();xCloseLibrary()}});
 function xRenderLibrary(){let arr=xLibMode==='mine'?xMineLessons():xCatalogLessons();const topics=[...new Set(arr.map(x=>x.topic).filter(Boolean))],levels=[...new Set(arr.map(x=>x.level).filter(Boolean))];const f=document.getElementById('x-lib-filters');if(f&&!f.dataset.ready){f.innerHTML=`<input id="x-lib-q" placeholder="🔎 Tìm bài..." oninput="xLibPage=1;xRenderLibrary()"><select id="x-lib-level" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả level</option></select><select id="x-lib-topic" onchange="xLibPage=1;xRenderLibrary()"><option value="">Tất cả chủ đề</option></select>`;f.dataset.ready='1'}const ls=document.getElementById('x-lib-level'),ts=document.getElementById('x-lib-topic');if(ls&&ls.options.length===1)levels.forEach(v=>ls.add(new Option(v,v)));if(ts&&ts.options.length===1)topics.forEach(v=>ts.add(new Option(v,v)));const q=(document.getElementById('x-lib-q')?.value||'').toLowerCase(),lv=ls?.value||'',tp=ts?.value||'';arr=arr.filter(x=>(!q||(x.unitName||'').toLowerCase().includes(q))&&(!lv||x.level===lv)&&(!tp||x.topic===tp));const pages=Math.max(1,Math.ceil(arr.length/12));xLibPage=Math.min(xLibPage,pages);document.getElementById('x-lib-grid').innerHTML=arr.slice((xLibPage-1)*12,xLibPage*12).map(xLessonCard).join('')||`<div class="x-empty">${xLibMode==='catalog'?(xCatalogLoadError?'Chưa tải được Kho bài học. Đóng và mở lại để thử.':catalogPromise?'Đang tải bài của Mặn…':'Chưa thấy bài hợp bộ lọc này.'):'Chưa thấy bài riêng nào hợp bộ lọc này.'}</div>`;document.getElementById('x-lib-pages').innerHTML=`<button ${xLibPage===1?'disabled':''} onclick="xLibPage--;xRenderLibrary()">← Previous</button>${Array.from({length:pages},(_,i)=>`<button class="${i+1===xLibPage?'active':''}" onclick="xLibPage=${i+1};xRenderLibrary()">${i+1}</button>`).join('')}<button ${xLibPage===pages?'disabled':''} onclick="xLibPage++;xRenderLibrary()">Next →</button>`}
 // Keep carousels fresh after existing render/update functions.
 const xRenderUnits03=window.renderUnitsUI; if(xRenderUnits03)window.renderUnitsUI=function(){const r=xRenderUnits03.apply(this,arguments);setTimeout(()=>xRenderCarousel('mine'),20);return r};
@@ -1883,10 +2009,24 @@ function xRestoreStudy(){
  try{saved=JSON.parse(sessionStorage.getItem(MAN_STUDY_KEY)||'null')}catch(e){return false}
  if(!xAuthReady)return false;
  if(!saved||saved.uid!==(currentUser?.uid||null)||Date.now()-saved.at>12*60*60*1000||!Array.isArray(saved.items)||!saved.items.length||saved.items.length>500||
-    !['active','revealed','summary'].includes(saved.phase)||!Number.isInteger(saved.currentIndex)||saved.currentIndex<0||saved.currentIndex>=saved.items.length){
-  try{sessionStorage.removeItem(MAN_STUDY_KEY)}catch(e){}return false;
+    !['active','revealed','resolved','summary'].includes(saved.phase)||!Number.isInteger(saved.currentIndex)||saved.currentIndex<0||saved.currentIndex>=saved.items.length){
+  return false; // Preserve unmatched legacy session; do not infer ownership or delete it.
+ }
+ if(!document.getElementById('dictation-app')?.classList.contains('hidden')&&items.length&&items[currentIndex]&&JSON.stringify(items)===JSON.stringify(saved.items))return true;
+ if(saved.items.some(it=>typeof it?.en!=='string'||(it.vi!==undefined&&typeof it.vi!=='string')))return false;
+ const savedAudio=saved.items[0]?.audio;
+ if(savedAudio?.lessonId){
+  const lesson=catalogUnitsCache.find(u=>u.id===savedAudio.lessonId&&u.version===savedAudio.lessonVersion&&u.publisher==='man'&&u.status==='published');
+  if(!lesson){if(!catalogUnitsCache.length)loadCatalogUnits().then(()=>{if((currentUser?.uid||null)===saved.uid&&location.hash==='#learn')xRestoreStudy()}).catch(()=>{});return false;}
+  if(saved.items.some(it=>!lesson.items.some(source=>source.audio?.sha256===it.audio?.sha256&&source.audio?.segmentId===it.audio?.segmentId)))return false;
+ }else if(currentUser){
+  if(xCloudLoadedForUid!==currentUser.uid)return false;
+  if(!Object.values(unitsData).some(list=>JSON.stringify(list)===JSON.stringify(saved.items)))return false;
  }
  items=saved.items;currentIndex=saved.currentIndex;
+ const source=savedAudio?xCatalogLessons().find(u=>u.id===savedAudio.lessonId):xMineLessons().find(u=>JSON.stringify(u.items)===JSON.stringify(saved.items));
+ const resumed=source?xLearnerProgress.begin(ManLearnerProgress.identity(source),true):null;
+ if(resumed&&(resumed.startedAt>saved.at||resumed.updatedAt>saved.at)){currentIndex=resumed.cursor;saved={...saved,draft:'',phase:Object.keys(resumed.outcomes).length===resumed.total?'summary':'active',correctCount:Object.values(resumed.outcomes).filter(v=>v==='correct').length,failedItemsList:items.filter((_,i)=>['giveup','skip'].includes(resumed.outcomes[i]))};}
  correctCount=Math.max(0,Math.min(items.length,Number(saved.correctCount)||0));
  failedItemsList=Array.isArray(saved.failedItemsList)?saved.failedItemsList:[];
  isRetryMode=!!saved.isRetryMode;
@@ -1898,13 +2038,13 @@ function xRestoreStudy(){
   document.getElementById('summary-section')?.classList.add('hidden');
   document.getElementById('dictation-app')?.classList.remove('hidden');
   switchStudyTab('dictation');startStudyTimer();loadQuestion(currentIndex);
-  if(saved.phase==='revealed'){
+  if(saved.phase==='revealed'||saved.phase==='resolved'){
    isQuestionResolved=true;failedItemsList=saved.failedItemsList||[];
    revealAnswer();
    const input=document.getElementById('user-input');if(input)input.disabled=true;
-   const msg=document.getElementById('status-msg');if(msg){msg.textContent='🏳️ Thôi tui chịu, cho xem đáp án đi mà!';msg.className='status-message active error-text'}
+   const msg=document.getElementById('status-msg');if(msg){msg.textContent=saved.phase==='resolved'?'Đã xử lý câu này. Chọn câu tiếp khi sẵn sàng.':'🏳️ Thôi tui chịu, cho xem đáp án đi mà!';msg.className='status-message active error-text'}
    document.getElementById('x-next-manual')?.classList.remove('hidden');
-   xSaveStudyState('revealed');
+   xSaveStudyState(saved.phase);
   }else{
    const input=document.getElementById('user-input');if(input)input.value=saved.draft||'';
   }
@@ -1925,13 +2065,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  input?.addEventListener('input',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(()=>xSaveStudyState('active'),350)});
 });
 window.addEventListener('popstate',event=>{
+ const closingLibrary=!!xLibraryClosePending;
  const route=xHashView();
  const library=/^(mine|catalog)\/library$/.exec(route);
  xCloseLibrary({fromHistory:true});
  const view=X_VIEWS.has(route)?route:library?library[1]:'home';
  xGo(view,{historyMode:'pop'});
  if(library)xOpenLibrary(library[1],{historyMode:'pop'});
- if(view==='learn'&&document.getElementById('dictation-app')?.classList.contains('hidden')&&document.getElementById('summary-section')?.classList.contains('hidden'))xRestoreStudy();
+ if(!closingLibrary&&view==='learn'&&document.getElementById('dictation-app')?.classList.contains('hidden')&&document.getElementById('summary-section')?.classList.contains('hidden'))xRestoreStudy();
  const top=Number.isFinite(event.state?.scrollY)?event.state.scrollY:0;
  requestAnimationFrame(()=>window.scrollTo({top,behavior:'instant'}));
 });
@@ -1940,10 +2081,12 @@ window.addEventListener('popstate',event=>{
 let xPrivateManagedName = null;
 let xPrivateManagedOriginal = null;
 let xPrivateManagerBusy = false;
+let xPrivateManagerGeneration=0;
 function xPrivateManagerError(message) {
   document.getElementById('x-private-error').textContent = message;
 }
 function xOpenPrivateManager(name) {
+  if(currentUser&&xCloudLoadedForUid!==currentUser.uid)return xToast('Đợi tải bài từ đúng tài khoản trước khi sửa.');
   if (!Object.prototype.hasOwnProperty.call(unitsData, name)) return;
   xPrivateManagedName = name;
   xPrivateManagedOriginal = JSON.parse(JSON.stringify(unitsData[name]));
@@ -1986,16 +2129,20 @@ async function xPersistPrivateMutation(oldName, expected, newName, items, removi
   if (sessionStorage.getItem(xPrivateDraftKey(uid))) throw new Error('UNSAVED_DRAFT');
   const ref = db.collection('user_vocab').doc(uid);
   let next;
+  const revision=xPrivateCloudRevision;
+  if(new TextEncoder().encode(JSON.stringify({...unitsData,[oldName]:items||[]})).length>850000)throw new Error('DATA_TOO_LARGE');
   await db.runTransaction(async tx => {
     if (currentUser?.uid !== uid) throw new Error('ACCOUNT_CHANGED');
     const snap = await tx.get(ref);
+    if(currentUser?.uid!==uid||revision!==xPrivateCloudRevision)throw new Error('ACCOUNT_CHANGED');
     const remote = snap.exists && snap.data().units ? JSON.parse(snap.data().units) : {};
     next = xApplyPrivateMutation(remote, oldName, expected, newName, items, removing);
+    if(new TextEncoder().encode(JSON.stringify(next)).length>850000)throw new Error('DATA_TOO_LARGE');
     tx.set(ref, {units:JSON.stringify(next),updatedAt:firebase.firestore.FieldValue.serverTimestamp()}, {merge:true});
   });
   const verified = await ref.get({source:'server'});
   if (!verified.exists || verified.data().units !== JSON.stringify(next)) throw new Error('SAVE_NOT_VERIFIED');
-  if (currentUser?.uid !== uid) throw new Error('ACCOUNT_CHANGED');
+  if (currentUser?.uid !== uid||revision!==xPrivateCloudRevision) throw new Error('ACCOUNT_CHANGED');
   xPrivateCloudRevision++;
   unitsData = next;
   xCloudUnitsSnapshot = verified.data().units;
@@ -2032,16 +2179,18 @@ async function xSavePrivateEdit() {
   if (!name || name.length > 120 || !en.length || en.length !== vi.length || en.some(x=>!x) || vi.some(x=>!x)) {
     xPrivateManagerError('Nhập tên bài và các cặp câu Anh–Việt; mỗi dòng ở hai ô phải tương ứng.'); return;
   }
-  const items = en.map((sentence,i)=>({...xPrivateManagedOriginal[i],en:sentence,vi:vi[i]}));
+  const items = ManLearnerProgress.reviseItems(en.map((sentence,i)=>{const item={...xPrivateManagedOriginal[i],en:sentence,vi:vi[i]};if(xPrivateManagedOriginal[i]?.en!==sentence)delete item.audio;return item;}),xPrivateManagedOriginal);
+  const actor=currentUser?.uid||null,operation=++xPrivateManagerGeneration;
   xPrivateManagerBusy = true;
   xPrivateManagerError('⏳ Đang lưu thay đổi…');
   try {
     const savedToAccount = !!currentUser?.uid;
     await xPersistPrivateMutation(xPrivateManagedName,xPrivateManagedOriginal,name,items,false);
+    if((currentUser?.uid||null)!==actor||operation!==xPrivateManagerGeneration)return;
     xPrivateManagerBusy = false;
     xPrivateManagerRefresh(name);
     xToast(savedToAccount?'✅ Đã sửa bài riêng và kiểm tra lại trên server.':'Đã sửa bài trong trang này. Đăng nhập để lưu lên tài khoản.');
-  } catch (error) { xPrivateManagerFailure(error); xPrivateManagerBusy = false; }
+  } catch (error) { if((currentUser?.uid||null)===actor&&operation===xPrivateManagerGeneration){xPrivateManagerFailure(error);xPrivateManagerBusy = false;} }
 }
 function xAskPrivateDelete() {
   if (xPrivateManagerBusy || xPrivateManagedName === null) return;
@@ -2051,15 +2200,17 @@ function xAskPrivateDelete() {
 async function xConfirmPrivateDelete() {
   if (xPrivateManagerBusy || xPrivateManagedName === null ||
       document.getElementById('x-private-confirm').classList.contains('hidden')) return;
+  const actor=currentUser?.uid||null,operation=++xPrivateManagerGeneration;
   xPrivateManagerBusy = true;
   xPrivateManagerError('⏳ Đang xóa bài riêng…');
   try {
     const savedToAccount = !!currentUser?.uid;
     await xPersistPrivateMutation(xPrivateManagedName,xPrivateManagedOriginal,null,null,true);
+    if((currentUser?.uid||null)!==actor||operation!==xPrivateManagerGeneration)return;
     xPrivateManagerBusy = false;
     xPrivateManagerRefresh(null);
     xToast(savedToAccount?'Đã xóa bài riêng và kiểm tra lại trên server.':'Đã xóa bài trong trang này.');
-  } catch (error) { xPrivateManagerFailure(error); xPrivateManagerBusy = false; }
+  } catch (error) { if((currentUser?.uid||null)===actor&&operation===xPrivateManagerGeneration){xPrivateManagerFailure(error);xPrivateManagerBusy = false;} }
 }
 </script>
 <style id="pilot-targeted-ui">
@@ -2246,5 +2397,11 @@ window.ManPracticeReference=Object.fromEntries(['xStartCatalog','xGo','xRestoreS
 <script src="assets/final-two-practice-runtime.js?release=Batch01-final-two-v0.1"></script>
 <script src="assets/batch02-practice-runtime.js?release=Batch02-v0.1"></script>
 <script type="module" id="man-generic-practice-bootstrap" src="assets/practice-runtime-bootstrap.js"></script>
+<script>
+window.addEventListener('pagehide',()=>{xSaveStudyState(isQuestionResolved?'resolved':'active');xLearnerProgress.flush();xCancelStudyAdvance();});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){xLearnerProgress.flush();xCancelStudyAdvance();}});
+window.addEventListener('storage',e=>{if(currentUser&&e.key===xLearnerProgress.storageKey()){xLearnerProgress.refresh();xRenderCarousel('mine');xRenderCarousel('catalog');}});
+</script>
+<style>.x-lesson-card progress{width:100%;height:10px;accent-color:#219066}.x-lesson-card small{display:block;overflow-wrap:anywhere;margin:4px 0 10px}</style>
 </body>
 </html>

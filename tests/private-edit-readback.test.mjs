@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-const html = fs.readFileSync(new URL('./index.html', import.meta.url), 'utf8');
+const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 function source(from, to) {
   const begin = html.indexOf(from), end = html.indexOf(to, begin);
   assert(begin >= 0 && end > begin, `missing ${from}`);
@@ -23,7 +23,7 @@ const ref = {
 };
 const noop = () => {};
 const ctx = vm.createContext({
-  JSON, Object, console, currentUser:{uid:'owner'}, unitsData:{},
+  JSON, Object, console, TextEncoder, currentUser:{uid:'owner'}, unitsData:{},
   db:{collection:()=>({doc:()=>ref}),runTransaction:async callback=>{
     await callback({get:async()=>({exists:true,data:()=>({units:server})}),set:(_ref,data)=>{server=data.units}});
   }},
@@ -33,7 +33,7 @@ const ctx = vm.createContext({
   xPrivateCloudRevision:0, xPrivateDraftKey:uid=>'draft_'+uid,
   updateUnitDropdown:noop, renderUnitSelector:noop,renderCurrentUnitPreview:noop,
   xRenderCarousel:noop,xPrivateSaveStatus:noop,xQueuePrivateSave:noop,xToast:noop,
-  document:{},
+  location:{hash:'#home'},document:{},
 });
 vm.runInContext(source('function xMergePrivateUnits(', 'async function saveToCloud(') +
   source('async function loadFromCloud(', 'function loadSampleData(') +

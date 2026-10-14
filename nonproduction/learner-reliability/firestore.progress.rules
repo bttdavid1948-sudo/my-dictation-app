@@ -1,0 +1,50 @@
+rules_version = '2';
+// Standalone EMULATOR candidate only. Do not deploy this file: denies all other app paths.
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+  function shape(d,uid,k) {
+   return d.keys().hasAll(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt'])
+    && d.keys().hasOnly(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt'])
+    && d.schema == 1 && d.uid == uid && d.lessonId is string && d.lessonId.matches('^[A-Za-z0-9-]{1,100}$')
+    && d.kind in ['official','private'] && k == d.kind + '_' + d.lessonId
+    && d.version is string && d.version.matches('^[-A-Za-z0-9._]{1,100}$')
+    && d.total is int && d.total >= 1 && d.total <= 500
+    && d.sessionId is string && d.sessionId.matches('^[A-Za-z0-9-]{1,100}$')
+    && d.seq is int && d.seq >= 1 && d.seq <= 1000000000
+    && d.revision is int && d.revision >= 1 && d.revision <= 1000000000
+    && d.cursor is int && d.cursor >= 0 && d.cursor < d.total
+    && d.marks is string && d.marks.size() == d.total && d.marks.matches('^[.cgs]{1,500}$')
+    && d.updatedAt == request.time;
+  }
+  match /users/{uid}/lesson_progress/{k} {
+   allow read: if owner(uid);
+   allow create: if owner(uid) && shape(request.resource.data,uid,k)
+    && request.resource.data.seq == 1 && request.resource.data.revision == 1
+    && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$');
+   allow update: if owner(uid) && shape(request.resource.data,uid,k)
+    && request.resource.data.revision == resource.data.revision + 1
+    && request.resource.data.lessonId == resource.data.lessonId && request.resource.data.kind == resource.data.kind
+    && ((request.resource.data.seq == resource.data.seq && request.resource.data.sessionId == resource.data.sessionId
+      && request.resource.data.version == resource.data.version && request.resource.data.total == resource.data.total)
+     || (request.resource.data.seq == resource.data.seq + 1 && request.resource.data.sessionId != resource.data.sessionId
+      && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$')));
+   allow delete: if false;
+   match /completions/{sid} {
+    function completion() {
+     let p = getAfter(/databases/$(database)/documents/users/$(uid)/lesson_progress/$(k)).data;
+     let d = request.resource.data;
+     return d.keys().hasAll(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt'])
+      && d.keys().hasOnly(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt'])
+      && d.schema == 1 && d.uid == uid && d.sessionId == sid && p.sessionId == sid
+      && d.lessonId == p.lessonId && d.kind == p.kind && d.version == p.version
+      && d.total == p.total && d.seq == p.seq && d.completedAt == request.time
+      && p.marks.matches('^[cgs]{1,500}$');
+    }
+    allow read: if owner(uid);
+    allow create: if owner(uid) && completion();
+    allow update, delete: if false;
+   }
+  }
+ }
+}

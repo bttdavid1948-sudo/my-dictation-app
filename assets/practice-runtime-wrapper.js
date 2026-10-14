@@ -39,6 +39,12 @@ export function installPracticeWrapper(host) {
   const read = (storage,key,fallback) => { try { return JSON.parse(storage.getItem(key) || 'null') ?? fallback; } catch (_) { return fallback; } };
   const remove = key => { try { host.session.removeItem(key); } catch (_) {} };
   const write = (storage,key,value) => { try { storage.setItem(key,JSON.stringify(value)); } catch (_) {} };
+  function preferStudyResume(){
+    const study=read(host.session,host.studyKey,null);
+    if(!study||study.uid!==uid()||!Number.isFinite(study.at)||!Array.isArray(study.items)||!['active','resolved','revealed','summary'].includes(study.phase))return false;
+    const latest=Math.max(-Infinity,...practiceSessionKeys.map(key=>read(host.session,key,null)).filter(s=>s?.uid===uid()&&Number.isFinite(s.at)).map(s=>s.at));
+    return study.at>=latest;
+  }
   const hashes = descriptor => descriptor.playback.segments.map(s=>s.audio.sha256).concat(descriptor.playback.fullPanel ? [descriptor.playback.fullPanel.sha256] : []);
   const descriptor = u => normalizePracticeLesson(u); // sole canonical input boundary
   function sync() {
@@ -128,6 +134,7 @@ export function installPracticeWrapper(host) {
     xRestoreStudy(){
       if(opening || wire && ['listening','complete'].includes(wire.phase) && panel && !panel.hidden)return true;
       if(w.location.hash!=='#learn')return false;
+      if(preferStudyResume())return captured.xRestoreStudy();
       // Legacy envelopes are delegated unchanged, never migrated or deleted here.
       const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
       const candidates=keys.map(key=>read(host.session,key,null)).filter(s=>s&&(Object.hasOwn(s,'resumeIdentity')||Object.hasOwn(s,'coreState')));
@@ -150,6 +157,7 @@ export function installPracticeWrapper(host) {
   const api = {
     async restoreAvailable(){
       if(disposed||w.location.hash!=='#learn')return false;
+      if(preferStudyResume())return captured.xRestoreStudy();
       const lifecycle=generation;try{await host.loadCatalog();}catch(_){return false;}
       if(disposed)return false;
       for(const key of practiceSessionKeys){const saved=read(host.session,key,null);if(saved?.phase==='GENERIC_PRACTICE_V1'&&saved.resumeIdentity&&!host.catalog().some(u=>u.id===saved.lessonId))remove(key);}
@@ -157,6 +165,14 @@ export function installPracticeWrapper(host) {
       const keys=[...new Set(host.catalog().filter(u=>u.practice).map(u=>{try{return presentation(descriptor(u)).key;}catch(_){return null;}}).filter(Boolean))];
       for(const key of keys){const saved=read(host.session,key,null);if(saved&&(Object.hasOwn(saved,'resumeIdentity')||Object.hasOwn(saved,'coreState'))&&await api.restore(saved.lessonId))return true;}
       return false;
+    },
+    // Explicit card resume into an existing Dictation session; sentence outcomes remain host-owned.
+    startDictation(id){
+      const u=host.catalog().find(u=>u.id===id);let current;try{current=u?descriptor(u):null;}catch(_){return false;}if(!current)return false;
+      stop();if(panel)panel.hidden=true;
+      if(wire&&d.identity.lessonId===id&&wire.phase==='complete'){core.enterDictation();sync();save();}
+      wire=null;core=null;
+      return host.baseStart(id);
     },
     evidence:()=>wire?copy(wire):null,
     async restore(id){

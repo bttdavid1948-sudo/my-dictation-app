@@ -1,0 +1,11 @@
+{
+  "name": "man-isolated-learner-acceptance",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "10.14.1",
+    "@firebase/rules-unit-testing": "3.0.3",
+    "firebase-tools": "13.35.1",
+    "playwright": "1.63.0"
+  }
+}
