@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "status": "NONPRODUCTION_VERIFIED_REVIEW_CANDIDATE",
+  "observed_at": "2026-10-14T13:47:59.066Z",
+  "base_main": "0d7e2405885b837f251de08cc23632dca6f3cfc8",
+  "candidate_head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+  "candidate_tree": "141f4829d353df2d39b83e0909e14c638328bf7c",
+  "pull_request": 183,
+  "production_changed": false,
+  "unit": {
+    "learner_total": 56,
+    "progress_unchanged_reused": 22,
+    "reliability_rerun": 28,
+    "practice_bridge_rerun": 6,
+    "cloud_protocol_unchanged_reused": 15,
+    "wrapper_traces_rerun": 270,
+    "wrapper_resume_cases_rerun": 90,
+    "private_regressions": "REUSED by exact unchanged IO function bodies"
+  },
+  "ci": [
+    {
+      "id": 38572963628,
+      "name": "Batch03 controlled learner release verification",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+      "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38572963628",
+      "scope": "LOCAL_STAGING_ONLY; no feedback writes/deploy"
+    },
+    {
+      "id": 38572961927,
+      "name": "Isolated Practice wrapper browser integration",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+      "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38572961927",
+      "scope": "ISOLATED"
+    },
+    {
+      "id": 38572962185,
+      "name": "Batch state and bounded resolver validation",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+      "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38572962185",
+      "scope": "ISOLATED"
+    },
+    {
+      "id": 38572962057,
+      "name": "Batch04 controlled learner release verification",
+      "status": "completed",
+      "conclusion": "success",
+      "head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+      "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38572962057",
+      "scope": "LOCAL_STAGING_ONLY; no feedback writes/deploy"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "BROWSER",
+      "checks": 14,
+      "run": 38571799565,
+      "head": "2a5d9572d71876028ec8c9573698be74b5fc91e8",
+      "scope": "Actual desktop/mobile DOM X/Escape/Back/resume/A-B/guest; controlled Firebase/audio; QA runtime equals 26e6c35, later wrapper-only catalog-cleanup change independently covered by final default/legacy CI",
+      "artifact": 11898062787,
+      "digest": "73956dd867e1e67cbfa12efc926718cf71513abceff505d592ecd65bc3b0f879"
+    },
+    {
+      "kind": "BROWSER_NATIVE_AUDIO",
+      "checks": 2,
+      "run": 38571799565,
+      "scope": "Actual HTMLAudio immutable WAV playback; exactly one play after popup hidden and learning view visible; desktop/touch emulation, not acoustic/physical-device QA"
+    },
+    {
+      "kind": "EMULATOR_RULES",
+      "groups": 27,
+      "run": 38565029579,
+      "head": "f797b1e91641f0390ea3a89618089dcf11815880",
+      "scope": "Actual Rules allow/deny, ownership/schema/CAS/completion; source unchanged",
+      "artifact": 11894101228,
+      "digest": "629ee7a130fc31a76a283584065dc06662ce0ced4729158bf414a47dc33eca11"
+    },
+    {
+      "kind": "BACKEND_DEMO_SDK",
+      "checks": 3,
+      "run": 38565029579,
+      "scope": "Actual compat SDK second device/resume/stale/A-B with emulator mock UID; unchanged protocol"
+    },
+    {
+      "kind": "BACKEND_DEMO_FAULTS",
+      "checks": 5,
+      "run": 38567081273,
+      "head": "9e0b432541e5831d7648407bac9e2328ac9b2e57",
+      "scope": "Actual TCP outage/reconnect; lost ACK injected after actual commit; competing starts; denied storage injection; wrong token/UID denied",
+      "artifact": 11896007157,
+      "digest": "9cdc77ffd927b102d5940bda089be68b00762f40ff54b61b9a3ae8bc15427d6d"
+    },
+    {
+      "kind": "BROWSER_AND_BACKEND_DEMO",
+      "scenario_groups": 18,
+      "measurement_rows": 2,
+      "run": 38572950700,
+      "head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+      "scope": "Actual desktop/touch host with SDK/emulator; cloud cards, learn reload, replay/completion, private CRUD/version/readback, A-B/guest, overflow",
+      "artifact": 11897479752,
+      "digest": "2d6de01478a5b07f68f02c11b77e9e0f330553c7ca6d517a6ccd393a1e925022"
+    },
+    {
+      "kind": "BROWSER_PRIVATE_FAULTS",
+      "checks": 3,
+      "run": 38568721208,
+      "head": "a1457ae95f55146410340906c67f3127c3a81a50",
+      "scope": "Actual private conflict from independent SDK client; Chromium offline draft/reconnect readback; B cannot see A; IO functions unchanged",
+      "artifact": 11896995204,
+      "digest": "8adae6d4a6bdc51a548a2bc6ac7466e02ba1df183d21e05772f6af7749cccac8"
+    }
+  ],
+  "measurement": {
+    "head": "26e6c35bb6b3d9b02370d008793102a0f46e1394",
+    "run": 38571056841,
+    "window": "Post-reload page window only; counters reset on reload; progress client operation attempts, not billing/whole-script totals",
+    "desktop": {
+      "reads": 48,
+      "writes": 7,
+      "transactions": 6
+    },
+    "touch": {
+      "reads": 48,
+      "writes": 7,
+      "transactions": 6
+    },
+    "previous_full_catalog_concurrent_hydration": {
+      "reads": 81,
+      "writes": 7,
+      "transactions": 6
+    },
+    "excludes": [
+      "Private CRUD/profile RPC",
+      "Rules dependent reads",
+      "Billed usage",
+      "Other pages"
+    ]
+  },
+  "unverified": [
+    "Production Google Auth/current deployed Rules/backup",
+    "Physical iOS/Safari",
+    "Native browser storage denial and crash durability",
+    "Production rollout/sparse loading at large catalog size",
+    "Detailed branch-protection settings (403); main protected flag true"
+  ],
+  "boundaries": {
+    "forms": "Milestone E v3 frozen",
+    "batch04": "CLOSED/NONE; inherited CI staging is not queue activation",
+    "no_batch05": true,
+    "no_r14": true,
+    "no_production_credentials_supplied": true,
+    "no_production_mutations": true,
+    "no_legacy_migration": true
+  },
+  "persistence": {
+    "local_file_surface": "UNAVAILABLE/response-unknown; no retries",
+    "library_checkpoint": "Earlier E1 retained; final report/ZIP not refreshed there",
+    "durable_completion": "This repository nonproduction handoff; not canonical main adoption"
+  }
+}
