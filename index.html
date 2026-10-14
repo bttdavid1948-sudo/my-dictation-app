@@ -1327,7 +1327,7 @@ Danh sách từ/cụm từ của tôi:
 
             renderPronunciationWords();
             const token=xStudyRunToken,question=items[index],uid=currentUser?.uid||null;
-            requestAnimationFrame(()=>requestAnimationFrame(()=>{if(token===xStudyRunToken&&items[index]===question&&currentIndex===index&&(currentUser?.uid||null)===uid&&document.getElementById('x-learn')?.classList.contains('active')&&document.getElementById('x-library-modal').classList.contains('x-hidden'))playAudio();}));
+            requestAnimationFrame(()=>requestAnimationFrame(()=>{if(token===xStudyRunToken&&items[index]===question&&currentIndex===index&&(currentUser?.uid||null)===uid&&document.getElementById('x-learn')?.classList.contains('active')&&!document.getElementById('dictation-app').classList.contains('hidden')&&document.getElementById('x-library-modal').classList.contains('x-hidden'))playAudio();}));
             inputEl.focus();
             xSaveStudyState('active');
         }
@@ -1682,7 +1682,8 @@ const X_VIEWS=new Set(['home','learn','mine','catalog','progress','me','notifica
 function xGo(view,options={}){
  if(!X_VIEWS.has(view)) view='home';
  if(xLibraryClosePending&&options.historyMode!=='pop'){const intent=++xLibraryIntent;xLibraryClosePending.then(()=>{if(intent===xLibraryIntent)xGo(view,options)});return;}
- if(view!=='learn'){xFlushLearnerProgress();xCancelStudyAdvance();}
+ if(view!=='learn')xFlushLearnerProgress();
+ xCancelStudyAdvance();
  if(view==='learn'&&xLibrarySelectReplace){options={...options,historyMode:'replace'};xLibrarySelectReplace=false;}
  const previousScroll=window.scrollY;
  const heading=document.getElementById('setup-heading'),intro=document.getElementById('setup-intro');

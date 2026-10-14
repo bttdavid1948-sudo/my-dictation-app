@@ -85,7 +85,7 @@ try{
    await page.waitForFunction(({api,id})=>window[api].evidence()?.lessonId===id,{api,id:u.id});
    assert.equal(await page.evaluate(()=>ManGenericPractice.evidence()),null,'legacy listening owner retained');legacyRestores++;
    await page.locator('#'+u.prefix+'-play').click();
-   await page.evaluate(()=>{let i=0;while(i<__audio.length){if(i>30)throw Error('audio');__audio[i++].end();}});
+   await page.evaluate(()=>{let i=0;while(i<__audio.length){if(i>30)throw Error('audio');if(typeof __audio[i].end!=='function')throw Error('Unexpected base Dictation playback while legacy Practice owns listening: '+JSON.stringify({lessonId:__audio[i].item?.audio?.lessonId,segmentId:__audio[i].item?.audio?.segmentId}));__audio[i++].end();}});
    await page.locator('#'+u.prefix+'-answer input[type=radio]').nth(u.choice).check();
    for(const [i,t]of u.speech.entries())await page.locator('#'+u.prefix+'-span-'+i).fill(t.answer);
    await page.locator('#'+u.prefix+'-submit').click();
