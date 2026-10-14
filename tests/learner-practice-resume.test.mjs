@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-import {installPracticeWrapper} from '../assets/practice-runtime-wrapper.js';import {practiceHost} from '../assets/practice-runtime-host.js';
+import {installPracticeWrapper,practiceSessionKeys} from '../assets/practice-runtime-wrapper.js';import {practiceHost} from '../assets/practice-runtime-host.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 // Reuse existing fixture definitions without rerunning its unrelated route/gate loops.
 const fixture=read('tests/practice-runtime-characterization.test.mjs');const definitions=fixture.slice(fixture.indexOf('const clone='),fixture.indexOf('for(const u of lessons){'));
@@ -19,5 +19,8 @@ const make=()=>{const h=ctx.harness({order:[]});h.wrapper=installPracticeWrapper
 }
 {
  const h=make();h.c.xStartCatalog(u.id);h.c.sessionStorage.setItem('base-study',JSON.stringify({uid:'test-user',at:NOW,phase:'active',items:u.items}));h.c.xGo('catalog');h.c.location.hash='#learn';await h.wrapper.restoreAvailable();assert.equal(h.calls.restore,0);assert.equal(h.wrapper.evidence().lessonId,u.id);checks.push('Timestamp tie cannot let old Dictation replace the current valid Practice session');
+}
+{
+ const h=make();h.c.xStartCatalog(u.id);const key=practiceSessionKeys.find(k=>JSON.parse(h.c.sessionStorage.getItem(k)||'null')?.lessonId===u.id);assert(key);const study=JSON.stringify({uid:'test-user',at:NOW+1,phase:'active',items:u.items});h.c.sessionStorage.setItem('base-study',study);let finish;h.c.loadCatalogUnits=()=>new Promise(r=>finish=r);const pending=h.wrapper.restoreAvailable();assert.equal(typeof finish,'function');h.c.catalogUnitsCache=h.c.catalogUnitsCache.filter(x=>x.id!==u.id);h.c.xGo('catalog');finish();await pending;assert.equal(h.c.sessionStorage.getItem(key),null);assert.equal(h.c.sessionStorage.getItem('base-study'),study);checks.push('Catalog withdrawal cleanup precedes newer Dictation preference even during immediate navigation; unowned base history retained');
 }
 console.log(JSON.stringify({status:'PASS',suite:'learner-practice-resume',checks}));
