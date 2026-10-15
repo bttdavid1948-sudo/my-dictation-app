@@ -1,0 +1,28 @@
+name: Nonproduction CSV extraction verification
+on:
+  push:
+    branches: [nonproduction/u1-text-import]
+    paths: [index.html, assets/text-import.js, tests/text-import.test.mjs, tests/text-import.browser.mjs, tests/fixtures/learning-csv-before-u1.js, .github/workflows/text-import-verification.yml]
+permissions:
+  contents: read
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/text-import.test.mjs
+      - run: node tests/private-autosave.test.mjs
+      - run: node tests/private-edit-readback.test.mjs
+      - run: npm ci --prefix mobile-release-runner --ignore-scripts --no-audit --no-fund
+      - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - run: node tests/text-import.browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: u1-import-evidence
+          path: nonproduction/u1/browser-receipt.json
+          retention-days: 7
