@@ -201,8 +201,8 @@
     },
     {
       "path": "ci-readiness-repairs.patch",
-      "sha256": "563f861589e52951cc5d274d8a52dec4b742a5698a1b12820b5c1c28f61dd51a",
-      "bytes": 24035
+      "sha256": "7b23f690175fa9ff4ed33d449550b622b83169298e07216b001731895a5011e8",
+      "bytes": 24541
     },
     {
       "path": "ci-repair-source.test.mjs",
@@ -235,12 +235,18 @@
         "run": 38694727023,
         "job": 116288517920,
         "cause": "Stale ManFinalTwoPractice.evidence() reader is null on current Generic Runtime"
+      },
+      {
+        "run": 38694727167,
+        "job": 116288519055,
+        "cause": "Stale radio selector panel-answer; current Generic uses form-scoped man-panel-answer radios. Old evidence API also stale by exact source audit."
       }
     ],
     "prepared_fix": "ci-readiness-repairs.patch (not applied to PR184)",
     "targeted_preparation_checks": 10,
     "checks_scope": "Six hash-bound canonical staging receipt copies plus four fail-closed cases; syntax checks for3 reader patches. No new full native-release PASS claimed.",
     "unchanged": "Reviewed learner code and successful isolated run38693800063 unaffected; existing production push verification path untouched",
-    "remaining": "Apply/review bounded CI repair and validate affected verifier/withdrawal branches without broad replay; no check waiver or production promotion"
+    "remaining": "Apply/review bounded CI repair and validate affected verifier/withdrawal branches without broad replay; no check waiver or production promotion",
+    "selector_fix": "Form-scoped input[type=radio][value] works for both existing legacy and generic forms; no outcome assertions removed."
   }
 }
