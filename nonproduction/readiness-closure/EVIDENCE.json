@@ -1,0 +1,290 @@
+{
+  "watermark_utc": "2026-10-15T08:38:33.085118+00:00",
+  "main": "0d7e2405885b837f251de08cc23632dca6f3cfc8",
+  "pr183": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+  "pr184_unchanged": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+  "candidate": "2325295af2450f54f35d6f7da3dccae479dd2f9b",
+  "native_ci": {
+    "run_id": 38706918531,
+    "job_id": 116328497044,
+    "status": "PASS",
+    "node": "22.23.3",
+    "tests": 22,
+    "failures": 0,
+    "cases": [
+      "ok 1 - exact retained staging/MAN-0067/desktop",
+      "ok 2 - exact retained staging/MAN-0067/mobile",
+      "ok 3 - exact retained staging/MAN-0167/desktop",
+      "ok 4 - exact retained staging/MAN-0167/mobile",
+      "ok 5 - exact retained staging/MAN-0367/desktop",
+      "ok 6 - exact retained staging/MAN-0367/mobile",
+      "ok 7 - exact retained live/MAN-0067/desktop",
+      "ok 8 - exact retained live/MAN-0067/mobile",
+      "ok 9 - exact retained live/MAN-0167/desktop",
+      "ok 10 - exact retained live/MAN-0167/mobile",
+      "ok 11 - exact retained live/MAN-0367/desktop",
+      "ok 12 - exact retained live/MAN-0367/mobile",
+      "ok 13 - reject unknown target",
+      "ok 14 - reject unknown lesson",
+      "ok 15 - reject unknown mode",
+      "ok 16 - reject tampered closure index before output",
+      "ok 17 - reject tampered core before output",
+      "ok 18 - reject tampered composite before output",
+      "ok 19 - reject tampered catalog before output",
+      "ok 20 - reject staging bytes substituted for live core",
+      "ok 21 - reject missing composite proof",
+      "ok 22 - workflow removes expired download while preserving source identity and live gate"
+    ]
+  },
+  "unchanged_ci_reuse": {
+    "head": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "jobs": 38,
+    "workflow_runs": [
+      38702345698,
+      38702345571,
+      38702345621,
+      38702345349,
+      38702345423
+    ]
+  },
+  "frozen_index_sha256": "e680d6d995f9f1ab8012cb941f3275d648a1cc139839be41777aeb9a76987a3f",
+  "changes": [
+    ".github/workflows/batch03-release-verify.yml",
+    ".github/workflows/readiness-continuity-proof.yml",
+    "batch03-verification/prepare-retained-source.mjs",
+    "batch03-verification/prepare-retained-source.test.mjs"
+  ],
+  "nonclaims": [
+    "Not installed on main or PR184",
+    "No live withdrawal verifier executed",
+    "No new learner/browser/physical-device/backend acceptance",
+    "No D3 backup/billing/alert metadata verified",
+    "No feedback interruption or policy adoption"
+  ],
+  "files": {
+    ".github/workflows/batch03-release-verify.yml": {
+      "bytes": 1914,
+      "sha256": "b431bc58a80d6889fbb4d78eac8c2e738a006ef0795b369a87661741657858d4"
+    },
+    ".github/workflows/readiness-continuity-proof.yml": {
+      "bytes": 658,
+      "sha256": "46a6ecf1965f69c2ca6076f6a2cf1cfcd855054384f0737ffe8a86a7d7bc8b74"
+    },
+    "batch03-verification/prepare-retained-source.mjs": {
+      "bytes": 3550,
+      "sha256": "00b21ce311acecc55fe93e58aca3146ad409c05c3d5182e8986d9f826bfd9918"
+    },
+    "batch03-verification/prepare-retained-source.test.mjs": {
+      "bytes": 3461,
+      "sha256": "aecc37eac6ad8f3dfb49c8067baabfb9e193703ca5d8384960128889c9f9b822"
+    }
+  },
+  "batch03_native": {
+    "run_id": 38707222809,
+    "head": "2325295af2450f54f35d6f7da3dccae479dd2f9b",
+    "jobs": [
+      {
+        "id": 116329513082,
+        "name": "verify (MAN-0067, mobile)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0067",
+            "mode": "mobile",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      },
+      {
+        "id": 116329513217,
+        "name": "verify (MAN-0367, mobile)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0367",
+            "mode": "mobile",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      },
+      {
+        "id": 116329513327,
+        "name": "verify (MAN-0167, desktop)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0167",
+            "mode": "desktop",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      },
+      {
+        "id": 116329513363,
+        "name": "verify (MAN-0067, desktop)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0067",
+            "mode": "desktop",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      },
+      {
+        "id": 116329513368,
+        "name": "verify (MAN-0367, desktop)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0367",
+            "mode": "desktop",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      },
+      {
+        "id": 116329513414,
+        "name": "verify (MAN-0167, mobile)",
+        "status": "success",
+        "output": [
+          {
+            "id": "MAN-0167",
+            "mode": "mobile",
+            "status": "PASS",
+            "target": "LOCAL_STAGING",
+            "gate": "WITHDRAWAL_ONLY"
+          }
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11959050882,
+        "name": "batch03-pull_request-MAN-0367-desktop",
+        "size_in_bytes": 1384350,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11959050882",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11959050882/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:01Z",
+        "expires_at": "2026-10-22T08:40:00Z",
+        "updated_at": "2026-10-15T08:40:01Z",
+        "digest": "sha256:8641a00bc7d64944d6face4b9ddcf6461fb48b1279a0fdd90d34bff2942e8f55",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      },
+      {
+        "id": 11958995932,
+        "name": "batch03-pull_request-MAN-0067-mobile",
+        "size_in_bytes": 3396208,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958995932",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958995932/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:04Z",
+        "expires_at": "2026-10-22T08:40:03Z",
+        "updated_at": "2026-10-15T08:40:04Z",
+        "digest": "sha256:ffaceaf93dd05762e16836ef7b8f7fb033b189b8d42fcc1cad3ea1f942d260ee",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      },
+      {
+        "id": 11958793409,
+        "name": "batch03-pull_request-MAN-0367-mobile",
+        "size_in_bytes": 3386889,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958793409",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958793409/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:07Z",
+        "expires_at": "2026-10-22T08:40:05Z",
+        "updated_at": "2026-10-15T08:40:07Z",
+        "digest": "sha256:87ac0f91f2f83ba54c6750794dacf6d0f43e2554ea7d0a2ae44895747a2f665b",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      },
+      {
+        "id": 11958598793,
+        "name": "batch03-pull_request-MAN-0067-desktop",
+        "size_in_bytes": 1302606,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958598793",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958598793/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:11Z",
+        "expires_at": "2026-10-22T08:40:10Z",
+        "updated_at": "2026-10-15T08:40:11Z",
+        "digest": "sha256:00fe3d4793e2df4a83d89766d3d4f9b8978342aa29cf39fc448b8d0cbed2f8b9",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      },
+      {
+        "id": 11958359220,
+        "name": "batch03-pull_request-MAN-0167-mobile",
+        "size_in_bytes": 3788088,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958359220",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958359220/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:00Z",
+        "expires_at": "2026-10-22T08:39:59Z",
+        "updated_at": "2026-10-15T08:40:00Z",
+        "digest": "sha256:425b6d0faf510cf04469558dc968fa993f7e2c0819a6e7fb61c5b3bdc2d3804b",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      },
+      {
+        "id": 11958314443,
+        "name": "batch03-pull_request-MAN-0167-desktop",
+        "size_in_bytes": 1397517,
+        "url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958314443",
+        "archive_download_url": "https://api.github.com/repos/bttdavid1948-sudo/my-dictation-app/actions/artifacts/11958314443/zip",
+        "expired": false,
+        "created_at": "2026-10-15T08:40:04Z",
+        "expires_at": "2026-10-22T08:40:03Z",
+        "updated_at": "2026-10-15T08:40:04Z",
+        "digest": "sha256:3b89b2d7ddd1da6573960d1dd27d8d6bcb0139bd57ea2880cc237bfa2bff15ae",
+        "workflow_run": {
+          "id": 38707222809,
+          "repository_id": 1377742729,
+          "head_repository_id": 1377742729,
+          "head_branch": "nonproduction/readiness-closure",
+          "head_sha": "2325295af2450f54f35d6f7da3dccae479dd2f9b"
+        }
+      }
+    ],
+    "result": "6/6 LOCAL_STAGING WITHDRAWAL_ONLY PASS"
+  },
+  "report_sha256": "4286f3c8e2d079ce49637b6fb7ececd2e2f0c8e29307350bf22a3f9a110146c2"
+}
