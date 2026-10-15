@@ -1,0 +1,70 @@
+{
+  "prices_checked_UTC": "2026-10-15T08:02:56.258216+00:00",
+  "basis": "USD audio delivery only,30days,10MiB per DAU/day,20requests per DAU/day,.202GB stored incl hypothetical rollback copy; no measured global mean claim",
+  "scenarios": [
+    {
+      "DAU": 100,
+      "registered_at_20pct_DAU": 500,
+      "illustrative_concurrent_5pct": 5.0,
+      "GB_per_month": 31.45728,
+      "GiB_per_month": 29.296875,
+      "GET_HEAD_Range_requests": 60000,
+      "R2_Standard_USD_with_entire_free_tier_available": 0,
+      "R2_Standard_USD_without_free_tier": 0.0246,
+      "Bunny_Asia_Standard_USD": 1,
+      "GCS_Cloud_CDN_APAC_USD_lower_bound": 20.93,
+      "GitHub_Pages": "Below bandwidth soft limit in this scenario"
+    },
+    {
+      "DAU": 1000,
+      "registered_at_20pct_DAU": 5000,
+      "illustrative_concurrent_5pct": 50.0,
+      "GB_per_month": 314.5728,
+      "GiB_per_month": 292.96875,
+      "GET_HEAD_Range_requests": 600000,
+      "R2_Standard_USD_with_entire_free_tier_available": 0,
+      "R2_Standard_USD_without_free_tier": 0.219,
+      "Bunny_Asia_Standard_USD": 9.44,
+      "GCS_Cloud_CDN_APAC_USD_lower_bound": 45.07,
+      "GitHub_Pages": "Above bandwidth soft limit; not a purchasable capacity tier"
+    },
+    {
+      "DAU": 10000,
+      "registered_at_20pct_DAU": 50000,
+      "illustrative_concurrent_5pct": 500.0,
+      "GB_per_month": 3145.728,
+      "GiB_per_month": 2929.6875,
+      "GET_HEAD_Range_requests": 6000000,
+      "R2_Standard_USD_with_entire_free_tier_available": 0,
+      "R2_Standard_USD_without_free_tier": 2.163,
+      "Bunny_Asia_Standard_USD": 94.37,
+      "GCS_Cloud_CDN_APAC_USD_lower_bound": 286.42,
+      "GitHub_Pages": "Above bandwidth soft limit; not a purchasable capacity tier"
+    }
+  ],
+  "R2_high_request_stress": {
+    "DAU": 10000,
+    "requests_per_DAU_day": 200,
+    "monthly_requests": 60000000,
+    "USD_B_operations_after_10million_free": 18
+  },
+  "exclusions": [
+    "Domain registration",
+    "Workers/paid WAF or advanced features",
+    "Tax/FX",
+    "Free tier consumed by other workloads",
+    "GCS cache fill/storage/operations/load-balancer/IP ancillary charges",
+    "Abuse/retries/unmodeled range amplification",
+    "No actual account bill inspected"
+  ],
+  "sources": [
+    "https://developers.cloudflare.com/r2/pricing/",
+    "https://bunny.net/pricing/",
+    "https://bunny.net/pricing/storage/",
+    "https://bunny.net/faq/",
+    "https://cloud.google.com/cdn/pricing",
+    "https://cloud.google.com/load-balancing/pricing",
+    "https://cloud.google.com/storage/pricing",
+    "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits"
+  ]
+}

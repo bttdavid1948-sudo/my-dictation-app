@@ -1,0 +1,532 @@
+{
+  "status": "PASS",
+  "probe": "3 public released assets; HEAD+one bounded Range request; 2 browser contexts per host; no production app/backend writes",
+  "sourceLiveBase": "https://bttdavid1948-sudo.github.io/my-dictation-app/",
+  "sample": [
+    {
+      "key": "assets/audio/MAN-0065-S001-ash-v0.2.wav",
+      "bytes": 177678,
+      "sha256": "8a4b37a1515e1b70f92cda02ccc201a57af9a1673ce3be33a6df32fc8c20331d",
+      "mimeExpected": "audio/wav",
+      "format": 1,
+      "channels": 1,
+      "sampleRate": 24000,
+      "byteRate": 48000,
+      "bits": 16,
+      "durationSeconds": 3.7
+    },
+    {
+      "key": "assets/audio/MAN-0065-S002-cedar-v0.1.wav",
+      "bytes": 120044,
+      "sha256": "4a50efd791f190f57d8e89e687c69993ec93788c33c85a495b55df2c579143d9",
+      "mimeExpected": "audio/wav",
+      "format": 1,
+      "channels": 1,
+      "sampleRate": 24000,
+      "byteRate": 48000,
+      "bits": 16,
+      "durationSeconds": 2.5
+    },
+    {
+      "key": "assets/audio/MAN-0065-S003-ash-v0.1.wav",
+      "bytes": 110444,
+      "sha256": "1dd7e64228ecc66f5bd63d6e00b34dda1cdf7139e9672a66a576096a8d4a19f1",
+      "mimeExpected": "audio/wav",
+      "format": 1,
+      "channels": 1,
+      "sampleRate": 24000,
+      "byteRate": 48000,
+      "bits": 16,
+      "durationSeconds": 2.3
+    }
+  ],
+  "headers": [
+    {
+      "liveSha256": "8a4b37a1515e1b70f92cda02ccc201a57af9a1673ce3be33a6df32fc8c20331d",
+      "key": "assets/audio/MAN-0065-S001-ash-v0.2.wav",
+      "method": "HEAD + verified GET",
+      "status": 200,
+      "elapsedMs": 322.79101899999995,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "content-length": "177678",
+        "content-type": "audio/wav",
+        "etag": "\"6ac906c5-2b60e\"",
+        "last-modified": "Fri, 09 Oct 2026 15:22:45 GMT",
+        "x-served-by": "cache-sjc1000138-SJC"
+      }
+    },
+    {
+      "liveSha256": "4a50efd791f190f57d8e89e687c69993ec93788c33c85a495b55df2c579143d9",
+      "key": "assets/audio/MAN-0065-S002-cedar-v0.1.wav",
+      "method": "HEAD + verified GET",
+      "status": 200,
+      "elapsedMs": 122.71954800000003,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "content-length": "120044",
+        "content-type": "audio/wav",
+        "etag": "\"6ac906c5-1d4ec\"",
+        "last-modified": "Fri, 09 Oct 2026 15:22:45 GMT",
+        "x-served-by": "cache-pao-kpao1770059-PAO"
+      }
+    },
+    {
+      "liveSha256": "1dd7e64228ecc66f5bd63d6e00b34dda1cdf7139e9672a66a576096a8d4a19f1",
+      "key": "assets/audio/MAN-0065-S003-ash-v0.1.wav",
+      "method": "HEAD + verified GET",
+      "status": 200,
+      "elapsedMs": 198.31316400000003,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "content-length": "110444",
+        "content-type": "audio/wav",
+        "etag": "\"6ac906c5-1af6c\"",
+        "last-modified": "Fri, 09 Oct 2026 15:22:45 GMT",
+        "x-served-by": "cache-sjc10035-SJC"
+      }
+    },
+    {
+      "key": "assets/audio/MAN-0065-S001-ash-v0.2.wav",
+      "method": "GET bytes=0-43",
+      "status": 206,
+      "receivedBytes": 44,
+      "contentRange": "bytes 0-43/177678"
+    }
+  ],
+  "results": [
+    {
+      "device": "desktop Chromium",
+      "host": "published-pages",
+      "stage": "cold-first-sentence",
+      "elapsedMs": 2201.3979449999997,
+      "networkEncodedBytes": 178196,
+      "requests": [
+        {
+          "id": "3057.2",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S001-ash-v0.2.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 2040.699999999997
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "published-pages",
+      "stage": "replay-new-Audio-object",
+      "elapsedMs": 2039.7197649999998,
+      "networkEncodedBytes": 0,
+      "requests": [],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1884.2999999999884
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "published-pages",
+      "stage": "warm-page-reload",
+      "elapsedMs": 2042.5737090000002,
+      "networkEncodedBytes": 0,
+      "requests": [
+        {
+          "id": "3057.4",
+          "status": 206,
+          "fromDiskCache": true,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S001-ash-v0.2.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1886.800000000003
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "published-pages",
+      "stage": "multiple-sentences",
+      "elapsedMs": 2806.844519,
+      "networkEncodedBytes": 231039,
+      "requests": [
+        {
+          "id": "3057.5",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S002-cedar-v0.1.wav",
+          "cacheEvent": false
+        },
+        {
+          "id": "3057.6",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S003-ash-v0.1.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 2.5,
+          "buffered": 2.5,
+          "elapsedMs": 1371.300000000003
+        },
+        {
+          "duration": 2.3,
+          "buffered": 2.3,
+          "elapsedMs": 1278.5
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "cold-first-sentence",
+      "elapsedMs": 2047.838444000001,
+      "networkEncodedBytes": 178059,
+      "requests": [
+        {
+          "id": "3076.2",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/0",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1890.199999999997
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "replay-new-Audio-object",
+      "elapsedMs": 2038.302318,
+      "networkEncodedBytes": 0,
+      "requests": [],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1884.3999999999942
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "warm-page-reload",
+      "elapsedMs": 2041.7871700000014,
+      "networkEncodedBytes": 0,
+      "requests": [
+        {
+          "id": "3076.4",
+          "status": 206,
+          "fromDiskCache": true,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/0",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1887.4000000000087
+        }
+      ]
+    },
+    {
+      "device": "desktop Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "multiple-sentences",
+      "elapsedMs": 2632.3657590000003,
+      "networkEncodedBytes": 231250,
+      "requests": [
+        {
+          "id": "3076.5",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/1",
+          "cacheEvent": false
+        },
+        {
+          "id": "3076.6",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/2",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 2.5,
+          "buffered": 2.5,
+          "elapsedMs": 1287.1000000000058
+        },
+        {
+          "duration": 2.3,
+          "buffered": 2.3,
+          "elapsedMs": 1188.6000000000058
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "published-pages",
+      "stage": "cold-first-sentence",
+      "elapsedMs": 2056.1600160000016,
+      "networkEncodedBytes": 178190,
+      "requests": [
+        {
+          "id": "3090.2",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S001-ash-v0.2.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1897.8999999999942
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "published-pages",
+      "stage": "replay-new-Audio-object",
+      "elapsedMs": 2038.6343610000004,
+      "networkEncodedBytes": 0,
+      "requests": [],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1884.300000000003
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "published-pages",
+      "stage": "warm-page-reload",
+      "elapsedMs": 2042.0161969999972,
+      "networkEncodedBytes": 0,
+      "requests": [
+        {
+          "id": "3090.4",
+          "status": 206,
+          "fromDiskCache": true,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S001-ash-v0.2.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1886.6000000000058
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "published-pages",
+      "stage": "multiple-sentences",
+      "elapsedMs": 2812.8874700000015,
+      "networkEncodedBytes": 231048,
+      "requests": [
+        {
+          "id": "3090.5",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S002-cedar-v0.1.wav",
+          "cacheEvent": false
+        },
+        {
+          "id": "3090.6",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "https://bttdavid1948-sudo.github.io/my-dictation-app/assets/audio/MAN-0065-S003-ash-v0.1.wav",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 2.5,
+          "buffered": 2.5,
+          "elapsedMs": 1388.2999999999884
+        },
+        {
+          "duration": 2.3,
+          "buffered": 2.3,
+          "elapsedMs": 1267.7999999999884
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "cold-first-sentence",
+      "elapsedMs": 2048.0921210000015,
+      "networkEncodedBytes": 178059,
+      "requests": [
+        {
+          "id": "3103.2",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/0",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1890.5999999999913
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "replay-new-Audio-object",
+      "elapsedMs": 2039.2369739999995,
+      "networkEncodedBytes": 0,
+      "requests": [],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1884.3999999999942
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "warm-page-reload",
+      "elapsedMs": 2041.202484999998,
+      "networkEncodedBytes": 0,
+      "requests": [
+        {
+          "id": "3103.4",
+          "status": 206,
+          "fromDiskCache": true,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/0",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 3.7,
+          "buffered": 3.7,
+          "elapsedMs": 1886.8999999999942
+        }
+      ]
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "host": "controlled-cache-contract",
+      "stage": "multiple-sentences",
+      "elapsedMs": 2630.0347429999965,
+      "networkEncodedBytes": 231250,
+      "requests": [
+        {
+          "id": "3103.5",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/1",
+          "cacheEvent": false
+        },
+        {
+          "id": "3103.6",
+          "status": 206,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "mime": "audio/wav",
+          "url": "http://127.0.0.1:33595/controlled/2",
+          "cacheEvent": false
+        }
+      ],
+      "playback": [
+        {
+          "duration": 2.5,
+          "buffered": 2.5,
+          "elapsedMs": 1287.300000000003
+        },
+        {
+          "duration": 2.3,
+          "buffered": 2.3,
+          "elapsedMs": 1186.3999999999942
+        }
+      ]
+    }
+  ],
+  "totalEncodedAndProbeBytes": 2045301,
+  "nonclaims": [
+    "Runner is not Vietnam ISP/device",
+    "CDP encoded bytes include response overhead; No request routing/interception used; browser cache remains enabled",
+    "No R2/Bunny/GCS resources or real regional latency tests",
+    "No paid service or TTS call",
+    "Controlled cache contract is a loopback fixture, not provider performance"
+  ]
+}

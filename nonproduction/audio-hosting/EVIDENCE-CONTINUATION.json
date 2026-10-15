@@ -1,0 +1,90 @@
+{
+  "watermark_utc": "2026-10-15T08:18:15.165320+00:00",
+  "main": "0d7e2405885b837f251de08cc23632dca6f3cfc8",
+  "pr183": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+  "pr184": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+  "native_ci": "5 workflows /38 jobs PASS; see native-ci-index.json",
+  "audio_proof": {
+    "run": 38703151147,
+    "head": "e409c99037bda77ec5843744b2a996f9a69bb527",
+    "zip_sha256": "6a8bc97003bb1a42e0688cd561dbf2b3c0ad60d106b36526ccf984b478012f00"
+  },
+  "inventory_proof": {
+    "run": 38703485107,
+    "head": "104482b60de0a8f7d495bbf837a58858ae219e82",
+    "zip_sha256": "f28b1322f0073d77da35e7b6f0b26b869a11a150553d2625ab3b25ebbab0302d"
+  },
+  "reuse": {
+    "learner": 52,
+    "cloud_unit": 15,
+    "wrapper_traces": 270,
+    "resume_cases": 90,
+    "forms": "7+29 frozen",
+    "runtime_unchanged_from": "cc4439092662f36ded4c12ea23596bb5da8f611e"
+  },
+  "nonclaims": [
+    "No production readiness",
+    "No physical-device or Vietnam latency acceptance",
+    "No cloud account progress readiness",
+    "No actual provider resources/bills or production data changes",
+    "No streaming SHA256 verification by Audio element",
+    "No total lesson precache claim"
+  ],
+  "files": {
+    "REVIEW.md": {
+      "bytes": 14640,
+      "sha256": "9f41f57e1987208c209a78cde227f60e751ab4badedc2c10a31ad81fa4cfe56a",
+      "git_blob_sha": "74a8acb931052bc6f4ae2baa857b74b89ebf23b5"
+    },
+    "all-wav-inventory.json": {
+      "bytes": 62701,
+      "sha256": "13e20df187b8b5d359c81ad57d7c67cd2417b0389a51782f11236b3ff481822c",
+      "git_blob_sha": "714caeea56b76658e9e35302b707a949cc14c05f"
+    },
+    "asset-inventory.json": {
+      "bytes": 74228,
+      "sha256": "a92e9664b4810cabb99b1b9d6214c2e5d1f1026c313f8799757380c3911786df",
+      "git_blob_sha": "fed2c3a6c993173dd0f87d8d07a60564e2fc92e4"
+    },
+    "audio-measurement.json": {
+      "bytes": 14874,
+      "sha256": "b78839034fcaa957e0dc440aea847fe947147990e92ec39ddbd5d6a3d2d2ab0a",
+      "git_blob_sha": "c4b08b3e0792800c2b33d514d8a27d421e3a013c"
+    },
+    "cost-model.json": {
+      "bytes": 2656,
+      "sha256": "f7aedcbfa2be4813810eb3f2373a3246dbe66b31082db59a1062c498745be593",
+      "git_blob_sha": "fe489c1d9bb7d5d9ccc44a2afb06b87bd28a7f64"
+    },
+    "inventory.cjs": {
+      "bytes": 1401,
+      "sha256": "089647d8e8d4c9b9db56eeed06567b6c7247d49de322b1749ec10459276a031d",
+      "git_blob_sha": "b5d89bd7a6be22c375e9b69861f04008429411cd"
+    },
+    "measure.mjs": {
+      "bytes": 7906,
+      "sha256": "f8572bbec258da3db50dd60ee3fa8ddc20eaf77e960083f11e598338a48fc372",
+      "git_blob_sha": "0bcdacaa6a402c715d827ce3cdecf1d9e3f60c96"
+    },
+    "native-ci-index.json": {
+      "bytes": 19420,
+      "sha256": "85ddeffea01752eeabad6b84c4137a942d40aae732803114ca236451a3822cd9",
+      "git_blob_sha": "22fd20c39d7a1092de399a03bb0cc62edc037f5b"
+    },
+    "url-plan-test.json": {
+      "bytes": 122,
+      "sha256": "5ac455fa9a22dfb9da9e0dfbff9134dc3877e148c1d827528e57411cd30866aa",
+      "git_blob_sha": "54584e5c79bfac31ec03552067efe570b225723d"
+    },
+    "url-plan.cjs": {
+      "bytes": 900,
+      "sha256": "c7dff15dd64f485f2a25ad9458589944af312377880ea77d0d4b1d16d082760e",
+      "git_blob_sha": "068e667bf86372c2a078932ba89385dc23ba0727"
+    },
+    "url-plan.test.cjs": {
+      "bytes": 1190,
+      "sha256": "25c1ec2d1b29473d04151610522dc174c0c89c43ca9dc64d9136d6a21f3b75e5",
+      "git_blob_sha": "8b60005b400cef5d416dfc9edbee40f2733ef081"
+    }
+  }
+}

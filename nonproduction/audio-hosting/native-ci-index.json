@@ -1,0 +1,594 @@
+[
+  {
+    "id": 38702345571,
+    "name": "Batch03 controlled learner release verification",
+    "head_sha": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38702345571",
+    "jobs": [
+      {
+        "id": 116313307900,
+        "name": "verify (MAN-0367, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:50Z"
+      },
+      {
+        "id": 116313308196,
+        "name": "verify (MAN-0167, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:49Z"
+      },
+      {
+        "id": 116313308288,
+        "name": "verify (MAN-0167, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:50Z"
+      },
+      {
+        "id": 116313308353,
+        "name": "verify (MAN-0067, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:45Z"
+      },
+      {
+        "id": 116313308366,
+        "name": "verify (MAN-0367, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:56Z"
+      },
+      {
+        "id": 116313308519,
+        "name": "verify (MAN-0067, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:58:50Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11957485049,
+        "name": "batch03-pull_request-MAN-0367-desktop",
+        "digest": "sha256:edbe373151766011f8d8c6293606ac5d2157001f0488818b80d80f2b8aab89d5",
+        "expires_at": "2026-10-22T07:58:47Z",
+        "bytes": 1391911
+      },
+      {
+        "id": 11957250475,
+        "name": "batch03-pull_request-MAN-0067-mobile",
+        "digest": "sha256:9030dd6760f64db4657626f714b5c18c5700314751f69483c596117c323a4216",
+        "expires_at": "2026-10-22T07:58:45Z",
+        "bytes": 3396210
+      },
+      {
+        "id": 11956960898,
+        "name": "batch03-pull_request-MAN-0067-desktop",
+        "digest": "sha256:51e6fe159bb05c117b520df2bd8e5eacaf663d7e75e054fde8523f15c9ef7dec",
+        "expires_at": "2026-10-22T07:58:41Z",
+        "bytes": 1398550
+      },
+      {
+        "id": 11956925904,
+        "name": "batch03-pull_request-MAN-0167-desktop",
+        "digest": "sha256:3c7662e892a94a2e0d9d05260e74292edb294474e0297c16c10196cbe5741b35",
+        "expires_at": "2026-10-22T07:58:43Z",
+        "bytes": 1397518
+      },
+      {
+        "id": 11956608444,
+        "name": "batch03-pull_request-MAN-0167-mobile",
+        "digest": "sha256:ed371aab05753de552972eb140001dded6489007b4396803b674df5ec7e6b2d5",
+        "expires_at": "2026-10-22T07:58:45Z",
+        "bytes": 3391508
+      },
+      {
+        "id": 11956293974,
+        "name": "batch03-pull_request-MAN-0367-mobile",
+        "digest": "sha256:02c5cf83d84fed380f111a57099f86b948c0de55ad795a21868042bcfa506529",
+        "expires_at": "2026-10-22T07:58:52Z",
+        "bytes": 3386887
+      }
+    ]
+  },
+  {
+    "id": 38702345621,
+    "name": "Final two Batch01 exact controlled release verification",
+    "head_sha": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38702345621",
+    "jobs": [
+      {
+        "id": 116313308023,
+        "name": "verify (MAN-0565, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:00:36Z"
+      },
+      {
+        "id": 116313308265,
+        "name": "verify (MAN-0905, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:28Z"
+      },
+      {
+        "id": 116313308338,
+        "name": "verify (MAN-0565, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:00:35Z"
+      },
+      {
+        "id": 116313308408,
+        "name": "verify (MAN-0905, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:27Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11957046417,
+        "name": "final-two-MAN-0905-mobile-pull_request",
+        "digest": "sha256:929480739912da0d09a2b2977b5845fc44fb225b431ecd006f444186ccb9c6be",
+        "expires_at": "2026-10-22T08:01:25Z",
+        "bytes": 1431526
+      },
+      {
+        "id": 11956946421,
+        "name": "final-two-MAN-0905-desktop-pull_request",
+        "digest": "sha256:f4a743d0b233dbd8c70832b126f7de668919096d5ee3918b233ac01bbdcb3200",
+        "expires_at": "2026-10-22T08:01:24Z",
+        "bytes": 876430
+      },
+      {
+        "id": 11956384022,
+        "name": "final-two-MAN-0565-mobile-pull_request",
+        "digest": "sha256:65bf27b12ae4ae93f48723e7d73ff4d05ea1a6684b4d7c8200545c7907873519",
+        "expires_at": "2026-10-22T08:00:31Z",
+        "bytes": 1360820
+      },
+      {
+        "id": 11956294252,
+        "name": "final-two-MAN-0565-desktop-pull_request",
+        "digest": "sha256:b0a83753237f9a4c1beb9384e18d4d40e3e824ff4de18a29871b901819a29e93",
+        "expires_at": "2026-10-22T08:00:31Z",
+        "bytes": 869108
+      }
+    ]
+  },
+  {
+    "id": 38702345349,
+    "name": "MAN0844 exact mixed realization release verification",
+    "head_sha": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38702345349",
+    "jobs": [
+      {
+        "id": 116313307208,
+        "name": "verify (mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:32Z"
+      },
+      {
+        "id": 116313307529,
+        "name": "verify (desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:34Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11956836674,
+        "name": "man0844-mobile-pull_request",
+        "digest": "sha256:4e01883d389f55a8aeff8f997b7e0ee1704281edc697b1529957e06341062453",
+        "expires_at": "2026-10-22T08:01:28Z",
+        "bytes": 1497954
+      },
+      {
+        "id": 11956439236,
+        "name": "man0844-desktop-pull_request",
+        "digest": "sha256:7c723863e2029462f7ce27b8a1eced15e650b6bee710383c5418500b103a8f2a",
+        "expires_at": "2026-10-22T08:01:32Z",
+        "bytes": 903962
+      }
+    ]
+  },
+  {
+    "id": 38702345698,
+    "name": "Batch02 exact desktop mobile release verification",
+    "head_sha": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38702345698",
+    "jobs": [
+      {
+        "id": 116313308922,
+        "name": "verify (MAN-0066, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:59:35Z"
+      },
+      {
+        "id": 116313309106,
+        "name": "verify (MAN-0166, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:00:03Z"
+      },
+      {
+        "id": 116313309136,
+        "name": "verify (MAN-0311, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:05:07Z"
+      },
+      {
+        "id": 116313309151,
+        "name": "verify (MAN-0311, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:04:55Z"
+      },
+      {
+        "id": 116313309166,
+        "name": "verify (MAN-0366, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:00:36Z"
+      },
+      {
+        "id": 116313309181,
+        "name": "verify (MAN-0566, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:08Z"
+      },
+      {
+        "id": 116313309220,
+        "name": "verify (MAN-0566, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:12Z"
+      },
+      {
+        "id": 116313309235,
+        "name": "verify (MAN-0001, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:02:48Z"
+      },
+      {
+        "id": 116313309261,
+        "name": "verify (MAN-0201, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:03:24Z"
+      },
+      {
+        "id": 116313309281,
+        "name": "verify (MAN-0066, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T07:59:32Z"
+      },
+      {
+        "id": 116313309290,
+        "name": "verify (MAN-0001, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:02:25Z"
+      },
+      {
+        "id": 116313309310,
+        "name": "verify (MAN-0366, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:01:31Z"
+      },
+      {
+        "id": 116313309336,
+        "name": "verify (MAN-0906, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:04:00Z"
+      },
+      {
+        "id": 116313309350,
+        "name": "verify (MAN-0166, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:00:40Z"
+      },
+      {
+        "id": 116313309352,
+        "name": "verify (MAN-0201, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:03:42Z"
+      },
+      {
+        "id": 116313309399,
+        "name": "verify (MAN-0766, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:02:47Z"
+      },
+      {
+        "id": 116313309462,
+        "name": "verify (MAN-0766, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:02:40Z"
+      },
+      {
+        "id": 116313309525,
+        "name": "verify (MAN-0906, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:04:35Z"
+      },
+      {
+        "id": 116313310899,
+        "name": "verify (MAN-0521, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:05:58Z"
+      },
+      {
+        "id": 116313311034,
+        "name": "verify (MAN-0733, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:07:12Z"
+      },
+      {
+        "id": 116313311142,
+        "name": "verify (MAN-0733, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:06:50Z"
+      },
+      {
+        "id": 116313311145,
+        "name": "verify (MAN-0921, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:08:02Z"
+      },
+      {
+        "id": 116313311206,
+        "name": "verify (MAN-0521, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:06:01Z"
+      },
+      {
+        "id": 116313311209,
+        "name": "verify (MAN-0921, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:08:36Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11957880118,
+        "name": "batch02-MAN-0921-desktop-pull_request",
+        "digest": "sha256:60d10ba4bb8d928959b47416d655288fa020401c84caf4587173c553966b1821",
+        "expires_at": "2026-10-22T08:07:58Z",
+        "bytes": 873796
+      },
+      {
+        "id": 11957845126,
+        "name": "batch02-MAN-0733-mobile-pull_request",
+        "digest": "sha256:0f78260535a70131053a78626ba4c19beefe624c2bc28b0d344b0e3168820f1e",
+        "expires_at": "2026-10-22T08:07:10Z",
+        "bytes": 1631505
+      },
+      {
+        "id": 11957720460,
+        "name": "batch02-MAN-0921-mobile-pull_request",
+        "digest": "sha256:3cd7edf9bb4414d94542118b72e62732518aa13ca485ddb7d2a74de057beaf7a",
+        "expires_at": "2026-10-22T08:08:32Z",
+        "bytes": 1385486
+      },
+      {
+        "id": 11957520488,
+        "name": "batch02-MAN-0766-mobile-pull_request",
+        "digest": "sha256:e9c9de89ceca598dbdc4e7a7c03eb4b2a5c1f067c241845b6d9c2cf39ab2a327",
+        "expires_at": "2026-10-22T08:02:45Z",
+        "bytes": 1468144
+      },
+      {
+        "id": 11957486646,
+        "name": "batch02-MAN-0733-desktop-pull_request",
+        "digest": "sha256:85cd593fcaac1598bb8a2390c64459b7fc9af0006ce2d9f6d3664b7fe9e54fb0",
+        "expires_at": "2026-10-22T08:06:47Z",
+        "bytes": 926686
+      },
+      {
+        "id": 11957466552,
+        "name": "batch02-MAN-0521-desktop-pull_request",
+        "digest": "sha256:0466f24b4f710f42652f924fbeb5d8f218d64531403f13db2f343699420ef0a8",
+        "expires_at": "2026-10-22T08:05:55Z",
+        "bytes": 863468
+      },
+      {
+        "id": 11957436006,
+        "name": "batch02-MAN-0201-desktop-pull_request",
+        "digest": "sha256:9bd74931ec250da11ff8da5008a6ef2dce68cf4ec355e6bc048532833b7214af",
+        "expires_at": "2026-10-22T08:03:21Z",
+        "bytes": 856977
+      },
+      {
+        "id": 11957410573,
+        "name": "batch02-MAN-0366-desktop-pull_request",
+        "digest": "sha256:e30689f00527a12cf23675297fc5252a28955d9b50fabc78133eff263b99d7a5",
+        "expires_at": "2026-10-22T08:00:33Z",
+        "bytes": 849429
+      },
+      {
+        "id": 11957381314,
+        "name": "batch02-MAN-0906-desktop-pull_request",
+        "digest": "sha256:050aa96b3e1a28644e16c13176755fc11b995642aa84dbbd847b313e37e83c4e",
+        "expires_at": "2026-10-22T08:03:57Z",
+        "bytes": 874211
+      },
+      {
+        "id": 11957246692,
+        "name": "batch02-MAN-0906-mobile-pull_request",
+        "digest": "sha256:f5fb4e88d2fd069c4fdcbafb3595a08a8c5df35ee87ed5e907c0b5927888cc48",
+        "expires_at": "2026-10-22T08:04:32Z",
+        "bytes": 1393773
+      },
+      {
+        "id": 11957111761,
+        "name": "batch02-MAN-0201-mobile-pull_request",
+        "digest": "sha256:fe6df58ebba8653cd345cb08a653e685cdfe269386eef215deb99d75bf134a01",
+        "expires_at": "2026-10-22T08:03:38Z",
+        "bytes": 1361686
+      },
+      {
+        "id": 11957101173,
+        "name": "batch02-MAN-0566-mobile-pull_request",
+        "digest": "sha256:1826d28d00e713425c3f8acd4ad1e9ae6ead6f3d01200a8f4f9c9177afd7f310",
+        "expires_at": "2026-10-22T08:01:03Z",
+        "bytes": 1457060
+      },
+      {
+        "id": 11957087296,
+        "name": "batch02-MAN-0521-mobile-pull_request",
+        "digest": "sha256:3319fb383236de767ffa240d536e8c380d3e4dc873f9659d87fcde832f366444",
+        "expires_at": "2026-10-22T08:05:59Z",
+        "bytes": 1366472
+      },
+      {
+        "id": 11956976334,
+        "name": "batch02-MAN-0566-desktop-pull_request",
+        "digest": "sha256:9e4bf62fdc1c39a607ecd7065aa24d2bca49f92fa2900558824ba4dfd8833dcf",
+        "expires_at": "2026-10-22T08:01:09Z",
+        "bytes": 856780
+      },
+      {
+        "id": 11956976125,
+        "name": "batch02-MAN-0166-mobile-pull_request",
+        "digest": "sha256:876f19dd2bf6670d08cd589fa9f1c13325116e7b5705b0917b120c7d4afad1d9",
+        "expires_at": "2026-10-22T08:00:00Z",
+        "bytes": 1450273
+      },
+      {
+        "id": 11956917125,
+        "name": "batch02-MAN-0311-desktop-pull_request",
+        "digest": "sha256:ae60b5e0a20bd70f267d40f8bbf07a395b2697b59e3455a8b979beda3df050d9",
+        "expires_at": "2026-10-22T08:04:51Z",
+        "bytes": 848945
+      },
+      {
+        "id": 11956836265,
+        "name": "batch02-MAN-0066-mobile-pull_request",
+        "digest": "sha256:51507785eaba0f23f4d05066d2044e9be860256cc6c44b16a2471da59a1d061b",
+        "expires_at": "2026-10-22T07:59:29Z",
+        "bytes": 1376589
+      },
+      {
+        "id": 11956619511,
+        "name": "batch02-MAN-0311-mobile-pull_request",
+        "digest": "sha256:59e2180c2d9ced8faa47f0a0230384962f95026b85aa775d533830faa56f24b1",
+        "expires_at": "2026-10-22T08:05:03Z",
+        "bytes": 1292512
+      },
+      {
+        "id": 11956609098,
+        "name": "batch02-MAN-0001-mobile-pull_request",
+        "digest": "sha256:14e6e6b8135e7dae4952253859eae8a1e213c8740382af2330d1491b9a6b0aa0",
+        "expires_at": "2026-10-22T08:02:44Z",
+        "bytes": 1247793
+      },
+      {
+        "id": 11956544008,
+        "name": "batch02-MAN-0366-mobile-pull_request",
+        "digest": "sha256:b5866eb2627921365fd6fbb606118c3a32c7a5cadef872c146984b394d903d73",
+        "expires_at": "2026-10-22T08:01:27Z",
+        "bytes": 1421754
+      },
+      {
+        "id": 11956429320,
+        "name": "batch02-MAN-0766-desktop-pull_request",
+        "digest": "sha256:92f10301876fea99d5a200add0ff7c4657a15005a07d9adfad68f14deb167c68",
+        "expires_at": "2026-10-22T08:02:37Z",
+        "bytes": 880518
+      },
+      {
+        "id": 11956404270,
+        "name": "batch02-MAN-0001-desktop-pull_request",
+        "digest": "sha256:45434e8951e97847910acc5ebe85238ccbd063981f6c9ec7d1126d636bc3380e",
+        "expires_at": "2026-10-22T08:02:20Z",
+        "bytes": 841955
+      },
+      {
+        "id": 11956089411,
+        "name": "batch02-MAN-0166-desktop-pull_request",
+        "digest": "sha256:8de7fc463bfde455dbd6dc6007292d0d03c4a3d69e3d1858bc25df94de23948b",
+        "expires_at": "2026-10-22T08:00:38Z",
+        "bytes": 894599
+      },
+      {
+        "id": 11955934360,
+        "name": "batch02-MAN-0066-desktop-pull_request",
+        "digest": "sha256:5f00deeb0cdc7027ed907690f4c648d54c94f7cf1315f959b7e75d12f064e081",
+        "expires_at": "2026-10-22T07:59:33Z",
+        "bytes": 837151
+      }
+    ]
+  },
+  {
+    "id": 38702345423,
+    "name": "Batch04 controlled learner release verification",
+    "head_sha": "569d3a41b861888da53f9e62ee660d72c0e8a649",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38702345423",
+    "jobs": [
+      {
+        "id": 116313307456,
+        "name": "verify (MAN-0831, mobile)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:05:33Z"
+      },
+      {
+        "id": 116313307850,
+        "name": "verify (MAN-0831, desktop)",
+        "conclusion": "success",
+        "status": "completed",
+        "completed_at": "2026-10-15T08:07:58Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11957511212,
+        "name": "batch04-pull_request-MAN-0831-mobile",
+        "digest": "sha256:a7cec45f37384651777dacd33e7f87a7d72f85bc71d1c5dee77fc952d8c4e331",
+        "expires_at": "2026-10-22T08:05:31Z",
+        "bytes": 1496916
+      },
+      {
+        "id": 11957132512,
+        "name": "batch04-pull_request-MAN-0831-desktop",
+        "digest": "sha256:9d0493aea2600efbfa63244c8aa708d09465467733d07c2c7e50a9035fa3f3a5",
+        "expires_at": "2026-10-22T08:07:54Z",
+        "bytes": 866127
+      }
+    ]
+  }
+]
