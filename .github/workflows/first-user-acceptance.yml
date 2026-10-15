@@ -1,0 +1,57 @@
+name: First-user nonproduction acceptance
+on:
+  push:
+    branches: ['nonproduction/first-user-reliability']
+    paths: ['index.html', 'assets/**', 'tests/**', 'nonproduction/first-user/*.browser.mjs', 'nonproduction/learner-reliability/*.js', 'nonproduction/learner-reliability/*.cjs', '.github/workflows/first-user-acceptance.yml']
+permissions:
+  contents: read
+concurrency:
+  group: first-user-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Targeted unit and wrapper regression
+        run: |
+          node tests/learner-reliability.test.mjs
+          node tests/learner-progress.test.cjs
+          node tests/pr183-readiness.test.mjs
+          node tests/learner-practice-resume.test.mjs
+          node tests/practice-runtime-wrapper.test.mjs
+      - name: Locked existing dependencies
+        working-directory: nonproduction/learner-reliability
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Existing Chromium runtime
+        working-directory: nonproduction/learner-reliability
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Actual IndexedDB history acceptance
+        run: node nonproduction/first-user/history.browser.mjs .
+      - name: Actual Practice history and resume acceptance
+        run: node nonproduction/first-user/practice-history.browser.mjs
+      - name: Actual isolated SDK and learner host regression
+        working-directory: nonproduction/learner-reliability
+        env:
+          CI: 'true'
+          FIREBASE_CLI_DISABLE_USAGE: 'true'
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-host --config firebase.host.emulator.json 'node cloud-host.browser.mjs ../..'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: first-user-targeted-evidence
+          path: |
+            nonproduction/first-user/*receipt.json
+            nonproduction/first-user/practice-history-output/*.json
+            nonproduction/learner-reliability/cloud-host-receipt.json
+          retention-days: 7

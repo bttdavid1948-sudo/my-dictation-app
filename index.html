@@ -4,6 +4,7 @@
 <script src="assets/fixed-audio-runtime.js?release=MAN-0065-v0.2"></script>
     <meta charset="UTF-8">
     <script src="assets/learner-progress.js"></script>
+    <script src="assets/learner-history.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mặn — Xóm Này Out Trình</title>
     <!-- Nonproduction reliability candidate; production publication requires separate Owner approval. -->
@@ -610,6 +611,7 @@ Danh sách từ/cụm từ của tôi:
         auth.onAuthStateChanged(user => {
             const nextUid=user?.uid||null;
             if (xPreviousAuthUid !== nextUid) {
+                window.ManGenericPractice?.resetForAuth?.();window.ManMixedPanel?.resetForAuth?.();window.ManFinalTwoPractice?.resetForAuth?.();window.ManBatch02Practice?.resetForAuth?.();
                 if(!xPreviousAuthUid&&Object.keys(unitsData).length)xGuestUnitsMemory=unitsData;
                 xFlushLearnerProgress();xCancelStudyAdvance();xStopTranscriptPlayback();ManFixedAudio.stop();window.speechSynthesis?.cancel();
                 if(studyTimer)clearInterval(studyTimer);sessionSeconds=0;
@@ -1645,6 +1647,7 @@ Danh sách từ/cụm từ của tôi:
 
 <script id="xnot-shell-js">
 function xSetStudyContext(name, count){
+ window.__manHistorySession={uid:currentUser?.uid||null,id:window.ManHistory?.enabled?crypto.randomUUID():null};
  const context=document.getElementById('study-context');
  if(context) context.textContent=`${name} · ${count} câu`;
 }
@@ -1727,8 +1730,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script id="xnot-final-functional-js">
 const XNOT={favorites:[],review:[],history:[],replays:0,sessionStart:null};
 function xLocalKey(kind){return `xnot_${kind}`+(currentUser?.uid?`_uid_${currentUser.uid}`:'')}
-function xLoadLocal(){if(!currentUser){for(const k of ['favorites','review','history'])XNOT[k]=[];return}for(const kind of ['favorites','review','history']){try{const data=JSON.parse(localStorage.getItem(xLocalKey(kind))||'[]');XNOT[kind]=Array.isArray(data)?data:[]}catch(e){XNOT[kind]=[]}}}
-function xSaveLocal(){if(!currentUser)return;for(const kind of ['favorites','review','history'])localStorage.setItem(xLocalKey(kind),JSON.stringify(XNOT[kind]))}
+function xLoadLocal(){
+ const actor=currentUser?.uid||null;for(const kind of ['favorites','review','history'])XNOT[kind]=[];
+ if(!actor){window.ManHistory?.select(null);return}
+ for(const kind of ['favorites','review','history']){if(kind==='history'&&window.ManHistory?.enabled)continue;try{const data=JSON.parse(localStorage.getItem(xLocalKey(kind))||'[]');XNOT[kind]=Array.isArray(data)?data:[]}catch{}}
+ if(window.ManHistory?.enabled)window.ManHistory.select(actor).then(()=>{if(currentUser?.uid!==actor)return;XNOT.history=ManHistory.read('dictation');xRenderProgress();xRenderMe()}).catch(()=>{if(currentUser?.uid===actor)xToast('Chưa đọc được lịch sử. Dữ liệu cũ vẫn được giữ nguyên.');});
+}
+function xSaveLocal(){if(!currentUser)return;try{for(const kind of ['favorites','review','history']){if(kind==='history'&&window.ManHistory?.enabled)continue;localStorage.setItem(xLocalKey(kind),JSON.stringify(XNOT[kind]))}}catch{xToast('Chưa lưu được dữ liệu trên trình duyệt. Đừng đóng trang nếu còn thay đổi.')}}
 
 const XHERO=[
  {bg:'linear-gradient(125deg,#ffe59d,#ffc99e)',tag:'🏘️ XÓM NÀY OUT TRÌNH',title:'Tiếng Anh không tự nhiên lọt vào tai đâu,<br>tiếng “em” thì còn có thể baby à!',desc:'Nghe rõ → rồi gõ → biết mình sai chỗ nọ → bò bò mà tiến bộ nhoa.',btn:'🎧 Thử 5 câu ngay →',act:"xQuickTrial()"},
@@ -1749,11 +1757,15 @@ function xRenderProgress(){const el=document.getElementById('x-progress-dashboar
 function xRetrySaved(){xFlushLearnerProgress();xLearnerProgress.active=null;xCancelStudyAdvance();if(!XNOT.review.length)return;items=[...XNOT.review];currentIndex=0;correctCount=0;failedItemsList=[];isRetryMode=true;xSetStudyContext('Ôn câu cần luyện',items.length);xGo('learn');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-app')?.classList.remove('hidden');startStudyTimer();loadQuestion(0)}
 function xRenderMe(){const el=document.getElementById('x-me-dashboard');if(!el)return;const u=window.currentUser;if(!u){el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h3>Khách trong xóm</h3><p>Học trước đi, tính chuyện đăng ký sau. 😌</p></div></div><div class="x-login-grid"><input id="x-email" class="form-input" type="email" placeholder="Email"><input id="x-pass" class="form-input" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="x-primary" onclick="xEmailLogin()">Đăng nhập</button><button class="btn btn-note" onclick="xEmailSignUp()">Tạo tài khoản</button><button class="btn btn-google" onclick="loginWithGoogle()">Google</button></div><button class="btn btn-note" onclick="xResetPassword()">Quên mật khẩu?</button><b>Miễn phí, chủ yếu là tình cảm ^^</b></div></div>`;return}const title=XNOT.history.length>=10?'👂 Có dấu hiệu cao thủ':XNOT.history.length?'🌱 Gương mặt mới toanh':'🐱 Cư dân mới';el.innerHTML=`<div class="x-panel"><div class="x-profilehero"><div class="x-avatar">🐱</div><div><h2 style="margin:0">${xEsc(u.displayName||u.email||'Hàng xóm')}</h2><b>${title}</b><p>Học hành có thể chậm. Mất tích thì Mèo Xóm nhớ đó.</p></div></div><div class="x-statrow"><div class="x-stat"><strong>${XNOT.history.length}</strong><small>phiên học</small></div><div class="x-stat"><strong>${XNOT.review.length}</strong><small>câu cần ôn</small></div><div class="x-stat"><strong>${XNOT.favorites.length}</strong><small>để dành</small></div><div class="x-stat"><strong>🏘️</strong><small>cư dân</small></div></div><h3 class="x-section-title">🏅 Phong hàm đang mở</h3><div class="x-achievements"><span class="x-ach">🌱 Gương mặt mới toanh</span>${XNOT.review.length>=3?'<span class="x-ach">😤 Không phục</span>':''}${XNOT.history.length>=3?'<span class="x-ach">🌤️ Lại gặp nhau rồi</span>':''}</div><br><button class="btn btn-danger" onclick="logout()">Đăng xuất</button></div>`}
 // Session capture + review list
-const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;XNOT.history.push({at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays});XNOT.history=XNOT.history.slice(-60);xSaveLocal();xOldShowSummary();xShowNextLessons();xSaveStudyState('summary');xRenderProgress();};
+const xOldShowSummary=window.showSummary;window.showSummary=function(){if(Array.isArray(failedItemsList)){failedItemsList.forEach(it=>{if(!XNOT.review.some(x=>x.en===it.en))XNOT.review.push({en:it.en,vi:it.vi||''})})}const total=(items||[]).length,acc=total?Math.round((correctCount/total)*100):0;const row={at:Date.now(),total,correct:correctCount,accuracy:acc,replays:XNOT.replays};
+ if(window.ManHistory?.enabled){const actor=window.__manHistorySession;if(actor?.uid&&actor.uid===currentUser?.uid){actor.summary=actor.summary||row;ManHistory.append(actor.uid,'dictation',[actor.summary],'dictation:'+actor.id).then(()=>{if(currentUser?.uid===actor.uid){XNOT.history=ManHistory.read('dictation');xRenderProgress();xRenderMe()}}).catch(()=>{if(currentUser?.uid===actor.uid)xToast('Lịch sử chưa được xác nhận lưu. Mở lại trang để thử khôi phục.');});}}
+ else{XNOT.history.push(row);XNOT.history=XNOT.history.slice(-60);}xSaveLocal();xOldShowSummary();xShowNextLessons();xSaveStudyState('summary');xRenderProgress();};
 const xOldPlayAudio=window.playAudio;window.playAudio=function(){XNOT.replays++;return xOldPlayAudio()};
 // Navigate enhancements
 const xNavBase=window.xGo;window.xGo=function(v,options){if(v!=='learn')xStopTranscriptPlayback();xNavBase(v,options);if(v==='catalog'){setTimeout(()=>{xInjectCatalogFilters();loadCatalogUnits()},30)}if(v==='progress')xRenderProgress();if(v==='me')xRenderMe()};
 try{auth.onAuthStateChanged(()=>{setTimeout(()=>xRenderMe(),50)})}catch(e){}
+window.addEventListener('man-history-status',e=>{if(e.detail.uid!==currentUser?.uid)return;if(e.detail.status==='UNCONFIRMED')xToast('Lịch sử chưa được xác nhận lưu. Dữ liệu chờ phục hồi vẫn được giữ.');});
+window.addEventListener('focus',()=>{if(window.ManHistory?.enabled)xLoadLocal();});
 document.addEventListener('DOMContentLoaded',()=>{xLoadLocal();xRenderProgress();xRenderMe();xInjectCatalogFilters();const gift=document.getElementById('gift-section'),ps=document.getElementById('x-prompt-slot');if(gift&&ps)ps.appendChild(gift);xHeroGo(0)});
 
 
@@ -1999,7 +2011,7 @@ function xSaveStudyState(phase){
   if(phase==='active'&&isQuestionResolved)return;
   if(!Array.isArray(items)||!items.length)return;
   sessionStorage.setItem(MAN_STUDY_KEY,JSON.stringify({
-   at:Date.now(),uid:currentUser?.uid||null,phase,items,currentIndex,correctCount,failedItemsList,isRetryMode,
+   at:Date.now(),uid:currentUser?.uid||null,historySession:window.__manHistorySession||null,phase,items,currentIndex,correctCount,failedItemsList,isRetryMode,
    context:document.getElementById('study-context')?.textContent||'',
    draft:document.getElementById('user-input')?.value||''
   }));
@@ -2031,6 +2043,7 @@ function xRestoreStudy(){
  correctCount=Math.max(0,Math.min(items.length,Number(saved.correctCount)||0));
  failedItemsList=Array.isArray(saved.failedItemsList)?saved.failedItemsList:[];
  isRetryMode=!!saved.isRetryMode;
+ if(saved.historySession?.uid===(currentUser?.uid||null)&&typeof saved.historySession?.id==='string')window.__manHistorySession=saved.historySession;
  const label=document.getElementById('study-context');if(label)label.textContent=saved.context||`Bài đang học · ${items.length} câu`;
  document.getElementById('dictation-placeholder')?.classList.add('hidden');
  if(saved.phase==='summary'){

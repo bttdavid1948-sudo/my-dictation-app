@@ -3,10 +3,11 @@
   const KEY='man_final_two_practice_v1', HISTORY='man_comprehension_history_v1';
   const PAIRS={'MAN-0565':'MAN-0565-OPENAI-FIXED-v0.1','MAN-0905':'MAN-0905-OPENAI-FIXED-v0.1'};
   let lesson=null,state=null,panel=null,token=0;
-  const oldStart=window.xStartCatalog,oldGo=window.xGo;
+  let historyActor=null,historyId=null;
+ const oldStart=window.xStartCatalog,oldGo=window.xGo;
   function bindings(u){return u.items.map(i=>i.audio.sha256);}
   function valid(u){return !!u&&u.status==='published'&&u.version==='v0.1'&&u.audioRealizationRef===PAIRS[u.id]&&u.practice?.speechCondition==='TRANSFER_VARIATION_CONDITION'&&u.items.length===(u.id==='MAN-0565'?6:7)&&u.items.every((it,i)=>it.segmentId===`S${String(i+1).padStart(3,'0')}`&&it.audio.lessonId===u.id&&it.audio.lessonVersion==='v0.1'&&it.audio.realizationId===PAIRS[u.id]&&/^[a-f0-9]{64}$/.test(it.audio.sha256));}
-  function save(){try{sessionStorage.setItem(KEY,JSON.stringify({...state,uid:auth.currentUser?.uid||null,at:Date.now()}));}catch(_) {}}
+  function save(){try{sessionStorage.setItem(KEY,JSON.stringify({...state,historyId,uid:auth.currentUser?.uid||null,at:Date.now()}));}catch(_) {}}
   function event(kind,detail={}){if(state){state.events.push({kind,...detail});save();}}
   function stop(){++token;ManFixedAudio.stop();}
   function text(tag,content,parent){const e=document.createElement(tag);e.textContent=content;parent.append(e);return e;}
@@ -42,7 +43,7 @@
     if(state.phase!=='complete'){
       const submit=document.createElement('button');submit.type='submit';submit.className='x-primary';submit.id='man-inference-submit';submit.textContent='Xem phản hồi';form.append(submit);
       form.addEventListener('submit',e=>{e.preventDefault();const answer=form.querySelector('input:checked');if(!answer)return;stop();state.answer=Number(answer.value);state.correct=state.answer===lesson.practice.correctChoice;state.phase='complete';state.responseAssisted=state.assisted;state.completedAt=Date.now();event('INFERENCE_RESPONSE',{correct:state.correct,evidence:state.assisted?'ASSISTED':'FULL_CONTEXT_FIRST_PASS'});
-        try{const history=JSON.parse(localStorage.getItem(HISTORY)||'[]');history.push({at:state.completedAt,lessonId:lesson.id,lessonVersion:'v0.1',realizationId:lesson.audioRealizationRef,construct:lesson.practice.construct,correct:state.correct,assisted:state.assisted,segmentReplays:state.segmentReplays,calibrated:false});localStorage.setItem(HISTORY,JSON.stringify(history.slice(-60)));}catch(_){}render();});
+        if(window.ManHistory?.enabled){if(historyActor===(auth.currentUser?.uid||null))window.ManHistory.practice(historyActor,HISTORY,[{at:state.completedAt,lessonId:lesson.id,lessonVersion:'v0.1',realizationId:lesson.audioRealizationRef,construct:lesson.practice.construct,correct:state.correct,assisted:state.assisted,segmentReplays:state.segmentReplays,calibrated:false}],historyId);}else{try{const history=JSON.parse(localStorage.getItem(HISTORY)||'[]');history.push({at:state.completedAt,lessonId:lesson.id,lessonVersion:'v0.1',realizationId:lesson.audioRealizationRef,construct:lesson.practice.construct,correct:state.correct,assisted:state.assisted,segmentReplays:state.segmentReplays,calibrated:false});localStorage.setItem(HISTORY,JSON.stringify(history.slice(-60)));}catch(_){}}render();});
     }else{
       const result=document.createElement('div');result.id='man-inference-result';result.setAttribute('role','status');panel.append(result);text('h3','Bạn vừa làm được gì?',result);
       text('p',state.correct?'Bạn đã chọn đúng kết luận của cuộc thảo luận.':'Kết luận còn chạy mất một chút. Cùng xem lại lập luận nhé.',result);text('p',lesson.practice.referenceAnswer,result);
@@ -51,7 +52,7 @@
       result.append(button('✍️ Luyện chính tả các lượt nói','man-inference-dictation',()=>{stop();state.phase='dictation';save();panel.hidden=true;oldStart(lesson.id);}),button('📚 Chọn bài để học tiếp','man-inference-next',()=>{stop();panel.hidden=true;oldGo('catalog');}));
     }
   }
-  function open(u,saved=null){stop();lesson=u;state=saved||{lessonId:u.id,lessonVersion:'v0.1',realizationId:u.audioRealizationRef,assetHashes:bindings(u),phase:'listening',fullPlays:0,fullEnded:false,assisted:false,segmentReplays:0,events:[],answer:null};xStopTranscriptPlayback();stopStudyTimerAndSave();try{sessionStorage.removeItem(MAN_STUDY_KEY);}catch(_){}
+  function open(u,saved=null){historyActor=auth.currentUser?.uid||null;historyId=saved?.historyId||(window.ManHistory?.enabled?window.crypto.randomUUID():String(Date.now()));stop();lesson=u;state=saved||{lessonId:u.id,lessonVersion:'v0.1',realizationId:u.audioRealizationRef,assetHashes:bindings(u),phase:'listening',fullPlays:0,fullEnded:false,assisted:false,segmentReplays:0,events:[],answer:null};xStopTranscriptPlayback();stopStudyTimerAndSave();try{sessionStorage.removeItem(MAN_STUDY_KEY);}catch(_){}
     document.getElementById('x-library-modal')?.classList.add('x-hidden');document.getElementById('dictation-app')?.classList.add('hidden');document.getElementById('summary-section')?.classList.add('hidden');document.getElementById('dictation-placeholder')?.classList.add('hidden');oldGo('learn');render();save();}
   window.xStartCatalog=function(id){const u=catalogUnitsCache.find(x=>x.id===id);if(valid(u))return open(u);stop();if(panel)panel.hidden=true;state=null;try{sessionStorage.removeItem(KEY);}catch(_){}return oldStart(id);};
   window.xGo=function(view,options={}){if(view!=='learn'){stop();if(panel)panel.hidden=true;}return oldGo(view,options);};
@@ -59,7 +60,7 @@
   window.xRestoreStudy=function(){let saved;try{saved=JSON.parse(sessionStorage.getItem(MAN_STUDY_KEY)||'null');}catch(_){}
     const audio=saved?.items?.[0]?.audio;if(!Object.values(PAIRS).includes(audio?.realizationId))return oldRestore();
     if(!restoring){restoring=true;loadCatalogUnits().then(all=>{restoring=false;const u=all.find(x=>x.id===audio.lessonId);if(valid(u)&&JSON.stringify(saved.items.map(i=>i.audio.sha256))===JSON.stringify(bindings(u)))oldRestore();else{try{sessionStorage.removeItem(MAN_STUDY_KEY);}catch(_){}document.getElementById('dictation-placeholder')?.classList.remove('hidden');}});}return true;};
-  window.ManFinalTwoPractice={evidence:()=>state?JSON.parse(JSON.stringify(state)):null};
+  window.ManFinalTwoPractice={resetForAuth(){stop();state=null;historyActor=null;if(panel)panel.hidden=true;},evidence:()=>state?JSON.parse(JSON.stringify(state)):null};
   window.addEventListener('popstate',()=>stop());
   document.addEventListener('DOMContentLoaded',async()=>{let saved;try{saved=JSON.parse(sessionStorage.getItem(KEY)||'null');}catch(_){}
     if(!saved||saved.realizationId!==PAIRS[saved.lessonId]||saved.uid!==(auth.currentUser?.uid||null)||Date.now()-saved.at>12*60*60*1000||location.hash!=='#learn'||!['listening','complete'].includes(saved.phase)||!Array.isArray(saved.events))return;
