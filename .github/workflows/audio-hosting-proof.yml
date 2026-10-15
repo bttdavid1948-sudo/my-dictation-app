@@ -1,12 +1,13 @@
 name: Bounded audio hosting proof
 on:
   push:
-    branches: ['nonproduction/audio-hosting-proof']
+    branches: ['nonproduction/audio-hosting-proof', 'nonproduction/audio-hosting-inventory']
     paths: ['nonproduction/audio-hosting/**', '.github/workflows/audio-hosting-proof.yml']
 permissions:
   contents: read
 jobs:
   measure:
+    if: github.ref == 'refs/heads/nonproduction/audio-hosting-proof'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -26,4 +27,21 @@ jobs:
         with:
           name: audio-hosting-proof
           path: nonproduction/audio-hosting/*.json
+          retention-days: 7
+  inventory:
+    if: github.ref == 'refs/heads/nonproduction/audio-hosting-inventory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node nonproduction/audio-hosting/inventory.cjs .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: all-wav-inventory
+          path: nonproduction/audio-hosting/all-wav-inventory.json
           retention-days: 7
