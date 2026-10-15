@@ -1,0 +1,29 @@
+name: Bounded audio hosting proof
+on:
+  push:
+    branches: ['nonproduction/audio-hosting-proof']
+    paths: ['nonproduction/audio-hosting/**', '.github/workflows/audio-hosting-proof.yml']
+permissions:
+  contents: read
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+        working-directory: nonproduction/learner-reliability
+      - run: node node_modules/playwright/cli.js install --with-deps chromium
+        working-directory: nonproduction/learner-reliability
+      - run: node nonproduction/audio-hosting/measure.mjs .
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audio-hosting-proof
+          path: nonproduction/audio-hosting/*.json
+          retention-days: 7
