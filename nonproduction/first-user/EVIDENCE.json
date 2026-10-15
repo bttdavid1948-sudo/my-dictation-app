@@ -1,0 +1,203 @@
+{
+  "status": "TESTED_NONPRODUCTION_NOT_PRODUCTION_READY",
+  "observed_at": "2026-10-15T06:47:47.842625+00:00",
+  "canonical_main": "0d7e2405885b837f251de08cc23632dca6f3cfc8",
+  "pr183_head": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+  "reviewed_code_sha": "cc4439092662f36ded4c12ea23596bb5da8f611e",
+  "reviewed_tree": "57ee9b1966c3348d1b6fb3ad1a1ec5fa85485313",
+  "scope_read_pack_sha256": "7fd1b4d2ea410ae1fa562c7cf05314dc006927969ef6a936b276087052695643",
+  "checkpoint_baseline": {
+    "name": "MAN-Prelaunch-D1-D3-Checkpoint-20261009.md",
+    "version": 8,
+    "milestone": 7,
+    "sha256": "3ab38dc0e4ef9353521d0c1c37770e3eb718894974e09fff6a947fcbccf31b8c"
+  },
+  "source_manifest": [
+    {
+      "path": "index.html",
+      "git_blob": "a4049f222a9a2828e6ecfe6768b26ba6b7d36c67",
+      "sha256": "1e16e77a920f71a29c5855194f168c62631aaf86efa62e1d9769bccafdfd45b1",
+      "bytes": 234145
+    },
+    {
+      "path": "assets/learner-history.js",
+      "git_blob": "466c182fd44876d7f8fd0947a447886bdf401c51",
+      "sha256": "02eacc1b39dc7c552ae4ce577693cdc139c504e39f4405aebf95a696b99b6578",
+      "bytes": 6271
+    },
+    {
+      "path": "assets/practice-runtime-wrapper.js",
+      "git_blob": "0adf65ff598f8e47fc59fa6b721e53ede11fccfe",
+      "sha256": "a97f3d8acdc852a244bae58e713a8ecdfd7b279ffb1714164a9f98f11264cbb0",
+      "bytes": 23710
+    },
+    {
+      "path": "assets/mixed-panel-runtime.js",
+      "git_blob": "6561ab6b4a0216c985d044f1f5e5c8707c5b9523",
+      "sha256": "387bcdf50d424e022e0c26ac82a8c846b1fa9cbabb7d250a8d291117d02ecfaa",
+      "bytes": 13029
+    },
+    {
+      "path": "assets/final-two-practice-runtime.js",
+      "git_blob": "6637954b7be02498ede0a822e7b0091ae9e4e035",
+      "sha256": "ef9760202f399fc580ceb53a984bf2c0b9b385faa783c03cec9f764439a42be3",
+      "bytes": 10709
+    },
+    {
+      "path": "assets/batch02-practice-runtime.js",
+      "git_blob": "f648e80fc62e8cccc13e4b9f407945c332448e0a",
+      "sha256": "d5f61e0aa69a3b758ce623ab724de45693c59a0e50fe5f706cd2855252b46241",
+      "bytes": 13248
+    },
+    {
+      "path": "nonproduction/learner-reliability/emulator-host-server.cjs",
+      "git_blob": "a889d4c8eb345850710b00ddc0d3765bf63d8f16",
+      "sha256": "33a2f2754dc35057da4dbab4c3bcd6ec2f4a393faf2ce6480e89f7c0ea5ee634",
+      "bytes": 4881
+    },
+    {
+      "path": "nonproduction/learner-reliability/cloud-host.browser.mjs",
+      "git_blob": "7982ae36296323766a38d9ee1d04d8e228a14943",
+      "sha256": "1f1589d48131ee9f3d019bea19e46873603aee91973abcc74b506f198a2a7af0",
+      "bytes": 9472
+    },
+    {
+      "path": "nonproduction/first-user/history.browser.mjs",
+      "git_blob": "6e1e711b9f0fe35db2712e6c4ab0f70bd43b02dd",
+      "sha256": "989c64a7910a5d77fb3923912646737f710437da970030fc555f05fccbb97721",
+      "bytes": 9081
+    },
+    {
+      "path": "nonproduction/first-user/practice-history.browser.mjs",
+      "git_blob": "9f0ab385e8bbffdd73e539ba7eda9b7941289d35",
+      "sha256": "37ccfc968ddb08d6f0b78b6cd3c3206de805a3927513b6831c97f84f41ca7583",
+      "bytes": 13222
+    },
+    {
+      "path": ".github/workflows/first-user-acceptance.yml",
+      "git_blob": "522fad2532b195bc12a0d25023cb7b08a1f6d269",
+      "sha256": "799f94b917bd6512bf6e9abd9c1fe8a8e220f560fed4ac02bb21a479b9c6471a",
+      "bytes": 2638
+    },
+    {
+      "path": "tests/first-user-recovery.test.mjs",
+      "git_blob": "29737a6cd4c06c1899f1e488692d92eee0792132",
+      "sha256": "b5f299a297de2d9132560d58131169e60662b025fce0cbf2c7991fdef361637f",
+      "bytes": 3746
+    },
+    {
+      "path": "tests/client-isolation.test.mjs",
+      "git_blob": "6418efd234b17c2931fed2bb51bfccb9c831192d",
+      "sha256": "6ce4546c11a3d71c84b5a545f1683bd22c462e0b328f0e2ec1388ed0b7c2d2b7",
+      "bytes": 2380
+    }
+  ],
+  "ci": {
+    "run": 38693800063,
+    "job": 116285577908,
+    "conclusion": "success",
+    "artifact": 11953307351,
+    "zip_sha256": "f6d5add0b701403ba849f5c7f29bdefd8594354c36cc2f4be782975fa96658fd",
+    "dependency_lock": "nonproduction/learner-reliability/package-lock.json (unchanged from PR183)",
+    "environment": "GitHub-hosted ubuntu Node22 Java21, locked dependencies, Chromium, loopback-only demo-man-progress-host; no production credentials"
+  },
+  "targeted": {
+    "learner_reliability": 28,
+    "learner_progress": 22,
+    "practice_resume_bridge": 6,
+    "readiness": 11,
+    "new_recovery_before": {
+      "passed": 0,
+      "failed": 5
+    },
+    "new_recovery_after": {
+      "passed": 5,
+      "failed": 0
+    },
+    "private_regression_suites": 3,
+    "wrapper_differential_traces": 270,
+    "wrapper_resume_round_trips": 90,
+    "indexedDB_browser_checks": 32,
+    "browser_host_groups_including_measurement": 26,
+    "practice_browser": {
+      "viewports": 2,
+      "practice_lessons_per_viewport": 24,
+      "ordinary_lessons_per_viewport": 9,
+      "legacy_restores_per_viewport": 30,
+      "invalid_resume_rejections_per_viewport": 105
+    },
+    "benchmark": [
+      {
+        "mobile": false,
+        "events": 1000,
+        "visible": 60,
+        "elapsedMs": 1718.0999999999767
+      },
+      {
+        "mobile": true,
+        "events": 1000,
+        "visible": 60,
+        "elapsedMs": 1721.5
+      }
+    ]
+  },
+  "reused": {
+    "forms": "E v3 7+29 PASS frozen",
+    "cloud_unit": 15,
+    "demo_rules_groups": 27,
+    "actual_demo_SDK_cases": 3,
+    "network_fault_cases": 5,
+    "private_fault_cases": 3,
+    "native_WAV_cases": 2,
+    "invalidation_note": "Bindings remain the original E sources/environments, not current production. Affected writer/auth/host paths rerun in the new CI; profile backend write remains unverified."
+  },
+  "cloud_residuals": {
+    "read_only_metadata_watermark": "2026-10-15T05:21Z Firebase config; 05:31-05:33Z residual Cloud error/history readback in checkpoint7",
+    "unchanged_capability_blocker": "Supported Google Cloud backup/budget detail views inaccessible; no callable authenticated Cloud configuration API. No repeated method or declined plugin used.",
+    "production_rules_bytes": "UNVERIFIED",
+    "latest_READY_backup": "UNVERIFIED",
+    "paid_continuity": "UNVERIFIED",
+    "budget_thresholds_recipients_delivery_ACK": "UNVERIFIED"
+  },
+  "nonclaims": [
+    "No merge/deploy/production config/data migration or learner writes",
+    "History is UID-scoped browser storage, not durable cross-device account history",
+    "Mock UID is not actual Google Auth acceptance",
+    "Chromium touch emulation is not physical Android/iOS/Safari verification",
+    "Injected transaction abort/journal recovery is not OS/power-loss durability",
+    "Client48R/7W/6tx measures a bounded demo scenario only, not billing totals",
+    "No production capacity, retention/deletion-policy, deployment-artifact-exclusion or feedback cost-control PASS"
+  ],
+  "receipt_files": [
+    {
+      "path": "history-browser-receipt.json",
+      "sha256": "ba32d9c26bacbb0ed9b8168979917b08fe197b09011165522f4e6725aa8f8b88",
+      "bytes": 5366
+    },
+    {
+      "path": "practice-browser-receipt.json",
+      "sha256": "b8741ede0f8898620fd1d95c67b8794c1d0d06514964f58a623da6d636553e52",
+      "bytes": 916
+    },
+    {
+      "path": "cloud-host-receipt.json",
+      "sha256": "2f1539911a846c9f24fa54aaae5e6a992afa016f895f2d96fa97297a30024135",
+      "bytes": 2671
+    },
+    {
+      "path": "recovery-before.json",
+      "sha256": "55dca56ebabb323b37dc3b3de761c0837ce7bc0cf1aa019b743e2bec9839b762",
+      "bytes": 837
+    },
+    {
+      "path": "recovery-after.json",
+      "sha256": "4b413ab5a325b634b15870870133b3e7c934382f97bbcbd5d69d8c9df6ad5e92",
+      "bytes": 510
+    },
+    {
+      "path": "scalability-model.json",
+      "sha256": "48dcfbdd8581c6b769b281c48c76e612b1f74662f8cddccd2e43ede42abbb30c",
+      "bytes": 4062
+    }
+  ]
+}

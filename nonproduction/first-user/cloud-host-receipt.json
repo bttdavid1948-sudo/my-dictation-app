@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "checks": [
+    [
+      "desktop",
+      "X preserves page"
+    ],
+    [
+      "desktop",
+      "Cloud starts selected lesson, popup hidden before instrumented play"
+    ],
+    [
+      "desktop",
+      "Actual SDK cloud checkpoint and card count"
+    ],
+    [
+      "desktop",
+      "Reload resumes cloud cursor"
+    ],
+    [
+      "desktop",
+      "Dictation completion ACK in UID history"
+    ],
+    [
+      "desktop",
+      "Completion then replay starts new latest session"
+    ],
+    [
+      "desktop",
+      "Private identity retained; edited version starts new session instead of stale resume"
+    ],
+    [
+      "desktop",
+      "Actual browser private import/save/edit/rename/delete with emulator readback"
+    ],
+    [
+      "desktop",
+      "Measured client cloud operation attempts",
+      {
+        "reads": 48,
+        "writes": 7,
+        "transactions": 6
+      }
+    ],
+    [
+      "desktop",
+      "Profile editor cleared on UID switch; late A ACK cannot update B (controlled ACK)"
+    ],
+    [
+      "desktop",
+      "Actual SDK private GET succeeds with browser draft storage denied"
+    ],
+    [
+      "desktop",
+      "A/B isolation and guest no cloud writes"
+    ],
+    [
+      "desktop",
+      "Viewport no horizontal overflow"
+    ],
+    [
+      "touch",
+      "X preserves page"
+    ],
+    [
+      "touch",
+      "Cloud starts selected lesson, popup hidden before instrumented play"
+    ],
+    [
+      "touch",
+      "Actual SDK cloud checkpoint and card count"
+    ],
+    [
+      "touch",
+      "Reload resumes cloud cursor"
+    ],
+    [
+      "touch",
+      "Dictation completion ACK in UID history"
+    ],
+    [
+      "touch",
+      "Completion then replay starts new latest session"
+    ],
+    [
+      "touch",
+      "Private identity retained; edited version starts new session instead of stale resume"
+    ],
+    [
+      "touch",
+      "Actual browser private import/save/edit/rename/delete with emulator readback"
+    ],
+    [
+      "touch",
+      "Measured client cloud operation attempts",
+      {
+        "reads": 48,
+        "writes": 7,
+        "transactions": 6
+      }
+    ],
+    [
+      "touch",
+      "Profile editor cleared on UID switch; late A ACK cannot update B (controlled ACK)"
+    ],
+    [
+      "touch",
+      "Actual SDK private GET succeeds with browser draft storage denied"
+    ],
+    [
+      "touch",
+      "A/B isolation and guest no cloud writes"
+    ],
+    [
+      "touch",
+      "Viewport no horizontal overflow"
+    ]
+  ],
+  "scope": "Actual Chromium DOM/touch context + compat SDK Firestore demo emulator/mock UID; instrumented audio, not Google Auth/physical device",
+  "errors": []
+}

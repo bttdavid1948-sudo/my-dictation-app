@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "environment": "isolated default index.html; no live/paid API/acoustic claim",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "practice": 24,
+      "ordinary": 9,
+      "defaultBootstrap": true,
+      "legacyRestores": 30,
+      "rejections": 105,
+      "rollback": true,
+      "dom": true,
+      "audioCallbacks": "controlled double",
+      "resume": true,
+      "navigation": true,
+      "firebaseWrites": 0,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "practice": 24,
+      "ordinary": 9,
+      "defaultBootstrap": true,
+      "legacyRestores": 30,
+      "rejections": 105,
+      "rollback": true,
+      "dom": true,
+      "audioCallbacks": "controlled double",
+      "resume": true,
+      "navigation": true,
+      "firebaseWrites": 0,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "device": "desktop Chromium",
+      "name": "OFF causes no migration or writes",
+      "result": "OFF"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Owned lazy migration; unowned rows preserved",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "guest → A → B → A; new UID empty",
+      "result": 1
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "No dual writes; ACK and exact replay dedup",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "UID mismatch rejected without reassignment",
+      "result": true
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Two independent tabs serialize without lost events",
+      "result": 4
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Reload keeps committed history and migration is one-time",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Storage denial is UNCONFIRMED; no empty migration seal",
+      "result": "UNCONFIRMED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Malformed owned source aborts migration atomically",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Before-commit abort leaves recovery journal, no false ACK",
+      "result": true
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Reload recovers aborted append exactly once",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "After-commit lost cleanup recovered idempotently",
+      "result": true
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Response-unknown journal read-back no duplicate",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Account change during async append never publishes A into B",
+      "result": true
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Offline browser can commit local UID history; not cloud sync",
+      "result": true
+    },
+    {
+      "device": "desktop Chromium",
+      "name": "Bounded 1000 append benchmark and channel retention",
+      "result": {
+        "events": 1000,
+        "visible": 60,
+        "elapsedMs": 1718.0999999999767
+      }
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "OFF causes no migration or writes",
+      "result": "OFF"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Owned lazy migration; unowned rows preserved",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "guest → A → B → A; new UID empty",
+      "result": 1
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "No dual writes; ACK and exact replay dedup",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "UID mismatch rejected without reassignment",
+      "result": true
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Two independent tabs serialize without lost events",
+      "result": 4
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Reload keeps committed history and migration is one-time",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Storage denial is UNCONFIRMED; no empty migration seal",
+      "result": "UNCONFIRMED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Malformed owned source aborts migration atomically",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Before-commit abort leaves recovery journal, no false ACK",
+      "result": true
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Reload recovers aborted append exactly once",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "After-commit lost cleanup recovered idempotently",
+      "result": true
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Response-unknown journal read-back no duplicate",
+      "result": "ACKNOWLEDGED"
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Account change during async append never publishes A into B",
+      "result": true
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Offline browser can commit local UID history; not cloud sync",
+      "result": true
+    },
+    {
+      "device": "touch-emulated Chromium",
+      "name": "Bounded 1000 append benchmark and channel retention",
+      "result": {
+        "events": 1000,
+        "visible": 60,
+        "elapsedMs": 1721.5
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "mobile": false,
+      "events": 1000,
+      "visible": 60,
+      "elapsedMs": 1718.0999999999767
+    },
+    {
+      "mobile": true,
+      "events": 1000,
+      "visible": 60,
+      "elapsedMs": 1721.5
+    }
+  ],
+  "nonclaims": [
+    "Synthetic UID, actual IndexedDB and independent Chromium pages",
+    "Touch viewport is emulated, not physical device",
+    "Injected transaction abort and journal replay, not OS/power-loss durability certification",
+    "No production/cloud migration or Google Auth exercised"
+  ]
+}
