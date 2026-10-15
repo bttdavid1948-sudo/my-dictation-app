@@ -198,6 +198,49 @@
       "path": "scalability-model.json",
       "sha256": "48dcfbdd8581c6b769b281c48c76e612b1f74662f8cddccd2e43ede42abbb30c",
       "bytes": 4062
+    },
+    {
+      "path": "ci-readiness-repairs.patch",
+      "sha256": "563f861589e52951cc5d274d8a52dec4b742a5698a1b12820b5c1c28f61dd51a",
+      "bytes": 24035
+    },
+    {
+      "path": "ci-repair-source.test.mjs",
+      "sha256": "02ab3573627f532a3083bf9923ed570e18eea70fdb1eb6bb1f95507fcbb65c8b",
+      "bytes": 1858
+    },
+    {
+      "path": "ci-repair-preparation-receipt.json",
+      "sha256": "7e6873ac0f6849d0f021215cfc4802ce4599afa907afb9196e55419581250912",
+      "bytes": 696
     }
-  ]
+  ],
+  "automatic_pr_ci": {
+    "observed_at": "2026-10-15T06:56:22.699645+00:00",
+    "head": "1c91cad110b5efa145de6473c29f775cb51487c5",
+    "readiness": "BLOCKED, not all-green",
+    "trigger": "Existing PR workflows automatically triggered by changed runtime paths; no manual gate rerun requested",
+    "confirmed_failures": [
+      {
+        "run": 38694726969,
+        "job": 116288517938,
+        "cause": "Expired source artifact37733419191; download fails before learner test"
+      },
+      {
+        "run": 38694726961,
+        "job": 116288518910,
+        "cause": "Stale ManBatch02Practice.evidence() reader is null on current Generic Runtime"
+      },
+      {
+        "run": 38694727023,
+        "job": 116288517920,
+        "cause": "Stale ManFinalTwoPractice.evidence() reader is null on current Generic Runtime"
+      }
+    ],
+    "prepared_fix": "ci-readiness-repairs.patch (not applied to PR184)",
+    "targeted_preparation_checks": 10,
+    "checks_scope": "Six hash-bound canonical staging receipt copies plus four fail-closed cases; syntax checks for3 reader patches. No new full native-release PASS claimed.",
+    "unchanged": "Reviewed learner code and successful isolated run38693800063 unaffected; existing production push verification path untouched",
+    "remaining": "Apply/review bounded CI repair and validate affected verifier/withdrawal branches without broad replay; no check waiver or production promotion"
+  }
 }
