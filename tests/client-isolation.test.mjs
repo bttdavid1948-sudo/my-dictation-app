@@ -30,6 +30,7 @@ const values=new Map([
 ]);
 const storage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v)};
 const local={currentUser:null,localStorage:storage,XNOT:{favorites:[],review:[],history:[]}};
+local.window=local;
 vm.createContext(local);
 vm.runInContext(section('function xLocalKey(kind){','const XHERO='),local);
 local.xLoadLocal();assert.equal(local.XNOT.history.length,0);

@@ -1,0 +1,95 @@
+# First-user reliability and scalability — nonproduction review
+
+Owner scope 2026-10-15: targeted nonproduction implementation only. **NO-GO for production cutover or new real-user pilot.** GO for review of the isolated candidate. No production deployment, migration, configuration, billing, paid API, feedback interruption, Batch05 or R1.4 activation occurred.
+
+## Source watermark and reuse
+
+Canonical main `0d7e2405885b837f251de08cc23632dca6f3cfc8`; PR183 remains draft/unmerged at `24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1`. Batch04 CLOSED/NONE. Final learner E handoff `04375b2c8abe5485570ab8fbcdfaa7dae0efe6dc`; previous readiness proposal `47728f9c72a6835aa260c0525fa31dbdba1e5273` is inherited, not merged. D1–D3 checkpoint v8/Milestone7 is the private operational baseline. Forms E v3 and 7+29 PASS stay frozen.
+
+The first candidate `600b9a216b06f328b03fcb5cd4f4a19730e70a74` passed actual acceptance run [38693040517](https://github.com/bttdavid1948-sudo/my-dictation-app/actions/runs/38693040517), artifact11952923849, ZIP SHA256 `16c408f60fb731245676543e8fea1133dcaaa6ea97fb0644f18fc5c320798fb6`. Final code candidate and fresh receipts are bound in EVIDENCE.json; do not extend the first run to later changed functions.
+
+Unaffected cloud15 unit, emulator27 groups/SDK3, fault5/private-fault3 and fixed-WAV2 evidence remain valid only for their original demo/source bindings in final E. New writer/auth/storage changes invalidate their affected learner/host tests, which are rerun; there is no production/backend readiness promotion from retained PASS.
+
+## Changes and state
+
+| Item | Cause → prepared fix | Evidence and disposition |
+|---|---|---|
+| Shared Practice history | Three retained legacy runtimes plus generic wrapper wrote device-wide arrays without ownership. All four writers now use one UID history adapter when the immutable host flag is ON; no fallback legacy write after cutover. | CONFIRMED → FIX PREPARED → browser TESTED in isolated prototype; production UNRESOLVED/OFF. |
+| Dictation history | Existing UID-keyed arrays are separate from Practice. Route Dictation through the same adapter; render only committed records for current UID. Favorites/review remain their existing UID-keyed data and are not represented as migrated history. | Nonproduction integration; new UID starts empty; guests persist no account history. |
+| Migration/parallel tabs | localStorage read-modify-write is not an atomic cross-tab protocol. Use existing browser IndexedDB readwrite transaction with UID as account key; initial owned history and migrated marker commit together. | Actual IndexedDB, independent tabs, denied storage, malformed source, abort-before-commit and replay-after-cleanup-failure tested. This is not OS/power-loss durability certification. |
+| Late account callbacks | Practice state could survive UID change. Reset/hide generic and retained legacy state, invalidate playback generation, capture history actor on lesson open. | Targeted wrapper and browser regression. No frozen scoring/content/legacy retirement changes. |
+| Profile ownership | Late profile/title ACK and avatar decode could mutate the next account UI; an old editor could submit under a new UID. Bind editor to UID/generation, clear it on account change, guard late callbacks. | Actual extracted functions: baseline0/5 → fixed5/5 UNIT. Browser profile editor/late ACK uses controlled ACK, not production profile-write acceptance. |
+| Private recovery | Denied sessionStorage could throw before server GET, and the warning was overwritten with “saving.” Guard draft reads and preserve the warning while waiting for cloud ACK. | UNIT server-read proof and targeted private suites; actual demo SDK GET with browser draft storage denied in final acceptance. No storage success is invented. |
+| Profile minutes | Inherited proposal updates displayed minutes only after transaction ACK. | Prior11 readiness UNIT retained/rerun. Durable idempotent minute ledger and response-unknown reconciliation remain UNRESOLVED; no blind replay. |
+| Feedback abuse/cost | A writable public client path can be called directly; UI cooldown, App Check and budget alerts are not hard spend caps. | Existing D1 deny/containment and broker decision package reused. No server control is deployed; no new service or feedback interruption. BLOCKED on exact production policy/Rules approval. |
+
+## UID history contract and limits
+
+`assets/learner-history.js` opens no database or cloud connection while `MAN_UID_HISTORY_ENABLED` is absent/false. Only the isolated fixtures set it true; URL/query/localStorage do not enable it. Normal production-facing index keeps it OFF. This store is **device-local account-isolated history preparation, not final cross-device cloud account history**. Existing nonproduction cloud progress protocol is reused unchanged; its host is emulator-only and is never imported into normal index.
+
+Allowed lazy migration: `xnot_history_uid_<exact authenticated UID>` plus rows explicitly bearing that exact UID in the two old Practice arrays. No guest/global `xnot_history`, inferred-email ownership, session-to-history guessing, or unmatched legacy adoption. Client UID provenance is not a cryptographic attestation or backend authorization boundary. No legacy row/key is removed. The first transaction atomically seals its snapshot; later legacy changes are intentionally not imported. Close/refresh old-version tabs before any separately approved cutover; mixed-version legacy writers cannot be made transactional by this new client.
+
+Each completion uses a stable event ID across session restore. A UID-owned write-ahead record precedes the IndexedDB transaction; `oncomplete` is the ACK. Same-ID/different-payload conflicts fail closed; exact retries are deduplicated. Pending journals survive failed commits and can be recovered on next UID load. No auto-upload to cloud. UID changes synchronously clear visible cache; late A commits cannot publish A into B.
+
+Visible windows remain60 Dictation/60 comprehension/100 task rows. The transaction has a500,000-JSON-code-unit guard and a1,000-event dedup guard; dedup retains SHA256 rather than duplicate raw response payloads. Reaching a guard preserves existing data and reports UNCONFIRMED; **these are prototype safety bounds, not an approved retention/deletion policy or unlimited lifetime capacity**. Pending conflicts, cap exhaustion, unavailable IndexedDB/crypto, full/disabled storage and full browser-data deletion are not silently repaired. The pending journal and legacy sources are retained. An explicit per-UID export/review/deletion/recovery UX and approved retention policy remain required before enabling for real users. Other same-origin scripts/local attackers can access browser storage; UID namespace is not a replacement for backend Rules.
+
+Latest-session resume remains owned by learner-progress/cloud protocol with stable lesson ID/version; this history does not infer cursor from cumulative score or highest old position. Renames/content changes continue using the existing identity/version implementation. Durable cloud progress and history cutover still need current production Rules/Auth compatibility, actual authenticated acceptance, an additive production adapter/default-OFF gate and the approved per-UID cloud migration design. No legacy cloud/user data was accessed or migrated here.
+
+## Scalability model
+
+See `scalability-model.json` for exact assumptions and separate registered/DAU/concurrent tables. This is operation-count modeling plus bounded browser work, **not a production load test or capacity certification**.
+
+Assumptions:30 days,20% of registered users active daily,1 lesson/session and1 cold load per DAU/day,34 known lesson identities,2 meaningful checkpoints and1 completion per session;10% of DAU make1 private edit/day. No progress write on keystroke/audio. Approximate future cloud-progress R/day/DAU=`D+3+2+2+1=42`, W=`1+2+1=4`; add3.2R/1.1W for login/private/profile assumptions. Retries, Rules-dependent reads, indexes, reconnects, extra tabs/edits and feedback are additional. Existing cloud-OFF progress contributes0 progress RPC, not0 total app reads/writes.
+
+| Registered | Assumed DAU | Assumed peak concurrent | Monthly reads/writes, cloud OFF | Future cloud ON | Cold audio/month at assumed10MiB per DAU/day |
+|---:|---:|---:|---:|---:|---:|
+|10|2|1|192 /66|2,712 /306|0.586GiB|
+|100|20|1|1,920 /660|27,120 /3,060|5.859GiB|
+|1,000|200|10|19,200 /6,600|271,200 /30,600|58.594GiB|
+
+If every registered user is DAU, multiply those figures by5:1,000DAU implies about1,356,000reads/153,000writes monthly in this scenario. Registered inactive accounts generate no reads merely by existing. Concurrent10/100/1,000 are separate stress scenarios with DAU at least as high: cold hydration bursts340/3,400/34,000 reads; checkpointing every60s implies about0.17/1.67/16.67R and W per second before retries. These are illustrative synchronized peaks; no such load was sent anywhere.
+
+At1,000 lessons, current eager per-identity hydration becomes the material read amplifier: about30.24million progress reads/month at1,000DAU under the same scenario. At the current33 published lessons it does not justify a rewrite. When needed, fetch paginated existing owner progress for visible cards and the selected lesson, retaining explicit version/UID checks; prove Rules/query compatibility first. No global progress counter or Firestore realtime listener appears in the current host/index; independent UIDs distribute documents. Same-user multi-tab/device writes and the single private `user_vocab/<UID>` document remain contention/whole-payload hotspots. The private850k client bound is close to the backend1MiB document limit after serialization/metadata overhead; budget by bytes, not only row count. Do not shard the current small system preemptively.
+
+Exact PR183 tree inventory:33 published lessons,208 uniquely referenced audio files totaling100,734,980bytes (~96.07MiB); catalog JSON files total286,630bytes. Audio is released static WAV playback with no paid API per play. Browser creates an Audio object per play; there is no explicit application audio blob cache, so CDN/browser cache behavior must be measured, not promised. The10MiB/session estimate is a scenario, not a measured stream rate. At1,000 concurrent10-minute sessions it implies ~139.8Mbps average, with much larger synchronized cold-download bursts. Official [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) checked2026-10-15 specify a1GB published-site limit and100GB/month soft bandwidth limit, with possible429 rate limiting. The1,000DAU/10MiB scenario is about314.6decimalGB/month and exceeds that soft limit;200DAU is about62.9GB/month before other traffic. Linear extrapolation of current referenced audio to1,000 lessons is ~3.05GB, above the site-size limit; this is an architectural forecast, not a measured future catalog. Do not claim1,000 concurrent users ready. Measure actual cache headers/egress and review an approved asset-hosting option before those bounds are approached; no hosting migration/service is created now. Proposed review triggers70GB/month forecast or700MB published assets require Owner adoption. The bounded1,000-history-append benchmark measures one runner/browser, not1,000 devices or server concurrency.
+
+Cost formula: `R/100000*regional_P_R + W/100000*regional_P_W + deletes + index/Rules/retry reads + storage + network + backups`. Prices/currency/free quota and billing continuity are not verified for this project; no VND total or “free at1,000 users” claim. Official references checked2026-10-15: [Firestore billing](https://firebase.google.com/docs/firestore/pricing), [limits](https://firebase.google.com/docs/firestore/quotas), [contention](https://firebase.google.com/docs/firestore/transaction-data-contention). Listeners can charge updates/reconnects; transaction retries and dependent Rules reads can add cost. If a broker is later selected, avoid one unbounded global write counter as a new hotspot; choose the smallest proven rate/cost control for its actual volume.
+
+## Residual gates and Owner decisions
+
+| Area | Current status | Minimum continuation condition |
+|---|---|---|
+| Auth/Rules compatibility | Google-only provider metadata historically VERIFIED; exact current Rules bytes and full path compatibility UNVERIFIED. Emulator Rules are fixtures, not deployment/rollback Rules. | Supported authenticated read-only configuration surface or authoritative existing metadata artifact; then exact additive Rules diff and production-SDK negative/allow tests. |
+| Latest READY backup | Scheduling enabled and previous basic isolated restore PASS do not prove newest backup READY/age/expiry. BLOCKED on inaccessible Cloud detail. | Restore access to the same supported read-only configuration view or provide an authoritative existing metadata source. No new restore or Owner CLI/log collection. |
+| Billing/alerts | Historical trial/budget metadata retained privately; paid continuity, current scope/thresholds/recipients and delivered budget notification/ACK unverified. Existing console notice is not email delivery. | Same read-only configuration evidence; named primary/fallback and separately authorized delivery test only if needed. Alerts are not a cost cap. |
+| Privacy/deletion | New local stores/journals add explicit inventory; no adopted retention/deletion/export procedure. | Owner adopt data inventory, retention, deletion scope including backups/local pending/owned legacy and a support contact. No deletion is performed by this review. |
+| Browser/platform | Desktop Chromium and emulated touch only; mock UID, controlled audio, isolated SDK/emulator. | Physical Android/iOS/Safari and real Google Auth acceptance if included in the supported pilot; approved reachable nonproduction preview/identities, no public tunnel. |
+| Durable cloud history/progress | Existing demo protocol only; local UID cutover does not close cross-device cloud history. Production OFF. | Resolve current Rules compatibility; Operations may continue permitted nonproduction transport preparation. Owner must adopt the data/retention/cutover policy and separately approve exact production changes; no actual migration yet. |
+
+Operations can maintain this patch, run bounded invalidated tests, inspect permitted metadata and prepare exact diffs/rollback without a new policy decision. Owner decisions are: (1) feedback containment/broker and its acceptable user impact/spend limit; (2) privacy/retention/deletion/recovery and support responsibility; (3) monitoring primary/fallback and billing continuity choice; (4) eventual exact-head rollout/flags/Rules/migration and supported pilot scope. Existing small pilot recommendations remain proposals. Review approval is not merge/deploy permission.
+
+## Rollback and release preparation
+
+1. Keep normal history/cloud feature flags OFF; nothing is enabled in production by this branch. Review exact candidate versus PR183 and previous proposal before adopting any file.
+2. For a future controlled release, package only the approved index and referenced runtime/catalog/audio assets. Exclude `nonproduction/`, `tests/`, dependency trees, demo hosts, emulator configuration and standalone Rules; inspect the actual deployment artifact. There is no deployment execution/artifact-exclusion PASS in this scope.
+3. Capture pre-cutover code/flag and current secure Rules hashes, owned-data export/provenance, ACKed snapshot and pending journals. Close old-version tabs before cutover. Require new UID empty; guest→A→B→A; migration duplicate/partial/denial; actual auth/Rules; read-back after reload and a second client/device; no dual legacy writes.
+4. If needed, restore the exact captured code/flags. Retain IndexedDB and pending/legacy sources; **code rollback does not merge new history back into legacy or restore missing new events in the old UI**. Reconciliation/export is an explicit reviewed action. Never clear all browser storage, assign unowned legacy to a UID or replay unknown minute writes.
+5. Rules rollback uses the exact previously captured secure compatible Rules, preserving private/profile/feedback paths. Standalone emulator Rules are never a fallback. This candidate changes no production Rules, so none is rolled back now.
+6. Read back deployed SHA/flag and Rules hash only after a separate deployment authorization. Verify account isolation, existing feedback availability, private/profile paths and absence of unintended progress RPC. Any real-user test writes/migration require their own bounded authority.
+
+Lab harvest: Mặn-specific evidence strengthens existing U6/U7/U9/T3/T4/T7; it adds no new OS principle/service. Browser-local ownership, backend authorization and cross-device durability are separate claims. Transaction ACK plus a replayable owned journal closes specific crash windows; it does not certify power-loss durability or approved lifetime retention. Capture a method/capability delta before repeating a blocked Cloud path.
+
+## Minimal feature-to-code/test index
+
+| Feature | Code boundary | Regression/evidence |
+|---|---|---|
+| Picker, route, audio sequencing | index.html xOpenLibrary/xCloseLibrary/xStartLessonChoice/loadQuestion; practice-runtime-wrapper.js | learner-reliability28, wrapper270/90, host26 |
+| Auth/editor ownership | index.html onAuthStateChanged/xResetProfileEditor/saveUserProfile/xWearTitle/xPreviewAvatar | first-user-recovery5, host controlled-ACK UI |
+| UID history/cutover | assets/learner-history.js plus four Practice writer bridges and Dictation summary | history.browser.mjs32 checks, practice-history.browser.mjs, host Dictation ACK |
+| Latest progress/identity/version | assets/learner-progress.js, index.html card/start/resume | progress22, bridge6, host reload/replay |
+| Private lessons/save/conflict | index.html loadFromCloud/xQueuePrivateSave/saveToCloud/private manager | private3 suites, storage-denied actual SDK GET, retained fault3 |
+| Minute ACK | index.html stopStudyTimerAndSave | pr183-readiness11; durable-minute ledger absent |
+| Cloud progress demo | nonproduction/learner-reliability/cloud-progress.cjs/cloud-host.js | cloud15 and E emulator/SDK/fault bindings, current host26 |
+| Feedback | index.html xSendOwnerFeedback/xSubmitAudioReport; existing D1 package | Containment proposal only; production cost cap unresolved |
+
+No index.html rewrite/extraction is proposed here. The one new module is justified by transactional multi-tab history ownership; editor/private fixes remain small in their existing functions. Retained legacy wrappers are adapted at their IO boundary, not retired.

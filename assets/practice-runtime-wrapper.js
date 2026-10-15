@@ -54,7 +54,7 @@ export function installPracticeWrapper(host) {
     wire[view.counter]=s.segmentReplays;
     if(view.kind==='tasks'){wire.spanAnswers=s.spanAnswers;wire.evidence=s.evidence;}
   }
-  function save(){if(wire)write(host.session,view.key,{...wire,phase:'GENERIC_PRACTICE_V1',uid:uid(),at:now(),resumeIdentity:d.resumeIdentity,coreState:core.snapshot(),wire:copy(wire)});}
+  function save(){if(wire)write(host.session,view.key,{...wire,phase:'GENERIC_PRACTICE_V1',uid:uid(),at:now(),historyId,resumeIdentity:d.resumeIdentity,coreState:core.snapshot(),wire:copy(wire)});}
   function event(kind,detail={}){wire.events.push({kind,...detail});save();}
   function stop(){generation++;core?.stop();audio.stop();}
   function status(s){const e=panel?.querySelector('#'+view.prefix+'-status');if(e)e.textContent=s;}
@@ -85,7 +85,7 @@ export function installPracticeWrapper(host) {
     if(view.kind==='tasks')event(view.response,{correct:wire.correct,evidence:wire.evidence});
     else {wire.completedAt=at;event(view.response,{correct:wire.correct,evidence:wire.responseAssisted?'ASSISTED':'FULL_CONTEXT_FIRST_PASS'});}
     const rows=view.kind==='tasks'?result:[{at,lessonId:d.identity.lessonId,lessonVersion:d.identity.lessonVersion,realizationId:d.identity.realizationId,construct:d.comprehension.construct,correct:wire.correct,assisted:wire.assisted,[view.counter]:result.segmentReplays,calibrated:d.scoring.calibrated}];
-    const history=read(host.local,view.history,[]);if(Array.isArray(history))write(host.local,view.history,history.concat(rows).slice(-view.limit));render();
+    if(w.ManHistory?.enabled){if(historyActor===uid())w.ManHistory.practice(historyActor,view.history,rows,historyId);}else{const history=read(host.local,view.history,[]);if(Array.isArray(history))write(host.local,view.history,history.concat(rows).slice(-view.limit));}render();
   }
   function render(){
     if(!panel){panel=document.createElement('section');panel.id=view.panel;panel.className='x-panel';document.getElementById('x-learn-slot').prepend(panel);ownedPanels.add(panel);}
@@ -109,14 +109,16 @@ export function installPracticeWrapper(host) {
     text('p',view.boundary,result);
     result.append(button('✍️ Luyện chính tả các lượt nói',view.prefix+'-dictation',()=>{stop();core.enterDictation();sync();save();panel.hidden=true;host.baseStart(d.identity.lessonId);}),button('📚 Chọn bài để học tiếp',view.prefix+'-next',()=>{stop();panel.hidden=true;old.xGo('catalog');}));
   }
+  let historyActor=null,historyId=null;
   function open(current,saved=null){
+    historyActor=uid();historyId=saved?.historyId||w.crypto?.randomUUID?.()||String(now());
     opening=true;
     // An explicit fresh start supersedes earlier generic sessions. Never delete
     // an unmarked legacy envelope; its original owner retains restoration.
     if(!saved)for(const key of practiceSessionKeys){const prior=read(host.session,key,null);if(prior&&(Object.hasOwn(prior,'resumeIdentity')||Object.hasOwn(prior,'coreState')))remove(key);}
     for(const e of document.querySelectorAll?.('#man-mixed-panel,#man-inference-panel,#man-b02-panel')||[])e.hidden=true;
     stop();if(panel)panel.hidden=true;d=current;view=presentation(d);panel=document.getElementById(view.panel);
-    const history=read(host.local,view.history,[]),attempt=Array.isArray(history)?Math.max(0,...history.filter(x=>x.lesson_id===d.identity.lessonId&&x.lesson_asset_version===d.identity.lessonVersion).map(x=>x.attempt_index||0))+1:1;
+    const history=w.ManHistory?.enabled?w.ManHistory.read(view.history):read(host.local,view.history,[]),attempt=Array.isArray(history)?Math.max(0,...history.filter(x=>x.lesson_id===d.identity.lessonId&&x.lesson_asset_version===d.identity.lessonVersion).map(x=>x.attempt_index||0))+1:1;
     const instanceId=d.identity.lessonId+':'+now();core=createPracticeCore(d,{instanceId:saved?.instanceId||instanceId,attemptIndex:saved?.attemptIndex||attempt});
     wire={lessonId:d.identity.lessonId,lessonVersion:d.identity.lessonVersion,realizationId:d.identity.realizationId,phase:'listening',fullPlays:0,fullEnded:false,assisted:false,[view.counter]:0,events:[],answer:null};
     if(view.kind!=='context')wire.assetHashes=hashes(d);
@@ -156,6 +158,7 @@ export function installPracticeWrapper(host) {
   for(const [k,f] of Object.entries(handlers))w[k]=f;
   const pop=()=>{if(!host.reference)stop();};w.addEventListener('popstate',pop);
   const api = {
+    resetForAuth(){stop();wire=null;core=null;historyActor=null;if(panel)panel.hidden=true;},
     async restoreAvailable(){
       if(disposed||w.location.hash!=='#learn')return false;
       const lifecycle=generation;try{await host.loadCatalog();}catch(_){return false;}

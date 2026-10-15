@@ -3,6 +3,7 @@
   const KEY = 'man_mixed_panel_v1', HISTORY = 'man_comprehension_history_v1';
   const ID = 'MAN-0844', REALIZATION = 'MAN-0844-MIXED-v0.1';
   let lesson = null, state = null, panel = null, playbackToken = 0;
+ let historyActor=null,historyId=null;
   const oldStart = window.xStartCatalog, oldGo = window.xGo;
   const choices = [
     'Ghi nhận mối liên hệ, cân nhắc hai rủi ro và thử một nghiên cứu theo dõi nhỏ.',
@@ -11,7 +12,7 @@
   ];
   const role = {moderator:'người điều phối', researcher:'nhà nghiên cứu', clinician:'bác sĩ'};
   function valid(u) { return u?.id === ID && u.status === 'published' && u.version === 'v0.1' && u.audioRealizationRef === REALIZATION && u.fullPanelAudio?.sha256 === '96d5e7130a1b69164ccad1b1ef19d3c3fb4d2e37a8fb698c94e85acdb273a5dc'; }
-  function save() { try { sessionStorage.setItem(KEY, JSON.stringify({ ...state, uid: auth.currentUser?.uid || null, at: Date.now() })); } catch (_) {} }
+  function save() { try { sessionStorage.setItem(KEY, JSON.stringify({ ...state, historyId, uid: auth.currentUser?.uid || null, at: Date.now() })); } catch (_) {} }
   function event(kind, detail = {}) { if (!state) return; state.events.push({kind, ...detail}); save(); }
   function fullItem() { return {audio: lesson.fullPanelAudio}; }
   function button(text, id, action) { const b=document.createElement('button'); b.type='button'; b.className='btn'; b.textContent=text; b.id=id; b.addEventListener('click',action); return b; }
@@ -58,7 +59,7 @@
     if(state.phase!=='complete'){
       const submit=document.createElement('button');submit.type='submit';submit.id='man-panel-submit';submit.className='x-primary';submit.textContent='Xem phản hồi';form.append(submit);
       form.addEventListener('submit',e=>{e.preventDefault();const selected=form.querySelector('input:checked');if(!selected)return;stop();state.answer=Number(selected.value);state.phase='complete';state.correct=state.answer===0;state.responseAssisted=state.assisted;state.completedAt=Date.now();event('COMPREHENSION_RESPONSE',{correct:state.correct,evidence:state.responseAssisted?'ASSISTED':'FULL_CONTEXT_FIRST_PASS'});
-        try{const history=JSON.parse(localStorage.getItem(HISTORY)||'[]');history.push({at:state.completedAt,lessonId:ID,lessonVersion:'v0.1',realizationId:REALIZATION,construct:'DISCOURSE_STRUCTURE_AND_DETAIL',correct:state.correct,assisted:state.assisted,contextReplays:state.contextReplays,calibrated:false});localStorage.setItem(HISTORY,JSON.stringify(history.slice(-60)));}catch(_){}
+        if(window.ManHistory?.enabled){if(historyActor===(auth.currentUser?.uid||null))window.ManHistory.practice(historyActor,HISTORY,[{at:state.completedAt,lessonId:ID,lessonVersion:'v0.1',realizationId:REALIZATION,construct:'DISCOURSE_STRUCTURE_AND_DETAIL',correct:state.correct,assisted:state.assisted,contextReplays:state.contextReplays,calibrated:false}],historyId);}else{try{const history=JSON.parse(localStorage.getItem(HISTORY)||'[]');history.push({at:state.completedAt,lessonId:ID,lessonVersion:'v0.1',realizationId:REALIZATION,construct:'DISCOURSE_STRUCTURE_AND_DETAIL',correct:state.correct,assisted:state.assisted,contextReplays:state.contextReplays,calibrated:false});localStorage.setItem(HISTORY,JSON.stringify(history.slice(-60)));}catch(_){}}
         render();});
     }else{
       const result=document.createElement('div');result.id='man-panel-result';result.setAttribute('role','status');panel.append(result);
@@ -73,6 +74,7 @@
   }
   function textStatus(s){const el=panel?.querySelector('#man-panel-status');if(el)el.textContent=s;}
   function open(u, saved=null) {
+    historyActor=auth.currentUser?.uid||null;historyId=saved?.historyId||(window.ManHistory?.enabled?window.crypto.randomUUID():String(Date.now()));
     stop();lesson=u;state=saved||{lessonId:ID,lessonVersion:'v0.1',realizationId:REALIZATION,phase:'listening',fullPlays:0,fullEnded:false,assisted:false,contextReplays:0,events:[],answer:null};
     xStopTranscriptPlayback();stopStudyTimerAndSave();
     try{sessionStorage.removeItem(MAN_STUDY_KEY);}catch(_){}
@@ -113,7 +115,7 @@
     });}
     return true;
   };
-  window.ManMixedPanel={evidence:()=>state?JSON.parse(JSON.stringify(state)):null};
+  window.ManMixedPanel={resetForAuth(){stop();state=null;historyActor=null;if(panel)panel.hidden=true;},evidence:()=>state?JSON.parse(JSON.stringify(state)):null};
   window.addEventListener('popstate',()=>{stop();});
   document.addEventListener('DOMContentLoaded',async()=>{
     let saved;try{saved=JSON.parse(sessionStorage.getItem(KEY)||'null');}catch(_){}

@@ -1,0 +1,150 @@
+{
+  "watermark": {
+    "main": "0d7e2405885b837f251de08cc23632dca6f3cfc8",
+    "pr183": "24a15c0e39cc7fe7d0af1272aaa6a41ad57f99f1",
+    "candidate": "cc4439092662f36ded4c12ea23596bb5da8f611e",
+    "observed_at": "2026-10-15T06:47:47.842349+00:00"
+  },
+  "assets": {
+    "publishedLessons": 33,
+    "uniqueAssets": 208,
+    "bytes": 100734980,
+    "unresolved": [],
+    "catalogJsonBytes": 286630
+  },
+  "assumptions": {
+    "days": 30,
+    "dauFraction": 0.2,
+    "lessonSessionsPerDAUDay": 1,
+    "coldLoads": 1,
+    "catalogPlusPrivateLessons": 34,
+    "checkpoints": 2,
+    "completions": 1,
+    "privateEditFraction": 0.1,
+    "coldAudioMiBPerDAUDay": 10,
+    "sessionMinutes": 10
+  },
+  "registeredScenarios": [
+    {
+      "registered": 10,
+      "dau": 2,
+      "assumedConcurrent": 1,
+      "inactiveRegisteredProgressOps": 0,
+      "monthlyCloudOff": {
+        "reads": 192,
+        "writes": 66
+      },
+      "monthlyCloudOn": {
+        "reads": 2712,
+        "writes": 306
+      },
+      "monthlyColdAudioGiB": 0.5859375
+    },
+    {
+      "registered": 100,
+      "dau": 20,
+      "assumedConcurrent": 1,
+      "inactiveRegisteredProgressOps": 0,
+      "monthlyCloudOff": {
+        "reads": 1920,
+        "writes": 660
+      },
+      "monthlyCloudOn": {
+        "reads": 27120,
+        "writes": 3060
+      },
+      "monthlyColdAudioGiB": 5.859375
+    },
+    {
+      "registered": 1000,
+      "dau": 200,
+      "assumedConcurrent": 10,
+      "inactiveRegisteredProgressOps": 0,
+      "monthlyCloudOff": {
+        "reads": 19200,
+        "writes": 6600.000000000001
+      },
+      "monthlyCloudOn": {
+        "reads": 271200,
+        "writes": 30599.999999999996
+      },
+      "monthlyColdAudioGiB": 58.59375
+    }
+  ],
+  "allActiveScenarios": [
+    {
+      "dau": 10,
+      "monthlyCloudOn": {
+        "reads": 13560,
+        "writes": 1530
+      },
+      "monthlyColdAudioGiB": 2.9296875
+    },
+    {
+      "dau": 100,
+      "monthlyCloudOn": {
+        "reads": 135600,
+        "writes": 15299.999999999998
+      },
+      "monthlyColdAudioGiB": 29.296875
+    },
+    {
+      "dau": 1000,
+      "monthlyCloudOn": {
+        "reads": 1356000,
+        "writes": 153000
+      },
+      "monthlyColdAudioGiB": 292.96875
+    }
+  ],
+  "concurrentScenarios": [
+    {
+      "concurrent": 10,
+      "DAUMustBeAtLeast": 10,
+      "cloudColdHydrationReadBurst": 340,
+      "checkpointEvery60Seconds": {
+        "readsPerSecond": 0.16666666666666666,
+        "writesPerSecond": 0.16666666666666666
+      },
+      "assumedAudioMeanMbps": 1.3981013333333332
+    },
+    {
+      "concurrent": 100,
+      "DAUMustBeAtLeast": 100,
+      "cloudColdHydrationReadBurst": 3400,
+      "checkpointEvery60Seconds": {
+        "readsPerSecond": 1.6666666666666667,
+        "writesPerSecond": 1.6666666666666667
+      },
+      "assumedAudioMeanMbps": 13.981013333333333
+    },
+    {
+      "concurrent": 1000,
+      "DAUMustBeAtLeast": 1000,
+      "cloudColdHydrationReadBurst": 34000,
+      "checkpointEvery60Seconds": {
+        "readsPerSecond": 16.666666666666668,
+        "writesPerSecond": 16.666666666666668
+      },
+      "assumedAudioMeanMbps": 139.81013333333334
+    }
+  ],
+  "future1000LessonReadMonthlyAt1000DAU": 30240000,
+  "costFormula": "R/100000*regional_P_R + W/100000*regional_P_W + deletes + index/Rules/retry reads + storage + egress + backups; daily free allowance only if applicable and verified; no current VND quote",
+  "nonclaims": [
+    "No production load test",
+    "Client operation attempts are not billable-operation totals",
+    "No paid service/API invoked",
+    "Registered users do not generate reads merely by existing",
+    "10 MiB is an assumption, not measured streaming bitrate",
+    "No production backend capacity certification"
+  ],
+  "hostingLimits": {
+    "source": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+    "checked": "2026-10-15",
+    "publishedSiteGB": 1,
+    "monthlySoftBandwidthGB": 100,
+    "assumed1000DAUColdAudioGBPerMonth": 314.5728,
+    "noCurrentUsageClaim": true
+  }
+}

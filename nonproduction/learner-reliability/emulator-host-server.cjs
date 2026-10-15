@@ -4,7 +4,7 @@ if(process.env.FIRESTORE_EMULATOR_HOST!=='127.0.0.1:8080')throw Error('LOOPBACK_
 const head=`<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:8080; img-src 'self' data:; media-src 'self'; frame-src 'self'">
 <script src="/__sdk/firebase-app-compat.js"></script><script src="/__sdk/firebase-firestore-compat.js"></script><script src="/__cloud.js"></script>
 <script>
-window.__demoEmulator=true;window.__demoProject='demo-man-progress-host';window.__fixtureAuth=[];window.__fixtureAudio=[];window.__fixtureUser={uid:'DEMO-A',displayName:'Demo A'};
+window.MAN_UID_HISTORY_ENABLED=true;window.__demoEmulator=true;window.__demoProject='demo-man-progress-host';window.__fixtureAuth=[];window.__fixtureAudio=[];window.__fixtureUser={uid:'DEMO-A',displayName:'Demo A'};
 const rawInit=firebase.initializeApp.bind(firebase),rawFs=firebase.firestore,dbs={};let demoCounter=0;
 window.__newDemoDb=uid=>rawInit({projectId:__demoProject,apiKey:'demo-only'},'demo-'+uid+'-'+(++demoCounter)).firestore();
 window.__demoDb=uid=>{if(!dbs[uid]){const d=__newDemoDb(uid);d.useEmulator('127.0.0.1',8080,{mockUserToken:{sub:uid,user_id:uid}});dbs[uid]=d}return dbs[uid]};
