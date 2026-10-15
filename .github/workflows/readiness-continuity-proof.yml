@@ -1,0 +1,18 @@
+name: Nonproduction retained-source continuity proof
+on:
+  push:
+    branches: [nonproduction/readiness-closure]
+    paths: [batch03-verification/prepare-retained-source*, .github/workflows/batch03-release-verify.yml, .github/workflows/readiness-continuity-proof.yml]
+permissions:
+  contents: read
+jobs:
+  continuity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Actual canonical bytes, both source targets, no network or live verifier
+        run: node --test batch03-verification/prepare-retained-source.test.mjs
