@@ -28,6 +28,10 @@ jobs:
           node tests/learner-reliability.test.mjs
           node tests/learner-progress.test.cjs
           node tests/pr183-readiness.test.mjs
+          node tests/first-user-recovery.test.mjs
+          node tests/private-autosave.test.mjs
+          node tests/client-isolation.test.mjs
+          node tests/private-edit-readback.test.mjs
           node tests/learner-practice-resume.test.mjs
           node tests/practice-runtime-wrapper.test.mjs
       - name: Locked existing dependencies

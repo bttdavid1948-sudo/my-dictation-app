@@ -62,15 +62,16 @@
    const input=clone(rows),token=generation,pendingKey='man_history_pending_v1:'+encodeURIComponent(uid)+':'+encodeURIComponent(id);
    if(selected===uid){api.status='SAVING';notify(uid,api.status)}
    try{
+    const digest=Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify([key,input]))))).map(b=>b.toString(16).padStart(2,'0')).join('');
     const pending=JSON.stringify({uid,key,rows:input,id}),priorPending=legacy.getItem(pendingKey);
     if(priorPending&&priorPending!==pending)throw Error('HISTORY_EVENT_CONFLICT');
     legacy.setItem(pendingKey,pending);
     const record=await transact(uid,r=>{
-    const seen=r.ids.find(x=>x.id===id);const payload=JSON.stringify([key,input]);
-    if(seen){if(seen.payload!==payload)throw Error('HISTORY_EVENT_CONFLICT');return}
+    const seen=r.ids.find(x=>x.id===id);
+    if(seen){if(seen.hash!==digest&&seen.payload!==JSON.stringify([key,input]))throw Error('HISTORY_EVENT_CONFLICT');return}
     // Bound local history and dedup ledger; very old event IDs must not be retried.
     if(r.ids.length>=1000)throw Error('HISTORY_EVENT_LIMIT');
-    r.channels[key]=(r.channels[key]||[]).concat(input).slice(-channels[key]);r.ids.push({id,payload});
+    r.channels[key]=(r.channels[key]||[]).concat(input).slice(-channels[key]);r.ids.push({id,hash:digest});
    });
     try{legacy.removeItem(pendingKey)}catch(_){} // Leftovers are safe to replay with the same ID/payload.
     publish(uid,record,token);return record;
