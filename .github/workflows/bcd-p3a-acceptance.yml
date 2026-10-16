@@ -1,0 +1,35 @@
+name: BCD P3A isolated browser acceptance
+on:
+  push:
+    branches: ['nonproduction/bcd-p3a']
+    paths: ['nonproduction/bcd/**', '.github/workflows/bcd-p3a-acceptance.yml']
+permissions:
+  contents: read
+concurrency:
+  group: bcd-p3a-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  bounded-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reuse locked dependencies
+        working-directory: nonproduction/learner-reliability
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Existing Chromium runtime
+        working-directory: nonproduction/learner-reliability
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Bounded rendered candidate acceptance
+        run: node nonproduction/bcd/browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bcd-p3a-browser-receipt
+          path: nonproduction/bcd/receipt.json
+          retention-days: 7
