@@ -1,14 +1,24 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {spawn} from 'node:child_process';import {createRequire} from 'node:module';
 const root=process.cwd(),here=path.dirname(new URL(import.meta.url).pathname),require=createRequire(import.meta.url),{chromium}=require(path.join(root,'nonproduction/learner-reliability/node_modules/playwright'));
-const extension=JSON.parse(fs.readFileSync(path.join(here,'candidate.bundle.json'),'utf8')).phase==='extension';
+const requestedPhase=JSON.parse(fs.readFileSync(path.join(here,'candidate.bundle.json'),'utf8')).phase;
 const out=path.join(here,'receipt.json'),checks=[],errors=[];let browser,server;
 const record=(device,name)=>{checks.push({device,name,status:'PASS'});console.log('PASS '+device+' '+name)};
 try{
  server=spawn(process.execPath,[path.join(here,'server.cjs'),root],{stdio:['ignore','pipe','inherit']});const base=await new Promise((resolve,reject)=>{server.once('error',reject);server.stdout.on('data',b=>{const m=String(b).match(/Isolated preview (\d+)/);if(m)resolve('http://127.0.0.1:'+m[1]);});server.once('exit',c=>reject(Error('server exit '+c)));});browser=await chromium.launch({headless:true});
- for(const device of ['desktop','mobile-viewport']){
+ for(const phase of requestedPhase==='closure'?['extension','title-ui']:[requestedPhase]){const extension=phase==='extension';for(const device of ['desktop','mobile-viewport']){
   const context=await browser.newContext({viewport:device==='desktop'?{width:1440,height:1000}:{width:390,height:844},isMobile:device!=='desktop',hasTouch:device!=='desktop'});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));let external=0;
   await page.route('**/*',r=>{if(r.request().url().startsWith(base))return r.continue();external++;return r.abort();});await page.goto(base+'/#me');await page.waitForFunction(()=>window.ManBCSession&&window.ManGenericPractice&&catalogUnitsCache.length>0);await page.waitForTimeout(300);
   const official=await page.evaluate(()=>catalogUnitsCache.find(u=>u.publisher==='man'&&u.status==='published'&&u.items?.length));assert(official);const id=official.id;
+  if(phase==='title-ui'){
+   await page.evaluate(()=>{XNOT.history=Array(99).fill({total:10});XNOT.review=Array(99).fill({en:'legacy'});userProfileData.wornTitle='Forged legacy public title';xGo('me');});
+   assert.equal(await page.locator('[data-achievement-id]').count(),14);assert.equal(await page.locator('[data-achievement-id]:enabled').count(),0);assert.equal(await page.locator('.x-profile-card > div:nth-child(2) > b').innerText(),'Chưa đeo danh hiệu');record(device,'All14 rendered titles ignore legacy heuristics and wornTitle; unverified locked');
+   // Explicit synthetic admitted profile fact tests the local UI, not genuine learning eligibility.
+   await page.evaluate(async()=>{await ManBCSession.reconcile({uid:currentUser.uid,schema:1,admission:'VERIFIED_ADAPTER',summaryReceipt:'fixture-ui-summary',officialLessonIds:catalogUnitsCache.map(x=>x.id),events:[{uid:currentUser.uid,kind:'profile-saved',nicknameSaved:true,eligible:true,eventId:'fixture-profile',receiptId:'fixture-profile-ack',at:'2026-10-16T08:00:00Z'}]});xRenderMe();});
+   const before=await page.evaluate(()=>__fixtureWrites);await page.locator('[data-achievement-id="affection-1"]').click();await page.waitForFunction(()=>ManBCSession.achievements.read().state.equipped==='affection-1');assert.equal(await page.locator('[data-achievement-id][aria-pressed="true"]').count(),1);assert.equal(await page.evaluate(()=>__fixtureWrites),before);record(device,'One earned title equipped via local ACK without legacy Firebase writer');
+   await page.reload();await page.waitForFunction(()=>window.ManBCSession&&catalogUnitsCache.length);await page.evaluate(()=>xGo('me'));assert.equal(await page.locator('[data-achievement-id="affection-1"]').getAttribute('aria-pressed'),'true');await page.getByRole('button',{name:'Tài khoản B',exact:true}).click();await page.waitForFunction(()=>currentUser?.uid==='DEMO-B');assert.equal(await page.locator('[data-achievement-id]:enabled').count(),0);record(device,'Earned/equipped reload retained and absent from accountB');
+   if(device==='mobile-viewport'){const size=await page.evaluate(()=>({w:innerWidth,scroll:document.documentElement.scrollWidth}));assert(size.scroll<=size.w+2);record(device,'14title panel fits390px viewport');}
+   await context.close();continue;
+  }
   if(extension){
    await page.evaluate(()=>{window.__originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k.includes('man_bc_save_proofs'))throw Error('fixture proof denial');return __originalSet.call(this,k,v);};xGo('catalog');});
    const saveButton=page.locator(`#x-catalog-carousel [data-p2-wishlist="${id}"][data-desired="true"]`);if(device==='mobile-viewport')await saveButton.tap();else await saveButton.click();
@@ -38,6 +48,7 @@ try{
   assert.equal(await page.evaluate(()=>ManBCSession.policy.savedBeforeCompletion),undefined);record(device,'Chronology remains undecided/inert');
   if(device==='mobile-viewport'){await page.evaluate(()=>xGo('me'));const size=await page.evaluate(()=>({w:innerWidth,scroll:document.documentElement.scrollWidth}));assert(size.scroll<=size.w+2);record(device,'390px rendered page has no horizontal overflow');}
   record(device,'External requests blocked; no production backend connection');await context.close();
+ }
  }
  fs.writeFileSync(out,JSON.stringify({status:'PASS',checks,errors,scope:'Actual Chromium full DOM; fixture Auth/Firebase/audio only; mobile viewport not physical; no public award/authenticity claim'},null,2));console.log('P3A_RECEIPT '+JSON.stringify({status:'PASS',checks,errors}));
 }catch(e){fs.writeFileSync(out,JSON.stringify({status:'FAIL',checks,errors,error:e.stack},null,2));console.error('P3A_RECEIPT '+fs.readFileSync(out,'utf8'));throw e;}finally{await browser?.close();server?.kill();}
