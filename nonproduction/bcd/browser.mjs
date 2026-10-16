@@ -1,5 +1,6 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {spawn} from 'node:child_process';import {createRequire} from 'node:module';
 const root=process.cwd(),here=path.dirname(new URL(import.meta.url).pathname),require=createRequire(import.meta.url),{chromium}=require(path.join(root,'nonproduction/learner-reliability/node_modules/playwright'));
+const extension=JSON.parse(fs.readFileSync(path.join(here,'candidate.bundle.json'),'utf8')).phase==='extension';
 const out=path.join(here,'receipt.json'),checks=[],errors=[];let browser,server;
 const record=(device,name)=>{checks.push({device,name,status:'PASS'});console.log('PASS '+device+' '+name)};
 try{
@@ -8,6 +9,21 @@ try{
   const context=await browser.newContext({viewport:device==='desktop'?{width:1440,height:1000}:{width:390,height:844},isMobile:device!=='desktop',hasTouch:device!=='desktop'});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));let external=0;
   await page.route('**/*',r=>{if(r.request().url().startsWith(base))return r.continue();external++;return r.abort();});await page.goto(base+'/#me');await page.waitForFunction(()=>window.ManBCSession&&window.ManGenericPractice&&catalogUnitsCache.length>0);await page.waitForTimeout(300);
   const official=await page.evaluate(()=>catalogUnitsCache.find(u=>u.publisher==='man'&&u.status==='published'&&u.items?.length));assert(official);const id=official.id;
+  if(extension){
+   await page.evaluate(()=>{window.__originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k.includes('man_bc_save_proofs'))throw Error('fixture proof denial');return __originalSet.call(this,k,v);};xGo('catalog');});
+   const saveButton=page.locator(`#x-catalog-carousel [data-p2-wishlist="${id}"][data-desired="true"]`);if(device==='mobile-viewport')await saveButton.tap();else await saveButton.click();
+   await page.waitForFunction(()=>XNOT.favorites.length===1);await page.evaluate(()=>xGo('me'));assert.match(await page.locator('#x-p2-wishlist').innerText(),/chưa xác nhận được evidence/);
+   await page.evaluate(()=>{Storage.prototype.setItem=__originalSet;});const retry=await page.evaluate(id=>ManBCSession.change(id,true,ManWishlistHost.store.read()),id);assert.equal(retry.historyAck,false);assert.equal(retry.status,'HISTORY_UNVERIFIABLE');record(device,'Rendered partial save and retry preserve B without fabricated chronology');
+   await page.evaluate(()=>{ManFixedAudio.play=(item,rate,end)=>{__fixtureAudio.push({kind:'controlled-end',segment:item.audio?.segmentId});queueMicrotask(end);return true;};xStartLessonChoice(false,'MAN-0844',false);});
+   await page.locator('#man-mixed-panel').getByRole('button',{name:'▶ Nghe cả cuộc thảo luận',exact:true}).click();
+   await page.locator('#man-panel-answer input[type=radio]').first().check();await page.getByRole('button',{name:'Xem phản hồi',exact:true}).click();
+   await page.waitForFunction(()=>window.ManBCPracticeObservation?.status==='VALIDATED_LOCAL_PRACTICE');
+   const observed=await page.evaluate(()=>({status:ManBCPracticeObservation.status,eligibility:ManBCPracticeObservation.eligibility,uid:ManBCPracticeObservation.observedUid,awards:ManBCSession.achievements.read().state.earned.length}));assert.equal(observed.uid,'DEMO-A');assert.equal(observed.eligibility,'PENDING_OWNER_DECISION');assert.equal(observed.awards,0);record(device,'Trusted DOM submit captured from actual Practice core; eligibility pending and no heuristic awards');
+   await page.reload();await page.waitForFunction(()=>window.ManGenericPractice?.evidence()?.phase==='complete');assert.equal(await page.evaluate(()=>window.ManBCPracticeObservation),null);record(device,'Existing completed Practice resume preserved; reload never fabricates a new achievement');
+   await page.locator('#man-mixed-panel').getByRole('button',{name:'✍️ Luyện chính tả các lượt nói',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#dictation-app').classList.contains('hidden'));assert.equal(await page.evaluate(()=>ManGenericPractice.evidence().phase),'dictation');record(device,'Existing Practice to Dictation handoff preserved');
+   await page.getByRole('button',{name:'Tài khoản B',exact:true}).click();await page.waitForFunction(()=>currentUser?.uid==='DEMO-B');assert.equal(await page.evaluate(()=>window.ManBCPracticeObservation),null);assert.equal(await page.evaluate(()=>ManBCSession.achievements.read().state.earned.length),0);record(device,'Practice observation and earned state isolated on UID switch');
+   await context.close();continue;
+  }
   // Exercise rendered Kho button in the full candidate DOM; controlled fixture Auth is explicit.
   await page.evaluate(()=>xGo('catalog'));
   await page.evaluate(()=>xRenderCarousel('catalog'));await page.locator(`#x-catalog-carousel [data-p2-wishlist="${id}"][data-desired="true"]`).click();await page.waitForFunction(id=>XNOT.favorites.some(x=>x.id===id),id);await page.evaluate(()=>xGo('me'));await page.waitForFunction(()=>!!document.querySelector('#x-p2-wishlist [data-p2-open]'));assert.match(await page.locator('#x-p2-wishlist').innerText(),/Để dành \(1\)/);record(device,'Rendered Kho toggle and Tôi count/list');
