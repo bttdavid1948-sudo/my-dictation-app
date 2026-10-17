@@ -9,4 +9,20 @@ service cloud.firestore { match /databases/{database}/documents {
   allow update: if request.auth != null && request.auth.uid==uid && valid() && request.resource.data.revision==resource.data.revision+1 && request.resource.data.deletionEpoch==resource.data.deletionEpoch+(request.resource.data.kind=='reset'?1:0);
   allow delete: if false;
  }
+ match /users/{uid}/bcd_v2/control {
+  function owner() { return request.auth!=null && request.auth.uid==uid; }
+  function validControl() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','kind','accountDeleted','boardOptIn','trust','updatedAt']) && d.schema==2 && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.matches('^[A-Za-z0-9-]{1,100}$') && d.kind in ['history','account','preference'] && d.accountDeleted==(d.kind=='account') && d.boardOptIn is bool && (!d.accountDeleted||!d.boardOptIn) && d.trust=='SIMULATION_BARRIER_ONLY' && d.updatedAt==request.time; }
+  allow read: if owner();
+  allow create: if owner() && validControl() && request.resource.data.revision==1 && request.resource.data.epoch==(request.resource.data.kind=='preference'?0:1) && (request.resource.data.kind!='history'||!request.resource.data.boardOptIn);
+  allow update: if owner() && validControl() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch==resource.data.epoch+(request.resource.data.kind=='preference'?0:1) && (request.resource.data.kind!='history'||request.resource.data.boardOptIn==resource.data.boardOptIn);
+  allow delete: if false;
+  match /lessons/{lessonId} {
+   function barrier() { let p=/databases/$(database)/documents/users/$(uid)/bcd_v2/control; return !exists(p)?request.resource.data.epoch==0:(!get(p).data.accountDeleted && request.resource.data.epoch==get(p).data.epoch); }
+   function validLesson() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','lessonId','version','revision','epoch','operationId','saved','proofId','savedAt','trust','updatedAt']) && d.schema==2 && d.uid==uid && d.lessonId==lessonId && lessonId.matches('^[A-Za-z0-9-]{1,100}$') && d.version is string && d.version.size()>0 && d.version.size()<=100 && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.matches('^[A-Za-z0-9-]{1,100}$') && d.saved is bool && d.proofId is string && d.proofId.matches('^[A-Za-z0-9-]{1,100}$') && d.savedAt is string && d.savedAt.size()<=40 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time && barrier(); }
+   allow read: if owner();
+   allow create: if owner() && validLesson() && request.resource.data.revision==1 && request.resource.data.proofId==request.resource.data.operationId;
+   allow update: if owner() && validLesson() && request.resource.data.revision==resource.data.revision+1 && ((request.resource.data.saved && (!resource.data.saved || request.resource.data.version!=resource.data.version)) ? request.resource.data.proofId==request.resource.data.operationId : (request.resource.data.proofId==resource.data.proofId && request.resource.data.savedAt==resource.data.savedAt));
+   allow delete: if false;
+  }
+ }
 }}
