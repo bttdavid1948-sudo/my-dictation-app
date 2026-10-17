@@ -1,6 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {spawn} from 'node:child_process';import {createRequire} from 'node:module';
 const root=process.cwd(),here=path.dirname(new URL(import.meta.url).pathname),require=createRequire(import.meta.url),{chromium}=require(path.join(root,'nonproduction/learner-reliability/node_modules/playwright'));
 const requestedPhase=JSON.parse(fs.readFileSync(path.join(here,'candidate.bundle.json'),'utf8')).phase;
+if(requestedPhase==='p3f'){await import('./product-browser.mjs');process.exit(0);}
 const out=path.join(here,'receipt.json'),checks=[],errors=[];let browser,server;
 const record=(device,name)=>{checks.push({device,name,status:'PASS'});console.log('PASS '+device+' '+name)};
 try{

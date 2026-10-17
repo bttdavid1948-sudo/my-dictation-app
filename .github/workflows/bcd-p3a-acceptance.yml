@@ -25,8 +25,16 @@ jobs:
       - name: Existing Chromium runtime
         working-directory: nonproduction/learner-reliability
         run: node node_modules/playwright/cli.js install --with-deps chromium
-      - name: Bounded rendered candidate acceptance
-        run: node nonproduction/bcd/browser.mjs
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Bounded product SDK/browser acceptance (demo only)
+        working-directory: nonproduction/learner-reliability
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'cd ../.. && node nonproduction/bcd/browser.mjs'
+        env:
+          CI: 'true'
+          FIREBASE_CLI_DISABLE_USAGE: 'true'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
