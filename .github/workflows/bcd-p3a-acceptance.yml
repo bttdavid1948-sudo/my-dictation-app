@@ -1,0 +1,67 @@
+name: BCD P3A isolated browser acceptance
+on:
+  push:
+    branches: ['nonproduction/bcd-p3a']
+    paths: ['nonproduction/bcd/**', '.github/workflows/bcd-p3a-acceptance.yml']
+permissions:
+  contents: read
+concurrency:
+  group: bcd-p3a-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  bounded-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reuse locked dependencies
+        working-directory: nonproduction/learner-reliability
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Existing Chromium runtime
+        working-directory: nonproduction/learner-reliability
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Bounded product SDK/browser acceptance (demo only)
+        working-directory: nonproduction/learner-reliability
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'cd ../.. && node nonproduction/bcd/browser.mjs'
+        env:
+          CI: 'true'
+          FIREBASE_CLI_DISABLE_USAGE: 'true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bcd-p3a-browser-receipt
+          path: nonproduction/bcd/receipt.json
+          retention-days: 7
+
+  bounded-sdk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Existing locked SDK and emulator dependencies
+        working-directory: nonproduction/learner-reliability
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Bounded private B/proof SDK trial (demo only)
+        working-directory: nonproduction/learner-reliability
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'node ../bcd/sdk-trial.cjs'
+        env:
+          CI: 'true'
+          FIREBASE_CLI_DISABLE_USAGE: 'true'
