@@ -14,3 +14,11 @@ test('isolated product SDK cutover supplies real timestamp to existing writers; 
  const old=()=>123,sentinel={sdk:true},sdk=()=>sentinel;
  for(const isolated of [false,true]){const ctx=vm.createContext({location:{hostname:isolated?'127.0.0.1':'production.invalid'},ManLearningSession:{}});ctx.window=ctx;ctx.__fixtureDb=isolated?{}:null;ctx.firebase={firestore:{FieldValue:{serverTimestamp:old}}};ctx.ManCloudFirebase={firestore:{FieldValue:{serverTimestamp:sdk}}};vm.runInContext(prefix,ctx);await assert.rejects(ctx.ManEnableProductCloud(),isolated?/BOOTSTRAP_BOUNDARY/:/ISOLATED_DEMO_REQUIRED/);assert.equal(ctx.firebase.firestore.FieldValue.serverTimestamp,isolated?sdk:old);}
 });
+
+test('latest explicit lesson selection waits for in-flight restore and cannot be silently lost',async()=>{
+ const source=fs.readFileSync(path.join(root,'nonproduction/learner-reliability/cloud-host.js'),'utf8'),a=source.indexOf('const start=xStartLessonChoice;'),b=source.indexOf('// UID callbacks',a);assert(a>0&&b>a);let release;const hold=new Promise(r=>release=r),shown=[],begun=[];
+ const lessons=['A','B'].map(id=>({id,i:{id,kind:'official',version:'v1',total:2}}));
+ const client={load:async i=>{if(i.id==='A')await hold;return {revision:0}},readPending:()=>null,begin:async i=>{begun.push(i.id);client.active={local:{uid:'U',lessonId:i.id,marks:'..'}};},t:{read:async()=>null}};
+ const ctx=vm.createContext({currentUser:{uid:'U'},xLibraryClosePending:null,startIntent:0,generation:1,busy:false,startDone:Promise.resolve(),pending:Promise.resolve(),cloud:client,store:{dirty:false},xMineLessons:()=>[],xCatalogLessons:()=>lessons,ManLearnerProgress:{identity:u=>u?.i},cache:new Map(),sid:i=>i.id,ignoredPending:new Set(),status(){},sessionStorage:{setItem(){}},structuredClone,xStartLessonChoice:(mine,id)=>shown.push(id)});ctx.window=ctx;vm.runInContext(source.slice(a,b),ctx);
+ const first=ctx.xStartLessonChoice(false,'A',true);await new Promise(r=>setImmediate(r));const next=ctx.xStartLessonChoice(false,'B',false);release();await Promise.all([first,next]);assert.deepEqual(shown,['B']);assert.deepEqual(begun,['B']);
+});
