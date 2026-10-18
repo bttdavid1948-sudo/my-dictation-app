@@ -28,11 +28,110 @@ service cloud.firestore { match /databases/{database}/documents {
  match /users/{uid}/bcd_product/{record} {
   function owner() { return request.auth!=null && request.auth.uid==uid; }
   function stateValid() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','accountDeleted','payload','trust','updatedAt']) && d.schema==3 && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.size()<=100 && d.accountDeleted is bool && d.payload is string && d.payload.size()<=800000 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time; }
+  // Match the actual composed profile/avatar/timer writers. Client minutes are
+  // compatibility data ONLY, never trusted ranking or achievement evidence.
+  function profileShape(d) {
+   return d.keys().hasOnly(['nickname','motto','avatar','avatarData','phone','phonePublic','socialLinks','wornTitle','updatedAt','totalMinutes','dailyKey','dailyMinutes','weeklyKey','weeklyMinutes','monthlyKey','monthlyMinutes'])
+    && (!('nickname' in d)||(d.nickname is string && d.nickname.size()<=100))
+    && (!('motto' in d)||(d.motto is string && d.motto.size()<=900000))
+    && (!('avatar' in d)||(d.avatar is string && d.avatar.size()<=900000))
+    && (!('avatarData' in d)||(d.avatarData is string && d.avatarData.size()<=900000))
+    && (!('phone' in d)||(d.phone is string && d.phone.size()<=900000))
+    && (!('phonePublic' in d)||d.phonePublic is bool)
+    && (!('socialLinks' in d)||d.socialLinks is list)
+    && (!('wornTitle' in d)||(d.wornTitle is string && d.wornTitle.size()<=900000))
+    && (!('dailyKey' in d)||(d.dailyKey is string && d.dailyKey.size()<=100))
+    && (!('weeklyKey' in d)||(d.weeklyKey is string && d.weeklyKey.size()<=100))
+    && (!('monthlyKey' in d)||(d.monthlyKey is string && d.monthlyKey.size()<=100))
+    && (!('totalMinutes' in d)||(d.totalMinutes is int && d.totalMinutes>=0 && d.totalMinutes<=9007199254740991))
+    && (!('dailyMinutes' in d)||(d.dailyMinutes is int && d.dailyMinutes>=0 && d.dailyMinutes<=9007199254740991))
+    && (!('weeklyMinutes' in d)||(d.weeklyMinutes is int && d.weeklyMinutes>=0 && d.weeklyMinutes<=9007199254740991))
+    && (!('monthlyMinutes' in d)||(d.monthlyMinutes is int && d.monthlyMinutes>=0 && d.monthlyMinutes<=9007199254740991))
+    && (!('updatedAt' in d)||d.updatedAt is timestamp);
+  }
   function active() { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return !exists(p)||!get(p).data.accountDeleted; }
   function erased() { return getAfter(/databases/$(database)/documents/users/$(uid)/bcd_product/state).data.accountDeleted==true; }
   allow read: if owner() && record in ['state','profile','private_lessons'];
-  allow create: if owner() && ((record=='state' && stateValid() && request.resource.data.revision==1 && request.resource.data.epoch in [0,1]) || (record=='profile' && active() && request.resource.data.keys().hasOnly(['nickname','motto','phone','phonePublic','socialLinks','updatedAt','totalMinutes']) && request.resource.data.nickname is string && request.resource.data.nickname.size()<=100) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
-  allow update: if owner() && ((record=='state' && stateValid() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch>=resource.data.epoch && request.resource.data.epoch<=resource.data.epoch+1) || (record=='profile' && active() && request.resource.data.keys().hasOnly(['nickname','motto','phone','phonePublic','socialLinks','updatedAt','totalMinutes']) && request.resource.data.nickname is string && request.resource.data.nickname.size()<=100) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow create: if owner() && ((record=='state' && stateValid() && request.resource.data.revision==1 && request.resource.data.epoch in [0,1]) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow update: if owner() && ((record=='state' && stateValid() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch>=resource.data.epoch && request.resource.data.epoch<=resource.data.epoch+1) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
   allow delete: if owner() && record in ['profile','private_lessons'] && erased();
  }
+
+ // Integrated core progress, standalone demo emulator ONLY, not production.
+ function progressEpoch(uid) { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return exists(p)?get(p).data.epoch:0; }
+ function progressActive(uid,n) { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return request.auth!=null && request.auth.uid==uid && (!exists(p)||!get(p).data.accountDeleted) && n==string(progressEpoch(uid)); }
+  function progressShape(d,uid,k) {
+   return d.keys().hasAll(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt','accountEpoch'])
+    && d.keys().hasOnly(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt','accountEpoch'])
+    && d.schema == 1 && d.uid == uid && d.lessonId is string && d.lessonId.matches('^[A-Za-z0-9-]{1,100}$')
+    && d.kind in ['official','private'] && k == d.kind + '_' + d.lessonId
+    && d.version is string && d.version.matches('^[-A-Za-z0-9._]{1,100}$')
+    && d.total is int && d.total >= 1 && d.total <= 500
+    && d.sessionId is string && d.sessionId.matches('^[A-Za-z0-9-]{1,100}$')
+    && d.seq is int && d.seq >= 1 && d.seq <= 1000000000
+    && d.revision is int && d.revision >= 1 && d.revision <= 1000000000
+    && d.cursor is int && d.cursor >= 0 && d.cursor < d.total
+    && d.marks is string && d.marks.size() == d.total && d.marks.matches('^[.cgs]{1,500}$')
+    && d.accountEpoch is int && d.accountEpoch == progressEpoch(uid) && d.updatedAt == request.time;
+  }
+  match /users/{uid}/lesson_progress/{k} {
+   allow get: if progressActive(uid,'0');
+   allow create: if progressActive(uid,'0') && progressShape(request.resource.data,uid,k)
+    && request.resource.data.seq == 1 && request.resource.data.revision == 1
+    && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$');
+   allow update: if progressActive(uid,'0') && progressShape(request.resource.data,uid,k)
+    && request.resource.data.revision == resource.data.revision + 1
+    && request.resource.data.lessonId == resource.data.lessonId && request.resource.data.kind == resource.data.kind
+    && ((request.resource.data.seq == resource.data.seq && request.resource.data.sessionId == resource.data.sessionId
+      && request.resource.data.version == resource.data.version && request.resource.data.total == resource.data.total)
+     || (request.resource.data.seq == resource.data.seq + 1 && request.resource.data.sessionId != resource.data.sessionId
+      && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$')));
+   allow list, delete: if false;
+   match /completions/{sid} {
+    function completion() {
+     let p = getAfter(/databases/$(database)/documents/users/$(uid)/lesson_progress/$(k)).data;
+     let d = request.resource.data;
+     return d.keys().hasAll(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch'])
+      && d.keys().hasOnly(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch'])
+      && d.schema == 1 && d.uid == uid && d.sessionId == sid && p.sessionId == sid
+      && d.lessonId == p.lessonId && d.kind == p.kind && d.version == p.version
+      && d.total == p.total && d.seq == p.seq && d.completedAt == request.time
+      && d.accountEpoch == p.accountEpoch && d.accountEpoch == progressEpoch(uid)
+      && p.marks.matches('^[cgs]{1,500}$');
+    }
+    allow get: if progressActive(uid,'0');
+    allow create: if progressActive(uid,'0') && completion();
+    allow list, update, delete: if false;
+   }
+  }
+  match /users/{uid}/lesson_progress_epochs/{n}/lessons/{k} {
+   allow get: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$');
+   allow create: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
+    && request.resource.data.seq == 1 && request.resource.data.revision == 1
+    && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$');
+   allow update: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
+    && request.resource.data.revision == resource.data.revision + 1
+    && request.resource.data.lessonId == resource.data.lessonId && request.resource.data.kind == resource.data.kind
+    && ((request.resource.data.seq == resource.data.seq && request.resource.data.sessionId == resource.data.sessionId
+      && request.resource.data.version == resource.data.version && request.resource.data.total == resource.data.total)
+     || (request.resource.data.seq == resource.data.seq + 1 && request.resource.data.sessionId != resource.data.sessionId
+      && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$')));
+   allow list, delete: if false;
+   match /completions/{sid} {
+    function completion() {
+     let p = getAfter(/databases/$(database)/documents/users/$(uid)/lesson_progress_epochs/$(n)/lessons/$(k)).data;
+     let d = request.resource.data;
+     return d.keys().hasAll(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch'])
+      && d.keys().hasOnly(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch'])
+      && d.schema == 1 && d.uid == uid && d.sessionId == sid && p.sessionId == sid
+      && d.lessonId == p.lessonId && d.kind == p.kind && d.version == p.version
+      && d.total == p.total && d.seq == p.seq && d.completedAt == request.time
+      && d.accountEpoch == p.accountEpoch && d.accountEpoch == progressEpoch(uid)
+      && p.marks.matches('^[cgs]{1,500}$');
+    }
+    allow get: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$');
+    allow create: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && completion();
+    allow list, update, delete: if false;
+   }
+  }
 }}

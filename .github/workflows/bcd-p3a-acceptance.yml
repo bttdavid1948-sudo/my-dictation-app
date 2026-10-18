@@ -2,7 +2,7 @@ name: BCD P3A isolated browser acceptance
 on:
   push:
     branches: ['nonproduction/bcd-p3a']
-    paths: ['nonproduction/bcd/**', '.github/workflows/bcd-p3a-acceptance.yml']
+    paths: ['nonproduction/bcd/**', 'nonproduction/learner-reliability/cloud-*', '.github/workflows/bcd-p3a-acceptance.yml']
 permissions:
   contents: read
 concurrency:
@@ -29,6 +29,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Targeted composed integrity and provenance (local fixtures)
+        run: node --test nonproduction/bcd/product-progress.test.cjs nonproduction/bcd/product-compose.test.cjs nonproduction/learner-reliability/cloud-progress-admission.test.cjs nonproduction/learner-reliability/cloud-pending-integrity.test.cjs nonproduction/learner-reliability/cloud-ack-uncertainty.test.cjs
       - name: Bounded product SDK/browser acceptance (demo only)
         working-directory: nonproduction/learner-reliability
         run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'cd ../.. && node nonproduction/bcd/browser.mjs'
