@@ -1,0 +1,47 @@
+{
+  "status": "FAIL",
+  "scope": "UNIT extracted actual candidate functions; controlled transport/ACK/storage; no live browser/backend claim",
+  "passed": 2,
+  "checks": [
+    "late A ACK cannot modify B profile",
+    "older ACK cannot decrease a newer acknowledged total"
+  ],
+  "failures": [
+    {
+      "name": "minutes remain unconfirmed until transaction ACK, then use committed total",
+      "error": "Expected values to be strictly equal:\n\n11 !== 10\n"
+    },
+    {
+      "name": "permission failure does not falsely credit or automatically retry",
+      "error": "Expected values to be strictly equal:\n\n11 !== 10\n"
+    },
+    {
+      "name": "ACK loss remains unconfirmed even after actual transaction callback writes",
+      "error": "Expected values to be strictly equal:\n\n11 !== 10\n"
+    },
+    {
+      "name": "repeated timer stop makes one request and retries callback without UI mutation",
+      "error": "Expected values to be strictly equal:\n\n11 !== 10\n"
+    },
+    {
+      "name": "reload conflict with no active session still offers functional remote choice",
+      "error": "Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "A/B switch during remote read cannot contaminate B cache or clear B active",
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "changed lesson intent invalidates old conflict choice before starting read",
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "remote choice read failure stays unconfirmed with a retry choice",
+      "error": "offline"
+    },
+    {
+      "name": "absent durable storage reports memory-only pending",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'LOCAL_PENDING'\n- 'LOCAL_PENDING_STORAGE_ERROR'\n                ^\n"
+    }
+  ]
+}

@@ -24,7 +24,15 @@ jobs:
           node-version: '22'
       - run: npm ci --prefix mobile-release-runner
       - run: node mobile-release-runner/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Recover exact retained canonical staging source
+        if: github.event_name == 'pull_request'
+        env:
+          MAN_LESSON_ID: ${{ matrix.lesson }}
+          MAN_EXECUTION_MODE: ${{ matrix.mode }}
+          MAN_VERIFY_TARGET: staging
+        run: node batch03-verification/prepare-retained-source.mjs
       - uses: actions/download-artifact@v4
+        if: github.event_name == 'push'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event_name == 'push' && '37733903764' || '37733419191' }}

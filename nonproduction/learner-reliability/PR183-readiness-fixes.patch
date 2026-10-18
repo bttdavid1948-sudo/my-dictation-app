@@ -1,0 +1,96 @@
+diff --git a/index.html b/index.html
+index 6d83af4..faecc0a 100644
+--- a/index.html
++++ b/index.html
+@@ -589,13 +589,13 @@ Danh sách từ/cụm từ của tôi:
+             if (!currentUser || seconds < 10) return;
+             const timerUser=currentUser, timerUid=timerUser.uid;
+             const minutesEarned = Math.round(seconds / 60) || 1;
+-            userProfileData.totalMinutes = (userProfileData.totalMinutes || 0) + minutesEarned;
++            // Confirmed profile totals change only after the transaction ACK.
+             const now=new Date(), pad=n=>String(n).padStart(2,'0');
+             const dayKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+             const monthKey=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
+             const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); const weekKey=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+             const ref=db.collection('users_profile').doc(timerUid);
+-            db.runTransaction(async tx=>{if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const snap=await tx.get(ref);if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const old=snap.exists?snap.data():{};tx.set(ref,{nickname:userProfileData.nickname||timerUser.displayName||timerUser.email,avatar:timerUser.photoURL||'',totalMinutes:(old.totalMinutes||0)+minutesEarned,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}).then(()=>{if(currentUser?.uid===timerUid)xLoadLeaderboard('daily')}).catch(()=>{if(currentUser?.uid===timerUid)xToast('Chưa xác nhận lưu thời gian học.');});
++            db.runTransaction(async tx=>{if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const snap=await tx.get(ref);if(currentUser?.uid!==timerUid)throw Error('ACCOUNT_CHANGED');const old=snap.exists?snap.data():{};const acknowledgedMinutes=(old.totalMinutes||0)+minutesEarned;tx.set(ref,{nickname:userProfileData.nickname||timerUser.displayName||timerUser.email,avatar:timerUser.photoURL||'',totalMinutes:acknowledgedMinutes,dailyKey:dayKey,dailyMinutes:(old.dailyKey===dayKey?old.dailyMinutes||0:0)+minutesEarned,weeklyKey:weekKey,weeklyMinutes:(old.weeklyKey===weekKey?old.weeklyMinutes||0:0)+minutesEarned,monthlyKey:monthKey,monthlyMinutes:(old.monthlyKey===monthKey?old.monthlyMinutes||0:0)+minutesEarned,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});return acknowledgedMinutes}).then(total=>{if(currentUser?.uid===timerUid){if(Number.isFinite(total))userProfileData.totalMinutes=Math.max(Number(userProfileData.totalMinutes)||0,total);xLoadLeaderboard('daily')}}).catch(()=>{if(currentUser?.uid===timerUid)xToast('Chưa xác nhận lưu thời gian học.');});
+         }
+ 
+         function loginWithGoogle() {
+diff --git a/nonproduction/learner-reliability/cloud-host.js b/nonproduction/learner-reliability/cloud-host.js
+index 2a0fd1e..c9d643b 100644
+--- a/nonproduction/learner-reliability/cloud-host.js
++++ b/nonproduction/learner-reliability/cloud-host.js
+@@ -17,9 +17,22 @@ store.process=function(i,outcome){if(!cloud||!this.active)return;cloud.process(i
+ store.visit=function(i){if(!cloud||!this.active)return;cloud.visit(i);this.active.r=asRecord(cloud.active.local);this.dirty=true};
+ store.flush=function(){if(cloud&&this.dirty)queueFlush();return true};
+ function queueFlush(){const c=cloud,g=generation;if(!c?.active)return;pending=pending.then(async()=>{if(g!==generation||cloud!==c)return;try{const unchanged=c.active.local.marks===c.active.base.marks&&c.active.local.cursor===c.active.base.cursor;await c.checkpoint();if(g!==generation)return;if(unchanged){c.status='SYNCED';try{c.storage?.removeItem('man_cloud_pending_v1_'+c.uid+'_'+sid(c.active.c.i))}catch{}}cache.set(sid(c.active.c.i),{i:c.active.c.i,r:structuredClone(c.active.base)});store.dirty=c.status!=='SYNCED';status(c.status==='SYNCED'?'Đã lưu tiến độ vào tài khoản (demo).':'Có thay đổi mới chưa lưu.');redraw()}catch(e){if(g!==generation)return;status(e.message==='STALE_SESSION'?'Có phiên học mới ở thiết bị khác. Bản đang học chưa ghi đè.':(e.code==='permission-denied'?'Không có quyền lưu tiến độ. Chưa xác nhận; bản nháp không ghi đè tài khoản.':'Chưa xác nhận lưu: kiểm tra mạng. Giữ trang này và bản nháp theo tài khoản.'));showRecovery();}});return pending}
+-function showRecovery(){const s=document.getElementById('cloud-progress-status');for(const [label,action] of [['Dùng bản tài khoản',async()=>{const i=cloud?.active?.c.i;if(!i)return;const r=await cloud.load(i);cache.set(sid(i),{i,r});ignoredPending.add(sid(i));cloud.active=null;store.active=null;store.dirty=false;redraw();status('Đã chọn bản tài khoản; bản nháp cũ vẫn được giữ. Chọn Học tiếp để dùng.');}],['Giữ bản nháp',()=>status('Đã giữ bản nháp; chưa ghi đè tài khoản. Có thể tiếp tục xem, hoặc chọn bản tài khoản sau.')]]){const b=document.createElement('button');b.textContent=label;b.onclick=action;s.append(b)}}
++function showRecovery(identity=cloud?.active?.c.i){
++ const c=cloud,g=generation,intent=startIntent;if(!c||!identity)return;
++ const current=()=>g===generation&&cloud===c&&intent===startIntent;
++ const s=document.getElementById('cloud-progress-status');
++ for(const [label,action] of [['Dùng bản tài khoản',async()=>{
++  if(!current())return;
++  try{const r=await c.load(identity);if(!current())return;
++   cache.set(sid(identity),{i:identity,r});ignoredPending.add(sid(identity));c.active=null;store.active=null;store.dirty=false;redraw();
++   status('Đã chọn bản tài khoản; bản nháp cũ vẫn được giữ. Chọn Học tiếp để dùng.');
++  }catch{if(current()){status('Chưa tải được bản tài khoản. Bản nháp vẫn được giữ; kiểm tra mạng/quyền rồi thử lại.');showRecovery(identity)}}
++ }],['Giữ bản nháp',()=>{if(current())status('Đã giữ bản nháp; chưa ghi đè tài khoản. Có thể tiếp tục xem, hoặc chọn bản tài khoản sau.')}]] ){
++  const b=document.createElement('button');b.textContent=label;b.onclick=action;s.append(b)
++ }
++}
+ const start=xStartLessonChoice;
+-xStartLessonChoice=async function(mine,id,resume=false){if(!currentUser)return start(mine,id,resume);if(xLibraryClosePending)await xLibraryClosePending;const intent=++startIntent,g=generation,c=cloud;const u=(mine?xMineLessons():xCatalogLessons()).find(u=>(mine?u.unitName:u.id)===id),i=ManLearnerProgress.identity(u);if(u?.practice&&!resume&&(!cache.get(i?sid(i):'')?.r||cache.get(sid(i)).r.marks.includes('.')))return start(mine,id,resume);if(!c||!i){status('Chưa có identity ổn định hoặc chưa tải tài khoản; không đoán điểm tiếp tục.');return}if(busy)return;busy=true;try{await pending;if(store.dirty){await queueFlush();if(c.status==='CONFLICT')return;}const r=await c.load(i);if(g!==generation||intent!==startIntent)return;const draft=ignoredPending.has(sid(i))?null:c.readPending(i);if(draft){const recovery=await c.recover(i);if(recovery?.conflict){status('Bản nháp khác phiên tài khoản. Chọn bản dùng trước khi học.');showRecovery();return}if(recovery&&!resume){status('Có bản nháp chưa xác nhận. Dùng Học tiếp hoặc xử lý bản nháp trước Học lại.');return}}
++xStartLessonChoice=async function(mine,id,resume=false){if(!currentUser)return start(mine,id,resume);if(xLibraryClosePending)await xLibraryClosePending;const intent=++startIntent,g=generation,c=cloud;const u=(mine?xMineLessons():xCatalogLessons()).find(u=>(mine?u.unitName:u.id)===id),i=ManLearnerProgress.identity(u);if(u?.practice&&!resume&&(!cache.get(i?sid(i):'')?.r||cache.get(sid(i)).r.marks.includes('.')))return start(mine,id,resume);if(!c||!i){status('Chưa có identity ổn định hoặc chưa tải tài khoản; không đoán điểm tiếp tục.');return}if(busy)return;busy=true;try{await pending;if(store.dirty){await queueFlush();if(c.status==='CONFLICT')return;}const r=await c.load(i);if(g!==generation||intent!==startIntent)return;const draft=ignoredPending.has(sid(i))?null:c.readPending(i);if(draft){const recovery=await c.recover(i);if(recovery?.conflict){status('Bản nháp khác phiên tài khoản. Chọn bản dùng trước khi học.');showRecovery(i);return}if(recovery&&!resume){status('Có bản nháp chưa xác nhận. Dùng Học tiếp hoặc xử lý bản nháp trước Học lại.');return}}
+ if(!draft){let revision=r?.revision;if(revision===undefined){const head=await c.t.read('users/'+c.uid+'/lesson_progress/'+sid(i));revision=head?.uid===c.uid?head.revision:0;}await c.begin(i,{expectedRevision:revision,resume:resume&&!!r});}if(g!==generation||intent!==startIntent)return;cache.set(sid(i),{i,r:structuredClone(c.active.local)});store.ready=true;store.dirty=false;store.error=null;try{sessionStorage.setItem('man_cloud_context_v1_'+c.uid,JSON.stringify({uid:c.uid,identity:i,mine,id}))}catch{}start(mine,id,resume);status('Tiến độ theo tài khoản: chỉ lưu ở mốc học có ý nghĩa.');}catch(e){if(g===generation)status('Chưa mở phiên tài khoản: '+(e.message==='STALE_REVISION'?'đã có phiên khác; tải lại tiến độ.':'kiểm tra mạng/quyền, chưa xác nhận lưu.'));}finally{busy=false}};
+ // UID callbacks already registered by base host; run this handler after its reset.
+ __fixtureAuth.push(user=>{if(store.uid!==user?.uid||!cloud)store.selectUid(user?.uid||null)});
+diff --git a/nonproduction/learner-reliability/cloud-progress.cjs b/nonproduction/learner-reliability/cloud-progress.cjs
+index 5782e01..e710342 100644
+--- a/nonproduction/learner-reliability/cloud-progress.cjs
++++ b/nonproduction/learner-reliability/cloud-progress.cjs
+@@ -16,7 +16,7 @@ class Client{
+  async begin(i,{expectedRevision=0,resume=false}={}){const c=this.capture(i),sid=this.makeId(),p=this.path(c);const r=await this.t.transaction(async tx=>{const old=await tx.get(p);if(!this.owns(c))throw Error('ACCOUNT_CHANGED');if((old?.revision||0)!==expectedRevision)throw Error('STALE_REVISION');if(resume){if(!valid(old,c.uid,c.i))throw Error('VERSION_CHANGED');return old}const fresh={schema:1,uid:c.uid,lessonId:c.i.id,kind:c.i.kind,version:c.i.version,total:c.i.total,sessionId:sid,seq:(old?.seq||0)+1,revision:(old?.revision||0)+1,cursor:0,marks:'.'.repeat(c.i.total),updatedAt:this.t.timestamp()};tx.set(p,fresh);return fresh});if(!this.owns(c))return null;this.active={c,base:copy(r),local:copy(r)};this.status='SYNCED';return view(r)}
+  process(index,outcome){const a=this.active;if(!a||!this.owns(a.c))return false;const mark={correct:'c',giveup:'g',skip:'s'}[outcome];if(!mark||!Number.isInteger(index)||index<0||index>=a.local.total)return false;const chars=[...a.local.marks];if(chars[index]==='.')chars[index]=mark;a.local.marks=chars.join('');a.local.cursor=Math.min(index+1,a.local.total-1);this.status='LOCAL_PENDING';this.persist();return true}
+  visit(index){const a=this.active;if(!a||!Number.isInteger(index)||index<0||index>=a.local.total)return false;a.local.cursor=index;this.status='LOCAL_PENDING';this.persist();return true}
+- persist(){const a=this.active;if(!a||!this.owns(a.c)||!this.storage)return;try{this.storage.setItem('man_cloud_pending_v1_'+a.c.uid+'_'+key(a.c.i),JSON.stringify({schema:1,uid:a.c.uid,base:a.base,local:a.local}))}catch{this.status='LOCAL_PENDING_STORAGE_ERROR'}}
++ persist(){const a=this.active;if(!a||!this.owns(a.c))return;if(!this.storage){this.status='LOCAL_PENDING_STORAGE_ERROR';return}try{this.storage.setItem('man_cloud_pending_v1_'+a.c.uid+'_'+key(a.c.i),JSON.stringify({schema:1,uid:a.c.uid,base:a.base,local:a.local}))}catch{this.status='LOCAL_PENDING_STORAGE_ERROR'}}
+  readPending(i){const c=this.capture(i);try{const d=JSON.parse(this.storage?.getItem('man_cloud_pending_v1_'+c.uid+'_'+key(c.i))||'null');return d?.uid===c.uid&&valid(d.local,c.uid,c.i)&&valid(d.base,c.uid,c.i)?d:null}catch{return null}}
+  // Explicit recovery only. Never upload pending automatically on reconnect/account switch.
+  async recover(i){const d=this.readPending(i);if(!d)return null;const c=this.capture(i),remote=await this.t.read(this.path(c));if(!this.owns(c))return null;if(!remote||remote.sessionId!==d.base.sessionId||remote.seq!==d.base.seq||remote.revision!==d.base.revision){this.status='CONFLICT';return {conflict:true,remote:copy(remote),pending:d}}this.active={c,base:d.base,local:d.local};this.status='LOCAL_PENDING';return {conflict:false,pending:d}}
+diff --git a/tests/pr183-readiness.test.mjs b/tests/pr183-readiness.test.mjs
+new file mode 100644
+index 0000000..8ae809f
+--- /dev/null
++++ b/tests/pr183-readiness.test.mjs
+@@ -0,0 +1,28 @@
++import fs from 'node:fs';
++import vm from 'node:vm';
++import assert from 'node:assert/strict';
++import {createRequire} from 'node:module';
++const require=createRequire(import.meta.url),{Client}=require('../nonproduction/learner-reliability/cloud-progress.cjs');
++const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
++const host=fs.readFileSync(new URL('../nonproduction/learner-reliability/cloud-host.js',import.meta.url),'utf8');
++const timer=html.slice(html.indexOf('        function stopStudyTimerAndSave()'),html.indexOf('        function loginWithGoogle()'));
++const recovery=host.slice(host.indexOf('function showRecovery('),host.indexOf('const start=xStartLessonChoice;'));
++const checks=[],failures=[];
++async function test(name,f){try{await f();checks.push(name)}catch(e){failures.push({name,error:e.message})}}
++const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject}};
++const tick=()=>new Promise(r=>setImmediate(r));
++function timerContext(){const gate=deferred(),writes=[],toasts=[];let body,calls=0;const c={Date,Math,Error,studyTimer:1,sessionSeconds:60,currentUser:{uid:'A',displayName:'A'},userProfileData:{totalMinutes:10},clearInterval(){},firebase:{firestore:{FieldValue:{serverTimestamp:()=>null}}},db:{collection:()=>({doc:uid=>({uid})}),runTransaction:fn=>{body=fn;calls++;return gate.promise}},xLoadLeaderboard(){},xToast:m=>toasts.push(m)};vm.createContext(c);vm.runInContext(timer,c);return{c,gate,toasts,writes,get calls(){return calls},run:()=>body({get:async()=>({exists:true,data:()=>({totalMinutes:40})}),set:(_r,d)=>writes.push(d)})}}
++await test('minutes remain unconfirmed until transaction ACK, then use committed total',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();assert.equal(t.c.userProfileData.totalMinutes,10);const committed=await t.run();assert.equal(t.c.userProfileData.totalMinutes,10);t.gate.resolve(committed);await tick();assert.equal(t.c.userProfileData.totalMinutes,41)});
++await test('permission failure does not falsely credit or automatically retry',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();t.gate.reject(Error('permission-denied'));await tick();assert.equal(t.c.userProfileData.totalMinutes,10);assert.equal(t.calls,1);assert(t.toasts.length)});
++await test('ACK loss remains unconfirmed even after actual transaction callback writes',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();await t.run();t.gate.reject(Error('response-unknown'));await tick();assert.equal(t.writes[0].totalMinutes,41);assert.equal(t.c.userProfileData.totalMinutes,10);assert.equal(t.calls,1)});
++await test('late A ACK cannot modify B profile',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();const committed=await t.run();t.c.currentUser={uid:'B'};t.c.userProfileData={totalMinutes:7};t.gate.resolve(committed);await tick();assert.equal(t.c.userProfileData.totalMinutes,7)});
++await test('repeated timer stop makes one request and retries callback without UI mutation',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();t.c.stopStudyTimerAndSave();assert.equal(t.calls,1);await t.run();await t.run();assert.equal(t.c.userProfileData.totalMinutes,10);t.gate.resolve(41);await tick();assert.equal(t.c.userProfileData.totalMinutes,41)});
++await test('older ACK cannot decrease a newer acknowledged total',async()=>{const t=timerContext();t.c.stopStudyTimerAndSave();t.c.userProfileData.totalMinutes=50;t.gate.resolve(41);await tick();assert.equal(t.c.userProfileData.totalMinutes,50)});
++function recoveryContext(active=false){const buttons=[],messages=[],rows=new Map(),gate=deferred();const identity={kind:'official',id:'TEST',version:'v1',total:2};let reads=0;const client={active:active?{c:{i:identity}}:null,load:async()=>{reads++;return gate.promise}};const c={cloud:client,generation:1,startIntent:1,store:{active:null,dirty:true},cache:rows,ignoredPending:new Set(),sid:i=>i.kind+'_'+i.id,document:{getElementById:()=>({append:b=>buttons.push(b)}),createElement:()=>({})},redraw(){},status:m=>messages.push(m)};vm.createContext(c);vm.runInContext(recovery,c);return{c,identity,buttons,messages,rows,gate,client,get reads(){return reads}}}
++await test('reload conflict with no active session still offers functional remote choice',async()=>{const t=recoveryContext();t.c.showRecovery(t.identity);assert.equal(t.buttons.length,2);const p=t.buttons[0].onclick();assert.equal(t.reads,1);t.gate.resolve({uid:'A',cursor:1});await p;assert.equal(t.rows.get('official_TEST').r.uid,'A');assert(t.c.ignoredPending.has('official_TEST'));assert.equal(t.c.store.dirty,false)});
++await test('A/B switch during remote read cannot contaminate B cache or clear B active',async()=>{const t=recoveryContext(true);t.c.showRecovery(t.identity);assert.equal(t.buttons.length,2);const p=t.buttons[0].onclick();assert.equal(t.reads,1);const b={active:{owner:'B'}};t.c.cloud=b;t.c.generation++;t.c.store.active={owner:'B'};t.gate.resolve({uid:'A'});await p;assert.equal(t.rows.size,0);assert.equal(t.c.store.active.owner,'B');assert.equal(t.messages.length,0)});
++await test('changed lesson intent invalidates old conflict choice before starting read',async()=>{const t=recoveryContext(true);t.c.showRecovery(t.identity);t.c.startIntent++;const p=t.buttons[0].onclick();assert.equal(t.reads,0);await p});
++await test('remote choice read failure stays unconfirmed with a retry choice',async()=>{const t=recoveryContext(true);t.c.showRecovery(t.identity);const p=t.buttons[0].onclick();t.gate.reject(Error('offline'));await p;assert.equal(t.rows.size,0);assert.equal(t.c.store.dirty,true);assert(t.messages.at(-1).includes('Chưa tải'));assert.equal(t.buttons.length,4)});
++await test('absent durable storage reports memory-only pending',async()=>{let record;const client=new Client({timestamp:()=>null,read:async()=>record,transaction:fn=>fn({get:async()=>record,set:(_p,d)=>{record=d}})},{makeId:()=> 'session-1',storage:null});client.selectUid('A');await client.begin({kind:'official',id:'TEST',version:'v1',total:2});client.process(0,'correct');assert.equal(client.status,'LOCAL_PENDING_STORAGE_ERROR');assert.equal(client.active.local.marks,'c.');});
++console.log(JSON.stringify({status:failures.length?'FAIL':'PASS',scope:'UNIT extracted actual candidate functions; controlled transport/ACK/storage; no live browser/backend claim',passed:checks.length,checks,failures},null,2));
++if(failures.length)process.exitCode=1;

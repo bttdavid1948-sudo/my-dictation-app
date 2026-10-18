@@ -1,0 +1,205 @@
+[
+  {
+    "path": ".github/workflows/learner-isolated-acceptance.yml",
+    "classification": "ISOLATED_CI",
+    "candidate_blob": "fdd40d3a7dd51e8fb9c3a28f28a15cf1239c15c0",
+    "added": 50,
+    "removed": 0
+  },
+  {
+    "path": "assets/learner-progress.js",
+    "classification": "PRODUCTION_RUNTIME",
+    "candidate_blob": "b2d3285509a57cae52ff77184be5575672726ab0",
+    "added": 24,
+    "removed": 0
+  },
+  {
+    "path": "assets/practice-runtime-wrapper.js",
+    "classification": "PRODUCTION_RUNTIME",
+    "candidate_blob": "ba0950dae40b96e1684b4d646801af521ca544ba",
+    "added": 17,
+    "removed": 0
+  },
+  {
+    "path": "index.html",
+    "classification": "PRODUCTION_RUNTIME",
+    "candidate_blob": "6d83af49009d453f2d2ceec91d14664b1acc1dd5",
+    "added": 200,
+    "removed": 42
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-faults.sdk.test.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "98ff08b27ec2535195718dfd1cb9efb0ddf6c3a4",
+    "added": 9,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-host.browser.mjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "1a920038c271bbc779bbe0ac21e4ada9a10c4fe0",
+    "added": 21,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-host.js",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "2a0fd1e21e8e65335f9399cd942e022e551a134d",
+    "added": 36,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-progress.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "5782e01685242e9ebbe71e3fb53e8b9796f1d6d5",
+    "added": 26,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-progress.sdk-emulator.test.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "7b18a01ff987c795d4c3dea86ace529aebffb9de",
+    "added": 4,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/cloud-progress.test.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "afe4a742ec42fbfe732db364e8a70925c3a21d06",
+    "added": 24,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/emulator-host-server.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "be8b479d6bbb0685116766fee35672719363a14a",
+    "added": 19,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/firebase.emulator.json",
+    "classification": "EMULATOR_RULES_CONFIG_FIXTURE",
+    "candidate_blob": "b426787427601779de14225a8cb76ad5c646793f",
+    "added": 1,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/firebase.host.emulator.json",
+    "classification": "EMULATOR_RULES_CONFIG_FIXTURE",
+    "candidate_blob": "f88b2d35868b232cfc3097ff874a53c27d39bb94",
+    "added": 1,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/firestore.host.rules",
+    "classification": "EMULATOR_RULES_CONFIG_FIXTURE",
+    "candidate_blob": "a6971b36e65457bf21facd60750498a4897610f5",
+    "added": 59,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/firestore.progress.emulator.test.cjs",
+    "classification": "EMULATOR_RULES_CONFIG_FIXTURE",
+    "candidate_blob": "9ca8a6da64f6a2846d4f249748b1c89959a860cd",
+    "added": 27,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/firestore.progress.rules",
+    "classification": "EMULATOR_RULES_CONFIG_FIXTURE",
+    "candidate_blob": "17289d0f0bc4ef139cd357960168611ff8c9547d",
+    "added": 50,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/learner-browser-check.mjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "cebd8aa44a363cb0f7144b200d6d31e28cc5fc0c",
+    "added": 14,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/package-lock.json",
+    "classification": "DEMO_DEPENDENCY",
+    "candidate_blob": "3317b593a1347710a08368862ef17d31e75da1f8",
+    "added": 8275,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/package.json",
+    "classification": "DEMO_DEPENDENCY",
+    "candidate_blob": "b2548feb58ab581cbe54420c46d9fdc9c8440c9d",
+    "added": 11,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/preview-server.cjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "c099165215fbdc5af3f8ab9690410a455e9f37a4",
+    "added": 16,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/private-faults.browser.mjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "d59faa0268ea3b808f1b52dc30cf7a7df7075e2e",
+    "added": 5,
+    "removed": 0
+  },
+  {
+    "path": "nonproduction/learner-reliability/real-audio.browser.mjs",
+    "classification": "DEMO_ONLY_HOST_PROTOCOL_OR_ACCEPTANCE",
+    "candidate_blob": "3f4d118f2d7282763e63f05bcee8a7d6c096efbb",
+    "added": 1,
+    "removed": 0
+  },
+  {
+    "path": "tests/client-isolation.test.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "d7ce85b3ed469ce4018291943cb2269979819ffa",
+    "added": 3,
+    "removed": 2
+  },
+  {
+    "path": "tests/learner-practice-resume.test.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "cb19059ff742571c68a13abe602fe7777c236c5d",
+    "added": 26,
+    "removed": 0
+  },
+  {
+    "path": "tests/learner-progress.test.cjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "3750a20d1566b146c5ddb65543ee6156d7e991c3",
+    "added": 24,
+    "removed": 0
+  },
+  {
+    "path": "tests/learner-reliability.test.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "e2de7300e70623526e229b664cad6b9f27a42474",
+    "added": 42,
+    "removed": 0
+  },
+  {
+    "path": "tests/practice-runtime-default.browser.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "284051be8760389c35c5724e81943bd093bf3384",
+    "added": 1,
+    "removed": 1
+  },
+  {
+    "path": "tests/private-autosave.test.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "4b88b56d4a1c8d2b32eb8f651b1703c54608020e",
+    "added": 5,
+    "removed": 2
+  },
+  {
+    "path": "tests/private-edit-readback.test.mjs",
+    "classification": "TEST_REGRESSION",
+    "candidate_blob": "9d771baa2f281596e5341cdb878b82ed012cb11b",
+    "added": 3,
+    "removed": 3
+  }
+]
