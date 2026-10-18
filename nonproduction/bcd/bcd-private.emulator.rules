@@ -1,0 +1,38 @@
+rules_version = '2';
+// Standalone demo emulator only. NEVER deploy; all other paths denied.
+service cloud.firestore { match /databases/{database}/documents {
+ match /users/{uid}/bcd_private/state {
+  allow read: if request.auth != null && request.auth.uid == uid;
+  function row(d) { return d.keys().hasOnly(['id','version','proofId','savedAt']) && d.id is string && d.id.matches('^[A-Za-z0-9-]{1,100}$') && d.version is string && d.version.size()>0 && d.version.size()<=100 && d.proofId is string && d.proofId.matches('^[A-Za-z0-9-]{1,100}$') && d.savedAt is string && d.savedAt.size()<=40; }
+  function valid() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','deletionEpoch','operationId','kind','trust','saved','updatedAt']) && d.schema==1 && d.uid==uid && d.revision is int && d.revision>0 && d.deletionEpoch is int && d.deletionEpoch>=0 && d.operationId is string && d.operationId.size()<=100 && d.kind in ['save','reset'] && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.saved is list && d.saved.size()<=2 && (d.saved.size()<1||row(d.saved[0])) && (d.saved.size()<2||(row(d.saved[1])&&d.saved[0].id!=d.saved[1].id)) && (d.kind!='reset'||d.saved.size()==0) && d.updatedAt==request.time; }
+  allow create: if request.auth != null && request.auth.uid==uid && valid() && request.resource.data.revision==1 && request.resource.data.deletionEpoch==(request.resource.data.kind=='reset'?1:0);
+  allow update: if request.auth != null && request.auth.uid==uid && valid() && request.resource.data.revision==resource.data.revision+1 && request.resource.data.deletionEpoch==resource.data.deletionEpoch+(request.resource.data.kind=='reset'?1:0);
+  allow delete: if false;
+ }
+ match /users/{uid}/bcd_v2/control {
+  function owner() { return request.auth!=null && request.auth.uid==uid; }
+  function validControl() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','kind','accountDeleted','boardOptIn','trust','updatedAt']) && d.schema==2 && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.matches('^[A-Za-z0-9-]{1,100}$') && d.kind in ['history','account','preference'] && d.accountDeleted==(d.kind=='account') && d.boardOptIn is bool && (!d.accountDeleted||!d.boardOptIn) && d.trust=='SIMULATION_BARRIER_ONLY' && d.updatedAt==request.time; }
+  allow read: if owner();
+  allow create: if owner() && validControl() && request.resource.data.revision==1 && request.resource.data.epoch==(request.resource.data.kind=='preference'?0:1) && (request.resource.data.kind!='history'||!request.resource.data.boardOptIn);
+  allow update: if owner() && validControl() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch==resource.data.epoch+(request.resource.data.kind=='preference'?0:1) && (request.resource.data.kind!='history'||request.resource.data.boardOptIn==resource.data.boardOptIn);
+  allow delete: if false;
+  match /lessons/{lessonId} {
+   function barrier() { let p=/databases/$(database)/documents/users/$(uid)/bcd_v2/control; return !exists(p)?request.resource.data.epoch==0:(!get(p).data.accountDeleted && request.resource.data.epoch==get(p).data.epoch); }
+   function validLesson() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','lessonId','version','revision','epoch','operationId','saved','proofId','savedAt','trust','updatedAt']) && d.schema==2 && d.uid==uid && d.lessonId==lessonId && lessonId.matches('^[A-Za-z0-9-]{1,100}$') && d.version is string && d.version.size()>0 && d.version.size()<=100 && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.matches('^[A-Za-z0-9-]{1,100}$') && d.saved is bool && d.proofId is string && d.proofId.matches('^[A-Za-z0-9-]{1,100}$') && d.savedAt is string && d.savedAt.size()<=40 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time && barrier(); }
+   allow read: if owner();
+   allow create: if owner() && validLesson() && request.resource.data.revision==1 && request.resource.data.proofId==request.resource.data.operationId;
+   allow update: if owner() && validLesson() && request.resource.data.revision==resource.data.revision+1 && ((request.resource.data.saved && (!resource.data.saved || request.resource.data.version!=resource.data.version)) ? request.resource.data.proofId==request.resource.data.operationId : (request.resource.data.proofId==resource.data.proofId && request.resource.data.savedAt==resource.data.savedAt));
+   allow delete: if false;
+  }
+ }
+ match /users/{uid}/bcd_product/{record} {
+  function owner() { return request.auth!=null && request.auth.uid==uid; }
+  function stateValid() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','accountDeleted','payload','trust','updatedAt']) && d.schema==3 && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.size()<=100 && d.accountDeleted is bool && d.payload is string && d.payload.size()<=800000 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time; }
+  function active() { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return !exists(p)||!get(p).data.accountDeleted; }
+  function erased() { return getAfter(/databases/$(database)/documents/users/$(uid)/bcd_product/state).data.accountDeleted==true; }
+  allow read: if owner() && record in ['state','profile','private_lessons'];
+  allow create: if owner() && ((record=='state' && stateValid() && request.resource.data.revision==1 && request.resource.data.epoch in [0,1]) || (record=='profile' && active() && request.resource.data.keys().hasOnly(['nickname','motto','phone','phonePublic','socialLinks','updatedAt','totalMinutes']) && request.resource.data.nickname is string && request.resource.data.nickname.size()<=100) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow update: if owner() && ((record=='state' && stateValid() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch>=resource.data.epoch && request.resource.data.epoch<=resource.data.epoch+1) || (record=='profile' && active() && request.resource.data.keys().hasOnly(['nickname','motto','phone','phonePublic','socialLinks','updatedAt','totalMinutes']) && request.resource.data.nickname is string && request.resource.data.nickname.size()<=100) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow delete: if owner() && record in ['profile','private_lessons'] && erased();
+ }
+}}
