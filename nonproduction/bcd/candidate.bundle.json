@@ -40,7 +40,7 @@
     },
     "product-progress-core-host.js": {
       "path": "nonproduction/learner-reliability/cloud-host.js",
-      "sha256": "7db21ecd56e49245a03fd30da372968ae82b6cff043e8f626454885df2d387fa"
+      "sha256": "be996fa45f537a4d360a10d4c73447d3a70f61062fb56f9e0fa3c45adf7a47f3"
     }
   }
 }
