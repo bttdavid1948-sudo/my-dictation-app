@@ -1,7 +1,8 @@
 'use strict';
 // Server-owned ingress; never bundle into browser or deploy demo ports to production.
 const {createHash,randomUUID}=require('node:crypto');
-const token=x=>typeof x==='string'&&/^[-A-Za-z0-9]{1,128}$/.test(x),hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
+const canonical=x=>Array.isArray(x)?'['+x.map(canonical).join(',')+']':x&&typeof x==='object'?'{'+Object.keys(x).sort().map(k=>JSON.stringify(k)+':'+canonical(x[k])).join(',')+'}':JSON.stringify(x);
+const token=x=>typeof x==='string'&&/^[-A-Za-z0-9]{1,128}$/.test(x),hash=x=>createHash('sha256').update(canonical(x)).digest('hex');
 const exact=(x,keys)=>x&&typeof x==='object'&&!Array.isArray(x)&&Object.keys(x).every(k=>keys.includes(k))&&keys.every(k=>Object.hasOwn(x,k));
 function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,clock=Date.now,newId=randomUUID}){
  if(mode!=='ISOLATED_NONPRODUCTION'||projectId!=='demo-man-progress-bcd')throw Error('ISOLATED_SERVER_REQUIRED');
@@ -51,7 +52,7 @@ function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,
    const prior=await store.read(opPath),barrier=await store.read(control);if(!prior||prior.uid!==uid||prior.digest!==digest||prior.epoch!==(barrier?.epoch??0)||barrier?.accountDeleted)throw Error('READBACK_UNCONFIRMED');result=prior;
   }
   const [ack,barrier]=await Promise.all([store.read(opPath),store.read(control)]);
-  if(!ack||JSON.stringify(ack)!==JSON.stringify(result)||barrier?.accountDeleted||ack.epoch!==(barrier?.epoch??0))throw Error('READBACK_UNCONFIRMED');
+  if(!ack||canonical(ack)!==canonical(result)||barrier?.accountDeleted||ack.epoch!==(barrier?.epoch??0))throw Error('READBACK_UNCONFIRMED');
   return {ack:true,...ack,scope:'SERVER_OWNED_COMMANDS_NOT_HUMAN_ATTESTATION'};
  }
  return {command};
