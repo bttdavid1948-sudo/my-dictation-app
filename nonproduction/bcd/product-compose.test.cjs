@@ -47,3 +47,15 @@ test('actual card wrapper disables unloaded/stale signed-in progress, keeps gues
 });
 
 })();
+
+// Native mobile failure: background dashboard renders must not replace a pending
+// deletion confirmation with the default sync panel or carry it into another UID.
+for(const scope of ['history','account'])test('actual sync panel preserves '+scope+' confirmation across background renders and clears on UID/generation/status change',()=>{
+ const host=JSON.parse(fs.readFileSync(path.join(__dirname,'candidate.bundle.json'),'utf8')).assets['product-cloud-host.js'];
+ const a=host.indexOf(' function drawPanel(){'),b=host.indexOf(' const originalRender=',a);assert(a>0&&b>a);
+ const box={innerHTML:''},ctx=vm.createContext({state:{status:'READY',generation:1,pending:null},currentUser:{uid:'A'},confirmation:{scope,uid:'A',g:1},document:{getElementById:()=>box}});
+ vm.runInContext(host.slice(a,b)+';drawPanel();',ctx);assert.match(box.innerHTML,new RegExp('data-cloud-confirm="'+scope+'"'));vm.runInContext('drawPanel()',ctx);assert.match(box.innerHTML,/Xác nhận yêu cầu/);
+ ctx.currentUser={uid:'B'};vm.runInContext('drawPanel()',ctx);assert.doesNotMatch(box.innerHTML,/data-cloud-confirm/);assert.equal(ctx.confirmation,null);
+ ctx.currentUser={uid:'A'};ctx.confirmation={scope,uid:'A',g:1};ctx.state.generation=2;vm.runInContext('drawPanel()',ctx);assert.equal(ctx.confirmation,null);
+ ctx.confirmation={scope,uid:'A',g:2};ctx.state.status='SAVING';vm.runInContext('drawPanel()',ctx);assert.doesNotMatch(box.innerHTML,/data-cloud-confirm/);
+});
