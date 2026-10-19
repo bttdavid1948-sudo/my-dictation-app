@@ -18,7 +18,8 @@ const {createProducer}=require('./trusted-practice-server.cjs');
 const {pathToFileURL}=require('node:url'),assetRoot=path.resolve(__dirname,'../../assets');
 const {normalizePracticeLesson}=await import(pathToFileURL(path.join(assetRoot,'practice-runtime-contract.js'))),{createPracticeCore}=await import(pathToFileURL(path.join(assetRoot,'practice-runtime-core.js')));
 const official=JSON.parse(fs.readFileSync(path.join(assetRoot,'official-lessons-man0844.json'))).lessons[0],descriptor=normalizePracticeLesson(official);
-const serverStore={read:p=>env.withSecurityRulesDisabled(async c=>{const s=await c.firestore().doc(p).get();return s.exists?s.data():null;}),transaction:fn=>env.withSecurityRulesDisabled(c=>{const db=c.firestore();return db.runTransaction(tx=>fn({get:async p=>{const s=await tx.get(db.doc(p));return s.exists?s.data():null;},set:(p,d)=>tx.set(db.doc(p),d)}));})};
+const privileged=async fn=>{let value;await env.withSecurityRulesDisabled(async c=>{value=await fn(c)});return value;};
+const serverStore={read:p=>privileged(async c=>{const s=await c.firestore().doc(p).get();return s.exists?s.data():null;}),transaction:fn=>privileged(c=>{const db=c.firestore();return db.runTransaction(tx=>fn({get:async p=>{const s=await tx.get(db.doc(p));return s.exists?s.data():null;},set:(p,d)=>tx.set(db.doc(p),d)}));})};
 const producer=createProducer({mode:'ISOLATED_NONPRODUCTION',projectId,auth,store:serverStore,catalog:async(id,v)=>official.id===id&&official.version===v?official:null,normalize:normalizePracticeLesson,createCore:createPracticeCore,newId:()=> 'native-server-attempt'});
 const command=(extra={})=>({idToken,lessonId:official.id,version:official.version,attemptId:null,operationId:'native-start',expectedRevision:0,action:'start',body:{},...extra});
 let produced=await producer.command(command());assert.equal(produced.eligible,false);assert.equal((await producer.command(command())).receiptId,produced.receiptId);
@@ -27,9 +28,9 @@ await assert.rejects(producer.command(command({idToken:await b.app.auth().curren
 let operation=0;const send=async(action,body)=>produced=await producer.command(command({attemptId:produced.attemptId,expectedRevision:produced.revision,operationId:'native-command-'+ ++operation,action,body}));
 await send('play',{});for(let i=0;i<(descriptor.playback.fullStrategy==='FULL_PANEL'?1:descriptor.playback.segments.length);i++)await send('ended',{index:i});await send('submit',{choice:descriptor.comprehension.correctChoice,speechResponses:descriptor.speechTasks.map(t=>t.answer)});
 assert(produced.validatedCompletion&&produced.correct&&!produced.eligible);assert.equal(produced.timeEligibility,'PENDING_TIME_POLICY');assert((await serverStore.read(`users/${a.uid}/trusted_practice/completion-${produced.attemptId}`)).receiptId===produced.receiptId);pass('actual Auth/privileged SDK server Practice replay scores canonical input; client result forgery/direct privileged writes denied; completion atomic ACK and retry dedup');
-const trustedRows=await env.withSecurityRulesDisabled(async c=>(await c.firestore().collection(`users/${a.uid}/trusted_practice`).get()).docs.map(x=>({id:x.id,data:x.data()})));
-const eraseTrusted=()=>env.withSecurityRulesDisabled(async c=>{const db=c.firestore(),docs=await db.collection(`users/${a.uid}/trusted_practice`).get();assert(docs.size<=100);const batch=db.batch();docs.docs.forEach(x=>batch.delete(x.ref));await batch.commit();});
-const trustedAbsent=()=>env.withSecurityRulesDisabled(async c=>(await c.firestore().collection(`users/${a.uid}/trusted_practice`).limit(1).get()).empty);
+const trustedRows=await privileged(async c=>(await c.firestore().collection(`users/${a.uid}/trusted_practice`).get()).docs.map(x=>({id:x.id,data:x.data()})));
+const eraseTrusted=()=>privileged(async c=>{const db=c.firestore(),docs=await db.collection(`users/${a.uid}/trusted_practice`).get();assert(docs.size<=100);const batch=db.batch();docs.docs.forEach(x=>batch.delete(x.ref));await batch.commit();});
+const trustedAbsent=()=>privileged(async c=>(await c.firestore().collection(`users/${a.uid}/trusted_practice`).limit(1).get()).empty);
 
 const old={state:await a.t.read(sp),profile:await a.t.read(pp),privateLessons:await a.t.read(vp)};
 const erased=Product.empty();erased.journal=JSON.stringify({uid:a.uid,schema:1,revision:1,events:[],deletion:{accountDeleted:true,allThrough:Date.now(),lessons:{},pending:null}});
