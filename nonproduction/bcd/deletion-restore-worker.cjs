@@ -2,6 +2,15 @@
 // Server-side nonproduction restore admission. No route, credentials or cloud deployment.
 // Ports MUST be supplied by the privileged backend, never from a learner request.
 const token=x=>typeof x==='string'&&/^[-A-Za-z0-9]{1,100}$/.test(x);
+// Receipt content is JSON, not object insertion order. Never drop undefined,
+// non-finite or custom-object values to make an unconfirmed read look equal.
+function canonicalReceipt(value){
+ if(value===null||typeof value==='string'||typeof value==='boolean'||typeof value==='number'&&Number.isFinite(value))return JSON.stringify(value);
+ if(Array.isArray(value)){if(Object.keys(value).length!==value.length||Object.keys(value).some((k,i)=>k!==String(i)))throw Error('RECEIPT_JSON_REQUIRED');return '['+value.map(canonicalReceipt).join(',')+']';}
+ if(value&&typeof value==='object'&&Object.getPrototypeOf(value)===Object.prototype)return '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+canonicalReceipt(value[k])).join(',')+'}';
+ throw Error('RECEIPT_JSON_REQUIRED');
+}
+function sameReceipt(a,b){try{return canonicalReceipt(a)===canonicalReceipt(b);}catch{return false;}}
 function createRestoreWorker({mode,projectId,receipts,target}) {
  if(mode!=='ISOLATED_NONPRODUCTION'||!/^demo-man-progress[-a-z0-9]*$/.test(projectId||''))throw Error('ISOLATED_BACKEND_REQUIRED');
  for(const [port,names] of [[receipts,['identity','head','page','read']],[target,['identity','fence','replay','verifyAbsent','confirmFence']]])for(const n of names)if(typeof port?.[n]!=='function')throw Error('BACKEND_PORT_REQUIRED');
@@ -21,7 +30,7 @@ function createRestoreWorker({mode,projectId,receipts,target}) {
    for(const row of page.items){
     if(!token(row.id)||!token(row.uid)||!['history','account'].includes(row.kind)||!Number.isSafeInteger(row.sequence)||row.sequence!==previous+1||row.sequence>start.sequence||row.committed!==true)throw Error('RECEIPT_UNVERIFIABLE');
     const canonical=await receipts.read(row.id);
-    if(!canonical||JSON.stringify(canonical)!==JSON.stringify(row))throw Error('RECEIPT_READBACK_UNCONFIRMED');
+    if(!canonical||!sameReceipt(canonical,row))throw Error('RECEIPT_READBACK_UNCONFIRMED');
     const ack=await target.replay({restoreId,fenceToken:fence.token,receipt:row});
     if(ack?.receiptId!==row.id||ack.ack!==true)throw Error('REPLAY_UNCONFIRMED');
     const absent=await target.verifyAbsent({restoreId,fenceToken:fence.token,receipt:row});
@@ -64,7 +73,7 @@ function createDeletionWorker({mode,projectId,identity,receipts,target}) {
   const actor=await identity.verify(idToken);if(actor?.uid!==uid)throw Error('DELETION_OWNERSHIP_REQUIRED');
   const r=await receipts.admit({uid,kind,operationId,committed:true});
   if(!valid(r)||r.uid!==uid||r.kind!==kind||r.operationId!==operationId)throw Error('RECEIPT_ADMISSION_UNCONFIRMED');
-  const stored=await receipts.read(r.id);if(JSON.stringify(stored)!==JSON.stringify(r))throw Error('RECEIPT_READBACK_UNCONFIRMED');
+  const stored=await receipts.read(r.id);if(!sameReceipt(stored,r))throw Error('RECEIPT_READBACK_UNCONFIRMED');
   return resume({receiptId:r.id});
  }
  return {request,resume};

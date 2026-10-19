@@ -30,10 +30,10 @@ jobs:
           distribution: temurin
           java-version: '21'
       - name: Targeted composed integrity and provenance (local fixtures)
-        run: node --test nonproduction/bcd/trusted-practice-server.test.cjs nonproduction/bcd/auth-emulator-port.test.cjs nonproduction/bcd/deletion-restore-worker.test.cjs nonproduction/bcd/product-progress.test.cjs nonproduction/bcd/product-compose.test.cjs nonproduction/learner-reliability/cloud-progress-admission.test.cjs nonproduction/learner-reliability/cloud-pending-integrity.test.cjs nonproduction/learner-reliability/cloud-ack-uncertainty.test.cjs
+        run: node --test nonproduction/bcd/practice-http.test.cjs nonproduction/bcd/trusted-practice-server.test.cjs nonproduction/bcd/auth-emulator-port.test.cjs nonproduction/bcd/deletion-restore-worker.test.cjs nonproduction/bcd/product-progress.test.cjs nonproduction/bcd/product-compose.test.cjs nonproduction/learner-reliability/cloud-progress-admission.test.cjs nonproduction/learner-reliability/cloud-pending-integrity.test.cjs nonproduction/learner-reliability/cloud-ack-uncertainty.test.cjs
       - name: Bounded product SDK/browser acceptance (demo only)
         working-directory: nonproduction/learner-reliability
-        run: ./node_modules/.bin/firebase emulators:exec --only firestore --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'cd ../.. && node nonproduction/bcd/browser.mjs'
+        run: ./node_modules/.bin/firebase emulators:exec --only firestore,auth --project demo-man-progress-bcd --config ../bcd/bcd-private.emulator.json 'cd ../.. && node nonproduction/bcd/browser.mjs && node nonproduction/bcd/trusted-product-browser.mjs'
         env:
           CI: 'true'
           FIREBASE_CLI_DISABLE_USAGE: 'true'
@@ -41,7 +41,9 @@ jobs:
         if: always()
         with:
           name: bcd-p3a-browser-receipt
-          path: nonproduction/bcd/receipt.json
+          path: |
+            nonproduction/bcd/receipt.json
+            nonproduction/bcd/trusted-product-receipt.json
           retention-days: 7
 
   bounded-sdk:
