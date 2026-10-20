@@ -27,13 +27,19 @@
    for(const k of Object.keys(channels))out[k]=out[k].filter(r=>r&&typeof r==='object'&&(!Object.hasOwn(r,'uid')||r.uid===uid)).slice(-channels[k]);
    return out;
   }
+  const fenceKey=uid=>'man_account_deleted_cache_v1_uid_'+uid;
+  function checkFence(uid){
+   let raw;try{raw=legacy.getItem(fenceKey(uid))}catch{throw Error('HISTORY_STORAGE_UNAVAILABLE')}
+   if(raw!==null)throw Error('HISTORY_ACCOUNT_DELETED');
+  }
   async function transact(uid,change){
-   if(!validUid(uid))throw Error('HISTORY_UID_REQUIRED');const db=await open();
+   if(!validUid(uid))throw Error('HISTORY_UID_REQUIRED');checkFence(uid);const db=await open();checkFence(uid);
    return new Promise((resolve,reject)=>{
     const t=db.transaction('accounts','readwrite'),s=t.objectStore('accounts');let result,failure;
     t.oncomplete=()=>resolve(clone(result));t.onabort=()=>reject(failure||t.error||Error('HISTORY_ABORTED'));t.onerror=()=>{};
     const r=s.get(uid);r.onsuccess=()=>{try{
-     const prior=r.result;
+     checkFence(uid);const prior=r.result;
+     if(prior?.schema===2&&prior.deleted===true)throw Error('HISTORY_ACCOUNT_DELETED');
      if(prior&&(prior.schema!==1||prior.uid!==uid||prior.migrated!==true))throw Error('HISTORY_SCHEMA_INVALID');
      const record=prior||{schema:1,uid,migrated:true,channels:source(uid),ids:[],revision:0};
      change(record);record.revision++;const bytes=JSON.stringify(record);
@@ -54,16 +60,16 @@
     publish(actor,r,token);return r;
    }catch(e){if(token===generation){api.status='UNCONFIRMED';notify(selected,api.status)}throw e}
   };
-  api.read=key=>enabled&&api.ready&&selected?clone(cache[key]||[]):[];
+  api.read=key=>{if(!enabled||!api.ready||!selected)return [];try{checkFence(selected)}catch{cache={};api.ready=false;api.status='ACCOUNT_DELETED';return []}return clone(cache[key]||[])};
   api.append=async(uid,key,rows,id)=>{
-   if(!enabled)return null;if(!uid)return null;
+   if(!enabled)return null;if(!uid)return null;checkFence(uid);
    if(!Object.hasOwn(channels,key)||!Array.isArray(rows)||!rows.length||typeof id!=='string'||!id||id.length>200)throw Error('HISTORY_EVENT_INVALID');
    if(rows.some(r=>!r||typeof r!=='object'||Array.isArray(r)||(Object.hasOwn(r,'uid')&&r.uid!==uid)))throw Error('HISTORY_OWNER_MISMATCH');
    const input=clone(rows),token=generation,pendingKey='man_history_pending_v1:'+encodeURIComponent(uid)+':'+encodeURIComponent(id);
    if(selected===uid){api.status='SAVING';notify(uid,api.status)}
    try{
     const digest=Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify([key,input]))))).map(b=>b.toString(16).padStart(2,'0')).join('');
-    const pending=JSON.stringify({uid,key,rows:input,id}),priorPending=legacy.getItem(pendingKey);
+    checkFence(uid);const pending=JSON.stringify({uid,key,rows:input,id}),priorPending=legacy.getItem(pendingKey);
     if(priorPending&&priorPending!==pending)throw Error('HISTORY_EVENT_CONFLICT');
     legacy.setItem(pendingKey,pending);
     const record=await transact(uid,r=>{
@@ -76,6 +82,34 @@
     try{legacy.removeItem(pendingKey)}catch(_){} // Leftovers are safe to replay with the same ID/payload.
     publish(uid,record,token);return record;
    }catch(e){if(selected===uid&&token===generation){api.status='UNCONFIRMED';notify(uid,api.status)}throw e}
+  };
+  // Called only after an isolated host has a verified server deletion ACK.
+  // Permanent schema2 marker contains no learner content; old schema1 writers
+  // reject it rather than lazily migrating the still-present legacy source.
+  api.eraseOwned=async(uid,{epoch,operationId}={})=>{
+   if(!enabled)throw Error('HISTORY_DISABLED');
+   if(!validUid(uid)||!Number.isSafeInteger(epoch)||epoch<1||typeof operationId!=='string'||!/^[-A-Za-z0-9_]{1,200}$/.test(operationId))throw Error('HISTORY_DELETE_INVALID');
+   const marker={schema:1,uid,epoch,operationId},raw=JSON.stringify(marker);
+   let old;try{old=legacy.getItem(fenceKey(uid));if(old!==null&&old!==raw)throw Error('HISTORY_DELETE_CONFLICT');legacy.setItem(fenceKey(uid),raw);if(legacy.getItem(fenceKey(uid))!==raw)throw Error('HISTORY_DELETE_UNCONFIRMED')}catch(e){throw e}
+   if(selected===uid){generation++;cache={};api.ready=false;api.status='DELETION_PENDING'}
+   const db=await open();
+   await new Promise((resolve,reject)=>{
+    const t=db.transaction('accounts','readwrite'),store=t.objectStore('accounts');let failure;
+    t.oncomplete=resolve;t.onabort=()=>reject(failure||t.error||Error('HISTORY_DELETE_ABORTED'));t.onerror=()=>{};
+    const q=store.get(uid);q.onsuccess=()=>{try{
+     const prior=q.result;
+     if(prior&&(prior.uid!==uid||![1,2].includes(prior.schema)))throw Error('HISTORY_DELETE_UNVERIFIABLE');
+     if(prior?.schema===2&&(!prior.deleted||prior.epoch!==epoch||prior.operationId!==operationId))throw Error('HISTORY_DELETE_CONFLICT');
+     store.put({schema:2,uid,deleted:true,epoch,operationId});
+    }catch(e){failure=e;t.abort()}};
+   });
+   const actual=await new Promise((resolve,reject)=>{
+    const t=db.transaction('accounts','readonly'),q=t.objectStore('accounts').get(uid);let row;
+    q.onsuccess=()=>row=q.result;t.oncomplete=()=>resolve(row);t.onabort=()=>reject(t.error||Error('HISTORY_DELETE_READBACK_FAILED'));t.onerror=()=>{};
+   });
+   if(!actual||actual.schema!==2||actual.uid!==uid||actual.deleted!==true||actual.epoch!==epoch||actual.operationId!==operationId||Object.keys(actual).sort().join(',')!=='deleted,epoch,operationId,schema,uid')throw Error('HISTORY_DELETE_UNCONFIRMED');
+   if(selected===uid){cache={};api.ready=false;api.status='ACCOUNT_DELETED';notify(uid,api.status)}
+   return {ack:true,uid,epoch,operationId,scope:'CURRENT_ORIGIN_INDEXEDDB_ACCOUNT_RECORD_ONLY'};
   };
   // Adapter used by all Practice writers. Capture actor at lesson-open time.
   api.practice=(actor,key,rows,id)=>api.append(actor,key,rows,id).catch(()=>null);
