@@ -14,7 +14,27 @@ class Client{
  owns(c){return c.uid===this.uid&&c.g===this.generation}
  path(c){return `users/${c.uid}/lesson_progress/${key(c.i)}`}
  async load(i){const c=this.capture(i),r=await this.t.read(this.path(c));if(!this.owns(c))return null;if(r&&!validStored(r,c.uid,c.i)){this.status='UNVERIFIABLE_RECORD';throw Error('UNVERIFIABLE_RECORD')}this.status='LOADED';return valid(r,c.uid,c.i)?copy(r):null}
- async begin(i,{expectedRevision=0,resume=false}={}){const c=this.capture(i),sid=this.makeId(),p=this.path(c);const r=await this.t.transaction(async tx=>{const old=await tx.get(p);if(!this.owns(c))throw Error('ACCOUNT_CHANGED');if(old&&!validStored(old,c.uid,c.i)){this.status='UNVERIFIABLE_RECORD';throw Error('UNVERIFIABLE_RECORD')}if((old?.revision||0)!==expectedRevision)throw Error('STALE_REVISION');if(resume){if(!valid(old,c.uid,c.i))throw Error('VERSION_CHANGED');return old}const fresh={schema:1,uid:c.uid,lessonId:c.i.id,kind:c.i.kind,version:c.i.version,total:c.i.total,sessionId:sid,seq:(old?.seq||0)+1,revision:(old?.revision||0)+1,cursor:0,marks:'.'.repeat(c.i.total),updatedAt:this.t.timestamp()};tx.set(p,fresh);return fresh});if(!this.owns(c))return null;this.active={c,base:copy(r),local:copy(r)};this.status='SYNCED';return view(r)}
+ async begin(i,{expectedRevision=0,resume=false}={}){
+  const c=this.capture(i),sid=this.makeId(),p=this.path(c);let proposed=null;
+  const r=await this.t.transaction(async tx=>{
+   const old=await tx.get(p);if(!this.owns(c))throw Error('ACCOUNT_CHANGED');
+   if(old&&!validStored(old,c.uid,c.i)){this.status='UNVERIFIABLE_RECORD';throw Error('UNVERIFIABLE_RECORD')}
+   if((old?.revision||0)!==expectedRevision)throw Error('STALE_REVISION');
+   if(resume){if(!valid(old,c.uid,c.i))throw Error('VERSION_CHANGED');return old}
+   proposed={schema:1,uid:c.uid,lessonId:c.i.id,kind:c.i.kind,version:c.i.version,total:c.i.total,sessionId:sid,seq:(old?.seq||0)+1,revision:(old?.revision||0)+1,cursor:0,marks:'.'.repeat(c.i.total),updatedAt:this.t.timestamp()};
+   tx.set(p,proposed);return proposed;
+  }).catch(async e=>{
+   if(!this.owns(c))throw e;
+   // Only reconcile this exact newly-created operation. Resume is read-only;
+   // explicit denials/conflicts must never be masked by a coincidental record.
+   if(!proposed||resume||e.code==='permission-denied'||['STALE_REVISION','VERSION_CHANGED','UNVERIFIABLE_RECORD','ACCOUNT_CHANGED'].includes(e.message))throw e;
+   const remote=await this.t.read(p);if(!this.owns(c))return null;
+   if(!valid(remote,c.uid,c.i)||['sessionId','seq','revision','cursor','marks'].some(k=>remote[k]!==proposed[k]))throw e;
+   return remote;
+  });
+  if(!this.owns(c)||!r)return null;this.active={c,base:copy(r),local:copy(r)};this.status='SYNCED';return view(r);
+ }
+
  process(index,outcome){const a=this.active;if(!a||!this.owns(a.c))return false;const mark={correct:'c',giveup:'g',skip:'s'}[outcome];if(!mark||!Number.isInteger(index)||index<0||index>=a.local.total)return false;const chars=[...a.local.marks];if(chars[index]==='.')chars[index]=mark;a.local.marks=chars.join('');a.local.cursor=Math.min(index+1,a.local.total-1);this.status='LOCAL_PENDING';this.persist();return true}
  visit(index){const a=this.active;if(!a||!Number.isInteger(index)||index<0||index>=a.local.total)return false;a.local.cursor=index;this.status='LOCAL_PENDING';this.persist();return true}
  persist(){const a=this.active;if(!a||!this.owns(a.c))return;if(!this.storage){this.status='LOCAL_PENDING_STORAGE_ERROR';return}try{this.storage.setItem('man_cloud_pending_v1_'+a.c.uid+'_'+key(a.c.i),JSON.stringify({schema:1,uid:a.c.uid,base:a.base,local:a.local}))}catch{this.status='LOCAL_PENDING_STORAGE_ERROR'}}

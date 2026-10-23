@@ -5,6 +5,7 @@ window.ManEnableProductProgress=function(){if(boot)return boot;boot=(async()=>{
  window.__demoEmulator=true;window.__demoProject='demo-man-progress-bcd';window.__demoTimestamp=ManCloudFirebase.firestore.FieldValue.serverTimestamp;
  window.__newDemoDb=uid=>ManCloudFirebase.initializeApp({projectId:__demoProject,apiKey:'demo-only'},'progress-'+crypto.randomUUID()).firestore();
  let actor={uid:currentUser?.uid||null,generation:0};__fixtureAuth.unshift(user=>{actor={uid:user?.uid||null,generation:actor.generation+1};});
+ window.__productRawProgressTransport=uid=>ManProductSync.progressTransport?.(uid)||null;
  window.__progressTransportAdmission=(raw,uid)=>ManProductProgress.transport(raw,{uid,mode:'ISOLATED_NONPRODUCTION',getActor:()=>actor});
  for(const src of ['/assets/product-progress-core.js','/assets/product-progress-core-host.js'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(Error('PROGRESS_SOURCE_UNAVAILABLE'));document.head.append(s);});
  const invalidate=()=>window.__cloudHost?.invalidate(),reload=()=>{if(ManProductSync.status==='READY')__cloudHost.reload();};
