@@ -4,6 +4,10 @@ const {createHash,randomUUID}=require('node:crypto');
 const canonical=x=>Array.isArray(x)?'['+x.map(canonical).join(',')+']':x&&typeof x==='object'?'{'+Object.keys(x).sort().map(k=>JSON.stringify(k)+':'+canonical(x[k])).join(',')+'}':JSON.stringify(x);
 const token=x=>typeof x==='string'&&/^[-A-Za-z0-9]{1,128}$/.test(x),hash=x=>createHash('sha256').update(canonical(x)).digest('hex');
 const exact=(x,keys)=>x&&typeof x==='object'&&!Array.isArray(x)&&Object.keys(x).every(k=>keys.includes(k))&&keys.every(k=>Object.hasOwn(x,k));
+function lessonFence(barrier,id){
+ if(barrier?.schema===4){const m=barrier.lessonFences;if(!m||typeof m!=='object'||Array.isArray(m)||Object.entries(m).some(([k,v])=>!token(k)||!Number.isSafeInteger(v)||v<1))throw Error('ACCOUNT_FENCED');return m[id]||0;}
+ if(barrier?.schema!==undefined&&barrier.schema!==3)throw Error('ACCOUNT_FENCED');return 0;
+}
 function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,clock=Date.now,newId=randomUUID}){
  if(mode!=='ISOLATED_NONPRODUCTION'||projectId!=='demo-man-progress-bcd')throw Error('ISOLATED_SERVER_REQUIRED');
  for(const f of [auth?.verify,store?.transaction,store?.read,catalog,normalize,createCore,clock,newId])if(typeof f!=='function')throw Error('SERVER_DEPENDENCY_REQUIRED');
@@ -20,8 +24,9 @@ function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,
   try{result=await store.transaction(async tx=>{
    const [barrier,prior,row]=await Promise.all([tx.get(control),tx.get(opPath),tx.get(p)]);
    const epoch=barrier?.epoch??0;if(!Number.isSafeInteger(epoch)||epoch<0||barrier?.accountDeleted)throw Error('ACCOUNT_FENCED');
-   if(prior){if(prior.uid!==uid||prior.digest!==digest||prior.epoch!==epoch)throw Error('OPERATION_CONFLICT');return prior;}
-   if(row&&(row.uid!==uid||row.epoch!==epoch||row.lessonId!==lesson.id||row.version!==lesson.version))throw Error('SESSION_FENCED');
+   const fence=lessonFence(barrier,lesson.id);
+   if(prior){if((prior.lessonFence||0)!==fence||prior.uid!==uid||prior.digest!==digest||prior.epoch!==epoch)throw Error('OPERATION_CONFLICT');return prior;}
+   if(row&&((row.lessonFence||0)!==fence||row.uid!==uid||row.epoch!==epoch||row.lessonId!==lesson.id||row.version!==lesson.version))throw Error('SESSION_FENCED');
    if((row?.revision||0)!==input.expectedRevision)throw Error('REVISION_CONFLICT');
    if(!row&&(input.action!=='start'||input.attemptId!==null))throw Error('START_REQUIRED');
    if(row&&(input.action==='start'||input.attemptId===null||row.commands.length>=64))throw Error('SESSION_COMMAND_LIMIT');
@@ -40,8 +45,8 @@ function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,
    const next={action:input.action,body:structuredClone(input.body),at:now};apply(next);const snapshot=core.snapshot();
    const complete=snapshot.phase==='complete'&&snapshot.fullEnded&&Number.isInteger(snapshot.answer)&&!assisted&&snapshot.responseAssisted!==true&&snapshot.spanAnswers.every(x=>x.trim());
    const revision=(row?.revision||0)+1,receiptId=hash([uid,attemptId,revision,input.operationId]);
-   const receipt={schema:1,uid,epoch,attemptId,lessonId:lesson.id,version:lesson.version,operationId:input.operationId,digest,revision,serverAt:now,receiptId,phase:snapshot.phase,correct:snapshot.phase==='complete'?snapshot.correct:null,eligible:false,validatedCompletion:complete,activityEligibility:'PENDING_TRUSTED_PRODUCT_BINDING',trust:'SERVER_COMMAND_REPLAY_NONPRODUCTION',timeEligibility:'PENDING_TIME_POLICY',minuteOperationId:hash([uid,attemptId,'minute',revision])};
-   tx.set(p,{schema:1,uid,epoch,lessonId:lesson.id,version:lesson.version,revision,serverAt:now,commands:[...(row?.commands||[]),next]});tx.set(opPath,receipt);
+   const receipt={schema:1,uid,epoch,...(fence?{lessonFence:fence}:{}),attemptId,lessonId:lesson.id,version:lesson.version,operationId:input.operationId,digest,revision,serverAt:now,receiptId,phase:snapshot.phase,correct:snapshot.phase==='complete'?snapshot.correct:null,eligible:false,validatedCompletion:complete,activityEligibility:'PENDING_TRUSTED_PRODUCT_BINDING',trust:'SERVER_COMMAND_REPLAY_NONPRODUCTION',timeEligibility:'PENDING_TIME_POLICY',minuteOperationId:hash([uid,attemptId,'minute',revision])};
+   tx.set(p,{schema:1,uid,epoch,...(fence?{lessonFence:fence}:{}),lessonId:lesson.id,version:lesson.version,revision,serverAt:now,commands:[...(row?.commands||[]),next]});tx.set(opPath,receipt);
    // Completion evidence is written atomically with server state and receipt.
    if(complete)tx.set(path(uid,'completion-'+attemptId),receipt);
    return receipt;
@@ -49,12 +54,12 @@ function createProducer({mode,projectId,auth,store,catalog,normalize,createCore,
    // Only exact committed receipt readback can resolve response-unknown. Do not
    // swallow ownership/revision/barrier errors or fabricate a successful ACK.
    if(!['RESPONSE_UNKNOWN'].includes(e.message))throw e;
-   const prior=await store.read(opPath),barrier=await store.read(control);if(!prior||prior.uid!==uid||prior.digest!==digest||prior.epoch!==(barrier?.epoch??0)||barrier?.accountDeleted)throw Error('READBACK_UNCONFIRMED');result=prior;
+   const prior=await store.read(opPath),barrier=await store.read(control);if(!prior||prior.uid!==uid||prior.digest!==digest||prior.epoch!==(barrier?.epoch??0)||(prior.lessonFence||0)!==lessonFence(barrier,lesson.id)||barrier?.accountDeleted)throw Error('READBACK_UNCONFIRMED');result=prior;
   }
-  const [ack,barrier]=await Promise.all([store.read(opPath),store.read(control)]);
-  if(!ack||canonical(ack)!==canonical(result)||barrier?.accountDeleted||ack.epoch!==(barrier?.epoch??0))throw Error('READBACK_UNCONFIRMED');
+  const ack=await store.read(opPath),barrier=await store.read(control);
+  if(!ack||canonical(ack)!==canonical(result)||barrier?.accountDeleted||ack.epoch!==(barrier?.epoch??0)||(ack.lessonFence||0)!==lessonFence(barrier,lesson.id))throw Error('READBACK_UNCONFIRMED');
   return {ack:true,...ack,scope:'SERVER_OWNED_COMMANDS_NOT_HUMAN_ATTESTATION'};
  }
  return {command};
 }
-module.exports={createProducer};
+module.exports={createProducer,lessonFence};

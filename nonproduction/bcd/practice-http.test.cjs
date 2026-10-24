@@ -74,3 +74,17 @@ for(const field of ['activityEligibility','timeEligibility'])for(const [label,va
  const row={...historyRow(),[field]:value},history=makeHistoryReader({verify:async()=>({uid:'A'}),readPage:async()=>({rows:[row],next:null,epoch:0})});
  const r=await request({url:'/__man/trusted/history',chunks:[Buffer.from(JSON.stringify({idToken:'synthetic',cursor:null}))],producer:{history}});assert.equal(r.statusCode,409);assert.deepEqual(r.body,{error:'READBACK_UNCONFIRMED'});
 });
+
+test('same-epoch scoped history change invalidates page and old cursor, preserves unrelated receipts',async()=>{
+ let state={schema:4,epoch:0,revision:2,lessonFences:{A:1}},race=false;const rows=[{...historyRow(),lessonId:'A'},{...historyRow(),attemptId:'attempt-B',receiptId:'receipt-B',lessonId:'B'}];
+ const query={where(){return this;},limit(){return this;},startAfter(){return this;},async get(){if(race)state={...state,revision:3,lessonFences:{A:2}};return {docs:rows.map((r,i)=>({id:'completion-'+i,data:()=>r}))};}};
+ const db={doc:p=>({get:async()=>({exists:true,data:()=>structuredClone(state)})}),collection:()=>query};
+ const page=await readHistoryPage(db,'A',null);assert.equal(page.rows.length,1);assert.equal(page.rows[0].lessonId,'B');assert.equal(page.fenceRevision,2);
+ await assert.rejects(readHistoryPage(db,'A','v4-1-completion-1'),/READBACK_UNCONFIRMED/);await assert.rejects(readHistoryPage(db,'A','completion-1'),/READBACK_UNCONFIRMED/);
+ race=true;await assert.rejects(readHistoryPage(db,'A',null),/ACCOUNT_FENCED/);
+});
+test('history client invalidates cached and in-flight receipts before deletion; page revision cannot mix',async()=>{
+ const c=client(),api=c.context.ManTrustedPractice;api.history=[{...historyRow()}];api.historyNext='page';api.historyEpoch=0;api.lastReceipt={ack:true};api.invalidateHistory();assert.equal(api.history.length,0);assert.equal(api.historyNext,null);assert.equal(api.lastReceipt,null);assert.equal(api.historyStatus,'UNCONFIRMED');
+});
+test('pagination cannot merge same-epoch receipts across scoped revisions',async()=>{const c=client();let n=0;c.context.fetch=async()=>({ok:true,json:async()=>({ack:true,uid:'A',epoch:0,fenceRevision:++n,receipts:[recoveryRow('r'+n)],next:n===1?'v4-1-completion-1':null})});await c.context.ManTrustedPractice.recover();assert.equal(c.context.ManTrustedPractice.history.length,1);await c.context.ManTrustedPractice.recover(true);assert.equal(c.context.ManTrustedPractice.historyStatus,'UNCONFIRMED');assert.equal(c.context.ManTrustedPractice.history.length,0);});
+test('deletion invalidation discards an already in-flight history response',async()=>{const c=client();let resolve;c.context.fetch=()=>new Promise(r=>resolve=r);const pending=c.context.ManTrustedPractice.recover();await new Promise(r=>setImmediate(r));c.context.ManTrustedPractice.invalidateHistory();resolve({ok:true,json:async()=>({ack:true,uid:'A',epoch:0,receipts:[recoveryRow()],next:null})});await pending;assert.equal(c.context.ManTrustedPractice.history.length,0);assert.equal(c.context.ManTrustedPractice.historyStatus,'UNCONFIRMED');});

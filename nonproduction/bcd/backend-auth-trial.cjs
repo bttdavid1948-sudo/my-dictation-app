@@ -56,6 +56,24 @@ assert.equal((await deletion.resume({receiptId:'receipt-auth-delete'})).ack,true
 // production store or evidence of cache/legacy/native-backup erasure.
 // Isolated restore target stays deny-all before old bytes are restored. No
 // client is enabled at any point, including the snapshot/barrier rollback.
+// Scoped protocol regression in the existing isolated actual Auth/SDK target.
+const scoped=await client('native-scoped','native-scoped@example.invalid',true);
+await scoped.c.commit({payload:Product.empty(),operationId:'scoped-init'});
+const Progress=require('../learner-reliability/cloud-progress.cjs').Client,admit=require('./product-progress.js').transport;
+let scopedIds=0;const progressClient=()=>{const t=admit(scoped.t,{uid:scoped.uid,mode:'ISOLATED_NONPRODUCTION',getActor:()=>({uid:scoped.uid,generation:1})});const c=new Progress(t,{makeId:()=> 'scoped-session-'+ ++scopedIds});c.selectUid(scoped.uid);return c;};
+const ia={kind:'official',id:'SCOPED-A',version:'v1',total:2},ib={...ia,id:'SCOPED-B'},pa=`users/${scoped.uid}/lesson_progress/official_SCOPED-A`,pb=`users/${scoped.uid}/lesson_progress/official_SCOPED-B`,sc=`users/${scoped.uid}/bcd_product/state`;
+const ca=progressClient(),cb=progressClient();await ca.begin(ia);await cb.begin(ib);cb.process(0,'correct');await cb.checkpoint();const oldA=await scoped.t.read(pa),oldB=await scoped.t.read(pb),oldControl=await scoped.c.load();
+const scopedPayload=Product.empty();scopedPayload.journal=JSON.stringify({schema:1,uid:scoped.uid,revision:1,events:[],deletion:{accountDeleted:false,allThrough:0,lessons:{'SCOPED-A':1},pending:null}});
+const scopedAck=await scoped.c.commit({payload:scopedPayload,operationId:'scoped-delete',expectedRevision:1,expectedEpoch:0,kind:'history'});assert.equal(scopedAck.state.epoch,0);assert.equal(scopedAck.state.lessonFences['SCOPED-A'],1);
+assert.equal((await cb.load(ib)).marks,'c.');assert.deepEqual(await scoped.t.read(pb),oldB);await assert.rejects(ca.load(ia),/STALE_LESSON_FENCE/);
+await assert.rejects(scoped.db.doc(pa).get({source:'server'}));await assert.rejects(scoped.db.doc(pa).set({...oldA,revision:oldA.revision+1,updatedAt:scoped.t.timestamp()}));
+await assert.rejects(scoped.db.doc(sc).set({...oldControl,revision:3,updatedAt:scoped.t.timestamp()}));
+await assert.rejects(scoped.db.doc(sc).set({...scopedAck.state,revision:3,lessonFences:{'SCOPED-A':0},fenceLesson:'SCOPED-A',updatedAt:scoped.t.timestamp()}));
+const freshA=progressClient();assert.equal(await freshA.load(ia),null);await freshA.begin(ia);freshA.process(0,'correct');freshA.process(1,'correct');await freshA.checkpoint();assert.equal((await scoped.t.read(pa+'/generations/1')).marks,'cc');
+await assert.rejects(b.db.doc(pa+'/generations/1').get({source:'server'}));
+const allPayload=Product.empty();allPayload.journal=JSON.stringify({schema:1,uid:scoped.uid,revision:2,events:[],deletion:{accountDeleted:false,allThrough:1000,lessons:{'SCOPED-A':1},pending:null}});const allAck=await scoped.c.commit({payload:allPayload,operationId:'scoped-all',expectedRevision:2,expectedEpoch:0,kind:'history'});assert.equal(allAck.state.epoch,1);await assert.rejects(cb.load(ib),/STALE_ACCOUNT_EPOCH/);await assert.rejects(scoped.db.doc(pb).get({source:'server'}));
+pass('actual SDK scoped A deletion preserves B; stale roots/writers/downgrade/counter regression and other UID denied; fresh A generation completion works; global deletion still fences B');
+
 const locked=await rules.initializeTestEnvironment({projectId,firestore:{host,port:+port,rules:"rules_version = '2'; service cloud.firestore {match /databases/{database}/documents {match /{p=**} {allow read,write: if false;}}}"}});
 try{await locked.withSecurityRulesDisabled(async c=>{const db=c.firestore();await db.doc(sp).set(old.state);await db.doc(pp).set(old.profile);await db.doc(vp).set(old.privateLessons);for(const row of trustedRows)await db.doc(`users/${a.uid}/trusted_practice/${row.id}`).set(row.data);});await assert.rejects(a2.db.doc(pp).get({source:'server'}));
 let fenced=false;const store={identity:async()=>({projectId,custodyId:'independent-temp-file',restoreDomain:'external-file'}),head:async()=>({sequence:1}),page:async()=>({items:[JSON.parse(fs.readFileSync(path.join(tmp,'receipt.json')))],next:null}),read:async()=>JSON.parse(fs.readFileSync(path.join(tmp,'receipt.json')))};

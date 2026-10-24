@@ -27,7 +27,17 @@ service cloud.firestore { match /databases/{database}/documents {
  }
  match /users/{uid}/bcd_product/{record} {
   function owner() { return request.auth!=null && request.auth.uid==uid; }
-  function stateValid() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','accountDeleted','payload','trust','updatedAt']) && d.schema==3 && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.size()<=100 && d.accountDeleted is bool && d.payload is string && d.payload.size()<=800000 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time; }
+  function stateValid() { let d=request.resource.data; return d.keys().hasOnly(['schema','uid','revision','epoch','operationId','accountDeleted','payload','trust','updatedAt','lessonFences','fenceLesson']) && (d.schema==3 || (d.schema==4 && d.lessonFences is map && (d.fenceLesson==null || (d.fenceLesson is string && d.fenceLesson.matches('^[A-Za-z0-9-]{1,100}$'))))) && d.uid==uid && d.revision is int && d.revision>0 && d.epoch is int && d.epoch>=0 && d.operationId is string && d.operationId.size()<=100 && d.accountDeleted is bool && d.payload is string && d.payload.size()<=800000 && d.trust=='PRIVATE_LOCAL_VALIDATED_ONLY' && d.updatedAt==request.time; }
+  function fenceTransition() {
+   let d=request.resource.data;
+   let old=exists(/databases/$(database)/documents/users/$(uid)/bcd_product/state)?resource.data:null;
+   let fences=old!=null && old.schema==4?old.lessonFences:{};
+   return (d.schema==3 && (old==null||old.schema==3)) || (d.schema==4 &&
+    (d.fenceLesson==null ? d.lessonFences==fences :
+     (d.lessonFences.diff(fences).affectedKeys().hasOnly([d.fenceLesson]) &&
+      d.lessonFences[d.fenceLesson]==(d.fenceLesson in fences?fences[d.fenceLesson]:0)+1 &&
+      d.epoch==(old==null?0:old.epoch))));
+  }
   // Match the actual composed profile/avatar/timer writers. Client minutes are
   // compatibility data ONLY, never trusted ranking or achievement evidence.
   function profileShape(d) {
@@ -52,17 +62,24 @@ service cloud.firestore { match /databases/{database}/documents {
   function active() { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return !exists(p)||!get(p).data.accountDeleted; }
   function erased() { return getAfter(/databases/$(database)/documents/users/$(uid)/bcd_product/state).data.accountDeleted==true; }
   allow read: if owner() && record in ['state','profile','private_lessons'];
-  allow create: if owner() && ((record=='state' && stateValid() && request.resource.data.revision==1 && request.resource.data.epoch in [0,1]) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
-  allow update: if owner() && ((record=='state' && stateValid() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch>=resource.data.epoch && request.resource.data.epoch<=resource.data.epoch+1) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow create: if owner() && ((record=='state' && stateValid() && fenceTransition() && request.resource.data.revision==1 && request.resource.data.epoch in [0,1]) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
+  allow update: if owner() && ((record=='state' && stateValid() && fenceTransition() && !resource.data.accountDeleted && request.resource.data.revision==resource.data.revision+1 && request.resource.data.epoch>=resource.data.epoch && request.resource.data.epoch<=resource.data.epoch+1) || (record=='profile' && active() && profileShape(request.resource.data)) || (record=='private_lessons' && active() && request.resource.data.keys().hasOnly(['units','updatedAt']) && request.resource.data.units is string && request.resource.data.units.size()<=500000));
   allow delete: if owner() && record in ['profile','private_lessons'] && erased();
  }
 
  // Integrated core progress, standalone demo emulator ONLY, not production.
  function progressEpoch(uid) { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return exists(p)?get(p).data.epoch:0; }
  function progressActive(uid,n) { let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state; return request.auth!=null && request.auth.uid==uid && (!exists(p)||!get(p).data.accountDeleted) && n==string(progressEpoch(uid)); }
+
+ function scopedFence(uid,k) {
+  let p=/databases/$(database)/documents/users/$(uid)/bcd_product/state;
+  let id=k.replace('^official_','').replace('^private_','');
+  return exists(p)&&get(p).data.schema==4 && id in get(p).data.lessonFences?get(p).data.lessonFences[id]:0;
+ }
+ function generationActive(uid,n,k,f) { return progressActive(uid,n) && f==string(scopedFence(uid,k)) && f.matches('^[1-9][0-9]{0,15}$'); }
   function progressShape(d,uid,k) {
    return d.keys().hasAll(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt','accountEpoch'])
-    && d.keys().hasOnly(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt','accountEpoch'])
+    && d.keys().hasOnly(['schema','uid','lessonId','kind','version','total','sessionId','seq','revision','cursor','marks','updatedAt','accountEpoch','lessonFence'])
     && d.schema == 1 && d.uid == uid && d.lessonId is string && d.lessonId.matches('^[A-Za-z0-9-]{1,100}$')
     && d.kind in ['official','private'] && k == d.kind + '_' + d.lessonId
     && d.version is string && d.version.matches('^[-A-Za-z0-9._]{1,100}$')
@@ -72,14 +89,15 @@ service cloud.firestore { match /databases/{database}/documents {
     && d.revision is int && d.revision >= 1 && d.revision <= 1000000000
     && d.cursor is int && d.cursor >= 0 && d.cursor < d.total
     && d.marks is string && d.marks.size() == d.total && d.marks.matches('^[.cgs]{1,500}$')
+    && (!('lessonFence' in d)?scopedFence(uid,k)==0:d.lessonFence==scopedFence(uid,k))
     && d.accountEpoch is int && d.accountEpoch == progressEpoch(uid) && d.updatedAt == request.time;
   }
   match /users/{uid}/lesson_progress/{k} {
-   allow get: if progressActive(uid,'0');
-   allow create: if progressActive(uid,'0') && progressShape(request.resource.data,uid,k)
+   allow get: if progressActive(uid,'0') && scopedFence(uid,k)==0;
+   allow create: if progressActive(uid,'0') && scopedFence(uid,k)==0 && progressShape(request.resource.data,uid,k)
     && request.resource.data.seq == 1 && request.resource.data.revision == 1
     && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$');
-   allow update: if progressActive(uid,'0') && progressShape(request.resource.data,uid,k)
+   allow update: if progressActive(uid,'0') && scopedFence(uid,k)==0 && progressShape(request.resource.data,uid,k)
     && request.resource.data.revision == resource.data.revision + 1
     && request.resource.data.lessonId == resource.data.lessonId && request.resource.data.kind == resource.data.kind
     && ((request.resource.data.seq == resource.data.seq && request.resource.data.sessionId == resource.data.sessionId
@@ -99,17 +117,17 @@ service cloud.firestore { match /databases/{database}/documents {
       && d.accountEpoch == p.accountEpoch && d.accountEpoch == progressEpoch(uid)
       && p.marks.matches('^[cgs]{1,500}$');
     }
-    allow get: if progressActive(uid,'0');
-    allow create: if progressActive(uid,'0') && completion();
+    allow get: if progressActive(uid,'0') && scopedFence(uid,k)==0;
+    allow create: if progressActive(uid,'0') && scopedFence(uid,k)==0 && completion();
     allow list, update, delete: if false;
    }
   }
   match /users/{uid}/lesson_progress_epochs/{n}/lessons/{k} {
-   allow get: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$');
-   allow create: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
+   allow get: if progressActive(uid,n) && scopedFence(uid,k)==0 && n.matches('^[1-9][0-9]{0,8}$');
+   allow create: if progressActive(uid,n) && scopedFence(uid,k)==0 && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
     && request.resource.data.seq == 1 && request.resource.data.revision == 1
     && request.resource.data.cursor == 0 && request.resource.data.marks.matches('^[.]+$');
-   allow update: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
+   allow update: if progressActive(uid,n) && scopedFence(uid,k)==0 && n.matches('^[1-9][0-9]{0,8}$') && progressShape(request.resource.data,uid,k)
     && request.resource.data.revision == resource.data.revision + 1
     && request.resource.data.lessonId == resource.data.lessonId && request.resource.data.kind == resource.data.kind
     && ((request.resource.data.seq == resource.data.seq && request.resource.data.sessionId == resource.data.sessionId
@@ -129,9 +147,57 @@ service cloud.firestore { match /databases/{database}/documents {
       && d.accountEpoch == p.accountEpoch && d.accountEpoch == progressEpoch(uid)
       && p.marks.matches('^[cgs]{1,500}$');
     }
-    allow get: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$');
-    allow create: if progressActive(uid,n) && n.matches('^[1-9][0-9]{0,8}$') && completion();
+    allow get: if progressActive(uid,n) && scopedFence(uid,k)==0 && n.matches('^[1-9][0-9]{0,8}$');
+    allow create: if progressActive(uid,n) && scopedFence(uid,k)==0 && n.matches('^[1-9][0-9]{0,8}$') && completion();
     allow list, update, delete: if false;
    }
   }
+
+ match /users/{uid}/lesson_progress/{k}/generations/{f} {
+  allow get: if generationActive(uid,'0',k,f);
+  allow create: if generationActive(uid,'0',k,f) && progressShape(request.resource.data,uid,k) && request.resource.data.lessonFence==int(f)
+   && request.resource.data.seq==1 && request.resource.data.revision==1 && request.resource.data.cursor==0 && request.resource.data.marks.matches('^[.]+$');
+  allow update: if generationActive(uid,'0',k,f) && progressShape(request.resource.data,uid,k) && request.resource.data.lessonFence==int(f)
+   && request.resource.data.revision==resource.data.revision+1
+   && request.resource.data.lessonId==resource.data.lessonId && request.resource.data.kind==resource.data.kind
+   && ((request.resource.data.seq==resource.data.seq && request.resource.data.sessionId==resource.data.sessionId && request.resource.data.version==resource.data.version && request.resource.data.total==resource.data.total)
+    || (request.resource.data.seq==resource.data.seq+1 && request.resource.data.sessionId!=resource.data.sessionId && request.resource.data.cursor==0 && request.resource.data.marks.matches('^[.]+$')));
+  allow list,delete: if false;
+  match /completions/{sid} {
+   function validCompletion() {
+    let p=getAfter(/databases/$(database)/documents/users/$(uid)/lesson_progress/$(k)/generations/$(f)).data; let d=request.resource.data;
+    return d.keys().hasOnly(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch','lessonFence'])
+     && d.schema==1 && d.uid==uid && d.sessionId==sid && p.sessionId==sid && d.lessonId==p.lessonId && d.kind==p.kind && d.version==p.version
+     && d.total==p.total && d.seq==p.seq && d.completedAt==request.time && d.accountEpoch==p.accountEpoch && d.accountEpoch==progressEpoch(uid)
+     && d.lessonFence==int(f) && p.lessonFence==int(f) && p.marks.matches('^[cgs]{1,500}$');
+   }
+   allow get: if generationActive(uid,'0',k,f);
+   allow create: if generationActive(uid,'0',k,f) && validCompletion();
+   allow list,update,delete: if false;
+  }
+ }
+
+ match /users/{uid}/lesson_progress_epochs/{n}/lessons/{k}/generations/{f} {
+  allow get: if generationActive(uid,n,k,f);
+  allow create: if generationActive(uid,n,k,f) && progressShape(request.resource.data,uid,k) && request.resource.data.lessonFence==int(f)
+   && request.resource.data.seq==1 && request.resource.data.revision==1 && request.resource.data.cursor==0 && request.resource.data.marks.matches('^[.]+$');
+  allow update: if generationActive(uid,n,k,f) && progressShape(request.resource.data,uid,k) && request.resource.data.lessonFence==int(f)
+   && request.resource.data.revision==resource.data.revision+1
+   && request.resource.data.lessonId==resource.data.lessonId && request.resource.data.kind==resource.data.kind
+   && ((request.resource.data.seq==resource.data.seq && request.resource.data.sessionId==resource.data.sessionId && request.resource.data.version==resource.data.version && request.resource.data.total==resource.data.total)
+    || (request.resource.data.seq==resource.data.seq+1 && request.resource.data.sessionId!=resource.data.sessionId && request.resource.data.cursor==0 && request.resource.data.marks.matches('^[.]+$')));
+  allow list,delete: if false;
+  match /completions/{sid} {
+   function validCompletion() {
+    let p=getAfter(/databases/$(database)/documents/users/$(uid)/lesson_progress_epochs/$(n)/lessons/$(k)/generations/$(f)).data; let d=request.resource.data;
+    return d.keys().hasOnly(['schema','uid','lessonId','kind','sessionId','version','total','seq','completedAt','accountEpoch','lessonFence'])
+     && d.schema==1 && d.uid==uid && d.sessionId==sid && p.sessionId==sid && d.lessonId==p.lessonId && d.kind==p.kind && d.version==p.version
+     && d.total==p.total && d.seq==p.seq && d.completedAt==request.time && d.accountEpoch==p.accountEpoch && d.accountEpoch==progressEpoch(uid)
+     && d.lessonFence==int(f) && p.lessonFence==int(f) && p.marks.matches('^[cgs]{1,500}$');
+   }
+   allow get: if generationActive(uid,n,k,f);
+   allow create: if generationActive(uid,n,k,f) && validCompletion();
+   allow list,update,delete: if false;
+  }
+ }
 }}
